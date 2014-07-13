@@ -12,6 +12,7 @@ xcuserdata/
 project.xcworkspace/
 
 IOSInjectionProject/
+build/
 .idea/
 
 *.psd
