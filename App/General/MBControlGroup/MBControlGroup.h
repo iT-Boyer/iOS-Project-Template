@@ -1,7 +1,8 @@
 /*!
     MBControlGroup
-    v 0.1
+    v 0.2
 
+    Copyright © 2014 Beijing ZhiYun ZhiYuan Information Technology Co., Ltd.
     Copyright © 2014 Chinamobo Co., Ltd.
     https://github.com/Chinamobo/iOS-Project-Template
 

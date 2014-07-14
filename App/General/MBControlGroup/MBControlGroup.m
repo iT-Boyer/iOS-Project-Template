@@ -9,7 +9,12 @@ RFInitializingRootForUIView
 }
 
 - (void)afterInit {
-    for (UIControl *c in self.controls) {
+    // nothing
+}
+
+- (void)setControls:(NSArray *)controls {
+    _controls = controls;
+    for (UIControl *c in controls) {
         [self setupItemAction:c];
     }
 }
