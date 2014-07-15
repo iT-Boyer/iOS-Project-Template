@@ -17,6 +17,9 @@
 #import "APIAutoSyncPlugin.h"
 #import "APIAppUpdatePlugin.h"
 
+extern NSUInteger APIConfigFetchPageSize;
+extern NSString *const APIErrorDomain;
+
 /**
  API
  网络基础及接口封装
@@ -55,7 +58,6 @@
 
 @end
 
-extern NSUInteger APIConfigFetchPageSize;
 
 @interface UIImageView (App)
 
