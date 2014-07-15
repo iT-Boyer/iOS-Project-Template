@@ -6,6 +6,8 @@
 #import "UncaughtExceptionHandler.h"
 #import "MBNavigationBarAppearanceConfigurator.h"
 #import "MBRootNavigationController.h"
+#import "UIKit+App.h"
+#import "SVProgressHUD.h"
 
 @implementation AppDelegate
 
@@ -16,19 +18,21 @@
 
     // 通用模块设置，按需取消注释以启用
     // 如有可能，需要把模块初始化置后
-//    [API sharedInstance];
+    [API sharedInstance];
 
     // Core Data
 //    [DataStack sharedInstance];
 
     // 全局点击空白隐藏键盘
-//    [RFKeyboard setEnableAutoDisimssKeyboardWhenTouch:YES];
+    [RFKeyboard setEnableAutoDisimssKeyboardWhenTouch:YES];
 
     [self generalAppearanceSetup];
     return YES;
 }
 
 - (void)generalAppearanceSetup {
+    [[SVProgressHUD appearance] setHudRingForegroundColor:[UIColor globalTintColor]];
+
     MBNavigationBarAppearanceConfigurator *nac = [MBNavigationBarAppearanceConfigurator new];
     nac.backgroundImage = [[UIImage imageNamed:RF_iOS7Before? @"NavigationBarBackgroundOld" : @"NavigationBarBackground"] resizableImageWithCapInsets:UIEdgeInsetsMake(1, 0, 1, 0)];
 
