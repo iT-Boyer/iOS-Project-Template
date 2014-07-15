@@ -32,8 +32,6 @@ NSString *const UDkUpdateInfomation     = @"Update Infomation";
     self = [super init];
     if (self) {
         self.master = api;
-        [self onInit];
-        [self performSelector:@selector(afterInit) withObject:self afterDelay:0];
     }
     return self;
 }
@@ -44,9 +42,11 @@ NSString *const UDkUpdateInfomation     = @"Update Infomation";
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
 
     NSString *json = [ud objectForKey:UDkUpdateInfomation];
-    id __autoreleasing e = nil;
-    self.versionInfo = [[MBAppVersion alloc] initWithString:json error:&e];
-    if (e) dout_error(@"%@", e);
+    if (json) {
+        id __autoreleasing e = nil;
+        self.versionInfo = [[MBAppVersion alloc] initWithString:json error:&e];
+        if (e) dout_error(@"%@", e);
+    }
 }
 
 - (void)afterInit {
@@ -107,7 +107,7 @@ NSString *const UDkUpdateInfomation     = @"Update Infomation";
         case APIAppUpdatePluginCheckSourceEnterpriseDistributionPlist: {
             op = [[AFHTTPRequestOperation alloc] initWithRequest:[NSURLRequest requestWithURL:self.enterpriseDistributionPlistURL]];
             op.responseSerializer = [AFPropertyListResponseSerializer serializer];
-            [op.responseSerializer setAcceptableContentTypes:[NSSet setWithObjects:@"application/x-plist", @"text/xml", nil]];
+            [op.responseSerializer setAcceptableContentTypes:[NSSet setWithObjects:@"application/x-plist", @"text/xml", @"binary/octet-stream", nil]];
             [op setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id plist) {
                 @strongify(self);
                 NSDictionary *itemInfo = [[(NSArray *)plist[@"items"] firstObject] valueForKey:@"metadata"];

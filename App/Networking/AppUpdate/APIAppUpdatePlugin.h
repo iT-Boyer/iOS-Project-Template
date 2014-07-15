@@ -1,6 +1,6 @@
 /*!
     APIAppUpdatePlugin
-    v 1.0
+    v 1.1
 
     Copyright © 2014 Chinamobo Co., Ltd.
     https://github.com/Chinamobo/iOS-Project-Template
@@ -80,6 +80,7 @@ typedef NS_ENUM(short, APIAppUpdatePluginCheckSource) {
 @property (readonly, nonatomic) BOOL hasNewVersion;
 
 /// 新版本是否已忽略
+/// 默认 NO
 @property (readonly, nonatomic) BOOL versionIgnored;
 
 @end
