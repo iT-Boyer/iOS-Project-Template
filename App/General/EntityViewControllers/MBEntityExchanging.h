@@ -70,3 +70,21 @@
 - (void)updateItemIfNeeded;
 
 @end
+
+/**
+ prepareForSegue:sender: 默认传递方法
+
+ 首先检查 destinationViewController 是否可以设置 item 属性，如果可以会依次检查 sender 和 self 是否有 item 属性可以传递
+ */
+#define MBEntityExchangingPrepareForSegue \
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {\
+    id dvc = segue.destinationViewController;\
+    if ([dvc respondsToSelector:@selector(setItem:)]) {\
+        if ([sender respondsToSelector:@selector(item)]) {\
+            [dvc setItem:[(id<MBEntityExchanging>)sender item]];\
+        }\
+        else if ([self respondsToSelector:@selector(item)]) {\
+            [dvc setItem:[(id<MBEntityExchanging>)self item]];\
+        }\
+    }\
+}
