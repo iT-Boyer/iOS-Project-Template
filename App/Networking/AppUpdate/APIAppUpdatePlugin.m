@@ -52,7 +52,7 @@ NSString *const UDkUpdateInfomation     = @"Update Infomation";
 - (void)afterInit {
     [super afterInit];
 
-    [self onVersionInfoUpdated];
+    [self onVersionInfoUpdated:NO];
 }
 
 - (MBAppVersion *)versionInfo {
@@ -97,7 +97,7 @@ NSString *const UDkUpdateInfomation     = @"Update Infomation";
                     self.versionInfo.version = itemInfo[@"version"];
                     self.versionInfo.URI = itemInfo[@"trackViewUrl"];
                 }
-                [self onVersionInfoUpdated];
+                [self onVersionInfoUpdated:YES];
             } failure:failureBlock];
 
             [self.master addOperation:op];
@@ -105,7 +105,7 @@ NSString *const UDkUpdateInfomation     = @"Update Infomation";
         }
 
         case APIAppUpdatePluginCheckSourceEnterpriseDistributionPlist: {
-            op = [[AFHTTPRequestOperation alloc] initWithRequest:[NSURLRequest requestWithURL:self.enterpriseDistributionPlistURL]];
+            op = [[AFHTTPRequestOperation alloc] initWithRequest:[NSURLRequest requestWithURL:self.enterpriseDistributionPlistURL cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:20]];
             op.responseSerializer = [AFPropertyListResponseSerializer serializer];
             [op.responseSerializer setAcceptableContentTypes:[NSSet setWithObjects:@"application/x-plist", @"text/xml", @"binary/octet-stream", nil]];
             [op setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id plist) {
@@ -116,7 +116,7 @@ NSString *const UDkUpdateInfomation     = @"Update Infomation";
                     self.versionInfo.releaseNote = itemInfo[@"releaseNotes"];
                     self.versionInfo.URI = [NSString stringWithFormat:@"itms-services://?action=download-manifest&url=%@", self.enterpriseDistributionPlistURL];
                 }
-                [self onVersionInfoUpdated];
+                [self onVersionInfoUpdated:YES];
             } failure:failureBlock];
 
             [self.master addOperation:op];
@@ -142,7 +142,7 @@ NSString *const UDkUpdateInfomation     = @"Update Infomation";
     [self.master requestWithName:APINameCheckUpdate parameters:nil controlInfo:cn success:^(AFHTTPRequestOperation *operation, MBAppVersion *responseObject) {
         @strongify(self);
         self.versionInfo = responseObject;
-        [self onVersionInfoUpdated];
+        [self onVersionInfoUpdated:YES];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         @strongify(self);
         self.lastError = error;
@@ -157,7 +157,7 @@ NSString *const UDkUpdateInfomation     = @"Update Infomation";
     }];
 }
 
-- (void)onVersionInfoUpdated {
+- (void)onVersionInfoUpdated:(BOOL)network {
     NSString *remoteVersion = self.versionInfo.version;
     NSString *appVersion = [[NSBundle mainBundle] versionString];
     NSString *requiredVersion = self.versionInfo.minimalRequiredVersion;
@@ -177,26 +177,28 @@ NSString *const UDkUpdateInfomation     = @"Update Infomation";
     else if (self.versionIgnored) {
         dout_info(@"被忽略的版本")
     }
-    else if (self.hasNewVersion && self.checking) {
-        APIAppUpdatePluginAlertView *notice = [[APIAppUpdatePluginAlertView alloc] initWithTitle:[NSString stringWithFormat:@"新版本(%@)可用", remoteVersion] message:self.versionInfo.releaseNote delegate:self cancelButtonTitle:@"下次再说" otherButtonTitles:@"更新", self.allowUserIgnoreNewVersion? @"跳过该版本" : nil, nil];
-        notice.plugin = self;
-        [notice show];
-    }
-    else {
-        // 没有新版本
-        if (!self.silenceMode && self.checking) {
-            UIAlertView *notice = [[UIAlertView alloc] initWithTitle:@"没有新版本" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+    else if (network) {
+        if (self.hasNewVersion) {
+            APIAppUpdatePluginAlertView *notice = [[APIAppUpdatePluginAlertView alloc] initWithTitle:[NSString stringWithFormat:@"新版本(%@)可用", remoteVersion] message:self.versionInfo.releaseNote delegate:self cancelButtonTitle:@"下次再说" otherButtonTitles:@"更新", self.allowUserIgnoreNewVersion? @"跳过该版本" : nil, nil];
+            notice.plugin = self;
             [notice show];
         }
-    }
+        else {
+            // 没有新版本
+            if (!self.silenceMode) {
+                UIAlertView *notice = [[UIAlertView alloc] initWithTitle:@"没有新版本" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+                [notice show];
+            }
+        }
 
-    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-    [ud setObject:[self.versionInfo toJSONString] forKey:UDkUpdateInfomation];
-    [ud synchronize];
+        NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+        [ud setObject:[self.versionInfo toJSONString] forKey:UDkUpdateInfomation];
+        [ud synchronize];
 
-    self.checking = NO;
-    if (self.complationBlock) {
-        self.complationBlock(self);
+        self.checking = NO;
+        if (self.complationBlock) {
+            self.complationBlock(self);
+        }
     }
 }
 
