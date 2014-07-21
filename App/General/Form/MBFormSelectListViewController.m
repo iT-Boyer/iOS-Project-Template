@@ -1,14 +1,36 @@
 
 #import "MBFormSelectListViewController.h"
 
-@interface MBFormSelectListViewController ()
+@interface MBFormSelectListViewController () {
+    BOOL _needsUpdateUIForItem;
+}
 @end
 
 @implementation MBFormSelectListViewController
 RFUIInterfaceOrientationSupportDefault
 
+#pragma mark - Items
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self updateUIForItemIfNeeded];
+}
+
+- (void)setItems:(NSArray *)items {
+    if (_items != items) {
+        _items = items;
+
+        if (self.isViewLoaded) {
+            [self updateUIForItem];
+        }
+        else {
+            [self setNeedsUpdateUIForItem:nil];
+        }
+    }
+}
+
+- (void)updateUIForItem {
+    _needsUpdateUIForItem = NO;
 
     NSArray *selectedItems = self.selectedItems;
     UITableView *tableView = self.tableView;
@@ -23,15 +45,35 @@ RFUIInterfaceOrientationSupportDefault
     }
 }
 
+- (IBAction)setNeedsUpdateUIForItem:(UIStoryboardSegue *)sender {
+    _needsUpdateUIForItem = YES;
+}
+
+- (void)updateUIForItemIfNeeded {
+    if (_needsUpdateUIForItem) {
+        [self updateUIForItem];
+    }
+}
+
+#pragma mark - Return
+
+- (IBAction)onSaveButtonTapped:(id)sender {
+    [self performResultCallBack];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.returnWhenSelected) {
+        [self performResultCallBack];
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+}
+
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     if (!self.requireUserPressSave) {
         [self performResultCallBack];
     }
-}
-
-- (IBAction)onSaveButtonTapped:(id)sender {
-    [self performResultCallBack];
 }
 
 - (void)performResultCallBack {
