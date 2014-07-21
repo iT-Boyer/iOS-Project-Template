@@ -40,6 +40,15 @@
 	return sharedInstance;
 }
 
++ (UIColor *)globalTextColor {
+    static UIColor *sharedInstance = nil;
+    static dispatch_once_t oncePredicate;
+    dispatch_once(&oncePredicate, ^{
+        sharedInstance = [UIColor colorWithRGBHex:0x222222 alpha:1];
+    });
+	return sharedInstance;
+}
+
 @end
 
 

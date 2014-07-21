@@ -23,6 +23,8 @@
 /// 占位符文本颜色
 + (UIColor *)globalPlaceholderTextColor;
 
++ (UIColor *)globalTextColor;
+
 @end
 
 @interface UIImage (App)
