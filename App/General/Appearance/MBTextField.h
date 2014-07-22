@@ -1,6 +1,6 @@
 /*!
     MBTextField
-    v 1.2
+    v 1.3
 
     Copyright © 2014 Chinamobo Co., Ltd.
     https://github.com/Chinamobo/iOS-Project-Template

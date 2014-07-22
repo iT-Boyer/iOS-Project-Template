@@ -6,6 +6,7 @@
 
 @interface MBTextField ()
 @property (strong, nonatomic) UITextFiledDelegateChain *trueDelegate;
+@property (assign, nonatomic) BOOL noBorder;
 @end
 
 @implementation MBTextField
@@ -16,9 +17,20 @@ RFInitializingRootForUIView
     self.textEdgeInsets = UIEdgeInsetsMake(7, 10, 7, 10);
 
     // 获取焦点自动高亮
-    self.borderStyle = UITextBorderStyleNone;
-    self.disabledBackground = [MBTextField disabledBackgroundImage];
-    self.background = [MBTextField backgroundImage];
+    // 只在非默认风格下设置背景图
+    if (self.borderStyle == UITextBorderStyleNone) {
+        self.noBorder = YES;
+    }
+
+    if (self.borderStyle != UITextBorderStyleRoundedRect) {
+        self.borderStyle = UITextBorderStyleNone;
+        if (!self.noBorder) {
+            self.disabledBackground = [MBTextField disabledBackgroundImage];
+            self.background = [MBTextField backgroundImage];
+        }
+    }
+
+    [super setDelegate:self.trueDelegate];
 }
 
 - (void)afterInit {
@@ -29,11 +41,11 @@ RFInitializingRootForUIView
 
     // 回车切换到下一个输入框或按钮，默认键盘样式
     if (self.nextField && self.returnKeyType == UIReturnKeyDefault) {
-        if ([self.nextField isKindOfClass:[UIControl class]]) {
-            self.returnKeyType = UIReturnKeySend;
+        if ([self.nextField isKindOfClass:[UITextField class]] || [self.nextField isKindOfClass:[UITextView class]]) {
+            self.returnKeyType = UIReturnKeyNext;
         }
         else {
-            self.returnKeyType = UIReturnKeyNext;
+            self.returnKeyType = UIReturnKeySend;
         }
     }
 }
@@ -78,12 +90,16 @@ RFInitializingRootForUIView
 }
 
 - (BOOL)becomeFirstResponder {
-    self.background = [MBTextField focusedBackgroundImage];
+    if (!self.noBorder) {
+        self.background = [MBTextField focusedBackgroundImage];
+    }
     return [super becomeFirstResponder];
 }
 
 - (BOOL)resignFirstResponder {
-    self.background = [MBTextField backgroundImage];
+    if (!self.noBorder) {
+        self.background = [MBTextField backgroundImage];
+    }
     return [super resignFirstResponder];
 }
 
@@ -108,6 +124,7 @@ RFInitializingRootForUIView
                 }
             }
             if (![textField isKindOfClass:[MBTextField class]]) return YES;
+
             if ([textField.nextField isKindOfClass:[UITextField class]]
                 || [textField.nextField isKindOfClass:[UITextView class]]) {
                 [textField.nextField becomeFirstResponder];
