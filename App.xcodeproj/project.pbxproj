@@ -90,6 +90,7 @@
 		D542C341196292B600524271 /* RFAsynchronousSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = D542C33E196292B600524271 /* RFAsynchronousSegue.m */; };
 		D542C3441962930400524271 /* RFPresentSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = D542C3431962930400524271 /* RFPresentSegue.m */; };
 		D544A396197CBE5300C65604 /* MBFormSelectButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D544A395197CBE5300C65604 /* MBFormSelectButton.m */; };
+		D544A39E197D1E8600C65604 /* JSONValueTransformer+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D544A39D197D1E8600C65604 /* JSONValueTransformer+App.m */; };
 		D54B911E1943225900DE100C /* MBMultiLineLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D54B911D1943225900DE100C /* MBMultiLineLabel.m */; };
 		D54B91211943305900DE100C /* MBFixWidthImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = D54B91201943305900DE100C /* MBFixWidthImageView.m */; };
 		D552DD6F18C8506700D02290 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D552DD4C18C8506700D02290 /* HomeViewController.m */; };
@@ -359,6 +360,7 @@
 		D542C3431962930400524271 /* RFPresentSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFPresentSegue.m; sourceTree = "<group>"; };
 		D544A394197CBE5300C65604 /* MBFormSelectButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBFormSelectButton.h; sourceTree = "<group>"; };
 		D544A395197CBE5300C65604 /* MBFormSelectButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBFormSelectButton.m; sourceTree = "<group>"; };
+		D544A39D197D1E8600C65604 /* JSONValueTransformer+App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JSONValueTransformer+App.m"; sourceTree = "<group>"; };
 		D54B911C1943225900DE100C /* MBMultiLineLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBMultiLineLabel.h; sourceTree = "<group>"; };
 		D54B911D1943225900DE100C /* MBMultiLineLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBMultiLineLabel.m; sourceTree = "<group>"; };
 		D54B911F1943305900DE100C /* MBFixWidthImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBFixWidthImageView.h; sourceTree = "<group>"; };
@@ -1062,6 +1064,7 @@
 				D552DD5018C8506700D02290 /* JSON */,
 				D552DD4E18C8506700D02290 /* DataStack.h */,
 				D552DD4F18C8506700D02290 /* DataStack.m */,
+				D544A39D197D1E8600C65604 /* JSONValueTransformer+App.m */,
 				D552DD5318C8506700D02290 /* Model.xcdatamodeld */,
 			);
 			path = Model;
@@ -1563,6 +1566,7 @@
 				D5542EBC19188AFD00831016 /* JSONModelArray.m in Sources */,
 				D5542EBD19188AFD00831016 /* JSONModelClassProperty.m in Sources */,
 				D5542EBE19188AFD00831016 /* JSONModelError.m in Sources */,
+				D544A39E197D1E8600C65604 /* JSONValueTransformer+App.m in Sources */,
 				D5542EBF19188AFD00831016 /* JSONValueTransformer.m in Sources */,
 				D5197A4A17EECAAF00CA387C /* main.m in Sources */,
 				D5542F161918B83400831016 /* MBApp.m in Sources */,
