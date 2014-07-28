@@ -125,7 +125,9 @@ NSString *const UDkUserInformation      = @"User Information";
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     self.shouldRememberPassword = [ud boolForKey:UDkUserRemeberPass];
     self.account = [ud objectForKey:UDkLastUserAccount];
-    
+    self.information = [[UserInformation alloc] initWithString:[ud objectForKey:UDkUserInformation] error:nil];
+    // TODO: 根据信息恢复登录状态
+
     if (self.shouldRememberPassword) {
 #if APIUserPluginUsingKeychainToStroeSecret
         NSError __autoreleasing *e = nil;
