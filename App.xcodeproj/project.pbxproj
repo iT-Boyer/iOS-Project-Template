@@ -163,6 +163,8 @@
 		D5CC92CC1918DBF300C5B4D8 /* LICENSE-AFNetworking.md in Resources */ = {isa = PBXBuildFile; fileRef = D5CC92CB1918DBF300C5B4D8 /* LICENSE-AFNetworking.md */; };
 		D5CC92CE1918DBFF00C5B4D8 /* LICENSE-SDWebImage in Resources */ = {isa = PBXBuildFile; fileRef = D5CC92CD1918DBFF00C5B4D8 /* LICENSE-SDWebImage */; };
 		D5CC92D11918EAAB00C5B4D8 /* UIKit+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CC92D01918EAAB00C5B4D8 /* UIKit+App.m */; };
+		D5D1AFEC198F3D3A00FE0656 /* RFNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D1AFEB198F3D3A00FE0656 /* RFNavigationController.m */; };
+		D5D1AFEF198F3D4200FE0656 /* RFAPICacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D1AFEE198F3D4200FE0656 /* RFAPICacheManager.m */; };
 		D5DED9211839C9C70087CB7C /* AFNetworkActivityLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = D5DED9201839C9C70087CB7C /* AFNetworkActivityLogger.m */; };
 		D5DED9461839C9DE0087CB7C /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D5DED9271839C9DE0087CB7C /* AFNetworkReachabilityManager.m */; };
 		D5DED9471839C9DE0087CB7C /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = D5DED9291839C9DE0087CB7C /* AFSecurityPolicy.m */; };
@@ -500,6 +502,10 @@
 		D5CC92CD1918DBFF00C5B4D8 /* LICENSE-SDWebImage */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "LICENSE-SDWebImage"; sourceTree = "<group>"; };
 		D5CC92CF1918EAAA00C5B4D8 /* UIKit+App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIKit+App.h"; sourceTree = "<group>"; };
 		D5CC92D01918EAAB00C5B4D8 /* UIKit+App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIKit+App.m"; sourceTree = "<group>"; };
+		D5D1AFEA198F3D3A00FE0656 /* RFNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFNavigationController.h; sourceTree = "<group>"; };
+		D5D1AFEB198F3D3A00FE0656 /* RFNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFNavigationController.m; sourceTree = "<group>"; };
+		D5D1AFED198F3D4200FE0656 /* RFAPICacheManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFAPICacheManager.h; sourceTree = "<group>"; };
+		D5D1AFEE198F3D4200FE0656 /* RFAPICacheManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFAPICacheManager.m; sourceTree = "<group>"; };
 		D5DED91F1839C9C70087CB7C /* AFNetworkActivityLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkActivityLogger.h; sourceTree = "<group>"; };
 		D5DED9201839C9C70087CB7C /* AFNetworkActivityLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkActivityLogger.m; sourceTree = "<group>"; };
 		D5DED9261839C9DE0087CB7C /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
@@ -548,6 +554,8 @@
 				D5542EF219188EE700831016 /* RFAPIDefine */,
 				D50558671890C7F40049A759 /* RFAPI.h */,
 				D50558681890C7F40049A759 /* RFAPI.m */,
+				D5D1AFED198F3D4200FE0656 /* RFAPICacheManager.h */,
+				D5D1AFEE198F3D4200FE0656 /* RFAPICacheManager.m */,
 			);
 			path = RFAPI;
 			sourceTree = "<group>";
@@ -710,6 +718,7 @@
 				D5542EEA19188ED500831016 /* RFDelegateChain */,
 				D5542EED19188ED500831016 /* RFDrawImage */,
 				D5542EFC19188F4F00831016 /* RFMessageManager */,
+				D5D1AFE9198F3D3A00FE0656 /* RFNavigationController */,
 				D5197B1617F019E300CA387C /* RFPlugin */,
 				D55FB77D19444B5900358714 /* RFTableViewCellHeightDelegate */,
 				D55FB78119444B5900358714 /* RFTableViewPullToFetchPlugin */,
@@ -1374,6 +1383,15 @@
 			path = UIKit;
 			sourceTree = "<group>";
 		};
+		D5D1AFE9198F3D3A00FE0656 /* RFNavigationController */ = {
+			isa = PBXGroup;
+			children = (
+				D5D1AFEA198F3D3A00FE0656 /* RFNavigationController.h */,
+				D5D1AFEB198F3D3A00FE0656 /* RFNavigationController.m */,
+			);
+			path = RFNavigationController;
+			sourceTree = "<group>";
+		};
 		D5DED91E1839C9C70087CB7C /* AFNetworkActivityLogger */ = {
 			isa = PBXGroup;
 			children = (
@@ -1611,6 +1629,7 @@
 				D5197CB517F019E600CA387C /* RFAlloctionProxyButton.m in Sources */,
 				D5197CB617F019E600CA387C /* RFAlloctionProxyView.m in Sources */,
 				D50558691890C7F40049A759 /* RFAPI.m in Sources */,
+				D5D1AFEF198F3D4200FE0656 /* RFAPICacheManager.m in Sources */,
 				D5542EF919188EE700831016 /* RFAPIDefine.m in Sources */,
 				D5542EFA19188EE700831016 /* RFAPIDefineConfigFileKeys.m in Sources */,
 				D5542EFB19188EE700831016 /* RFAPIDefineManager.m in Sources */,
@@ -1631,6 +1650,7 @@
 				D50558911890E8EE0049A759 /* RFLine.m in Sources */,
 				D5542F0819188F4F00831016 /* RFMessageManager+RFDisplay.m in Sources */,
 				D5542F0919188F4F00831016 /* RFMessageManager.m in Sources */,
+				D5D1AFEC198F3D3A00FE0656 /* RFNavigationController.m in Sources */,
 				D5197CD117F019E600CA387C /* RFNavigationPushAsRootSegue.m in Sources */,
 				D5197CD217F019E600CA387C /* RFNavigationPushSegue.m in Sources */,
 				D5197CB917F019E600CA387C /* RFPerformance.m in Sources */,
