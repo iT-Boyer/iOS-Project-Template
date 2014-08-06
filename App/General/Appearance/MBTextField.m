@@ -105,10 +105,6 @@ RFInitializingRootForUIView
 
 #pragma mark - Delegate
 
-- (id<UITextFieldDelegate>)delegate {
-    return self.trueDelegate.delegate;
-}
-
 - (void)setDelegate:(id<UITextFieldDelegate>)delegate {
     self.trueDelegate.delegate = delegate;
 }
@@ -134,7 +130,24 @@ RFInitializingRootForUIView
             }
             return YES;
         }];
-        [super setDelegate:_trueDelegate];
+
+        [_trueDelegate setShouldChangeCharacters:^BOOL(UITextField *aTextField, NSRange inRange, NSString *replacementString, id<UITextFieldDelegate> delegate) {
+            MBTextField *textField = (id)aTextField;
+
+            if (textField.maxLength) {
+                // Needs limit length
+                if (!inRange.length) {
+                    if (replacementString.length + textField.text.length > textField.maxLength) {
+                        return NO;
+                    }
+                }
+            }
+
+            if ([delegate respondsToSelector:@selector(textField:shouldChangeCharactersInRange:replacementString:)]) {
+                return [delegate textField:aTextField shouldChangeCharactersInRange:inRange replacementString:replacementString];
+            }
+            return YES;
+        }];
     }
     return _trueDelegate;
 }
