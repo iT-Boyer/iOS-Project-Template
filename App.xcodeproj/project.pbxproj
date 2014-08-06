@@ -176,6 +176,7 @@
 		D5D1B0371992099100FE0656 /* UIViewController+RFTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D1B0301992099100FE0656 /* UIViewController+RFTransitioning.m */; };
 		D5D1B03A19920BEC00FE0656 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D1B03919920BEC00FE0656 /* UIView+WebCacheOperation.m */; };
 		D5D1B03D19920C1400FE0656 /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D1B03C19920C1400FE0656 /* UIImageView+HighlightedWebCache.m */; };
+		D5D1B0411992129200FE0656 /* RFTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D1B0401992129200FE0656 /* RFTimer.m */; };
 		D5DED9211839C9C70087CB7C /* AFNetworkActivityLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = D5DED9201839C9C70087CB7C /* AFNetworkActivityLogger.m */; };
 		D5DED9461839C9DE0087CB7C /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D5DED9271839C9DE0087CB7C /* AFNetworkReachabilityManager.m */; };
 		D5DED9471839C9DE0087CB7C /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = D5DED9291839C9DE0087CB7C /* AFSecurityPolicy.m */; };
@@ -540,6 +541,8 @@
 		D5D1B03919920BEC00FE0656 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		D5D1B03B19920C1400FE0656 /* UIImageView+HighlightedWebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+HighlightedWebCache.h"; sourceTree = "<group>"; };
 		D5D1B03C19920C1400FE0656 /* UIImageView+HighlightedWebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+HighlightedWebCache.m"; sourceTree = "<group>"; };
+		D5D1B03F1992129200FE0656 /* RFTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFTimer.h; sourceTree = "<group>"; };
+		D5D1B0401992129200FE0656 /* RFTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFTimer.m; sourceTree = "<group>"; };
 		D5DED91F1839C9C70087CB7C /* AFNetworkActivityLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkActivityLogger.h; sourceTree = "<group>"; };
 		D5DED9201839C9C70087CB7C /* AFNetworkActivityLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkActivityLogger.m; sourceTree = "<group>"; };
 		D5DED9261839C9DE0087CB7C /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
@@ -756,6 +759,7 @@
 				D5197B1617F019E300CA387C /* RFPlugin */,
 				D55FB77D19444B5900358714 /* RFTableViewCellHeightDelegate */,
 				D55FB78119444B5900358714 /* RFTableViewPullToFetchPlugin */,
+				D5D1B03E1992129200FE0656 /* RFTimer */,
 				D5D1B01F1992099100FE0656 /* RFTransitioning */,
 				D50558881890E8EE0049A759 /* RFViewApperance */,
 			);
@@ -1473,6 +1477,15 @@
 			path = RFTransitioningStyle;
 			sourceTree = "<group>";
 		};
+		D5D1B03E1992129200FE0656 /* RFTimer */ = {
+			isa = PBXGroup;
+			children = (
+				D5D1B03F1992129200FE0656 /* RFTimer.h */,
+				D5D1B0401992129200FE0656 /* RFTimer.m */,
+			);
+			path = RFTimer;
+			sourceTree = "<group>";
+		};
 		D5DED91E1839C9C70087CB7C /* AFNetworkActivityLogger */ = {
 			isa = PBXGroup;
 			children = (
@@ -1753,6 +1766,7 @@
 				D5542F0719188F4F00831016 /* RFSVProgressMessageManager.m in Sources */,
 				D55FB78719444B5900358714 /* RFTableViewCellHeightDelegate.m in Sources */,
 				D55FB78819444B5900358714 /* RFTableViewPullToFetchPlugin.m in Sources */,
+				D5D1B0411992129200FE0656 /* RFTimer.m in Sources */,
 				D5197CC717F019E600CA387C /* RFUI.m in Sources */,
 				D5542EDF19188B0C00831016 /* SDImageCache.m in Sources */,
 				D5542EE019188B0C00831016 /* SDWebImageCompat.m in Sources */,

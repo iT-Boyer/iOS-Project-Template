@@ -1,5 +1,7 @@
 
 #import "MBFormSelectListViewController.h"
+#import "RFTimer.h"
+#import "API.h"
 
 @interface MBFormSelectListViewController () {
     BOOL _needsUpdateUIForItem;
@@ -24,7 +26,7 @@ RFUIInterfaceOrientationSupportDefault
             [self updateUIForItem];
         }
         else {
-            [self setNeedsUpdateUIForItem:nil];
+            [self setNeedsUpdateUIWithSegue:nil];
         }
     }
 }
@@ -34,9 +36,10 @@ RFUIInterfaceOrientationSupportDefault
 
     NSArray *selectedItems = self.selectedItems;
     UITableView *tableView = self.tableView;
+    [tableView reloadData];
 
     for (id item in selectedItems) {
-        NSUInteger idx = [self.items indexOfObject:item];
+        NSUInteger idx = [self.filteredItems indexOfObject:item];
         if (idx == NSNotFound) {
             continue;
         }
@@ -45,7 +48,7 @@ RFUIInterfaceOrientationSupportDefault
     }
 }
 
-- (IBAction)setNeedsUpdateUIForItem:(UIStoryboardSegue *)sender {
+- (IBAction)setNeedsUpdateUIWithSegue:(UIStoryboardSegue *)sender {
     _needsUpdateUIForItem = YES;
 }
 
@@ -71,7 +74,7 @@ RFUIInterfaceOrientationSupportDefault
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    if (!self.requireUserPressSave) {
+    if (!self.requireUserPressSave && !self.returnWhenSelected) {
         [self performResultCallBack];
     }
 }
@@ -82,7 +85,7 @@ RFUIInterfaceOrientationSupportDefault
     for (NSIndexPath *indexPath in indexPaths) {
         [indexSet addIndex:indexPath.row];
     }
-    NSArray *selectedItems = [self.items objectsAtIndexes:indexSet];
+    NSArray *selectedItems = [self.filteredItems objectsAtIndexes:indexSet];
 
     if (self.didEndSelection) {
         self.didEndSelection(self, selectedItems);
@@ -96,14 +99,65 @@ RFUIInterfaceOrientationSupportDefault
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.items.count;
+    return self.filteredItems.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MBFormSelectTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
     RFAssert([cell isKindOfClass:[MBFormSelectTableViewCell class]], @"MBFormSelectListViewController 的 cell 必须是 MBFormSelectTableViewCell");
-    cell.value = self.items[indexPath.row];
+    cell.value = self.filteredItems[indexPath.row];
     return cell;
+}
+
+#pragma mark - 筛选基础支持
+
+- (NSArray *)filteredItems {
+    return _filteredItems?: self.items;
+}
+
+#pragma mark - Search
+
+- (RFTimer *)autoSearchTimer {
+    if (!_autoSearchTimer) {
+        _autoSearchTimer = [RFTimer new];
+        _autoSearchTimer.timeInterval = 0.6;
+
+        @weakify(self);
+        [_autoSearchTimer setFireBlock:^(RFTimer *timer, NSUInteger repeatCount) {
+            @strongify(self);
+            [self autoSearch];
+        }];
+    }
+    return _autoSearchTimer;
+}
+
+- (void)autoSearch {
+    self.autoSearchTimer.suspended = YES;
+
+    NSString *keyword = self.searchBar.text;
+    _douto(keyword)
+
+    if (![keyword isEqualToString:self.searchingKeyword]) {
+        [self doSearchWithKeyword:keyword];
+    }
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    self.autoSearchTimer.suspended = YES;
+    self.autoSearchTimer.suspended = NO;
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    [self autoSearch];
+}
+
+- (void)doSearchWithKeyword:(NSString *)keyword {
+    if (![self.searchingKeyword isEqualToString:keyword]) {
+        [API cancelOperationsWithViewController:self];
+    }
+    self.searchingKeyword = keyword;
+
+    // 请求并更新结果
 }
 
 @end
