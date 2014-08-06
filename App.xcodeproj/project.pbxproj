@@ -174,6 +174,8 @@
 		D5D1B0351992099100FE0656 /* RFMagicMoveTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D1B02B1992099100FE0656 /* RFMagicMoveTransitioning.m */; };
 		D5D1B0361992099100FE0656 /* RFMoveInFromBottomTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D1B02D1992099100FE0656 /* RFMoveInFromBottomTransitioning.m */; };
 		D5D1B0371992099100FE0656 /* UIViewController+RFTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D1B0301992099100FE0656 /* UIViewController+RFTransitioning.m */; };
+		D5D1B03A19920BEC00FE0656 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D1B03919920BEC00FE0656 /* UIView+WebCacheOperation.m */; };
+		D5D1B03D19920C1400FE0656 /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D1B03C19920C1400FE0656 /* UIImageView+HighlightedWebCache.m */; };
 		D5DED9211839C9C70087CB7C /* AFNetworkActivityLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = D5DED9201839C9C70087CB7C /* AFNetworkActivityLogger.m */; };
 		D5DED9461839C9DE0087CB7C /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D5DED9271839C9DE0087CB7C /* AFNetworkReachabilityManager.m */; };
 		D5DED9471839C9DE0087CB7C /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = D5DED9291839C9DE0087CB7C /* AFSecurityPolicy.m */; };
@@ -534,6 +536,10 @@
 		D5D1B02E1992099100FE0656 /* RFTransitioningStyel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFTransitioningStyel.h; sourceTree = "<group>"; };
 		D5D1B02F1992099100FE0656 /* UIViewController+RFTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+RFTransitioning.h"; sourceTree = "<group>"; };
 		D5D1B0301992099100FE0656 /* UIViewController+RFTransitioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+RFTransitioning.m"; sourceTree = "<group>"; };
+		D5D1B03819920BEC00FE0656 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
+		D5D1B03919920BEC00FE0656 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
+		D5D1B03B19920C1400FE0656 /* UIImageView+HighlightedWebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+HighlightedWebCache.h"; sourceTree = "<group>"; };
+		D5D1B03C19920C1400FE0656 /* UIImageView+HighlightedWebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+HighlightedWebCache.m"; sourceTree = "<group>"; };
 		D5DED91F1839C9C70087CB7C /* AFNetworkActivityLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkActivityLogger.h; sourceTree = "<group>"; };
 		D5DED9201839C9C70087CB7C /* AFNetworkActivityLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkActivityLogger.m; sourceTree = "<group>"; };
 		D5DED9261839C9DE0087CB7C /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
@@ -1227,8 +1233,12 @@
 				D5542ED719188B0C00831016 /* UIImage+GIF.m */,
 				D5542ED819188B0C00831016 /* UIImage+MultiFormat.h */,
 				D5542ED919188B0C00831016 /* UIImage+MultiFormat.m */,
+				D5D1B03B19920C1400FE0656 /* UIImageView+HighlightedWebCache.h */,
+				D5D1B03C19920C1400FE0656 /* UIImageView+HighlightedWebCache.m */,
 				D5542EDA19188B0C00831016 /* UIImageView+WebCache.h */,
 				D5542EDB19188B0C00831016 /* UIImageView+WebCache.m */,
+				D5D1B03819920BEC00FE0656 /* UIView+WebCacheOperation.h */,
+				D5D1B03919920BEC00FE0656 /* UIView+WebCacheOperation.m */,
 			);
 			path = SDWebImage;
 			sourceTree = "<group>";
@@ -1761,6 +1771,7 @@
 				D5542EE719188B0C00831016 /* UIImage+GIF.m in Sources */,
 				D5542EE819188B0C00831016 /* UIImage+MultiFormat.m in Sources */,
 				D5197C9F17F019E600CA387C /* UIImage+RFKit.m in Sources */,
+				D5D1B03D19920C1400FE0656 /* UIImageView+HighlightedWebCache.m in Sources */,
 				D5542EE919188B0C00831016 /* UIImageView+WebCache.m in Sources */,
 				D5CC92D11918EAAB00C5B4D8 /* UIKit+App.m in Sources */,
 				D5170CF9191B3967000C7D45 /* UINavigationController+RFKit.m in Sources */,
@@ -1775,6 +1786,7 @@
 				D5197CA417F019E600CA387C /* UIView+RFKit.m in Sources */,
 				D5542F111918976B00831016 /* UIView+RFLayerApperance.m in Sources */,
 				D50558941890E8EE0049A759 /* UIView+RFPatternImageBackground.m in Sources */,
+				D5D1B03A19920BEC00FE0656 /* UIView+WebCacheOperation.m in Sources */,
 				D5197CA517F019E600CA387C /* UIViewController+RFKit.m in Sources */,
 				D5D1B0371992099100FE0656 /* UIViewController+RFTransitioning.m in Sources */,
 				D5197CA617F019E600CA387C /* UIWebView+RFKit.m in Sources */,
