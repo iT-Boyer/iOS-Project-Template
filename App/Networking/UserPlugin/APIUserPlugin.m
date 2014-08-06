@@ -9,8 +9,6 @@ NSString *const UDkUserRemeberPass      = @"Should Remember User Password";
 NSString *const UDkUserInformation      = @"User Information";
 
 @interface APIUserPlugin ()
-@property (weak, nonatomic) API *master;
-
 @property (readwrite, nonatomic) BOOL loggedIn;
 @property (readwrite, nonatomic) BOOL logining;
 @property (readwrite, nonatomic) BOOL fetchingUserInformation;
@@ -18,25 +16,9 @@ NSString *const UDkUserInformation      = @"User Information";
 @end
 
 @implementation APIUserPlugin
-
-- (instancetype)init {
-    RFAssert(false, @"You should call initWithMaster: instead.");
-    return nil;
-}
-
-- (instancetype)initWithMaster:(API *)master {
-    self = [super init];
-    if (self) {
-        self.master = master;
-        [self onInit];
-        [self performSelector:@selector(afterInit) withObject:self afterDelay:0];
-    }
-    return self;
-}
+RFInitializingRootForNSObject
 
 - (void)onInit {
-    [super onInit];
-    
     [self loadProfileConfig];
 
     if (!self.information) {
@@ -46,48 +28,85 @@ NSString *const UDkUserInformation      = @"User Information";
     if (DebugAPISkipLogin) {
         self.loggedIn = YES;
     }
+
+    if (self.account.length && self.password.length) {
+        if (!DebugAPINoAutoLogin) {
+            self.loggedIn = YES;
+            [self fetchUserInfoFromViewController:nil success:nil completion:nil];
+        }
+    }
 }
 
 - (void)afterInit {
-    [super afterInit];
     
-    if (!self.loggedIn && self.shouldAutoLogin &&
-        self.account && self.password) {
-        [self loginWithSuccessCallback:nil completion:nil];
-    }
+}
+
+#pragma mark - 注册
+
+- (void)signUpVerifyFromViewController:(id)viewController phone:(NSString *)phone success:(void (^)(void))success failure:(void (^)(NSError *error))failure {
+    NSParameterAssert(phone.length);
+    [API requestWithName:@"SignUpVerify" parameters:@{ @"phone" : phone } viewController:viewController forceLoad:NO loadingMessage:@"" modal:YES success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        self.account = phone;
+        if (success) {
+            success();
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (failure) {
+            failure(error);
+        }
+    } completion:nil];
+}
+
+- (void)signUpVerifyFromViewController:(id)viewController phone:(NSString *)phone code:(NSString *)code success:(void (^)(void))success completion:(void (^)(void))completion {
+    NSParameterAssert(phone);
+    NSParameterAssert(code);
+    [API requestWithName:@"SignUpVerifyCheck" parameters:@{ @"phone" : phone, @"code" : code } viewController:viewController loadingMessage:@"验证中" modal:YES success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        self.verifyCode = code;
+        self.account = phone;
+        if (success) {
+            success();
+        }
+    } completion:^(AFHTTPRequestOperation *operation) {
+        if (completion) {
+            completion();
+        }
+    }];
+}
+
+- (void)signUpFromViewController:(id)viewController name:(NSString *)userName password:(NSString *)password avatar:(UIImage *)image success:(void (^)(void))success completion:(void (^)(void))completion {
+    [API user].password = [self passHashWithString:password];
+    RFAssert(false, @"按需完成具体实现");
 }
 
 #pragma mark - 登入
 
-- (void)loginWithSuccessCallback:(void (^)(void))success completion:(void (^)(AFHTTPRequestOperation *operation))completion {
+- (void)loginFromViewController:(id)viewController account:(NSString *)account password:(NSString *)password success:(void (^)(void))success completion:(void (^)(void))completion {
+    NSParameterAssert(account);
+    NSParameterAssert(password);
 
-    if (self.loggedIn || self.logining) return;
-
-    RFAssert(self.account.length, @"账户未指定");
-    RFAssert(self.password.length, @"密码未指定");
-    
     self.logining = YES;
-
-    [API requestWithName:APINameLogin parameters:@{
-        @"username" : self.account,
+    [API requestWithName:@"Login" parameters:@{
+        @"account" : self.account,
         @"password" : self.password
-    } viewController:nil loadingMessage:@"正在登录…" modal:YES success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        // TODO: 根据返回赋值
-        [self saveProfileConfig];
+    } viewController:viewController forceLoad:NO loadingMessage:@"登录中" modal:NO success:^(AFHTTPRequestOperation *operation, id responseObject) {
+
+        self.account = account;
+        self.password = [self passHashWithString:password];
         self.loggedIn = YES;
 
+        [self saveProfileConfig];
+        if (self.shouldAutoFetchOtherUserInformationAfterLogin) {
+            [self fetchUserInfoFromViewController:viewController success:success completion:completion];
+        }
         if (success) {
             success();
         }
-
-        if (self.shouldAutoFetchOtherUserInformationAfterLogin) {
-            [self fetchUserInformationCompletion:nil];
-        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [[API sharedInstance].networkActivityIndicatorManager alertError:error title:@"登录失败"];
     } completion:^(AFHTTPRequestOperation *operation) {
         self.logining = NO;
-
         if (completion) {
-            completion(operation);
+            completion();
         }
     }];
 }
@@ -99,17 +118,35 @@ NSString *const UDkUserInformation      = @"User Information";
     // 其他清理
 }
 
-#pragma mark -
-- (void)fetchUserInformationCompletion:(void (^)(BOOL success, NSError *))callback {
+- (void)setLoggedIn:(BOOL)loggedIn {
+    _loggedIn = loggedIn;
 
+    // 更新身份认证信息
 }
+
+#pragma mark -
+
+- (void)fetchUserInfoFromViewController:(id)viewController success:(void (^)(void))success completion:(void (^)(void))completion {
+    [API requestWithName:@"UserInfo" parameters:nil viewController:viewController loadingMessage:@"获取信息中" modal:YES success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        self.information = responseObject;
+        [self saveProfileConfig];
+        if (success) {
+            success();
+        }
+    } completion:^(AFHTTPRequestOperation *operation) {
+        if (completion) {
+            completion();
+        }
+    }];
+}
+
 
 #pragma mark -
 - (void)resetPasswordWithInfo:(NSDictionary *)recoverInfo completion:(void (^)(NSString *password, NSError *error))callback {
 
 	RFAPIControl *cn = [[RFAPIControl alloc] initWithIdentifier:APINameResetPassword loadingMessage:@"提交重置密码请求..."];
 	cn.message.modal = YES;
-	[self.master requestWithName:APINameResetPassword parameters:recoverInfo controlInfo:cn success:^(AFHTTPRequestOperation *operation, id responseObject) {
+	[[API sharedInstance] requestWithName:APINameResetPassword parameters:recoverInfo controlInfo:cn success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if (callback) {
             callback(responseObject, nil);
         }
@@ -121,12 +158,18 @@ NSString *const UDkUserInformation      = @"User Information";
 }
 
 #pragma mark - Secret staues
+
+- (NSString *)passHashWithString:(NSString *)pass {
+    return [NSString MD5String:pass];
+}
+
 - (void)loadProfileConfig {
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     self.shouldRememberPassword = [ud boolForKey:UDkUserRemeberPass];
     self.account = [ud objectForKey:UDkLastUserAccount];
     self.information = [[UserInformation alloc] initWithString:[ud objectForKey:UDkUserInformation] error:nil];
-    // TODO: 根据信息恢复登录状态
+
+    // 根据信息恢复其他登录状态
 
     if (self.shouldRememberPassword) {
 #if APIUserPluginUsingKeychainToStroeSecret

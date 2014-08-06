@@ -28,6 +28,9 @@
 /// 是否跳过登录
 #define DebugAPISkipLogin 0
 
+/// 阻止自动登录
+#define DebugAPINoAutoLogin 0
+
 /// 测试帐户
 #define DebugAPIEnableTestProfile 0
 #define DebugAPITestProfileName @"name"
