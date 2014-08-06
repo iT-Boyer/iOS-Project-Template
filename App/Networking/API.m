@@ -53,6 +53,39 @@ RFDefineConstString(APIErrorDomain);
     [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
 }
 
+#pragma mark - 请求管理
+
++ (AFHTTPRequestOperation *)requestWithName:(NSString *)APIName parameters:(NSDictionary *)parameters viewController:(UIViewController *)viewController loadingMessage:(NSString *)message modal:(BOOL)modal success:(void (^)(AFHTTPRequestOperation *, id))success completion:(void (^)(AFHTTPRequestOperation *))completion {
+    return [self requestWithName:APIName parameters:parameters viewController:viewController forceLoad:NO loadingMessage:message modal:modal success:success failure:nil completion:completion];
+}
+
++ (AFHTTPRequestOperation *)requestWithName:(NSString *)APIName parameters:(NSDictionary *)parameters viewController:(UIViewController *)viewController forceLoad:(BOOL)forceLoad loadingMessage:(NSString *)message modal:(BOOL)modal success:(void (^)(AFHTTPRequestOperation *, id))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure completion:(void (^)(AFHTTPRequestOperation *))completion {
+    RFAPIControl *cn = [[RFAPIControl alloc] init];
+    if (message) {
+        cn.message = [[RFNetworkActivityIndicatorMessage alloc] initWithIdentifier:APIName title:nil message:message status:RFNetworkActivityIndicatorStatusLoading];
+        cn.message.modal = modal;
+    }
+    cn.identifier = APIName;
+    cn.groupIdentifier = NSStringFromClass(viewController.class);
+    cn.forceLoad = forceLoad;
+    return [[self sharedInstance] requestWithName:APIName parameters:parameters controlInfo:cn success:success failure:failure completion:completion];
+}
+
++ (void)cancelOperationsWithViewController:(id)viewController {
+    [[API sharedInstance] cancelOperationsWithGroupIdentifier:NSStringFromClass([viewController class])];
+}
+
+#pragma mark - 状态提醒
+
++ (void)showSuccessStatus:(NSString *)message {
+    [[API sharedInstance].networkActivityIndicatorManager showWithTitle:nil message:message status:RFNetworkActivityIndicatorStatusSuccess modal:NO priority:RFNetworkActivityIndicatorMessagePriorityHigh autoHideAfterTimeInterval:0 identifier:nil groupIdentifier:nil userInfo:nil];
+}
+
++ (void)alertError:(NSError *)error title:(NSString *)title {
+    [[API sharedInstance].networkActivityIndicatorManager alertError:error title:title];
+}
+
+
 #pragma mark - 通用流程
 
 - (BOOL)generalHandlerForError:(NSError *)error withDefine:(RFAPIDefine *)define controlInfo:(RFAPIControl *)controlInfo requestOperation:(AFHTTPRequestOperation *)operation operationFailureCallback:(void (^)(AFHTTPRequestOperation *, NSError *))operationFailureCallback {
@@ -64,25 +97,6 @@ RFDefineConstString(APIErrorDomain);
         return NO;
     }
     return YES;
-}
-
-+ (AFHTTPRequestOperation *)requestWithName:(NSString *)APIName parameters:(NSDictionary *)parameters viewController:(UIViewController *)viewController loadingMessage:(NSString *)message modal:(BOOL)modal success:(void (^)(AFHTTPRequestOperation *, id))success completion:(void (^)(AFHTTPRequestOperation *))completion {
-    RFAPIControl *cn = [[RFAPIControl alloc] init];
-    if (message) {
-        cn.message = [[RFNetworkActivityIndicatorMessage alloc] initWithIdentifier:APIName title:nil message:message status:RFNetworkActivityIndicatorStatusLoading];
-        cn.message.modal = modal;
-    }
-    cn.identifier = APIName;
-    cn.groupIdentifier = NSStringFromClass(viewController.class);
-    return [[self sharedInstance] requestWithName:APIName parameters:parameters controlInfo:cn success:success failure:nil completion:completion];
-}
-
-+ (void)showSuccessStatus:(NSString *)message {
-    [[API sharedInstance].networkActivityIndicatorManager showWithTitle:nil message:message status:RFNetworkActivityIndicatorStatusSuccess modal:NO priority:RFNetworkActivityIndicatorMessagePriorityHigh autoHideAfterTimeInterval:0 identifier:nil groupIdentifier:nil userInfo:nil];
-}
-
-+ (void)cancelOperationsWithViewController:(id)viewController {
-    [[API sharedInstance] cancelOperationsWithGroupIdentifier:NSStringFromClass([viewController class])];
 }
 
 #pragma mark - 具体业务

@@ -1,6 +1,7 @@
 /*!
     API
 
+    Copyright © 2014 Beijing ZhiYun ZhiYuan Information Technology Co., Ltd.
     Copyright © 2013-2014 Chinamobo Co., Ltd.
     https://github.com/Chinamobo/iOS-Project-Template
 
@@ -35,15 +36,32 @@ extern NSString *const APIErrorDomain;
  */
 + (AFHTTPRequestOperation *)requestWithName:(NSString *)APIName parameters:(NSDictionary *)parameters viewController:(UIViewController *)viewController loadingMessage:(NSString *)message modal:(BOOL)modal success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success completion:(void (^)(AFHTTPRequestOperation *operation))completion;
 
++ (AFHTTPRequestOperation *)requestWithName:(NSString *)APIName
+     parameters:(NSDictionary *)parameters
+ viewController:(UIViewController *)viewController
+      forceLoad:(BOOL)forceLoad
+ loadingMessage:(NSString *)message
+          modal:(BOOL)modal
+        success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
+        failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
+     completion:(void (^)(AFHTTPRequestOperation *operation))completion;
+
+/**
+ 取消属于 viewController 的请求，这些请求必须用 viewController 的类名做为 groupIdentifier
+ */
++ (void)cancelOperationsWithViewController:(id)viewController;
+
+#pragma mark - 状态提醒
+
 /**
  显示一个操作成功的信息，显示一段时间后自动隐藏
  */
 + (void)showSuccessStatus:(NSString *)message;
 
 /**
- 取消属于 viewController 的请求，这些请求必须用 viewController 的类名做为 groupIdentifier
+ 显示一个操作失败的错误消息，显示一段时间后自动隐藏
  */
-+ (void)cancelOperationsWithViewController:(id)viewController;
++ (void)alertError:(NSError *)error title:(NSString *)title;
 
 #pragma mark - 具体业务
 
