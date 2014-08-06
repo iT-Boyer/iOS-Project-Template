@@ -165,6 +165,15 @@
 		D5CC92D11918EAAB00C5B4D8 /* UIKit+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CC92D01918EAAB00C5B4D8 /* UIKit+App.m */; };
 		D5D1AFEC198F3D3A00FE0656 /* RFNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D1AFEB198F3D3A00FE0656 /* RFNavigationController.m */; };
 		D5D1AFEF198F3D4200FE0656 /* RFAPICacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D1AFEE198F3D4200FE0656 /* RFAPICacheManager.m */; };
+		D5D1B01B1992096400FE0656 /* MBTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D1B01A1992096400FE0656 /* MBTextView.m */; };
+		D5D1B01E1992097700FE0656 /* UITextViewDelegateChain.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D1B01D1992097700FE0656 /* UITextViewDelegateChain.m */; };
+		D5D1B0311992099100FE0656 /* RFAnimationTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D1B0211992099100FE0656 /* RFAnimationTransitioning.m */; };
+		D5D1B0321992099100FE0656 /* RFPullDownToPopInteractionController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D1B0241992099100FE0656 /* RFPullDownToPopInteractionController.m */; };
+		D5D1B0331992099100FE0656 /* RFNavigationControllerTransitionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D1B0261992099100FE0656 /* RFNavigationControllerTransitionDelegate.m */; };
+		D5D1B0341992099100FE0656 /* RFNavigationPopInteractionController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D1B0281992099100FE0656 /* RFNavigationPopInteractionController.m */; };
+		D5D1B0351992099100FE0656 /* RFMagicMoveTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D1B02B1992099100FE0656 /* RFMagicMoveTransitioning.m */; };
+		D5D1B0361992099100FE0656 /* RFMoveInFromBottomTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D1B02D1992099100FE0656 /* RFMoveInFromBottomTransitioning.m */; };
+		D5D1B0371992099100FE0656 /* UIViewController+RFTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D1B0301992099100FE0656 /* UIViewController+RFTransitioning.m */; };
 		D5DED9211839C9C70087CB7C /* AFNetworkActivityLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = D5DED9201839C9C70087CB7C /* AFNetworkActivityLogger.m */; };
 		D5DED9461839C9DE0087CB7C /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D5DED9271839C9DE0087CB7C /* AFNetworkReachabilityManager.m */; };
 		D5DED9471839C9DE0087CB7C /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = D5DED9291839C9DE0087CB7C /* AFSecurityPolicy.m */; };
@@ -506,6 +515,25 @@
 		D5D1AFEB198F3D3A00FE0656 /* RFNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFNavigationController.m; sourceTree = "<group>"; };
 		D5D1AFED198F3D4200FE0656 /* RFAPICacheManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFAPICacheManager.h; sourceTree = "<group>"; };
 		D5D1AFEE198F3D4200FE0656 /* RFAPICacheManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFAPICacheManager.m; sourceTree = "<group>"; };
+		D5D1B0191992096400FE0656 /* MBTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBTextView.h; sourceTree = "<group>"; };
+		D5D1B01A1992096400FE0656 /* MBTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBTextView.m; sourceTree = "<group>"; };
+		D5D1B01C1992097700FE0656 /* UITextViewDelegateChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITextViewDelegateChain.h; sourceTree = "<group>"; };
+		D5D1B01D1992097700FE0656 /* UITextViewDelegateChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITextViewDelegateChain.m; sourceTree = "<group>"; };
+		D5D1B0201992099100FE0656 /* RFAnimationTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFAnimationTransitioning.h; sourceTree = "<group>"; };
+		D5D1B0211992099100FE0656 /* RFAnimationTransitioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFAnimationTransitioning.m; sourceTree = "<group>"; };
+		D5D1B0231992099100FE0656 /* RFPullDownToPopInteractionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFPullDownToPopInteractionController.h; sourceTree = "<group>"; };
+		D5D1B0241992099100FE0656 /* RFPullDownToPopInteractionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFPullDownToPopInteractionController.m; sourceTree = "<group>"; };
+		D5D1B0251992099100FE0656 /* RFNavigationControllerTransitionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFNavigationControllerTransitionDelegate.h; sourceTree = "<group>"; };
+		D5D1B0261992099100FE0656 /* RFNavigationControllerTransitionDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFNavigationControllerTransitionDelegate.m; sourceTree = "<group>"; };
+		D5D1B0271992099100FE0656 /* RFNavigationPopInteractionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFNavigationPopInteractionController.h; sourceTree = "<group>"; };
+		D5D1B0281992099100FE0656 /* RFNavigationPopInteractionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFNavigationPopInteractionController.m; sourceTree = "<group>"; };
+		D5D1B02A1992099100FE0656 /* RFMagicMoveTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFMagicMoveTransitioning.h; sourceTree = "<group>"; };
+		D5D1B02B1992099100FE0656 /* RFMagicMoveTransitioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFMagicMoveTransitioning.m; sourceTree = "<group>"; };
+		D5D1B02C1992099100FE0656 /* RFMoveInFromBottomTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFMoveInFromBottomTransitioning.h; sourceTree = "<group>"; };
+		D5D1B02D1992099100FE0656 /* RFMoveInFromBottomTransitioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFMoveInFromBottomTransitioning.m; sourceTree = "<group>"; };
+		D5D1B02E1992099100FE0656 /* RFTransitioningStyel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFTransitioningStyel.h; sourceTree = "<group>"; };
+		D5D1B02F1992099100FE0656 /* UIViewController+RFTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+RFTransitioning.h"; sourceTree = "<group>"; };
+		D5D1B0301992099100FE0656 /* UIViewController+RFTransitioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+RFTransitioning.m"; sourceTree = "<group>"; };
 		D5DED91F1839C9C70087CB7C /* AFNetworkActivityLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkActivityLogger.h; sourceTree = "<group>"; };
 		D5DED9201839C9C70087CB7C /* AFNetworkActivityLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkActivityLogger.m; sourceTree = "<group>"; };
 		D5DED9261839C9DE0087CB7C /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
@@ -722,6 +750,7 @@
 				D5197B1617F019E300CA387C /* RFPlugin */,
 				D55FB77D19444B5900358714 /* RFTableViewCellHeightDelegate */,
 				D55FB78119444B5900358714 /* RFTableViewPullToFetchPlugin */,
+				D5D1B01F1992099100FE0656 /* RFTransitioning */,
 				D50558881890E8EE0049A759 /* RFViewApperance */,
 			);
 			path = Alpha;
@@ -1297,6 +1326,8 @@
 				D559BDF31948503A004F4CC1 /* MBTabBar.m */,
 				D55FB7691944441E00358714 /* MBTextField.h */,
 				D55FB76A1944441E00358714 /* MBTextField.m */,
+				D5D1B0191992096400FE0656 /* MBTextView.h */,
+				D5D1B01A1992096400FE0656 /* MBTextView.m */,
 			);
 			path = Appearance;
 			sourceTree = "<group>";
@@ -1379,6 +1410,8 @@
 			children = (
 				D5C77289196BD4790000A426 /* UITextFiledDelegateChain.h */,
 				D5C7728A196BD4790000A426 /* UITextFiledDelegateChain.m */,
+				D5D1B01C1992097700FE0656 /* UITextViewDelegateChain.h */,
+				D5D1B01D1992097700FE0656 /* UITextViewDelegateChain.m */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -1390,6 +1423,44 @@
 				D5D1AFEB198F3D3A00FE0656 /* RFNavigationController.m */,
 			);
 			path = RFNavigationController;
+			sourceTree = "<group>";
+		};
+		D5D1B01F1992099100FE0656 /* RFTransitioning */ = {
+			isa = PBXGroup;
+			children = (
+				D5D1B0221992099100FE0656 /* RFInteractiveTransitioning */,
+				D5D1B0291992099100FE0656 /* RFTransitioningStyle */,
+				D5D1B0201992099100FE0656 /* RFAnimationTransitioning.h */,
+				D5D1B0211992099100FE0656 /* RFAnimationTransitioning.m */,
+				D5D1B0251992099100FE0656 /* RFNavigationControllerTransitionDelegate.h */,
+				D5D1B0261992099100FE0656 /* RFNavigationControllerTransitionDelegate.m */,
+				D5D1B0271992099100FE0656 /* RFNavigationPopInteractionController.h */,
+				D5D1B0281992099100FE0656 /* RFNavigationPopInteractionController.m */,
+				D5D1B02F1992099100FE0656 /* UIViewController+RFTransitioning.h */,
+				D5D1B0301992099100FE0656 /* UIViewController+RFTransitioning.m */,
+			);
+			path = RFTransitioning;
+			sourceTree = "<group>";
+		};
+		D5D1B0221992099100FE0656 /* RFInteractiveTransitioning */ = {
+			isa = PBXGroup;
+			children = (
+				D5D1B0231992099100FE0656 /* RFPullDownToPopInteractionController.h */,
+				D5D1B0241992099100FE0656 /* RFPullDownToPopInteractionController.m */,
+			);
+			path = RFInteractiveTransitioning;
+			sourceTree = "<group>";
+		};
+		D5D1B0291992099100FE0656 /* RFTransitioningStyle */ = {
+			isa = PBXGroup;
+			children = (
+				D5D1B02A1992099100FE0656 /* RFMagicMoveTransitioning.h */,
+				D5D1B02B1992099100FE0656 /* RFMagicMoveTransitioning.m */,
+				D5D1B02C1992099100FE0656 /* RFMoveInFromBottomTransitioning.h */,
+				D5D1B02D1992099100FE0656 /* RFMoveInFromBottomTransitioning.m */,
+				D5D1B02E1992099100FE0656 /* RFTransitioningStyel.h */,
+			);
+			path = RFTransitioningStyle;
 			sourceTree = "<group>";
 		};
 		D5DED91E1839C9C70087CB7C /* AFNetworkActivityLogger */ = {
@@ -1609,6 +1680,7 @@
 				D55FB78E19444E9A00358714 /* MBTableView.m in Sources */,
 				D55FB77C19444B2B00358714 /* MBTableViewPullToFetchControl.m in Sources */,
 				D55FB76E1944441E00358714 /* MBTextField.m in Sources */,
+				D5D1B01B1992096400FE0656 /* MBTextView.m in Sources */,
 				D552DD7218C8506700D02290 /* Model.xcdatamodeld in Sources */,
 				D5197C9017F019E600CA387C /* NSArray+RFKit.m in Sources */,
 				D5197C9117F019E600CA387C /* NSBundle+RFKit.m in Sources */,
@@ -1628,6 +1700,7 @@
 				D5197CB217F019E600CA387C /* RACSwizzling.m in Sources */,
 				D5197CB517F019E600CA387C /* RFAlloctionProxyButton.m in Sources */,
 				D5197CB617F019E600CA387C /* RFAlloctionProxyView.m in Sources */,
+				D5D1B0311992099100FE0656 /* RFAnimationTransitioning.m in Sources */,
 				D50558691890C7F40049A759 /* RFAPI.m in Sources */,
 				D5D1AFEF198F3D4200FE0656 /* RFAPICacheManager.m in Sources */,
 				D5542EF919188EE700831016 /* RFAPIDefine.m in Sources */,
@@ -1648,9 +1721,13 @@
 				D5197CB817F019E600CA387C /* RFGeometry.m in Sources */,
 				D5197C8F17F019E600CA387C /* RFKeyboard.m in Sources */,
 				D50558911890E8EE0049A759 /* RFLine.m in Sources */,
+				D5D1B0351992099100FE0656 /* RFMagicMoveTransitioning.m in Sources */,
 				D5542F0819188F4F00831016 /* RFMessageManager+RFDisplay.m in Sources */,
 				D5542F0919188F4F00831016 /* RFMessageManager.m in Sources */,
+				D5D1B0361992099100FE0656 /* RFMoveInFromBottomTransitioning.m in Sources */,
 				D5D1AFEC198F3D3A00FE0656 /* RFNavigationController.m in Sources */,
+				D5D1B0331992099100FE0656 /* RFNavigationControllerTransitionDelegate.m in Sources */,
+				D5D1B0341992099100FE0656 /* RFNavigationPopInteractionController.m in Sources */,
 				D5197CD117F019E600CA387C /* RFNavigationPushAsRootSegue.m in Sources */,
 				D5197CD217F019E600CA387C /* RFNavigationPushSegue.m in Sources */,
 				D5197CB917F019E600CA387C /* RFPerformance.m in Sources */,
@@ -1658,6 +1735,7 @@
 				D5197C6C17F019E500CA387C /* RFPlugin.m in Sources */,
 				D5197CCD17F019E600CA387C /* RFPopBarButtonItem.m in Sources */,
 				D542C3441962930400524271 /* RFPresentSegue.m in Sources */,
+				D5D1B0321992099100FE0656 /* RFPullDownToPopInteractionController.m in Sources */,
 				D5542F101918976B00831016 /* RFRoundingCornersView.m in Sources */,
 				D5197CD317F019E600CA387C /* RFSegue.m in Sources */,
 				D5197CCE17F019E600CA387C /* RFSegueDismissModalButton.m in Sources */,
@@ -1692,11 +1770,13 @@
 				D5197CA117F019E600CA387C /* UIStoryboard+RFKit.m in Sources */,
 				D5197CA217F019E600CA387C /* UITableView+RFKit.m in Sources */,
 				D5C7728B196BD4790000A426 /* UITextFiledDelegateChain.m in Sources */,
+				D5D1B01E1992097700FE0656 /* UITextViewDelegateChain.m in Sources */,
 				D5197CA317F019E600CA387C /* UIView+RFAnimate.m in Sources */,
 				D5197CA417F019E600CA387C /* UIView+RFKit.m in Sources */,
 				D5542F111918976B00831016 /* UIView+RFLayerApperance.m in Sources */,
 				D50558941890E8EE0049A759 /* UIView+RFPatternImageBackground.m in Sources */,
 				D5197CA517F019E600CA387C /* UIViewController+RFKit.m in Sources */,
+				D5D1B0371992099100FE0656 /* UIViewController+RFTransitioning.m in Sources */,
 				D5197CA617F019E600CA387C /* UIWebView+RFKit.m in Sources */,
 				D5197CAB17F019E600CA387C /* UncaughtExceptionHandler.m in Sources */,
 				D552DD7B18C8506700D02290 /* UserInformation.m in Sources */,
