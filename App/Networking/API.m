@@ -11,6 +11,7 @@
 #import "NSDateFormatter+RFKit.h"
 #import "UIDevice+RFKit.h"
 #import "NSFileManager+RFKit.h"
+#import "MBRootNavigationController.h"
 
 RFDefineConstString(APIErrorDomain);
 
@@ -26,6 +27,16 @@ RFDefineConstString(APIErrorDomain);
     return [API sharedInstance].user;
 }
 
+- (APIUserPlugin *)user {
+    if (!_user) {
+        APIUserPlugin *up = [APIUserPlugin new];
+        up.shouldRememberPassword = YES;
+        up.shouldAutoLogin = YES;
+        _user = up;
+    }
+    return _user;
+}
+
 - (void)onInit {
     [super onInit];
 
@@ -34,15 +45,10 @@ RFDefineConstString(APIErrorDomain);
     NSDictionary *rules = [[NSDictionary alloc] initWithContentsOfFile:configPath];
     [self.defineManager setDefinesWithRulesInfo:rules];
     self.defineManager.defaultRequestSerializer = [AFJSONRequestSerializer serializer];
-    self.defineManager.defaultResponseSerializer = [APIJSONResponseSerializer serializer];
-    self.maxConcurrentOperationCount = 2;
+    APIJSONResponseSerializer *rps = [APIJSONResponseSerializer serializer];
+    self.defineManager.defaultResponseSerializer = rps;    self.maxConcurrentOperationCount = 2;
 
     // 设置属性
-    self.user = [[APIUserPlugin alloc] initWithMaster:self];
-//    self.user.shouldKeepLoginStatus = YES;
-    self.user.shouldRememberPassword = YES;
-    self.user.shouldAutoLogin = NO;
-
     self.networkActivityIndicatorManager = [RFSVProgressMessageManager new];
 
     // 配置网络
@@ -51,6 +57,13 @@ RFDefineConstString(APIErrorDomain);
         [AFNetworkActivityLogger sharedLogger].level = AFLoggerLevelDebug;
     }
     [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
+}
+
+- (void)afterInit {
+    [super afterInit];
+
+//    self.appUpdatePlugin.checkSource = APIAppUpdatePluginCheckSourceEnterpriseDistributionPlist;
+//    [self.appUpdatePlugin checkUpdateSilence:YES completion:nil];
 }
 
 #pragma mark - 请求管理
@@ -89,13 +102,18 @@ RFDefineConstString(APIErrorDomain);
 #pragma mark - 通用流程
 
 - (BOOL)generalHandlerForError:(NSError *)error withDefine:(RFAPIDefine *)define controlInfo:(RFAPIControl *)controlInfo requestOperation:(AFHTTPRequestOperation *)operation operationFailureCallback:(void (^)(AFHTTPRequestOperation *, NSError *))operationFailureCallback {
-    if ([error.domain isEqualToString:RFAPIErrorDomain] && error.code == 3) {
+    if ([error.domain isEqualToString:APIErrorDomain] && error.code == 403) {
         [self.networkActivityIndicatorManager alertError:error title:@"请重新登录"];
         dispatch_after_seconds(1, ^{
             [self.user logout];
         });
         return NO;
     }
+    return YES;
+}
+
+- (BOOL)isSuccessResponse:(__autoreleasing id *)responseObjectRef error:(NSError *__autoreleasing *)error {
+    // TODO: 判断是否是成功响应
     return YES;
 }
 

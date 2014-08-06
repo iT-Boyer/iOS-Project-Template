@@ -1,5 +1,6 @@
 /*!
     API
+    v 2.0
 
     Copyright © 2014 Beijing ZhiYun ZhiYuan Information Technology Co., Ltd.
     Copyright © 2013-2014 Chinamobo Co., Ltd.
