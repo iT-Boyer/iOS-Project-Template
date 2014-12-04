@@ -1,7 +1,8 @@
 /*!
     MBTableView
-    v 0.3
+    v 1.3
 
+    Copyright © 2014 Beijing ZhiYun ZhiYuan Information Technology Co., Ltd.
     Copyright © 2014 Chinamobo Co., Ltd.
     https://github.com/Chinamobo/iOS-Project-Template
 
@@ -11,57 +12,60 @@
 #import "RFUI.h"
 #import "MBTableViewPullToFetchControl.h"
 #import "RFTableViewCellHeightDelegate.h"
+#import "MBEntityExchanging.h"
+#import "MBTableViewDataSource.h"
+
+@protocol MBTableViewDelegate;
 
 /**
  Table view 基类
 
- dataSorce 要留空，这个类只支持单 section 的情形。
-
  封装了分页的数据获取（包括下拉刷新、上拉加载更多，数据到底处理），Auto layout cell 自动高度等功能。
- 其 delegate 要实现 MBTableViewDelegate 中的方法。
+
  */
 @interface MBTableView : UITableView <
-    RFInitializing,
-    UITableViewDataSource
+    RFInitializing
 >
-@property (strong, nonatomic) NSMutableArray *items;
-
 @property (strong, nonatomic) RFTableViewCellHeightDelegate *cellHeightManager;
 @property (strong, nonatomic) MBTableViewPullToFetchControl *pullToFetchController;
 
-@property (assign, nonatomic) NSInteger page;
-@property (assign, nonatomic) NSUInteger pageSize;
+/**
+ 类里已内置了一个强引用的 MBTableViewDataSource
+ */
+@property (weak, nonatomic) MBTableViewDataSource *dataSource;
+
+/**
+ 获取数据
+ 
+ pullToFetchController 触发获取操作时调用的就是这个方法，如果要静默更新则可手动调用该方法
+ */
+- (void)fetchItemsWithPageFlag:(BOOL)nextPage;
 
 /// 刷新数据，会重置 cell 高度缓存
 - (void)reload;
 
-/// 使用 Auto Layout 更新 cell 高度
-- (void)updateCellHeightAtIndexPath:(NSIndexPath *)indexPath;
-- (void)updateCellHeightOfCell:(UITableViewCell *)cell;
-@end
-
 /**
- 可选协议，标明 cell 有 item 属性
+ 从列表中删除一个对象的傻瓜方法，会设置好其他该设置的状态
  */
-@protocol MBTableViewCellEntityExchanging <NSObject>
-@property (strong, nonatomic) id item;
+- (void)removeItem:(id)item withRowAnimation:(UITableViewRowAnimation)animation;
+
+/// 重置，以便作为另一个表格展示
+- (void)prepareForReuse;
+
+#pragma mark -
+- (void)updateCellHeightOfCell:(UITableViewCell *)cell animated:(BOOL)animated;
+- (void)updateCellHeightAtIndexPath:(NSIndexPath *)indexPath animated:(BOOL)animated;
+
 @end
 
-/**
- 这个协议比较特殊，RFTableViewCellHeightDelegate 的两个方法变成必须的
-
- 数据获取可以 delegate 完全实现（相应的数据添加、刷新、状态控制都要自行处理），或只提供必须的参数
- */
-@protocol MBTableViewDelegate <RFTableViewCellHeightDelegate>
-@optional
-/// 如果 delegate 不实现该方法，下面两个方法就是必须的了
-- (void)fetchItemsWithPageFlag:(BOOL)nextPage;
-
-- (NSString *)fetchAPIName;
-- (NSMutableDictionary *)fetchParameters;
-@end
 
 /*! Change log
+ 
+ 1.0
+ - dataSource 变成对象
+ 
+ 0.4
+ - 移除 MBTableViewCellEntityExchanging，改用 MBSenderEntityExchanging
  
  0.3
  - 增加更新 cell 高度的方法

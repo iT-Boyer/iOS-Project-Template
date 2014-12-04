@@ -5,15 +5,16 @@
 
 @interface MBTableView ()
 @property (weak, nonatomic) id<MBTableViewDelegate> delegate;
+@property (strong, nonatomic) MBTableViewDataSource *trueDataSource;
 @end
 
 @implementation MBTableView
 RFInitializingRootForUIView
 
 - (void)onInit {
-    self.pageSize = APIConfigFetchPageSize;
-    self.items = [NSMutableArray array];
-    self.dataSource = self;
+    self.trueDataSource = [MBTableViewDataSource new];
+    self.trueDataSource.tableView = self;
+    [super setDataSource:self.trueDataSource];
 }
 
 - (void)afterInit {
@@ -43,7 +44,7 @@ RFInitializingRootForUIView
 
         [control setFooterProcessBlock:^{
             @strongify(self);
-            [self fetchItemsWithPageFlag:(self.page != 0)];
+            [self fetchItemsWithPageFlag:(self.dataSource.page != 0)];
         }];
 
         _pullToFetchController = control;
@@ -52,28 +53,20 @@ RFInitializingRootForUIView
 }
 
 - (void)fetchItemsWithPageFlag:(BOOL)nextPage {
-    if ([self.delegate respondsToSelector:@selector(fetchItemsWithPageFlag:)]) {
-        [self.delegate fetchItemsWithPageFlag:nextPage];
-        return;
-    }
-
-    self.page = nextPage? self.page + 1 : 1;
-    NSMutableDictionary *dic = self.delegate.fetchParameters;
-    [dic addEntriesFromDictionary:@{ @"page" : @(self.page), @"pagesize" : @(self.pageSize) }];
-
-    [API requestWithName:self.delegate.fetchAPIName parameters:dic viewController:self.viewController loadingMessage:nil modal:NO success:^(AFHTTPRequestOperation *operation, NSArray *responseObject) {
-        if (nextPage) {
-            [self.items addObjectsFromArray:responseObject];
-        }
-        else {
-            [self.items setArray:responseObject];
+    __block BOOL success = NO;
+    @weakify(self);
+    [self.dataSource fetchItemsFromViewController:self.viewController nextPage:nextPage success:^(MBListDataSource *dateSource, NSArray *fetchedItems) {
+        @strongify(self);
+        if (!nextPage) {
             [self.cellHeightManager invalidateCellHeightCache];
             MBRefreshFooterView *fv = (id)self.pullToFetchController.footerContainer;
-            fv.empty = (responseObject.count == 0);
+            fv.empty = dateSource.empty;
         }
-        self.pullToFetchController.footerReachEnd = !!(responseObject.count < self.pageSize);
-        [self reloadData];
-    } completion:^(AFHTTPRequestOperation *operation) {
+        self.pullToFetchController.footerReachEnd = dateSource.pageEnd;
+        success = YES;
+    } completion:^(MBListDataSource *dateSource) {
+        @strongify(self);
+        self.pullToFetchController.autoFetchWhenScroll = success;
         [self.pullToFetchController markProcessFinshed];
     }];
 }
@@ -85,29 +78,46 @@ RFInitializingRootForUIView
     [self reloadData];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.items.count;
+- (void)removeItem:(id)item withRowAnimation:(UITableViewRowAnimation)animation {
+    NSIndexPath *ip = [self.dataSource indexPathForItem:item];
+    if (ip) {
+        [self.cellHeightManager invalidateCellHeightCache];
+        [self.dataSource.items removeObjectAtIndex:ip.row];
+        [self deleteRowsAtIndexPaths:@[ ip ] withRowAnimation:animation];
+    }
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[self.delegate tableView:tableView cellReuseIdentifierForRowAtIndexPath:indexPath]];
-    RFAssert(cell, nil);
-    [self.delegate tableView:tableView configureCell:cell forIndexPath:indexPath offscreenRendering:NO];
-    return cell;
+- (void)prepareForReuse {
+    [self.dataSource prepareForReuse];
+    [self.pullToFetchController markProcessFinshed];
+    self.pullToFetchController.footerReachEnd = NO;
+    [self reload];
 }
 
-#pragma mark - Cell height update
+#pragma mark - DataSource Forward
 
-- (void)updateCellHeightAtIndexPath:(NSIndexPath *)indexPath {
-    [self.cellHeightManager invalidateCellHeightCacheAtIndexPath:indexPath];
-    [self beginUpdates];
-    [self endUpdates];
+- (void)setDataSource:(id<UITableViewDataSource>)dataSource {
+    self.trueDataSource.delegate = dataSource;
 }
 
-- (void)updateCellHeightOfCell:(UITableViewCell *)cell {
+- (id<UITableViewDataSource>)dataSource {
+    return self.trueDataSource;
+}
+
+#pragma mark - Cell height
+#pragma mark Update
+
+- (void)updateCellHeightAtIndexPath:(NSIndexPath *)indexPath animated:(BOOL)animated {
+    if (indexPath) {
+        [self.cellHeightManager invalidateCellHeightCacheAtIndexPath:indexPath];
+        [self reloadRowsAtIndexPaths:@[ indexPath ] withRowAnimation:animated? UITableViewRowAnimationFade : UITableViewRowAnimationNone];
+    }
+}
+
+- (void)updateCellHeightOfCell:(UITableViewCell *)cell animated:(BOOL)animated {
     NSIndexPath *ip = [self indexPathForCell:cell];
     if (ip) {
-        [self updateCellHeightAtIndexPath:ip];
+        [self updateCellHeightAtIndexPath:ip animated:YES];
     }
 }
 

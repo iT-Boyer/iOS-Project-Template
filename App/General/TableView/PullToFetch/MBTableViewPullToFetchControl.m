@@ -1,7 +1,5 @@
 
 #import "MBTableViewPullToFetchControl.h"
-#import "MBRefreshHeaderView.h"
-#import "MBRefreshFooterView.h"
 
 @implementation MBTableViewPullToFetchControl
 
@@ -11,8 +9,10 @@
     self.headerContainer = [MBRefreshHeaderView loadWithNibName:nil];
 
     MBRefreshFooterView *fv = [MBRefreshFooterView loadWithNibName:nil];
-    fv.emptyLabel.text = @"列表为空";
+    fv.emptyLabel.text = @"(￣▽￣) 这里空空如也哦";
     self.footerContainer = fv;
+    self.autoFetchWhenScroll = YES;
+    self.autoFetchTolerateDistance = 100;
 }
 
 - (void)afterInit {
@@ -28,6 +28,12 @@
 
     [self setNeedsDisplayHeader];
     [self setNeedsDisplayFooter];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if ([self.delegate respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:)]) {
+        [self.delegate tableView:tableView didSelectRowAtIndexPath:indexPath];
+    }
 }
 
 @end

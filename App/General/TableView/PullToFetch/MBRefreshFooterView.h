@@ -13,6 +13,7 @@
 
 @interface MBRefreshFooterView : UIView
 @property (weak, nonatomic) IBOutlet UILabel *emptyLabel;
+@property (weak, nonatomic) IBOutlet UILabel *endLabel;
 @property (weak, nonatomic) IBOutlet UILabel *textLabel;
 
 /**
