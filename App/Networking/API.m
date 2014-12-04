@@ -94,6 +94,10 @@ RFDefineConstString(APIErrorDomain);
     [[API sharedInstance].networkActivityIndicatorManager showWithTitle:nil message:message status:RFNetworkActivityIndicatorStatusSuccess modal:NO priority:RFNetworkActivityIndicatorMessagePriorityHigh autoHideAfterTimeInterval:0 identifier:nil groupIdentifier:nil userInfo:nil];
 }
 
++ (void)showErrorStatus:(NSString *)message {
+    [[API sharedInstance].networkActivityIndicatorManager showWithTitle:nil message:message status:RFNetworkActivityIndicatorStatusFail modal:NO priority:RFNetworkActivityIndicatorMessagePriorityHigh autoHideAfterTimeInterval:0 identifier:nil groupIdentifier:nil userInfo:nil];
+}
+
 + (void)alertError:(NSError *)error title:(NSString *)title {
     [[API sharedInstance].networkActivityIndicatorManager alertError:error title:title];
 }

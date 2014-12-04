@@ -60,6 +60,11 @@ extern NSString *const APIErrorDomain;
 + (void)showSuccessStatus:(NSString *)message;
 
 /**
+ 显示一个错误提醒，一段时间后自动隐藏
+ */
++ (void)showErrorStatus:(NSString *)message;
+
+/**
  显示一个操作失败的错误消息，显示一段时间后自动隐藏
  */
 + (void)alertError:(NSError *)error title:(NSString *)title;
