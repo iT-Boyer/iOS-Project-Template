@@ -1,7 +1,16 @@
 
 #import "MBMultiLineLabel.h"
+#import "MBLayoutConstraint.h"
 
 @implementation MBMultiLineLabel
+RFInitializingRootForUIView
+
+- (void)onInit {
+}
+
+- (void)afterInit {
+    // Nothing
+}
 
 - (void)setBounds:(CGRect)bounds {
     [super setBounds:bounds];
@@ -15,9 +24,16 @@
         size.width = self.preferredMaxLayoutWidth;
     }
 
-    if (size.height < 22) {
-        size.height = 22;
+    if (size.height < self.minHeight) {
+        size.height = self.minHeight;
     }
+
+    if (self.collapseVerticalMarginWhenEmpty) {
+        BOOL expand = (size.height > 0);
+        self.topMargin.expand = expand;
+        self.bottomMargin.expand = expand;
+    }
+
     _dout_size(size)
     return size;
 }

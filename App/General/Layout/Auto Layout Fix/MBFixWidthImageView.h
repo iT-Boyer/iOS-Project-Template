@@ -1,7 +1,8 @@
 /*!
     MBFixWidthImageView
-    v 1.0
+    v 1.1
 
+    Copyright © 2015 Beijing ZhiYun ZhiYuan Information Technology Co., Ltd.
     Copyright © 2014 Chinamobo Co., Ltd.
     https://github.com/Chinamobo/iOS-Project-Template
 
@@ -17,4 +18,9 @@
  但当图像被压缩时，比如宽度受限且 contentMode 是 UIViewContentModeScaleAspectFit 时，高度依旧是原始尺寸，但宽度被压缩了，视图上下就会留有空白。这个类就在这方面进行了优化。
  */
 @interface MBFixWidthImageView : UIImageView
+
+/**
+ 未设置图片时默认的高宽比
+ */
+@property (assign, nonatomic) IBInspectable CGFloat defaultSizeRatio;
 @end

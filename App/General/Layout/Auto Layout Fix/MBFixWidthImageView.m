@@ -6,6 +6,12 @@
 - (CGSize)intrinsicContentSize {
     CGSize imageSize = self.image.size;
     CGFloat width = self.bounds.size.width;
+    if ((imageSize.width <= 0 || imageSize.height <= 0)
+        && self.defaultSizeRatio) {
+        imageSize.width = width;
+        imageSize.height = width * self.defaultSizeRatio;
+        return imageSize;
+    }
 
     if (imageSize.width == 0) {
         return CGSizeMake(width, 0);

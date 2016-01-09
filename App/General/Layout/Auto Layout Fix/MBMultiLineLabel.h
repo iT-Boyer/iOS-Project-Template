@@ -1,17 +1,20 @@
 /*!
     MBMultiLineLabel
-    v 1.0
+    v 2.0
 
+    Copyright © 2014, 2016 Beijing ZhiYun ZhiYuan Technology Co., Ltd.
     Copyright © 2014 Chinamobo Co., Ltd.
     https://github.com/Chinamobo/iOS-Project-Template
 
     Apache License, Version 2.0
     http://www.apache.org/licenses/LICENSE-2.0
  */
-#import <UIKit/UIKit.h>
+#import "RFUI.h"
+
+@class MBLayoutConstraint;
 
 /**
- 这个类为了解决 Auto Layout label 自适应高度的问题
+ 这个类为了解决 Auto Layout label 自适应高度的问题（即使在 iOS 9 时代仍有其用武之地）
  
  细节：
  - 如果 label 是从 storyboard 中创建的，Auto layout 会按照 storybaord 中定义的宽度计算其尺寸，这意味着当 label 实际尺寸与在 storybaord 中定义的宽度不一致时，计算出来的高度可能会不正确；
@@ -22,6 +25,21 @@
  - 这个类不会设置 numberOfLines。
 
  */
-@interface MBMultiLineLabel : UILabel
+@interface MBMultiLineLabel : UILabel <
+    RFInitializing
+>
 
+/**
+ 最低高度，默认 0
+ */
+@property (assign, nonatomic) IBInspectable CGFloat minHeight;
+
+#pragma mark - 上下方约束控制
+
+/**
+ Label 为空时折叠上下约束
+ */
+@property (assign, nonatomic) IBInspectable BOOL collapseVerticalMarginWhenEmpty;
+@property (weak, nonatomic) IBOutlet MBLayoutConstraint *topMargin;
+@property (weak, nonatomic) IBOutlet MBLayoutConstraint *bottomMargin;
 @end

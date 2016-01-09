@@ -87,8 +87,6 @@
 		D542C3441962930400524271 /* RFPresentSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = D542C3431962930400524271 /* RFPresentSegue.m */; };
 		D544A396197CBE5300C65604 /* MBFormSelectButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D544A395197CBE5300C65604 /* MBFormSelectButton.m */; };
 		D544A39E197D1E8600C65604 /* JSONValueTransformer+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D544A39D197D1E8600C65604 /* JSONValueTransformer+App.m */; };
-		D54B911E1943225900DE100C /* MBMultiLineLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D54B911D1943225900DE100C /* MBMultiLineLabel.m */; };
-		D54B91211943305900DE100C /* MBFixWidthImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = D54B91201943305900DE100C /* MBFixWidthImageView.m */; };
 		D552DD6F18C8506700D02290 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D552DD4C18C8506700D02290 /* HomeViewController.m */; };
 		D552DD7018C8506700D02290 /* DataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = D552DD4F18C8506700D02290 /* DataStack.m */; };
 		D552DD7118C8506700D02290 /* MBAppVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = D552DD5218C8506700D02290 /* MBAppVersion.m */; };
@@ -159,6 +157,11 @@
 		D5B49EB11C41104700847925 /* RFKVOWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B49EAD1C41104700847925 /* RFKVOWrapper.m */; };
 		D5B49EB21C41104700847925 /* RFSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B49EB01C41104700847925 /* RFSwizzle.m */; };
 		D5B49EB51C41106B00847925 /* UITableView+RFTableViewCellHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B49EB41C41106B00847925 /* UITableView+RFTableViewCellHeight.m */; };
+		D5B49EC21C4111B600847925 /* MBCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B49EB91C4111B600847925 /* MBCollectionViewCell.m */; };
+		D5B49EC31C4111B600847925 /* MBFixWidthImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B49EBB1C4111B600847925 /* MBFixWidthImageView.m */; };
+		D5B49EC41C4111B600847925 /* MBMultiLineLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B49EBD1C4111B600847925 /* MBMultiLineLabel.m */; };
+		D5B49EC51C4111B600847925 /* MBCollapsibleView.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B49EBF1C4111B600847925 /* MBCollapsibleView.m */; };
+		D5B49EC61C4111B600847925 /* MBLayoutConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B49EC11C4111B600847925 /* MBLayoutConstraint.m */; };
 		D5C7728B196BD4790000A426 /* UITextFiledDelegateChain.m in Sources */ = {isa = PBXBuildFile; fileRef = D5C7728A196BD4790000A426 /* UITextFiledDelegateChain.m */; };
 		D5CB54471A302579003E53A4 /* MBListDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CB54431A302579003E53A4 /* MBListDataSource.m */; };
 		D5CB54481A302579003E53A4 /* MBTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CB54461A302579003E53A4 /* MBTableViewDataSource.m */; };
@@ -375,10 +378,6 @@
 		D544A394197CBE5300C65604 /* MBFormSelectButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBFormSelectButton.h; sourceTree = "<group>"; };
 		D544A395197CBE5300C65604 /* MBFormSelectButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBFormSelectButton.m; sourceTree = "<group>"; };
 		D544A39D197D1E8600C65604 /* JSONValueTransformer+App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JSONValueTransformer+App.m"; sourceTree = "<group>"; };
-		D54B911C1943225900DE100C /* MBMultiLineLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBMultiLineLabel.h; sourceTree = "<group>"; };
-		D54B911D1943225900DE100C /* MBMultiLineLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBMultiLineLabel.m; sourceTree = "<group>"; };
-		D54B911F1943305900DE100C /* MBFixWidthImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBFixWidthImageView.h; sourceTree = "<group>"; };
-		D54B91201943305900DE100C /* MBFixWidthImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBFixWidthImageView.m; sourceTree = "<group>"; };
 		D552DD4B18C8506700D02290 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		D552DD4C18C8506700D02290 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		D552DD4E18C8506700D02290 /* DataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataStack.h; sourceTree = "<group>"; };
@@ -516,6 +515,16 @@
 		D5B49EB01C41104700847925 /* RFSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFSwizzle.m; sourceTree = "<group>"; };
 		D5B49EB31C41106B00847925 /* UITableView+RFTableViewCellHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+RFTableViewCellHeight.h"; sourceTree = "<group>"; };
 		D5B49EB41C41106B00847925 /* UITableView+RFTableViewCellHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+RFTableViewCellHeight.m"; sourceTree = "<group>"; };
+		D5B49EB81C4111B600847925 /* MBCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBCollectionViewCell.h; sourceTree = "<group>"; };
+		D5B49EB91C4111B600847925 /* MBCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBCollectionViewCell.m; sourceTree = "<group>"; };
+		D5B49EBA1C4111B600847925 /* MBFixWidthImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBFixWidthImageView.h; sourceTree = "<group>"; };
+		D5B49EBB1C4111B600847925 /* MBFixWidthImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBFixWidthImageView.m; sourceTree = "<group>"; };
+		D5B49EBC1C4111B600847925 /* MBMultiLineLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBMultiLineLabel.h; sourceTree = "<group>"; };
+		D5B49EBD1C4111B600847925 /* MBMultiLineLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBMultiLineLabel.m; sourceTree = "<group>"; };
+		D5B49EBE1C4111B600847925 /* MBCollapsibleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBCollapsibleView.h; sourceTree = "<group>"; };
+		D5B49EBF1C4111B600847925 /* MBCollapsibleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBCollapsibleView.m; sourceTree = "<group>"; };
+		D5B49EC01C4111B600847925 /* MBLayoutConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBLayoutConstraint.h; sourceTree = "<group>"; };
+		D5B49EC11C4111B600847925 /* MBLayoutConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBLayoutConstraint.m; sourceTree = "<group>"; };
 		D5C77289196BD4790000A426 /* UITextFiledDelegateChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITextFiledDelegateChain.h; sourceTree = "<group>"; };
 		D5C7728A196BD4790000A426 /* UITextFiledDelegateChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITextFiledDelegateChain.m; sourceTree = "<group>"; };
 		D5CB54431A302579003E53A4 /* MBListDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBListDataSource.m; sourceTree = "<group>"; };
@@ -1081,17 +1090,6 @@
 			path = RFAsynchronousSegue;
 			sourceTree = "<group>";
 		};
-		D54B911B1943224500DE100C /* Auto Layout Fix */ = {
-			isa = PBXGroup;
-			children = (
-				D54B911F1943305900DE100C /* MBFixWidthImageView.h */,
-				D54B91201943305900DE100C /* MBFixWidthImageView.m */,
-				D54B911C1943225900DE100C /* MBMultiLineLabel.h */,
-				D54B911D1943225900DE100C /* MBMultiLineLabel.m */,
-			);
-			path = "Auto Layout Fix";
-			sourceTree = "<group>";
-		};
 		D552DD4918C8506700D02290 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
@@ -1203,10 +1201,10 @@
 			isa = PBXGroup;
 			children = (
 				D55FB762194443F600358714 /* Appearance */,
-				D54B911B1943224500DE100C /* Auto Layout Fix */,
 				D50EAAEB195AC54F00548BF6 /* Compatibility */,
 				D5542F201918C6BF00831016 /* EntityViewControllers */,
 				D564CF39196D98E10087B179 /* Form */,
+				D5B49EB61C4111B600847925 /* Layout */,
 				D50693D519495D940002BFCC /* MBControlGroup */,
 				D564D5D01970EE2C0032FEC3 /* Segue */,
 				D55FB78B19444DF100358714 /* TableView */,
@@ -1449,6 +1447,31 @@
 				D5B49EB01C41104700847925 /* RFSwizzle.m */,
 			);
 			path = RFSwizzle;
+			sourceTree = "<group>";
+		};
+		D5B49EB61C4111B600847925 /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				D5B49EB71C4111B600847925 /* Auto Layout Fix */,
+				D5B49EBE1C4111B600847925 /* MBCollapsibleView.h */,
+				D5B49EBF1C4111B600847925 /* MBCollapsibleView.m */,
+				D5B49EC01C4111B600847925 /* MBLayoutConstraint.h */,
+				D5B49EC11C4111B600847925 /* MBLayoutConstraint.m */,
+			);
+			path = Layout;
+			sourceTree = "<group>";
+		};
+		D5B49EB71C4111B600847925 /* Auto Layout Fix */ = {
+			isa = PBXGroup;
+			children = (
+				D5B49EB81C4111B600847925 /* MBCollectionViewCell.h */,
+				D5B49EB91C4111B600847925 /* MBCollectionViewCell.m */,
+				D5B49EBA1C4111B600847925 /* MBFixWidthImageView.h */,
+				D5B49EBB1C4111B600847925 /* MBFixWidthImageView.m */,
+				D5B49EBC1C4111B600847925 /* MBMultiLineLabel.h */,
+				D5B49EBD1C4111B600847925 /* MBMultiLineLabel.m */,
+			);
+			path = "Auto Layout Fix";
 			sourceTree = "<group>";
 		};
 		D5C77288196BD4790000A426 /* UIKit */ = {
@@ -1742,16 +1765,19 @@
 				D552DD7118C8506700D02290 /* MBAppVersion.m in Sources */,
 				D5CB54591A302DD6003E53A4 /* MBAutoSearchBar.m in Sources */,
 				D55FB76C1944441E00358714 /* MBButton.m in Sources */,
+				D5B49EC51C4111B600847925 /* MBCollapsibleView.m in Sources */,
+				D5B49EC21C4111B600847925 /* MBCollectionViewCell.m in Sources */,
 				D50693D819495D9E0002BFCC /* MBControlGroup.m in Sources */,
 				D5542F231918C6C600831016 /* MBEntityDetailViewController.m in Sources */,
 				D5542F261918C6E800831016 /* MBEntityListViewController.m in Sources */,
-				D54B91211943305900DE100C /* MBFixWidthImageView.m in Sources */,
+				D5B49EC31C4111B600847925 /* MBFixWidthImageView.m in Sources */,
 				D544A396197CBE5300C65604 /* MBFormSelectButton.m in Sources */,
 				D564CF3C196D9A7A0087B179 /* MBFormSelectListViewController.m in Sources */,
+				D5B49EC61C4111B600847925 /* MBLayoutConstraint.m in Sources */,
 				D5CB54471A302579003E53A4 /* MBListDataSource.m in Sources */,
 				D564D5D31970EE340032FEC3 /* MBModalPresentSegue.m in Sources */,
 				D52514211BF83CF9008D17EB /* MBModel.m in Sources */,
-				D54B911E1943225900DE100C /* MBMultiLineLabel.m in Sources */,
+				D5B49EC41C4111B600847925 /* MBMultiLineLabel.m in Sources */,
 				D55FB76D1944441E00358714 /* MBNavigationBarAppearanceConfigurator.m in Sources */,
 				D55FB77819444B2B00358714 /* MBRefreshFooterView.m in Sources */,
 				D55FB77A19444B2B00358714 /* MBRefreshHeaderView.m in Sources */,
