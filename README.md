@@ -1,4 +1,4 @@
-Chinamobo iOS 项目模版 v3.3
+Chinamobo iOS 项目模版 v3.4
 ====
 <base href="//github.com/BB9z/iOS-Project-Template/blob/master/" />
 <big>[猛击此处阅读：使用指南](Guide.md)</big>
@@ -6,7 +6,7 @@ Chinamobo iOS 项目模版 v3.3
 
 需求
 ----
-项目最低要求 Xcode 5.1，iOS 7 SDK，支持 iOS 6 及以上版本。
+项目最低要求 Xcode 7.0，iOS 9 SDK，支持 iOS 7 及以上版本。
 
 
 修改明细
@@ -58,7 +58,7 @@ Chinamobo iOS 项目模版 v3.3
   - CFBundleDevelopmentRegion 设为 zh_CN。
 
 * 添加基础流程界面，根导航控制器，导航条不透明；
-* Deployment Target 设置为 iOS 6.0；
+* Deployment Target 设置为 iOS 7.0；
 * Storyboard 编译版本设为 iOS 6，全局颜色设置为红色；
 * 添加仓库级别的 git 忽略规则；
 * 全套应用 Icon 及启动画面；
@@ -69,7 +69,8 @@ Chinamobo iOS 项目模版 v3.3
 
 Licenses
 ----
-Copyright 2013-2014 2014 Chinamobo Co., Ltd., BB9z@me.com
+Copyright © 2014－2016 Beijing ZhiYun ZhiYuan Information Technology Co., Ltd.
+Copyright 2013-2014 Chinamobo Co., Ltd., BB9z@me.com
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -82,3 +83,4 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
+
