@@ -1,8 +1,9 @@
 
 #import "MBTableViewDataSource.h"
-#import "MBEntityExchanging.h"
+#import "UIView+RFAnimate.h"
 
 @implementation MBTableViewDataSource
+@dynamic delegate;
 
 - (void)onInit {
     [super onInit];
@@ -13,7 +14,7 @@
     }
 
     if (!self.configureCell) {
-        [self setConfigureCell:^(UITableView *tableView, id<MBEntityExchanging> cell, NSIndexPath *indexPath, id item, BOOL offscreenRendering) {
+        [self setConfigureCell:^(UITableView *tableView, id cell, NSIndexPath *indexPath, id item, BOOL offscreenRendering) {
             if ([cell respondsToSelector:@selector(setItem:)]) {
                 [cell setItem:item];
             }
@@ -23,13 +24,15 @@
 
 - (void)fetchItemsFromViewController:(id)viewController nextPage:(BOOL)nextPage success:(void (^)(MBTableViewDataSource *, NSArray *))success completion:(void (^)(MBTableViewDataSource *))completion {
     @autoreleasepool {
+        @weakify(self);
         [super fetchItemsFromViewController:viewController nextPage:nextPage success:^(MBListDataSource *dateSource, NSArray *fetchedItems) {
+            @strongify(self);
             if (self.animationReload) {
                 if (nextPage) {
                     NSMutableArray *indexPaths = [NSMutableArray arrayWithCapacity:fetchedItems.count];
                     NSUInteger rowCount = dateSource.items.count;
                     [fetchedItems enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-                        [indexPaths addObject:[NSIndexPath indexPathForRow:rowCount - idx -1 inSection:0]];
+                        [indexPaths rf_addObject:[NSIndexPath indexPathForRow:rowCount - idx -1 inSection:0]];
                     }];
                     [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
                 }
@@ -60,7 +63,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     id item = [self itemAtIndexPath:indexPath];
     NSString *reuseIdentifier = self.cellReuseIdentifier(tableView, indexPath, item);
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
+    UITableViewCell *cell = [tableView rf_dequeueReusableCellWithIdentifier:reuseIdentifier];
     RFAssert(cell, @"找不到 reuse identifier 为 %@ 的 cell", reuseIdentifier);
     self.configureCell(tableView, cell, indexPath, item, NO);
     return cell;

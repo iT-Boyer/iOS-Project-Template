@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <deployment version="2048" identifier="iOS"/>
+        <development version="7000" identifier="xcode"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -14,19 +15,19 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6jf-Ir-Qfe">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="暂时没有信息" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xPA-CM-bcH" userLabel="EMPTY">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="暂时没有信息" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="xPA-CM-bcH" userLabel="EMPTY">
                     <rect key="frame" x="20" y="12" width="280" height="17"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" red="0.53333333333333333" green="0.53333333333333333" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="~ End ~" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nXb-T0-3xY" userLabel="END">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="~ Feel ~" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="nXb-T0-3xY" userLabel="END">
                     <rect key="frame" x="20" y="14" width="280" height="12"/>
                     <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="10"/>
                     <color key="textColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.53333333329999999" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="加载中……" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NyE-WE-LQo" userLabel="Loading">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="~ Feel ~" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NyE-WE-LQo" userLabel="Loading">
                     <rect key="frame" x="20" y="12" width="280" height="17"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -39,12 +40,11 @@
                 <constraint firstAttribute="bottom" secondItem="6jf-Ir-Qfe" secondAttribute="bottom" id="AL4-WT-INU"/>
                 <constraint firstAttribute="trailing" secondItem="6jf-Ir-Qfe" secondAttribute="trailing" id="BJ4-cN-W1s"/>
                 <constraint firstItem="xPA-CM-bcH" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="Cwf-k3-QVG"/>
-                <constraint firstAttribute="trailing" secondItem="xPA-CM-bcH" secondAttribute="trailing" constant="20" id="F33-aS-6vF"/>
+                <constraint firstAttribute="trailing" secondItem="xPA-CM-bcH" secondAttribute="trailing" priority="999" constant="20" id="F33-aS-6vF"/>
                 <constraint firstItem="6jf-Ir-Qfe" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="FYF-Da-hXa"/>
                 <constraint firstItem="6jf-Ir-Qfe" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="O1p-aG-vaW"/>
-                <constraint firstAttribute="trailing" secondItem="nXb-T0-3xY" secondAttribute="trailing" constant="20" id="QWt-Q8-bCp"/>
-                <constraint firstAttribute="trailing" secondItem="NyE-WE-LQo" secondAttribute="trailing" constant="20" id="XH2-qW-qbd"/>
-                <constraint firstAttribute="centerX" secondItem="NyE-WE-LQo" secondAttribute="centerX" id="fHH-il-IAR"/>
+                <constraint firstAttribute="trailing" secondItem="nXb-T0-3xY" secondAttribute="trailing" priority="999" constant="20" id="QWt-Q8-bCp"/>
+                <constraint firstAttribute="trailing" secondItem="NyE-WE-LQo" secondAttribute="trailing" priority="999" constant="20" id="XH2-qW-qbd"/>
                 <constraint firstAttribute="centerY" secondItem="NyE-WE-LQo" secondAttribute="centerY" id="hvS-jA-8PS"/>
                 <constraint firstItem="nXb-T0-3xY" firstAttribute="centerY" secondItem="6jf-Ir-Qfe" secondAttribute="centerY" id="mX6-Zx-dyB"/>
                 <constraint firstItem="nXb-T0-3xY" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="tbi-PC-XLe"/>
@@ -60,9 +60,4 @@
             </connections>
         </view>
     </objects>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
-    </simulatedMetricsContainer>
 </document>

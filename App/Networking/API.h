@@ -18,6 +18,7 @@
 #import "APIUserPlugin.h"
 #import "APIAutoSyncPlugin.h"
 #import "APIAppUpdatePlugin.h"
+#import "UIViewController+APIControl.h"
 
 extern NSUInteger APIConfigFetchPageSize;
 extern NSString *const APIErrorDomain;

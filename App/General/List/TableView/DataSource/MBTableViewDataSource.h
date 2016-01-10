@@ -1,8 +1,8 @@
 /*!
     MBTableViewDataSource
-    v 0.3
+    v 0.4
 
-    Copyright © 2014 Beijing ZhiYun ZhiYuan Information Technology Co., Ltd.
+    Copyright © 2014-2015 Beijing ZhiYun ZhiYuan Information Technology Co., Ltd.
     https://github.com/Chinamobo/iOS-Project-Template
 
     Apache License, Version 2.0

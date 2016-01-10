@@ -2,13 +2,16 @@
     MBListDataSource
     v 1.0
 
-    Copyright © 2014 Beijing ZhiYun ZhiYuan Information Technology Co., Ltd.
+    Copyright © 2014-2016 Beijing ZhiYun ZhiYuan Information Technology Co., Ltd.
     https://github.com/Chinamobo/iOS-Project-Template
 
     Apache License, Version 2.0
     http://www.apache.org/licenses/LICENSE-2.0
  */
 #import "RFDelegateChain.h"
+#import "MBEntityExchanging.h"
+
+NS_ASSUME_NONNULL_BEGIN
 
 /**
  单 section 的列表 dataSource
@@ -24,13 +27,14 @@
 
 #pragma mark - Items
 
-@property (strong, nonatomic) NSMutableArray *items;
+@property (nonatomic, nullable, strong) NSMutableArray *items;
 
 /// 列表为空
-@property (assign, nonatomic) BOOL empty;
+@property (nonatomic) BOOL empty;
 
 - (id)itemAtIndexPath:(NSIndexPath *)indexPath;
-- (NSIndexPath *)indexPathForItem:(id)item;
+- (NSArray *)itemsForindexPaths:(NSArray *)indexPaths;
+- (nullable NSIndexPath *)indexPathForItem:(nullable id)item;
 
 /**
  使用这个方法会自动处理条目
@@ -55,27 +59,27 @@ typedef NS_ENUM(short, MBDataSourcePageStyle) {
 /**
  使用的分页模式，默认 MBDataSourceDefaultPageStyle
  */
-@property (assign, nonatomic) MBDataSourcePageStyle pageStyle;
+@property (nonatomic) MBDataSourcePageStyle pageStyle;
 
-@property (assign, nonatomic) NSInteger page;
-@property (assign, nonatomic) NSUInteger pageSize;
+@property (nonatomic) NSInteger page;
+@property (nonatomic) NSUInteger pageSize;
 
-@property (strong, nonatomic) id maxID;
+@property (nonatomic, nullable, strong) id maxID;
 
 /// maxID 的获取是通过在最后一个 item 上执行 valueForKeyPath: 获取的
-@property (strong, nonatomic) NSString *maxIDKeypath;
+@property (nonatomic, strong) NSString *maxIDKeypath;
 
 /// 默认 page
-@property (strong, nonatomic) NSString *pageParameterName;
+@property (nonatomic, strong) NSString *pageParameterName;
 
 /// 默认 page_size
-@property (strong, nonatomic) NSString *pageSizeParameterName;
+@property (nonatomic, strong) NSString *pageSizeParameterName;
 
 /// 默认 MAX_ID
-@property (strong, nonatomic) NSString *maxIDParameterName;
+@property (nonatomic, strong) NSString *maxIDParameterName;
 
 /// 页面到底了
-@property (assign, nonatomic) BOOL pageEnd;
+@property (nonatomic) BOOL pageEnd;
 
 /**
  判断页面到底的策略
@@ -87,16 +91,16 @@ typedef NS_ENUM(short, MBDataSourcePageEndDetectPolicy) {
     /// 获取数量少于 page_size 就算到底
     MBDataSourcePageEndDetectPolicyStrict
 };
-@property (assign, nonatomic) MBDataSourcePageEndDetectPolicy pageEndDetectPolicy;
+@property (nonatomic) MBDataSourcePageEndDetectPolicy pageEndDetectPolicy;
 
 #pragma mark - 条目获取
 /// 是否正在获取数据
 @property (readonly) BOOL fetching;
-@property (assign, nonatomic) BOOL hasSuccessFetched;
-@property (copy, nonatomic) IBInspectable NSString *fetchAPIName;
+@property (nonatomic) BOOL hasSuccessFetched;
+@property (nonatomic, nullable, copy) IBInspectable NSString *fetchAPIName;
 
 /// 当改属性是 NSMutableDictionary 或空时会附加分页参数
-@property (strong, nonatomic) NSDictionary *fetchParameters;
+@property (nonatomic, nullable, strong) NSDictionary *fetchParameters;
 
 /**
  加载数据
@@ -104,7 +108,7 @@ typedef NS_ENUM(short, MBDataSourcePageEndDetectPolicy) {
  @param nextPage
  @param success fetchedItems 是处理后的最终数据
  */
-- (void)fetchItemsFromViewController:(id)viewController nextPage:(BOOL)nextPage success:(void (^)(MBListDataSource *dateSource, NSArray *fetchedItems))success completion:(void (^)(MBListDataSource *dateSource))completion;
+- (void)fetchItemsFromViewController:(nullable id)viewController nextPage:(BOOL)nextPage success:(void (^ _Nullable)(__kindof MBListDataSource *dateSource, NSArray *fetchedItems))success completion:(void (^ _Nullable)(__kindof MBListDataSource *dateSource))completion;
 
 #pragma mark - 条目处理
 
@@ -116,7 +120,7 @@ typedef NS_ENUM(short, MBDataSourcePageEndDetectPolicy) {
 
  返回处理好的数组，之后会交由 data source 进行其他处理
  */
-@property (copy, nonatomic) NSArray *(^processItems)(__unused NSArray *oldItems, NSArray *newItems);
+@property (nonatomic, nullable, copy) NSArray *(^processItems)(__unused NSArray *oldItems, id newValue);
 
 /**
  当新获取对象在数组中已存在如何操作
@@ -137,10 +141,12 @@ typedef NS_ENUM(short, MBDataSourceDistinctRule) {
 /**
  重复条目处理方式
  */
-@property (assign, nonatomic) MBDataSourceDistinctRule distinctRule;
+@property (nonatomic) MBDataSourceDistinctRule distinctRule;
 
 /**
  最后的条目处理机会，典型情形显示前将数据 model 转换为显示 model
  */
 //@property (copy, nonatomic) NSArray *(^finalizeItems)(__unused NSArray *oldItems, NSArray *newItems);
 @end
+
+NS_ASSUME_NONNULL_END

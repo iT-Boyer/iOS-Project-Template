@@ -1,8 +1,8 @@
 /*!
     MBTableView
-    v 1.3
+    v 1.4
 
-    Copyright © 2014 Beijing ZhiYun ZhiYuan Information Technology Co., Ltd.
+    Copyright © 2014-2016 Beijing ZhiYun ZhiYuan Information Technology Co., Ltd.
     Copyright © 2014 Chinamobo Co., Ltd.
     https://github.com/Chinamobo/iOS-Project-Template
 
@@ -22,6 +22,7 @@
 
  封装了分页的数据获取（包括下拉刷新、上拉加载更多，数据到底处理），Auto layout cell 自动高度等功能。
 
+ 修改 keyboardDismissMode，默认拖拽时隐藏键盘
  */
 @interface MBTableView : UITableView <
     RFInitializing
@@ -41,6 +42,16 @@
  */
 - (void)fetchItemsWithPageFlag:(BOOL)nextPage;
 
+/**
+ 移动到 window 时，如果之前数据没有成功加载，则尝试获取数据，默认关
+ */
+@property (assign, nonatomic) IBInspectable BOOL autoFetchWhenMoveToWindow;
+
+/**
+ 获取结束后调用
+ */
+@property (copy, nonatomic) void (^fetchPageEnd)(BOOL nextPage, MBListDataSource *dataSource);
+
 /// 刷新数据，会重置 cell 高度缓存
 - (void)reload;
 
@@ -51,6 +62,9 @@
 
 /// 重置，以便作为另一个表格展示
 - (void)prepareForReuse;
+
+- (void)insertRowsWithRowRange:(NSRange)range inSection:(NSInteger)section rowAnimation:(UITableViewRowAnimation)animation;
+- (void)deleteRowsWithRowRange:(NSRange)range inSection:(NSInteger)section rowAnimation:(UITableViewRowAnimation)animation;
 
 #pragma mark -
 - (void)updateCellHeightOfCell:(UITableViewCell *)cell animated:(BOOL)animated;

@@ -1,6 +1,8 @@
 /*!
     MBEntityExchanging
+    v 0.4
 
+    Copyright © 2014 Beijing ZhiYun ZhiYuan Information Technology Co., Ltd.
     Copyright © 2014 Chinamobo Co., Ltd.
     https://github.com/Chinamobo/iOS-Project-Template
 
@@ -22,10 +24,8 @@
 
 @optional
 
-@property (strong, nonatomic) id item;
-@property (strong, nonatomic) NSArray *items;
-
-@required
+@property (nonatomic, nullable, strong) id item;
+@property (nonatomic, nullable, strong) NSArray *items;
 
 #pragma mark - 界面更新
 
@@ -71,6 +71,80 @@
 
 @end
 
+
+#pragma mark - Cell
+
+/**
+ 可选协议，标明 sender 有 item 属性
+ 
+ 一般用在 cell 上
+ */
+@protocol MBSenderEntityExchanging <NSObject>
+@required
+@property (nonatomic, nullable, strong) id item;
+
+@optional
+- (void)setItem:(id _Nullable)item offscreenRendering:(BOOL)offscreenRendering;
+
+- (void)onCellSelected;
+@end
+
+/**
+ item 的可选协议
+ */
+@protocol MBItemExchanging <NSObject>
+@optional
+- (NSString *_Nullable)displayString;
+@end
+
+
+@protocol MBEntityCellExchanging <NSObject>
+@optional
+
+/**
+ 一般在 table view cell 或 collection view cell 上实现
+ 
+ delegate 在实现时先检查其返回值，如果是 YES 不继续执行 delegate 的后续逻辑
+ */
+- (BOOL)respondsCellSelection;
+
+@end
+
+
+#pragma mark - Segue
+
+/**
+ TEST
+ 
+ 用在 unwind segue 的 sourceViewController 上
+ 然后在 destinationViewController 的 IBAction 中取道传过来的量
+ */
+@protocol MBUnwindSegueExchanging <NSObject>
+@optional
+@property (nonatomic) NSKeyValueChange unwindChangeType;
+@property (nonatomic, nullable, strong) id unwindChangeItem;
+
+// destinationViewController 推荐 IBAction 方法名
+// - (IBAction)MBReturnWithUnwindSegue:(UIStoryboardSegue *)segue;
+@end
+
+/**
+ TEST
+ 
+ 跟 MBUnwindSegueExchanging 相反
+
+ destinationViewController 实现这些属性，在 sourceViewController 中先拿到 destinationViewController 实例并设置这些属性，然后执行返回
+
+ 之后 destinationViewController 在显示前（通常是 viewWillApear 中）更新界面
+ */
+@protocol MBEntityReturnExchanging <NSObject>
+@optional
+@property (nonatomic) NSKeyValueChange unwindChangeType;
+@property (nonatomic, nullable, strong) id unwindChangeItem;
+
+@end
+
+
 /**
  prepareForSegue:sender: 默认传递方法
 
@@ -88,3 +162,61 @@
         }\
     }\
 }
+
+#define MBEntityExchangingPrepareForTableViewSegue \
+    - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {\
+        id dvc = segue.destinationViewController;\
+        if ([dvc respondsToSelector:@selector(setItem:)]) {\
+            id item;\
+            if ([sender respondsToSelector:@selector(item)]) {\
+                item = [(id<MBEntityExchanging>)sender item];\
+            }\
+            else {\
+                id<MBEntityExchanging> cell = (id)[sender superviewOfClass:[self class]];\
+                if ([cell respondsToSelector:@selector(item)]) {\
+                    item = cell;\
+                }\
+            }\
+            if (!item && [self respondsToSelector:@selector(item)]) {\
+                item = [(id<MBEntityExchanging>)self item];\
+            }\
+            [dvc setItem:item];\
+        }\
+    }
+
+
+#pragma mark - Callback
+
+/**
+ 一般的异步请求数据回调
+ 
+ success 表示成功、失败，取消也算失败。失败时 error 不应为空
+ 
+ 一般如下处理：
+ 
+ @code
+ 
+ ^(BOOL success, id _Nullable item, NSError *_Nullable error) {
+    if (!succes) {
+        if (error) {
+            // 明确失败
+            [UIAlertView showWithTitle:@"操作失败" message:error.localizedDescription buttonTitle:nil];
+        }
+        // 否则通常是取消
+        return;
+    }
+
+    // 成功，使用数据
+ }
+
+ @endcode
+ */
+typedef void (^MBGeneralCallback)(BOOL success, id _Nullable item, NSError *_Nullable error);
+
+/**
+ 使用：
+
+ typedef MBGeneralCallback(类型名, 对象类型);
+ */
+#define MBGeneralCallback(TYPE_NAME, OBJ_TYPE) void (^TYPE_NAME)(BOOL success, OBJ_TYPE _Nullable item, NSError *_Nullable error);
+

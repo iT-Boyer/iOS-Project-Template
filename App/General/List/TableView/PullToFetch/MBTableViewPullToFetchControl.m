@@ -2,6 +2,8 @@
 #import "MBTableViewPullToFetchControl.h"
 
 @implementation MBTableViewPullToFetchControl
+@dynamic headerContainer;
+@dynamic footerContainer;
 
 - (void)onInit {
     [super onInit];

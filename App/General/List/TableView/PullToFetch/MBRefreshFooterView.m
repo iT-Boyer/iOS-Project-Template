@@ -3,6 +3,15 @@
 #import "UIView+RFAnimate.h"
 
 @implementation MBRefreshFooterView
+RFInitializingRootForUIView
+
+- (void)onInit {
+    _status = -1;
+}
+
+- (void)afterInit {
+    // Nothing
+}
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -15,14 +24,36 @@
     _empty = empty;
     self.backgroundImageView.hidden = !empty;
     self.emptyLabel.hidden = !empty;
+    self.outerEmptyView.hidden = !empty;
     self.textLabel.hidden = empty;
     self.endLabel.hidden = empty;
 }
 
+- (void)setOuterEmptyView:(UIView *)outerEmptyView {
+    _outerEmptyView = outerEmptyView;
+    outerEmptyView.hidden = !self.empty || self.status != RFPullToFetchIndicatorStatusFrozen;
+}
+
 - (void)updateStatus:(RFPullToFetchIndicatorStatus)status distance:(CGFloat)distance control:(RFTableViewPullToFetchPlugin *)control {
 
+    if (self.outerEmptyView && self.status != RFPullToFetchIndicatorStatusFrozen) {
+        if (!self.outerEmptyView.hidden) {
+            self.outerEmptyView.hidden = YES;
+        }
+    }
     if (self.empty) return;
+    self.status = status;
 
+    if (status == RFPullToFetchIndicatorStatusDragging) {
+        BOOL isCompleteVisible = !!(distance >= self.height);
+        self.textLabel.text = isCompleteVisible? @"释放加载更多" : @"继续上拉以加载更多";
+    }
+}
+
+- (void)setStatus:(RFPullToFetchIndicatorStatus)status {
+    if (_status == status) return;
+    _status = status;
+    _dout_int(status)
     UILabel *label = self.textLabel;
 
     // 到底部了
@@ -39,12 +70,6 @@
             label.text = @"正在加载...";
             return;
 
-        case RFPullToFetchIndicatorStatusDragging: {
-            BOOL isCompleteVisible = !!(distance >= self.height);
-            label.text = isCompleteVisible? @"释放加载更多" : @"继续上拉以加载更多";
-
-            return;
-        }
         case RFPullToFetchIndicatorStatusDecelerating:
             label.text = @"上拉加载更多";
             return;

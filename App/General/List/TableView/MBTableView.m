@@ -9,17 +9,24 @@
 @end
 
 @implementation MBTableView
+@dynamic delegate;
 RFInitializingRootForUIView
 
 - (void)onInit {
     self.trueDataSource = [MBTableViewDataSource new];
     self.trueDataSource.tableView = self;
     [super setDataSource:self.trueDataSource];
+    self.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
 }
 
 - (void)afterInit {
     [self cellHeightManager];
     [self pullToFetchController];
+}
+
+- (void)dealloc {
+    [super setDataSource:nil];
+    [super setDelegate:nil];
 }
 
 - (RFTableViewCellHeightDelegate *)cellHeightManager {
@@ -33,21 +40,24 @@ RFInitializingRootForUIView
 
 - (MBTableViewPullToFetchControl *)pullToFetchController {
     if (!_pullToFetchController) {
-        MBTableViewPullToFetchControl *control = [[MBTableViewPullToFetchControl alloc] init];
-        control.tableView = self;
+        _pullToFetchController = ({
+            MBTableViewPullToFetchControl *control = [[MBTableViewPullToFetchControl alloc] init];
+            control.shouldScrollToTopWhenHeaderEventTrigged = YES;
+            control.tableView = self;
 
-        @weakify(self);
-        [control setHeaderProcessBlock:^{
-            @strongify(self);
-            [self fetchItemsWithPageFlag:NO];
-        }];
+            @weakify(self);
+            [control setHeaderProcessBlock:^{
+                @strongify(self);
+                [self fetchItemsWithPageFlag:NO];
+            }];
 
-        [control setFooterProcessBlock:^{
-            @strongify(self);
-            [self fetchItemsWithPageFlag:(self.dataSource.page != 0)];
-        }];
-
-        _pullToFetchController = control;
+            [control setFooterProcessBlock:^{
+                @strongify(self);
+                [self fetchItemsWithPageFlag:(self.dataSource.page != 0)];
+            }];
+            
+            control;
+        });
     }
     return _pullToFetchController;
 }
@@ -61,6 +71,8 @@ RFInitializingRootForUIView
             [self.cellHeightManager invalidateCellHeightCache];
             MBRefreshFooterView *fv = (id)self.pullToFetchController.footerContainer;
             fv.empty = dateSource.empty;
+            MBRefreshHeaderView *hv = (id)self.pullToFetchController.headerContainer;
+            hv.empty = dateSource.empty;
         }
         self.pullToFetchController.footerReachEnd = dateSource.pageEnd;
         success = YES;
@@ -68,6 +80,9 @@ RFInitializingRootForUIView
         @strongify(self);
         self.pullToFetchController.autoFetchWhenScroll = success;
         [self.pullToFetchController markProcessFinshed];
+        if (self.fetchPageEnd) {
+            self.fetchPageEnd(nextPage, dateSource);
+        }
     }];
 }
 
@@ -76,6 +91,26 @@ RFInitializingRootForUIView
         [self.cellHeightManager invalidateCellHeightCache];
     }
     [self reloadData];
+}
+
+- (void)reloadData {
+    // 按理应该显示出来再 load，不加貌似有时启动时会有奇怪的问题，但又不能复现……
+    if (self.window) {
+        [super reloadData];
+    }
+}
+
+- (void)willMoveToWindow:(UIWindow *)newWindow {
+    [super willMoveToWindow:newWindow];
+    if (newWindow) {
+        if (self.autoFetchWhenMoveToWindow
+            && !self.dataSource.hasSuccessFetched) {
+            [self.pullToFetchController triggerHeaderProcess];
+        }
+        else {
+            [self.pullToFetchController setNeedsDisplayHeader];
+        }
+    }
 }
 
 - (void)removeItem:(id)item withRowAnimation:(UITableViewRowAnimation)animation {
@@ -92,6 +127,22 @@ RFInitializingRootForUIView
     [self.pullToFetchController markProcessFinshed];
     self.pullToFetchController.footerReachEnd = NO;
     [self reload];
+}
+
+- (void)insertRowsWithRowRange:(NSRange)range inSection:(NSInteger)section rowAnimation:(UITableViewRowAnimation)animation {
+    NSMutableArray *indexPathes = [NSMutableArray arrayWithCapacity:range.length];
+    for (NSUInteger i = 0; i < range.length; i++) {
+        [indexPathes addObject:[NSIndexPath indexPathForRow:range.location + i inSection:section]];
+    }
+    [self insertRowsAtIndexPaths:indexPathes withRowAnimation:animation];
+}
+
+- (void)deleteRowsWithRowRange:(NSRange)range inSection:(NSInteger)section rowAnimation:(UITableViewRowAnimation)animation {
+    NSMutableArray *indexPathes = [NSMutableArray arrayWithCapacity:range.length];
+    for (NSUInteger i = 0; i < range.length; i++) {
+        [indexPathes addObject:[NSIndexPath indexPathForRow:range.location + i inSection:section]];
+    }
+    [self deleteRowsAtIndexPaths:indexPathes withRowAnimation:animation];
 }
 
 #pragma mark - DataSource Forward
