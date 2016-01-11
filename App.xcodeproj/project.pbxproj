@@ -133,9 +133,7 @@
 		D5542F2C1918CECE00831016 /* LICENSE-SVProgressHUD in Resources */ = {isa = PBXBuildFile; fileRef = D5542F2B1918CECE00831016 /* LICENSE-SVProgressHUD */; };
 		D559BDF119484EA2004F4CC1 /* MBSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D559BDF019484EA2004F4CC1 /* MBSegmentedControl.m */; };
 		D559BDF41948503A004F4CC1 /* MBTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D559BDF31948503A004F4CC1 /* MBTabBar.m */; };
-		D55FB76B1944441E00358714 /* MBAppearanceConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = D55FB7641944441E00358714 /* MBAppearanceConfigurator.m */; };
 		D55FB76C1944441E00358714 /* MBButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D55FB7661944441E00358714 /* MBButton.m */; };
-		D55FB76D1944441E00358714 /* MBNavigationBarAppearanceConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = D55FB7681944441E00358714 /* MBNavigationBarAppearanceConfigurator.m */; };
 		D55FB76E1944441E00358714 /* MBTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = D55FB76A1944441E00358714 /* MBTextField.m */; };
 		D55FB78619444B5900358714 /* Readme.md in Resources */ = {isa = PBXBuildFile; fileRef = D55FB77E19444B5900358714 /* Readme.md */; };
 		D55FB78719444B5900358714 /* RFTableViewCellHeightDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D55FB78019444B5900358714 /* RFTableViewCellHeightDelegate.m */; };
@@ -248,7 +246,6 @@
 		D50693D3194887160002BFCC /* MBSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBSearchBar.m; sourceTree = "<group>"; };
 		D50693D619495D9E0002BFCC /* MBControlGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBControlGroup.h; sourceTree = "<group>"; };
 		D50693D719495D9E0002BFCC /* MBControlGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBControlGroup.m; sourceTree = "<group>"; };
-		D50EAAEC195AC56700548BF6 /* NSAttributedStringCompatiblity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSAttributedStringCompatiblity.h; sourceTree = "<group>"; };
 		D5170CF3191B3944000C7D45 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		D5170CF7191B3967000C7D45 /* UINavigationController+RFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+RFKit.h"; sourceTree = "<group>"; };
 		D5170CF8191B3967000C7D45 /* UINavigationController+RFKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+RFKit.m"; sourceTree = "<group>"; };
@@ -484,12 +481,8 @@
 		D559BDF019484EA2004F4CC1 /* MBSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBSegmentedControl.m; sourceTree = "<group>"; };
 		D559BDF21948503A004F4CC1 /* MBTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBTabBar.h; sourceTree = "<group>"; };
 		D559BDF31948503A004F4CC1 /* MBTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBTabBar.m; sourceTree = "<group>"; };
-		D55FB7631944441E00358714 /* MBAppearanceConfigurator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBAppearanceConfigurator.h; sourceTree = "<group>"; };
-		D55FB7641944441E00358714 /* MBAppearanceConfigurator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBAppearanceConfigurator.m; sourceTree = "<group>"; };
 		D55FB7651944441E00358714 /* MBButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBButton.h; sourceTree = "<group>"; };
 		D55FB7661944441E00358714 /* MBButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBButton.m; sourceTree = "<group>"; };
-		D55FB7671944441E00358714 /* MBNavigationBarAppearanceConfigurator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBNavigationBarAppearanceConfigurator.h; sourceTree = "<group>"; };
-		D55FB7681944441E00358714 /* MBNavigationBarAppearanceConfigurator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBNavigationBarAppearanceConfigurator.m; sourceTree = "<group>"; };
 		D55FB7691944441E00358714 /* MBTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBTextField.h; sourceTree = "<group>"; };
 		D55FB76A1944441E00358714 /* MBTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBTextField.m; sourceTree = "<group>"; };
 		D55FB77E19444B5900358714 /* Readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Readme.md; sourceTree = "<group>"; };
@@ -708,14 +701,6 @@
 				D50693D719495D9E0002BFCC /* MBControlGroup.m */,
 			);
 			path = MBControlGroup;
-			sourceTree = "<group>";
-		};
-		D50EAAEB195AC54F00548BF6 /* Compatibility */ = {
-			isa = PBXGroup;
-			children = (
-				D50EAAEC195AC56700548BF6 /* NSAttributedStringCompatiblity.h */,
-			);
-			path = Compatibility;
 			sourceTree = "<group>";
 		};
 		D5170CE8191B327A000C7D45 /* JPushManager */ = {
@@ -1243,7 +1228,6 @@
 			isa = PBXGroup;
 			children = (
 				D55FB762194443F600358714 /* Appearance */,
-				D50EAAEB195AC54F00548BF6 /* Compatibility */,
 				D5542F201918C6BF00831016 /* EntityViewControllers */,
 				D564CF39196D98E10087B179 /* Form */,
 				D5B49EB61C4111B600847925 /* Layout */,
@@ -1369,12 +1353,8 @@
 		D55FB762194443F600358714 /* Appearance */ = {
 			isa = PBXGroup;
 			children = (
-				D55FB7631944441E00358714 /* MBAppearanceConfigurator.h */,
-				D55FB7641944441E00358714 /* MBAppearanceConfigurator.m */,
 				D55FB7651944441E00358714 /* MBButton.h */,
 				D55FB7661944441E00358714 /* MBButton.m */,
-				D55FB7671944441E00358714 /* MBNavigationBarAppearanceConfigurator.h */,
-				D55FB7681944441E00358714 /* MBNavigationBarAppearanceConfigurator.m */,
 				D50693D2194887160002BFCC /* MBSearchBar.h */,
 				D50693D3194887160002BFCC /* MBSearchBar.m */,
 				D559BDEF19484EA2004F4CC1 /* MBSegmentedControl.h */,
@@ -1884,7 +1864,6 @@
 				D5542EBF19188AFD00831016 /* JSONValueTransformer.m in Sources */,
 				D5197A4A17EECAAF00CA387C /* main.m in Sources */,
 				D5542F161918B83400831016 /* MBApp.m in Sources */,
-				D55FB76B1944441E00358714 /* MBAppearanceConfigurator.m in Sources */,
 				D552DD7118C8506700D02290 /* MBAppVersion.m in Sources */,
 				D5CB54591A302DD6003E53A4 /* MBAutoSearchBar.m in Sources */,
 				D55FB76C1944441E00358714 /* MBButton.m in Sources */,
@@ -1907,7 +1886,6 @@
 				D564D5D31970EE340032FEC3 /* MBModalPresentSegue.m in Sources */,
 				D52514211BF83CF9008D17EB /* MBModel.m in Sources */,
 				D5B49EC41C4111B600847925 /* MBMultiLineLabel.m in Sources */,
-				D55FB76D1944441E00358714 /* MBNavigationBarAppearanceConfigurator.m in Sources */,
 				D5B49F171C41133A00847925 /* MBRefreshFooterView.m in Sources */,
 				D5B49F191C41133A00847925 /* MBRefreshHeaderView.m in Sources */,
 				D552DD7418C8506700D02290 /* MBRootNavigationController.m in Sources */,

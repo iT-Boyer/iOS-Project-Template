@@ -4,7 +4,6 @@
 #import "DataStack.h"
 #import "API.h"
 #import "UncaughtExceptionHandler.h"
-#import "MBNavigationBarAppearanceConfigurator.h"
 #import "MBRootNavigationController.h"
 #import "UIKit+App.h"
 #import "SVProgressHUD.h"
@@ -32,18 +31,6 @@
 
 - (void)generalAppearanceSetup {
     [[SVProgressHUD appearance] setHudRingForegroundColor:[UIColor globalTintColor]];
-
-    MBNavigationBarAppearanceConfigurator *nac = [MBNavigationBarAppearanceConfigurator new];
-    nac.backgroundImage = [[UIImage imageNamed:RF_iOS7Before? @"NavigationBarBackgroundOld" : @"NavigationBarBackground"] resizableImageWithCapInsets:UIEdgeInsetsMake(1, 0, 1, 0)];
-
-    // 在 iOS 6 上模拟 iOS 7 外观
-    nac.style = MBNavigationBarAppearanceStyle_iOS7;
-
-    // 限定只设置根导航控制器的外观
-    nac.appearance = [MBRootNavigationBar appearance];
-    nac.barButtonItemAppearance = [UIBarButtonItem appearanceWhenContainedIn:[MBRootNavigationBar class], nil];
-
-    [nac applay];
 }
 
 @end

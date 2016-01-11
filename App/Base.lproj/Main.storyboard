@@ -10,7 +10,7 @@
         <scene sceneID="RootScene">
             <objects>
                 <navigationController definesPresentationContext="YES" id="RootNavigation" customClass="MBRootNavigationController" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="RootNavigationBar" customClass="MBRootNavigationBar">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" backIndicatorImage="navigation_back_indicator" backIndicatorTransitionMaskImage="navigation_back_indicator" id="RootNavigationBar" customClass="MBRootNavigationBar">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -145,6 +145,9 @@
             <point key="canvasLocation" x="467" y="0.0"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="navigation_back_indicator" width="26" height="22"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
