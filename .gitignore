@@ -11,7 +11,10 @@
 xcuserdata/
 project.xcworkspace/
 
+# Xcode Injection
 IOSInjectionProject/
+OSXInjectionProject/
+
 build/
 .idea/
 

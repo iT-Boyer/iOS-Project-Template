@@ -1,0 +1,65 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "2A4C836DB22C32AA04DBEEAAD0C9985ED5995B1B",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "11B7E62CBD4E6C624F878B762E8DDAF74E40365D" : 0,
+    "2A4C836DB22C32AA04DBEEAAD0C9985ED5995B1B" : 0,
+    "707E16F1CB320BC4C123C13B92FC067A0C1CC3D0" : 0,
+    "5EC358C12EDC425DC4EF0167BE986319AF003C86" : 0,
+    "56733508E870241C80FBBDBFDD2B8864BB2A154F" : 0,
+    "F7162AC96D910FAC3A692CAE5EC938931C7E4227" : 0,
+    "8690A0C8738F4AEC7002A6E5A0A167077BC3F8CF" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "A7F5A84B-1C7F-4A6C-B363-BCCA1037400C",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "11B7E62CBD4E6C624F878B762E8DDAF74E40365D" : "iOS%20Project%20Template\/Frameworks\/RFUI\/Core\/",
+    "2A4C836DB22C32AA04DBEEAAD0C9985ED5995B1B" : "iOS%20Project%20Template\/",
+    "707E16F1CB320BC4C123C13B92FC067A0C1CC3D0" : "iOS%20Project%20Template\/Frameworks\/AFNetworking\/",
+    "5EC358C12EDC425DC4EF0167BE986319AF003C86" : "iOS%20Project%20Template\/Frameworks\/RFUI\/RFSegue\/",
+    "56733508E870241C80FBBDBFDD2B8864BB2A154F" : "iOS%20Project%20Template\/Frameworks\/JSONModel\/",
+    "F7162AC96D910FAC3A692CAE5EC938931C7E4227" : "iOS%20Project%20Template\/Frameworks\/RFUI\/Alpha\/",
+    "8690A0C8738F4AEC7002A6E5A0A167077BC3F8CF" : "iOS%20Project%20Template\/Frameworks\/RFUI\/Core\/RFKit\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "App",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "App.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/RFUI\/Core.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "11B7E62CBD4E6C624F878B762E8DDAF74E40365D"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/BB9z\/iOS-Project-Template.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "2A4C836DB22C32AA04DBEEAAD0C9985ED5995B1B"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Chinamobo\/JSONModel.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "56733508E870241C80FBBDBFDD2B8864BB2A154F"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/RFUI\/RFSegue.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "5EC358C12EDC425DC4EF0167BE986319AF003C86"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Chinamobo\/AFNetworking.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "707E16F1CB320BC4C123C13B92FC067A0C1CC3D0"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/BB9z\/RFKit.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "8690A0C8738F4AEC7002A6E5A0A167077BC3F8CF"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/RFUI\/Alpha.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "F7162AC96D910FAC3A692CAE5EC938931C7E4227"
+    }
+  ]
+}
