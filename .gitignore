@@ -1,13 +1,5 @@
-*~
-.DS_Store
-.svn
-*.swp
-*.orig
-*.save
-._*
-*.bak
 
-
+# Xcode Project
 xcuserdata/
 project.xcworkspace/
 
@@ -15,9 +7,23 @@ project.xcworkspace/
 IOSInjectionProject/
 OSXInjectionProject/
 
-build/
-.idea/
-
-*.psd
-PSD/
+# Build
 Scripts/build/
+build/
+DerivedData
+*.ipa
+
+# CocoaPods
+Pods/
+
+# CSV
+*.orig
+.svn
+
+# Other
+*~
+.DS_Store
+*.swp
+*.save
+._*
+*.bak
