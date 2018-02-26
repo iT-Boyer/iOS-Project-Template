@@ -2,18 +2,15 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>LastRunTime</key>
-	<string>date Tue Mar 19 15:08:00 CST 2013</string>
-	<key>UserData</key>
+	<key>UserBuildRecords</key>
 	<dict>
-		<key>AutoBuildCount</key>
+		<key>BB9z</key>
 		<dict>
-			<key>Users</key>
-			<dict>
-				<key>BB9z</key>
-				<integer>1</integer>
-			</dict>
+			<key>master</key>
+			<integer>2</integer>
 		</dict>
 	</dict>
+	<key>Version</key>
+	<integer>1</integer>
 </dict>
 </plist>
