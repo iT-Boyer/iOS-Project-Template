@@ -31,6 +31,8 @@ extern NSString *const APIErrorDomain;
  */
 @interface API : RFAPI
 
++ (instancetype)sharedInstance;
+
 /**
 
  @param APIName 接口名，同时会作为请求的 identifier
@@ -75,8 +77,6 @@ extern NSString *const APIErrorDomain;
 
 
 #pragma mark - 插件
-
-+ (APIUserPlugin *)user;
 
 @property (strong, nonatomic) APIUserPlugin *user;
 @property (strong, nonatomic) APIAppUpdatePlugin *appUpdatePlugin;

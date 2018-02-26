@@ -1,4 +1,6 @@
 
+#import "APIInterface.h"
+
 #pragma mark - 接口定义
 
 // 资源文件基地址

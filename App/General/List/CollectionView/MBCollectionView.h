@@ -27,7 +27,7 @@
 
 @property (strong, nonatomic) UIView *collectionHeaderView;
 
-@property (strong, nonatomic) UIRefreshControl *refreshControl;
+@property (strong, nonatomic) UIRefreshControl *mb_refreshControl;
 @property (strong, nonatomic) MBCollectionRefreshFooterView *refreshFooterView;
 
 - (void)prepareForReuse;

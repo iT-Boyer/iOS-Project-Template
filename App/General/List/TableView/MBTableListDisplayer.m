@@ -59,7 +59,7 @@ RFInitializingRootForUIViewController
         item = [(id<MBEntityExchanging>)sender item];
     }
     else {
-        item = [UITableViewCell itemFromSender:sender];
+//        item = [UITableViewCell itemFromSender:sender];
     }
 
     if (!item && [self respondsToSelector:@selector(item)]) {
@@ -133,7 +133,7 @@ RFUIInterfaceOrientationSupportDefault
         item = [(id<MBEntityExchanging>)sender item];
     }
     else {
-        item = [UITableViewCell itemFromSender:sender];
+//        item = [UITableViewCell itemFromSender:sender];
     }
 
     if (!item && [self respondsToSelector:@selector(item)]) {

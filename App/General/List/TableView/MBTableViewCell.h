@@ -7,7 +7,7 @@
     Apache License, Version 2.0
     http://www.apache.org/licenses/LICENSE-2.0
  */
-#import <UIKit/UIKit.h>
+#import "RFUI.h"
 #import "MBEntityExchanging.h"
 
 @interface MBTableViewCell : UITableViewCell <

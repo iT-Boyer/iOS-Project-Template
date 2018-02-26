@@ -19,7 +19,7 @@
 @implementation MBModalPresentPushSegue
 
 - (void)perform {
-    [[MBRootNavigationController globalNavigationController] pushViewController:self.destinationViewController animated:YES];
+//    [[MBRootNavigationController globalNavigationController] pushViewController:self.destinationViewController animated:YES];
 }
 
 @end

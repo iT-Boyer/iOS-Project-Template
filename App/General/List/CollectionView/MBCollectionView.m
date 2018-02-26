@@ -27,7 +27,7 @@ RFInitializingRootForUIView
 }
 
 - (void)afterInit {
-    __weak UIRefreshControl *rc = _refreshControl;
+    __weak UIRefreshControl *rc = _mb_refreshControl;
     @weakify(self);
     [self RFAddObserver:self forKeyPath:@keypath(self, refreshFooterViewStatusUpdateFlag) options:NSKeyValueObservingOptionInitial|NSKeyValueObservingOptionNew queue:nil block:^(id observer, NSDictionary *change) {
         @strongify(self);
@@ -36,16 +36,16 @@ RFInitializingRootForUIView
     }];
 }
 
-- (UIRefreshControl *)refreshControl {
-    if (!_refreshControl) {
-        _refreshControl = ({
+- (UIRefreshControl *)mb_refreshControl {
+    if (!_mb_refreshControl) {
+        _mb_refreshControl = ({
             UIRefreshControl *rc = [UIRefreshControl new];
             [rc addTarget:self action:@selector(onRefreshControlStatusChanged) forControlEvents:UIControlEventValueChanged];
             [self addSubview:rc];
             rc;
         });
     }
-    return _refreshControl;
+    return _mb_refreshControl;
 }
 
 - (void)dealloc {
@@ -53,7 +53,7 @@ RFInitializingRootForUIView
 }
 
 - (void)onRefreshControlStatusChanged {
-    UIRefreshControl *rc = _refreshControl;
+    UIRefreshControl *rc = _mb_refreshControl;
     if (rc.refreshing) {
         MBCollectionViewDataSource *ds = self.dataSource;
         [ds fetchItemsFromViewController:self.viewController nextPage:NO success:^(MBCollectionViewDataSource *dateSource, NSArray *fetchedItems) {

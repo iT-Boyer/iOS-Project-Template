@@ -23,8 +23,13 @@ RFDefineConstString(APIErrorDomain);
 
 @implementation API
 
-+ (APIUserPlugin *)user {
-    return [API sharedInstance].user;
++ (instancetype)sharedInstance {
+    static id sharedInstance = nil;
+    static dispatch_once_t oncePredicate;
+    dispatch_once(&oncePredicate, ^{
+        sharedInstance = [[self alloc] init];
+    });
+    return sharedInstance;
 }
 
 - (APIUserPlugin *)user {

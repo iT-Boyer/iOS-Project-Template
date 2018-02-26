@@ -74,7 +74,7 @@ RFInitializingRootForNSObject
 }
 
 - (void)signUpFromViewController:(id)viewController name:(NSString *)userName password:(NSString *)password avatar:(UIImage *)image success:(void (^)(void))success completion:(void (^)(void))completion {
-    [API user].password = [self passHashWithString:password];
+    self.password = [self passHashWithString:password];
     RFAssert(false, @"按需完成具体实现");
 }
 
