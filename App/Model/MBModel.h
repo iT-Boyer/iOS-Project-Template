@@ -7,8 +7,9 @@
     Apache License, Version 2.0
     http://www.apache.org/licenses/LICENSE-2.0
  */
+#import "Common.h"
+#import <JSONModel.h>
 
-#import "JSONModel.h"
 
 #pragma mark - MBModel
 
@@ -16,15 +17,12 @@
  默认属性全部可选
  */
 @interface MBModel : JSONModel
+
+/// 用另一个模型更新当前模型（另一个模型的空字段不作为新数据）
+- (BOOL)mergeFromModel:(MBModel *)anotherModel;
+
 @end
 
-/**
- 标记全部属性可选
- */
-#define MBModelOptionalProperties \
-    + (BOOL)propertyIsOptional:(NSString *)propertyName {\
-        return YES;\
-    }
 
 /**
  定义忽略规则
@@ -50,6 +48,33 @@
     @keypath(this, VAR),
 
 
+/**
+ KeyMapper
+ 支持对父类KeyMapper的继承
+ */
+#define MBModelKeyMapper(CLASS, ...)\
+    + (JSONKeyMapper *)keyMapper {\
+        CLASS *this;\
+        JSONKeyMapper *sm = [super keyMapper];\
+        if (sm) {\
+            return [JSONKeyMapper baseMapper:sm withModelToJSONExceptions:[NSDictionary dictionaryWithObjectsAndKeys:__VA_ARGS__, nil]];\
+        }\
+        else {\
+            return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:[NSDictionary dictionaryWithObjectsAndKeys:__VA_ARGS__, nil]];\
+        }\
+    }
+
+/**
+ KeyMapper
+ 默认将下划线命名转化为驼峰命名
+ 不支持对父类KeyMapper的继承
+ */
+#define MBModelKeyMpperForSnakeCase(CLASS, ...)\
+    + (JSONKeyMapper *)keyMapper {\
+        CLASS *this;\
+        return [JSONKeyMapper baseMapper:[JSONKeyMapper mapperForSnakeCase] withModelToJSONExceptions:[NSDictionary dictionaryWithObjectsAndKeys:__VA_ARGS__, nil]];\
+}
+
 #pragma mark 忽略
 
 @protocol MBModel <NSObject>
@@ -68,8 +93,19 @@
 /// 信息不完整标记，需要获取详情
 @property (strong, nonatomic) NSNumber<Ignore> *incompletion;
 
+@optional
+
+/// 从缓存补全模型的可选方法
+- (id)completeEntityFromCache;
+
 @end
 
+typedef NS_ENUM(int, MBModelSyncFlag) {
+    MBModelSyncFlagNormal   = 0,
+    MBModelSyncFlagFinished = -1,
+    MBModelSyncFlagDeleted  = -2,
+    MBModelSyncFlagInvalid  = -3,
+};
 
 #pragma mark - 更新通知
 
@@ -90,7 +126,7 @@
  displayers 生成方法
  */
 #define MBModelUpdatingImplementation \
-    - (NSHashTable<Ignore> *)displayers {\
+    - (NSHashTable *)displayers {\
         if (!_displayers) {\
             _displayers = [NSHashTable weakObjectsHashTable];\
         }\
@@ -118,11 +154,17 @@
 
 #pragma mark - UID
 
+/// 整形 ID
+typedef long MBID;
+
+/// 字符串标示
+typedef NSString * MBIdentifier;
+
 /**
 
  */
 @protocol MBModelUID <NSObject>
-@property (assign, nonatomic) int uid;
+@property (nonatomic) MBID uid;
 @end
 
 /**
@@ -132,21 +174,28 @@
  */
 #define MBModelUIDEqual \
     - (BOOL)isEqual:(id)other {\
-        if (other == self) {\
-            return YES;\
-        }\
-        else if (![other isMemberOfClass:[self class]]) {\
-            return NO;\
-        }\
-        else {\
-            if (self.uid == [(id<MBModelUID>)other uid]) {\
-                return YES;\
-            }\
-        }\
-        return NO;\
+        if (other == self) return YES;\
+        if (![other isMemberOfClass:self.class]) return NO;\
+        return (self.uid == [(id<MBModelUID>)other uid]);\
     }\
     - (NSUInteger)hash {\
         return self.uid;\
+    }
+
+/**
+ 是否相同
+
+ uid 是 NSObject
+ */
+#define MBModelUIDObjectEqual \
+    - (BOOL)isEqual:(id)other {\
+        if (other == self) return YES;\
+        if (![other isMemberOfClass:[self class]]) return NO;\
+        __typeof(&*self) obj = other;\
+        return [self.uid isEqual:obj.uid];\
+    }\
+    - (NSUInteger)hash {\
+        return self.uid.hash;\
     }
 
 
@@ -157,3 +206,13 @@
  */
 @interface NSMilliDate : NSDate
 @end
+
+/**
+ 前置引用语法糖
+ */
+#define importModel(KIND)\
+class KIND; @protocol KIND;
+
+#define PropertyProtocol(PROPERTY)\
+    @protocol PROPERTY <NSObject>\
+    @end
