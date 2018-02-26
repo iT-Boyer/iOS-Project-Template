@@ -2250,7 +2250,7 @@
 			};
 			name = Release;
 		};
-		D564D5D41970EF290032FEC3 /* AdHocTest */ = {
+		D564D5D41970EF290032FEC3 /* Alpha */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -2286,9 +2286,9 @@
 				VALIDATE_PRODUCT = YES;
 				WARNING_CFLAGS = "-Wall";
 			};
-			name = AdHocTest;
+			name = Alpha;
 		};
-		D564D5D51970EF290032FEC3 /* AdHocTest */ = {
+		D564D5D51970EF290032FEC3 /* Alpha */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -2300,9 +2300,9 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
-			name = AdHocTest;
+			name = Alpha;
 		};
-		D564D5D61970EF290032FEC3 /* AdHocTest */ = {
+		D564D5D61970EF290032FEC3 /* Alpha */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/${PROJECT_NAME:rfc1034identifier}.app/${PROJECT_NAME:rfc1034identifier}";
@@ -2319,9 +2319,9 @@
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
-			name = AdHocTest;
+			name = Alpha;
 		};
-		D564D5D71970EF290032FEC3 /* AdHocTest */ = {
+		D564D5D71970EF290032FEC3 /* Alpha */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CodeCommentsHighlightKeywordsExpression = "TODO|FIXME|\\\\?\\\\?\\\\?|\\\\!\\\\!\\\\!|MARK";
@@ -2334,7 +2334,7 @@
 				ProjectFilePath = "${SRCROOT}/${PROJECT}.xcodeproj";
 				ScriptPath = $SRCROOT/Scripts;
 			};
-			name = AdHocTest;
+			name = Alpha;
 		};
 /* End XCBuildConfiguration section */
 
@@ -2344,7 +2344,7 @@
 			buildConfigurations = (
 				D5197A6D17EECAAF00CA387C /* Debug */,
 				D5197A6E17EECAAF00CA387C /* Release */,
-				D564D5D41970EF290032FEC3 /* AdHocTest */,
+				D564D5D41970EF290032FEC3 /* Alpha */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -2354,7 +2354,7 @@
 			buildConfigurations = (
 				D5197A7017EECAAF00CA387C /* Debug */,
 				D5197A7117EECAAF00CA387C /* Release */,
-				D564D5D51970EF290032FEC3 /* AdHocTest */,
+				D564D5D51970EF290032FEC3 /* Alpha */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -2364,7 +2364,7 @@
 			buildConfigurations = (
 				D5197A7317EECAAF00CA387C /* Debug */,
 				D5197A7417EECAAF00CA387C /* Release */,
-				D564D5D61970EF290032FEC3 /* AdHocTest */,
+				D564D5D61970EF290032FEC3 /* Alpha */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -2374,7 +2374,7 @@
 			buildConfigurations = (
 				D5197D2917F0242000CA387C /* Debug */,
 				D5197D2A17F0242000CA387C /* Release */,
-				D564D5D71970EF290032FEC3 /* AdHocTest */,
+				D564D5D71970EF290032FEC3 /* Alpha */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
