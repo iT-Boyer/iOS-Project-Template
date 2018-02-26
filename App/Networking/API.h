@@ -11,13 +11,11 @@
  */
 #import "RFAPI.h"
 #import "RFMessageManager+RFDisplay.h"
-#import "DataStack.h"
-#import "APIInterface.h"
 #import "AFHTTPRequestOperation.h"
+#import "AFHTTPSessionManager.h"
 
 #import "APIUserPlugin.h"
-#import "APIAutoSyncPlugin.h"
-#import "APIAppUpdatePlugin.h"
+#import "MBGeneralCallback.h"
 #import "UIViewController+APIControl.h"
 
 extern NSUInteger APIConfigFetchPageSize;
@@ -33,6 +31,8 @@ extern NSString *const APIErrorDomain;
 
 + (instancetype)sharedInstance;
 
+@property (nonatomic) AFHTTPSessionManager *manager;
+
 /**
 
  @param APIName 接口名，同时会作为请求的 identifier
@@ -40,15 +40,17 @@ extern NSString *const APIErrorDomain;
  */
 + (AFHTTPRequestOperation *)requestWithName:(NSString *)APIName parameters:(NSDictionary *)parameters viewController:(UIViewController *)viewController loadingMessage:(NSString *)message modal:(BOOL)modal success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success completion:(void (^)(AFHTTPRequestOperation *operation))completion;
 
-+ (AFHTTPRequestOperation *)requestWithName:(NSString *)APIName
-     parameters:(NSDictionary *)parameters
- viewController:(UIViewController *)viewController
-      forceLoad:(BOOL)forceLoad
- loadingMessage:(NSString *)message
-          modal:(BOOL)modal
-        success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
-        failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
-     completion:(void (^)(AFHTTPRequestOperation *operation))completion;
+/**
+ @param failure 为 nil 发生错误时自动弹出错误信息
+ */
++ (AFHTTPRequestOperation *)requestWithName:(NSString *)APIName parameters:(NSDictionary *)parameters viewController:(UIViewController *)viewController forceLoad:(BOOL)forceLoad loadingMessage:(NSString *)message modal:(BOOL)modal success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure completion:(void (^)(AFHTTPRequestOperation *operation))completion;
+
+/**
+ 发送一个后台请求
+ 
+ 失败不会报错
+ */
++ (void)backgroundRequestWithName:(NSString *)APIName parameters:(NSDictionary *)parameters completion:(void (^)(BOOL success, id responseObject, NSError *error))completion;
 
 /**
  取消属于 viewController 的请求，这些请求必须用 viewController 的类名做为 groupIdentifier
@@ -78,8 +80,7 @@ extern NSString *const APIErrorDomain;
 
 #pragma mark - 插件
 
-@property (strong, nonatomic) APIUserPlugin *user;
-@property (strong, nonatomic) APIAppUpdatePlugin *appUpdatePlugin;
+@property (nonatomic) APIUserPlugin *user;
 
 @end
 

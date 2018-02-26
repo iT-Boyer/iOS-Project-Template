@@ -1,18 +1,10 @@
 
 #import "APIUserPlugin.h"
-#import "API.h"
-#import "debug.h"
-
-NSString *const UDkLastUserAccount      = @"Last User Account";
-NSString *const UDkUserPass             = @"User Password";
-NSString *const UDkUserRemeberPass      = @"Should Remember User Password";
-NSString *const UDkUserInformation      = @"User Information";
+#import "MBApp.h"
+#import "MBAnalytics.h"
 
 @interface APIUserPlugin ()
-@property (readwrite, nonatomic) BOOL loggedIn;
 @property (readwrite, nonatomic) BOOL logining;
-@property (readwrite, nonatomic) BOOL fetchingUserInformation;
-
 @end
 
 @implementation APIUserPlugin
@@ -20,25 +12,10 @@ RFInitializingRootForNSObject
 
 - (void)onInit {
     [self loadProfileConfig];
-
-    if (!self.information) {
-        self.information = [UserInformation new];
-    }
-
-    if (DebugAPISkipLogin) {
-        self.loggedIn = YES;
-    }
-
-    if (self.account.length && self.password.length) {
-        if (!DebugAPINoAutoLogin) {
-            self.loggedIn = YES;
-            [self fetchUserInfoFromViewController:nil success:nil completion:nil];
-        }
-    }
 }
 
 - (void)afterInit {
-    
+
 }
 
 #pragma mark - 注册
@@ -60,12 +37,19 @@ RFInitializingRootForNSObject
 - (void)signUpVerifyFromViewController:(id)viewController phone:(NSString *)phone code:(NSString *)code success:(void (^)(void))success completion:(void (^)(void))completion {
     NSParameterAssert(phone);
     NSParameterAssert(code);
-    [API requestWithName:@"SignUpVerifyCheck" parameters:@{ @"phone" : phone, @"code" : code } viewController:viewController loadingMessage:@"验证中" modal:YES success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [API requestWithName:@"SignUpVerifyCheck" parameters:@{ @"phone" : phone, @"code" : code } viewController:viewController forceLoad:NO loadingMessage:@"验证中" modal:YES success:^(AFHTTPRequestOperation *operation, id responseObject) {
         self.verifyCode = code;
         self.account = phone;
         if (success) {
             success();
         }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (!error) {
+            [API alertError:nil title:@"验证码输入错误"];
+        }
+        else {
+            [API alertError:error title:@"请求失败"];
+        }
     } completion:^(AFHTTPRequestOperation *operation) {
         if (completion) {
             completion();
@@ -73,155 +57,136 @@ RFInitializingRootForNSObject
     }];
 }
 
-- (void)signUpFromViewController:(id)viewController name:(NSString *)userName password:(NSString *)password avatar:(UIImage *)image success:(void (^)(void))success completion:(void (^)(void))completion {
-    self.password = [self passHashWithString:password];
-    RFAssert(false, @"按需完成具体实现");
+- (void)signUpFromViewController:(id)viewController name:(NSString *)userName sex:(NSString *)sex password:(NSString *)password avatar:(UIImage *)image birthday:(NSString *)birthday success:(void (^)(void))success completion:(void (^)(void))completion {
+
+    NSString *passToken = [self passHashWithString:password];
+
+    NSData *imageData = UIImageJPEGRepresentation(image, 0.6);
+    NSString *imageBase64 = [imageData base64EncodedStringWithOptions:0];
+
+    RFAssert(userName, @"用户名空");
+    RFAssert(self.account, @"账户空");
+    RFAssert(sex, @"性别空");
+    RFAssert(passToken, @"密码空");
+    RFAssert(self.verifyCode, @"验证码空");
+
+    NSMutableDictionary *p = [@{
+                        @"nick": userName?: @"",
+                        @"mobile": self.account?: @"",
+                        @"sex": sex?: @"",
+                        @"password": passToken?: @"",
+                        @"avatar": imageBase64?: [NSNull null],
+                        @"code": self.verifyCode?: @"",
+                        } mutableCopy];
+    if (birthday) {
+        p[@"birthday"] = birthday;
+    }
+
+    __block BOOL upSuccess = NO;
+    [API requestWithName:@"SignUp" parameters:p viewController:viewController loadingMessage:@"注册中" modal:YES success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        upSuccess = YES;
+        [self loginFromViewController:nil phone:self.account password:password fromSignup:YES success:^{
+            if (success) {
+                success();
+            }
+        } mismatch:nil completion:^{
+            if (completion) {
+                completion();
+            }
+        }];
+    } completion:^(AFHTTPRequestOperation *operation) {
+        if (!upSuccess) {
+            if (completion) {
+                completion();
+            }
+        }
+    }];
+}
+
+- (NSString *)passHashWithString:(NSString *)pass {
+    return [NSString stringWithFormat:@"s_+%@", pass].rf_MD5String;
 }
 
 #pragma mark - 登入
 
-- (void)loginFromViewController:(id)viewController account:(NSString *)account password:(NSString *)password success:(void (^)(void))success completion:(void (^)(void))completion {
-    NSParameterAssert(account);
+- (void)loginFromViewController:(id)viewController phone:(NSString *)phone password:(NSString *)password success:(void (^)(void))success mismatch:(void (^)(void))mismatch completion:(void (^)(void))completion {
+    [self loginFromViewController:viewController phone:phone password:password fromSignup:NO success:success mismatch:mismatch completion:completion];
+}
+
+- (void)loginFromViewController:(id)viewController phone:(NSString *)phone password:(NSString *)password fromSignup:(BOOL)fromSignup success:(void (^)(void))success mismatch:(void (^)(void))mismatch completion:(void (^)(void))completion {
+    NSParameterAssert(phone);
     NSParameterAssert(password);
+    // 这里设成 None 以强制切换
+    NSURLCredential *cre = [NSURLCredential credentialWithUser:phone password:[self passHashWithString:password] persistence:NSURLCredentialPersistenceNone];
 
     self.logining = YES;
-    [API requestWithName:@"Login" parameters:@{
-        @"account" : self.account,
-        @"password" : self.password
-    } viewController:viewController forceLoad:NO loadingMessage:@"登录中" modal:NO success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    
+    AFHTTPRequestOperation *op = [API requestWithName:@"Login" parameters:nil viewController:viewController forceLoad:NO loadingMessage:@"登录中" modal:YES success:^(AFHTTPRequestOperation *operation, UserInformation *responseObject) {
 
-        self.account = account;
-        self.password = [self passHashWithString:password];
-        self.loggedIn = YES;
-
+        self.account = phone;
         [self saveProfileConfig];
-        if (self.shouldAutoFetchOtherUserInformationAfterLogin) {
-            [self fetchUserInfoFromViewController:viewController success:success completion:completion];
-        }
+
+        MBUser *user = [[MBUser alloc] initWithID:responseObject.uid];
+        user.token = responseObject.token;
+        user.information = responseObject;
+        user.hasLoginedThisSession = YES;
+        [user save];
+        [MBUser setCurrentUser:user];
+
         if (success) {
             success();
         }
+        [MBAnalytics logLoginWithMethod:@"手机" success:@(YES) attributes:nil];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [[API sharedInstance].networkActivityIndicatorManager alertError:error title:@"登录失败"];
+        if (error.domain == APIErrorDomain && error.code == 401) {
+            if (mismatch) {
+                mismatch();
+            }
+            [MBAnalytics logLoginWithMethod:@"手机" success:@(NO) attributes:@{ @"Error" : @"密码错误" }];
+            return;
+        }
+        [MBAnalytics logLoginWithMethod:@"手机" success:@(NO) attributes:@{ @"Error" : error }];
+        [API alertError:error title:@"登录失败"];
     } completion:^(AFHTTPRequestOperation *operation) {
         self.logining = NO;
+
         if (completion) {
             completion();
         }
     }];
-}
-
-- (void)logout {
-    self.loggedIn = NO;
-    [self resetProfileConfig];
-
-    // 其他清理
-}
-
-- (void)setLoggedIn:(BOOL)loggedIn {
-    _loggedIn = loggedIn;
-
-    // 更新身份认证信息
+    op.credential = cre;
 }
 
 #pragma mark -
+- (void)resetPasswordFromViewController:(id)viewController info:(NSDictionary *)recoverInfo success:(void (^)(void))callback {
+    NSMutableDictionary *p = [recoverInfo mutableCopy];
+    p[@"pwd"] = [self passHashWithString:p[@"pwd"]];
 
-- (void)fetchUserInfoFromViewController:(id)viewController success:(void (^)(void))success completion:(void (^)(void))completion {
-    [API requestWithName:@"UserInfo" parameters:nil viewController:viewController loadingMessage:@"获取信息中" modal:YES success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        self.information = responseObject;
-        [self saveProfileConfig];
-        if (success) {
-            success();
-        }
-    } completion:^(AFHTTPRequestOperation *operation) {
-        if (completion) {
-            completion();
-        }
-    }];
-}
-
-
-#pragma mark -
-- (void)resetPasswordWithInfo:(NSDictionary *)recoverInfo completion:(void (^)(NSString *password, NSError *error))callback {
-
-	RFAPIControl *cn = [[RFAPIControl alloc] initWithIdentifier:APINameResetPassword loadingMessage:@"提交重置密码请求..."];
-	cn.message.modal = YES;
-	[[API sharedInstance] requestWithName:APINameResetPassword parameters:recoverInfo controlInfo:cn success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [API requestWithName:@"PasswordReset" parameters:p viewController:viewController loadingMessage:@"修改密码中……" modal:YES success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if (callback) {
-            callback(responseObject, nil);
+            callback();
         }
-	} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        if (callback) {
-            callback(nil, error);
-        }
-	} completion:nil];
+    } completion:nil];
 }
 
 #pragma mark - Secret staues
-
-- (NSString *)passHashWithString:(NSString *)pass {
-    return [NSString MD5String:pass];
-}
-
 - (void)loadProfileConfig {
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-    self.shouldRememberPassword = [ud boolForKey:UDkUserRemeberPass];
-    self.account = [ud objectForKey:UDkLastUserAccount];
-    self.information = [[UserInformation alloc] initWithString:[ud objectForKey:UDkUserInformation] error:nil];
-
-    // 根据信息恢复其他登录状态
-
-    if (self.shouldRememberPassword) {
-#if APIUserPluginUsingKeychainToStroeSecret
-        NSError __autoreleasing *e = nil;
-        self.userPassword = [SSKeychain passwordForService:[NSBundle mainBundle].bundleIdentifier account:self.userAccount error:&e];
-        if (e) dout_error(@"%@", e);
-#else
-        self.password = [[NSUserDefaults standardUserDefaults] objectForKey:UDkUserPass];
-#endif
-    }
+    self.account = ud.userAccount;
 }
 
 - (void)saveProfileConfig {
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-    [ud setObject:self.account forKey:UDkLastUserAccount];
-    [ud setBool:self.shouldRememberPassword forKey:UDkUserRemeberPass];
-
-#if APIUserPluginUsingKeychainToStroeSecret
-    if (self.shouldRememberPassword) {
-        NSError __autoreleasing *e = nil;
-        [SSKeychain setPassword:self.userPassword forService:[NSBundle mainBundle].bundleIdentifier account:self.userAccount error:&e];
-        if (e) dout_error(@"%@", e);
-    }
-    else {
-        [SSKeychain deletePasswordForService:[NSBundle mainBundle].bundleIdentifier account:self.userAccount];
-    }
-#else
-    if (self.shouldRememberPassword) {
-        [ud setObject:self.password forKey:UDkUserPass];
-    }
-    else {
-        [ud removeObjectForKey:UDkUserPass];
-    }
-#endif
-    
+    ud.userAccount = self.account;
     [ud synchronize];
 }
 
 - (void)resetProfileConfig {
-    self.password = nil;
-    self.information = nil;
-
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-    [ud setBool:NO forKey:UDkUserRemeberPass];
-    [ud removeObjectForKey:UDkUserPass];
-    [ud removeObjectForKey:UDkLastUserAccount];
-    [ud removeObjectForKey:UDkUserInformation];
+    ud.userToken = nil;
+    ud.userAccount = nil;
+    ud.userInformation = nil;
     [ud synchronize];
-    
-#if APIUserPluginUsingKeychainToStroeSecret
-    [SSKeychain deletePasswordForService:[NSBundle mainBundle].bundleIdentifier account:self.userAccount];
-#endif
 }
 
 @end

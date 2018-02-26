@@ -7,7 +7,15 @@
     Apache License, Version 2.0
     http://www.apache.org/licenses/LICENSE-2.0
  */
-#import <Foundation/Foundation.h>
+#import "Common.h"
+#import "API.h"
+#import "MBEnvironment.h"
+#import "debug.h"
+#import "MBUser.h"
+#import "NSUserDefaults+App.h"
+// 非核心模块不要 import，避免头文件的循环引用
+
+@class MBDataStack;
 
 /**
  全局变量中心
@@ -19,6 +27,42 @@
  */
 @interface MBApp : NSObject
 
-+ (instancetype)status;
++ (nonnull instancetype)status;
+
+#pragma mark - 应用配置
+
+/**
+ 短版本号，形如 2.6.0
+ */
+@property (nonnull, readonly) NSString *version;
+
+/**
+ 从哪个版本升上来的
+ 如果不是升级后的第一次启动为空
+ */
+@property (nullable, readonly) NSString *previousVersion;
+
+/**
+ 判断一个版本是否是新的
+ */
+- (BOOL)isNewVersion:(NSString *_Nonnull)version;
+
+/// init 时创建
+@property (nonnull, readonly) DebugConfig *debugConfig;
+
+#pragma mark - 挂载的 manager
+
+/// 状态管理
+@property (nonnull, readonly) MBEnvironment *env;
+
+/// 请求管理
+@property (nonatomic, nullable) API *api;
+
+#pragma mark - Data Pool
+
+/**
+ 访问时懒加载
+ */
+@property (nonatomic, null_resettable, strong) MBDataStack *dataStack;
 
 @end

@@ -10,7 +10,9 @@
 #import "NSUserDefaults+App.h"
 #import "MBAnalytics.h"
 
-MB_SHOULD_MERGE_INTO_LIB void RFDebugger(NSString *format, ...) {
+// @TODO
+//MB_SHOULD_MERGE_INTO_LIB
+void RFDebugger(NSString *format, ...) {
     if (format) {
         va_list args;
         va_start(args, format);

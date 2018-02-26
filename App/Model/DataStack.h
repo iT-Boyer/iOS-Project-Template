@@ -8,28 +8,55 @@
     Apache License, Version 2.0
     http://www.apache.org/licenses/LICENSE-2.0
  */
-#import "RFCoreData.h"
-#import "MBAppVersion.h"
+#import "Common.h"
+#import <Realm/Realm.h>
+#import "MBModel.h"
+#import "Realm+ZYHelper.h"
 
 /**
- Core Data 基础构件
+ >= 0 表示上传重试次数
+ -1   表示已经上传了
+ -2   已删除
+ -3   损坏的数据
  */
-@interface DataStack : NSObject
-+ (DataStack *)sharedInstance;
+typedef NS_ENUM(int, MBDataSyncFlag) {
+    MBDataSyncFlagBadData = -3,
+    MBDataSyncFlagDeleted = -2,
+    MBDataSyncFlagDone    = -1,
+    MBDataSyncFlagWaiting = 0,
+    MBDataSyncFlagReady   = 1
+};
 
-@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
-@property (nonatomic, strong) NSManagedObjectModel *managedObjectModel;
-@property (nonatomic, strong) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+NS_ASSUME_NONNULL_BEGIN
 
-- (BOOL)save;
+@interface MBDataStack : NSObject <
+    RFInitializing
+>
 
-#pragma mark - 单例快速访问
+@property (nonatomic, readonly, strong) RLMRealm *sharedStorage;
 
-/**
- 在 managedObjectContext 的私有队列中执行 block 代码
- */
-+ (void)contextPerform:(void (^)())block;
-+ (NSManagedObjectContext *)managedObjectContext;
-+ (BOOL)save;
+- (NSURL *)realmDirURL;
+- (RLMRealmConfiguration *)realmConfigurationWithPath:(NSURL *)path;
+- (nullable RLMRealm *)realmWithURL:(nonnull NSURL *)url;
+
++ (void)writeToSharedStorageWithBlock:(RF_NOESCAPE void (^)(RLMRealm *storage))block;
 
 @end
+
+typedef NS_ENUM(int, RLMObjectFetchingPolicy) {
+    RLMObjectFetchingPolicyDefault = 0,
+
+    // 只返回数据库中存在的实例
+    RLMObjectFetchingPolicyOnlyExisted,
+
+    // 不检查数据库中是否存在，强制创建
+    RLMObjectFetchingPolicyForceCreate,
+};
+
+@interface RLMResults <RLMObjectType> (App)
+
+- (RLMResults <RLMObjectType>*)objectsWithPredicateFormat:(NSString *)predicateFormat, ...;
+
+@end
+
+NS_ASSUME_NONNULL_END

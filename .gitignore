@@ -27,3 +27,4 @@ Pods/
 *.save
 ._*
 *.bak
+/Frameworks/Realm.framework

@@ -1,17 +1,18 @@
 
 #import "debug.h"
-#import "API.h"
-#import "APIConfig.h"
+#import "AFNetworkReachabilityManager.h"
 #import "APIJSONResponseSerializer.h"
-#import "RFSVProgressMessageManager.h"
-
-#import "AFNetworkActivityLogger.h"
-#import "AFNetworkActivityIndicatorManager.h"
-#import "NSJSONSerialization+RFKit.h"
-#import "NSDateFormatter+RFKit.h"
-#import "UIDevice+RFKit.h"
+#import "APINetworkActivityManager.h"
+#import "MBAnalytics.h"
+#import "MBApp.h"
+#import "NSData+ImageContentType.h"
+#import "SDImageCache.h"
+#import "SDWebImageManager.h"
+#import "SVProgressHUD.h"
+#import "ZYErrorCode.h"
 #import "NSFileManager+RFKit.h"
-#import "MBRootNavigationController.h"
+#import "NSJSONSerialization+RFKit.h"
+#import "UIDevice+RFKit.h"
 
 RFDefineConstString(APIErrorDomain);
 
@@ -35,33 +36,60 @@ RFDefineConstString(APIErrorDomain);
 - (APIUserPlugin *)user {
     if (!_user) {
         APIUserPlugin *up = [APIUserPlugin new];
-        up.shouldRememberPassword = YES;
-        up.shouldAutoLogin = YES;
         _user = up;
     }
     return _user;
 }
 
+- (AFHTTPSessionManager *)manager {
+    if (!_manager) {
+        AFHTTPSessionManager *m = [AFHTTPSessionManager manager];
+        _manager = m;
+    }
+    return _manager;
+}
+
+
 - (void)onInit {
     [super onInit];
-
+    
     // 接口总体设置
     NSString *configPath = [[NSBundle mainBundle] pathForResource:@"APIDefine" ofType:@"plist"];
     NSDictionary *rules = [[NSDictionary alloc] initWithContentsOfFile:configPath];
-    [self.defineManager setDefinesWithRulesInfo:rules];
-    self.defineManager.defaultRequestSerializer = [AFJSONRequestSerializer serializer];
-    APIJSONResponseSerializer *rps = [APIJSONResponseSerializer serializer];
-    self.defineManager.defaultResponseSerializer = rps;    self.maxConcurrentOperationCount = 2;
-
-    // 设置属性
-    self.networkActivityIndicatorManager = [RFSVProgressMessageManager new];
-
-    // 配置网络
-    if ([UIDevice currentDevice].isBeingDebugged) {
-        [[AFNetworkActivityLogger sharedLogger] startLogging];
-        [AFNetworkActivityLogger sharedLogger].level = AFLoggerLevelDebug;
+    NSMutableDictionary<NSString *, NSDictionary *> *prules = [NSMutableDictionary dictionary];
+    __block NSInteger ruleCount = 0;
+    [rules enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, NSDictionary * _Nonnull obj, BOOL * _Nonnull stop) {
+        if ([key hasPrefix:@"@"]) {
+            [prules addEntriesFromDictionary:obj];
+            ruleCount += obj.count;
+        }
+        else {
+            prules[key] = obj;
+            ruleCount++;
+        }
+    }];
+    _dout_debug(@"载入 %ld 个接口定义", ruleCount);
+    RFAssert(ruleCount == prules.count, @"有规则重名了");
+    
+    RFAPIDefineManager *dm = self.defineManager;
+    [dm setDefinesWithRulesInfo:prules];
+    
+    if (AppDebugConfig().allowSSLDebug) {
+        // 允许外部 SSL 嗅探
+        self.securityPolicy = [AFSecurityPolicy defaultPolicy];
+        self.securityPolicy.allowInvalidCertificates = YES;
+        self.securityPolicy.validatesDomainName = NO;
     }
-    [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
+    
+    dm.defaultRequestSerializer = [AFJSONRequestSerializer serializer];
+    APIJSONResponseSerializer *rps = [APIJSONResponseSerializer serializer];
+    rps.serverReportErrorUsingStatusCode = YES;
+    dm.defaultResponseSerializer = rps;
+    self.maxConcurrentOperationCount = 5;
+    self.responseProcessingQueue = dispatch_queue_create("API.Processing", DISPATCH_QUEUE_SERIAL);
+    
+    // 设置属性
+    self.networkActivityIndicatorManager = [APINetworkActivityManager new];
 }
 
 - (void)afterInit {
@@ -89,6 +117,24 @@ RFDefineConstString(APIErrorDomain);
     return [[self sharedInstance] requestWithName:APIName parameters:parameters controlInfo:cn success:success failure:failure completion:completion];
 }
 
++ (void)backgroundRequestWithName:(NSString *)APIName parameters:(NSDictionary *)parameters completion:(void (^)(BOOL success, id responseObject, NSError *error))completion {
+    RFAPIControl *cn = [[RFAPIControl alloc] init];
+    cn.identifier = APIName;
+    cn.backgroundTask = YES;
+    __block MBGeneralCallback safeCallback = MBSafeCallback(completion);
+    [[self sharedInstance] requestWithName:APIName parameters:parameters controlInfo:cn success:^(AFHTTPRequestOperation * _Nullable operation, id  _Nullable responseObject) {
+        safeCallback(YES, responseObject, nil);
+        safeCallback = nil;
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        safeCallback(NO, nil, error);
+        safeCallback = nil;
+    } completion:^(AFHTTPRequestOperation * _Nullable operation) {
+        if (safeCallback) {
+            safeCallback(NO, nil, nil);
+        }
+    }];
+}
+
 + (void)cancelOperationsWithViewController:(id)viewController {
     [[API sharedInstance] cancelOperationsWithGroupIdentifier:NSStringFromClass([viewController class])];
 }
@@ -111,13 +157,6 @@ RFDefineConstString(APIErrorDomain);
 #pragma mark - 通用流程
 
 - (BOOL)generalHandlerForError:(NSError *)error withDefine:(RFAPIDefine *)define controlInfo:(RFAPIControl *)controlInfo requestOperation:(AFHTTPRequestOperation *)operation operationFailureCallback:(void (^)(AFHTTPRequestOperation *, NSError *))operationFailureCallback {
-    if ([error.domain isEqualToString:APIErrorDomain] && error.code == 403) {
-        [self.networkActivityIndicatorManager alertError:error title:@"请重新登录"];
-        dispatch_after_seconds(1, ^{
-            [self.user logout];
-        });
-        return NO;
-    }
     return YES;
 }
 
@@ -127,18 +166,6 @@ RFDefineConstString(APIErrorDomain);
 }
 
 #pragma mark - 具体业务
-
-
-#pragma mark - App update
-
-- (APIAppUpdatePlugin *)appUpdatePlugin {
-    if (!_appUpdatePlugin) {
-        APIAppUpdatePlugin *up = [[APIAppUpdatePlugin alloc] initWithMaster:self];
-        up.enterpriseDistributionPlistURL = [NSURL URLWithString: APIConfigEnterpriseDistributionURL];
-        _appUpdatePlugin = up;
-    }
-    return _appUpdatePlugin;
-}
 
 @end
 

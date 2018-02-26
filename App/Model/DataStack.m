@@ -1,119 +1,139 @@
 
 #import "DataStack.h"
-#import "debug.h"
+#import "MBApp.h"
+#import "MBApplicationDelegate.h"
+#import "NSFileManager+RFKit.h"
 
-@interface DataStack ()
-@property (strong, nonatomic) id applicationWillTerminateNotificationObserver;
-@property (strong, nonatomic) id applicationWillResignActiveNotificationObserver;
+static BOOL MBDataStackRealmResetAlertShow;
+
+@interface MBDataStack () <
+    UIApplicationDelegate
+>
+@property (nonatomic, readwrite, strong) RLMRealm *sharedStorage;
 @end
 
-@implementation DataStack
+@implementation MBDataStack
+RFInitializingRootForNSObject
 
-+ (instancetype)sharedInstance {
-    static DataStack *sharedInstance = nil;
-    static dispatch_once_t oncePredicate;
-    dispatch_once(&oncePredicate, ^{
-        sharedInstance = [[self alloc] init];
-    });
-	return sharedInstance;
+- (void)onInit {
 }
 
-- (instancetype)init {
-    self = [super init];
-    if (self) {
-        self.applicationWillTerminateNotificationObserver = [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationWillTerminateNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
-            [self save];
-        }];
-        self.applicationWillResignActiveNotificationObserver = [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationWillResignActiveNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
-            [self save];
-        }];
+- (void)afterInit {
+    [AppDelegate() addAppEventListener:self];
+}
+
+- (RLMRealm *)sharedStorage {
+    if (!_sharedStorage) {
+        _sharedStorage = [self realmWithURL:[[self realmDirURL] URLByAppendingPathComponent:@"main.db"]];
     }
-
-    return self;
+    return _sharedStorage;
 }
 
-- (void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self.applicationWillResignActiveNotificationObserver];
-    [[NSNotificationCenter defaultCenter] removeObserver:self.applicationWillTerminateNotificationObserver];
+- (NSURL *)realmDirURL {
+    NSFileManager *fm = [NSFileManager defaultManager];
+    NSURL *supportDirURL = [fm subDirectoryURLWithPathComponent:@"cc.feelapp.storage" inDirectory:NSApplicationSupportDirectory createIfNotExist:YES error:nil];
+    [fm setAttributes:@{ NSFileProtectionKey: NSFileProtectionNone } ofItemAtPath:supportDirURL.path error:nil];
+    RFAssert(supportDirURL, @"不能获取存储目录？");
+    return supportDirURL;
 }
 
-- (NSURL *)dataBaseURL {
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSURL *directoryURL = [[fileManager URLsForDirectory:NSApplicationSupportDirectory inDomains:NSUserDomainMask] firstObject];
-    BOOL isDirectory = YES;
-    if (![fileManager fileExistsAtPath:[directoryURL path] isDirectory:&isDirectory]) {
-        RFAssert(isDirectory, @"指定目录实际是文件");
-        NSError __autoreleasing *e = nil;
-        [fileManager createDirectoryAtURL:directoryURL withIntermediateDirectories:YES attributes:nil error:&e];
-        if (e) dout_error(@"%@", e);
-    }
-    NSURL *baseURL = [directoryURL URLByAppendingPathComponent:@".record"];
-    return baseURL;
-}
-
-- (BOOL)save {
-    if (!self.managedObjectContext.hasChanges) return YES;
+- (RLMRealm *)realmWithURL:(NSURL *)url {
+    if (!RFAssertIsMainThread()) return nil;
 
     NSError __autoreleasing *e = nil;
-    if (![self.managedObjectContext save:&e]) {
-        dout_error(@"ManagedObjectContext saved failed: %@", e);
-        return NO;
-    }
-    return YES;
-}
+    RLMRealm *s = [RLMRealm realmWithConfiguration:[self realmConfigurationWithPath:url] error:&e];
+    if (s) return s;
 
-#pragma mark - Core Data Stack
-- (NSManagedObjectContext *)managedObjectContext {
-    if (!_managedObjectContext) {
-        if (self.persistentStoreCoordinator) {
-            _managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
-            [_managedObjectContext setPersistentStoreCoordinator:self.persistentStoreCoordinator];
+    if (!MBDataStackRealmResetAlertShow) {
+        MBDataStackRealmResetAlertShow = YES;
+        NSString *msg = e.localizedDescription;
+        if ([msg containsString:@"is less than last set version"]) {
+            msg = @"Feel 不支持从高版本降级到低版本";
         }
+        msg = [msg stringByAppendingString:@"\n重置会导致未同步的数据丢失"];
+//  @TODO
+//        PSTAlertController *ac = [PSTAlertController alertWithTitle:@"数据不兼容" message:msg];
+//        [ac addAction:[PSTAlertAction actionWithTitle:@"重置数据" style:PSTAlertActionStyleDefault handler:^(PSTAlertAction *action) {
+//            [[NSFileManager defaultManager] removeItemAtURL:[self realmDirURL] error:nil];
+//            MBDataStackRealmResetAlertShow = NO;
+//        }]];
+//        [ac addCancelActionWithHandler:^(PSTAlertAction *action) {
+//            MBDataStackRealmResetAlertShow = NO;
+//        }];
+//        [ac showWithSender:nil controller:nil animated:NO completion:nil];
     }
-    return _managedObjectContext;
+    return nil;
 }
 
-- (NSManagedObjectModel *)managedObjectModel {
-    if (!_managedObjectModel) {
-        NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"Model" withExtension:@"mom" subdirectory:@"Model.momd"];
-        RFAssert(modelURL, @"Model地址需要修改");
-        _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
-    }
-    return _managedObjectModel;
+- (RLMRealmConfiguration *)realmConfigurationWithPath:(NSURL *)path {
+    RLMRealmConfiguration *conf = [[RLMRealmConfiguration alloc] init];;
+    conf.schemaVersion = 20;
+    conf.fileURL = path;
+    [conf setMigrationBlock:^(RLMMigration *migration, uint64_t oldSchemaVersion){
+//        if (oldSchemaVersion == 0) {
+//            [migration deleteDataForClassName:[ToolResultModel className]];
+//        }
+//        if (oldSchemaVersion < 2) {
+//            // 把数据库中旧的轨迹数据变为新的
+//            [migration enumerateObjects:[ToolResultModel className] block:^(RLMObject * _Nullable oldObject, RLMObject * _Nullable newObject) {
+//                if ([oldObject[@"toolIdentifier"] isEqualToString:ToolTypeIdentifierRunTrackOld]) {
+//                    newObject[@"toolIdentifier"] = ToolTypeIdentifierRunTrack;
+//                }
+//            }];
+//        }
+    }];
+    return conf;
 }
 
-- (NSPersistentStoreCoordinator *)persistentStoreCoordinator {
-    if (!_persistentStoreCoordinator) {
-        NSError *error = nil;
-        _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.managedObjectModel];
-        if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:self.dataBaseURL options:@{
-                       NSMigratePersistentStoresAutomaticallyOption : @YES,
-                             NSInferMappingModelAutomaticallyOption : @YES
-              } error:&error]) {
-            if (DebugResetPersistentStoreIfCannotAutomaticallyMigrated) {
-                dout_warning(@"数据模型不兼容，原有数据被清理");
-                [[NSFileManager defaultManager] removeItemAtURL:self.dataBaseURL error:nil];
-                RFAssert([_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:self.dataBaseURL options:nil error:nil], @"数据库不能被强制重建");
-            }
-            else {
-                RFAssert(!error, @"数据模型不兼容了：%@", error);
-            }
++ (void)writeToSharedStorageWithBlock:(void (^)(RLMRealm * _Nonnull))block {
+    NSParameterAssert(block);
+    dispatch_sync_on_main(^{
+        MBDataStack *ds = [MBApp status].dataStack;
+        RLMRealm *s = ds.sharedStorage;
+        if (s.inWriteTransaction) {
+            block(s);
         }
+        else {
+            [s beginWriteTransaction];
+            block(s);
+            NSError __autoreleasing *e = nil;
+            [s commitWriteTransaction:&e];
+            if (e) dout_error(@"%@", e);
+        }
+    });
+}
+
+#pragma mark -
+
+- (void)applicationDidEnterBackground:(UIApplication *)application {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        [self removeFileProtection];
+    });
+}
+
+/// 把所有 Realm 文件的 data protection 去掉，防止崩溃
+- (void)removeFileProtection {
+    NSFileManager *fm = [NSFileManager defaultManager];
+    NSURL *storageDirURL = self.realmDirURL;
+    NSDirectoryEnumerator *dirEnumerator = [fm enumeratorAtURL:storageDirURL includingPropertiesForKeys:nil options:0 errorHandler:nil];
+    for (NSURL *fileURL in dirEnumerator) {
+        [fm setAttributes:@{ NSFileProtectionKey: NSFileProtectionNone } ofItemAtPath:fileURL.path error:nil];
     }
-    return _persistentStoreCoordinator;
-}
-
-#pragma mark - 快速访问
-+ (void)contextPerform:(void (^)())block {
-    [[self sharedInstance].managedObjectContext performBlock:block];
-}
-
-+ (NSManagedObjectContext *)managedObjectContext {
-    return [self sharedInstance].managedObjectContext;
-}
-
-+ (BOOL)save {
-    return [[self sharedInstance] save];
 }
 
 @end
+
+@implementation RLMResults (App)
+
+- (RLMResults *)objectsWithPredicateFormat:(NSString *)predicateFormat, ... {
+    va_list args;
+    va_start(args, predicateFormat);
+    NSPredicate *pd = [NSPredicate predicateWithFormat:predicateFormat arguments:args];
+    va_end(args);
+    RLMResults *result = [self objectsWithPredicate:pd];
+    return result;
+}
+
+@end
+

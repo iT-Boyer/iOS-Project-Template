@@ -9,17 +9,11 @@
     Apache License, Version 2.0
     http://www.apache.org/licenses/LICENSE-2.0
  */
-#import "RFPlugin.h"
+#import "RFUI.h"
 #import "UserInformation.h"
+#import "NSUserDefaults+App.h"
 
-/// 用 Keychian 存取用户密码
-#ifndef APIUserPluginUsingKeychainToStroeSecret
-#   define APIUserPluginUsingKeychainToStroeSecret 0
-#endif
-
-#if APIUserPluginUsingKeychainToStroeSecret
-#import "SSKeychain.h"
-#endif
+NS_ASSUME_NONNULL_BEGIN
 
 @class API, AFHTTPRequestOperation;
 
@@ -31,27 +25,13 @@
 >
 
 #pragma mark - 用户信息
-@property (copy, nonatomic) NSString *account;
-@property (copy, nonatomic) NSString *password;
+
+@property (nonatomic, nullable, copy) NSString *account;
 
 /// 临时验证码
-@property (copy, nonatomic) NSString *verifyCode;
-
-/// 除上面几个字段外，其余所有信息请定义在该属性中
-@property (strong, nonatomic) UserInformation *information;
+@property (nonatomic, nullable, copy) NSString *verifyCode;
 
 #pragma mark - 设置
-/// 保持登录状态，下次启动不走登录流程。默认 `NO`
-@property (assign, nonatomic) BOOL shouldKeepLoginStatus;
-
-/// Default `NO`
-@property (assign, nonatomic) BOOL shouldRememberPassword;
-
-/// Default `NO`
-@property (assign, nonatomic) BOOL shouldAutoLogin;
-
-/// Default `NO`
-@property (assign, nonatomic) BOOL shouldAutoFetchOtherUserInformationAfterLogin;
 
 /// account, password, shouldRememberPassword 等字段保存/重置
 - (void)saveProfileConfig;
@@ -67,25 +47,21 @@
 - (void)signUpVerifyFromViewController:(id)viewController phone:(NSString *)phone code:(NSString *)code success:(void (^)(void))success completion:(void (^)(void))completion;
 
 /// 注册
-- (void)signUpFromViewController:(id)viewController name:(NSString *)userName password:(NSString *)password avatar:(UIImage *)image success:(void (^)(void))success completion:(void (^)(void))completion;
+- (void)signUpFromViewController:(id)viewController name:(NSString *)userName sex:(NSString *)sex password:(NSString *)password avatar:(UIImage *)image birthday:(NSString *)birthday success:(void (^)(void))success completion:(void (^)(void))completion;
+
+- (NSString *)passHashWithString:(NSString *)pass;
 
 #pragma mark 登陆
-
-/// 是否已登入
-@property (readonly, nonatomic) BOOL loggedIn;
 
 /// 正在登入
 @property (readonly, nonatomic) BOOL logining;
 
-- (void)loginFromViewController:(id)viewController account:(NSString *)account password:(NSString *)password success:(void (^)(void))success completion:(void (^)(void))completion;
-- (void)logout;
-
-#pragma mark 用户信息获取
-@property (readonly, nonatomic) BOOL fetchingUserInformation;
-
-- (void)fetchUserInfoFromViewController:(id)viewController success:(void (^)(void))success completion:(void (^)(void))completion;
+- (void)loginFromViewController:(id)viewController phone:(NSString *)phone password:(NSString *)password success:(void (^ _Nullable)(void))success mismatch:(void (^ _Nullable)(void))mismatch completion:(void (^ _Nullable)(void))completion;
 
 #pragma mark 找回密码
-- (void)resetPasswordWithInfo:(NSDictionary *)recoverInfo completion:(void (^)(NSString *password, NSError *error))callback;
+
+- (void)resetPasswordFromViewController:(id _Nullable)viewController info:(NSDictionary *)recoverInfo success:(void (^)(void))callback;
 
 @end
+
+NS_ASSUME_NONNULL_END
