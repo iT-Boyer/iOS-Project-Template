@@ -8,7 +8,7 @@
     http://www.apache.org/licenses/LICENSE-2.0
  */
 #import "MBTableView.h"
-#import "MBEntityListDisplaying.h"
+#import "MBGeneralListDisplaying.h"
 
 /**
  专用于嵌在其他界面的列表
@@ -18,21 +18,18 @@
  */
 @interface MBTableListDisplayer : UITableViewController <
     RFInitializing,
-    MBEntityListDisplaying
+    MBGeneralListDisplaying,
+    MBGeneralSegue
 >
 
-@property (nonatomic, retain) MBTableView *tableView;
+@property (nonatomic) MBTableView *tableView;
 
-@property (copy, nonatomic) IBInspectable NSString *APIName;
-@property (weak, nonatomic) MBTableViewDataSource *dataSource;
+@property (nonatomic) IBInspectable NSString *APIName;
+@property (weak) MBTableViewDataSource *dataSource;
 
 /// 默认不做什么
 - (void)setupDataSource:(MBTableViewDataSource *)ds;
 
-/**
- 默认依次尝试取 sender、tableViewCell、self 的 item，然后交给 destinationViewController
- */
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender;
 @end
 
 
@@ -42,7 +39,8 @@
  listDisplayer 正常通过 UIContainerView 或 RFContainerView 嵌入。不自动嵌入是考虑到列表的位置不总是固定填满的
  */
 @interface MBTableListController : UIViewController <
-    MBEntityListDisplaying
+    MBGeneralListDisplaying,
+    MBGeneralSegue
 >
 @property (strong, nonatomic) IBInspectable NSString *APIName;
 
@@ -54,9 +52,9 @@
 /**
  手动，而不是 viewDidLoad 时立即刷新
  */
-@property (assign, nonatomic) IBInspectable BOOL disableAutoRefreshAfterViewLoadded;
+@property (nonatomic) IBInspectable BOOL disableAutoRefreshAfterViewLoadded;
 
-@property (assign, nonatomic) IBInspectable BOOL clearsSelectionOnViewWillAppear;
+@property (nonatomic) IBInspectable BOOL clearsSelectionOnViewWillAppear;
 
 @property (strong, nonatomic) MBTableListDisplayer *listDisplayer;
 

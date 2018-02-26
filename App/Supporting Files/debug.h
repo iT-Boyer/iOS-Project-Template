@@ -58,14 +58,14 @@ FOUNDATION_EXPORT BOOL RFAssertKindOfClass(id __nullable obj, Class __nonnull aC
  
  @return YES 在主线程，NO 不在主线程
  */
-FOUNDATION_EXPORT BOOL RFAssertIsMainThread();
+FOUNDATION_EXPORT BOOL RFAssertIsMainThread(void);
 
 /**
  断言在不主线程
 
  @return YES 不在主线程，NO 在主线程
  */
-FOUNDATION_EXPORT BOOL RFAssertNotMainThread();
+FOUNDATION_EXPORT BOOL RFAssertNotMainThread(void);
 
 FOUNDATION_EXPORT unsigned long long MBApplicationMemoryUsed(void);
 FOUNDATION_EXPORT unsigned long long MBApplicationMemoryAll(void);

@@ -63,7 +63,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     id item = [self itemAtIndexPath:indexPath];
     NSString *reuseIdentifier = self.cellReuseIdentifier(tableView, indexPath, item);
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
+    UITableViewCell *cell = [tableView rf_dequeueReusableCellWithIdentifier:reuseIdentifier];
     RFAssert(cell, @"找不到 reuse identifier 为 %@ 的 cell", reuseIdentifier);
     self.configureCell(tableView, cell, indexPath, item, NO);
     return cell;

@@ -1,6 +1,6 @@
 /*!
     MBModalPresentSegue
-    v 0.1
+    v 0.2
 
     Copyright © 2014 Chinamobo Co., Ltd.
     https://github.com/Chinamobo/iOS-Project-Template
@@ -8,6 +8,8 @@
     Apache License, Version 2.0
     http://www.apache.org/licenses/LICENSE-2.0
  */
+
+#import "Common.h"
 #import "RFSegue.h"
 
 /**
@@ -34,9 +36,36 @@
 @interface MBModalPresentViewController : UIViewController <
     MBModalPresentSegueDelegate
 >
+
+/**
+ 从其他视图弹出
+ */
+- (void)presentFromViewController:(UIViewController *)parentViewController animated:(BOOL)animated completion:(void (^)(void))completion;
+
 @property (weak, nonatomic) IBOutlet UIView *maskView;
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 
 - (void)setViewHidden:(BOOL)hidden animated:(BOOL)animated completion:(void (^)(void))completion;
 
+- (void)dismissAnimated:(BOOL)flag completion:(void (^)(void))completion;
+- (IBAction)dismiss:(UIButton *)sender;
+
 @end
+
+@interface UIViewController (MBOverCurrentContextModalPresenting)
+
+/**
+ @warning iOS 8 之前版本上，如果有动画则 viewControllerToPresent 的一些转场方法（如 viewWillAppear:）会调用两次
+ */
+- (void)MBOverCurrentContextPresentViewController:(UIViewController *)viewControllerToPresent animated:(BOOL)flag completion:(void (^)(void))completion;
+
+@end
+
+@interface MBOverCurrentContextModalPresentSegue : RFSegue
+
+@end
+
+@interface TestVC : UIViewController
+
+@end
+

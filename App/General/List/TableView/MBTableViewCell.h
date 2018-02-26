@@ -7,14 +7,14 @@
     Apache License, Version 2.0
     http://www.apache.org/licenses/LICENSE-2.0
  */
-#import "RFUI.h"
-#import "MBEntityExchanging.h"
+
+#import "Common.h"
 
 @interface MBTableViewCell : UITableViewCell <
     MBSenderEntityExchanging
 >
 /// 修改
-@property (assign, nonatomic) IBInspectable BOOL selectedBackgroundEnable;
+@property (nonatomic) IBInspectable BOOL selectedBackgroundEnable;
 @property (strong, nonatomic) id item;
 - (void)setItem:(id)item offscreenRendering:(BOOL)offscreenRendering;
 + (CGFloat)heightForItem:(id)item width:(CGFloat)width;

@@ -35,9 +35,26 @@ RFInitializingRootForUIView
             [delegate searchBarSearchButtonClicked:searchBar];
         }
     }];
+
+    [self.trueDelegate setCancelButtonClicked:^(UISearchBar *searchBar, id<UISearchBarDelegate> delegate) {
+        @strongify(self);
+        [searchBar endEditing:YES];
+        if (self.clearTextWhenCancelButtonClicked) {
+            self.text = nil;
+            [self doSearchWithKeyword:nil force:NO];
+        }
+        if ([delegate respondsToSelector:@selector(searchBarCancelButtonClicked:)]) {
+            [delegate searchBarCancelButtonClicked:searchBar];
+        }
+    }];
 }
 
 - (void)afterInit {
+}
+
+- (void)setNeedsResearch {
+    self.autoSearchTimer.suspended = YES;
+    self.autoSearchTimer.suspended = NO;
 }
 
 - (void)setAutoSearchTimeInterval:(float)autoSearchTimeInterval {
@@ -68,6 +85,9 @@ RFInitializingRootForUIView
     self.autoSearchTimer.suspended = YES;
 
     NSString *keyword = [self.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    if (keyword.length < self.autoSearchMinimumLength) {
+        return;
+    }
     _douto(keyword)
 
     if (![keyword isEqualToString:self.searchingKeyword]) {

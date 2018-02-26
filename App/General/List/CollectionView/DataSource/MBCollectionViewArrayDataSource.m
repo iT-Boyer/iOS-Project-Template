@@ -15,22 +15,24 @@ RFInitializingRootForNSObject
     // Nothing
 }
 
-- (nonnull id)itemAtIndexPath:(nonnull NSIndexPath *)indexPath {
+- (nullable id)itemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     NSParameterAssert(indexPath);
     BOOL hasFirstItem = self.hasFirstItem;
     if ([self isFirstItemIndexPath:indexPath]) {
         return self.firstItemObject;
     }
-    dout_int(indexPath.item - !!hasFirstItem)
+    _dout_int(indexPath.item - !!hasFirstItem)
     return [self.items rf_objectAtIndex:indexPath.item - !!hasFirstItem];
 }
 
 - (nullable NSIndexPath *)indexPathForItem:(nonnull id)item {
+    if (!item) return nil;
     BOOL hasFirstItem = self.hasFirstItem;
-    NSInteger idx = [self.items indexOfObject:item];
-    if (self.items // items 为空 idx 会是 0，所以需要明确检查一下
-        && idx != NSNotFound) {
-        return [NSIndexPath indexPathForRow:idx + !!hasFirstItem inSection:0];
+    if (self.items) {
+        NSInteger idx = [self.items indexOfObject:item];
+        if (idx != NSNotFound) {
+            return [NSIndexPath indexPathForRow:idx + !!hasFirstItem inSection:0];
+        }
     }
     if (item == self.firstItemObject) {
         return [NSIndexPath indexPathForRow:0 inSection:0];
@@ -38,7 +40,7 @@ RFInitializingRootForNSObject
     return nil;
 }
 
-- (void)setItems:(NSMutableArray *)items {
+- (void)setItems:(NSArray *)items {
     _items = items;
     [self.collectionView reloadData];
 }

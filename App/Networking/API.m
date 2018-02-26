@@ -15,6 +15,7 @@
 #import "UIDevice+RFKit.h"
 
 RFDefineConstString(APIErrorDomain);
+NSString *APIURLAssetsBase              = @"http://img.example.com/";
 
 @interface API () <
     UIAlertViewDelegate

@@ -7,10 +7,8 @@
     Apache License, Version 2.0
     http://www.apache.org/licenses/LICENSE-2.0
  */
-#import "RFUI.h"
-#import "MBEntityExchanging.h"
 
-NS_ASSUME_NONNULL_BEGIN
+#import "Common.h"
 
 /**
  数组作为数据源的 data source
@@ -24,11 +22,14 @@ NS_ASSUME_NONNULL_BEGIN
 >
 @property (nonatomic, nullable, weak) IBOutlet UICollectionView *collectionView;
 
-@property (nonatomic, strong) NSArray *items;
+@property (nonatomic, nullable, strong) NSArray *items;
 
-- (id)itemAtIndexPath:(NSIndexPath *)indexPath;
+/**
+ @param indexPath 为空会抛出异常
+ */
+- (nullable id)itemAtIndexPath:(nonnull NSIndexPath *)indexPath;
 
-- (nullable NSIndexPath *)indexPathForItem:(id)item;
+- (nullable NSIndexPath *)indexPathForItem:(nonnull id)item;
 
 @property (nonatomic, nullable, copy) NSString *_Nonnull (^cellIdentifierProvider)(__kindof MBCollectionViewArrayDataSource *_Nonnull dataSource, id _Nonnull item, NSIndexPath *_Nonnull indexPath);
 
@@ -41,7 +42,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// 可选，绑定在第一个特殊 cell 的对象
 @property (nonatomic, nullable, strong) id firstItemObject;
 
-- (BOOL)isFirstItemIndexPath:(NSIndexPath *)indexPath;
+- (BOOL)isFirstItemIndexPath:(nonnull NSIndexPath *)indexPath;
 
 /// 最后一个特殊 cell 的标识
 /// 设置则添加
@@ -51,5 +52,3 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) IBInspectable NSUInteger maxItemsCount __attribute__((unavailable("暂未实现")));
 
 @end
-
-NS_ASSUME_NONNULL_END

@@ -57,4 +57,4 @@
 @end
 
 /// 快速访问 MBApplicationDelegate 实例
-MBApplicationDelegate *__nonnull AppDelegate();
+MBApplicationDelegate *__nonnull AppDelegate(void);

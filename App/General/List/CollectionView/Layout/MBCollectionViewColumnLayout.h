@@ -7,11 +7,12 @@
     Apache License, Version 2.0
     http://www.apache.org/licenses/LICENSE-2.0
  */
-#import "RFUI.h"
 #import "MBCollectionViewFlowLayout.h"
 
 /**
- 按列布局
+ 按列布局，根据列数等比例调整 cell 的大小并保持 cell 的间距不变
+ 
+ 可以指定一个固定列数或一个 cell 的参考大小自动调整列数
  
  不支持通过 delegate 设置 itemSize。如果 delegate 返回了 itemSize，则列设置将失效
  */
@@ -25,10 +26,10 @@
 
  默认 NO
  */
-@property (assign, nonatomic) IBInspectable BOOL autoColumnDecideOnItemMinimumWidth;
+@property (nonatomic) IBInspectable BOOL autoColumnDecideOnItemMinimumWidth;
 
 /// 列数量，默认 3
-@property (nonatomic, assign) IBInspectable NSInteger columnCount;
+@property (nonatomic) IBInspectable NSInteger columnCount;
 
 - (CGFloat)itemWidthInSectionAtIndex:(NSInteger)section;
 

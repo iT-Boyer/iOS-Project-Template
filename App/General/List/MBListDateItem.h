@@ -7,28 +7,32 @@
     Apache License, Version 2.0
     http://www.apache.org/licenses/LICENSE-2.0
  */
-#import <Foundation/Foundation.h>
+
 #import "MBModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MBListDateItem : NSObject <
+@interface MBListDataItem<ObjectType> : NSObject <
     MBModel
 >
-@property (nonatomic, nullable, strong) id item;
-@property (nonatomic, copy) NSString *cellReuseIdentifier;
 
-+ (instancetype)dateItemWithItem:(id _Nullable)item cellReuseIdentifier:(NSString *)identifier;
+@property (nonatomic, nullable, strong) ObjectType item;
+@property (nonatomic, strong) NSString *cellReuseIdentifier;
+
++ (instancetype)dataItemWithItem:(nullable ObjectType)item cellReuseIdentifier:(NSString *)identifier;
+
+@end
+
+@interface MBListSectionDataItem<SectionType, RowType> : NSObject
+
+@property (nonatomic, nullable, strong) SectionType sectionItem;
+@property (nonatomic, strong) NSString *sectionIndicator;
+@property (nonatomic, strong) NSMutableArray<MBListDataItem<RowType> *> *rows;
+
++ (instancetype)dataItemWithSectionItem:(nullable SectionType)sectionItem sectionIndicator:(NSString *)sectionIndicator rows:(NSMutableArray<MBListDataItem<RowType> *> *)rows;
 
 @end
 
-
-@interface MBListSectionDataItem : NSObject
-@property (nonatomic, nullable, strong) id sectionItem;
-@property (nonatomic, strong) NSMutableArray<MBListDateItem *> *rows;
-
-+ (instancetype)dateItemWithSectionItem:(id _Nullable)sectionItem rows:(NSMutableArray<MBListDateItem *> *)rows;
-
-@end
+void MBListDataItemAddToItems(NSString *cellIdentifier, id __nullable item, NSMutableArray *items);
 
 NS_ASSUME_NONNULL_END

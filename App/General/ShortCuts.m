@@ -7,8 +7,10 @@
 //
 
 #import "ShortCuts.h"
+#import "App-Swift.h"
 #import "DataStack.h"
 #import "MBApp.h"
+#import "MBNavigationController.h"
 
 /**
  备忘
@@ -16,48 +18,31 @@
  保持这里的纯粹性——只提供快捷访问，和必要的简单变量缓存。
  不在这写创建逻辑，会导致难于维护
  */
-
-#ifndef DEMO
 DebugConfig *AppDebugConfig() {
     return [MBApp status].debugConfig;
 }
-#else
-id AppDebugConfig() {
-    return nil;
-}
-#endif
 
 MBEnvironment *AppEnv() {
     return [MBApp status].env;
 }
 
-#ifndef DEMO
 #import "MBRootWrapperViewController.h"
 
-MBRootWrapperViewController *_Nullable AppRootViewController() {
-    return [MBRootWrapperViewController globalController];
+RootViewController *_Nullable AppRootViewController() {
+    return RootViewController.globalController;
 }
 
-ZYNavigationController *__nullable AppNavigationController() {
+MBNavigationController *__nullable AppNavigationController() {
     return [MBApp status].globalNavigationController;
 }
-#else
-id AppRootViewController() { return nil; }
-id AppNavigationController() { return nil; }
-#endif
 
-#ifndef DEMO
-MBWorkerQueue *AppWorkerQueue() {
-    return [MBApp status].workerQueue;
-}
-
-MBWorkerQueue *AppBackgroundWorkerQueue() {
-    return [MBApp status].backgroundWorkerQueue;
-}
-#else
-id AppWorkerQueue() { return nil; }
-id AppBackgroundWorkerQueue() { return nil; }
-#endif
+//MBWorkerQueue *AppWorkerQueue() {
+//    return [MBApp status].workerQueue;
+//}
+//
+//MBWorkerQueue *AppBackgroundWorkerQueue() {
+//    return [MBApp status].backgroundWorkerQueue;
+//}
 
 static BOOL _itemFitClass(id __nullable item, Class __nullable exceptClass) {
     if (!item) return NO;
@@ -70,7 +55,7 @@ static BOOL _itemFitClass(id __nullable item, Class __nullable exceptClass) {
 }
 
 id __nullable AppCurrentViewControllerItem(Class __nullable exceptClass) {
-    ZYNavigationController *nav = AppNavigationController();
+    MBNavigationController *nav = AppNavigationController();
     UIViewController<MBGeneralItemExchanging> *vc = (id)(nav.presentedViewController?: nav.topViewController);
     id item = nil;
     if ([vc respondsToSelector:@selector(item)]) {
@@ -92,23 +77,13 @@ id __nullable AppCurrentViewControllerItem(Class __nullable exceptClass) {
 
 #pragma mark -
 
-#ifndef DEMO
 MBUser *__nullable AppUser() {
     return [MBUser currentUser];
 }
-#else
-id AppUser() { return nil; }
-#endif
 
-#ifndef DEMO
 MBID AppUserID() {
     return AppUser().uid;
 }
-#else
-MBID AppUserID() {
-    return 0;
-}
-#endif
 
 static NSNumber *_UserIDNumberCache;
 static MBID _UserIDNumberCacheVerify;
@@ -121,21 +96,13 @@ NSNumber *AppUserIDNumber() {
     return _UserIDNumberCache;
 }
 
-#ifndef DEMO
 UserInformation *AppUserInformation() {
     return AppUser().information;
 }
-#else
-id AppUserInformation() { return nil; }
-#endif
 
-#ifndef DEMO
 APIUserPlugin *AppUserManager() {
     return [API sharedInstance].user;
 }
-#else
-id AppUserManager() { return nil; }
-#endif
 
 #pragma mark -
 
@@ -143,13 +110,9 @@ NSUserDefaults *AppUserDefaultsShared() {
     return [NSUserDefaults standardUserDefaults];
 }
 
-#ifndef DEMO
 MBUserProfiles *_Nullable AppUserDefaultsPrivate() {
     return AppUser().profile;
 }
-#else
-id AppUserDefaultsPrivate() { return nil; }
-#endif
 
 #import <Realm/Realm.h>
 
@@ -162,13 +125,9 @@ RLMRealm *AppStorageShared() {
     return _StorageMain;
 }
 
-#ifndef DEMO
 RLMRealm *_Nullable AppStoragePrivate() {
     return AppUser().storage;
 }
-#else
-id AppStoragePrivate() { return nil; }
-#endif
 
 BOOL AppActive() {
     return [UIApplication sharedApplication].applicationState == UIApplicationStateActive;
@@ -177,13 +136,3 @@ BOOL AppActive() {
 BOOL AppInBackground() {
     return [UIApplication sharedApplication].applicationState == UIApplicationStateBackground;
 }
-
-NSString *__nonnull AppShareDomain(NSString *__nullable path) {
-    NSString *domain = [MBApp status].appConfig.shareDomain?: @"https://share.feelapp.cc";
-    if (path) {
-        RFAssert([path characterAtIndex:0] == '/', @"路径应以/开头");
-        return [domain stringByAppendingString:path];
-    }
-    return domain;
-}
-

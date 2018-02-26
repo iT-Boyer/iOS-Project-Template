@@ -6,19 +6,8 @@
 @end
 
 @implementation MBFormSelectButton
-RFInitializingRootForUIView
 
-+ (void)load {
-    [[self appearance] setBackgroundImage:[UIImage imageNamed:@"select_button_bg"] forState:UIControlStateNormal];
-}
-
-- (void)onInit {
-    [self setTitleColor:[UIColor globalPlaceholderTextColor] forState:UIControlStateNormal];
-    [self setTitleColor:[UIColor globalTextColor] forState:UIControlStateSelected];
-    self.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 25);
-}
-
-- (void)afterInit {
+- (void)setHighlighted:(BOOL)highlighted {
 }
 
 - (CGSize)intrinsicContentSize {
@@ -35,6 +24,13 @@ RFInitializingRootForUIView
     }
 }
 
+- (void)setPlaceHolder:(NSString *)placeHolder {
+    _placeHolder = placeHolder;
+    if (!self.selected) {
+        [self setTitle:placeHolder forState:UIControlStateNormal];
+    }
+}
+
 - (void)setSelectedVaule:(id)selectedVaule {
     if (_selectedVaule != selectedVaule) {
         [self setTitle:[self displayStringWithValue:selectedVaule] forState:UIControlStateSelected];
@@ -44,6 +40,9 @@ RFInitializingRootForUIView
 }
 
 - (NSString *)displayStringWithValue:(id)value {
+    if (self.valueDisplayString) {
+        return self.valueDisplayString(value);
+    }
     return [NSString stringWithFormat:@"%@", value];
 }
 

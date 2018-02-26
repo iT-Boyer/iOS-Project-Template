@@ -1,6 +1,6 @@
 
 #import "MBEntitiesCollectionView.h"
-#import "MBEntityExchanging.h"
+#import "MBGeneralCellResponding.h"
 
 @implementation MBEntitiesCollectionView
 RFInitializingRootForUIView
@@ -19,7 +19,7 @@ RFInitializingRootForUIView
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell<MBEntityExchanging> *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
+    UICollectionViewCell<MBGeneralItemExchanging> *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
     if (self.cellConfigBlock) {
         self.cellConfigBlock(cell, self.items[indexPath.item]);
     }
@@ -30,9 +30,9 @@ RFInitializingRootForUIView
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    MBCollectionViewCell *cell = (id)[collectionView cellForItemAtIndexPath:indexPath];
+    UICollectionViewCell *cell = (id)[collectionView cellForItemAtIndexPath:indexPath];
     if ([cell respondsToSelector:@selector(onCellSelected)]) {
-        [cell onCellSelected];
+        [(id<MBGeneralCellResponding>)cell onCellSelected];
     }
 }
 

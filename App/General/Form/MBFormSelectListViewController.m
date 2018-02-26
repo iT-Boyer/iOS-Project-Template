@@ -9,7 +9,16 @@
 @end
 
 @implementation MBFormSelectListViewController
+RFInitializingRootForUIViewController
 RFUIInterfaceOrientationSupportDefault
+
+- (void)onInit {
+    self.clearsSelectionOnViewWillAppear = NO;
+    self.autoSearchTimeInterval = 0.6;
+}
+
+- (void)afterInit {
+}
 
 #pragma mark - Items
 
@@ -61,14 +70,12 @@ RFUIInterfaceOrientationSupportDefault
 #pragma mark - Return
 
 - (IBAction)onSaveButtonTapped:(id)sender {
-    [self performResultCallBack];
-    [self.navigationController popViewControllerAnimated:YES];
+    [self callbackThenReturn];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (self.returnWhenSelected) {
-        [self performResultCallBack];
-        [self.navigationController popViewControllerAnimated:YES];
+        [self callbackThenReturn];
     }
 }
 
@@ -76,6 +83,32 @@ RFUIInterfaceOrientationSupportDefault
     [super viewWillDisappear:animated];
     if (!self.requireUserPressSave && !self.returnWhenSelected) {
         [self performResultCallBack];
+    }
+
+    if (self.autoSearchTimer) {
+        [self.autoSearchTimer invalidate];
+        self.autoSearchTimer = nil;
+    }
+}
+
+- (void)callbackThenReturn {
+    [self performResultCallBack];
+    [self finishSelection];
+}
+
+- (void)finishSelection {
+    switch (self.returnType) {
+        case MBFormSelectListReturnTypePop:
+            [self.navigationController popViewControllerAnimated:YES];
+            break;
+
+        case MBFormSelectListReturnTypeDismiss:
+            [self dismissViewControllerAnimated:YES completion:nil];
+            break;
+
+        case MBFormSelectListReturnTypeNoAction:
+        default:
+            break;
     }
 }
 
@@ -86,10 +119,22 @@ RFUIInterfaceOrientationSupportDefault
         [indexSet addIndex:indexPath.row];
     }
     NSArray *selectedItems = [self.filteredItems objectsAtIndexes:indexSet];
+    dout_debug(@"列表选中：%@", selectedItems);
 
     if (self.didEndSelection) {
         self.didEndSelection(self, selectedItems);
     }
+}
+
+#pragma mark - Clear selection
+
+- (IBAction)onClearSelection:(id)sender {
+    [self.tableView deselectRows:YES];
+}
+
+- (IBAction)onClearSelectionAndReturn:(id)sender {
+    [self.tableView deselectRows:YES];
+    [self callbackThenReturn];
 }
 
 #pragma mark - Table view data source
@@ -103,10 +148,10 @@ RFUIInterfaceOrientationSupportDefault
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    MBFormSelectTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
-    RFAssert([cell isKindOfClass:[MBFormSelectTableViewCell class]], @"MBFormSelectListViewController 的 cell 必须是 MBFormSelectTableViewCell");
+    id<MBFormSelectTableViewCell> cell = [tableView rf_dequeueReusableCellWithIdentifier:@"Cell"];
+    RFAssert([cell conformsToProtocol:@protocol(MBFormSelectTableViewCell)], @"MBFormSelectListViewController 的 cell 必须符合 MBFormSelectTableViewCell 协议");
     cell.value = self.filteredItems[indexPath.row];
-    return cell;
+    return (id)cell;
 }
 
 #pragma mark - 筛选基础支持
@@ -117,10 +162,20 @@ RFUIInterfaceOrientationSupportDefault
 
 #pragma mark - Search
 
+- (void)setAutoSearchTimeInterval:(float)autoSearchTimeInterval {
+    _autoSearchTimeInterval = autoSearchTimeInterval;
+    if (autoSearchTimeInterval <= 0) {
+        [self.autoSearchTimer invalidate];
+    }
+    else {
+        self.autoSearchTimer.timeInterval = autoSearchTimeInterval;
+    }
+}
+
 - (RFTimer *)autoSearchTimer {
-    if (!_autoSearchTimer) {
+    if (!_autoSearchTimer && self.autoSearchTimeInterval > 0) {
         _autoSearchTimer = [RFTimer new];
-        _autoSearchTimer.timeInterval = 0.6;
+        _autoSearchTimer.timeInterval = self.autoSearchTimeInterval;
 
         @weakify(self);
         [_autoSearchTimer setFireBlock:^(RFTimer *timer, NSUInteger repeatCount) {
@@ -134,7 +189,7 @@ RFUIInterfaceOrientationSupportDefault
 - (void)autoSearch {
     self.autoSearchTimer.suspended = YES;
 
-    NSString *keyword = self.searchBar.text;
+    NSString *keyword = [self.searchBar.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     _douto(keyword)
 
     if (![keyword isEqualToString:self.searchingKeyword]) {
@@ -148,16 +203,25 @@ RFUIInterfaceOrientationSupportDefault
 }
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
-    [self autoSearch];
+    NSString *keyword = [self.searchBar.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    [self doSearchWithKeyword:keyword];
 }
 
 - (void)doSearchWithKeyword:(NSString *)keyword {
     if (![self.searchingKeyword isEqualToString:keyword]) {
-        [API cancelOperationsWithViewController:self];
+        self.searchOperation = nil;
     }
     self.searchingKeyword = keyword;
 
     // 请求并更新结果
+}
+
+- (void)setSearchOperation:(NSOperation *)searchOperation {
+    if (_searchOperation) {
+        [_searchOperation cancel];
+    }
+
+    _searchOperation = searchOperation;
 }
 
 @end
@@ -174,8 +238,13 @@ RFUIInterfaceOrientationSupportDefault
     [self displayForValue:value];
 }
 
-- (void)displayForValue:(id)value {
-    self.valueDisplayLabel.text = [NSString stringWithFormat:@"%@", value];
+- (void)displayForValue:(id<MBItemExchanging>)value {
+    if ([value respondsToSelector:@selector(displayString)]) {
+        self.valueDisplayLabel.text = value.displayString;
+    }
+    else {
+        self.valueDisplayLabel.text = [NSString stringWithFormat:@"%@", value];
+    }
 }
 
 @end

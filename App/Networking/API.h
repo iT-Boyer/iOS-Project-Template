@@ -18,7 +18,6 @@
 #import "MBGeneralCallback.h"
 #import "UIViewController+APIControl.h"
 
-extern NSUInteger APIConfigFetchPageSize;
 extern NSString *const APIErrorDomain;
 
 /**

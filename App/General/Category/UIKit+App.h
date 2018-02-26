@@ -1,0 +1,147 @@
+/*!
+    UIKit+App
+
+    Copyright © 2014 Chinamobo Co., Ltd.
+    https://github.com/Chinamobo/iOS-Project-Template
+
+    Apache License, Version 2.0
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    全局资源共享
+
+    把可重复利用的资源放在这里
+ */
+
+#import "RFKit.h"
+#import "NSDate+RFKit.h"
+#import "NSDateFormatter+RFKit.h"
+#import "UITableView+RFTableViewCellHeight.h"
+
+#pragma mark - 应用基础类型
+
+/// 整形时长，秒
+typedef NS_ENUM(int, ZYIntDuration) {
+    ZYIntDurationUndifined = INT_MAX
+};
+/// 整形时间戳，秒
+typedef NS_ENUM(int, ZYIntTimeInterval) {
+    ZYIntTimeIntervalUndifined = INT_MAX
+};
+/// 整形时间戳，毫秒
+typedef NS_ENUM(long long, ZYTimeStamp) {
+    ZYTimeStampUndifined = LONG_LONG_MAX
+};
+/// 浮点时长、时间戳统一使用 NSTimeInterval
+
+/// 专用于标示日期哪一天，格式统一为 yyyyMMdd
+typedef NSString * ZYDayIdentifier;
+
+#pragma mark -
+
+FOUNDATION_EXPORT void limitedDouble(double *_Nonnull value, double min, double max);
+
+/**
+ source 的值趋向 target，但限定变化幅度不得超过 limitation
+
+ @param limitation 变化幅度，应为正值
+ */
+FOUNDATION_EXPORT void limitedOffsetChange(double *_Nonnull source, double target, double limitation);
+
+#if !TARGET_OS_WATCH
+/**
+ Storyboard 全局变量
+ */
+FOUNDATION_EXTERN UIStoryboard *_Nonnull MainStoryboard;
+#endif
+
+#import "NSArray+App.h"
+#import "NSTimer+App.h"
+#import "NSDataDetector+App.h"
+#import "NSDate+App.h"
+#import "NSDateFormatter+App.h"
+#import "NSNumber+App.h"
+#import "NSObject+App.h"
+#import "NSOperationQueue+App.h"
+#import "NSRegularExpression+App.h"
+#import "NSString+App.h"
+#import "NSURL+App.h"
+
+#if !TARGET_OS_WATCH
+#import "UIButton+App.h"
+#import "UICollectionView+App.h"
+#import "UIColor+App.h"
+#import "UIFont+App.h"
+#import "UIImage+App.h"
+#import "UILabel+App.h"
+#import "UIPickerView+App.h"
+#import "UITableView+App.h"
+#import "UITableViewCell+App.h"
+#import "UITextField+App.h"
+#import "UIView+App.h"
+#import "UIViewController+App.h"
+
+#import "UIImage+ZYImageSet.h"
+#endif // !TARGET_OS_WATCH
+
+#pragma mark - 导航/状态栏显隐
+
+/// 浅色风格的状态栏，不再推荐使用
+#define MBPreferredLightContentStatusBar \
+- (BOOL)RFPrefersLightContentBarStyle { return YES; }
+
+/// 不显示状态栏，不再推荐使用
+#define MBPrefersStatusBarHidden \
+- (BOOL)RFPrefersStatusBarHidden { return YES; }
+
+/// 隐藏导航栏，不再推荐使用
+#define MBPrefersNavigationBarHidden \
+- (BOOL)RFPrefersNavigationBarHidden { return YES; }
+
+/// 显示底部 bar，不再推荐使用
+#define MBPrefersBottomBarShown \
+- (BOOL)RFPrefersBottomBarShown { return YES; }
+
+/// 导航转场时从底部进入退出
+#define MBPrefersMoveInTransitioningStyle \
+- (NSString *)RFTransitioningStyle { return @"ZYMoveInFromBottomTransitioning"; }
+
+/// 导航转场交融方式
+#define MBPrefersCrossDissolveTransitioningStyle \
+- (NSString *)RFTransitioningStyle { return @"ZYCrossDissolveTransitioning"; }
+
+/// 导航转场使用棋盘翻转方式
+#define MBPrefersCheckerboardTransitioningStyle \
+- (NSString *)RFTransitioningStyle { return @"ZYCheckerboardTransitioning"; }
+
+/**
+ 任何时候 view 都不要直接使用屏幕尺寸！
+ 任何时候 view 都不要直接使用屏幕尺寸！
+ 任何时候 view 都不要直接使用屏幕尺寸！
+
+ 第一，不要用代码写界面，难于维护。动不动弄个又臭又长的上千行代码，浪费其他人生命么？
+ 第二，用代码写界面也不是像你那样写的，一个 view 跟屏幕的尺寸屁的关系都没有。
+ 
+ UIView 的 layoutSubviews、UIViewController 的 viewWillLayoutSubviews、viewDidLayoutSubviews
+ 是专门给你用来布局的，如果你既不用 AutoLayout，也不用 autoresizingMask，
+ 那么你就要负起更新布局的责任，在这些方法里根据父 view 的尺寸更新子 view 的位置。
+
+ 要用代码写就写好，不要写“init 完了取屏幕尺寸布局一下就了事”这种不负责任的代码。
+ */
+#define SCREEN_WIDTH 0
+#define SCREEN_HEIGHT 0
+
+/**
+ 禁止使用 NSLog(), 使用 dout 方法或 debug.h 中的方法。
+ 
+ 不是说完全不能用 NSLog，是生产环境不能用。生产环境用 NSLog 打印，
+ 一是会泄漏信息（NSLog 默认是输出到 stderr 的，会被系统日志保存的，
+ 可以被用户和第三方看到的），造成安全隐患；二是密集使用时可能影响性能。
+
+ 我们用 NSLog 就是为了调试用，这方面 dout 使用更方便，功能更多
+ */
+#if RFDEBUG
+#define NSLog(...) RFAssert(false, @"禁止使用 NSLog()");
+#endif
+
+/// 备忘声明，测试好的部分定期移到基础库中
+#define MB_SHOULD_MERGE_INTO_LIB

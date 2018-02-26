@@ -9,10 +9,10 @@
     Apache License, Version 2.0
     http://www.apache.org/licenses/LICENSE-2.0
  */
-#import "RFUI.h"
+
+#import "Common.h"
 #import "MBTableViewPullToFetchControl.h"
 #import "RFTableViewCellHeightDelegate.h"
-#import "MBEntityExchanging.h"
 #import "MBTableViewDataSource.h"
 
 @protocol MBTableViewDelegate;
@@ -30,6 +30,8 @@
 @property (strong, nonatomic) RFTableViewCellHeightDelegate *cellHeightManager;
 @property (strong, nonatomic) MBTableViewPullToFetchControl *pullToFetchController;
 
+@property (strong, nonatomic) NSArray<NSIndexPath *> *indexPathsForVisibleCellsBeforeReloadingData;
+
 /**
  类里已内置了一个强引用的 MBTableViewDataSource
  */
@@ -45,7 +47,7 @@
 /**
  移动到 window 时，如果之前数据没有成功加载，则尝试获取数据，默认关
  */
-@property (assign, nonatomic) IBInspectable BOOL autoFetchWhenMoveToWindow;
+@property (nonatomic) IBInspectable BOOL autoFetchWhenMoveToWindow;
 
 /**
  获取结束后调用

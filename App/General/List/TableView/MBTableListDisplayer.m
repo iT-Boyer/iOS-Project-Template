@@ -7,6 +7,7 @@
 
 @implementation MBTableListDisplayer
 RFInitializingRootForUIViewController
+MBEntityExchangingPrepareForTableViewSegue
 @dynamic tableView;
 
 - (void)onInit {
@@ -16,8 +17,9 @@ RFInitializingRootForUIViewController
 }
 
 - (void)dealloc {
-    self.tableView.delegate = nil;
-    self.tableView.dataSource = nil;
+    if (self.viewLoaded) {
+        self.tableView.delegate = nil;
+    }
 }
 
 - (void)viewDidLoad {
@@ -50,25 +52,7 @@ RFInitializingRootForUIViewController
     return self.parentViewController.APIGroupIdentifier;
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    id dvc = segue.destinationViewController;
-    if (![dvc respondsToSelector:@selector(setItem:)]) return;
-
-    id item;
-    if ([sender respondsToSelector:@selector(item)]) {
-        item = [(id<MBEntityExchanging>)sender item];
-    }
-    else {
-//        item = [UITableViewCell itemFromSender:sender];
-    }
-
-    if (!item && [self respondsToSelector:@selector(item)]) {
-        item = [(id<MBEntityExchanging>)self item];
-    }
-    [dvc setItem:item];
-}
-
-#pragma mark - MBEntityListDisplaying
+#pragma mark - MBGeneralListDisplaying
 
 - (id)listView {
     return self.tableView;
@@ -83,6 +67,7 @@ RFInitializingRootForUIViewController
 
 @implementation MBTableListController
 RFUIInterfaceOrientationSupportDefault
+MBEntityExchangingPrepareForTableViewSegue
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -114,7 +99,7 @@ RFUIInterfaceOrientationSupportDefault
     return self.listDisplayer.dataSource;
 }
 
-#pragma mark - MBEntityListDisplaying
+#pragma mark - MBGeneralListDisplaying
 
 - (UITableView *)listView {
     return self.listDisplayer.listView;
@@ -122,24 +107,6 @@ RFUIInterfaceOrientationSupportDefault
 
 - (void)refresh {
     [self.listDisplayer refresh];
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    id dvc = segue.destinationViewController;
-    if (![dvc respondsToSelector:@selector(setItem:)]) return;
-
-    id item;
-    if ([sender respondsToSelector:@selector(item)]) {
-        item = [(id<MBEntityExchanging>)sender item];
-    }
-    else {
-//        item = [UITableViewCell itemFromSender:sender];
-    }
-
-    if (!item && [self respondsToSelector:@selector(item)]) {
-        item = [(id<MBEntityExchanging>)self item];
-    }
-    [dvc setItem:item];
 }
 
 @end

@@ -1,8 +1,8 @@
 
 #import "MBCollectionViewDataSource.h"
-#import "MBEntityExchanging.h"
 
 @implementation MBCollectionViewDataSource
+@dynamic delegate;
 
 - (void)onInit {
     [super onInit];

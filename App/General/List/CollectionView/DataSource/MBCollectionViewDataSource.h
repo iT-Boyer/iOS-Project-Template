@@ -8,8 +8,12 @@
     Apache License, Version 2.0
     http://www.apache.org/licenses/LICENSE-2.0
  */
+
 #import "MBListDataSource.h"
 
+/**
+ 单一 sction，可从服务器上分页获取数据的数据源
+ */
 @interface MBCollectionViewDataSource : MBListDataSource <
     UICollectionViewDataSource
 >

@@ -2,6 +2,7 @@
 #import "MBListDataSource.h"
 #import "API.h"
 #import "MBModel.h"
+#import "MBNavigationController.h"
 
 @interface MBListDataSource ()
 @property (readwrite) BOOL fetching;
@@ -12,7 +13,7 @@
 
 - (void)onInit {
     [super onInit];
-    self.pageSize = APIConfigFetchPageSize;
+    self.pageSize = 10;
     self.items = [NSMutableArray array];
     self.maxIDParameterName = @"MAX_ID";
     self.pageParameterName = @"page";
@@ -137,12 +138,22 @@
         self.hasSuccessFetched = YES;
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         // 超时不产生反应
+        @strongify(self);
         if ([error.domain isEqualToString:NSURLErrorDomain]
             && error.code == NSURLErrorTimedOut) {
             return;
         }
 
+        // 404 弹出
+        if ([error.domain isEqualToString:APIErrorDomain] && error.code == 404) {
+            [AppNavigationController() popViewControllerAfter];
+        }
+
         [API alertError:error title:@""];
+        
+        if (self.fetchDataFailure) {
+            self.fetchDataFailure(self, error);
+        }
     } completion:^(AFHTTPRequestOperation *operation) {
         @strongify(self);
         if (!operationSuccess) {

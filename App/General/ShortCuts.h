@@ -29,19 +29,19 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - 应用配置/环境
 
 @class DebugConfig;
-FOUNDATION_EXPORT DebugConfig *AppDebugConfig();
+FOUNDATION_EXPORT DebugConfig *AppDebugConfig(void);
 
 @class MBEnvironment;
 /// 状态依赖
-MBEnvironment *AppEnv();
+MBEnvironment *AppEnv(void);
 
-@class MBRootWrapperViewController;
+@class RootViewController;
 /// 全局根视图
-FOUNDATION_EXPORT MBRootWrapperViewController *_Nullable AppRootViewController();
+FOUNDATION_EXPORT RootViewController *_Nullable AppRootViewController(void);
 
-@class ZYNavigationController;
+@class MBNavigationController;
 /// 全局导航
-ZYNavigationController *__nullable AppNavigationController();
+MBNavigationController *__nullable AppNavigationController(void);
 
 /**
  尝试获取当前视图上的 item
@@ -53,66 +53,53 @@ id __nullable AppCurrentViewControllerItem(Class __nullable exceptClass);
 
 @class MBWorkerQueue;
 /// 全局 worker 队列
-MBWorkerQueue *AppWorkerQueue();
+MBWorkerQueue *AppWorkerQueue(void);
 
 /// 后台 worker 队列，注意后台的意思是 perform 是在后台线程执行的
-MBWorkerQueue *AppBackgroundWorkerQueue();
+MBWorkerQueue *AppBackgroundWorkerQueue(void);
 
 #pragma mark - 用户信息
 
 @class MBUser;
 /// 当前登录的用户，可以用来判断是否已登录
-MBUser *__nullable AppUser();
+MBUser *__nullable AppUser(void);
 
 /// 当前用户的 ID
-FOUNDATION_EXPORT long AppUserID();
+FOUNDATION_EXPORT long AppUserID(void);
 
 /// 总是非空
-FOUNDATION_EXPORT NSNumber *AppUserIDNumber();
+FOUNDATION_EXPORT NSNumber *AppUserIDNumber(void);
 
 @class UserInformation;
-UserInformation *_Nullable AppUserInformation();
+UserInformation *_Nullable AppUserInformation(void);
 
 @class APIUserPlugin;
-APIUserPlugin *AppUserManager();
+APIUserPlugin *AppUserManager(void);
 
 #pragma mark - 存储
 
 /// 应用级别的配置项
-FOUNDATION_EXPORT NSUserDefaults *AppUserDefaultsShared();
+FOUNDATION_EXPORT NSUserDefaults *AppUserDefaultsShared(void);
 
 @class MBUserProfiles;
 /// 当前用户的配置项
-FOUNDATION_EXPORT MBUserProfiles *_Nullable AppUserDefaultsPrivate();
+FOUNDATION_EXPORT MBUserProfiles *_Nullable AppUserDefaultsPrivate(void);
 
 @class RLMRealm;
 /// 应用数据库
-FOUNDATION_EXPORT RLMRealm *AppStorageShared();
+FOUNDATION_EXPORT RLMRealm *AppStorageShared(void);
 
 /// 用户专用数据库，只在登录后有效
 /// @warning 多次调用可能返回不同的非空对象，建议同一个上下文存储到一个临时变量里访问
-FOUNDATION_EXPORT RLMRealm *_Nullable AppStoragePrivate();
+FOUNDATION_EXPORT RLMRealm *_Nullable AppStoragePrivate(void);
 
 
 #pragma mark - 特殊标记
 
 /// 应用已进入前台，但不包括应用启动和前后台切换过程中
-FOUNDATION_EXPORT BOOL AppActive();
+FOUNDATION_EXPORT BOOL AppActive(void);
 
 /// 应用处于后台
-FOUNDATION_EXPORT BOOL AppInBackground();
-
-/**
- 分享域名
- 
- @code
- AppShareDomain(nil);      // @"http://share.feelapp.cc"
- AppShareDomain(@"/a/");   // @"http://share.feelapp.cc/a/"
- @endcode
-
- @param path 可选拼接的路径，注意参数时直接拼到最后的，没有做检查
- @return 分享域名或拼接后的分析地址
- */
-NSString *__nonnull AppShareDomain(NSString *__nullable path);
+FOUNDATION_EXPORT BOOL AppInBackground(void);
 
 NS_ASSUME_NONNULL_END

@@ -2,6 +2,11 @@
 #import "MBTableHeaderFooterView.h"
 #import "UIView+RFAnimate.h"
 #import "RFKVOWrapper.h"
+#import "debug.h"
+
+@interface MBTableHeaderFooterView ()
+@property (nonatomic) id contentViewHeightChangeObserver;
+@end
 
 @implementation MBTableHeaderFooterView
 RFInitializingRootForUIView
@@ -10,23 +15,42 @@ RFInitializingRootForUIView
 }
 
 - (void)afterInit {
-    [self RFAddObserver:self forKeyPath:@keypath(self, contentView.bounds) options:NSKeyValueObservingOptionNew queue:nil block:^(MBTableHeaderFooterView *observer, NSDictionary *change) {
-        [observer updateHeight];
-    }];
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    if (!self.contentViewHeightChangeObserver) {
+        [self updateHeightIfNeeded];
+        self.contentViewHeightChangeObserver = [self RFAddObserver:self forKeyPath:@keypath(self, contentView.bounds) options:NSKeyValueObservingOptionNew queue:nil block:^(MBTableHeaderFooterView *observer, NSDictionary *change) {
+            [observer updateHeightIfNeeded];
+        }];
+    }
+}
+
+- (void)updateHeightIfNeeded {
+    if (!self.contentView) return;
+    if (self.height != self.contentView.height) {
+        [self updateHeight];
+    }
 }
 
 - (void)updateHeight {
+    if (!self.contentView) return;
     [self layoutIfNeeded];
     self.height = self.contentView.height;
     _dout_float(self.height)
     UITableView *tb = (id)self.superview;
-    RFAssert([tb isKindOfClass:[UITableView class]], @"MBTableHeaderFooterView’s superview must be a tableView.");
-    if (tb.tableHeaderView == self) {
-        tb.tableHeaderView = self;
-    }
+    if ([tb isKindOfClass:[UITableView class]]) {
+        if (tb.tableHeaderView == self) {
+            tb.tableHeaderView = self;
+        }
 
-    if (tb.tableFooterView == self) {
-        tb.tableFooterView = self;
+        if (tb.tableFooterView == self) {
+            tb.tableFooterView = self;
+        }
+    }
+    else {
+        DebugLog(YES, nil, @"MBTableHeaderFooterView’s superview must be a tableView. Current is %@", self.superview);
     }
 }
 

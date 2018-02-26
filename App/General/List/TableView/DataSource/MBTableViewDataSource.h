@@ -8,7 +8,6 @@
     Apache License, Version 2.0
     http://www.apache.org/licenses/LICENSE-2.0
  */
-#import "RFUI.h"
 #import "MBListDataSource.h"
 #import "RFTableViewCellHeightDelegate.h"
 
@@ -37,14 +36,14 @@
 
  默认 `NO`
  */
-@property (assign, nonatomic) IBInspectable BOOL animationReload;
+@property (nonatomic) IBInspectable BOOL animationReload;
 
 /**
  获取第一页时禁用动画效果
 
  默认 `NO`
  */
-@property (assign, nonatomic) IBInspectable BOOL animationReloadDisabledOnFirstPage;
+@property (nonatomic) IBInspectable BOOL animationReloadDisabledOnFirstPage;
 
 #pragma mark - Cell 配置
 

@@ -7,7 +7,8 @@
     Apache License, Version 2.0
     http://www.apache.org/licenses/LICENSE-2.0
  */
-#import <UIKit/UIKit.h>
+
+#import "Common.h"
 #import "MBCollectionRefreshFooterView.h"
 #import "MBCollectionViewDataSource.h"
 
@@ -29,6 +30,8 @@
 
 @property (strong, nonatomic) UIRefreshControl *mb_refreshControl;
 @property (strong, nonatomic) MBCollectionRefreshFooterView *refreshFooterView;
+
+@property (weak, nonatomic) UIView *headerView;
 
 - (void)prepareForReuse;
 @end

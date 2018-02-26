@@ -1,6 +1,6 @@
 /*!
     MBFormSelectButton
-    v 1.0
+    v 2.0
 
     Copyright © 2014 Beijing ZhiYun ZhiYuan Information Technology Co., Ltd.
     Copyright © 2014 Chinamobo Co., Ltd.
@@ -9,22 +9,20 @@
     Apache License, Version 2.0
     http://www.apache.org/licenses/LICENSE-2.0
  */
-#import "RFUI.h"
+#import "MBButton.h"
 
 /**
  
  */
-@interface MBFormSelectButton : UIButton <
-    RFInitializing
->
+@interface MBFormSelectButton : MBButton
 
 @property (strong, nonatomic) id selectedVaule;
 
 /// 占位符文本，默认使用 nib 中定义的 normal 文本
 @property (copy, nonatomic) NSString *placeHolder;
 
-/// 子类重写这个方法决定如何展示数值
-/// 默认实现显示 value 的 description
-- (NSString *)displayStringWithValue:(id)value;
+/// 修改该属性决定如何展示数值
+/// 未设置则显示 value 的 description
+@property (copy, nonatomic) NSString *(^valueDisplayString)(id value);
 
 @end

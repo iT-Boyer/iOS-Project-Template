@@ -2,6 +2,7 @@
 #import "MBTableViewArrayDataSource.h"
 
 @interface MBTableViewArrayDataSource ()
+
 @end
 
 @implementation MBTableViewArrayDataSource
@@ -50,6 +51,33 @@ RFInitializingRootForNSObject
     UITableViewCell<MBSenderEntityExchanging> *cell = [tableView dequeueReusableCellWithIdentifier:[self cellIdentifierAtIndexPath:indexPath] forIndexPath:indexPath];
     cell.item = [self itemAtIndexPath:indexPath];
     return cell;
+}
+
+#pragma mark - List operation
+
+- (void)deleteRowAtIndexPath:(NSIndexPath *)indexPath withRowAnimation:(UITableViewRowAnimation)animation {
+    if (!indexPath) return;
+
+    NSInteger row = indexPath.row;
+    NSMutableArray *items = self.items;
+    if (row == NSNotFound || row >= items.count || row < 0) {
+        return;
+    }
+
+    [items removeObjectAtIndex:row];
+    [self.tableView deleteRowsAtIndexPaths:@[ indexPath ] withRowAnimation:animation];
+}
+
+- (void)moveRowAtIndexPath:(NSIndexPath *)indexPath toIndexPath:(NSIndexPath *)newIndexPath {
+    if (!indexPath || !newIndexPath) return;
+
+    NSMutableArray *items = self.items;
+    id item = [items rf_objectAtIndex:indexPath.row];
+    if (!item) return;
+
+    [items removeObjectAtIndex:indexPath.row];
+    [items insertObject:item atIndex:newIndexPath.row];
+    [self.tableView moveRowAtIndexPath:indexPath toIndexPath:newIndexPath];
 }
 
 @end

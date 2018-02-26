@@ -7,12 +7,16 @@
     Apache License, Version 2.0
     http://www.apache.org/licenses/LICENSE-2.0
  */
-#import <UIKit/UIKit.h>
+
+#import "Common.h"
 #import "RFRefreshControl.h"
 
+/**
+ Collection view 的上拉加载下一页
+ */
 @interface MBCollectionRefreshFooterView : UICollectionReusableView
 
-@property (assign, nonatomic) RFRefreshControlStatus status;
+@property (nonatomic) RFRefreshControlStatus status;
 
 /**
  

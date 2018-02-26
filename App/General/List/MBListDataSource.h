@@ -8,15 +8,16 @@
     Apache License, Version 2.0
     http://www.apache.org/licenses/LICENSE-2.0
  */
+
+#import "Common.h"
 #import "RFDelegateChain.h"
-#import "MBEntityExchanging.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 /**
  单 section 的列表 dataSource
  */
-@interface MBListDataSource : RFDelegateChain
+@interface MBListDataSource<ItemType> : RFDelegateChain
 
 /**
  清空数据、重置状态，以便作为另一个列表的 dataSource 使用
@@ -27,14 +28,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - Items
 
-@property (nonatomic, nullable, strong) NSMutableArray *items;
+@property (nonatomic, nullable, strong) NSMutableArray<ItemType> *items;
 
 /// 列表为空
 @property (nonatomic) BOOL empty;
 
-- (id)itemAtIndexPath:(NSIndexPath *)indexPath;
-- (NSArray *)itemsForindexPaths:(NSArray *)indexPaths;
-- (nullable NSIndexPath *)indexPathForItem:(nullable id)item;
+- (ItemType)itemAtIndexPath:(NSIndexPath *)indexPath;
+- (NSArray<ItemType> *)itemsForindexPaths:(NSArray<NSIndexPath *> *)indexPaths;
+- (nullable NSIndexPath *)indexPathForItem:(nullable ItemType)item;
 
 /**
  使用这个方法会自动处理条目
@@ -105,10 +106,12 @@ typedef NS_ENUM(short, MBDataSourcePageEndDetectPolicy) {
 /**
  加载数据
  
- @param nextPage
+ @param nextPage 下一页还是从头加载
  @param success fetchedItems 是处理后的最终数据
  */
 - (void)fetchItemsFromViewController:(nullable id)viewController nextPage:(BOOL)nextPage success:(void (^ _Nullable)(__kindof MBListDataSource *dateSource, NSArray *fetchedItems))success completion:(void (^ _Nullable)(__kindof MBListDataSource *dateSource))completion;
+
+@property (nonatomic, nullable, copy) void (^fetchDataFailure)(MBListDataSource *ds, NSError *error);
 
 #pragma mark - 条目处理
 
@@ -118,9 +121,9 @@ typedef NS_ENUM(short, MBDataSourcePageEndDetectPolicy) {
  @param oldItems 数据源中目前存在对象的拷贝，如果是刷新获取会是 nil，获取下一页时一定是个数组
  @param newItems 请求返回的对象，有可能不是数组，这种情况有必要处理
 
- 返回处理好的数组，之后会交由 data source 进行其他处理
+ 返回处理好的新数据的数组，之后会交由 data source 进行其他处理
  */
-@property (nonatomic, nullable, copy) NSArray *(^processItems)(__unused NSArray *oldItems, id newValue);
+@property (nonatomic, nullable, copy) NSArray<ItemType> *(^processItems)(__unused NSArray<ItemType> *oldItems, id newValue);
 
 /**
  当新获取对象在数组中已存在如何操作

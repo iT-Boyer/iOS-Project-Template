@@ -3,12 +3,12 @@
 #import "RFKVOWrapper.h"
 
 @interface MBCollectionView ()
-@property (assign, nonatomic) BOOL refreshFooterViewStatusUpdateFlag;
+@property (nonatomic) BOOL refreshFooterViewStatusUpdateFlag;
 
 /// 真实的 contentInset 被劫持了，这个属性存储的是外部设置的 contentInset，实际 contentInset 会加上 header 高度
-@property (assign, nonatomic) UIEdgeInsets trueContentInset;
+@property (nonatomic) UIEdgeInsets trueContentInset;
 @property (weak, nonatomic) id footerStatusObserver;
-@property (assign, nonatomic) CGFloat lastHeaderViewHeight;
+@property (nonatomic) CGFloat lastHeaderViewHeight;
 @end
 
 @implementation MBCollectionView
@@ -46,6 +46,14 @@ RFInitializingRootForUIView
         });
     }
     return _mb_refreshControl;
+}
+
+- (void)setHeaderView:(UIView *)headerView {
+    _headerView = headerView;
+    
+    CGSize size = headerView.bounds.size;
+    size.width = self.width;
+    ((UICollectionViewFlowLayout *)self.collectionViewLayout).headerReferenceSize = size;
 }
 
 - (void)dealloc {
@@ -218,6 +226,7 @@ RFInitializingRootForUIView
 @end
 
 @interface MBCollectionViewHeaderFooterView ()
+@property (nonatomic) BOOL hasLayoutOnce;
 @end
 
 @implementation MBCollectionViewHeaderFooterView
@@ -229,9 +238,15 @@ RFInitializingRootForUIView
 }
 
 - (void)afterInit {
-    [self RFAddObserver:self forKeyPath:@keypath(self, contentView.bounds) options:NSKeyValueObservingOptionNew queue:nil block:^(MBCollectionViewHeaderFooterView *observer, NSDictionary *change) {
-        [observer updateHeight];
-    }];
+}
+
+- (void)updateHeightIfNeeded {
+    if (!self.contentView) return;
+
+    CGFloat heightShouldBe = self.contentView.height;
+    if (self.height != heightShouldBe) {
+        [self updateHeight];
+    }
 }
 
 - (void)updateHeight {
@@ -239,6 +254,7 @@ RFInitializingRootForUIView
         // ??: 图像高过小 contentView 会不断浮动导致死循环
         self.height = floor(self.contentView.height);
     }
+    dout_float(self.contentView.height);
 
     MBCollectionView *tb = (id)self.superview;
     if ([tb isKindOfClass:[MBCollectionView class]]) {
@@ -250,6 +266,19 @@ RFInitializingRootForUIView
     [UIView animateWithDuration:.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animated:animated beforeAnimations:nil animations:^{
         [self updateHeight];
     } completion:nil];
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    if (!self.hasLayoutOnce) {
+        self.hasLayoutOnce = YES;
+        if (!RF_iOS8Before) {
+            [self updateHeightIfNeeded];
+        }
+        [self RFAddObserver:self forKeyPath:@keypath(self, contentView.bounds) options:NSKeyValueObservingOptionNew queue:nil block:^(MBCollectionViewHeaderFooterView *observer, NSDictionary *change) {
+            [observer updateHeightIfNeeded];
+        }];
+    }
 }
 
 @end

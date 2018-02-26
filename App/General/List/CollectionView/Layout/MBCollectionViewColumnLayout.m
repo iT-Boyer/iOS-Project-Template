@@ -59,12 +59,9 @@
         CGFloat width = [self innerLayoutWidthForSection:0];
         self.columnCount = width/self.referenceItemSize.width;
     }
-    _dout_int(self.columnCount)
-    _dout_size(orginalSize)
+
     CGFloat itemWidth = [self itemWidthInSectionAtIndex:0];
-    _dout_float(itemWidth)
     self.itemSize = CGSizeMake(itemWidth, itemWidth/reference.width*reference.height);
-    _dout_size(self.itemSize)
     [super prepareLayout];
 }
 

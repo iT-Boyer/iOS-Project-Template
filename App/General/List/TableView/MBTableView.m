@@ -78,8 +78,8 @@ RFInitializingRootForUIView
         success = YES;
     } completion:^(MBListDataSource *dateSource) {
         @strongify(self);
-        self.pullToFetchController.autoFetchWhenScroll = success;
         [self.pullToFetchController markProcessFinshed];
+        self.pullToFetchController.autoFetchWhenScroll = success;
         if (self.fetchPageEnd) {
             self.fetchPageEnd(nextPage, dateSource);
         }
@@ -94,6 +94,7 @@ RFInitializingRootForUIView
 }
 
 - (void)reloadData {
+    self.indexPathsForVisibleCellsBeforeReloadingData = [self indexPathsForVisibleCells];
     // 按理应该显示出来再 load，不加貌似有时启动时会有奇怪的问题，但又不能复现……
     if (self.window) {
         [super reloadData];
@@ -149,6 +150,13 @@ RFInitializingRootForUIView
 
 - (void)setDataSource:(id<UITableViewDataSource>)dataSource {
     self.trueDataSource.delegate = dataSource;
+
+    // 较新的 iOS 会缓存 delegate 响应方法的结果，需要重置刷新
+    if (RF_iOS9Before) return;
+    // 视图释放时可能会调置空方法，此时不调 super
+    if (!dataSource) return;
+    [super setDataSource:nil];
+    [super setDataSource:self.trueDataSource];
 }
 
 - (id<UITableViewDataSource>)dataSource {

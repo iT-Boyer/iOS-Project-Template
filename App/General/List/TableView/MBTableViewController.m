@@ -1,6 +1,5 @@
 
 #import "MBTableViewController.h"
-#import "MBEntityExchanging.h"
 
 @interface MBTableViewController ()
 @end
@@ -18,7 +17,7 @@ MBEntityExchangingPrepareForTableViewSegue
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    id<MBSenderEntityExchanging> cell = (id)[tableView cellForRowAtIndexPath:indexPath];
+    id<MBGeneralCellResponding> cell = (id)[tableView cellForRowAtIndexPath:indexPath];
     if ([cell respondsToSelector:@selector(onCellSelected)]) {
         [cell onCellSelected];
     }

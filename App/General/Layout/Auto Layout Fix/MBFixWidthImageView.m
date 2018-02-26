@@ -3,6 +3,13 @@
 
 @implementation MBFixWidthImageView
 
+- (void)setBounds:(CGRect)bounds {
+    if (CGRectGetWidth(self.bounds) != CGRectGetWidth(bounds)) {
+        [self invalidateIntrinsicContentSize];
+    }
+    [super setBounds:bounds];
+}
+
 - (CGSize)intrinsicContentSize {
     CGSize imageSize = self.image.size;
     CGFloat width = self.bounds.size.width;

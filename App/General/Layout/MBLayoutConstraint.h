@@ -8,7 +8,8 @@
     Apache License, Version 2.0
     http://www.apache.org/licenses/LICENSE-2.0
  */
-#import <UIKit/UIKit.h>
+
+#import "Common.h"
 
 /**
  增加了折叠展开支持
