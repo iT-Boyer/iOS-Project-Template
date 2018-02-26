@@ -25,7 +25,6 @@
 		D5197A4217EECAAF00CA387C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5197A4117EECAAF00CA387C /* UIKit.framework */; };
 		D5197A4A17EECAAF00CA387C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D5197A4917EECAAF00CA387C /* main.m */; };
 		D5197A5117EECAAF00CA387C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5197A4F17EECAAF00CA387C /* Main.storyboard */; };
-		D5197A5917EECAAF00CA387C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5197A5817EECAAF00CA387C /* Images.xcassets */; };
 		D5197A6117EECAAF00CA387C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5197A3D17EECAAF00CA387C /* Foundation.framework */; };
 		D5197A6217EECAAF00CA387C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5197A4117EECAAF00CA387C /* UIKit.framework */; };
 		D5197A6C17EECAAF00CA387C /* AppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D5197A6B17EECAAF00CA387C /* AppTests.m */; };
@@ -81,6 +80,10 @@
 		D5197D3517F027BB00CA387C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D5197D3717F027BB00CA387C /* Localizable.strings */; };
 		D52514211BF83CF9008D17EB /* MBModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D52514201BF83CF9008D17EB /* MBModel.m */; };
 		D52514241BF83E84008D17EB /* NSError+RFKit.m in Sources */ = {isa = PBXBuildFile; fileRef = D52514231BF83E84008D17EB /* NSError+RFKit.m */; };
+		D52EAB642043B6B3007219E0 /* Icon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D52EAB5F2043B6B3007219E0 /* Icon.xcassets */; };
+		D52EAB652043B6B3007219E0 /* UIImage+ZYImageSet.m in Sources */ = {isa = PBXBuildFile; fileRef = D52EAB602043B6B3007219E0 /* UIImage+ZYImageSet.m */; };
+		D52EAB662043B6B3007219E0 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D52EAB612043B6B3007219E0 /* README.md */; };
+		D52EAB672043B6B3007219E0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D52EAB622043B6B3007219E0 /* Images.xcassets */; };
 		D542C33F196292B600524271 /* RFAsynchronousPresentSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = D542C33A196292B600524271 /* RFAsynchronousPresentSegue.m */; };
 		D542C340196292B600524271 /* RFAsynchronousPushSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = D542C33C196292B600524271 /* RFAsynchronousPushSegue.m */; };
 		D542C341196292B600524271 /* RFAsynchronousSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = D542C33E196292B600524271 /* RFAsynchronousSegue.m */; };
@@ -255,7 +258,6 @@
 		D5197A4517EECAAF00CA387C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D5197A4917EECAAF00CA387C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D5197A5017EECAAF00CA387C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		D5197A5817EECAAF00CA387C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D5197A5E17EECAAF00CA387C /* AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5197A6717EECAAF00CA387C /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
 		D5197A6B17EECAAF00CA387C /* AppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppTests.m; sourceTree = "<group>"; };
@@ -373,6 +375,11 @@
 		D52514201BF83CF9008D17EB /* MBModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBModel.m; sourceTree = "<group>"; };
 		D52514221BF83E84008D17EB /* NSError+RFKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+RFKit.h"; sourceTree = "<group>"; };
 		D52514231BF83E84008D17EB /* NSError+RFKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+RFKit.m"; sourceTree = "<group>"; };
+		D52EAB5F2043B6B3007219E0 /* Icon.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icon.xcassets; sourceTree = "<group>"; };
+		D52EAB602043B6B3007219E0 /* UIImage+ZYImageSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ZYImageSet.m"; sourceTree = "<group>"; };
+		D52EAB612043B6B3007219E0 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D52EAB622043B6B3007219E0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D52EAB632043B6B3007219E0 /* UIImage+ZYImageSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ZYImageSet.h"; sourceTree = "<group>"; };
 		D542C339196292B600524271 /* RFAsynchronousPresentSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFAsynchronousPresentSegue.h; sourceTree = "<group>"; };
 		D542C33A196292B600524271 /* RFAsynchronousPresentSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFAsynchronousPresentSegue.m; sourceTree = "<group>"; };
 		D542C33B196292B600524271 /* RFAsynchronousPushSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFAsynchronousPushSegue.h; sourceTree = "<group>"; };
@@ -746,6 +753,7 @@
 		D5197A4317EECAAF00CA387C /* App */ = {
 			isa = PBXGroup;
 			children = (
+				D52EAB5E2043B6B3007219E0 /* Assets */,
 				D552DD7C18C8541D00D02290 /* General */,
 				D552DD5518C8506700D02290 /* Launching */,
 				D552DD4D18C8506700D02290 /* Model */,
@@ -753,7 +761,6 @@
 				D552DD4918C8506700D02290 /* Scene */,
 				D5542F131918B82100831016 /* Service */,
 				D5197A4417EECAAF00CA387C /* Supporting Files */,
-				D5197A5817EECAAF00CA387C /* Images.xcassets */,
 				D5197A4F17EECAAF00CA387C /* Main.storyboard */,
 			);
 			path = App;
@@ -1078,6 +1085,18 @@
 				D5542EC019188B0C00831016 /* SDWebImage */,
 			);
 			path = extension;
+			sourceTree = "<group>";
+		};
+		D52EAB5E2043B6B3007219E0 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				D52EAB5F2043B6B3007219E0 /* Icon.xcassets */,
+				D52EAB622043B6B3007219E0 /* Images.xcassets */,
+				D52EAB612043B6B3007219E0 /* README.md */,
+				D52EAB632043B6B3007219E0 /* UIImage+ZYImageSet.h */,
+				D52EAB602043B6B3007219E0 /* UIImage+ZYImageSet.m */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 		D542C338196292B600524271 /* RFAsynchronousSegue */ = {
@@ -1770,7 +1789,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D5542EAA191887F500831016 /* APIDefine.plist in Resources */,
-				D5197A5917EECAAF00CA387C /* Images.xcassets in Resources */,
+				D52EAB642043B6B3007219E0 /* Icon.xcassets in Resources */,
+				D52EAB672043B6B3007219E0 /* Images.xcassets in Resources */,
 				D5197D3217F027B400CA387C /* InfoPlist.strings in Resources */,
 				D5CC92CC1918DBF300C5B4D8 /* LICENSE-AFNetworking.md in Resources */,
 				D5CC92CE1918DBFF00C5B4D8 /* LICENSE-SDWebImage in Resources */,
@@ -1780,6 +1800,7 @@
 				D5B49F0C1C41133A00847925 /* MBCollectionRefreshFooterView.xib in Resources */,
 				D5B49F181C41133A00847925 /* MBRefreshFooterView.xib in Resources */,
 				D5B49F1A1C41133A00847925 /* MBRefreshHeaderView.xib in Resources */,
+				D52EAB662043B6B3007219E0 /* README.md in Resources */,
 				D55FB78619444B5900358714 /* Readme.md in Resources */,
 				D50558861890E8A50049A759 /* SVProgressHUD.bundle in Resources */,
 			);
@@ -2013,6 +2034,7 @@
 				D5542EE719188B0C00831016 /* UIImage+GIF.m in Sources */,
 				D5542EE819188B0C00831016 /* UIImage+MultiFormat.m in Sources */,
 				D5197C9F17F019E600CA387C /* UIImage+RFKit.m in Sources */,
+				D52EAB652043B6B3007219E0 /* UIImage+ZYImageSet.m in Sources */,
 				D5D1B03D19920C1400FE0656 /* UIImageView+HighlightedWebCache.m in Sources */,
 				D5542EE919188B0C00831016 /* UIImageView+WebCache.m in Sources */,
 				D5CC92D11918EAAB00C5B4D8 /* UIKit+App.m in Sources */,
