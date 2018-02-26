@@ -1,1 +1,21 @@
-COCOAPODS: 0.39.0
+PODS:
+  - JSONModel (1.7.0)
+
+DEPENDENCIES:
+  - JSONModel (from `https://github.com/Chinamobo/JSONModel.git`)
+
+EXTERNAL SOURCES:
+  JSONModel:
+    :git: https://github.com/Chinamobo/JSONModel.git
+
+CHECKOUT OPTIONS:
+  JSONModel:
+    :commit: 5575c9f278ca8959b3f5590524e5a2702f8655b8
+    :git: https://github.com/Chinamobo/JSONModel.git
+
+SPEC CHECKSUMS:
+  JSONModel: 401e70a832da7448ef239d58a78b3aa0fe68feab
+
+PODFILE CHECKSUM: f2e093164d34122670b565f04430b494b2995abf
+
+COCOAPODS: 1.4.0
