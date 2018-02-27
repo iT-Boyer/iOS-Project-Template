@@ -1,7 +1,7 @@
 
 #import "MBAnalytics.h"
 #import "MBApp.h"
-#import "MBApplicationDelegate.h"
+#import "APApplicationDelegate.h"
 #import "UIDevice+RFKit.h"
 #import "debug.h"
 #import "RFSynthesizeCategoryProperty.h"

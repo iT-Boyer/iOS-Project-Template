@@ -17,24 +17,7 @@
 #import "NSDateFormatter+RFKit.h"
 #import "UITableView+RFTableViewCellHeight.h"
 
-#pragma mark - 应用基础类型
 
-/// 整形时长，秒
-typedef NS_ENUM(int, ZYIntDuration) {
-    ZYIntDurationUndifined = INT_MAX
-};
-/// 整形时间戳，秒
-typedef NS_ENUM(int, ZYIntTimeInterval) {
-    ZYIntTimeIntervalUndifined = INT_MAX
-};
-/// 整形时间戳，毫秒
-typedef NS_ENUM(long long, ZYTimeStamp) {
-    ZYTimeStampUndifined = LONG_LONG_MAX
-};
-/// 浮点时长、时间戳统一使用 NSTimeInterval
-
-/// 专用于标示日期哪一天，格式统一为 yyyyMMdd
-typedef NSString * ZYDayIdentifier;
 
 #pragma mark -
 
@@ -82,36 +65,6 @@ FOUNDATION_EXTERN UIStoryboard *_Nonnull MainStoryboard;
 
 #import "UIImage+ZYImageSet.h"
 #endif // !TARGET_OS_WATCH
-
-#pragma mark - 导航/状态栏显隐
-
-/// 浅色风格的状态栏，不再推荐使用
-#define MBPreferredLightContentStatusBar \
-- (BOOL)RFPrefersLightContentBarStyle { return YES; }
-
-/// 不显示状态栏，不再推荐使用
-#define MBPrefersStatusBarHidden \
-- (BOOL)RFPrefersStatusBarHidden { return YES; }
-
-/// 隐藏导航栏，不再推荐使用
-#define MBPrefersNavigationBarHidden \
-- (BOOL)RFPrefersNavigationBarHidden { return YES; }
-
-/// 显示底部 bar，不再推荐使用
-#define MBPrefersBottomBarShown \
-- (BOOL)RFPrefersBottomBarShown { return YES; }
-
-/// 导航转场时从底部进入退出
-#define MBPrefersMoveInTransitioningStyle \
-- (NSString *)RFTransitioningStyle { return @"ZYMoveInFromBottomTransitioning"; }
-
-/// 导航转场交融方式
-#define MBPrefersCrossDissolveTransitioningStyle \
-- (NSString *)RFTransitioningStyle { return @"ZYCrossDissolveTransitioning"; }
-
-/// 导航转场使用棋盘翻转方式
-#define MBPrefersCheckerboardTransitioningStyle \
-- (NSString *)RFTransitioningStyle { return @"ZYCheckerboardTransitioning"; }
 
 /**
  任何时候 view 都不要直接使用屏幕尺寸！

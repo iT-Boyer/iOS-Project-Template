@@ -11,7 +11,7 @@
 #import "API.h"
 #import "MBEnvironment.h"
 #import "debug.h"
-#import "MBUser.h"
+#import "APUser.h"
 #import "NSUserDefaults+App.h"
 // 非核心模块不要 import，避免头文件的循环引用
 

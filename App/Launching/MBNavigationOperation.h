@@ -22,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
     RFInitializing
 >
 
-+ (nullable instancetype)operationWithConfiguration:(RF_NOESCAPE void (^ __nonnull)(__kindof MBNavigationOperation *__nonnull operation))configBlock;
++ (nullable instancetype)operationWithConfiguration:(NS_NOESCAPE void (^ __nonnull)(__kindof MBNavigationOperation *__nonnull operation))configBlock;
 
 @property BOOL animating; // 默认为NO，不提供动画
 

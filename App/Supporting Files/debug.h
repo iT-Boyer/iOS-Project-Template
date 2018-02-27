@@ -88,7 +88,7 @@ extern BOOL DebugFlagForceLoadLocalAppConfig;
 
 #import "MBModel.h"
 
-@class UserInformation;
+@class APUserInfo;
 
 @interface DebugConfig : MBModel
 
@@ -126,9 +126,9 @@ extern BOOL DebugFlagForceLoadLocalAppConfig;
 /// 不自动登录私聊
 @property (nonatomic) BOOL disableChatAutoLogin;
 
-@property (nonatomic, nullable, copy) UserInformation *productionUserInformation;
+@property (nonatomic, nullable, copy) APUserInfo *productionUserInformation;
 @property (nonatomic, nullable, copy) NSString *productionToken;
-@property (nonatomic, nullable, copy) UserInformation *developUserInformation;
+@property (nonatomic, nullable, copy) APUserInfo *developUserInformation;
 @property (nonatomic, nullable, copy) NSString *developToken;
 @property (nonatomic) BOOL bindUserInfoToServer;
 

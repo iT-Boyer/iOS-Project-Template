@@ -70,31 +70,27 @@ BOOL NSDateIsRecent(NSDate *_Nullable date, NSTimeInterval range) {
     return [[NSDateFormatter cachedMDDateFormatter] stringFromDate:self];
 }
 
-+ (ZYTimeStamp)timestampForNow {
++ (MBDateTimeStamp)timestampForNow {
     return [[NSDate date] timeIntervalSince1970] * 1000.f;
 }
 
-- (ZYTimeStamp)timestamp {
+- (MBDateTimeStamp)timestamp {
     return self.timeIntervalSince1970 * 1000.f;
 }
 
-+ (ZYDayIdentifier)dayIdentifierForToday {
++ (MBDateDayIdentifier)dayIdentifierForToday {
     return [[NSDate date] dayIdentifier];
 }
 
-- (ZYDayIdentifier)dayIdentifier {
+- (MBDateDayIdentifier)dayIdentifier {
     return [[NSDateFormatter cachedDayIdentifierFormatter] stringFromDate:self];
 }
 
-+ (NSDate *)dateWithTimeStamp:(ZYTimeStamp)timestamp {
++ (NSDate *)dateWithTimeStamp:(MBDateTimeStamp)timestamp {
     return [NSDate dateWithTimeIntervalSince1970:timestamp / 1000];
 }
 
-+ (NSString *)durationMSSStringWithTimeStamp:(ZYTimeStamp)duration {
-    return [NSString stringWithFormat:@"%02lld:%02lld.%02lld", duration/60000, (duration%60000)/1000, duration%1000/10];
-}
-
-+ (nonnull NSString *)durationMSStringWithTimeStamp:(ZYTimeStamp)duration {
++ (nonnull NSString *)durationMSStringWithTimeStamp:(MBDateTimeStamp)duration {
     //平板支撑工具页时间四舍五入
     return [NSString stringWithFormat:@"%02d:%02d", (int)round((float)duration/1000)/60, (int)round((float)duration/1000)%60];
 }
@@ -173,39 +169,6 @@ BOOL NSDateIsRecent(NSDate *_Nullable date, NSTimeInterval range) {
         *rangeRef = NSMakeRange(numberPart.length, unitPart.length);
     }
     return [NSString stringWithFormat:@"%@%@", numberPart, unitPart];
-}
-
-- (long)dayIntervalSinceNow {
-    return [self dayIntervalSinceDate:[NSDate date]];
-}
-
-- (long)dayIntervalSinceDate:(NSDate *)anotherDate {
-    NSCalendar *cldr = [NSCalendar currentCalendar];
-    NSDate *plainFromDate = nil;
-    NSDate *plainToDate = nil;
-    [cldr rangeOfUnit:NSCalendarUnitDay startDate:&plainFromDate interval:NULL forDate:anotherDate];
-    [cldr rangeOfUnit:NSCalendarUnitDay startDate:&plainToDate interval:NULL forDate:self];
-    NSDateComponents *comp = [cldr components:NSCalendarUnitDay fromDate:plainFromDate toDate:plainToDate options:NSCalendarWrapComponents];
-    return comp.day;
-}
-
-+ (NSDate *)beginningOfCurrentWeek {
-    NSDate *today = [NSDate date];
-    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-    
-    NSDateComponents *weekdayComponents = [gregorian components:NSWeekdayCalendarUnit fromDate:today];
-    
-    NSDateComponents *componentsToSubtract = [[NSDateComponents alloc] init];
-    [componentsToSubtract setDay: 0 - ([weekdayComponents weekday] - 1)];
-    
-    NSDate *beginningOfWeek = [gregorian dateByAddingComponents:componentsToSubtract toDate:today options:0];
-    
-    NSDateComponents *components =
-    [gregorian components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit)
-                 fromDate: beginningOfWeek];
-    beginningOfWeek = [gregorian dateFromComponents:components];
-    
-    return beginningOfWeek;
 }
 
 @end

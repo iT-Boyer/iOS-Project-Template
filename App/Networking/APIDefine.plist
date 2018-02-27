@@ -26,69 +26,28 @@
 		<key>Authorization</key>
 		<false/>
 		<key>Response Class</key>
-		<string>UserInformation</string>
+		<string>APUserInfo</string>
 		<key>Response Type</key>
 		<integer>2</integer>
-		<key>Notes</key>
-		<string>用户登录</string>
 	</dict>
-	<key>User Reset Password</key>
+	<key>@ 支持分组</key>
 	<dict>
-		<key>Path</key>
-		<string>user/reset</string>
-		<key>Authorization</key>
-		<false/>
-		<key>Notes</key>
-		<string>密码重置</string>
-	</dict>
-	<key>User Change Password</key>
-	<dict>
-		<key>Path</key>
-		<string>user/password</string>
-		<key>Notes</key>
-		<string>修改密码</string>
-	</dict>
-	<key>User Info</key>
-	<dict>
-		<key>Path</key>
-		<string>user</string>
-		<key>Method</key>
-		<string>GET</string>
-		<key>Notes</key>
-		<string>用户信息</string>
-	</dict>
-	<key>Version</key>
-	<dict>
-		<key>Path</key>
-		<string>version</string>
-		<key>Authorization</key>
-		<false/>
-		<key>Response Type</key>
-		<integer>2</integer>
-		<key>Response Class</key>
-		<string>MBAppVersion</string>
-		<key>Parameters</key>
+		<key>User Reset Password</key>
 		<dict>
-			<key>os</key>
-			<string>ios</string>
+			<key>Path</key>
+			<string>user/reset</string>
+			<key>Authorization</key>
+			<false/>
+			<key>Notes</key>
+			<string>密码重置</string>
 		</dict>
-		<key>Notes</key>
-		<string>更新版本检查</string>
-	</dict>
-	<key>Demo</key>
-	<dict>
-		<key>Path</key>
-		<string>https://api.github.com/search/repositories?q={keywords}</string>
-		<key>Authorization</key>
-		<false/>
-		<key>Response Type</key>
-		<integer>3</integer>
-		<key>Response Class</key>
-		<string>GHDRepositoryEntity</string>
-		<key>Response Serializer</key>
-		<string>GitHubDemoResponseSerializer</string>
-		<key>Notes</key>
-		<string>GitHub 仓库搜索接口，Response Serializer 正常在 API 里设置了默认的解析器，不用在每个接口定义中设置</string>
+		<key>User Change Password</key>
+		<dict>
+			<key>Path</key>
+			<string>user/password</string>
+			<key>Notes</key>
+			<string>修改密码</string>
+		</dict>
 	</dict>
 </dict>
 </plist>

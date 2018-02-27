@@ -26,6 +26,14 @@ MBEnvironment *AppEnv() {
     return [MBApp status].env;
 }
 
+#import "APApplicationDelegate.h"
+
+APApplicationDelegate *__nonnull AppDelegate() {
+    APApplicationDelegate *ad = (id)[UIApplication sharedApplication].delegate;
+    RFAssert(ad, @"Shared app delegate nil?");
+    return ad;
+}
+
 #import "MBRootWrapperViewController.h"
 
 RootViewController *_Nullable AppRootViewController() {
@@ -77,8 +85,8 @@ id __nullable AppCurrentViewControllerItem(Class __nullable exceptClass) {
 
 #pragma mark -
 
-MBUser *__nullable AppUser() {
-    return [MBUser currentUser];
+APUser *__nullable AppUser() {
+    return [APUser currentUser];
 }
 
 MBID AppUserID() {
@@ -96,12 +104,8 @@ NSNumber *AppUserIDNumber() {
     return _UserIDNumberCache;
 }
 
-UserInformation *AppUserInformation() {
+APUserInfo *AppUserInformation() {
     return AppUser().information;
-}
-
-APIUserPlugin *AppUserManager() {
-    return [API sharedInstance].user;
 }
 
 #pragma mark -

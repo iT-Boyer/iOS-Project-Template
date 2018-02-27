@@ -9,14 +9,9 @@
     Apache License, Version 2.0
     http://www.apache.org/licenses/LICENSE-2.0
  */
-#import "RFAPI.h"
-#import "RFMessageManager+RFDisplay.h"
-#import "AFHTTPRequestOperation.h"
-#import "AFHTTPSessionManager.h"
+#import "MBAPI.h"
 
-#import "APIUserPlugin.h"
-#import "MBGeneralCallback.h"
-#import "UIViewController+APIControl.h"
+@class AFHTTPSessionManager;
 
 extern NSString *const APIErrorDomain;
 
@@ -26,60 +21,12 @@ extern NSString *const APIErrorDomain;
 
  如果有像UserID这种东西，让API来管理，不要在外面获取再传进来
  */
-@interface API : RFAPI
-
-+ (instancetype)sharedInstance;
+@interface API : MBAPI
 
 @property (nonatomic) AFHTTPSessionManager *manager;
 
-/**
-
- @param APIName 接口名，同时会作为请求的 identifier
- @param viewController 请求所属视图，会取到它的 class 名作为请求的 groupIdentifier
- */
-+ (AFHTTPRequestOperation *)requestWithName:(NSString *)APIName parameters:(NSDictionary *)parameters viewController:(UIViewController *)viewController loadingMessage:(NSString *)message modal:(BOOL)modal success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success completion:(void (^)(AFHTTPRequestOperation *operation))completion;
-
-/**
- @param failure 为 nil 发生错误时自动弹出错误信息
- */
-+ (AFHTTPRequestOperation *)requestWithName:(NSString *)APIName parameters:(NSDictionary *)parameters viewController:(UIViewController *)viewController forceLoad:(BOOL)forceLoad loadingMessage:(NSString *)message modal:(BOOL)modal success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure completion:(void (^)(AFHTTPRequestOperation *operation))completion;
-
-/**
- 发送一个后台请求
- 
- 失败不会报错
- */
-+ (void)backgroundRequestWithName:(NSString *)APIName parameters:(NSDictionary *)parameters completion:(void (^)(BOOL success, id responseObject, NSError *error))completion;
-
-/**
- 取消属于 viewController 的请求，这些请求必须用 viewController 的类名做为 groupIdentifier
- */
-+ (void)cancelOperationsWithViewController:(id)viewController;
-
-#pragma mark - 状态提醒
-
-/**
- 显示一个操作成功的信息，显示一段时间后自动隐藏
- */
-+ (void)showSuccessStatus:(NSString *)message;
-
-/**
- 显示一个错误提醒，一段时间后自动隐藏
- */
-+ (void)showErrorStatus:(NSString *)message;
-
-/**
- 显示一个操作失败的错误消息，显示一段时间后自动隐藏
- */
-+ (void)alertError:(NSError *)error title:(NSString *)title;
-
 #pragma mark - 具体业务
 
-
-
-#pragma mark - 插件
-
-@property (nonatomic) APIUserPlugin *user;
 
 @end
 

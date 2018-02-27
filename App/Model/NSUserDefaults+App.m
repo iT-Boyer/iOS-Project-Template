@@ -127,7 +127,7 @@ _makeObjectProperty(cachedLocation, setCachedLocation, @"Last Location");
 
 _makeIntegerProperty(lastUserID, setLastUserID, @"user.ID");
 _makeObjectProperty(userAccount, setUserAccount, @"user.account");
-_makeObjectProperty(userInformation, setUserInformation, @"user.information");
+_makeObjectProperty(APUserInfo, setUserInformation, @"user.information");
 _makeObjectProperty(userToken, setUserToken, @"user.token");
 
 _makeObjectProperty(lastNotificationRecived, setLastNotificationRecived, @"notification.lastInfo");

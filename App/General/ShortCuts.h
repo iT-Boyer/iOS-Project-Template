@@ -35,6 +35,10 @@ FOUNDATION_EXPORT DebugConfig *AppDebugConfig(void);
 /// 状态依赖
 MBEnvironment *AppEnv(void);
 
+@class APApplicationDelegate;
+/// 快速访问 APApplicationDelegate 实例
+APApplicationDelegate *__nonnull AppDelegate(void);
+
 @class RootViewController;
 /// 全局根视图
 FOUNDATION_EXPORT RootViewController *_Nullable AppRootViewController(void);
@@ -60,9 +64,9 @@ MBWorkerQueue *AppBackgroundWorkerQueue(void);
 
 #pragma mark - 用户信息
 
-@class MBUser;
+@class APUser;
 /// 当前登录的用户，可以用来判断是否已登录
-MBUser *__nullable AppUser(void);
+APUser *__nullable AppUser(void);
 
 /// 当前用户的 ID
 FOUNDATION_EXPORT long AppUserID(void);
@@ -70,11 +74,8 @@ FOUNDATION_EXPORT long AppUserID(void);
 /// 总是非空
 FOUNDATION_EXPORT NSNumber *AppUserIDNumber(void);
 
-@class UserInformation;
-UserInformation *_Nullable AppUserInformation(void);
-
-@class APIUserPlugin;
-APIUserPlugin *AppUserManager(void);
+@class APUserInfo;
+APUserInfo *_Nullable AppUserInformation(void);
 
 #pragma mark - 存储
 

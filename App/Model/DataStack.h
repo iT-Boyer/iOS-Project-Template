@@ -39,7 +39,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (RLMRealmConfiguration *)realmConfigurationWithPath:(NSURL *)path;
 - (nullable RLMRealm *)realmWithURL:(nonnull NSURL *)url;
 
-+ (void)writeToSharedStorageWithBlock:(RF_NOESCAPE void (^)(RLMRealm *storage))block;
++ (void)writeToSharedStorageWithBlock:(NS_NOESCAPE void (^)(RLMRealm *storage))block;
 
 @end
 

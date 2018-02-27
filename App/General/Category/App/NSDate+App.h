@@ -6,6 +6,7 @@
  */
 
 #import "UIKit+App.h"
+#import <MBGeneralType.h>
 
 /// 判断一个时间是否在最近给定的范围内
 extern BOOL NSDateIsRecent(NSDate *_Nullable date, NSTimeInterval range);
@@ -41,37 +42,25 @@ extern BOOL NSDateIsRecent(NSDate *_Nullable date, NSTimeInterval range);
 - (nonnull NSString *)timeString2;
 
 /// 当前时间的毫秒时间戳
-+ (ZYTimeStamp)timestampForNow;
++ (MBDateTimeStamp)timestampForNow;
 
 /// 毫秒时间戳
-- (ZYTimeStamp)timestamp;
+- (MBDateTimeStamp)timestamp;
 
 ///
-+ (nonnull ZYDayIdentifier)dayIdentifierForToday;
++ (nonnull MBDateDayIdentifier)dayIdentifierForToday;
 
-///
-- (nonnull ZYDayIdentifier)dayIdentifier;
+- (nonnull MBDateDayIdentifier)dayIdentifier;
 
-+ (nonnull NSDate *)dateWithTimeStamp:(ZYTimeStamp)timestamp;
-
-/// mm:ss.SS 样式的时长
-+ (nonnull NSString *)durationMSSStringWithTimeStamp:(ZYTimeStamp)duration;
++ (nonnull NSDate *)dateWithTimeStamp:(MBDateTimeStamp)timestamp;
 
 /// mm:ss 样式的时长
-+ (nonnull NSString *)durationMSStringWithTimeStamp:(ZYTimeStamp)duration;
++ (nonnull NSString *)durationMSStringWithTimeStamp:(MBDateTimeStamp)duration;
 
 /// 长时间的时长，根据长度单位自动切换为：分钟、小时、天、月、年
 + (nonnull NSString *)longDurationStringWithTimeInterval:(NSTimeInterval)duration unitRang:(nullable NSRange *)rangeRef;
 
 /// 长时间的时长，根据长度单位自动切换为：分钟、小时、天
 + (nonnull NSString *)longMinuteStringWithTimeInterval:(NSTimeInterval)duration unitRang:(nullable NSRange *)rangeRef;
-
-/// 相隔的天数，不是说非要24小时才算相隔一天
-@property (readonly) long dayIntervalSinceNow;
-
-/// 相隔的天数，不是说非要24小时才算相隔一天
-- (long)dayIntervalSinceDate:(null_unspecified NSDate *)anotherDate;
-
-+ (nonnull NSDate *)beginningOfCurrentWeek;
 
 @end

@@ -12,7 +12,7 @@
 /// 服务器时间 yyyy-MM-dd
 + (nonnull NSDateFormatter *)serverDayFormatter;
 
-/// ZYDayIdentifier 专用格式化
+/// MBDateDayIdentifier 专用格式化
 + (nonnull NSDateFormatter *)cachedDayIdentifierFormatter;
 
 /// 本地化的 X年X月X日

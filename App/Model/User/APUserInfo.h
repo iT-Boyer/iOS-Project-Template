@@ -1,5 +1,5 @@
 /*!
-    UserInformation
+    APUserInfo
 
     Copyright © 2013-2014 Chinamobo Co., Ltd.
     https://github.com/Chinamobo/iOS-Project-Template
@@ -12,7 +12,7 @@
 /**
  用户信息 model
  */
-@interface UserInformation : MBModel
+@interface APUserInfo : MBModel
 @property (nonatomic) MBID uid;
 
 /// 转移到其他对象上

@@ -9,6 +9,7 @@
  */
 #import "MBModel.h"
 #import "NSDateFormatter+RFKit.h"
+#import <MBGeneralType.h>
 
 /**
  JSON Mode 的 ValueTransformer，用于将 JSON 类型转为其他类型

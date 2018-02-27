@@ -39,7 +39,7 @@
 - (void)setPageAPIGroupIdentifier:(NSString *)pageAPIGroupIdentifier {
     if ([_pageAPIGroupIdentifier isEqualToString:pageAPIGroupIdentifier]) return;
     if (_pageAPIGroupIdentifier) {
-        [[API sharedInstance] cancelOperationsWithGroupIdentifier:_pageAPIGroupIdentifier];
+        [API.global cancelOperationsWithGroupIdentifier:_pageAPIGroupIdentifier];
     }
     _pageAPIGroupIdentifier = pageAPIGroupIdentifier;
 }

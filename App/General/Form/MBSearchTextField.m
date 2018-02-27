@@ -47,7 +47,7 @@ RFInitializingRootForUIView
     }
     self.autoSearchTimer.suspended = YES;
     RFAssert(self.APIName.length, @"未传入APIName");
-    [[API sharedInstance] cancelOperationWithIdentifier:self.APIName];
+    [API.global cancelOperationWithIdentifier:self.APIName];
     self.autoSearchTimer.suspended = NO;
 }
 

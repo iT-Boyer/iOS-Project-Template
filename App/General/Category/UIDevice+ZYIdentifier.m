@@ -8,6 +8,7 @@
 
 #import "UIDevice+ZYIdentifier.h"
 #import "API.h"
+#import "AFNetworkReachabilityManager.h"
 #import <sys/utsname.h>
 @import CoreTelephony;
 
@@ -19,7 +20,7 @@
 }
 
 + (NSString *)ZYReadableNetworkAccessTechnology {
-    AFNetworkReachabilityStatus s = [API sharedInstance].reachabilityManager.networkReachabilityStatus;
+    AFNetworkReachabilityStatus s = API.global.reachabilityManager.networkReachabilityStatus;
     if (s == AFNetworkReachabilityStatusReachableViaWiFi) {
         return @"wifi";
     }

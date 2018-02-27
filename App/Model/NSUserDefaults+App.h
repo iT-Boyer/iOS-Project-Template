@@ -64,7 +64,7 @@
 @property long lastUserID;
 
 @property (nullable, copy) NSString *userAccount;
-@property (nullable, copy) NSString *userInformation;
+@property (nullable, copy) NSString *APUserInfo;
 @property (nullable, copy) NSString *userToken;
 
 #pragma mark - 通知

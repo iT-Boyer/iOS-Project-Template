@@ -1,10 +1,3 @@
-//
-//  MBObjectiveC.c
-//  Feel
-//
-//  Created by BB9z on 29/10/2016.
-//  Copyright © 2016 Beijing ZhiYun ZhiYuan Technology Co., Ltd. All rights reserved.
-//
 
 #import "MBObjectiveC.h"
 

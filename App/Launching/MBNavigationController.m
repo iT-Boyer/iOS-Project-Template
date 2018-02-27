@@ -1,7 +1,7 @@
 
 #import "MBNavigationController.h"
 #import "MBApp.h"
-#import "MBApplicationDelegate.h"
+#import "APApplicationDelegate.h"
 #import "MBControlGroup.h"
 #import "UIViewController+RFDNavigationAppearance.h"
 #import "ZYTabBar.h"
@@ -62,7 +62,7 @@ RFUIInterfaceOrientationSupportNavigation
     self.bottomBar = tabBar;
     [tabBar addTarget:self action:@selector(onTabSelectionChanged:) forControlEvents:UIControlEventValueChanged];
     
-    [MBUser addCurrentUserChangeObserver:self initial:YES callback:^(MBUser * _Nullable currentUser) {
+    [APUser addCurrentUserChangeObserver:self initial:YES callback:^(APUser * _Nullable currentUser) {
         if (currentUser) {
             [self login];
         }

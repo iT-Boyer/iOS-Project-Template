@@ -1,24 +1,19 @@
 PODS:
-  - JSONModel (1.7.0)
+  - MBAppKit (0.1.0)
   - XXNibBridge (2.3.1)
 
 DEPENDENCIES:
-  - JSONModel (from `https://github.com/Chinamobo/JSONModel.git`)
+  - MBAppKit (from `MBAppKit`)
   - XXNibBridge
 
 EXTERNAL SOURCES:
-  JSONModel:
-    :git: https://github.com/Chinamobo/JSONModel.git
-
-CHECKOUT OPTIONS:
-  JSONModel:
-    :commit: 5575c9f278ca8959b3f5590524e5a2702f8655b8
-    :git: https://github.com/Chinamobo/JSONModel.git
+  MBAppKit:
+    :path: MBAppKit
 
 SPEC CHECKSUMS:
-  JSONModel: 401e70a832da7448ef239d58a78b3aa0fe68feab
+  MBAppKit: 69a243245cd8a2300a0047dc713028b109ff1d5b
   XXNibBridge: addb780e6db076eb2c61716aa60b176a6799b80f
 
-PODFILE CHECKSUM: 725be7c101e4f6932aee228b71ccb9c5a1d85854
+PODFILE CHECKSUM: ed7277498d5af202d75d5b258e22029e19c51337
 
 COCOAPODS: 1.4.0

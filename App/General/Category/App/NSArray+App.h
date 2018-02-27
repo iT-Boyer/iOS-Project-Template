@@ -29,7 +29,7 @@
 
  @return The mutable array returned may has a diffrent count with the receiver.
  */
-- (nonnull NSMutableArray *)rf_mapedArrayWithBlock:(RF_NOESCAPE id _Nullable (^_Nonnull)(ObjectType _Nonnull))block;
+- (nonnull NSMutableArray *)rf_mapedArrayWithBlock:(NS_NOESCAPE id _Nullable (^_Nonnull)(ObjectType _Nonnull))block;
 
 /**
  返回从当前数组中移除指定元素的新的数组
