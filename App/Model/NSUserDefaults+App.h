@@ -6,17 +6,7 @@
 //  Copyright (c) 2015 Beijing ZhiYun ZhiYuan Technology Co., Ltd. All rights reserved.
 //
 
-#import "Common.h"
-
-@interface NSUserDefaults (Sync)
-
-- (void)setNeedsSynchronized;
-
-/**
- */
-- (BOOL)synchronizeBlock:(NS_NOESCAPE void (^_Nonnull)(NSUserDefaults *_Nonnull u))block;
-
-@end
+#import <MBUserDefaults.h>
 
 /**
  关于属性声明
@@ -76,13 +66,6 @@
 
 #pragma mark - 用户存储
 
-/**
- @warning standardUserDefaults 会自动同步，而这个不会。
- 如果属性的实现用的是 _makeXXXProperty，同步操作已经有了妥当处理。
- 为了统一，自定义实现的方法需要在设置时调用 setNeedsSynchronized。
- */
-@interface MBUserProfiles : NSUserDefaults
-
-- (BOOL)synchronizeBlock:(void (^_Nonnull)(MBUserProfiles *_Nonnull u))block;
+@interface NSAccountDefaults (App)
 
 @end

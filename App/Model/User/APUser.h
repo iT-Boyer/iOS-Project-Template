@@ -26,7 +26,7 @@
 
 #pragma mark - 挂载
 
-@property (nonatomic, nullable, readonly) MBUserProfiles *profile;
+@property (nonatomic, nullable, readonly) NSAccountDefaults *profile;
 
 /// 数据库，懒加载
 @property (nonatomic, nonnull, readonly) RLMRealm *storage;

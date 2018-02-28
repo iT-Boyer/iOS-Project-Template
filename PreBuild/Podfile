@@ -1,0 +1,41 @@
+project 'pods-combine.xcodeproj'
+
+# Disable sending stats
+ENV['COCOAPODS_DISABLE_STATS'] = 'true'
+
+platform :ios, '9.0'
+
+inhibit_all_warnings!
+
+target 'pods-combine' do
+    # 这里应只包含编译源码需要的依赖，二进制包直接主项目导入
+    pod 'JSONModel', :git => 'https://github.com/Chinamobo/JSONModel.git'
+    pod 'RFKit', :path => '../MBAppKit/RFUI.Core/RFKit', :subspecs => [
+        'Default',
+        'Category/NSDate',
+        'Category/NSDateFormatter',
+        'Category/NSFileManager',
+        'Category/NSJSONSerialization',
+        'Category/NSURL',
+        'Category/NSLayoutConstraint',
+        'Category/UIScrollView+RFScrolling',
+        'Category/UISearchBar'
+    ]
+    pod 'SVProgressHUD'
+    pod 'XXNibBridge'
+end
+
+pre_install do |installer|
+    installer.pod_targets.each do |target|
+        # 遍历下载依赖的目录
+        aPodDir = installer.sandbox.pod_dir(target.pod_name)
+
+        # 把 base.lproj 改名为 Base.lproj
+        Dir.glob(File.join(aPodDir, '**', '*.lproj')).each do |stringFile|
+            if (File.basename(stringFile) == 'base.lproj')
+                dst = File.join(File.dirname(stringFile), 'Base.lproj');
+                File.rename(stringFile, dst)
+            end
+        end
+    end
+end

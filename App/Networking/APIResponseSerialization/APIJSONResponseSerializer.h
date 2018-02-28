@@ -10,7 +10,7 @@
  */
 
 #import "AFURLResponseSerialization.h"
-#import "JSONModel.h"
+#import "MBModel.h"
 
 /** 统一的 API 接口解析器
  
@@ -71,7 +71,7 @@
  */
 @interface APIJSONError : JSONModel
 /// 接口返回的错误描述
-@property (copy, nonatomic) NSString *errorDescription;
+@property NSString *errorDescription;
 
 /** 错误信息
  
@@ -83,7 +83,7 @@
 - (NSString *)localizedDescription;
 
 /// 接口返回的错误码
-@property (assign, nonatomic) int errorCode;
+@property int errorCode;
 
 /** 根据错误码返回相应错误信息
  

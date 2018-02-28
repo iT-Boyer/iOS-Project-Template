@@ -57,7 +57,7 @@
     [super onInit];
     BOOL debugServer = AppDebugConfig().debugServer;
     NSString *suitName = [NSString stringWithFormat:@"User%ld%@", self.uid, debugServer? @"D" : @""].rf_MD5String;
-    _profile = [[MBUserProfiles alloc] initWithSuiteName:suitName];
+    _profile = [NSAccountDefaults.alloc initWithSuiteName:suitName];
 
     NSUserDefaults *ud = AppUserDefaultsShared();
     DebugConfig *dc = AppDebugConfig();

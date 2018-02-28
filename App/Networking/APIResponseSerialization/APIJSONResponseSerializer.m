@@ -209,14 +209,10 @@ HTTP 状态与 ResponseSerializer 的 acceptableStatusCodes 预期不符合\n\
 
 
 @implementation APIJSONError
-
-+ (JSONKeyMapper *)keyMapper {
-    APIJSONError *this;
-    return [[JSONKeyMapper alloc] initWithDictionary:@{
-                @"error": @keypath(this, errorDescription),
-                @"code": @keypath(this, errorCode)
-            }];
-}
+MBModelKeyMapper(APIJSONError,
+                 @keypath(this, errorDescription), @"error",
+                 @keypath(this, errorCode), @"code"
+                 )
 
 + (NSString *)localizedDescriptionKeyForErrorCode:(int)errorCode {
     return nil;

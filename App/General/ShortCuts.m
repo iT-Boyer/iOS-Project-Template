@@ -114,7 +114,7 @@ NSUserDefaults *AppUserDefaultsShared() {
     return [NSUserDefaults standardUserDefaults];
 }
 
-MBUserProfiles *_Nullable AppUserDefaultsPrivate() {
+NSAccountDefaults *_Nullable AppUserDefaultsPrivate() {
     return AppUser().profile;
 }
 

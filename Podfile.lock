@@ -1,19 +1,21 @@
 PODS:
-  - MBAppKit (0.1.0)
-  - XXNibBridge (2.3.1)
+  - MBAppKit (0.2.1)
+  - PreBuild (0.1.0)
 
 DEPENDENCIES:
   - MBAppKit (from `MBAppKit`)
-  - XXNibBridge
+  - PreBuild (from `PreBuild`)
 
 EXTERNAL SOURCES:
   MBAppKit:
     :path: MBAppKit
+  PreBuild:
+    :path: PreBuild
 
 SPEC CHECKSUMS:
-  MBAppKit: 69a243245cd8a2300a0047dc713028b109ff1d5b
-  XXNibBridge: addb780e6db076eb2c61716aa60b176a6799b80f
+  MBAppKit: acc3f917bce64877439322f13421e514d4da6cc7
+  PreBuild: e364b0801808623a87f3bc8ce2618b778a49380b
 
-PODFILE CHECKSUM: ed7277498d5af202d75d5b258e22029e19c51337
+PODFILE CHECKSUM: a5d785dd8d79fdc7d75ee11d041b4657cb35a0a0
 
 COCOAPODS: 1.4.0

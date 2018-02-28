@@ -82,9 +82,9 @@ APUserInfo *_Nullable AppUserInformation(void);
 /// 应用级别的配置项
 FOUNDATION_EXPORT NSUserDefaults *AppUserDefaultsShared(void);
 
-@class MBUserProfiles;
+@class NSAccountDefaults;
 /// 当前用户的配置项
-FOUNDATION_EXPORT MBUserProfiles *_Nullable AppUserDefaultsPrivate(void);
+FOUNDATION_EXPORT NSAccountDefaults *_Nullable AppUserDefaultsPrivate(void);
 
 @class RLMRealm;
 /// 应用数据库

@@ -58,44 +58,6 @@ extern int const UIColorGlobalTintColorHex;
 /// 错误红
 + (nonnull UIColor *)globalErrorRead;
 
-/// 睡眠主题紫
-+ (nonnull UIColor *)globalSleepPurple;
-
-/// 男性蓝
-+ (nonnull UIColor *)globalMaleColor;
-/// 女性粉
-+ (nonnull UIColor *)globalFemaleColor;
-
-// 健康计划项
-
-/// 历史或未来检测项主题色
-+ (nonnull UIColor *)scheduleDisabledThemeColor;
-/// 心情检测项默认主题色
-+ (nonnull UIColor *)scheduleMoodThemeColor;
-/// 跑步检测项默认主题色
-+ (nonnull UIColor *)scheduleRuntrackThemeColor;
-/// plank 检测项默认主题色
-+ (nonnull UIColor *)schedulePlankThemeColor;
-/// 体重检测项默认主题色
-+ (nonnull UIColor *)scheduleWeightThemeColor;
-/// 心率检测项默认主题色
-+ (nonnull UIColor *)scheduleHeartBeatThemeColor;
-/// 睡眠检测项默认主题色
-+ (nonnull UIColor *)scheduleSleepThemeColor;
-///计步类型进度条的蓝色
-+ (nonnull UIColor *)pedometerProgressTintColor;
-///卡路里摄入未完成
-+ (nonnull UIColor *)calorieIntakeColor;
-///卡路里摄入超出
-+ (nonnull UIColor *)calorieOverflowColor;
-///咨询按钮阴影颜色
-+ (nonnull UIColor *)goalConsultShadowColor;
-
-///优惠券红色
-+ (nonnull UIColor *)goalCouponRedColor;
-///优惠券橙色
-+ (nonnull UIColor *)goalCouponOrgangeColor;
-
 #pragma mark -
 
 /// 比当前颜色浅一些的颜色

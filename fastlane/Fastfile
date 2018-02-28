@@ -1,0 +1,123 @@
+# Customise this file, documentation can be found here:
+# https://github.com/fastlane/fastlane/tree/master/fastlane/docs
+# All available actions: https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Actions.md
+# can also be listed using the `fastlane actions` command
+
+# Change the syntax highlighting to Ruby
+# All lines starting with a # are ignored when running `fastlane`
+
+# If you want to automatically update fastlane if a new version is available:
+# update_fastlane
+
+# This is the minimum version number required.
+# Update this, if you use features of a newer version
+fastlane_version "2.0.0"
+
+default_platform :ios
+
+before_all do
+    # skip_docs
+end
+
+desc "检视 fastlane 配置"
+lane :check_metadata do
+    precheck
+end
+
+desc "安装整个项目依赖"
+lane :setup_project do
+    sh('git pull --recurse-submodules')
+    cocoapods
+    cocoapods(podfile: "PreBuild")
+    sh('cd .. && ./PreBuild/Support/clean_output.sh')
+    xcodebuild(scheme: "UpdateFramework", project: "PreBuild/pods-combine.xcodeproj")
+    xcodebuild(target: "build-all-parts", project: "PreBuild/project-framework.xcodeproj", configuration: "Release")
+    cocoapods
+    cocoapods(podfile: "MBAppKit")
+    xcodebuild(scheme: "MBAppKit", workspace: "MBAppKit/MBAppKit.xcworkspace")
+    cocoapods
+    sort_project
+    notification(message: "项目依赖安装完毕", sound: "default")
+end
+
+desc "更新 pods-combine"
+lane :update_pods_combine do
+    cocoapods(podfile: "PreBuild")
+    say "Please confirm to continue"
+    prompt(text: "如果增删了 pod，你现在可能需要打开 pods-combine 项目调整头文件和 link 的引用，按回车继续", multi_line_end_keyword: "\n")
+    xcodebuild(scheme: "UpdateFramework", workspace: "PreBuild/pods-combine.xcworkspace")
+    cocoapods
+    sort_project
+    # sh('xcrun xcodebuild -target MBBuildSystem -project Feel.xcodeproj -configuration "Debug" || :')
+    notification(message: "更新 pods-combine 完毕", sound: "default")
+end
+
+desc "刷新 MBAppKit"
+lane :refresh_appkit do
+    cocoapods(podfile: "MBAppKit")
+    xcodebuild(scheme: "MBAppKit", workspace: "MBAppKit/MBAppKit.xcworkspace")
+    cocoapods
+    sort_project
+    notification(message: "刷新 MBAppKit 完毕", sound: "default")
+end
+
+desc "项目文件内容排序整理"
+lane :sort_project do
+    sh('cd .. && ./Scripts/sort_projects.sh')
+end
+
+platform :ios do
+  desc "Runs all the tests"
+  lane :test do
+    scan
+  end
+
+  desc "打包上传到 TestFlight"
+  lane :beta do
+    ensure_git_branch(branch: "develop")
+    ensure_git_status_clean
+    # match(type: "appstore") # more information: https://codesigning.guide
+
+    gym(
+      scheme: "App"
+    )
+    notification(message: "打包完毕，等待上传", sound: "default")
+    pilot
+    notification(message: "上传成功，开始上传符号文件到 fabric", sound: "default")
+    
+    debug
+    upload_symbols_to_crashlytics
+    
+    # 归档到编译目录
+    time_string = Time.new.strftime("%Y-%m-%d %H%M%S")
+    copy_artifacts(
+      target_path: "build/Release/#{time_string}",
+      artifacts: ['*.ipa', '*.dSYM.zip']
+    )
+    debug
+    notification(message: "✅ BETA 发布成功", sound: "default")
+    clean_build_artifacts
+  end
+
+  after_all do |lane|
+    # This block is called, only if the executed lane was successful
+
+    # slack(
+    #   message: "Successfully deployed new App Update."
+    # )
+  end
+
+  error do |lane, exception|
+    puts "如果打包 OK，编译出来的包可以在项目根目录中找到"
+    puts "后续上传步骤可以再手工执行：pilot upload"
+    notification(subtitle: "⚠️ 出错了", message: exception.message, sound: "default")
+    say "Error, error"
+  end
+end
+
+
+# More information about multiple platforms in fastlane: https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Platforms.md
+# All available actions: https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Actions.md
+
+# fastlane reports which actions are used
+# No personal data is recorded. Learn more at https://github.com/fastlane/enhancer

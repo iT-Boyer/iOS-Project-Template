@@ -47,25 +47,6 @@ MakeSolidColor(globalGrayColor, 0x999999)
 MakeSolidColor(globalDarkGrayColor, 0x666666)
 
 MakeSolidColor(globalErrorRead, 0x800000)
-MakeSolidColor(globalSleepPurple, 0x6b5fd9)
-MakeSolidColor(globalMaleColor, 0x36a2ee)
-MakeSolidColor(globalFemaleColor, 0xff6666)
-
-MakeSolidColor(scheduleDisabledThemeColor, 0x40c78d)
-
-MakeSolidColor(scheduleMoodThemeColor, 0x40c78d)
-MakeSolidColor(scheduleRuntrackThemeColor, 0x40c78d)
-MakeSolidColor(schedulePlankThemeColor, 0x40c78d)
-MakeSolidColor(scheduleWeightThemeColor, 0x40c78d)
-MakeSolidColor(scheduleHeartBeatThemeColor, 0x40c78d)
-MakeSolidColor(scheduleSleepThemeColor, 0x40c78d)
-MakeSolidColor(pedometerProgressTintColor, 0x40c78d)
-MakeSolidColor(calorieIntakeColor, 0x40c78d)
-MakeSolidColor(calorieOverflowColor, 0xff6666)
-MakeSolidColor(goalConsultShadowColor, 0x40c78d)
-
-MakeSolidColor(goalCouponRedColor, 0xFF6666)
-MakeSolidColor(goalCouponOrgangeColor, 0xFF9219)
 
 #pragma mark -
 
@@ -75,39 +56,6 @@ MakeSolidColor(goalCouponOrgangeColor, 0xFF9219)
 
 - (UIColor *)rf_darkerColor {
     return [self mixedColorWithRatio:0.8 color:UIColor.blackColor];
-}
-
-static UIColor *UIColorFromHexRGBString(NSString *hex) {
-    if ([hex hasPrefix:@"#"]) {
-        hex = [hex substringFromIndex:1];
-    }
-    if (!hex.length) {
-        return nil;
-    }
-
-    UIColor *result = nil;
-    unsigned int colorCode = 0;
-    unsigned char redByte = 0, greenByte = 0, blueByte = 0;
-    CGFloat alpha = 1.0;
-
-    NSScanner *scanner = [NSScanner scannerWithString:hex];
-    [scanner scanHexInt:&colorCode]; // ignore error
-
-    BOOL hasAlpha = (hex.length == 8);
-    if (hasAlpha) {
-        redByte = (unsigned char)(colorCode >> 24);
-        greenByte = (unsigned char)(colorCode >> 16);
-        blueByte = (unsigned char)(colorCode >> 8); // masks off high bits
-        alpha = ((float)(colorCode & 0xff)) / 255;
-    }
-    else {
-        redByte = (unsigned char)(colorCode >> 16);
-        greenByte = (unsigned char)(colorCode >> 8);
-        blueByte = (unsigned char)(colorCode); // masks off high bits
-    }
-
-    result = [UIColor colorWithRed: (float)redByte / 0xff green: (float)greenByte/ 0xff blue: (float)blueByte / 0xff alpha:alpha];
-    return result;
 }
 
 @end
