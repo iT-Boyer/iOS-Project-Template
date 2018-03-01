@@ -7,19 +7,36 @@
 require 'xcodeproj'
 require 'plist'
 
+# 主目标的名称，留空尝试自动寻找
+main_target_name = nil
 xcode_build_configuration = ENV["CONFIGURATION"]
 xcodeproj_path = ENV["PROJECT_FILE_PATH"]
-main_target_name = "App"
 proj = Xcodeproj::Project.open(xcodeproj_path)
 
 # 找到 App target
 main_target = nil
-proj.targets.each do |target|
-  if target.name == main_target_name
-    main_target = target
+if main_target_name != nil
+  proj.targets.each do |target|
+    if target.name == main_target_name
+      main_target = target
+    end
+  end
+  if main_target == nil
+      puts "#{proj.path}:0: 找不到名为 #{main_target_name} 的 target"
+      exit false
+  end
+else
+  proj.targets.each do |target|
+    if target.product_name == "App"
+      main_target = target
+    end
   end
 end
-# p main_target
+
+if main_target == nil
+    puts "#{proj.path}:0: 找不到应用的 target"
+    exit false
+end
 
 xcode_info_plist_path = nil
 main_target.build_configurations.each do |config|

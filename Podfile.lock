@@ -1,5 +1,5 @@
 PODS:
-  - MBAppKit (0.2.1)
+  - MBAppKit (0.2.2)
   - PreBuild (0.1.0)
 
 DEPENDENCIES:
@@ -13,7 +13,7 @@ EXTERNAL SOURCES:
     :path: PreBuild
 
 SPEC CHECKSUMS:
-  MBAppKit: acc3f917bce64877439322f13421e514d4da6cc7
+  MBAppKit: 73baaf9b6752ab2df28adaf0c762944c3b26780d
   PreBuild: e364b0801808623a87f3bc8ce2618b778a49380b
 
 PODFILE CHECKSUM: a5d785dd8d79fdc7d75ee11d041b4657cb35a0a0

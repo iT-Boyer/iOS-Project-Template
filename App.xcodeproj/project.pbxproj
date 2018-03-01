@@ -69,6 +69,7 @@
 		D5B49F191C41133A00847925 /* MBRefreshHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B49EFC1C41133A00847925 /* MBRefreshHeaderView.m */; };
 		D5B49F1A1C41133A00847925 /* MBRefreshHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5B49EFD1C41133A00847925 /* MBRefreshHeaderView.xib */; };
 		D5B49F1B1C41133A00847925 /* MBTableViewPullToFetchControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B49EFF1C41133A00847925 /* MBTableViewPullToFetchControl.m */; };
+		D5C636A72047CC5900851CF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5C636A62047CC5900851CF4 /* LaunchScreen.storyboard */; };
 		D5CB54591A302DD6003E53A4 /* MBAutoSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CB54581A302DD6003E53A4 /* MBAutoSearchBar.m */; };
 		D5E28C4B204404850046DB7C /* MBNavigationOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E28C4A204404850046DB7C /* MBNavigationOperation.m */; };
 		D5E28C4E204405840046DB7C /* MBNavigationStackTask.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E28C4C204405840046DB7C /* MBNavigationStackTask.m */; };
@@ -308,6 +309,7 @@
 		D5B49EFD1C41133A00847925 /* MBRefreshHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MBRefreshHeaderView.xib; sourceTree = "<group>"; };
 		D5B49EFE1C41133A00847925 /* MBTableViewPullToFetchControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBTableViewPullToFetchControl.h; sourceTree = "<group>"; };
 		D5B49EFF1C41133A00847925 /* MBTableViewPullToFetchControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBTableViewPullToFetchControl.m; sourceTree = "<group>"; };
+		D5C636A62047CC5900851CF4 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D5CB54571A302DD6003E53A4 /* MBAutoSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBAutoSearchBar.h; sourceTree = "<group>"; };
 		D5CB54581A302DD6003E53A4 /* MBAutoSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBAutoSearchBar.m; sourceTree = "<group>"; };
 		D5D4CC6E2043A6ED002FE9F0 /* OCBridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OCBridging-Header.h"; sourceTree = "<group>"; };
@@ -697,6 +699,7 @@
 				D5EE50D62043CECE009148B3 /* APApplicationDelegate.h */,
 				D5EE50D52043CECE009148B3 /* APApplicationDelegate.m */,
 				D5E28C5B20443CBC0046DB7C /* APNavigationController_AppJump.m */,
+				D5C636A62047CC5900851CF4 /* LaunchScreen.storyboard */,
 				D52EAE1D2043C3D5007219E0 /* MBEnvironment.h */,
 				D52EAE1C2043C3D5007219E0 /* MBEnvironment.m */,
 				D552DD5818C8506700D02290 /* MBNavigationController.h */,
@@ -1380,6 +1383,7 @@
 				D52EAB642043B6B3007219E0 /* Icon.xcassets in Resources */,
 				D52EAB672043B6B3007219E0 /* Images.xcassets in Resources */,
 				D5197D3217F027B400CA387C /* InfoPlist.strings in Resources */,
+				D5C636A72047CC5900851CF4 /* LaunchScreen.storyboard in Resources */,
 				D5197D3517F027BB00CA387C /* Localizable.strings in Resources */,
 				D5197A5117EECAAF00CA387C /* Main.storyboard in Resources */,
 				D5B49F0C1C41133A00847925 /* MBCollectionRefreshFooterView.xib in Resources */,
