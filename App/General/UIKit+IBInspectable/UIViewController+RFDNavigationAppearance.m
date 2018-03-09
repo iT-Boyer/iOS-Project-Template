@@ -26,7 +26,6 @@ RFSynthesizeCategoryBoolProperty(RFPrefersDisabledInteractivePopGesture, setRFPr
     NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithCapacity:10];
     dic[RFViewControllerPrefersStatusBarHiddenAttribute] = @(self.RFPrefersStatusBarHidden);
     dic[RFViewControllerPrefersNavigationBarHiddenAttribute] = @(self.RFPrefersNavigationBarHidden);
-    dic[RFViewControllerPrefersNaigationBarShadowHiddenAttribute] = @(self.RFPrefersNavigationBarShadowHidden);
     dic[RFViewControllerPrefersBottomBarShownAttribute] = @(self.RFPrefersBottomBarShown);
     [dic rf_setObject:self.RFPreferredNavigationBarColor forKey:RFViewControllerPreferredNavigationBarTintColorAttribute];
     if (self.RFPrefersLightContentBarStyle) {
@@ -34,7 +33,6 @@ RFSynthesizeCategoryBoolProperty(RFPrefersDisabledInteractivePopGesture, setRFPr
         dic[RFViewControllerPreferredNavigationBarItemColorAttribute] = [UIColor whiteColor];
         dic[RFViewControllerPreferredNavigationBarTitleTextAttributes] = @{ NSForegroundColorAttributeName : [UIColor whiteColor] };
     }
-    dic[RFViewControllerPrefersNaigationPopGestureRecognizeAssistance] = @(self.RFPrefersPopGestureRecognizeAssistance);
     return dic;
 }
 

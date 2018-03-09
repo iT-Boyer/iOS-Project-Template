@@ -73,9 +73,6 @@
 		D5CB54591A302DD6003E53A4 /* MBAutoSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CB54581A302DD6003E53A4 /* MBAutoSearchBar.m */; };
 		D5E28C4B204404850046DB7C /* MBNavigationOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E28C4A204404850046DB7C /* MBNavigationOperation.m */; };
 		D5E28C4E204405840046DB7C /* MBNavigationStackTask.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E28C4C204405840046DB7C /* MBNavigationStackTask.m */; };
-		D5E28C52204407FC0046DB7C /* ZYTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E28C50204407FB0046DB7C /* ZYTabBar.m */; };
-		D5E28C53204407FC0046DB7C /* ZYTabBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5E28C51204407FB0046DB7C /* ZYTabBar.xib */; };
-		D5E28C5C20443CBD0046DB7C /* APNavigationController_AppJump.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E28C5B20443CBC0046DB7C /* APNavigationController_AppJump.m */; };
 		D5EE50D42043CCCD009148B3 /* Realm+ZYHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE50D32043CCCD009148B3 /* Realm+ZYHelper.m */; };
 		D5EE50D72043CECE009148B3 /* APApplicationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE50D52043CECE009148B3 /* APApplicationDelegate.m */; };
 		D5EE51192043DAA2009148B3 /* NSArray+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE50E42043DAA1009148B3 /* NSArray+App.m */; };
@@ -323,10 +320,6 @@
 		D5E28C4A204404850046DB7C /* MBNavigationOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBNavigationOperation.m; sourceTree = "<group>"; };
 		D5E28C4C204405840046DB7C /* MBNavigationStackTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBNavigationStackTask.m; sourceTree = "<group>"; };
 		D5E28C4D204405840046DB7C /* MBNavigationStackTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBNavigationStackTask.h; sourceTree = "<group>"; };
-		D5E28C4F204407FB0046DB7C /* ZYTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYTabBar.h; sourceTree = "<group>"; };
-		D5E28C50204407FB0046DB7C /* ZYTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYTabBar.m; sourceTree = "<group>"; };
-		D5E28C51204407FB0046DB7C /* ZYTabBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZYTabBar.xib; sourceTree = "<group>"; };
-		D5E28C5B20443CBC0046DB7C /* APNavigationController_AppJump.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APNavigationController_AppJump.m; sourceTree = "<group>"; };
 		D5EE50D22043CCCD009148B3 /* Realm+ZYHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Realm+ZYHelper.h"; sourceTree = "<group>"; };
 		D5EE50D32043CCCD009148B3 /* Realm+ZYHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Realm+ZYHelper.m"; sourceTree = "<group>"; };
 		D5EE50D52043CECE009148B3 /* APApplicationDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APApplicationDelegate.m; sourceTree = "<group>"; };
@@ -698,7 +691,6 @@
 			children = (
 				D5EE50D62043CECE009148B3 /* APApplicationDelegate.h */,
 				D5EE50D52043CECE009148B3 /* APApplicationDelegate.m */,
-				D5E28C5B20443CBC0046DB7C /* APNavigationController_AppJump.m */,
 				D5C636A62047CC5900851CF4 /* LaunchScreen.storyboard */,
 				D52EAE1D2043C3D5007219E0 /* MBEnvironment.h */,
 				D52EAE1C2043C3D5007219E0 /* MBEnvironment.m */,
@@ -711,9 +703,6 @@
 				D5EE51352043DB7C009148B3 /* MBRootWrapperViewController.h */,
 				D5EE51362043DB7C009148B3 /* MBRootWrapperViewController.m */,
 				D5EE51382043E0DF009148B3 /* RootViewController.swift */,
-				D5E28C4F204407FB0046DB7C /* ZYTabBar.h */,
-				D5E28C50204407FB0046DB7C /* ZYTabBar.m */,
-				D5E28C51204407FB0046DB7C /* ZYTabBar.xib */,
 			);
 			path = Launching;
 			sourceTree = "<group>";
@@ -1390,7 +1379,6 @@
 				D5EE51852043F5E6009148B3 /* MBDatePickerViewController.xib in Resources */,
 				D5B49F181C41133A00847925 /* MBRefreshFooterView.xib in Resources */,
 				D5B49F1A1C41133A00847925 /* MBRefreshHeaderView.xib in Resources */,
-				D5E28C53204407FC0046DB7C /* ZYTabBar.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1475,7 +1463,6 @@
 				D552DD7618C8506700D02290 /* API.m in Sources */,
 				D552DD7718C8506700D02290 /* APIJSONResponseSerializer.m in Sources */,
 				D52EAE2A2043C63B007219E0 /* APINetworkActivityManager.m in Sources */,
-				D5E28C5C20443CBD0046DB7C /* APNavigationController_AppJump.m in Sources */,
 				D52EAE362043C6F7007219E0 /* APUser.m in Sources */,
 				D552DD7B18C8506700D02290 /* APUserInfo.m in Sources */,
 				D5EE519A2043F5F3009148B3 /* CALayer+MBAnimationPersistence.m in Sources */,
@@ -1602,7 +1589,6 @@
 				D5EE51EB2043F613009148B3 /* ZYSkyHeaderView.m in Sources */,
 				D5EE520A2043F61D009148B3 /* ZYSkyImageView.m in Sources */,
 				D5EE517B2043F5E6009148B3 /* ZYSMSCodeSendButton.m in Sources */,
-				D5E28C52204407FC0046DB7C /* ZYTabBar.m in Sources */,
 				D5EE520B2043F61D009148B3 /* ZYTemplateImageView.m in Sources */,
 				D5EE51FB2043F613009148B3 /* ZYUtility.m in Sources */,
 				D5EE51822043F5E6009148B3 /* ZYVerifyTextField.m in Sources */,

@@ -146,7 +146,7 @@
 
         // 404 弹出
         if ([error.domain isEqualToString:APIErrorDomain] && error.code == 404) {
-            [AppNavigationController() popViewControllerAfter];
+            [AppNavigationController() popViewControllerAnimated:YES];
         }
 
         [API alertError:error title:@""];

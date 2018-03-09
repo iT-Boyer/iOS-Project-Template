@@ -96,7 +96,6 @@
         }
     }];
     UIViewController *selectedVC = self.selectedViewController;
-    AppNavigationController().pageName = selectedVC.pageName;
     self.pageAPIGroupIdentifier = selectedVC.APIGroupIdentifier;
 }
 

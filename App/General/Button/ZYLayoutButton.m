@@ -62,9 +62,10 @@
 - (void)onTouchUpInside {
     [super onTouchUpInside];
     [self.viewController MBAnalyticsCustomEventWithSender:self attributes:nil];
-    if (self.jumpURL.length) {
-        APNavigationControllerJumpWithURL([NSURL URLWithString:self.jumpURL]);
-    }
+    // @TODO
+//    if (self.jumpURL.length) {
+//        APNavigationControllerJumpWithURL([NSURL URLWithString:self.jumpURL]);
+//    }
 }
 
 @end
