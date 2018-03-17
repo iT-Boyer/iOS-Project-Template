@@ -22,9 +22,6 @@ extern int const UIColorGlobalTintColorHex;
 + (nonnull UIColor *)globalBodyTextColor;
 /// 描述文本颜色 #9B9B9B
 + (nonnull UIColor *)globalDetialTextColor;
-
-/// 同 globalTitleTextColor
-+ (nonnull UIColor *)globalTextColor;
 /// 占位符文本颜色
 + (nonnull UIColor *)globalPlaceholderTextColor;
 
@@ -37,25 +34,7 @@ extern int const UIColorGlobalTintColorHex;
 /// 默认 cell 点击时的高亮色
 + (nonnull UIColor *)globalCellSelectionColor;
 
-/// 阴影颜色 30% #000
-+ (nonnull UIColor *)globalShadowColor;
-/// 黑色半透明遮罩
-+ (nonnull UIColor *)globalDarkMaskColor;
-
-/// 图像默认占位背景色
-+ (nonnull UIColor *)globalImageViewBackgroundColor;
-
-/// 分割线颜色，#DDD
-+ (nonnull UIColor *)globalSeparateLineColor;
-
-/// #CCC
-+ (nonnull UIColor *)globalLightGrayColor;
-/// #999
-+ (nonnull UIColor *)globalGrayColor;
-/// #666
-+ (nonnull UIColor *)globalDarkGrayColor;
-
-/// 错误红
+/// 错误红 #800000
 + (nonnull UIColor *)globalErrorRead;
 
 #pragma mark -

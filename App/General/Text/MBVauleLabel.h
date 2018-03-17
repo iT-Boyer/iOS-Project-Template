@@ -51,22 +51,6 @@
 @end
 
 /**
- hh小时mm分ss秒 or mm分ss秒
- */
-@interface ZYDurationWithHourLabel : MBVauleLabel
-/// YES 时，如果没有小时，则以 mm:ss 格式显示
-@property (getter=isHourOptional) IBInspectable BOOL hourOptional;
-@end
-
-
-/**
- mm'ss''
- */
-@interface ZYPacesLabel : MBVauleLabel
-@end
-
-
-/**
  999m or 3.21km
  */
 @interface ZYDistanceLabel : MBVauleAttributedLabel
@@ -75,11 +59,4 @@
 
 /// 开启时，不足 1000m 显示 xxm
 @property (nonatomic) IBInspectable BOOL autoUnit;
-@end
-
-@interface ZYDataSourceLabel : UILabel
-@end
-
-@interface ZYDataSourceAttributedLabel : MBVauleAttributedLabel
-
 @end

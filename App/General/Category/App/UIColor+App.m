@@ -29,23 +29,12 @@ MakeSolidColor(globalDisabledTintColor, 0xCCCCCC)
 MakeSolidColor(globalTitleTextColor, 0x535353)
 MakeSolidColor(globalBodyTextColor, 0x5e6066)
 MakeSolidColor(globalDetialTextColor, 0x9b9b9b)
-MakeSolidColor(globalTextColor, 0x535353)
 MakeColor(globalPlaceholderTextColor, 0x000019, 0.22)
 
 MakeSolidColor(globalDarkBackgroundColor, 0x222222)
 MakeSolidColor(globalLightBackgroundColor, 0xF5F5F5)
 MakeSolidColor(globalPageBackgroundColor, 0xF0F4F8)
 MakeSolidColor(globalCellSelectionColor, 0xD9D9D9)
-MakeColor(globalShadowColor, 0x000000, 0.3)
-MakeColor(globalDarkMaskColor, 0x000000, 0.75)
-
-MakeSolidColor(globalImageViewBackgroundColor, 0xEEEEEE)
-MakeSolidColor(globalSeparateLineColor, 0xDDDDDD)
-
-MakeSolidColor(globalLightGrayColor, 0xCCCCCC)
-MakeSolidColor(globalGrayColor, 0x999999)
-MakeSolidColor(globalDarkGrayColor, 0x666666)
-
 MakeSolidColor(globalErrorRead, 0x800000)
 
 #pragma mark -

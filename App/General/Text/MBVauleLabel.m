@@ -148,53 +148,6 @@ RFInitializingRootForUIView
 
 @end
 
-@implementation ZYDurationWithHourLabel
-
-
-- (NSString *)displayStringForVaule:(id)value {
-    RFAssert([value isKindOfClass:[NSNumber class]], nil);
-    if (![value respondsToSelector:@selector(intValue)]) {
-        return @"--小时--分--秒";
-    }
-    int seconds = [value intValue];
-    int minute = seconds/60;
-    int hour = minute/60;
-    minute = minute%60;
-    seconds = seconds%60;
-    
-    NSString *ds;
-    if (self.hourOptional && !hour) {
-        ds = [NSString stringWithFormat:@"%02d分%02d秒", minute, seconds];
-    }
-    else {
-        ds = [NSString stringWithFormat:@"%02d小时%02d分%02d秒", hour, minute, seconds];
-    }
-    return ds;
-}
-
-@end
-
-
-@implementation ZYPacesLabel
-
-- (NSString *)displayStringForVaule:(id)value {
-    RFAssert([value isKindOfClass:[NSNumber class]], nil);
-    if (![value respondsToSelector:@selector(intValue)]) {
-        return @"--";
-    }
-    int seconds = [value intValue];
-    if (seconds < 0) {
-        return @"--";
-    }
-    int minute = seconds/60;
-    seconds = seconds%60;
-
-    NSString *ds = [NSString stringWithFormat:@"%d′%02d″", minute, seconds];
-    return ds;
-}
-
-@end
-
 
 @implementation ZYDistanceLabel
 
@@ -219,29 +172,6 @@ RFInitializingRootForUIView
     NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:numberString attributes:self.numberAttributes];
     [string appendAttributedString:[[NSAttributedString alloc] initWithString:unitString attributes:self.unitAttributes]];
      return string;
-}
-
-@end
-
-@implementation ZYDataSourceLabel
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    self.layer.shadowColor = [UIColor globalShadowColor].CGColor;
-    self.layer.shadowOffset = CGSizeMake(0, 1);
-    self.layer.shadowOpacity = 0.4;
-    self.layer.shadowRadius = 0;
-}
-
-@end
-
-@implementation ZYDataSourceAttributedLabel
-
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    self.layer.shadowColor = [UIColor globalShadowColor].CGColor;
-    self.layer.shadowOffset = CGSizeMake(0, 1);
-    self.layer.shadowOpacity = 0.4;
-    self.layer.shadowRadius = 0;
 }
 
 @end
