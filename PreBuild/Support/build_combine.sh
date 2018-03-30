@@ -1,5 +1,8 @@
 #! /bin/sh
 
+export LANG=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 set -e
 
 SF_BUILD_PREFIX="xcrun xcodebuild -workspace ${PROJECT_NAME}.xcworkspace -configuration ${CONFIGURATION}"
