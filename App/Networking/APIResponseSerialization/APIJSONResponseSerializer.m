@@ -210,8 +210,8 @@ HTTP 状态与 ResponseSerializer 的 acceptableStatusCodes 预期不符合\n\
 
 @implementation APIJSONError
 MBModelKeyMapper(APIJSONError,
-                 @keypath(this, errorDescription), @"error",
-                 @keypath(this, errorCode), @"code"
+                 @"error", @keypath(this, errorDescription),
+                 @"code", @keypath(this, errorCode),
                  )
 
 + (NSString *)localizedDescriptionKeyForErrorCode:(int)errorCode {
@@ -223,11 +223,7 @@ MBModelKeyMapper(APIJSONError,
     if (!description) {
         description = self.errorDescription;
     }
-
-    if (!description) {
-        description = @"";
-    }
-    return description;
+    return description?: @"";
 }
 
 @end

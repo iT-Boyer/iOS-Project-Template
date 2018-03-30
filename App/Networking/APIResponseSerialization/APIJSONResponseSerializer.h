@@ -45,7 +45,7 @@
 
  */
 @interface APIJSONResponseSerializer : AFHTTPResponseSerializer
-+ (instancetype)sharedInstance;
++ (nonnull instancetype)sharedInstance;
 
 /** 服务器是否通过 HTTP status code 报告请求错误
 
@@ -53,9 +53,9 @@
  默认 `NO`，使用 acceptableStatusCodes 做检查，默认实现接受 200~299
  设为 `YES` 将允许 HTTP status code 为 400~499，具体错误信息需要服务器在返回内容中注明
  */
-@property (assign, nonatomic) BOOL serverReportErrorUsingStatusCode;
+@property BOOL serverReportErrorUsingStatusCode;
 
-@property (nonatomic, assign) NSJSONReadingOptions readingOptions;
+@property NSJSONReadingOptions readingOptions;
 
 @end
 
@@ -70,8 +70,12 @@
 
  */
 @interface APIJSONError : JSONModel
+
+/// 接口返回的错误码
+@property int errorCode;
+
 /// 接口返回的错误描述
-@property NSString *errorDescription;
+@property (nullable) NSString *errorDescription;
 
 /** 错误信息
  
@@ -80,10 +84,7 @@
 
  @return 该对象对应的错误描述，始终不会是 nil
  */
-- (NSString *)localizedDescription;
-
-/// 接口返回的错误码
-@property int errorCode;
+- (nonnull NSString *)localizedDescription;
 
 /** 根据错误码返回相应错误信息
  
@@ -93,7 +94,7 @@
 
  @return 错误码对应的错误信息
  */
-+ (NSString *)localizedDescriptionKeyForErrorCode:(int)errorCode;
++ (nullable NSString *)localizedDescriptionKeyForErrorCode:(int)errorCode;
 
 
 @end
