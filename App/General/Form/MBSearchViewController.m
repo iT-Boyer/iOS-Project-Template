@@ -12,7 +12,6 @@
 @end
 
 @implementation MBSearchViewController
-RFUIInterfaceOrientationSupportDefault
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     self.RFPrefersNavigationBarHidden = YES;

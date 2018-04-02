@@ -71,6 +71,7 @@
 		D5B49F1B1C41133A00847925 /* MBTableViewPullToFetchControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B49EFF1C41133A00847925 /* MBTableViewPullToFetchControl.m */; };
 		D5C636A72047CC5900851CF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5C636A62047CC5900851CF4 /* LaunchScreen.storyboard */; };
 		D5CB54591A302DD6003E53A4 /* MBAutoSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CB54581A302DD6003E53A4 /* MBAutoSearchBar.m */; };
+		D5D9F5142071BA6500B6FE9B /* UIViewController+RFInterfaceOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D9F5132071BA6500B6FE9B /* UIViewController+RFInterfaceOrientation.m */; };
 		D5E28C4B204404850046DB7C /* MBNavigationOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E28C4A204404850046DB7C /* MBNavigationOperation.m */; };
 		D5E28C4E204405840046DB7C /* MBNavigationStackTask.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E28C4C204405840046DB7C /* MBNavigationStackTask.m */; };
 		D5EE50D42043CCCD009148B3 /* Realm+ZYHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE50D32043CCCD009148B3 /* Realm+ZYHelper.m */; };
@@ -310,6 +311,8 @@
 		D5CB54571A302DD6003E53A4 /* MBAutoSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBAutoSearchBar.h; sourceTree = "<group>"; };
 		D5CB54581A302DD6003E53A4 /* MBAutoSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBAutoSearchBar.m; sourceTree = "<group>"; };
 		D5D4CC6E2043A6ED002FE9F0 /* OCBridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OCBridging-Header.h"; sourceTree = "<group>"; };
+		D5D9F5112071BA6400B6FE9B /* UIViewController+RFInterfaceOrientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+RFInterfaceOrientation.h"; sourceTree = "<group>"; };
+		D5D9F5132071BA6500B6FE9B /* UIViewController+RFInterfaceOrientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+RFInterfaceOrientation.m"; sourceTree = "<group>"; };
 		D5DCA6EB2046972B00A4951A /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; name = Podfile; path = ../Podfile; sourceTree = "<group>"; };
 		D5DCA6F32046986300A4951A /* Podfile - AppKit */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; name = "Podfile - AppKit"; path = ../MBAppKit/Podfile; sourceTree = "<group>"; };
 		D5DCA6F52046988300A4951A /* Podfile - PreBuildCombine */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; name = "Podfile - PreBuildCombine"; path = ../PreBuild/Podfile; sourceTree = "<group>"; };
@@ -1197,6 +1200,8 @@
 				D5EE51D22043F613009148B3 /* UIKit+IBInspectable.h */,
 				D5EE51D42043F613009148B3 /* UIViewController+RFDNavigationAppearance.h */,
 				D5EE51D32043F613009148B3 /* UIViewController+RFDNavigationAppearance.m */,
+				D5D9F5112071BA6400B6FE9B /* UIViewController+RFInterfaceOrientation.h */,
+				D5D9F5132071BA6500B6FE9B /* UIViewController+RFInterfaceOrientation.m */,
 			);
 			path = "UIKit+IBInspectable";
 			sourceTree = "<group>";
@@ -1579,6 +1584,7 @@
 				D5EE512E2043DAA2009148B3 /* UIView+App.m in Sources */,
 				D5EE51212043DAA2009148B3 /* UIViewController+App.m in Sources */,
 				D5EE51FA2043F613009148B3 /* UIViewController+RFDNavigationAppearance.m in Sources */,
+				D5D9F5142071BA6500B6FE9B /* UIViewController+RFInterfaceOrientation.m in Sources */,
 				D52EADFA2043C0EC007219E0 /* ZYErrorCode.m in Sources */,
 				D5EE520C2043F61D009148B3 /* ZYImageView.m in Sources */,
 				D5EE523D2043F7B9009148B3 /* ZYLayoutButton.m in Sources */,

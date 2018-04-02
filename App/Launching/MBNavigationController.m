@@ -3,6 +3,7 @@
 #import "MBApp.h"
 #import "APApplicationDelegate.h"
 
+
 @interface MBNavigationController () <
     UIApplicationDelegate,
     UINavigationControllerDelegate
@@ -20,6 +21,10 @@ RFUIInterfaceOrientationSupportNavigation
     [AppDelegate() addAppEventListener:self];
 }
 
+- (void)afterInit {
+    [super afterInit];
+    RFAssert(self.delegate == self, @"MBNavigationController’s delegate must be self");
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -45,14 +50,11 @@ RFUIInterfaceOrientationSupportNavigation
     
     if (self.prefersBackBarButtonTitleHidden) {
         if (!viewController.navigationItem.backBarButtonItem) {
-            viewController.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+            viewController.navigationItem.backBarButtonItem = [UIBarButtonItem.alloc initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
         }
     }
 }
 
-@end
-
-@implementation MBRootNavigationBar
 @end
 
 #pragma mark - StackManagement
@@ -65,3 +67,5 @@ RFUIInterfaceOrientationSupportNavigation
 
 @end
 
+@implementation MBRootNavigationBar
+@end

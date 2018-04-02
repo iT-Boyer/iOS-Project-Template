@@ -48,9 +48,4 @@
 @interface MBRootNavigationBar : UINavigationBar
 @end
 
-/// 指定是否隐藏导航栏阴影
-UIKIT_EXTERN NSString *__nonnull const RFViewControllerPrefersNaigationBarShadowHiddenAttribute;
-/// 导航侧滑辅助，见 UIViewController+RFDNavigationAppearance.h
-UIKIT_EXTERN NSString *__nonnull const RFViewControllerPrefersNaigationPopGestureRecognizeAssistance;
-
 #import "MBNavigationOperation.h"

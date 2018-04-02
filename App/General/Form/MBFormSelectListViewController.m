@@ -10,7 +10,6 @@
 
 @implementation MBFormSelectListViewController
 RFInitializingRootForUIViewController
-RFUIInterfaceOrientationSupportDefault
 
 - (void)onInit {
     self.clearsSelectionOnViewWillAppear = NO;

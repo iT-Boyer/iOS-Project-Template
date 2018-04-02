@@ -66,7 +66,6 @@ MBEntityExchangingPrepareForTableViewSegue
 
 
 @implementation MBTableListController
-RFUIInterfaceOrientationSupportDefault
 MBEntityExchangingPrepareForTableViewSegue
 
 - (void)viewDidLoad {

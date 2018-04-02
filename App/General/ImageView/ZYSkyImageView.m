@@ -8,7 +8,6 @@
 @end
 
 @implementation ZYSkyImageView
-RFUIInterfaceOrientationSupportDefault
 RFInitializingRootForUIView
 
 - (void)onInit {

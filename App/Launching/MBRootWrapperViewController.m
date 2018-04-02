@@ -1,36 +1,49 @@
-//
-//  MBRootWrapperViewController.m
-//  Very+
-//
-//  Created by BB9z on 9/3/14.
-//  Copyright (c) 2014 Beijing ZhiYun ZhiYuan Information Technology Co., Ltd. All rights reserved.
-//
 
 #import "MBRootWrapperViewController.h"
+#import "MBNavigationController.h"
+#import "UIViewController+RFInterfaceOrientation.h"
 
+static char _rf_category_RFInterfaceOrientation;
 static MBRootWrapperViewController *MBRootWrapperViewControllerGlobalInstance;
 
 @interface MBRootWrapperViewController ()
 @property (nonatomic) BOOL hasViewAppeared;
 @property (weak, nonatomic) UIView *snapRenderingContainer;
+@property (weak) UINavigationController *MBNavigationController;
 @end
 
 @implementation MBRootWrapperViewController
 
 - (BOOL)shouldAutorotate {
-    return self.childViewControllers.lastObject.shouldAutorotate;
+    return self._styleViewController.shouldAutorotate;
 }
 
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations {
-    return self.childViewControllers.lastObject.supportedInterfaceOrientations;
+    UIViewController *vc = self._styleViewController;
+    if (objc_getAssociatedObject(vc, &_rf_category_RFInterfaceOrientation)) {
+        int o = vc.RFInterfaceOrientation;
+        if (o == 1) {
+            return UIInterfaceOrientationMaskPortrait|UIInterfaceOrientationMaskPortraitUpsideDown;
+        }
+        else if (o == 2) {
+            return UIInterfaceOrientationMaskLandscape;
+        }
+        return UIInterfaceOrientationMaskAll;
+    }
+    return vc.supportedInterfaceOrientations;
 }
 
 - (UIViewController *)childViewControllerForStatusBarHidden {
-    return self.childViewControllers.lastObject;
+    return self._styleViewController;
 }
 
 - (UIViewController *)childViewControllerForStatusBarStyle {
-    return self.childViewControllers.lastObject;
+    return self._styleViewController;
+}
+
+- (UIViewController *)_styleViewController {
+    UINavigationController *vc = self.childViewControllers.lastObject;
+    return [vc isKindOfClass:UINavigationController.class]? vc.visibleViewController : vc;
 }
 
 - (void)awakeFromNib {
@@ -63,13 +76,12 @@ static MBRootWrapperViewController *MBRootWrapperViewControllerGlobalInstance;
 #pragma mark - Splash
 
 - (void)onSplashFinshed {
-// @TODO
-//    ZYNavigationController *nav = [ZYNavigationController newFromStoryboard];
-//    [self addChildViewController:nav];
-//    UIView *nv = nav.view;
-//    nv.autoresizingMask = UIViewAutoresizingFlexibleSize;
-//    nv.frame = self.view.bounds;
-//    [self.view insertSubview:nv atIndex:0];
+    MBNavigationController *nav = MBNavigationController.newFromStoryboard;
+    [self addChildViewController:nav];
+    UIView *nv = nav.view;
+    nv.autoresizingMask = UIViewAutoresizingFlexibleSize;
+    nv.frame = self.view.bounds;
+    [self.view insertSubview:nv atIndex:0];
 }
 
 #pragma mark - Snap render

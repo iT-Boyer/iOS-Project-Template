@@ -1,14 +1,13 @@
-//
-//  MBRootWrapperViewController.h
-//  Very+
-//
-//  Created by BB9z on 9/3/14.
-//  Copyright (c) 2014 Beijing ZhiYun ZhiYuan Information Technology Co., Ltd. All rights reserved.
-//
-
+/*!
+ MBRootWrapperViewController
+ 
+ Copyright © 2018 RFUI. All rights reserved.
+ https://github.com/RFUI/MBAppKit
+ 
+ Apache License, Version 2.0
+ http://www.apache.org/licenses/LICENSE-2.0
+ */
 #import "Common.h"
-
-NS_ASSUME_NONNULL_BEGIN
 
 /**
  整个应用的根 vc，除了是主导航的容器外，还承担了很多其他功能
@@ -19,7 +18,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface MBRootWrapperViewController : UIViewController
 
-+ (instancetype)globalController;
++ (null_unspecified instancetype)globalController;
+
+- (void)onSplashFinshed;
 
 @end
 
@@ -30,15 +31,13 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  @param width CGFLOAT_MAX 不设置宽度，内容自适应
  */
-- (void)setupRenderView:(UIView *_Nonnull)viewToRendering width:(CGFloat)width;
+- (void)setupRenderView:(nonnull UIView *)viewToRendering width:(CGFloat)width;
 /// 渲染区域适应 viewToRendering 大小
-- (void)setupRenderView:(UIView *_Nonnull)viewToRendering;
+- (void)setupRenderView:(nonnull UIView *)viewToRendering;
 
-- (UIImage *_Nullable)renderThenCleanWithView:(UIView *_Nonnull)viewToRendering;
+- (nonnull UIImage *)renderThenCleanWithView:(nonnull UIView *)viewToRendering;
 
 /// 尽量用 renderThenCleanWithView: 而不是这个方法
-- (UIImage *_Nullable)renderThenClean;
+- (nullable UIImage *)renderThenClean;
 
 @end
-
-NS_ASSUME_NONNULL_END
