@@ -11,8 +11,6 @@
  */
 #import "MBAPI.h"
 
-@class AFHTTPSessionManager;
-
 extern NSString *const APIErrorDomain;
 
 /**
@@ -22,8 +20,6 @@ extern NSString *const APIErrorDomain;
  如果有像UserID这种东西，让API来管理，不要在外面获取再传进来
  */
 @interface API : MBAPI
-
-@property (nonatomic) AFHTTPSessionManager *manager;
 
 #pragma mark - 具体业务
 

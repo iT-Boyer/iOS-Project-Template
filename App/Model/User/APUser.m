@@ -1,5 +1,6 @@
 
 #import "APUser.h"
+#import "APINetworkActivityManager.h"
 #import "DataStack.h"
 #import "MBApp.h"
 #import "APUserInfo.h"
@@ -146,7 +147,7 @@
         ) {
         callback = ^(BOOL success, id _Nullable item, NSError *_Nullable error){
             if (error) {
-                [API alertError:error title:nil];
+                [AppHUD() alertError:error title:nil];
             }
         };
     }

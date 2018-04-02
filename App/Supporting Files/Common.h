@@ -22,6 +22,7 @@
 #endif
 
 #import <MBAppKit.h>
+#import "RFUI.h"
 #import "ShortCuts.h"
 // @TODO
 //#import "ZYNavigationController.h"

@@ -15,6 +15,7 @@
 #import "NSUserDefaults+App.h"
 // 非核心模块不要 import，避免头文件的循环引用
 
+@class APINetworkActivityManager;
 @class MBDataStack;
 @class MBNavigationController;
 
@@ -56,8 +57,11 @@
 /// 状态管理
 @property (nonnull, readonly) MBEnvironment *env;
 
-/// 请求管理
-@property (nonatomic, nullable) API *api;
+/// 应用接口管理，访问时懒加载，MBApp 初始化后自动创建
+@property (nonnull, readonly) API *api;
+
+/// 提示 UI 管理，访问时懒加载
+@property (nonnull, readonly) APINetworkActivityManager *hud;
 
 /// 全局导航
 @property (nonatomic, nullable) MBNavigationController *globalNavigationController;

@@ -69,91 +69,64 @@
 }
 
 - (void)setViewHidden:(BOOL)hidden animated:(BOOL)animated completion:(void (^)(void))completion {
-    __weak UIView *mask = self.maskView;
-    __weak UIView *menu = self.containerView;
-    CGFloat height = menu.height;
+    UIView *mask = self.maskView;
+    UIView *menu = self.containerView;
 
+    CGFloat menuY = menu.bounds.origin.y;
+    BOOL acStyle = (self.preferredStyle == UIAlertControllerStyleActionSheet);
     [UIView animateWithDuration:.3 delay:0 options:UIViewAnimationOptionCurveEaseOut animated:animated beforeAnimations:^{
         mask.alpha = hidden? 1 : 0;
-        menu.bottomMargin = hidden? 0 : -height;
+        if (!acStyle) {
+            menu.alpha = hidden? 1 : 0;
+        }
+        if (!hidden) {
+            if (acStyle) {
+                menu.y = menu.superview.height;
+            }
+            else {
+                CGRect b = menu.bounds;
+                b.origin.y -= 40;
+                menu.bounds = b;
+            }
+        }
     } animations:^{
         mask.alpha = hidden? 0 : 1;
-        menu.bottomMargin = hidden? -height : 0;
+        if (!acStyle) {
+            menu.alpha = hidden? 0 : 1;
+        }
+        CGRect b = menu.bounds;
+        if (hidden) {
+            if (acStyle) {
+                menu.y = menu.superview.height;
+            }
+            else {
+                b.origin.y -= 40;
+            }
+        }
+        else {
+            if (acStyle) {
+                menu.y = menu.superview.height - menu.height;
+            }
+            else {
+                b.origin.y = menuY;
+            }
+        }
+        menu.bounds = b;
     } completion:^(BOOL finished) {
+        if (hidden) {
+            if (acStyle) {
+                menu.y = menu.superview.height - menu.height;
+            }
+            else {
+                CGRect b = menu.bounds;
+                b.origin.y = menuY;
+                menu.bounds = b;
+            }
+        }
         if (completion) {
             completion();
         }
     }];
-}
-
-@end
-
-@implementation UIViewController (MBOverCurrentContextModalPresenting)
-
-- (void)MBOverCurrentContextPresentViewController:(UIViewController *)viewControllerToPresent animated:(BOOL)flag completion:(void (^)(void))completion {
-    UIViewController *presentingVC = self;
-
-    if (RF_iOS8Before) {
-        UIViewController *root = presentingVC;
-        while (root.parentViewController) {
-            root = root.parentViewController;
-        }
-
-        void (^action)(void) = ^(void){
-            UIModalPresentationStyle orginalStyle = root.modalPresentationStyle;
-            if (orginalStyle != UIModalPresentationCurrentContext) {
-                root.modalPresentationStyle = UIModalPresentationCurrentContext;
-            }
-            [presentingVC presentViewController:viewControllerToPresent animated:NO completion:completion];
-            if (orginalStyle != UIModalPresentationCurrentContext) {
-                root.modalPresentationStyle = orginalStyle;
-            }
-        };
-
-        if (flag) {
-            [presentingVC presentViewController:viewControllerToPresent animated:flag completion:^{
-                [viewControllerToPresent dismissViewControllerAnimated:NO completion:action];
-            }];
-        }
-        else {
-            action();
-        }
-        return;
-    }
-
-    UIModalPresentationStyle orginalStyle = viewControllerToPresent.modalPresentationStyle;
-    if (orginalStyle != UIModalPresentationOverCurrentContext) {
-        viewControllerToPresent.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-    }
-    [presentingVC presentViewController:viewControllerToPresent animated:flag completion:completion];
-    if (orginalStyle != UIModalPresentationOverCurrentContext) {
-        viewControllerToPresent.modalPresentationStyle = orginalStyle;
-    }
-}
-
-@end
-
-@implementation MBOverCurrentContextModalPresentSegue
-
-- (void)RFPerform {
-    [self noticeDelegateWillPerform];
-    [self.sourceViewController MBOverCurrentContextPresentViewController:self.destinationViewController animated:YES completion:^{
-        [self noticeDelegateDidPerformed];
-    }];
-}
-
-@end
-
-@implementation TestVC
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    doutwork()
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    doutwork()
 }
 
 @end

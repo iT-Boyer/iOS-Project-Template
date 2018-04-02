@@ -1,5 +1,6 @@
 
 #import "MBApp.h"
+#import "APINetworkActivityManager.h"
 #import "DataStack.h"
 
 @implementation MBApp
@@ -62,6 +63,7 @@
 }
 
 - (void)afterInit {
+    [self api];
 #if DEBUG
 // @TODO
 //    if (self.debugConfig.showFlexWhenLaunch) {
@@ -118,12 +120,29 @@
 
 #pragma mark -
 
+- (API *)api {
+    if (!API.global) {
+        API.global = [API new];
+        API.global.networkActivityIndicatorManager = self.hud;
+    }
+    return API.global;
+}
+
+@synthesize hud = _hud;
+- (APINetworkActivityManager *)hud {
+    if (!_hud) {
+        _hud = [APINetworkActivityManager new];
+    }
+    return _hud;
+}
+
 - (MBDataStack *)dataStack {
     if (!_dataStack) {
         _dataStack = [MBDataStack new];
     }
     return _dataStack;
 }
+
 
 #pragma mark - 其他业务
 

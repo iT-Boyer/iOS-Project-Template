@@ -1,14 +1,13 @@
 /*!
-    MBModalPresentSegue
-    v 0.2
-
-    Copyright © 2014 Chinamobo Co., Ltd.
-    https://github.com/Chinamobo/iOS-Project-Template
-
-    Apache License, Version 2.0
-    http://www.apache.org/licenses/LICENSE-2.0
+ MBModalPresentSegue
+ 
+ Copyright © 2018 RFUI. All rights reserved.
+ Copyright © 2014 Chinamobo Co., Ltd.
+ https://github.com/Chinamobo/iOS-Project-Template
+ 
+ Apache License, Version 2.0
+ http://www.apache.org/licenses/LICENSE-2.0
  */
-
 #import "Common.h"
 #import "RFSegue.h"
 
@@ -37,6 +36,8 @@
     MBModalPresentSegueDelegate
 >
 
+@property(nonatomic) UIAlertControllerStyle preferredStyle;
+
 /**
  从其他视图弹出
  */
@@ -51,21 +52,3 @@
 - (IBAction)dismiss:(UIButton *)sender;
 
 @end
-
-@interface UIViewController (MBOverCurrentContextModalPresenting)
-
-/**
- @warning iOS 8 之前版本上，如果有动画则 viewControllerToPresent 的一些转场方法（如 viewWillAppear:）会调用两次
- */
-- (void)MBOverCurrentContextPresentViewController:(UIViewController *)viewControllerToPresent animated:(BOOL)flag completion:(void (^)(void))completion;
-
-@end
-
-@interface MBOverCurrentContextModalPresentSegue : RFSegue
-
-@end
-
-@interface TestVC : UIViewController
-
-@end
-

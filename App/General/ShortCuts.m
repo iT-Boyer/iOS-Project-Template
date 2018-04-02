@@ -83,6 +83,14 @@ id __nullable AppCurrentViewControllerItem(Class __nullable exceptClass) {
     return nil;
 }
 
+API *AppAPI(void) {
+    return MBApp.status.api;
+}
+
+APINetworkActivityManager *__nonnull AppHUD(void) {
+    return MBApp.status.hud;
+}
+
 #pragma mark -
 
 APUser *__nullable AppUser() {

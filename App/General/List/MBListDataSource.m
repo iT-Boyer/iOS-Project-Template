@@ -1,6 +1,7 @@
 
 #import "MBListDataSource.h"
 #import "API.h"
+#import "APINetworkActivityManager.h"
 #import "MBModel.h"
 #import "MBNavigationController.h"
 
@@ -149,7 +150,7 @@
             [AppNavigationController() popViewControllerAnimated:YES];
         }
 
-        [API alertError:error title:@""];
+        [AppHUD() alertError:error title:nil];
         
         if (self.fetchDataFailure) {
             self.fetchDataFailure(self, error);

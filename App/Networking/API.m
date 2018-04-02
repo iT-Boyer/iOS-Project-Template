@@ -1,10 +1,7 @@
 
 #import "API.h"
 #import "debug.h"
-#import "AFHTTPSessionManager.h"
 #import "APIJSONResponseSerializer.h"
-#import "APINetworkActivityManager.h"
-#import "SDWebImageManager.h"
 
 RFDefineConstString(APIErrorDomain);
 NSString *APIURLAssetsBase              = @"http://img.example.com/";
@@ -13,14 +10,6 @@ NSString *APIURLAssetsBase              = @"http://img.example.com/";
 @end
 
 @implementation API
-
-- (AFHTTPSessionManager *)manager {
-    if (!_manager) {
-        AFHTTPSessionManager *m = [AFHTTPSessionManager manager];
-        _manager = m;
-    }
-    return _manager;
-}
 
 - (void)onInit {
     [super onInit];
@@ -41,9 +30,6 @@ NSString *APIURLAssetsBase              = @"http://img.example.com/";
     APIJSONResponseSerializer *rps = [APIJSONResponseSerializer serializer];
     rps.serverReportErrorUsingStatusCode = YES;
     dm.defaultResponseSerializer = rps;
-    
-    // 设置属性
-    self.networkActivityIndicatorManager = [APINetworkActivityManager new];
 }
 
 #pragma mark - 通用流程

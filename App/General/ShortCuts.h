@@ -62,6 +62,13 @@ MBWorkerQueue *AppWorkerQueue(void);
 /// 后台 worker 队列，注意后台的意思是 perform 是在后台线程执行的
 MBWorkerQueue *AppBackgroundWorkerQueue(void);
 
+@class API;
+/// 应用接口
+API *AppAPI(void);
+
+@class APINetworkActivityManager;
+APINetworkActivityManager *__nonnull AppHUD(void);
+
 #pragma mark - 用户信息
 
 @class APUser;

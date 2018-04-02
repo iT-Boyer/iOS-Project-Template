@@ -1,6 +1,7 @@
 
 #import "APApplicationDelegate.h"
 #import "MBApp.h"
+#import "RFKeyboard.h"
 
 @interface APApplicationDelegate () <
     UIApplicationDelegate

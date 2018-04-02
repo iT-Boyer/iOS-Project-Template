@@ -13,8 +13,6 @@
 			buildPhases = (
 			);
 			dependencies = (
-				D5BB6F2C1DC1F14200038779 /* PBXTargetDependency */,
-				D5E765451DBE116F00959202 /* PBXTargetDependency */,
 			);
 			name = "build-all-parts";
 			productName = "build-all-parts";
@@ -22,62 +20,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		D5BB6F1E1DC1F11A00038779 /* RFDismissModalBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D5BB6F001DC1F11A00038779 /* RFDismissModalBarButtonItem.m */; };
-		D5BB6F1F1DC1F11A00038779 /* RFPopBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D5BB6F021DC1F11A00038779 /* RFPopBarButtonItem.m */; };
-		D5BB6F201DC1F11A00038779 /* RFSegueDismissModalButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D5BB6F041DC1F11A00038779 /* RFSegueDismissModalButton.m */; };
-		D5BB6F211DC1F11A00038779 /* RFSeguePopButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D5BB6F061DC1F11A00038779 /* RFSeguePopButton.m */; };
-		D5BB6F221DC1F11A00038779 /* RFContainedSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = D5BB6F081DC1F11A00038779 /* RFContainedSegue.m */; };
-		D5BB6F231DC1F11A00038779 /* RFNavigationPushAsRootSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = D5BB6F0A1DC1F11A00038779 /* RFNavigationPushAsRootSegue.m */; };
-		D5BB6F241DC1F11A00038779 /* RFNavigationPushReplaceSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = D5BB6F0C1DC1F11A00038779 /* RFNavigationPushReplaceSegue.m */; };
-		D5BB6F251DC1F11B00038779 /* RFNavigationPushSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = D5BB6F0E1DC1F11A00038779 /* RFNavigationPushSegue.m */; };
-		D5BB6F261DC1F11B00038779 /* RFPlaceHolderSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = D5BB6F101DC1F11A00038779 /* RFPlaceHolderSegue.m */; };
-		D5BB6F271DC1F11B00038779 /* RFPresentFromParentSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = D5BB6F121DC1F11A00038779 /* RFPresentFromParentSegue.m */; };
-		D5BB6F281DC1F11B00038779 /* RFPresentSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = D5BB6F141DC1F11A00038779 /* RFPresentSegue.m */; };
-		D5BB6F291DC1F11B00038779 /* RFSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = D5BB6F161DC1F11A00038779 /* RFSegue.m */; };
-		D5BB6F2A1DC1F11B00038779 /* RFSegueExternalLinkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5BB6F191DC1F11A00038779 /* RFSegueExternalLinkViewController.m */; };
-		D5BB6F2F1DC1F15200038779 /* libRFSegue.a in 拷贝输出 */ = {isa = PBXBuildFile; fileRef = D5BB6E071DC1F01700038779 /* libRFSegue.a */; };
-		D5BB6F301DC1F15D00038779 /* RFDismissModalBarButtonItem.h in 拷贝输出 */ = {isa = PBXBuildFile; fileRef = D5BB6EFF1DC1F11A00038779 /* RFDismissModalBarButtonItem.h */; };
-		D5BB6F311DC1F15D00038779 /* RFPopBarButtonItem.h in 拷贝输出 */ = {isa = PBXBuildFile; fileRef = D5BB6F011DC1F11A00038779 /* RFPopBarButtonItem.h */; };
-		D5BB6F321DC1F15D00038779 /* RFSegueDismissModalButton.h in 拷贝输出 */ = {isa = PBXBuildFile; fileRef = D5BB6F031DC1F11A00038779 /* RFSegueDismissModalButton.h */; };
-		D5BB6F331DC1F15D00038779 /* RFSeguePopButton.h in 拷贝输出 */ = {isa = PBXBuildFile; fileRef = D5BB6F051DC1F11A00038779 /* RFSeguePopButton.h */; };
-		D5BB6F341DC1F15D00038779 /* RFContainedSegue.h in 拷贝输出 */ = {isa = PBXBuildFile; fileRef = D5BB6F071DC1F11A00038779 /* RFContainedSegue.h */; };
-		D5BB6F351DC1F15D00038779 /* RFNavigationPushAsRootSegue.h in 拷贝输出 */ = {isa = PBXBuildFile; fileRef = D5BB6F091DC1F11A00038779 /* RFNavigationPushAsRootSegue.h */; };
-		D5BB6F361DC1F15D00038779 /* RFNavigationPushReplaceSegue.h in 拷贝输出 */ = {isa = PBXBuildFile; fileRef = D5BB6F0B1DC1F11A00038779 /* RFNavigationPushReplaceSegue.h */; };
-		D5BB6F371DC1F15D00038779 /* RFNavigationPushSegue.h in 拷贝输出 */ = {isa = PBXBuildFile; fileRef = D5BB6F0D1DC1F11A00038779 /* RFNavigationPushSegue.h */; };
-		D5BB6F381DC1F15D00038779 /* RFPlaceHolderSegue.h in 拷贝输出 */ = {isa = PBXBuildFile; fileRef = D5BB6F0F1DC1F11A00038779 /* RFPlaceHolderSegue.h */; };
-		D5BB6F391DC1F15D00038779 /* RFPresentFromParentSegue.h in 拷贝输出 */ = {isa = PBXBuildFile; fileRef = D5BB6F111DC1F11A00038779 /* RFPresentFromParentSegue.h */; };
-		D5BB6F3A1DC1F15D00038779 /* RFPresentSegue.h in 拷贝输出 */ = {isa = PBXBuildFile; fileRef = D5BB6F131DC1F11A00038779 /* RFPresentSegue.h */; };
-		D5BB6F3B1DC1F15D00038779 /* RFSegue.h in 拷贝输出 */ = {isa = PBXBuildFile; fileRef = D5BB6F151DC1F11A00038779 /* RFSegue.h */; };
-		D5BB6F3C1DC1F15D00038779 /* RFSegueDelegate.h in 拷贝输出 */ = {isa = PBXBuildFile; fileRef = D5BB6F171DC1F11A00038779 /* RFSegueDelegate.h */; };
-		D5BB6F3D1DC1F15D00038779 /* RFSegueExternalLinkViewController.h in 拷贝输出 */ = {isa = PBXBuildFile; fileRef = D5BB6F181DC1F11A00038779 /* RFSegueExternalLinkViewController.h */; };
-		D5BB6F3E1DC1F15D00038779 /* RFSegueExternLink.h in 拷贝输出 */ = {isa = PBXBuildFile; fileRef = D5BB6F1A1DC1F11A00038779 /* RFSegueExternLink.h */; };
 		D5E7641B1DBDB15B00959202 /* lib样例.a in 拷贝输出 */ = {isa = PBXBuildFile; fileRef = D5E763E11DBDA90400959202 /* lib样例.a */; };
 		D5E764761DBDFEEA00959202 /* 样例.h in 拷贝输出 */ = {isa = PBXBuildFile; fileRef = D5E764751DBDFEEA00959202 /* 样例.h */; };
-		D5E765301DBE10FE00959202 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E765131DBE10FE00959202 /* NSData+ImageContentType.m */; };
-		D5E765321DBE10FE00959202 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E765161DBE10FE00959202 /* SDImageCache.m */; };
-		D5E765331DBE10FE00959202 /* SDWebImageCompat.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E765181DBE10FE00959202 /* SDWebImageCompat.m */; };
-		D5E765341DBE10FE00959202 /* SDWebImageDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E7651A1DBE10FE00959202 /* SDWebImageDecoder.m */; };
-		D5E765351DBE10FE00959202 /* SDWebImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E7651C1DBE10FE00959202 /* SDWebImageDownloader.m */; };
-		D5E765361DBE10FE00959202 /* SDWebImageDownloaderOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E7651E1DBE10FE00959202 /* SDWebImageDownloaderOperation.m */; };
-		D5E765371DBE10FE00959202 /* SDWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E765201DBE10FE00959202 /* SDWebImageManager.m */; };
-		D5E765381DBE10FE00959202 /* SDWebImagePrefetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E765231DBE10FE00959202 /* SDWebImagePrefetcher.m */; };
-		D5E765391DBE10FE00959202 /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E765251DBE10FE00959202 /* UIButton+WebCache.m */; };
-		D5E7653A1DBE10FE00959202 /* UIImage+GIF.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E765271DBE10FE00959202 /* UIImage+GIF.m */; };
-		D5E7653B1DBE10FE00959202 /* UIImage+MultiFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E765291DBE10FE00959202 /* UIImage+MultiFormat.m */; };
-		D5E7653C1DBE10FE00959202 /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E7652B1DBE10FE00959202 /* UIImageView+HighlightedWebCache.m */; };
-		D5E7653D1DBE10FE00959202 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E7652D1DBE10FE00959202 /* UIImageView+WebCache.m */; };
-		D5E7653E1DBE10FE00959202 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E7652F1DBE10FE00959202 /* UIView+WebCacheOperation.m */; };
-		D5E7653F1DBE113D00959202 /* UIImageView+WebCache.h in 拷贝输出 */ = {isa = PBXBuildFile; fileRef = D5E7652C1DBE10FE00959202 /* UIImageView+WebCache.h */; };
-		D5E765401DBE114100959202 /* UIButton+WebCache.h in 拷贝输出 */ = {isa = PBXBuildFile; fileRef = D5E765241DBE10FE00959202 /* UIButton+WebCache.h */; };
-		D5E765411DBE114900959202 /* SDWebImageManager.h in 拷贝输出 */ = {isa = PBXBuildFile; fileRef = D5E7651F1DBE10FE00959202 /* SDWebImageManager.h */; };
-		D5E765491DBE15F700959202 /* SDWebImageCompat.h in 拷贝输出 */ = {isa = PBXBuildFile; fileRef = D5E765171DBE10FE00959202 /* SDWebImageCompat.h */; };
-		D5E7654C1DBE16C200959202 /* NSData+ImageContentType.h in 拷贝输出 */ = {isa = PBXBuildFile; fileRef = D5E765121DBE10FE00959202 /* NSData+ImageContentType.h */; };
-		D5E7654D1DBE16CD00959202 /* SDWebImagePrefetcher.h in 拷贝输出 */ = {isa = PBXBuildFile; fileRef = D5E765221DBE10FE00959202 /* SDWebImagePrefetcher.h */; };
-		D5E765511DBE17BD00959202 /* SDWebImageOperation.h in 拷贝输出 */ = {isa = PBXBuildFile; fileRef = D5E765211DBE10FE00959202 /* SDWebImageOperation.h */; };
-		D5E765571DBE19B400959202 /* SDImageCache.h in 拷贝输出 */ = {isa = PBXBuildFile; fileRef = D5E765151DBE10FE00959202 /* SDImageCache.h */; };
-		D5E7655B1DBE274E00959202 /* SDWebImageDownloader.h in 拷贝输出 */ = {isa = PBXBuildFile; fileRef = D5E7651B1DBE10FE00959202 /* SDWebImageDownloader.h */; };
-		D5E7655F1DBE281800959202 /* UIView+WebCacheOperation.h in 拷贝输出 */ = {isa = PBXBuildFile; fileRef = D5E7652E1DBE10FE00959202 /* UIView+WebCacheOperation.h */; };
-		D5E765621DBE2A1500959202 /* libSDWebImage.a in 拷贝输出 */ = {isa = PBXBuildFile; fileRef = D5E7650F1DBE10CD00959202 /* libSDWebImage.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -103,50 +47,7 @@
 		};
 /* End PBXBuildRule section */
 
-/* Begin PBXContainerItemProxy section */
-		D5BB6F2B1DC1F14200038779 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D5E763C01DBDA88600959202 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D5BB6DFA1DC1F01700038779;
-			remoteInfo = RFSegue;
-		};
-		D5E765441DBE116F00959202 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D5E763C01DBDA88600959202 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D5E765031DBE10CD00959202;
-			remoteInfo = SDWebImage;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXCopyFilesBuildPhase section */
-		D5BB6DFF1DC1F01700038779 /* 拷贝输出 */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "$(MBBuildOutput)/$(PRODUCT_MODULE_NAME)";
-			dstSubfolderSpec = 0;
-			files = (
-				D5BB6F2F1DC1F15200038779 /* libRFSegue.a in 拷贝输出 */,
-				D5BB6F341DC1F15D00038779 /* RFContainedSegue.h in 拷贝输出 */,
-				D5BB6F301DC1F15D00038779 /* RFDismissModalBarButtonItem.h in 拷贝输出 */,
-				D5BB6F351DC1F15D00038779 /* RFNavigationPushAsRootSegue.h in 拷贝输出 */,
-				D5BB6F361DC1F15D00038779 /* RFNavigationPushReplaceSegue.h in 拷贝输出 */,
-				D5BB6F371DC1F15D00038779 /* RFNavigationPushSegue.h in 拷贝输出 */,
-				D5BB6F381DC1F15D00038779 /* RFPlaceHolderSegue.h in 拷贝输出 */,
-				D5BB6F311DC1F15D00038779 /* RFPopBarButtonItem.h in 拷贝输出 */,
-				D5BB6F391DC1F15D00038779 /* RFPresentFromParentSegue.h in 拷贝输出 */,
-				D5BB6F3A1DC1F15D00038779 /* RFPresentSegue.h in 拷贝输出 */,
-				D5BB6F3B1DC1F15D00038779 /* RFSegue.h in 拷贝输出 */,
-				D5BB6F3C1DC1F15D00038779 /* RFSegueDelegate.h in 拷贝输出 */,
-				D5BB6F321DC1F15D00038779 /* RFSegueDismissModalButton.h in 拷贝输出 */,
-				D5BB6F3D1DC1F15D00038779 /* RFSegueExternalLinkViewController.h in 拷贝输出 */,
-				D5BB6F3E1DC1F15D00038779 /* RFSegueExternLink.h in 拷贝输出 */,
-				D5BB6F331DC1F15D00038779 /* RFSeguePopButton.h in 拷贝输出 */,
-			);
-			name = "拷贝输出";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		D5E763DF1DBDA90400959202 /* 拷贝输出 */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -155,27 +56,6 @@
 			files = (
 				D5E7641B1DBDB15B00959202 /* lib样例.a in 拷贝输出 */,
 				D5E764761DBDFEEA00959202 /* 样例.h in 拷贝输出 */,
-			);
-			name = "拷贝输出";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D5E765091DBE10CD00959202 /* 拷贝输出 */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "$(MBBuildOutput)/$(PRODUCT_MODULE_NAME)";
-			dstSubfolderSpec = 0;
-			files = (
-				D5E765621DBE2A1500959202 /* libSDWebImage.a in 拷贝输出 */,
-				D5E7654C1DBE16C200959202 /* NSData+ImageContentType.h in 拷贝输出 */,
-				D5E765571DBE19B400959202 /* SDImageCache.h in 拷贝输出 */,
-				D5E765491DBE15F700959202 /* SDWebImageCompat.h in 拷贝输出 */,
-				D5E7655B1DBE274E00959202 /* SDWebImageDownloader.h in 拷贝输出 */,
-				D5E765411DBE114900959202 /* SDWebImageManager.h in 拷贝输出 */,
-				D5E765511DBE17BD00959202 /* SDWebImageOperation.h in 拷贝输出 */,
-				D5E7654D1DBE16CD00959202 /* SDWebImagePrefetcher.h in 拷贝输出 */,
-				D5E765401DBE114100959202 /* UIButton+WebCache.h in 拷贝输出 */,
-				D5E7653F1DBE113D00959202 /* UIImageView+WebCache.h in 拷贝输出 */,
-				D5E7655F1DBE281800959202 /* UIView+WebCacheOperation.h in 拷贝输出 */,
 			);
 			name = "拷贝输出";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -189,35 +69,6 @@
 		D51850171DC04AD0006F3412 /* Output-Debug */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Output-Debug"; sourceTree = "<group>"; };
 		D518502C1DC1A7ED006F3412 /* build_xib.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = build_xib.sh; sourceTree = "<group>"; };
 		D5AE42431DC2F4190019C276 /* clean_output.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = clean_output.sh; sourceTree = "<group>"; };
-		D5BB6E071DC1F01700038779 /* libRFSegue.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRFSegue.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		D5BB6EFF1DC1F11A00038779 /* RFDismissModalBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFDismissModalBarButtonItem.h; sourceTree = "<group>"; };
-		D5BB6F001DC1F11A00038779 /* RFDismissModalBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFDismissModalBarButtonItem.m; sourceTree = "<group>"; };
-		D5BB6F011DC1F11A00038779 /* RFPopBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFPopBarButtonItem.h; sourceTree = "<group>"; };
-		D5BB6F021DC1F11A00038779 /* RFPopBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFPopBarButtonItem.m; sourceTree = "<group>"; };
-		D5BB6F031DC1F11A00038779 /* RFSegueDismissModalButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFSegueDismissModalButton.h; sourceTree = "<group>"; };
-		D5BB6F041DC1F11A00038779 /* RFSegueDismissModalButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFSegueDismissModalButton.m; sourceTree = "<group>"; };
-		D5BB6F051DC1F11A00038779 /* RFSeguePopButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFSeguePopButton.h; sourceTree = "<group>"; };
-		D5BB6F061DC1F11A00038779 /* RFSeguePopButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFSeguePopButton.m; sourceTree = "<group>"; };
-		D5BB6F071DC1F11A00038779 /* RFContainedSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFContainedSegue.h; sourceTree = "<group>"; };
-		D5BB6F081DC1F11A00038779 /* RFContainedSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFContainedSegue.m; sourceTree = "<group>"; };
-		D5BB6F091DC1F11A00038779 /* RFNavigationPushAsRootSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFNavigationPushAsRootSegue.h; sourceTree = "<group>"; };
-		D5BB6F0A1DC1F11A00038779 /* RFNavigationPushAsRootSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFNavigationPushAsRootSegue.m; sourceTree = "<group>"; };
-		D5BB6F0B1DC1F11A00038779 /* RFNavigationPushReplaceSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFNavigationPushReplaceSegue.h; sourceTree = "<group>"; };
-		D5BB6F0C1DC1F11A00038779 /* RFNavigationPushReplaceSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFNavigationPushReplaceSegue.m; sourceTree = "<group>"; };
-		D5BB6F0D1DC1F11A00038779 /* RFNavigationPushSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFNavigationPushSegue.h; sourceTree = "<group>"; };
-		D5BB6F0E1DC1F11A00038779 /* RFNavigationPushSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFNavigationPushSegue.m; sourceTree = "<group>"; };
-		D5BB6F0F1DC1F11A00038779 /* RFPlaceHolderSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFPlaceHolderSegue.h; sourceTree = "<group>"; };
-		D5BB6F101DC1F11A00038779 /* RFPlaceHolderSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFPlaceHolderSegue.m; sourceTree = "<group>"; };
-		D5BB6F111DC1F11A00038779 /* RFPresentFromParentSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFPresentFromParentSegue.h; sourceTree = "<group>"; };
-		D5BB6F121DC1F11A00038779 /* RFPresentFromParentSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFPresentFromParentSegue.m; sourceTree = "<group>"; };
-		D5BB6F131DC1F11A00038779 /* RFPresentSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFPresentSegue.h; sourceTree = "<group>"; };
-		D5BB6F141DC1F11A00038779 /* RFPresentSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFPresentSegue.m; sourceTree = "<group>"; };
-		D5BB6F151DC1F11A00038779 /* RFSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFSegue.h; sourceTree = "<group>"; };
-		D5BB6F161DC1F11A00038779 /* RFSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFSegue.m; sourceTree = "<group>"; };
-		D5BB6F171DC1F11A00038779 /* RFSegueDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFSegueDelegate.h; sourceTree = "<group>"; };
-		D5BB6F181DC1F11A00038779 /* RFSegueExternalLinkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFSegueExternalLinkViewController.h; sourceTree = "<group>"; };
-		D5BB6F191DC1F11A00038779 /* RFSegueExternalLinkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFSegueExternalLinkViewController.m; sourceTree = "<group>"; };
-		D5BB6F1A1DC1F11A00038779 /* RFSegueExternLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFSegueExternLink.h; sourceTree = "<group>"; };
 		D5E763E11DBDA90400959202 /* lib样例.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "lib样例.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5E763FB1DBDAB5C00959202 /* build_universal.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = build_universal.sh; sourceTree = "<group>"; };
 		D5E763FC1DBDAB5C00959202 /* clean.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = clean.sh; sourceTree = "<group>"; };
@@ -227,56 +78,10 @@
 		D5E764481DBDDEDA00959202 /* PreBuild.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PreBuild.podspec; sourceTree = SOURCE_ROOT; };
 		D5E764751DBDFEEA00959202 /* 样例.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "样例.h"; path = "../Parts/样例/样例.h"; sourceTree = "<group>"; };
 		D5E764771DBDFEF900959202 /* 样例.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "样例.m"; path = "../Parts/样例/样例.m"; sourceTree = "<group>"; };
-		D5E7650F1DBE10CD00959202 /* libSDWebImage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSDWebImage.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		D5E765111DBE10FE00959202 /* LICENSE-SDWebImage */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "LICENSE-SDWebImage"; sourceTree = "<group>"; };
-		D5E765121DBE10FE00959202 /* NSData+ImageContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ImageContentType.h"; sourceTree = "<group>"; };
-		D5E765131DBE10FE00959202 /* NSData+ImageContentType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+ImageContentType.m"; sourceTree = "<group>"; };
-		D5E765141DBE10FE00959202 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		D5E765151DBE10FE00959202 /* SDImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDImageCache.h; sourceTree = "<group>"; };
-		D5E765161DBE10FE00959202 /* SDImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDImageCache.m; sourceTree = "<group>"; };
-		D5E765171DBE10FE00959202 /* SDWebImageCompat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageCompat.h; sourceTree = "<group>"; };
-		D5E765181DBE10FE00959202 /* SDWebImageCompat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageCompat.m; sourceTree = "<group>"; };
-		D5E765191DBE10FE00959202 /* SDWebImageDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageDecoder.h; sourceTree = "<group>"; };
-		D5E7651A1DBE10FE00959202 /* SDWebImageDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageDecoder.m; sourceTree = "<group>"; };
-		D5E7651B1DBE10FE00959202 /* SDWebImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageDownloader.h; sourceTree = "<group>"; };
-		D5E7651C1DBE10FE00959202 /* SDWebImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageDownloader.m; sourceTree = "<group>"; };
-		D5E7651D1DBE10FE00959202 /* SDWebImageDownloaderOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageDownloaderOperation.h; sourceTree = "<group>"; };
-		D5E7651E1DBE10FE00959202 /* SDWebImageDownloaderOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageDownloaderOperation.m; sourceTree = "<group>"; };
-		D5E7651F1DBE10FE00959202 /* SDWebImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageManager.h; sourceTree = "<group>"; };
-		D5E765201DBE10FE00959202 /* SDWebImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageManager.m; sourceTree = "<group>"; };
-		D5E765211DBE10FE00959202 /* SDWebImageOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageOperation.h; sourceTree = "<group>"; };
-		D5E765221DBE10FE00959202 /* SDWebImagePrefetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImagePrefetcher.h; sourceTree = "<group>"; };
-		D5E765231DBE10FE00959202 /* SDWebImagePrefetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImagePrefetcher.m; sourceTree = "<group>"; };
-		D5E765241DBE10FE00959202 /* UIButton+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+WebCache.h"; sourceTree = "<group>"; };
-		D5E765251DBE10FE00959202 /* UIButton+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+WebCache.m"; sourceTree = "<group>"; };
-		D5E765261DBE10FE00959202 /* UIImage+GIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+GIF.h"; sourceTree = "<group>"; };
-		D5E765271DBE10FE00959202 /* UIImage+GIF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+GIF.m"; sourceTree = "<group>"; };
-		D5E765281DBE10FE00959202 /* UIImage+MultiFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MultiFormat.h"; sourceTree = "<group>"; };
-		D5E765291DBE10FE00959202 /* UIImage+MultiFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MultiFormat.m"; sourceTree = "<group>"; };
-		D5E7652A1DBE10FE00959202 /* UIImageView+HighlightedWebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+HighlightedWebCache.h"; sourceTree = "<group>"; };
-		D5E7652B1DBE10FE00959202 /* UIImageView+HighlightedWebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+HighlightedWebCache.m"; sourceTree = "<group>"; };
-		D5E7652C1DBE10FE00959202 /* UIImageView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+WebCache.h"; sourceTree = "<group>"; };
-		D5E7652D1DBE10FE00959202 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
-		D5E7652E1DBE10FE00959202 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
-		D5E7652F1DBE10FE00959202 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		D5BB6DFD1DC1F01700038779 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		D5E763DE1DBDA90400959202 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D5E765071DBE10CD00959202 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -286,50 +91,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D5BB6EF91DC1F11A00038779 /* RFSegue */ = {
-			isa = PBXGroup;
-			children = (
-				D5BB6EFE1DC1F11A00038779 /* Return */,
-				D5BB6F071DC1F11A00038779 /* RFContainedSegue.h */,
-				D5BB6F081DC1F11A00038779 /* RFContainedSegue.m */,
-				D5BB6F091DC1F11A00038779 /* RFNavigationPushAsRootSegue.h */,
-				D5BB6F0A1DC1F11A00038779 /* RFNavigationPushAsRootSegue.m */,
-				D5BB6F0B1DC1F11A00038779 /* RFNavigationPushReplaceSegue.h */,
-				D5BB6F0C1DC1F11A00038779 /* RFNavigationPushReplaceSegue.m */,
-				D5BB6F0D1DC1F11A00038779 /* RFNavigationPushSegue.h */,
-				D5BB6F0E1DC1F11A00038779 /* RFNavigationPushSegue.m */,
-				D5BB6F0F1DC1F11A00038779 /* RFPlaceHolderSegue.h */,
-				D5BB6F101DC1F11A00038779 /* RFPlaceHolderSegue.m */,
-				D5BB6F111DC1F11A00038779 /* RFPresentFromParentSegue.h */,
-				D5BB6F121DC1F11A00038779 /* RFPresentFromParentSegue.m */,
-				D5BB6F131DC1F11A00038779 /* RFPresentSegue.h */,
-				D5BB6F141DC1F11A00038779 /* RFPresentSegue.m */,
-				D5BB6F151DC1F11A00038779 /* RFSegue.h */,
-				D5BB6F161DC1F11A00038779 /* RFSegue.m */,
-				D5BB6F171DC1F11A00038779 /* RFSegueDelegate.h */,
-				D5BB6F181DC1F11A00038779 /* RFSegueExternalLinkViewController.h */,
-				D5BB6F191DC1F11A00038779 /* RFSegueExternalLinkViewController.m */,
-				D5BB6F1A1DC1F11A00038779 /* RFSegueExternLink.h */,
-			);
-			name = RFSegue;
-			path = ../../MBAppKit/RFUI.RFSegue;
-			sourceTree = "<group>";
-		};
-		D5BB6EFE1DC1F11A00038779 /* Return */ = {
-			isa = PBXGroup;
-			children = (
-				D5BB6EFF1DC1F11A00038779 /* RFDismissModalBarButtonItem.h */,
-				D5BB6F001DC1F11A00038779 /* RFDismissModalBarButtonItem.m */,
-				D5BB6F011DC1F11A00038779 /* RFPopBarButtonItem.h */,
-				D5BB6F021DC1F11A00038779 /* RFPopBarButtonItem.m */,
-				D5BB6F031DC1F11A00038779 /* RFSegueDismissModalButton.h */,
-				D5BB6F041DC1F11A00038779 /* RFSegueDismissModalButton.m */,
-				D5BB6F051DC1F11A00038779 /* RFSeguePopButton.h */,
-				D5BB6F061DC1F11A00038779 /* RFSeguePopButton.m */,
-			);
-			path = Return;
-			sourceTree = "<group>";
-		};
 		D5E763BF1DBDA88600959202 = {
 			isa = PBXGroup;
 			children = (
@@ -344,8 +105,6 @@
 		D5E763CB1DBDA88600959202 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D5BB6E071DC1F01700038779 /* libRFSegue.a */,
-				D5E7650F1DBE10CD00959202 /* libSDWebImage.a */,
 				D5E763E11DBDA90400959202 /* lib样例.a */,
 			);
 			name = Products;
@@ -354,8 +113,6 @@
 		D5E763DB1DBDA8CC00959202 /* Parts */ = {
 			isa = PBXGroup;
 			children = (
-				D5BB6EF91DC1F11A00038779 /* RFSegue */,
-				D5E765101DBE10FE00959202 /* SDWebImage */,
 			);
 			path = Parts;
 			sourceTree = "<group>";
@@ -379,45 +136,6 @@
 			path = Support;
 			sourceTree = "<group>";
 		};
-		D5E765101DBE10FE00959202 /* SDWebImage */ = {
-			isa = PBXGroup;
-			children = (
-				D5E765111DBE10FE00959202 /* LICENSE-SDWebImage */,
-				D5E765121DBE10FE00959202 /* NSData+ImageContentType.h */,
-				D5E765131DBE10FE00959202 /* NSData+ImageContentType.m */,
-				D5E765141DBE10FE00959202 /* README.md */,
-				D5E765151DBE10FE00959202 /* SDImageCache.h */,
-				D5E765161DBE10FE00959202 /* SDImageCache.m */,
-				D5E765171DBE10FE00959202 /* SDWebImageCompat.h */,
-				D5E765181DBE10FE00959202 /* SDWebImageCompat.m */,
-				D5E765191DBE10FE00959202 /* SDWebImageDecoder.h */,
-				D5E7651A1DBE10FE00959202 /* SDWebImageDecoder.m */,
-				D5E7651B1DBE10FE00959202 /* SDWebImageDownloader.h */,
-				D5E7651C1DBE10FE00959202 /* SDWebImageDownloader.m */,
-				D5E7651D1DBE10FE00959202 /* SDWebImageDownloaderOperation.h */,
-				D5E7651E1DBE10FE00959202 /* SDWebImageDownloaderOperation.m */,
-				D5E7651F1DBE10FE00959202 /* SDWebImageManager.h */,
-				D5E765201DBE10FE00959202 /* SDWebImageManager.m */,
-				D5E765211DBE10FE00959202 /* SDWebImageOperation.h */,
-				D5E765221DBE10FE00959202 /* SDWebImagePrefetcher.h */,
-				D5E765231DBE10FE00959202 /* SDWebImagePrefetcher.m */,
-				D5E765241DBE10FE00959202 /* UIButton+WebCache.h */,
-				D5E765251DBE10FE00959202 /* UIButton+WebCache.m */,
-				D5E765261DBE10FE00959202 /* UIImage+GIF.h */,
-				D5E765271DBE10FE00959202 /* UIImage+GIF.m */,
-				D5E765281DBE10FE00959202 /* UIImage+MultiFormat.h */,
-				D5E765291DBE10FE00959202 /* UIImage+MultiFormat.m */,
-				D5E7652A1DBE10FE00959202 /* UIImageView+HighlightedWebCache.h */,
-				D5E7652B1DBE10FE00959202 /* UIImageView+HighlightedWebCache.m */,
-				D5E7652C1DBE10FE00959202 /* UIImageView+WebCache.h */,
-				D5E7652D1DBE10FE00959202 /* UIImageView+WebCache.m */,
-				D5E7652E1DBE10FE00959202 /* UIView+WebCacheOperation.h */,
-				D5E7652F1DBE10FE00959202 /* UIView+WebCacheOperation.m */,
-			);
-			name = SDWebImage;
-			path = ../../MBAppKit/AFNetworking/extension/SDWebImage;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXLegacyTarget section */
@@ -438,25 +156,6 @@
 /* End PBXLegacyTarget section */
 
 /* Begin PBXNativeTarget section */
-		D5BB6DFA1DC1F01700038779 /* RFSegue */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D5BB6E041DC1F01700038779 /* Build configuration list for PBXNativeTarget "RFSegue" */;
-			buildPhases = (
-				D5BB6DFB1DC1F01700038779 /* 清理旧编译 */,
-				D5BB6DFC1DC1F01700038779 /* Sources */,
-				D5BB6DFD1DC1F01700038779 /* Frameworks */,
-				D5BB6DFE1DC1F01700038779 /* 编译通用库 */,
-				D5BB6DFF1DC1F01700038779 /* 拷贝输出 */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = RFSegue;
-			productName = test;
-			productReference = D5BB6E071DC1F01700038779 /* libRFSegue.a */;
-			productType = "com.apple.product-type.library.static";
-		};
 		D5E763E01DBDA90400959202 /* 样例 */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D5E763E71DBDA90400959202 /* Build configuration list for PBXNativeTarget "样例" */;
@@ -476,25 +175,6 @@
 			name = "样例";
 			productName = test;
 			productReference = D5E763E11DBDA90400959202 /* lib样例.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		D5E765031DBE10CD00959202 /* SDWebImage */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D5E7650C1DBE10CD00959202 /* Build configuration list for PBXNativeTarget "SDWebImage" */;
-			buildPhases = (
-				D5E765041DBE10CD00959202 /* 清理旧编译 */,
-				D5E765051DBE10CD00959202 /* Sources */,
-				D5E765071DBE10CD00959202 /* Frameworks */,
-				D5E765081DBE10CD00959202 /* 编译通用库 */,
-				D5E765091DBE10CD00959202 /* 拷贝输出 */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = SDWebImage;
-			productName = test;
-			productReference = D5E7650F1DBE10CD00959202 /* libSDWebImage.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -536,43 +216,11 @@
 				D5E763E01DBDA90400959202 /* 样例 */,
 				D5AE42441DC2FDEF0019C276 /* clean-output */,
 				D5E764111DBDAE9800959202 /* build-all-parts */,
-				D5BB6DFA1DC1F01700038779 /* RFSegue */,
-				D5E765031DBE10CD00959202 /* SDWebImage */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		D5BB6DFB1DC1F01700038779 /* 清理旧编译 */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "清理旧编译";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${MBBuildScriptRoot}/clean.sh\"";
-			showEnvVarsInLog = 0;
-		};
-		D5BB6DFE1DC1F01700038779 /* 编译通用库 */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "编译通用库";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${MBBuildScriptRoot}/build_universal.sh\"";
-			showEnvVarsInLog = 0;
-		};
 		D5E764171DBDAF3E00959202 /* 清理旧编译 */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -603,59 +251,9 @@
 			shellScript = "\"${MBBuildScriptRoot}/build_universal.sh\"";
 			showEnvVarsInLog = 0;
 		};
-		D5E765041DBE10CD00959202 /* 清理旧编译 */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "清理旧编译";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${MBBuildScriptRoot}/clean.sh\"";
-			showEnvVarsInLog = 0;
-		};
-		D5E765081DBE10CD00959202 /* 编译通用库 */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "编译通用库";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${MBBuildScriptRoot}/build_universal.sh\"";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		D5BB6DFC1DC1F01700038779 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D5BB6F221DC1F11A00038779 /* RFContainedSegue.m in Sources */,
-				D5BB6F1E1DC1F11A00038779 /* RFDismissModalBarButtonItem.m in Sources */,
-				D5BB6F231DC1F11A00038779 /* RFNavigationPushAsRootSegue.m in Sources */,
-				D5BB6F241DC1F11A00038779 /* RFNavigationPushReplaceSegue.m in Sources */,
-				D5BB6F251DC1F11B00038779 /* RFNavigationPushSegue.m in Sources */,
-				D5BB6F261DC1F11B00038779 /* RFPlaceHolderSegue.m in Sources */,
-				D5BB6F1F1DC1F11A00038779 /* RFPopBarButtonItem.m in Sources */,
-				D5BB6F271DC1F11B00038779 /* RFPresentFromParentSegue.m in Sources */,
-				D5BB6F281DC1F11B00038779 /* RFPresentSegue.m in Sources */,
-				D5BB6F291DC1F11B00038779 /* RFSegue.m in Sources */,
-				D5BB6F201DC1F11A00038779 /* RFSegueDismissModalButton.m in Sources */,
-				D5BB6F2A1DC1F11B00038779 /* RFSegueExternalLinkViewController.m in Sources */,
-				D5BB6F211DC1F11A00038779 /* RFSeguePopButton.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		D5E763DD1DBDA90400959202 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -663,41 +261,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D5E765051DBE10CD00959202 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D5E765301DBE10FE00959202 /* NSData+ImageContentType.m in Sources */,
-				D5E765321DBE10FE00959202 /* SDImageCache.m in Sources */,
-				D5E765331DBE10FE00959202 /* SDWebImageCompat.m in Sources */,
-				D5E765341DBE10FE00959202 /* SDWebImageDecoder.m in Sources */,
-				D5E765351DBE10FE00959202 /* SDWebImageDownloader.m in Sources */,
-				D5E765361DBE10FE00959202 /* SDWebImageDownloaderOperation.m in Sources */,
-				D5E765371DBE10FE00959202 /* SDWebImageManager.m in Sources */,
-				D5E765381DBE10FE00959202 /* SDWebImagePrefetcher.m in Sources */,
-				D5E765391DBE10FE00959202 /* UIButton+WebCache.m in Sources */,
-				D5E7653A1DBE10FE00959202 /* UIImage+GIF.m in Sources */,
-				D5E7653B1DBE10FE00959202 /* UIImage+MultiFormat.m in Sources */,
-				D5E7653C1DBE10FE00959202 /* UIImageView+HighlightedWebCache.m in Sources */,
-				D5E7653D1DBE10FE00959202 /* UIImageView+WebCache.m in Sources */,
-				D5E7653E1DBE10FE00959202 /* UIView+WebCacheOperation.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		D5BB6F2C1DC1F14200038779 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D5BB6DFA1DC1F01700038779 /* RFSegue */;
-			targetProxy = D5BB6F2B1DC1F14200038779 /* PBXContainerItemProxy */;
-		};
-		D5E765451DBE116F00959202 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D5E765031DBE10CD00959202 /* SDWebImage */;
-			targetProxy = D5E765441DBE116F00959202 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		D5AE42461DC2FDEF0019C276 /* Debug */ = {
@@ -721,26 +285,6 @@
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		D5BB6E051DC1F01700038779 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D5E763FD1DBDAB5C00959202 /* Debug.xcconfig */;
-			buildSettings = {
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		D5BB6E061DC1F01700038779 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D5E763FE1DBDAB5C00959202 /* Release.xcconfig */;
-			buildSettings = {
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
@@ -874,26 +418,6 @@
 			};
 			name = Release;
 		};
-		D5E7650D1DBE10CD00959202 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D5E763FD1DBDAB5C00959202 /* Debug.xcconfig */;
-			buildSettings = {
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		D5E7650E1DBE10CD00959202 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D5E763FE1DBDAB5C00959202 /* Release.xcconfig */;
-			buildSettings = {
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -902,15 +426,6 @@
 			buildConfigurations = (
 				D5AE42461DC2FDEF0019C276 /* Debug */,
 				D5AE42471DC2FDEF0019C276 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D5BB6E041DC1F01700038779 /* Build configuration list for PBXNativeTarget "RFSegue" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D5BB6E051DC1F01700038779 /* Debug */,
-				D5BB6E061DC1F01700038779 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -938,15 +453,6 @@
 			buildConfigurations = (
 				D5E764131DBDAE9800959202 /* Debug */,
 				D5E764141DBDAE9800959202 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D5E7650C1DBE10CD00959202 /* Build configuration list for PBXNativeTarget "SDWebImage" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D5E7650D1DBE10CD00959202 /* Debug */,
-				D5E7650E1DBE10CD00959202 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

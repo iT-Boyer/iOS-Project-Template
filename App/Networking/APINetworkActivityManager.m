@@ -1,84 +1,55 @@
 
 #import "APINetworkActivityManager.h"
-#import "SVProgressHUD.h"
-
-@interface APINetworkActivityManager ()
-@property (strong, nonatomic) id dismissObserver;
-@end
+#import "RFKit.h"
 
 @implementation APINetworkActivityManager
 
-- (void)afterInit {
-    [super afterInit];
-    [SVProgressHUD setMinimumDismissTimeInterval:1];
+#pragma mark - 便捷方法
+
+- (void)showActivityIndicatorWithIdentifier:(NSString *)identifier groupIdentifier:(NSString *)group model:(BOOL)model message:(NSString *)message {
+    [self showMessage:[RFNetworkActivityIndicatorMessage messageWithConfiguration:^(RFNetworkActivityIndicatorMessage *instance) {
+        instance.identifier = identifier;
+        instance.groupIdentifier = group;
+        instance.title = nil;
+        instance.message = message;
+        instance.modal = model;
+        instance.status = RFNetworkActivityIndicatorStatusLoading;
+    } error:nil]];
 }
 
-- (void)dealloc {
-    [self deactiveAutoDismissObserver];
+- (void)showSuccessStatus:(NSString *)message {
+    [self showMessage:[RFNetworkActivityIndicatorMessage messageWithConfiguration:^(RFNetworkActivityIndicatorMessage *instance) {
+        instance.identifier = @"";
+        instance.message = message;
+        instance.status = RFNetworkActivityIndicatorStatusSuccess;
+        instance.priority = RFMessageDisplayPriorityHigh;
+    } error:nil]];
 }
 
-- (void)replaceMessage:(RFNetworkActivityIndicatorMessage *)displayingMessage withNewMessage:(RFNetworkActivityIndicatorMessage *)message {
-    _dout_info(@"Replace message %@ with %@", displayingMessage, message)
-    [super replaceMessage:displayingMessage withNewMessage:message];
-
-    if (!message) {
-        [SVProgressHUD dismiss];
-        return;
-    }
-
-    NSString *stautsString = (message.title.length && message.message.length)? [NSString stringWithFormat:@"%@: %@", message.title, message.message] : [NSString stringWithFormat:@"%@%@", message.title?: @"", message.message?: @""];
-
-    SVProgressHUDMaskType maskType = message.modal? SVProgressHUDMaskTypeBlack : SVProgressHUDMaskTypeNone;
-    [SVProgressHUD setDefaultMaskType:maskType];
-    switch (message.status) {
-        case RFNetworkActivityIndicatorStatusSuccess: {
-            [self activeAutoDismissObserver];
-            [SVProgressHUD showSuccessWithStatus:stautsString];
-            break;
-        }
-
-        case RFNetworkActivityIndicatorStatusFail: {
-            [self activeAutoDismissObserver];
-            [SVProgressHUD showErrorWithStatus:stautsString];
-            break;
-        }
-        case RFNetworkActivityIndicatorStatusDownloading:
-        case RFNetworkActivityIndicatorStatusUploading: {
-            [self deactiveAutoDismissObserver];
-            [SVProgressHUD showProgress:message.progress status:stautsString];
-        }
-        default: {
-            if (stautsString.length) {
-                [SVProgressHUD showWithStatus:stautsString];
-            }
-            else {
-                [SVProgressHUD show];
-            }
-        }
-    }
-
-    _dout_info(@"After replacing, self = %@", self);
+- (void)showErrorStatus:(NSString *)message {
+    [self showMessage:[RFNetworkActivityIndicatorMessage messageWithConfiguration:^(RFNetworkActivityIndicatorMessage *instance) {
+        instance.identifier = @"";
+        instance.message = message;
+        instance.status = RFNetworkActivityIndicatorStatusFail;
+        instance.priority = RFMessageDisplayPriorityHigh;
+    } error:nil]];
 }
 
-- (void)activeAutoDismissObserver {
-    if (self.dismissObserver) return;
-
-    @weakify(self);
-    self.dismissObserver = [[NSNotificationCenter defaultCenter] addObserverForName:SVProgressHUDWillDisappearNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
-        @strongify(self);
-        _dout_info(@"Receive SVProgressHUDWillDisappearNotification")
-        if (self.displayingMessage) {
-            RFAssert(self.displayingMessage.identifier, @"empty string");
-            [self hideWithIdentifier:self.displayingMessage.identifier];
-        }
-    }];
-}
-
-- (void)deactiveAutoDismissObserver {
-    if (self.dismissObserver) {
-        [[NSNotificationCenter defaultCenter] removeObserver:self.dismissObserver];
-        self.dismissObserver = nil;
-    }
+- (void)alertError:(NSError *)error title:(NSString *)title {
+    NSMutableArray *ep = [NSMutableArray arrayWithCapacity:3];
+    [ep rf_addObject:error.localizedDescription];
+    [ep rf_addObject:error.localizedFailureReason];
+    [ep rf_addObject:error.localizedRecoverySuggestion];
+    NSString *message = [ep componentsJoinedByString:@"\n"];
+#if RFDEBUG
+    dout_error(@"Error: %@ (%d), URL:%@", error.domain, (int)error.code, error.userInfo[NSURLErrorFailingURLErrorKey]);
+#endif
+    [self showMessage:[RFNetworkActivityIndicatorMessage messageWithConfiguration:^(RFNetworkActivityIndicatorMessage *instance) {
+        instance.identifier = @"";
+        instance.message = message;
+        instance.status = RFNetworkActivityIndicatorStatusFail;
+        instance.priority = RFMessageDisplayPriorityHigh;
+    } error:nil]];
 }
 
 @end
