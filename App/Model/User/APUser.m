@@ -6,7 +6,11 @@
 #import "APUserInfo.h"
 
 @interface APUser ()
+#if MBUserStringUID
+@property (readwrite) MBIdentifier uid;
+#else
 @property (readwrite) MBID uid;
+#endif
 @end
 
 @implementation APUser
@@ -57,7 +61,11 @@
 - (void)onInit {
     [super onInit];
     BOOL debugServer = AppDebugConfig().debugServer;
+#if MBUserStringUID
+    NSString *suitName = [NSString stringWithFormat:@"User%@%@", self.uid, debugServer? @"D" : @""].rf_MD5String;
+#else
     NSString *suitName = [NSString stringWithFormat:@"User%ld%@", self.uid, debugServer? @"D" : @""].rf_MD5String;
+#endif
     _profile = [NSAccountDefaults.alloc initWithSuiteName:suitName];
 
     NSUserDefaults *ud = AppUserDefaultsShared();
@@ -89,11 +97,6 @@
     if (!information) {
         RFAssert(false, @"正常不会置空");
         return;
-    }
-    if (information.uid
-        && self.uid != information.uid) {
-        DebugLog(YES, @"MBUserInformationIDMismatch", @"用户信息 ID 不匹配");
-        self.uid = information.uid;
     }
     if (information.token) {
         self.token = information.token;
@@ -153,9 +156,7 @@
     }
     
     NSMutableDictionary *att = [NSMutableDictionary dictionaryWithCapacity:3];
-    att[@"uid"] = @(self.uid);
-    // 注意：UserInfo 和 Login 返回的字段不一样
-    [API requestWithName:self.hasLoginedThisSession? @"UserInfoMine" : @"Login" parameters:att viewController:viewController forceLoad:YES loadingMessage:nil modal:NO success:^(AFHTTPRequestOperation *operation, APUserInfo *responseObject) {
+    [API requestWithName:@"UserInfo" parameters:att viewController:viewController forceLoad:YES loadingMessage:nil modal:NO success:^(AFHTTPRequestOperation *operation, APUserInfo *responseObject) {
         self.hasLoginedThisSession = YES;
         self.information = responseObject;
         [self save];

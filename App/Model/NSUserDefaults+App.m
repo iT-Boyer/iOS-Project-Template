@@ -19,7 +19,11 @@ _makeObjectProperty(applicationLastBecomeActiveTime, setApplicationLastBecomeAct
 
 _makeObjectProperty(cachedLocation, setCachedLocation);
 
+#if MBUserStringUID
+_makeObjectProperty(lastUserID, setLastUserID);
+#else
 _makeIntegerProperty(lastUserID, setLastUserID);
+#endif
 _makeObjectProperty(userAccount, setUserAccount);
 _makeObjectProperty(APUserInfo, setUserInformation);
 _makeObjectProperty(userToken, setUserToken);

@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Beijing ZhiYun ZhiYuan Technology Co., Ltd. All rights reserved.
 //
 
+#import <MBGeneralType.h>
 #import <MBUserDefaults.h>
 
 /**
@@ -51,7 +52,11 @@
 
 #pragma mark - User Information
 
+#if MBUserStringUID
+@property (nullable) MBIdentifier lastUserID;
+#else
 @property long lastUserID;
+#endif
 
 @property (nullable, copy) NSString *userAccount;
 @property (nullable, copy) NSString *APUserInfo;

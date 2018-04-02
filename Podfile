@@ -23,6 +23,6 @@ target 'App' do
     pod 'RFMessageManager', :git => 'https://github.com/RFUI/RFMessageManager.git', :subspecs => ['SVProgressHUD']
     pod 'RFSegue', :git => 'https://github.com/RFUI/RFSegue.git'
     
-    pod 'MBAppKit', :path => 'MBAppKit'
+    pod 'MBAppKit', :path => 'MBAppKit', :subspecs => ['UserIDIsString']
     pod 'PreBuild', :path => 'PreBuild'
 end

@@ -7,8 +7,14 @@ PODS:
   - AFNetworking/Security (2.6.3)
   - AFNetworking/Serialization (2.6.3)
   - JSONModel (1.7.0)
-  - MBAppKit (0.3.0):
+  - MBAppKit/Core (0.4.0):
     - AFNetworking/NSURLConnection (~> 2.6)
+    - RFAPI (~> 1.0)
+    - RFKit
+    - RFMessageManager/RFNetworkActivityIndicatorMessage (~> 0.2)
+  - MBAppKit/UserIDIsString (0.4.0):
+    - AFNetworking/NSURLConnection (~> 2.6)
+    - MBAppKit/Core
     - RFAPI (~> 1.0)
     - RFKit
     - RFMessageManager/RFNetworkActivityIndicatorMessage (~> 0.2)
@@ -137,7 +143,7 @@ PODS:
 
 DEPENDENCIES:
   - JSONModel (from `https://github.com/Chinamobo/JSONModel.git`)
-  - MBAppKit (from `MBAppKit`)
+  - MBAppKit/UserIDIsString (from `MBAppKit`)
   - PreBuild (from `PreBuild`)
   - RFAPI (from `https://github.com/RFUI/RFAPI.git`)
   - RFKit/Category/NSDate (from `https://github.com/BB9z/RFKit.git`, branch `develop`)
@@ -189,7 +195,7 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   JSONModel: 401e70a832da7448ef239d58a78b3aa0fe68feab
-  MBAppKit: f46f843cef3e2bed940761e484408a1b3a0054fe
+  MBAppKit: c5e5df627253f900bb2ec6f8a3bbf47bb728bb7f
   PreBuild: e364b0801808623a87f3bc8ce2618b778a49380b
   RFAPI: 30e9b16a1762ea98050cc697cf7063af7e044d4a
   RFInitializing: a90cf75405aba057dacaf8895a44681703a2fca5
@@ -198,6 +204,6 @@ SPEC CHECKSUMS:
   RFSegue: aaa5b74153cb8bd41e419e1c83dd859b41f0a3dd
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: 4a238cba72fc92b95f4cf85e4e13efe76be8a20c
+PODFILE CHECKSUM: 828ccdc6305573bfaa99ec9acc848dac45bbd703
 
 COCOAPODS: 1.4.0

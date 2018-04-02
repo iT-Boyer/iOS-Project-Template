@@ -1,11 +1,13 @@
-//
-//  APUser.h
-//  Feel
-//
-//  Created by BB9z on 6/20/16.
-//  Copyright © 2016 Beijing ZhiYun ZhiYuan Technology Co., Ltd. All rights reserved.
-//
-
+/*!
+ APUser
+ 
+ Copyright © 2018 RFUI. All rights reserved.
+ Copyright © 2016 Beijing ZhiYun ZhiYuan Technology Co., Ltd. All rights reserved.
+ https://github.com/RFUI/MBAppKit
+ 
+ Apache License, Version 2.0
+ http://www.apache.org/licenses/LICENSE-2.0
+ */
 #import "MBUser.h"
 #import "Common.h"
 
