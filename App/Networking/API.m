@@ -2,6 +2,7 @@
 #import "API.h"
 #import "debug.h"
 #import "APIJSONResponseSerializer.h"
+#import "SDWebImageManager.h"
 
 RFDefineConstString(APIErrorDomain);
 NSString *APIURLAssetsBase              = @"http://img.example.com/";
@@ -46,6 +47,21 @@ NSString *APIURLAssetsBase              = @"http://img.example.com/";
 #pragma mark - 具体业务
 
 @end
+
+
+void (^APIEmptyFailureHandler)(id, NSError *) = ^(id o, NSError *e) {
+};
+void (^APILogFailureHandler)(id, NSError *) = ^(id o, NSError *e) {
+    dout_error(@"%@", e);
+};
+void (^APISlientFailureHandler(BOOL logError))(id, NSError *)
+{
+    if (logError) {
+        return APIEmptyFailureHandler;
+    } else {
+        return APILogFailureHandler;
+    }
+}
 
 #import "UIImageView+WebCache.h"
 
