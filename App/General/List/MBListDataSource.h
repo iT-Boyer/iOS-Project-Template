@@ -1,18 +1,15 @@
 /*!
-    MBListDataSource
-    v 1.0
-
-    Copyright © 2014-2016 Beijing ZhiYun ZhiYuan Information Technology Co., Ltd.
-    https://github.com/Chinamobo/iOS-Project-Template
-
-    Apache License, Version 2.0
-    http://www.apache.org/licenses/LICENSE-2.0
+ MBListDataSource
+ 
+ Copyright © 2018 RFUI. All rights reserved.
+ Copyright © 2014-2016 Beijing ZhiYun ZhiYuan Information Technology Co., Ltd.
+ https://github.com/RFUI/MBAppKit
+ 
+ Apache License, Version 2.0
+ http://www.apache.org/licenses/LICENSE-2.0
  */
-
 #import "Common.h"
 #import "RFDelegateChain.h"
-
-NS_ASSUME_NONNULL_BEGIN
 
 /**
  单 section 的列表 dataSource
@@ -28,13 +25,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - Items
 
-@property (nonatomic, nullable, strong) NSMutableArray<ItemType> *items;
+@property (nonatomic, nullable) NSMutableArray<ItemType> *items;
 
 /// 列表为空
-@property (nonatomic) BOOL empty;
+@property BOOL empty;
 
-- (ItemType)itemAtIndexPath:(NSIndexPath *)indexPath;
-- (NSArray<ItemType> *)itemsForindexPaths:(NSArray<NSIndexPath *> *)indexPaths;
+- (nullable ItemType)itemAtIndexPath:(nullable NSIndexPath *)indexPath;
+- (nonnull NSArray<ItemType> *)itemsForindexPaths:(nonnull NSArray<NSIndexPath *> *)indexPaths;
 - (nullable NSIndexPath *)indexPathForItem:(nullable ItemType)item;
 
 /**
@@ -60,27 +57,27 @@ typedef NS_ENUM(short, MBDataSourcePageStyle) {
 /**
  使用的分页模式，默认 MBDataSourceDefaultPageStyle
  */
-@property (nonatomic) MBDataSourcePageStyle pageStyle;
+@property MBDataSourcePageStyle pageStyle;
 
-@property (nonatomic) NSInteger page;
-@property (nonatomic) NSUInteger pageSize;
+@property NSInteger page;
+@property NSUInteger pageSize;
 
-@property (nonatomic, nullable, strong) id maxID;
+@property (nullable) id maxID;
 
 /// maxID 的获取是通过在最后一个 item 上执行 valueForKeyPath: 获取的
-@property (nonatomic, strong) NSString *maxIDKeypath;
+@property (nullable) NSString *maxIDKeypath;
 
 /// 默认 page
-@property (nonatomic, strong) NSString *pageParameterName;
+@property (nullable) NSString *pageParameterName;
 
 /// 默认 page_size
-@property (nonatomic, strong) NSString *pageSizeParameterName;
+@property (nullable) NSString *pageSizeParameterName;
 
 /// 默认 MAX_ID
-@property (nonatomic, strong) NSString *maxIDParameterName;
+@property (nullable) NSString *maxIDParameterName;
 
 /// 页面到底了
-@property (nonatomic) BOOL pageEnd;
+@property BOOL pageEnd;
 
 /**
  判断页面到底的策略
@@ -92,16 +89,16 @@ typedef NS_ENUM(short, MBDataSourcePageEndDetectPolicy) {
     /// 获取数量少于 page_size 就算到底
     MBDataSourcePageEndDetectPolicyStrict
 };
-@property (nonatomic) MBDataSourcePageEndDetectPolicy pageEndDetectPolicy;
+@property MBDataSourcePageEndDetectPolicy pageEndDetectPolicy;
 
 #pragma mark - 条目获取
 /// 是否正在获取数据
 @property (readonly) BOOL fetching;
-@property (nonatomic) BOOL hasSuccessFetched;
-@property (nonatomic, nullable, copy) IBInspectable NSString *fetchAPIName;
+@property BOOL hasSuccessFetched;
+@property (nullable, copy) IBInspectable NSString *fetchAPIName;
 
 /// 当改属性是 NSMutableDictionary 或空时会附加分页参数
-@property (nonatomic, nullable, strong) NSDictionary *fetchParameters;
+@property (nullable) NSDictionary *fetchParameters;
 
 /**
  加载数据
@@ -109,9 +106,9 @@ typedef NS_ENUM(short, MBDataSourcePageEndDetectPolicy) {
  @param nextPage 下一页还是从头加载
  @param success fetchedItems 是处理后的最终数据
  */
-- (void)fetchItemsFromViewController:(nullable id)viewController nextPage:(BOOL)nextPage success:(void (^ _Nullable)(__kindof MBListDataSource *dateSource, NSArray *fetchedItems))success completion:(void (^ _Nullable)(__kindof MBListDataSource *dateSource))completion;
+- (void)fetchItemsFromViewController:(nullable id)viewController nextPage:(BOOL)nextPage success:(void (^__nullable)(__kindof MBListDataSource *__nonnull dateSource, NSArray *__nullable fetchedItems))success completion:(void (^__nullable)(__kindof MBListDataSource *__nonnull dateSource))completion;
 
-@property (nonatomic, nullable, copy) void (^fetchDataFailure)(MBListDataSource *ds, NSError *error);
+@property (nonatomic, nullable, copy) void (^fetchDataFailure)(MBListDataSource *__nonnull ds, NSError *__nonnull error);
 
 #pragma mark - 条目处理
 
@@ -123,7 +120,7 @@ typedef NS_ENUM(short, MBDataSourcePageEndDetectPolicy) {
 
  返回处理好的新数据的数组，之后会交由 data source 进行其他处理
  */
-@property (nonatomic, nullable, copy) NSArray<ItemType> *(^processItems)(__unused NSArray<ItemType> *oldItems, id newValue);
+@property (nullable, copy) NSArray<ItemType> *__nullable (^processItems)(NSArray<ItemType> *__nullable oldItems, id __nullable newValue);
 
 /**
  当新获取对象在数组中已存在如何操作
@@ -144,12 +141,10 @@ typedef NS_ENUM(short, MBDataSourceDistinctRule) {
 /**
  重复条目处理方式
  */
-@property (nonatomic) MBDataSourceDistinctRule distinctRule;
+@property MBDataSourceDistinctRule distinctRule;
 
 /**
  最后的条目处理机会，典型情形显示前将数据 model 转换为显示 model
  */
 //@property (copy, nonatomic) NSArray *(^finalizeItems)(__unused NSArray *oldItems, NSArray *newItems);
 @end
-
-NS_ASSUME_NONNULL_END

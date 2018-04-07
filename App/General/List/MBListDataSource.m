@@ -21,7 +21,7 @@
     self.pageSizeParameterName = @"page_size";
 }
 
-- (nonnull id)itemAtIndexPath:(nonnull NSIndexPath *)indexPath {
+- (id)itemAtIndexPath:(NSIndexPath *)indexPath {
     return [self.items rf_objectAtIndex:indexPath.row];
 }
 
@@ -147,7 +147,8 @@
 
         // 404 弹出
         if ([error.domain isEqualToString:APIErrorDomain] && error.code == 404) {
-            [AppNavigationController() popViewControllerAnimated:YES];
+            // @TODO
+//            [AppNavigationController() popViewControllerAfter];
         }
 
         [AppHUD() alertError:error title:nil];
