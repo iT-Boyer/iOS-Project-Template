@@ -7,7 +7,6 @@
 
 @implementation MBTableListDisplayer
 RFInitializingRootForUIViewController
-MBEntityExchangingPrepareForTableViewSegue
 @dynamic tableView;
 
 - (void)onInit {
@@ -66,7 +65,6 @@ MBEntityExchangingPrepareForTableViewSegue
 
 
 @implementation MBTableListController
-MBEntityExchangingPrepareForTableViewSegue
 
 - (void)viewDidLoad {
     [super viewDidLoad];

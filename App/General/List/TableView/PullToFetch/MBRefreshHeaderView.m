@@ -31,7 +31,6 @@
 
     self.indicatorImageView.hidden = isProccessing;
     self.activityIndicatorView.hidden = !isProccessing;
-    self.outerEmptyView.hidden = !self.empty || (self.status != RFPullToFetchIndicatorStatusFrozen);
 
     UILabel *label = self.statusLabel;
     switch (status) {

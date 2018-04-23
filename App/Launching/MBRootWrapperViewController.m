@@ -3,13 +3,11 @@
 #import "MBNavigationController.h"
 #import "UIViewController+RFInterfaceOrientation.h"
 
-static char _rf_category_RFInterfaceOrientation;
 static MBRootWrapperViewController *MBRootWrapperViewControllerGlobalInstance;
 
 @interface MBRootWrapperViewController ()
 @property (nonatomic) BOOL hasViewAppeared;
 @property (weak, nonatomic) UIView *snapRenderingContainer;
-@property (weak) UINavigationController *MBNavigationController;
 @end
 
 @implementation MBRootWrapperViewController
@@ -20,8 +18,8 @@ static MBRootWrapperViewController *MBRootWrapperViewControllerGlobalInstance;
 
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations {
     UIViewController *vc = self._styleViewController;
-    if (objc_getAssociatedObject(vc, &_rf_category_RFInterfaceOrientation)) {
-        int o = vc.RFInterfaceOrientation;
+    if (vc.RFInterfaceOrientationSet) {
+        NSInteger o = vc.RFInterfaceOrientation;
         if (o == 1) {
             return UIInterfaceOrientationMaskPortrait|UIInterfaceOrientationMaskPortraitUpsideDown;
         }
@@ -43,7 +41,7 @@ static MBRootWrapperViewController *MBRootWrapperViewControllerGlobalInstance;
 
 - (UIViewController *)_styleViewController {
     UINavigationController *vc = self.childViewControllers.lastObject;
-    return [vc isKindOfClass:UINavigationController.class]? vc.visibleViewController : vc;
+    return [vc isKindOfClass:UINavigationController.class]? vc.topViewController : vc;
 }
 
 - (void)awakeFromNib {

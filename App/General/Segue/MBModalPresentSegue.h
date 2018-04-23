@@ -1,9 +1,9 @@
 /*!
  MBModalPresentSegue
  
- Copyright © 2018 RFUI. All rights reserved.
+ Copyright © 2018 RFUI.
  Copyright © 2014 Chinamobo Co., Ltd.
- https://github.com/Chinamobo/iOS-Project-Template
+ https://github.com/BB9z/iOS-Project-Template
  
  Apache License, Version 2.0
  http://www.apache.org/licenses/LICENSE-2.0

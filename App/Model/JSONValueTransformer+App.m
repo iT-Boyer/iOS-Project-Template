@@ -22,10 +22,14 @@
 
 @implementation JSONValueTransformer (App)
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wobjc-protocol-method-implementation"
+
 - (NSDate *)NSDateFromNSNumber:(NSNumber *)string {
     NSTimeInterval time = [string floatValue];
     return [NSDate dateWithTimeIntervalSince1970:time];
 }
+#pragma clang diagnostic pop
 
 - (NSDate *)NSDateFromNSString:(NSString*)string {
     NSTimeInterval time = [string floatValue];

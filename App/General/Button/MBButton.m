@@ -3,6 +3,7 @@
 
 @interface MBButton ()
 @property (readwrite) BOOL appearanceSetupDone;
+@property BOOL _MBButton_blockTouchEventFlag;
 @end
 
 @implementation MBButton
@@ -42,20 +43,26 @@ RFInitializingRootForUIView
     // For overwrite
 }
 
-- (void)setSelected:(BOOL)selected {
-    // Fix iOS 7 文字变化时尺寸不自动更新
-    if (selected != self.selected) {
-        [self invalidateIntrinsicContentSize];
+- (void)setBounds:(CGRect)bounds {
+    CGRect old = self.bounds;
+    [super setBounds:bounds];
+    if (!self.skipAppearanceSetup
+        && !CGSizeEqualToSize(old.size, bounds.size)) {
+        [self setupAppearanceAfterSizeChanged];
     }
-    [super setSelected:selected];
 }
 
-- (void)setEnabled:(BOOL)enabled {
-    // Fix iOS 7 文字变化时尺寸不自动更新
-    if (enabled != self.enabled) {
-        [self invalidateIntrinsicContentSize];
+- (void)setFrame:(CGRect)frame {
+    CGRect old = self.frame;
+    [super setFrame:frame];
+    if (!self.skipAppearanceSetup
+        && !CGSizeEqualToSize(old.size, frame.size)) {
+        [self setupAppearanceAfterSizeChanged];
     }
-    [super setEnabled:enabled];
+}
+
+- (void)setupAppearanceAfterSizeChanged {
+    // For overwrite
 }
 
 - (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event {
@@ -68,6 +75,22 @@ RFInitializingRootForUIView
     reversedInsets.right = -reversedInsets.right;
     CGRect expandRect = UIEdgeInsetsInsetRect(self.bounds, reversedInsets);
     return CGRectContainsPoint(expandRect, point);
+}
+
+- (void)sendAction:(SEL)action to:(id)target forEvent:(UIEvent *)event {
+    if (self.blockTouchEvent && event.type == UIEventTypeTouches) {
+        if (!self._MBButton_blockTouchEventFlag) {
+            self._MBButton_blockTouchEventFlag = YES;
+            self.blockTouchEvent();
+            @weakify(self);
+            dispatch_after_seconds(0, ^{
+                @strongify(self);
+                self._MBButton_blockTouchEventFlag = NO;
+            });
+        }
+        return;
+    }
+    [super sendAction:action to:target forEvent:event];
 }
 
 @end
@@ -86,6 +109,6 @@ RFInitializingRootForUIView
 
 @end
 
-@implementation MBItemButton
 
+@implementation MBItemButton
 @end

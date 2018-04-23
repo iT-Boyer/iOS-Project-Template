@@ -11,7 +11,22 @@
 /// 判断一个时间是否在最近给定的范围内
 extern BOOL NSDateIsRecent(NSDate *_Nullable date, NSTimeInterval range);
 
+@interface NSMilliDate (App)
+
+
+@end
+
 @interface NSDate (App)
+
+/**
+ 允许在 Swift 创建 NSMilliDate
+ */
+@property (nonnull, readonly) NSMilliDate *milliDate;
+
+/**
+ Swift 中转换
+ */
+@property (nonnull, readonly) NSDate *NSDate;
 
 /**
  刚刚、几分钟前、几小时前等样式

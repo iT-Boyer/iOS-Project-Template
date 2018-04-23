@@ -147,7 +147,7 @@ RFInitializingRootForUIViewController
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    id<MBFormSelectTableViewCell> cell = [tableView rf_dequeueReusableCellWithIdentifier:@"Cell"];
+    id<MBFormSelectTableViewCell> cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     RFAssert([cell conformsToProtocol:@protocol(MBFormSelectTableViewCell)], @"MBFormSelectListViewController 的 cell 必须符合 MBFormSelectTableViewCell 协议");
     cell.value = self.filteredItems[indexPath.row];
     return (id)cell;

@@ -36,7 +36,7 @@ RFInitializingRootForUIView
 
 - (void)updateStatus:(RFPullToFetchIndicatorStatus)status distance:(CGFloat)distance control:(RFTableViewPullToFetchPlugin *)control {
 
-    if (self.outerEmptyView && self.status != RFPullToFetchIndicatorStatusFrozen) {
+    if (self.outerEmptyView && status != RFPullToFetchIndicatorStatusFrozen) {
         if (!self.outerEmptyView.hidden) {
             self.outerEmptyView.hidden = YES;
         }

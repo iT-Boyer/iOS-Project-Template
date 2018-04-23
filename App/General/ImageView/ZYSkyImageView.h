@@ -1,12 +1,15 @@
-//
-//  ZYSkyImageView.h
-//  Very+
-//
-//  Created by BB9z on 10/12/14.
-//  Copyright (c) 2014 Beijing ZhiYun ZhiYuan Information Technology Co., Ltd. All rights reserved.
-//
-
-#import "CommonUI.h"
+/*!
+ ZYSkyImageView
+ 
+ Copyright © 2018 RFUI.
+ Copyright © 2014 Beijing ZhiYun ZhiYuan Technology Co., Ltd.
+ https://github.com/BB9z/iOS-Project-Template
+ 
+ Apache License, Version 2.0
+ http://www.apache.org/licenses/LICENSE-2.0
+ */
+#import "Common.h"
+#import "ZYImageView.h"
 
 /**
  内容可以跟着一个 scrollView 同时滚动的 image view

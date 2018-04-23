@@ -77,7 +77,8 @@
 /// 接口返回的错误描述
 @property (nullable) NSString *errorDescription;
 
-/** 错误信息
+/**
+ 错误信息
  
  该方法首先通过 errorCode 查找对应的错误信息，如果不存在尝试使用 errorDescription，
  如果 errorDescription 也为 nil，将返回一个空字符串，而不是 nil
@@ -86,7 +87,8 @@
  */
 - (nonnull NSString *)localizedDescription;
 
-/** 根据错误码返回相应错误信息
+/**
+ 根据错误码返回相应错误信息
  
  默认实现全部返回 nil
  
@@ -95,6 +97,5 @@
  @return 错误码对应的错误信息
  */
 + (nullable NSString *)localizedDescriptionKeyForErrorCode:(int)errorCode;
-
 
 @end

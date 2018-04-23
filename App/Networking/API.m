@@ -5,7 +5,7 @@
 #import "SDWebImageManager.h"
 
 RFDefineConstString(APIErrorDomain);
-NSString *APIURLAssetsBase              = @"http://img.example.com/";
+NSString *const APIURLAssetsBase              = @"http://img.example.com/";
 
 @interface API ()
 @end

@@ -19,10 +19,38 @@ target 'App' do
         'Category/UIScrollView+RFScrolling',
         'Category/UISearchBar'
     ]
+    pod 'RFAlpha', :path => 'Frameworks/RFUI/Alpha', :subspecs => [
+        'RFBlockSelectorPerform',
+        'RFButton',
+        'RFContainerView',
+        'RFDelegateChain/UICollectionViewDelegateFlowLayout',
+        'RFDelegateChain/UICollectionViewDataSource',
+        'RFDelegateChain/UISearchBarDelegate',
+        'RFDelegateChain/UITextFieldDelegate',
+        'RFDelegateChain/UITextViewDelegate',
+        'RFDrawImage',
+        'RFImageCropper',
+        'RFNavigationController',
+        'RFRefreshButton',
+        'RFRefreshControl',
+        'RFSwizzle',
+        'RFSynthesize',
+        'RFTabController',
+        'RFTableViewPullToFetchPlugin',
+        'RFTimer',
+        'RFViewApperance/RFLine',
+        'RFViewApperance/RFLayerApperance',
+        'RFWindow'
+    ]
     pod 'RFAPI', :git => 'https://github.com/RFUI/RFAPI.git'
+    pod 'RFKeyboard', :git => 'https://github.com/RFUI/RFKeyboard.git'
     pod 'RFMessageManager', :git => 'https://github.com/RFUI/RFMessageManager.git', :subspecs => ['SVProgressHUD']
     pod 'RFSegue', :git => 'https://github.com/RFUI/RFSegue.git'
-    
-    pod 'MBAppKit', :path => 'MBAppKit', :subspecs => ['UserIDIsString']
+    pod 'MBAppKit', :path => 'MBAppKit'
+
     pod 'PreBuild', :path => 'PreBuild'
+
+    # target "Test" do
+    #     inherit! :search_paths
+    # end
 end

@@ -1,10 +1,13 @@
-//
-//  ShortCuts.h
-//  Feel
-//
-//  Created by BB9z on 12/12/15.
-//  Copyright © 2015 Beijing ZhiYun ZhiYuan Technology Co., Ltd. All rights reserved.
-//
+/*!
+ ShortCuts.h
+ 
+ Copyright © 2018 RFUI.
+ Copyright © 2015 Beijing ZhiYun ZhiYuan Technology Co., Ltd.
+ https://github.com/BB9z/iOS-Project-Template
+ 
+ Apache License, Version 2.0
+ http://www.apache.org/licenses/LICENSE-2.0
+ */
 #import "MBModel.h"
 
 /**

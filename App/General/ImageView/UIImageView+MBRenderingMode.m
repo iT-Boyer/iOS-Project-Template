@@ -1,10 +1,3 @@
-//
-//  UIImageView+MBRenderingMode.m
-//  Feel
-//
-//  Created by BB9z on 12/31/15.
-//  Copyright © 2015 Beijing ZhiYun ZhiYuan Technology Co., Ltd. All rights reserved.
-//
 
 #import "UIImageView+MBRenderingMode.h"
 

@@ -46,6 +46,9 @@
 
 #pragma mark - 分页
 
+/// 禁用分页
+@property BOOL pagingDisabled;
+
 typedef NS_ENUM(short, MBDataSourcePageStyle) {
     /// 默认，把当前页数作为游标，从 1 开始计算
     MBDataSourceDefaultPageStyle = 0,

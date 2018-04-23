@@ -1,13 +1,14 @@
-//
-//  MBSearchViewController.h
-//  Feel
-//
-//  Created by BB9z on 12/1/14.
-//  Copyright (c) 2014 Beijing ZhiYun ZhiYuan Technology Co., Ltd. All rights reserved.
-//
-
+/*!
+ MBSearchViewController
+ 
+ Copyright © 2018 RFUI.
+ https://github.com/RFUI/MBAppKit
+ 
+ Apache License, Version 2.0
+ http://www.apache.org/licenses/LICENSE-2.0
+ */
 #import "Common.h"
-#import "MBAutoSearchBar.h"
+#import "MBSearchTextField.h"
 
 /**
  通用沉浸式搜索界面
@@ -17,18 +18,14 @@
 @interface MBSearchViewController : UIViewController <
     UISearchBarDelegate
 >
-@property (weak, nonatomic) IBOutlet MBAutoSearchBar *searchBar;
-@property (weak, nonatomic) IBOutlet UIView *container;
+@property (nonatomic, weak) IBOutlet MBSearchTextField *searchTextField;
+@property (nonatomic, weak) IBOutlet UIView *container;
 @property IBInspectable BOOL focusSearchBarWhenAppear;
 
-@property BOOL hasViewAppeared;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint  *keyboardAdjustLayoutConstraint;
 
-/**
- 延迟的 view 设置
- 
- 默认什么也不做
- */
-- (void)setupAfterViewAppear;
+- (IBAction)onCancel:(id)sender;
+
 @end
 
 

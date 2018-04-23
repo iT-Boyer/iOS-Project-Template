@@ -1,13 +1,12 @@
 /*!
-    MBButton
-    v 0.6
-
-    Copyright © 2014 Beijing ZhiYun ZhiYuan Information Technology Co., Ltd.
-    Copyright © 2014 Chinamobo Co., Ltd.
-    https://github.com/Chinamobo/iOS-Project-Template
-
-    Apache License, Version 2.0
-    http://www.apache.org/licenses/LICENSE-2.0
+ MBButton
+ 
+ Copyright © 2018 RFUI. All rights reserved.
+ Copyright © 2014 Beijing ZhiYun ZhiYuan Information Technology Co., Ltd.
+ https://github.com/RFUI/MBAppKit
+ 
+ Apache License, Version 2.0
+ http://www.apache.org/licenses/LICENSE-2.0
  */
 #import "Common.h"
 
@@ -19,6 +18,13 @@
 @interface MBButton : UIButton <
     RFInitializing
 >
+
+/**
+ 样式名，以便让同一个按钮类支持多个样式
+ 
+ 一般在 setupAppearance 根据 styleName 做相应配置
+ */
+@property (nullable) IBInspectable NSString *styleName;
 
 /**
  子类重写该方法设置外观
@@ -42,6 +48,11 @@
 - (void)setupAppearance;
 
 /**
+ 子类重写，当按钮尺寸变化时执行
+ */
+- (void)setupAppearanceAfterSizeChanged;
+
+/**
  外观代码设置完成标记，一般只有通过代码创建 button 时才需要判断
  */
 @property (readonly) BOOL appearanceSetupDone;
@@ -58,6 +69,13 @@
 @property (nonatomic) IBInspectable CGRect touchHitTestExpandInsets;
 
 /**
+ 非空时按钮原有的点击事件不在发送，而改为执行该 block
+ 
+ 设计时的场景是增加一种禁用状态，可以点击但不走正常的事件
+ */
+@property (nullable) void (^blockTouchEvent)(void);
+
+/**
  点击按钮时执行的操作，默认什么也不做
  */
 - (void)onButtonTapped;
@@ -68,10 +86,10 @@
  作为按钮容器，解决按钮在 view 的 bounds 外不可点的问题
  */
 @interface MBControlTouchExpandContainerView : UIView
-@property (strong, nonatomic) IBOutletCollection(UIControl) NSArray *controls;
+@property (nonatomic, nullable) IBOutletCollection(UIControl) NSArray *controls;
 @end
 
-@interface MBItemButton : MBButton
-@property (strong, nonatomic) id item;
 
+@interface MBItemButton : MBButton
+@property (nonatomic, nullable) id item;
 @end

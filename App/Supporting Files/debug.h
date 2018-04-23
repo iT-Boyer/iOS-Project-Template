@@ -38,14 +38,6 @@ FOUNDATION_EXPORT void DebugAlert(NSString *_Nonnull format, ...) NS_FORMAT_FUNC
  */
 FOUNDATION_EXPORT void DebugLog(BOOL fatal, NSString *_Nullable recordID, NSString *_Nonnull format, ...) NS_FORMAT_FUNCTION(3, 4);
 
-
-/**
- 展示一个错误弹窗给用户，正常不会遇到但是还要给用户一个交待时使用
-
- @param recordID 非空时，会在正式和内测环境记录 Fabric 错误
- */
-FOUNDATION_EXPORT void RFErrorAlert(NSString *_Nullable recordID, NSString *_Nonnull format, ...) NS_FORMAT_FUNCTION(2, 3);
-
 /**
  断言 obj 是 aClass
  

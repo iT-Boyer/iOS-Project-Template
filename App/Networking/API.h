@@ -11,6 +11,7 @@
 #import "MBAPI.h"
 
 extern NSString *__nonnull const APIErrorDomain;
+extern NSString *__nonnull const APIURLAssetsBase;
 
 /**
  API

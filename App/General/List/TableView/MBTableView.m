@@ -4,8 +4,7 @@
 #import "MBRefreshFooterView.h"
 
 @interface MBTableView ()
-@property (weak, nonatomic) id<MBTableViewDelegate> delegate;
-@property (strong, nonatomic) MBTableViewDataSource *trueDataSource;
+@property (nonatomic) MBTableViewDataSource *trueDataSource;
 @end
 
 @implementation MBTableView
@@ -20,22 +19,12 @@ RFInitializingRootForUIView
 }
 
 - (void)afterInit {
-    [self cellHeightManager];
     [self pullToFetchController];
 }
 
 - (void)dealloc {
     [super setDataSource:nil];
     [super setDelegate:nil];
-}
-
-- (RFTableViewCellHeightDelegate *)cellHeightManager {
-    if (!_cellHeightManager) {
-        _cellHeightManager = [[RFTableViewCellHeightDelegate alloc] init];
-        _cellHeightManager.delegate = (id)self.delegate;
-        self.delegate = (id)_cellHeightManager;
-    }
-    return _cellHeightManager;
 }
 
 - (MBTableViewPullToFetchControl *)pullToFetchController {
@@ -68,7 +57,6 @@ RFInitializingRootForUIView
     [self.dataSource fetchItemsFromViewController:self.viewController nextPage:nextPage success:^(MBListDataSource *dateSource, NSArray *fetchedItems) {
         @strongify(self);
         if (!nextPage) {
-            [self.cellHeightManager invalidateCellHeightCache];
             MBRefreshFooterView *fv = (id)self.pullToFetchController.footerContainer;
             fv.empty = dateSource.empty;
             MBRefreshHeaderView *hv = (id)self.pullToFetchController.headerContainer;
@@ -84,21 +72,6 @@ RFInitializingRootForUIView
             self.fetchPageEnd(nextPage, dateSource);
         }
     }];
-}
-
-- (void)reload {
-    if (_cellHeightManager) {
-        [self.cellHeightManager invalidateCellHeightCache];
-    }
-    [self reloadData];
-}
-
-- (void)reloadData {
-    self.indexPathsForVisibleCellsBeforeReloadingData = [self indexPathsForVisibleCells];
-    // 按理应该显示出来再 load，不加貌似有时启动时会有奇怪的问题，但又不能复现……
-    if (self.window) {
-        [super reloadData];
-    }
 }
 
 - (void)willMoveToWindow:(UIWindow *)newWindow {
@@ -117,7 +90,6 @@ RFInitializingRootForUIView
 - (void)removeItem:(id)item withRowAnimation:(UITableViewRowAnimation)animation {
     NSIndexPath *ip = [self.dataSource indexPathForItem:item];
     if (ip) {
-        [self.cellHeightManager invalidateCellHeightCache];
         [self.dataSource.items removeObjectAtIndex:ip.row];
         [self deleteRowsAtIndexPaths:@[ ip ] withRowAnimation:animation];
     }
@@ -127,7 +99,7 @@ RFInitializingRootForUIView
     [self.dataSource prepareForReuse];
     [self.pullToFetchController markProcessFinshed];
     self.pullToFetchController.footerReachEnd = NO;
-    [self reload];
+    [self reloadData];
 }
 
 - (void)insertRowsWithRowRange:(NSRange)range inSection:(NSInteger)section rowAnimation:(UITableViewRowAnimation)animation {
@@ -164,11 +136,9 @@ RFInitializingRootForUIView
 }
 
 #pragma mark - Cell height
-#pragma mark Update
 
 - (void)updateCellHeightAtIndexPath:(NSIndexPath *)indexPath animated:(BOOL)animated {
     if (indexPath) {
-        [self.cellHeightManager invalidateCellHeightCacheAtIndexPath:indexPath];
         [self reloadRowsAtIndexPaths:@[ indexPath ] withRowAnimation:animated? UITableViewRowAnimationFade : UITableViewRowAnimationNone];
     }
 }

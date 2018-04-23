@@ -1,7 +1,7 @@
 
 #import "APApplicationDelegate.h"
 #import "MBApp.h"
-#import "RFKeyboard.h"
+#import <RFKeyboard.h>
 
 @interface APApplicationDelegate () <
     UIApplicationDelegate
@@ -38,17 +38,11 @@
         }
     }
     [APUser setup];
-    [self doLaunchApplication:application launchOptions:launchOptions];
-    return YES;
-}
-
-- (void)doLaunchApplication:(UIApplication *)application launchOptions:(NSDictionary *)launchOptions {
+    
     // 全局点击空白隐藏键盘
-    [RFKeyboard setEnableAutoDisimssKeyboardWhenTouch:YES];
-
+    RFKeyboard.autoDisimssKeyboardWhenTouch = YES;
     [self generalAppearanceSetup];
-    [AppEnv() setFlagOn:MBENVAppHasEnterForegroundOnce];
-    [AppEnv() setFlagOn:MBENVAppInForeground];
+    return YES;
 }
 
 - (void)generalAppearanceSetup {
@@ -58,6 +52,17 @@
     NSDictionary *navTitleAttribute = @{ NSFontAttributeName: [UIFont systemFontOfSize:15] };
     UIBarButtonItem *itemAppearance = [UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[ UINavigationBar.class ]];
     [itemAppearance setTitleTextAttributes:navTitleAttribute forState:UIControlStateNormal];
+}
+
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+    [AppEnv() setFlagOn:MBENVAppInForeground];
+    [AppEnv() setFlagOn:MBENVAppHasEnterForegroundOnce];
+    [super applicationDidBecomeActive:application];
+}
+
+- (void)applicationDidEnterBackground:(UIApplication *)application {
+    [AppEnv() setFlagOff:MBENVAppInForeground];
+    [super applicationDidEnterBackground:application];
 }
 
 @end

@@ -5,11 +5,12 @@
 
 echo "MBAutoBuildScript Build Count 0.6"
 echo "-----------------------"
+set -euo pipefail
 
 # 自动构建数
 if [ $enableAutoBuildCount = 1 ]; then
-    branchName=$(git symbolic-ref --short -q HEAD || echo "default");
-	output=$(ruby "$scriptPath/MBBuildCount.rb" "$buildCountRecordFile" "$USER" "$branchName")
+    readonly branchName=$(git symbolic-ref --short -q HEAD || echo "default");
+	readonly output=$(ruby "$scriptPath/MBBuildCount.rb" "$buildCountRecordFile" "$USER" "$branchName")
     # echo "${output}"
     # 最后一行是版本号
     buildnum=$(echo "${output}"|tail -n1)

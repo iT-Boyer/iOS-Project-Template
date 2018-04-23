@@ -1,10 +1,3 @@
-//
-//  MBSearchTextField.m
-//  Feel
-//
-//  Created by jyq on 16/9/9.
-//  Copyright © 2016年 Beijing ZhiYun ZhiYuan Technology Co., Ltd. All rights reserved.
-//
 
 #import "MBSearchTextField.h"
 #import "UITextFiledDelegateChain.h"
@@ -12,13 +5,12 @@
 #import "API.h"
 
 @interface MBSearchTextField ()
-@property (strong, nonatomic) RFTimer *autoSearchTimer;
-@property (strong, nonatomic) UITextFiledDelegateChain *trueDelegate;
+@property (nonatomic) RFTimer *autoSearchTimer;
+@property (nonatomic) UITextFiledDelegateChain *trueDelegate;
 @end
 
 @implementation MBSearchTextField
 RFInitializingRootForUIView
-
 
 - (void)onInit {
     self.autoSearchTimeInterval = 0.6;
@@ -46,8 +38,9 @@ RFInitializingRootForUIView
         return;
     }
     self.autoSearchTimer.suspended = YES;
-    RFAssert(self.APIName.length, @"未传入APIName");
-    [API.global cancelOperationWithIdentifier:self.APIName];
+    if (self.APIName) {
+        [AppAPI() cancelOperationWithIdentifier:self.APIName];
+    }
     self.autoSearchTimer.suspended = NO;
 }
 
@@ -90,10 +83,12 @@ RFInitializingRootForUIView
 }
 
 - (void)doSearchforce {
-    if ((self.disallowEmptySearch && !self.text.length) || self.text.length < self.autoSearchMinimumLength) {
+    if ((self.disallowEmptySearch && !self.text.length)
+        || self.text.length < self.autoSearchMinimumLength) {
         return;
     }
     if (self.doSearch) {
+        self.isSearching = YES;
         self.doSearch(self.text);
     }
 }

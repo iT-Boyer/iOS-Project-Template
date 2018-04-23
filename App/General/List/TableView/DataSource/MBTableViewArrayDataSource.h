@@ -22,11 +22,11 @@ NS_ASSUME_NONNULL_BEGIN
 >
 @property (nonatomic, nullable, weak) IBOutlet UITableView *tableView;
 
-@property (nonatomic, strong) NSMutableArray *items;
+@property (nonatomic) NSMutableArray *items;
 
-- (id)itemAtIndexPath:(NSIndexPath *)indexPath;
+- (nonnull id)itemAtIndexPath:(nonnull NSIndexPath *)indexPath;
 
-- (nullable NSIndexPath *)indexPathForItem:(id)item;
+- (nullable NSIndexPath *)indexPathForItem:(nonnull id)item;
 
 @property (nonatomic, nullable, copy) NSString *_Nonnull (^cellIdentifierProvider)(__kindof MBTableViewArrayDataSource *_Nonnull dataSource, id _Nonnull item, NSIndexPath *_Nonnull indexPath);
 

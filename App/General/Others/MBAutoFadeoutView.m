@@ -1,6 +1,7 @@
 
 #import "MBAutoFadeoutView.h"
 #import "RFTimer.h"
+#import <RFKit/UIView+RFKit.h>
 
 @interface MBAutoFadeoutView ()
 @property (nonatomic, strong) RFTimer *autoFadeoutTimer;

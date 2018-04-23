@@ -22,4 +22,12 @@
 - (long)longValue;
 - (long long)unsignedLongLongValue;
 
+/**
+ 判断给定新版本是否是更新的
+ 
+ @param latestVersion 新版本
+ @param currentversion 当前版本，一定不能为空
+ */
++ (BOOL)isNewVersion:(nullable NSString *)latestVersion currentversion:(nonnull NSString *)currentversion;
+
 @end

@@ -29,7 +29,9 @@ NSString *const MBAnalyticsExitPageName = @"EXIT";
 @end
 
 
-@interface MBAnalytics ()
+@interface MBAnalytics () <
+    UIApplicationDelegate
+>
 @property (nonatomic, strong) NSNumber *remoteNotificationAuthorizationStatus;
 @property BOOL hasStartFabric;
 @property NSMutableArray<NSDictionary *> *feelEventQuene;

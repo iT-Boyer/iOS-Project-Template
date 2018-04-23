@@ -1,14 +1,14 @@
 
 #import "MBSearchViewController.h"
-#import "UIViewController+RFDNavigationAppearance.h"
 #import "RFAnimationTransitioning.h"
-#import "UISearchBar+RFKit.h"
-
+#import "UIViewController+RFDNavigationAppearance.h"
+#import <RFKeyboard/RFKeyboard.h>
 
 @interface MBSearchTransitioning : RFAnimationTransitioning
 @end
 
 @interface MBSearchViewController ()
+@property (nonatomic) BOOL keyboardNotificationFlag;
 @end
 
 @implementation MBSearchViewController
@@ -20,42 +20,40 @@
     return [super initWithCoder:aDecoder];
 }
 
-- (void)viewDidLoad {
-    self.hasViewAppeared = NO;
-    [super viewDidLoad];
-    self.view.backgroundColor = [UIColor clearColor];
-    self.searchBar.showsCancelButton = YES;
-
-    if (self.focusSearchBarWhenAppear) {
-        [self.searchBar becomeFirstResponder];
-    }
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
-    dispatch_after_seconds(0, ^{
-        // 一进来键盘没出来的话，按钮禁用
-        self.searchBar.cancelButton.enabled = YES;
-        
-        UILabel *cancelLabel = self.searchBar.cancelButton.titleLabel;
-        cancelLabel.font = [cancelLabel.font fontWithSize:15];
-    });
-}
-
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    if (!self.hasViewAppeared) {
-        [self setupAfterViewAppear];
+    if (self.keyboardAdjustLayoutConstraint) {
+        @weakify(self);
+        [RFKeyboard.defaultManager setKeyboardShowCallback:^(NSNotification *note) {
+            @strongify(self);
+            self.keyboardAdjustLayoutConstraint.constant = [RFKeyboard keyboardLayoutHeightForNotification:note inView:self.container];
+            [self.keyboardAdjustLayoutConstraint updateLayoutIfNeeded];
+        }];
+        [RFKeyboard.defaultManager setKeyboardHideCallback:^(NSNotification *note) {
+            @strongify(self);
+            self.keyboardAdjustLayoutConstraint.constant = 0;
+            [self.keyboardAdjustLayoutConstraint updateLayoutIfNeeded];
+        }];
     }
-    self.hasViewAppeared = YES;
+    if (self.focusSearchBarWhenAppear) {
+        [self.searchTextField becomeFirstResponder];
+    }
 }
 
-- (void)setupAfterViewAppear {
-    // nothing
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    if (self.keyboardAdjustLayoutConstraint) {
+        RFKeyboard.defaultManager.keyboardShowCallback = nil;
+        RFKeyboard.defaultManager.keyboardHideCallback = nil;
+    }
 }
 
-- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+- (void)onCancel:(id)sender {
+    if (self.searchTextField.isFirstResponder
+        && self.searchTextField.text.length) {
+        [self.searchTextField resignFirstResponder];
+        return;
+    }
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -96,7 +94,7 @@
         if (reverse) {
         }
         else {
-            container.y = toView.height/2;
+            container.y = toView.height;
             toView.alpha = 0;
         }
     } animations:^{

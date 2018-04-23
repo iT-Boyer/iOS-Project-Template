@@ -14,9 +14,9 @@
 + (NSDateFormatter *)cachedDayIdentifierFormatter {
     static NSDateFormatter *df = nil;
     if (!df) {
-        df = [[NSDateFormatter alloc] init];
-        [df setLocale:[NSLocale currentLocale]];
-        [df setDateFormat:@"yyyyMMdd"];
+        df = NSDateFormatter.new;
+        df.locale = NSLocale.currentLocale;
+        df.dateFormat = @"yyyyMMdd";
     }
     return df;
 }

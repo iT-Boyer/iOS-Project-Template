@@ -1,15 +1,14 @@
 /*!
-    MBRefreshFooterView
-    v 0.2
-
-    Copyright © 2015 Beijing ZhiYun ZhiYuan Information Technology Co., Ltd.
-    Copyright © 2014 Chinamobo Co., Ltd.
-    https://github.com/Chinamobo/iOS-Project-Template
-
-    Apache License, Version 2.0
-    http://www.apache.org/licenses/LICENSE-2.0
+ MBRefreshFooterView
+ 
+ Copyright © 2018 RFUI.
+ Copyright © 2015 Beijing ZhiYun ZhiYuan Information Technology Co., Ltd.
+ Copyright © 2014 Chinamobo Co., Ltd.
+ https://github.com/RFUI/MBAppKit
+ 
+ Apache License, Version 2.0
+ http://www.apache.org/licenses/LICENSE-2.0
  */
-
 #import "Common.h"
 #import "RFTableViewPullToFetchPlugin.h"
 

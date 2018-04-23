@@ -52,7 +52,7 @@
     }
 
     self.page = nextPage? self.page + 1 : 1;
-    BOOL pagingEnabled = !self.fetchParameters || [self.fetchParameters respondsToSelector:@selector(addEntriesFromDictionary:)];
+    BOOL pagingEnabled = !self.pagingDisabled;
     NSMutableDictionary *parameter = [NSMutableDictionary dictionaryWithDictionary:self.fetchParameters];
     if (pagingEnabled) {
         if (self.pageStyle == MBDataSourceMAXIDPageStyle) {
@@ -84,55 +84,21 @@
         if (!self) return;
 
         NSMutableArray *items = self.items;
-        NSArray *responseArray = [responseObject isKindOfClass:[NSArray class]]? responseObject : nil;
+        NSArray *responseArray = nil;
         if (self.processItems) {
-            responseArray = self.processItems(nextPage? [items copy] : nil, responseObject);
+            responseArray = self.processItems(nextPage? items.copy : nil, responseObject);
         }
-
+        else if ([responseObject isKindOfClass:NSArray.class]) {
+            responseArray = responseObject;
+        }
+        
         if (!nextPage) {
             [items removeAllObjects];
         }
-
-        [responseArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-            // Ignored
-            if ([obj respondsToSelector:@selector(ignored)]) {
-                if ([(id<MBModel>)obj ignored]) {
-                    return;
-                }
-            }
-
-            // 不重复，直接加
-            if (![items containsObject:obj]) {
-                [items addObject:obj];
-                return;
-            }
-
-            // 处理重复
-            if (self.distinctRule == MBDataSourceDistinctRuleIgnore) {
-            }
-            else if (self.distinctRule == MBDataSourceDistinctRuleUpdate) {
-                items[[items indexOfObject:obj]] = obj;
-            }
-            else if (self.distinctRule == MBDataSourceDistinctRuleReplace) {
-                [items removeObject:obj];
-                [items addObject:obj];
-            }
-            else {
-                [items addObject:obj];
-            }
-        }];
-
-        self.empty = (items.count == 0 && responseArray.count == 0);
-        if (self.pageEndDetectPolicy == MBDataSourcePageEndDetectPolicyEmpty) {
-            self.pageEnd = !!(responseArray.count == 0);
-        }
-        else {
-            self.pageEnd = (responseArray.count < self.pageSize);
-        }
+        [self _MBListDataSource_handleResponseArray:responseArray items:items];
         if (!pagingEnabled) {
             self.pageEnd = YES;
         }
-
         if (success) {
             success(self, responseArray);
         }
@@ -167,6 +133,48 @@
             completion(self);
         }
     }];
+}
+
+- (void)_MBListDataSource_handleResponseArray:(NSArray *)responseArray items:(NSMutableArray *)items {
+    [responseArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        // Swift array may contains nil
+        if (!obj) return;
+        
+        // Ignored
+        if ([obj respondsToSelector:@selector(ignored)]) {
+            if ([(id<MBModel>)obj ignored]) {
+                return;
+            }
+        }
+        
+        // 不重复，直接加
+        if (![items containsObject:obj]) {
+            [items addObject:obj];
+            return;
+        }
+        
+        // 处理重复
+        if (self.distinctRule == MBDataSourceDistinctRuleIgnore) {
+        }
+        else if (self.distinctRule == MBDataSourceDistinctRuleUpdate) {
+            items[[items indexOfObject:obj]] = obj;
+        }
+        else if (self.distinctRule == MBDataSourceDistinctRuleReplace) {
+            [items removeObject:obj];
+            [items addObject:obj];
+        }
+        else {
+            [items addObject:obj];
+        }
+    }];
+    
+    self.empty = (items.count == 0 && responseArray.count == 0);
+    if (self.pageEndDetectPolicy == MBDataSourcePageEndDetectPolicyEmpty) {
+        self.pageEnd = !!(responseArray.count == 0);
+    }
+    else {
+        self.pageEnd = (responseArray.count < self.pageSize);
+    }
 }
 
 - (void)prepareForReuse {

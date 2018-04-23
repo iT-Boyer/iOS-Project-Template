@@ -19,8 +19,7 @@
  - 适合 table view 的 segue 准备方法
  */
 @interface MBTableViewController : UIViewController <
-    MBGeneralListDisplaying,
-    MBGeneralSegue
+    MBGeneralListDisplaying
 >
 @property (weak, nonatomic) IBOutlet MBTableView *listView;
 

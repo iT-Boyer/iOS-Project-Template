@@ -6,7 +6,8 @@
 //  Copyright © 2016 Beijing ZhiYun ZhiYuan Technology Co., Ltd. All rights reserved.
 //
 
-#import "RFUI.h"
+#import <RFKit/RFRuntime.h>
+#import <RFInitializing.h>
 
 /**
  显示出来后，默认一段时间隐藏

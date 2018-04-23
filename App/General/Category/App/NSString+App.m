@@ -32,4 +32,10 @@
     return [self integerValue];
 }
 
++ (BOOL)isNewVersion:(NSString *)latestVersion currentversion:(NSString *)currentversion {
+    NSParameterAssert(currentversion);
+    if (!latestVersion) return NO;
+    return [currentversion compare:latestVersion options:NSNumericSearch] == NSOrderedAscending;
+}
+
 @end

@@ -5,7 +5,6 @@
 @end
 
 @implementation MBTableViewController
-MBEntityExchangingPrepareForTableViewSegue
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];

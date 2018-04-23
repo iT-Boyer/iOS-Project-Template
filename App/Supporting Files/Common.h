@@ -11,21 +11,14 @@
 
 #import <Availability.h>
 
-#ifndef __IPHONE_7_0
-#warning "This project uses features only available in iOS SDK 7.0 and later."
-#warning "项目编译需要 iOS 7 SDK"
-#endif
-
 /// MBBuildConfiguration 是个字符串，用于区分当前版本是哪种配置编译的
 #ifndef MBBuildConfiguration
 #define MBBuildConfiguration ""
 #endif
 
 #import <MBAppKit.h>
-#import "RFUI.h"
 #import "ShortCuts.h"
-// @TODO
-//#import "ZYNavigationController.h"
+#import "MBNavigationController.h"
 
 #import "UIKit+App.h"
 #import "ZYErrorCode.h"

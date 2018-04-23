@@ -1,10 +1,3 @@
-//
-//  UIDevice+ZYIdentifier.m
-//  Feel
-//
-//  Created by BB9z on 6/20/16.
-//  Copyright © 2016 Beijing ZhiYun ZhiYuan Technology Co., Ltd. All rights reserved.
-//
 
 #import "UIDevice+ZYIdentifier.h"
 #import "API.h"

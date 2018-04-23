@@ -11,6 +11,8 @@
 #import "RFNavigationController.h"
 #import "RFNavigationControllerTransitionDelegate.h"
 
+@class MBNavigationOperation;
+
 /**
  根导航控制器
  */
@@ -39,11 +41,15 @@
 
 - (IBAction)navigationPop:(id _Nullable)sender;
 
+/**
+ 从栈顶依次弹出符合给定协议声明的视图，直到一个不是的
+ */
+- (void)popViewControllersOfScence:(nonnull Protocol *)aProtocol;
+
 @end
 
 
 /**
- 
  */
 @interface MBRootNavigationBar : UINavigationBar
 @end

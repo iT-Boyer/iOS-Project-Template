@@ -15,7 +15,7 @@
 /**
  弹出键盘时添加蒙板
  */
-@property (strong, nonatomic) UIControl *maskButton;
+@property (nonatomic) UIControl *maskButton;
 @end
 
 @implementation MBKeyboardFloatContainer
@@ -76,7 +76,6 @@ RFInitializingRootForUIView
         self.keyboardLayoutConstraint.constant = self.keyboardLayoutOriginalConstraint;
     }
     else {
-        
         self.keyboardLayoutConstraint.constant = 0;
     }
     [self.keyboardLayoutConstraint updateLayoutIfNeeded];

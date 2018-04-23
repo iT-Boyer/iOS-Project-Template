@@ -4,17 +4,13 @@
 #import "UITextFiledDelegateChain.h"
 
 @interface MBTextField ()
-@property (strong, nonatomic) UITextFiledDelegateChain *trueDelegate;
+@property BOOL appearanceSetupDone;
+@property (nonatomic) UITextFiledDelegateChain *trueDelegate;
 @property (nonatomic) BOOL noBorder;
 @end
 
 @implementation MBTextField
 RFInitializingRootForUIView
-
-+ (void)load {
-    [[self appearance] setBackgroundImage:[UIImage imageNamed:@"text_field_bg_normal"]];
-    [[self appearance] setBackgroundHighlightedImage:[UIImage imageNamed:@"text_field_bg_focused"]];
-}
 
 - (void)onInit {
     // 文字距边框设定
@@ -39,22 +35,55 @@ RFInitializingRootForUIView
         self.placeholder = self.placeholder;
     }
 
-    // 回车切换到下一个输入框或按钮，默认键盘样式
-    if (self.nextField && self.returnKeyType == UIReturnKeyDefault) {
-        if ([self.nextField isKindOfClass:[UITextField class]] || [self.nextField isKindOfClass:[UITextView class]]) {
-            self.returnKeyType = UIReturnKeyNext;
-        }
-        else {
-            self.returnKeyType = UIReturnKeySend;
-        }
-    }
-
-    if (!self.noBorder) {
-        self.disabledBackground = [[UIImage imageNamed:@"text_field_bg_disabled"] resizableImageWithCapInsets:UIEdgeInsetsMakeWithSameMargin(3)];
-        self.background = self.isFirstResponder? self.backgroundHighlightedImage : self.backgroundImage;
+    if (self.returnKeyType == UIReturnKeyDefault
+        && self.nextField) {
+        [self MBTextField_setupReturnKeyType];
     }
 
     [self addTarget:self action:@selector(MBTextField_onTextFieldChanged:) forControlEvents:UIControlEventEditingChanged];
+    [self _setupAppearance];
+    
+    if (!self.noBorder) {
+        self.disabledBackground = [[UIImage imageNamed:@"text_field_bg_disabled"] resizableImageWithCapInsets:UIEdgeInsetsMakeWithSameMargin(3)];
+        [self MBTextField_updateBackgroundForHighlighted:self.isFirstResponder];
+    }
+}
+
+- (void)willMoveToWindow:(UIWindow *)newWindow {
+    [super willMoveToWindow:newWindow];
+    [self _setupAppearance];
+    
+    if (self.formItemKey) {
+        id<MBGeneralItemExchanging> vc = (id)self.viewController;
+        if (newWindow) {
+            id v = [vc.item valueForKey:self.formItemKey];
+            if (v) {
+                self.text = v;
+            }
+        }
+        else {
+            [vc.item setValue:self.text forKey:self.formItemKey];
+        }
+    }
+}
+
+#pragma mark - Style Appearance
+
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    [self _setupAppearance];
+}
+
+- (void)_setupAppearance {
+    if (self.appearanceSetupDone) return;
+    self.appearanceSetupDone = YES;
+    if (!self.skipAppearanceSetup) {
+        [self setupAppearance];
+    }
+}
+
+- (void)setupAppearance {
+    // for overwrite
 }
 
 #pragma mark - 修改 place holder 文字样式
@@ -81,6 +110,12 @@ RFInitializingRootForUIView
 }
 
 #pragma mark - 文字距边框设定
+- (void)setTextEdgeInsets:(UIEdgeInsets)textEdgeInsets {
+    if (UIEdgeInsetsEqualToEdgeInsets(_textEdgeInsets, textEdgeInsets)) return;
+    _textEdgeInsets = textEdgeInsets;
+    [self setNeedsLayout];
+}
+
 - (CGRect)textRectForBounds:(CGRect)bounds {
     return UIEdgeInsetsInsetRect(bounds, self.textEdgeInsets);
 }
@@ -97,10 +132,7 @@ RFInitializingRootForUIView
 - (BOOL)becomeFirstResponder {
     BOOL can = [super becomeFirstResponder];
     if (can) {
-        if (!self.noBorder) {
-            self.background = self.backgroundHighlightedImage;
-            doutp(self.backgroundImage)
-        }
+        [self MBTextField_updateBackgroundForHighlighted:YES];
     }
     return can;
 }
@@ -108,16 +140,117 @@ RFInitializingRootForUIView
 - (BOOL)resignFirstResponder {
     BOOL can = [super resignFirstResponder];
     if (can) {
-        if (!self.noBorder) {
-            self.background = self.backgroundImage;
-        }
+        [self MBTextField_updateBackgroundForHighlighted:NO];
     }
     return can;
+}
+
+- (void)MBTextField_updateBackgroundForHighlighted:(BOOL)highlighted {
+    if (self.noBorder) return;
+    if (highlighted
+        && self.backgroundHighlightedImage) {
+        self.background = self.backgroundHighlightedImage;
+    }
+    if (self.backgroundImage) {
+        self.background = self.backgroundImage;
+    }
+}
+
+#pragma mark - 自动获取焦点
+
+- (void)didMoveToWindow {
+    [super didMoveToWindow];
+    if (self.window && self.autoBecomeFirstResponder) {
+        [self becomeFirstResponder];
+    }
+}
+
+#pragma mark - 表单
+
+- (BOOL)isFieldVaild {
+    return YES;
+}
+
+- (void (^)(UITextField *, id))MBTextField_didEndEditing {
+    return ^(UITextField *aTextField, id<UITextFieldDelegate> delegate) {
+        MBTextField *textField = (id)aTextField;
+        if (textField.formItemKey) {
+            id<MBGeneralItemExchanging> vc = (id)textField.viewController;
+            RFAssert([vc respondsToSelector:@selector(item)], @"MBTextField has formItemKey sets but it's vc not have an item");
+            [vc.item setValue:textField.text forKey:textField.formItemKey];
+        }
+        if ([delegate respondsToSelector:@selector(textFieldDidEndEditing:)]) {
+            [delegate textFieldDidEndEditing:aTextField];
+        }
+    };
+}
+
+#pragma mark - Next Filed
+
+- (void)setNextField:(id)nextField {
+    _nextField = nextField;
+    if (self.appearanceSetupDone) {
+        [self MBTextField_setupReturnKeyType];
+    }
+}
+
+- (void)MBTextField_setupReturnKeyType {
+    if ([self.nextField isKindOfClass:UITextField.class] || [self.nextField isKindOfClass:UITextView.class]) {
+        self.returnKeyType = UIReturnKeyNext;
+    }
+    else if ([self.nextField isKindOfClass:UIBarButtonItem.class]) {
+        self.returnKeyType = UIReturnKeyDone;
+    }
+    else {
+        self.returnKeyType = UIReturnKeySend;
+    }
+}
+
+- (BOOL (^)(UITextField *, id))MBTextField_shouldReturn {
+    return ^BOOL(UITextField *aTextField, id<UITextFieldDelegate> delegate) {
+        MBTextField *textField = (id)aTextField;
+        if ([delegate respondsToSelector:@selector(textFieldShouldReturn:)]) {
+            if (![delegate textFieldShouldReturn:textField]) {
+                return NO;
+            }
+        }
+        if (![textField isKindOfClass:MBTextField.class]) return YES;
+        
+        id next = textField.nextField;
+        if ([next isKindOfClass:UIControl.class]) {
+            UIControl *c = next;
+            if (c.isEnabled) {
+                [textField resignFirstResponder];
+                [c sendActionsForControlEvents:UIControlEventTouchUpInside];
+            }
+        }
+        if ([next isKindOfClass:UIBarButtonItem.class]) {
+            UIBarButtonItem *bi = (UIBarButtonItem *)next;
+            if (bi.isEnabled) {
+                [textField resignFirstResponder];
+                [UIApplication.sharedApplication sendAction:bi.action to:bi.target from:bi forEvent:nil];
+            }
+        }
+        
+        if ([next respondsToSelector:@selector(canBecomeFirstResponder)]) {
+            if ([next canBecomeFirstResponder]) {
+                [next becomeFirstResponder];
+            }
+        }
+        return YES;
+    };
 }
 
 #pragma mark - 文本长度限制
 
 - (void)MBTextField_onTextFieldChanged:(UITextField *)textField {
+    if (self.iconImageView) {
+        BOOL on = textField.text.length;
+        if (!self.isFieldVaild) {
+            on = NO;
+        }
+        self.iconImageView.highlighted = on;
+    }
     if (!self.maxLength) return;
 
     // Skip multistage text input
@@ -168,29 +301,11 @@ RFInitializingRootForUIView
 }
 
 - (UITextFiledDelegateChain *)trueDelegate {
-    if (!_trueDelegate) {
-        _trueDelegate = [UITextFiledDelegateChain new];
-        [_trueDelegate setShouldReturn:^BOOL(UITextField *aTextField, id<UITextFieldDelegate> delegate) {
-            MBTextField *textField = (id)aTextField;
-            if ([delegate respondsToSelector:@selector(textFieldShouldReturn:)]) {
-                if (![delegate textFieldShouldReturn:textField]) {
-                    return NO;
-                }
-            }
-            if (![textField isKindOfClass:[MBTextField class]]) return YES;
-
-            if ([textField.nextField isKindOfClass:[UITextField class]]
-                || [textField.nextField isKindOfClass:[UITextView class]]) {
-                [textField.nextField becomeFirstResponder];
-            }
-            if ([textField.nextField isKindOfClass:[UIControl class]]) {
-                [(UIControl *)textField.nextField sendActionsForControlEvents:UIControlEventTouchUpInside];
-            }
-            return YES;
-        }];
-
-        [_trueDelegate setShouldChangeCharacters:self.MBTextField_shouldChangeCharacters];
-    }
+    if (_trueDelegate) return _trueDelegate;
+    _trueDelegate = UITextFiledDelegateChain.new;
+    [_trueDelegate setShouldReturn:self.MBTextField_shouldReturn];
+    [_trueDelegate setDidEndEditing:self.MBTextField_didEndEditing];
+    [_trueDelegate setShouldChangeCharacters:self.MBTextField_shouldChangeCharacters];
     return _trueDelegate;
 }
 @end

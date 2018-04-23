@@ -32,7 +32,10 @@ void DebugAlert(NSString *_Nonnull format, ...) {
     va_start(args, format);
     NSString *msg = [[NSString alloc] initWithFormat:format arguments:args];
     va_end(args);
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     [UIAlertView showWithTitle:@"Debug Only" message:msg buttonTitle:nil];
+#pragma clang diagnostic pop
 }
 
 void DebugLog(BOOL fatal, NSString *_Nullable recordID, NSString *_Nonnull format, ...) {
@@ -51,25 +54,12 @@ void DebugLog(BOOL fatal, NSString *_Nullable recordID, NSString *_Nonnull forma
     if (AppDebugConfig().debugMode) {
         // alsert
         dispatch_sync_on_main(^{
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
             [UIAlertView showWithTitle:@"Debug Only" message:msg buttonTitle:nil];
+#pragma clang diagnostic pop
         });
     }
-    if (recordID
-        && ![@MBBuildConfiguration isEqualToString:@"Debug"]) {
-        [MBAnalytics recordError:[NSError errorWithDomain:recordID code:1 localizedDescription:msg] withAttributes:nil];
-    }
-}
-
-void RFErrorAlert(NSString *_Nullable recordID, NSString *_Nonnull format, ...) {
-    va_list args;
-    va_start(args, format);
-    NSString *msg = [[NSString alloc] initWithFormat:format arguments:args];
-    va_end(args);
-
-    dispatch_sync_on_main(^{
-        [UIAlertView showWithTitle:@"应用出错了" message:msg buttonTitle:@"(>﹏<)"];
-    });
-
     if (recordID
         && ![@MBBuildConfiguration isEqualToString:@"Debug"]) {
         [MBAnalytics recordError:[NSError errorWithDomain:recordID code:1 localizedDescription:msg] withAttributes:nil];

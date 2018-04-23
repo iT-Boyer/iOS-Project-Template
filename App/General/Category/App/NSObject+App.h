@@ -9,7 +9,7 @@
 
 @interface NSObject (App)
 
-/// 类名字符串
+/// 类名字符串，Swift 类名只保留 . 最后的部分
 @property (class, nonnull, readonly) NSString *className;
 
 /// 类名字符串

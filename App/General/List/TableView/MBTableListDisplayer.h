@@ -18,8 +18,7 @@
  */
 @interface MBTableListDisplayer : UITableViewController <
     RFInitializing,
-    MBGeneralListDisplaying,
-    MBGeneralSegue
+    MBGeneralListDisplaying
 >
 
 @property (nonatomic) MBTableView *tableView;
@@ -39,8 +38,7 @@
  listDisplayer 正常通过 UIContainerView 或 RFContainerView 嵌入。不自动嵌入是考虑到列表的位置不总是固定填满的
  */
 @interface MBTableListController : UIViewController <
-    MBGeneralListDisplaying,
-    MBGeneralSegue
+    MBGeneralListDisplaying
 >
 @property (strong, nonatomic) IBInspectable NSString *APIName;
 

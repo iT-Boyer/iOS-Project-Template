@@ -1,6 +1,8 @@
 #! /bin/sh
 
-ScriptPath=$(dirname $0)
+set -euo pipefail
+
+readonly ScriptPath=$(dirname $0)
 
 Sort () {
     if [[ "$1" == *Pods.xcodeproj ]]; then
@@ -14,5 +16,5 @@ export ScriptPath
 export -f Sort
 find . -name "*.xcodeproj" -maxdepth 2 -exec bash -c 'Sort "{}"' \;
 
-timeFile="$ScriptPath/PreBuild.time"
+readonly timeFile="$ScriptPath/PreBuild.time"
 touch "$timeFile"

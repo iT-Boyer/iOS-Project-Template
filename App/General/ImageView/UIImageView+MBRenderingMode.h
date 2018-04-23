@@ -1,16 +1,18 @@
-//
-//  UIImageView+MBRenderingMode.h
-//  Feel
-//
-//  Created by BB9z on 12/31/15.
-//  Copyright © 2015 Beijing ZhiYun ZhiYuan Technology Co., Ltd. All rights reserved.
-//
-
+/*!
+ UIImageView+MBRenderingMode
+ 
+ Copyright © 2018 RFUI.
+ Copyright © 2015 Beijing ZhiYun ZhiYuan Technology Co., Ltd.
+ https://github.com/BB9z/iOS-Project-Template
+ 
+ Apache License, Version 2.0
+ http://www.apache.org/licenses/LICENSE-2.0
+ */
 #import "Common.h"
 
 /**
  从 iOS 7 开始，系统就支持将图片按照给的颜色渲染，
- 但即使 iOS 9，image view 对这个过程的处理仍与预期不符。
+ 但即使 iOS 9，image view 对这个过程的处理仍与预期不符。iOS 11，刷新一下后颜色才能变更。
  
  iOS 9.2 SDK 下，具体表现是：
  

@@ -1,23 +1,21 @@
 /*!
-    UIKit+App
+ UIKit+App
+ 
+ Copyright © 2018 RFUI.
+ Copyright © 2014 Chinamobo Co., Ltd.
+ https://github.com/BB9z/iOS-Project-Template
 
-    Copyright © 2014 Chinamobo Co., Ltd.
-    https://github.com/Chinamobo/iOS-Project-Template
-
-    Apache License, Version 2.0
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    全局资源共享
-
-    把可重复利用的资源放在这里
+ Apache License, Version 2.0
+ http://www.apache.org/licenses/LICENSE-2.0
+ 
+ 全局资源共享
+ 
+ 把可重复利用的资源放在这里
  */
 
-#import "RFKit.h"
-#import "NSDate+RFKit.h"
-#import "NSDateFormatter+RFKit.h"
-#import "UITableView+RFTableViewCellHeight.h"
-
-
+#import <RFKit/RFKit.h>
+#import <RFKit/NSDate+RFKit.h>
+#import <RFKit/NSDateFormatter+RFKit.h>
 
 #pragma mark -
 
@@ -50,6 +48,7 @@ FOUNDATION_EXTERN UIStoryboard *_Nonnull MainStoryboard;
 #import "NSURL+App.h"
 
 #if !TARGET_OS_WATCH
+#import "UIAlertController+App.h"
 #import "UIButton+App.h"
 #import "UICollectionView+App.h"
 #import "UIColor+App.h"

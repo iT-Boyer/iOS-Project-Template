@@ -9,20 +9,14 @@
     http://www.apache.org/licenses/LICENSE-2.0
  */
 #import "MBListDataSource.h"
-#import "RFTableViewCellHeightDelegate.h"
 
 @interface MBTableViewDataSource : MBListDataSource <
-    RFTableViewCellHeightDataSource
+    UITableViewDataSource
 >
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 /// 暂不可用
 @property (weak, nonatomic) id<UITableViewDataSource> delegate;
-
-/**
- 
- */
-@property (copy, nonatomic) void (^fetchItems)(NSMutableArray *items, id tableView, BOOL nextPage);
 
 /**
  完成后，列表已经刷新完毕
