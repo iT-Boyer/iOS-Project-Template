@@ -1263,7 +1263,6 @@
 				D5197A3717EECAAF00CA387C /* Frameworks */,
 				D5197A3817EECAAF00CA387C /* Resources */,
 				D5197D2D17F0258B00CA387C /* Our Build Script */,
-				F2DFB66D95DD26FE685B3ECF /* [CP] Embed Pods Frameworks */,
 				2DE8D2BB7E9D92CB80E78841 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
@@ -1381,21 +1380,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "#! /bin/sh\n# BuildCount 0.4.0\n# Copyright (c) 2013 Chinamobo Co., Ltd. All rights reserved.\n\nexport scriptPath=\"$SRCROOT/Scripts\"\nexport buildCountRecordFile=\"$scriptPath/BuildCountRecord.plist\"\n\n# 配置开关\n# 自动增加构建数\nexport enableAutoBuildCount=1\nexport autoBuildCountUseDataFormat=0\nexport autoBuildCountDataFormat=\"+%y%m%d\"\n\n\"$scriptPath/MBAutoBuildScript_BuildCount.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F2DFB66D95DD26FE685B3ECF /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-App/Pods-App-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1762,7 +1746,7 @@
 				EnableCodeCommentsHighlight = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				ProjectFilePath = "${SRCROOT}/${PROJECT}.xcodeproj";
-				ScriptPath = $SRCROOT/Scripts;
+				ScriptPath = "$SRCROOT/Scripts";
 			};
 			name = Debug;
 		};
@@ -1777,7 +1761,7 @@
 				EnableCodeCommentsHighlight = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				ProjectFilePath = "${SRCROOT}/${PROJECT}.xcodeproj";
-				ScriptPath = $SRCROOT/Scripts;
+				ScriptPath = "$SRCROOT/Scripts";
 			};
 			name = Release;
 		};
@@ -1873,7 +1857,7 @@
 				EnableCodeCommentsHighlight = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				ProjectFilePath = "${SRCROOT}/${PROJECT}.xcodeproj";
-				ScriptPath = $SRCROOT/Scripts;
+				ScriptPath = "$SRCROOT/Scripts";
 			};
 			name = Alpha;
 		};
