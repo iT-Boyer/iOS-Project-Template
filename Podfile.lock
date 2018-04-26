@@ -7,9 +7,9 @@ PODS:
   - AFNetworking/Security (2.6.3)
   - AFNetworking/Serialization (2.6.3)
   - JSONModel (1.7.0)
-  - MBAppKit (0.5.0):
-    - MBAppKit/Core (= 0.5.0)
-  - MBAppKit/Core (0.5.0):
+  - MBAppKit (0.6.0):
+    - MBAppKit/Core (= 0.6.0)
+  - MBAppKit/Core (0.6.0):
     - AFNetworking/NSURLConnection (~> 2.6)
     - RFAlpha/RFSwizzle
     - RFAPI (~> 1.1)
@@ -289,7 +289,7 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   JSONModel: 840bc0fcffb24b8454d2c026bf26fea454b8e98d
-  MBAppKit: 152a226098cc3e0a8c5b787874cce1de168ef85f
+  MBAppKit: 895724c21293e354c18713d4a61070bd070409e1
   PreBuild: e364b0801808623a87f3bc8ce2618b778a49380b
   RFAlpha: 2759a948db7f98c3b7687812a6074e4757f92cfe
   RFAPI: ad34a972e4c4813eea26ff2b6273e2d569772ebb

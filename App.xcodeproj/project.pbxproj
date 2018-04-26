@@ -92,7 +92,6 @@
 		D5EE51282043DAA2009148B3 /* UICollectionView+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE50F72043DAA1009148B3 /* UICollectionView+App.m */; };
 		D5EE51292043DAA2009148B3 /* NSDateFormatter+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE50F92043DAA1009148B3 /* NSDateFormatter+App.m */; };
 		D5EE512A2043DAA2009148B3 /* NSOperationQueue+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE50FA2043DAA1009148B3 /* NSOperationQueue+App.m */; };
-		D5EE512B2043DAA2009148B3 /* NSObject+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE50FB2043DAA1009148B3 /* NSObject+App.m */; };
 		D5EE512C2043DAA2009148B3 /* UIColor+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE51032043DAA1009148B3 /* UIColor+App.m */; };
 		D5EE512D2043DAA2009148B3 /* NSString+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE510A2043DAA1009148B3 /* NSString+App.m */; };
 		D5EE512E2043DAA2009148B3 /* UIView+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE510C2043DAA1009148B3 /* UIView+App.m */; };
@@ -310,7 +309,6 @@
 		D5EE50D32043CCCD009148B3 /* Realm+ZYHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Realm+ZYHelper.m"; sourceTree = "<group>"; };
 		D5EE50D52043CECE009148B3 /* APApplicationDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APApplicationDelegate.m; sourceTree = "<group>"; };
 		D5EE50D62043CECE009148B3 /* APApplicationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APApplicationDelegate.h; sourceTree = "<group>"; };
-		D5EE50E12043DAA1009148B3 /* NSObject+App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+App.h"; sourceTree = "<group>"; };
 		D5EE50E22043DAA1009148B3 /* NSOperationQueue+App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSOperationQueue+App.h"; sourceTree = "<group>"; };
 		D5EE50E32043DAA1009148B3 /* NSDateFormatter+App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+App.h"; sourceTree = "<group>"; };
 		D5EE50E42043DAA1009148B3 /* NSArray+App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+App.m"; sourceTree = "<group>"; };
@@ -336,7 +334,6 @@
 		D5EE50F82043DAA1009148B3 /* NSArray+App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+App.h"; sourceTree = "<group>"; };
 		D5EE50F92043DAA1009148B3 /* NSDateFormatter+App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+App.m"; sourceTree = "<group>"; };
 		D5EE50FA2043DAA1009148B3 /* NSOperationQueue+App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSOperationQueue+App.m"; sourceTree = "<group>"; };
-		D5EE50FB2043DAA1009148B3 /* NSObject+App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+App.m"; sourceTree = "<group>"; };
 		D5EE50FC2043DAA1009148B3 /* NSNumber+App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+App.h"; sourceTree = "<group>"; };
 		D5EE50FD2043DAA1009148B3 /* UILabel+App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+App.h"; sourceTree = "<group>"; };
 		D5EE50FE2043DAA1009148B3 /* UIFont+App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+App.h"; sourceTree = "<group>"; };
@@ -1003,8 +1000,6 @@
 				D5EE50F92043DAA1009148B3 /* NSDateFormatter+App.m */,
 				D5EE50FC2043DAA1009148B3 /* NSNumber+App.h */,
 				D5EE50E72043DAA1009148B3 /* NSNumber+App.m */,
-				D5EE50E12043DAA1009148B3 /* NSObject+App.h */,
-				D5EE50FB2043DAA1009148B3 /* NSObject+App.m */,
 				D5EE50E22043DAA1009148B3 /* NSOperationQueue+App.h */,
 				D5EE50FA2043DAA1009148B3 /* NSOperationQueue+App.m */,
 				D5EE51082043DAA1009148B3 /* NSRegularExpression+App.h */,
@@ -1479,7 +1474,6 @@
 				D5EE51222043DAA2009148B3 /* NSDate+App.m in Sources */,
 				D5EE51292043DAA2009148B3 /* NSDateFormatter+App.m in Sources */,
 				D5EE511C2043DAA2009148B3 /* NSNumber+App.m in Sources */,
-				D5EE512B2043DAA2009148B3 /* NSObject+App.m in Sources */,
 				D5EE512A2043DAA2009148B3 /* NSOperationQueue+App.m in Sources */,
 				D5EE511D2043DAA2009148B3 /* NSRegularExpression+App.m in Sources */,
 				D5EE512D2043DAA2009148B3 /* NSString+App.m in Sources */,
@@ -1746,7 +1740,7 @@
 				EnableCodeCommentsHighlight = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				ProjectFilePath = "${SRCROOT}/${PROJECT}.xcodeproj";
-				ScriptPath = "$SRCROOT/Scripts";
+				ScriptPath = $SRCROOT/Scripts;
 			};
 			name = Debug;
 		};
@@ -1761,7 +1755,7 @@
 				EnableCodeCommentsHighlight = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				ProjectFilePath = "${SRCROOT}/${PROJECT}.xcodeproj";
-				ScriptPath = "$SRCROOT/Scripts";
+				ScriptPath = $SRCROOT/Scripts;
 			};
 			name = Release;
 		};
@@ -1857,7 +1851,7 @@
 				EnableCodeCommentsHighlight = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				ProjectFilePath = "${SRCROOT}/${PROJECT}.xcodeproj";
-				ScriptPath = "$SRCROOT/Scripts";
+				ScriptPath = $SRCROOT/Scripts;
 			};
 			name = Alpha;
 		};

@@ -41,7 +41,6 @@ FOUNDATION_EXTERN UIStoryboard *_Nonnull MainStoryboard;
 #import "NSDate+App.h"
 #import "NSDateFormatter+App.h"
 #import "NSNumber+App.h"
-#import "NSObject+App.h"
 #import "NSOperationQueue+App.h"
 #import "NSRegularExpression+App.h"
 #import "NSString+App.h"

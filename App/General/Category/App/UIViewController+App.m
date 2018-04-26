@@ -1,5 +1,6 @@
 
 #import "UIViewController+App.h"
+#import <MBAppKit/NSObject+MBAppKit.h>
 
 @implementation UIViewController (App)
 

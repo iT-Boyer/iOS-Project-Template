@@ -24,7 +24,7 @@ void MBViewModelPropertySetterIMP(__kindof MBViewModel *self, id __strong *oldVa
         *oldValue = newValue;
         return;
     }
-    if (MBObjectIsEquail(*oldValue, newValue)) return;
+    if (NSObjectIsEquail(*oldValue, newValue)) return;
     id orgValue = *oldValue;
     *oldValue = newValue;
 
