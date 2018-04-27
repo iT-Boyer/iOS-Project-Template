@@ -1,7 +1,7 @@
 
 #import "CALayer+MBAnimationPersistence.h"
-#import "RFSynthesizeCategoryProperty.h"
-
+#import <UIKit/UIKit.h>
+#import <RFAlpha/RFSynthesizeCategoryProperty.h>
 
 /// TechNote QA1673 - How to pause the animation of a layer tree
 /// @see https://developer.apple.com/library/ios/qa/qa1673/_index.html
@@ -19,7 +19,6 @@ static void MBResumeLayer(CALayer *layer) {
     CFTimeInterval timeSincePause = [layer convertTime:CACurrentMediaTime() fromLayer:nil] - pausedTime;
     layer.beginTime = timeSincePause;
 }
-
 
 @interface MBPersistentAnimationContainer : NSObject
 @property (nonatomic, weak) CALayer *layer;

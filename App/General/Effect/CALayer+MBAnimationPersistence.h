@@ -24,11 +24,10 @@
  THE SOFTWARE.
  */
 
-@import UIKit;
-@import QuartzCore;
+#import <QuartzCore/QuartzCore.h>
 
 /**
- CALayer 的动画在 view 移除 window 和应用进入后台都会被移除，
+ CALayer 的动画在 view 移出 window 和应用进入后台都会被移除，
  这个扩展可以在应用进入后台后自动恢复动画，切换界面导致的动画移除需要手动调用 MBResumePersistentAnimationsIfNeeded
  
  在恢复前，需要调用 MBPersistCurrentAnimations 或指定 MBPersistentAnimationKeys 决定哪些动画需要恢复
@@ -69,7 +68,7 @@
  
  Set to `nil`to disable persistance.
  */
-@property (nonatomic, nullable, strong) NSArray<NSString *> *MBPersistentAnimationKeys;
+@property (nonatomic, nullable) NSArray<NSString *> *MBPersistentAnimationKeys;
 
 /**
  Set all current `animationKeys` as persistent.

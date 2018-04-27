@@ -110,12 +110,10 @@
 		D5EE517F2043F5E6009148B3 /* ZYPasswordTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE51672043F5E5009148B3 /* ZYPasswordTextField.m */; };
 		D5EE51812043F5E6009148B3 /* MBTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE51692043F5E5009148B3 /* MBTextView.m */; };
 		D5EE51822043F5E6009148B3 /* ZYVerifyTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE516B2043F5E5009148B3 /* ZYVerifyTextField.m */; };
-		D5EE51842043F5E6009148B3 /* MBTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE516E2043F5E5009148B3 /* MBTextField.m */; };
 		D5EE51852043F5E6009148B3 /* MBDatePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5EE51712043F5E5009148B3 /* MBDatePickerViewController.xib */; };
 		D5EE51862043F5E6009148B3 /* MBDatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE51732043F5E5009148B3 /* MBDatePickerViewController.m */; };
 		D5EE51872043F5E6009148B3 /* MBSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE51762043F5E5009148B3 /* MBSearchViewController.m */; };
 		D5EE51892043F5E6009148B3 /* MBFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE51782043F5E6009148B3 /* MBFormViewController.m */; };
-		D5EE51932043F5EB009148B3 /* MBApplicationFont.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE518F2043F5EB009148B3 /* MBApplicationFont.m */; };
 		D5EE519A2043F5F3009148B3 /* CALayer+MBAnimationPersistence.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE51952043F5F3009148B3 /* CALayer+MBAnimationPersistence.m */; };
 		D5EE51E32043F613009148B3 /* MBAutoFadeoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE519F2043F612009148B3 /* MBAutoFadeoutView.m */; };
 		D5EE51E42043F613009148B3 /* MBDispatchTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE51A02043F612009148B3 /* MBDispatchTimer.m */; };
@@ -150,7 +148,6 @@
 		D5EE52212043F6A7009148B3 /* MBCollectionViewEqualColumnSpaceLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE521B2043F6A6009148B3 /* MBCollectionViewEqualColumnSpaceLayout.m */; };
 		D5EE52392043F7B9009148B3 /* MBTouchEffectButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE522C2043F7B9009148B3 /* MBTouchEffectButton.m */; };
 		D5EE523B2043F7B9009148B3 /* MBLoadButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE522E2043F7B9009148B3 /* MBLoadButton.m */; };
-		D5EE523C2043F7B9009148B3 /* MBButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE522F2043F7B9009148B3 /* MBButton.m */; };
 		D5EE523D2043F7B9009148B3 /* ZYLayoutButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE52312043F7B9009148B3 /* ZYLayoutButton.m */; };
 		D5EE52472043FB6A009148B3 /* RFReferenceSizing.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE52402043FB69009148B3 /* RFReferenceSizing.m */; };
 		D5EE52482043FB6A009148B3 /* MBLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE52432043FB69009148B3 /* MBLabel.m */; };
@@ -296,7 +293,6 @@
 		D5D9F5112071BA6400B6FE9B /* UIViewController+RFInterfaceOrientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+RFInterfaceOrientation.h"; sourceTree = "<group>"; };
 		D5D9F5132071BA6500B6FE9B /* UIViewController+RFInterfaceOrientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+RFInterfaceOrientation.m"; sourceTree = "<group>"; };
 		D5DCA6EB2046972B00A4951A /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; name = Podfile; path = ../Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		D5DCA6F32046986300A4951A /* Podfile - AppKit */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; name = "Podfile - AppKit"; path = ../MBAppKit/Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		D5DCA6F52046988300A4951A /* Podfile - PreBuildCombine */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; name = "Podfile - PreBuildCombine"; path = ../PreBuild/Podfile; sourceTree = "<group>"; };
 		D5DCA6FB204698F700A4951A /* Appfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = Appfile; sourceTree = "<group>"; };
 		D5DCA6FC204698F700A4951A /* Fastfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = Fastfile; sourceTree = "<group>"; };
@@ -374,13 +370,11 @@
 		D5EE51612043F5E5009148B3 /* MBFormTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBFormTextField.m; sourceTree = "<group>"; };
 		D5EE51632043F5E5009148B3 /* MBTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBTextView.h; sourceTree = "<group>"; };
 		D5EE51642043F5E5009148B3 /* ZYVerifyTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYVerifyTextField.h; sourceTree = "<group>"; };
-		D5EE51662043F5E5009148B3 /* MBTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBTextField.h; sourceTree = "<group>"; };
 		D5EE51672043F5E5009148B3 /* ZYPasswordTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYPasswordTextField.m; sourceTree = "<group>"; };
 		D5EE51692043F5E5009148B3 /* MBTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBTextView.m; sourceTree = "<group>"; };
 		D5EE516A2043F5E5009148B3 /* MBFormTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBFormTextField.h; sourceTree = "<group>"; };
 		D5EE516B2043F5E5009148B3 /* ZYVerifyTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYVerifyTextField.m; sourceTree = "<group>"; };
 		D5EE516C2043F5E5009148B3 /* ZYPasswordTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYPasswordTextField.h; sourceTree = "<group>"; };
-		D5EE516E2043F5E5009148B3 /* MBTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBTextField.m; sourceTree = "<group>"; };
 		D5EE51712043F5E5009148B3 /* MBDatePickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MBDatePickerViewController.xib; sourceTree = "<group>"; };
 		D5EE51722043F5E5009148B3 /* MBDatePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBDatePickerViewController.h; sourceTree = "<group>"; };
 		D5EE51732043F5E5009148B3 /* MBDatePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBDatePickerViewController.m; sourceTree = "<group>"; };
@@ -388,8 +382,6 @@
 		D5EE51752043F5E5009148B3 /* MBSearchTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBSearchTextField.h; sourceTree = "<group>"; };
 		D5EE51762043F5E5009148B3 /* MBSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBSearchViewController.m; sourceTree = "<group>"; };
 		D5EE51782043F5E6009148B3 /* MBFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBFormViewController.m; sourceTree = "<group>"; };
-		D5EE518B2043F5EB009148B3 /* MBApplicationFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBApplicationFont.h; sourceTree = "<group>"; };
-		D5EE518F2043F5EB009148B3 /* MBApplicationFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBApplicationFont.m; sourceTree = "<group>"; };
 		D5EE51952043F5F3009148B3 /* CALayer+MBAnimationPersistence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+MBAnimationPersistence.m"; sourceTree = "<group>"; };
 		D5EE51962043F5F3009148B3 /* CALayer+MBAnimationPersistence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+MBAnimationPersistence.h"; sourceTree = "<group>"; };
 		D5EE519D2043F612009148B3 /* MBStateMachineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBStateMachineView.h; sourceTree = "<group>"; };
@@ -460,10 +452,8 @@
 		D5EE52292043F7B9009148B3 /* ZYLayoutButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYLayoutButton.h; sourceTree = "<group>"; };
 		D5EE522C2043F7B9009148B3 /* MBTouchEffectButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBTouchEffectButton.m; sourceTree = "<group>"; };
 		D5EE522E2043F7B9009148B3 /* MBLoadButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBLoadButton.m; sourceTree = "<group>"; };
-		D5EE522F2043F7B9009148B3 /* MBButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBButton.m; sourceTree = "<group>"; };
 		D5EE52312043F7B9009148B3 /* ZYLayoutButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYLayoutButton.m; sourceTree = "<group>"; };
 		D5EE52322043F7B9009148B3 /* MBTouchEffectButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBTouchEffectButton.h; sourceTree = "<group>"; };
-		D5EE52342043F7B9009148B3 /* MBButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBButton.h; sourceTree = "<group>"; };
 		D5EE52352043F7B9009148B3 /* MBLoadButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBLoadButton.h; sourceTree = "<group>"; };
 		D5EE52402043FB69009148B3 /* RFReferenceSizing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFReferenceSizing.m; sourceTree = "<group>"; };
 		D5EE52412043FB69009148B3 /* MBLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBLabel.h; sourceTree = "<group>"; };
@@ -705,7 +695,6 @@
 		D552DD7C18C8541D00D02290 /* General */ = {
 			isa = PBXGroup;
 			children = (
-				D5EE518A2043F5EB009148B3 /* Appearance */,
 				D5EE52282043F7B9009148B3 /* Button */,
 				D5EE50DF2043DAA1009148B3 /* Category */,
 				D5EE51942043F5F3009148B3 /* Effect */,
@@ -946,7 +935,6 @@
 			isa = PBXGroup;
 			children = (
 				D5DCA6EB2046972B00A4951A /* Podfile */,
-				D5DCA6F32046986300A4951A /* Podfile - AppKit */,
 				D5DCA6F52046988300A4951A /* Podfile - PreBuildCombine */,
 			);
 			name = Podfile;
@@ -1047,8 +1035,6 @@
 				D5F9F485208DC26600427201 /* MBFormFieldVerifyControl.m */,
 				D5EE516A2043F5E5009148B3 /* MBFormTextField.h */,
 				D5EE51612043F5E5009148B3 /* MBFormTextField.m */,
-				D5EE51662043F5E5009148B3 /* MBTextField.h */,
-				D5EE516E2043F5E5009148B3 /* MBTextField.m */,
 				D5EE51632043F5E5009148B3 /* MBTextView.h */,
 				D5EE51692043F5E5009148B3 /* MBTextView.m */,
 				D5EE516C2043F5E5009148B3 /* ZYPasswordTextField.h */,
@@ -1067,15 +1053,6 @@
 				D5EE51712043F5E5009148B3 /* MBDatePickerViewController.xib */,
 			);
 			path = Picker;
-			sourceTree = "<group>";
-		};
-		D5EE518A2043F5EB009148B3 /* Appearance */ = {
-			isa = PBXGroup;
-			children = (
-				D5EE518B2043F5EB009148B3 /* MBApplicationFont.h */,
-				D5EE518F2043F5EB009148B3 /* MBApplicationFont.m */,
-			);
-			path = Appearance;
 			sourceTree = "<group>";
 		};
 		D5EE51942043F5F3009148B3 /* Effect */ = {
@@ -1206,8 +1183,6 @@
 		D5EE52282043F7B9009148B3 /* Button */ = {
 			isa = PBXGroup;
 			children = (
-				D5EE52342043F7B9009148B3 /* MBButton.h */,
-				D5EE522F2043F7B9009148B3 /* MBButton.m */,
 				D5EE52352043F7B9009148B3 /* MBLoadButton.h */,
 				D5EE522E2043F7B9009148B3 /* MBLoadButton.m */,
 				D5EE52322043F7B9009148B3 /* MBTouchEffectButton.h */,
@@ -1399,11 +1374,9 @@
 				D5197A4A17EECAAF00CA387C /* main.m in Sources */,
 				D52EAE242043C424007219E0 /* MBAnalytics.m in Sources */,
 				D5542F161918B83400831016 /* MBApp.m in Sources */,
-				D5EE51932043F5EB009148B3 /* MBApplicationFont.m in Sources */,
 				D5EE51E32043F613009148B3 /* MBAutoFadeoutView.m in Sources */,
 				D5CB54591A302DD6003E53A4 /* MBAutoSearchBar.m in Sources */,
 				D5EE51F12043F613009148B3 /* MBBarButtonItem.m in Sources */,
-				D5EE523C2043F7B9009148B3 /* MBButton.m in Sources */,
 				D5B49EC51C4111B600847925 /* MBCollapsibleView.m in Sources */,
 				D5B49F0B1C41133A00847925 /* MBCollectionRefreshFooterView.m in Sources */,
 				D5B49F071C41133A00847925 /* MBCollectionView.m in Sources */,
@@ -1463,7 +1436,6 @@
 				D5B49F111C41133A00847925 /* MBTableViewDataSource.m in Sources */,
 				D5B49F1B1C41133A00847925 /* MBTableViewPullToFetchControl.m in Sources */,
 				D5EE51FF2043F613009148B3 /* MBTabScrollView.m in Sources */,
-				D5EE51842043F5E6009148B3 /* MBTextField.m in Sources */,
 				D5EE51812043F5E6009148B3 /* MBTextView.m in Sources */,
 				D5EE52392043F7B9009148B3 /* MBTouchEffectButton.m in Sources */,
 				D5EE51F62043F613009148B3 /* MBVauleLabel.m in Sources */,

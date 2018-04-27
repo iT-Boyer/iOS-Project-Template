@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Chinamobo. All rights reserved.
 //
 
+#import "Common.h"
 #import "MBTextField.h"
 
 /**

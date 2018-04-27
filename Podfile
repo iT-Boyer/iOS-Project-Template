@@ -37,7 +37,10 @@ target 'App' do
     pod 'RFKeyboard', :git => 'https://github.com/RFUI/RFKeyboard.git'
     pod 'RFMessageManager', :subspecs => ['SVProgressHUD']
     pod 'RFSegue', :subspecs => ['Async']
-    pod 'MBAppKit', :path => 'MBAppKit'
+    pod 'MBAppKit', :path => 'MBAppKit', :subspecs => [
+        'Button',
+        'Input'
+    ]
 
     pod 'PreBuild', :path => 'PreBuild'
 
