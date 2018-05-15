@@ -1,10 +1,3 @@
-//
-//  ShortCuts.m
-//  Feel
-//
-//  Created by BB9z on 12/12/15.
-//  Copyright © 2015 Beijing ZhiYun ZhiYuan Technology Co., Ltd. All rights reserved.
-//
 
 #import "ShortCuts.h"
 #import "App-Swift.h"

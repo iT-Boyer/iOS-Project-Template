@@ -25,24 +25,6 @@
 - (nonnull NSArray<ObjectType> *)historyArrayWithNewItems:(nullable NSArray *)items limit:(NSUInteger)limit;
 
 /**
- Returns an array containing the results of mapping transform over self.
-
- @return The mutable array returned may has a diffrent count with the receiver.
- */
-- (nonnull NSMutableArray *)rf_mapedArrayWithBlock:(NS_NOESCAPE id _Nullable (^_Nonnull)(ObjectType _Nonnull))block;
-
-/**
- 返回从当前数组中移除指定元素的新的数组
- */
-- (nonnull NSArray *)arrayByRemovingObject:(nullable ObjectType)anObject;
-
-/**
- 返回从当前数组中移除指定元素的新的数组
- */
-- (nonnull NSMutableArray<ObjectType> *)arrayByRemovingObjectsPassingTest:(BOOL (^_Nonnull)(ObjectType _Nonnull obj, NSUInteger idx, BOOL *_Nonnull stop))predicate;
-
-
-/**
  判断两数组是否有交集
  */
 - (BOOL)containsAnyObjectInArray:(nullable NSArray *)otherArray;
@@ -69,11 +51,6 @@
  只保留在给定数组中的元素，传入数组是空的话，会移除全部
  */
 - (void)removeObjectsNotInArray:(nullable NSArray *)otherArray;
-
-/**
- 将数组中元素顺序进行反转
- */
-- (void)revert;
 
 /**
  将数组元素从一个位置移动另一个位置

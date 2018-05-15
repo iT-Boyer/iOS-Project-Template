@@ -30,11 +30,6 @@ fastlane setup_project
 fastlane update_pods_combine
 ```
 更新 pods-combine
-### refresh_appkit
-```
-fastlane refresh_appkit
-```
-刷新 MBAppKit
 ### sort_project
 ```
 fastlane sort_project

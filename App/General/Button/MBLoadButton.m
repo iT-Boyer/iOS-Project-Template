@@ -16,7 +16,7 @@
 }
 
 - (void)setupAppearance {
-    [self setImage:[UIImage animatedIndicator] forState:UIControlStateDisabled];
+//    [self setImage:[UIImage animatedIndicator] forState:UIControlStateDisabled];
 }
 
 - (void)evaluateEnableStatus {

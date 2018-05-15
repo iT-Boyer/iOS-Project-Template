@@ -74,9 +74,9 @@
     }
     
     CGFloat wPage = _itemSize + self.minimumLineSpacing;
-    _dout(@"offset: %f, %f\t ix: %f, %f", offset, offsetCurrent, offset / wPage, offsetCurrent / wPage);
     double ixTarget = offset / wPage;
     double ixCurrent = (v > 0)? floor(offsetCurrent / wPage) : ceil(offsetCurrent / wPage);
+    _dout(@"offset: %f, %f\t ix: %f(%f), %f(%f)", offset, offsetCurrent, offset / wPage, ixTarget, offsetCurrent / wPage, ixCurrent);
     
     double ixFinal = ixTarget;
     // Limite page count change less than 2.
@@ -92,6 +92,11 @@
     else {
         proposedContentOffset.x = offsetFixed;
     }
+    
+    [UIView animateWithDuration:.2 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+        [self.collectionView setContentOffset:proposedContentOffset animated:NO];
+    } completion:nil];
+    
     return proposedContentOffset;
 }
 

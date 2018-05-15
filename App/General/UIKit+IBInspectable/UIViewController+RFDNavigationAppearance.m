@@ -8,8 +8,8 @@
 
 #import "UIViewController+RFDNavigationAppearance.h"
 #import "MBNavigationController.h"
-#import "RFNavigationController.h"
 #import "RFSynthesizeCategoryProperty.h"
+#import <RFKit/NSDictionary+RFKit.h>
 
 @implementation UIViewController (RFDNavigationAppearance)
 

@@ -1,12 +1,15 @@
-//
-//  MBEnvironment.h
-//  Feel
-//
-//  Created by BB9z on 23/12/2016.
-//  Copyright © 2016 Beijing ZhiYun ZhiYuan Technology Co., Ltd. All rights reserved.
-//
-
-#import "Common.h"
+/*!
+ MBEnvironment
+ MBAppKit
+ 
+ Copyright © 2018 RFUI.
+ Copyright © 2016 Beijing ZhiYun ZhiYuan Technology Co., Ltd.
+ https://github.com/RFUI/MBAppKit
+ 
+ Apache License, Version 2.0
+ http://www.apache.org/licenses/LICENSE-2.0
+ */
+#import <RFKit/RFRuntime.h>
 
 typedef int32_t MBENVFlag;
 
@@ -102,39 +105,3 @@ typedef int32_t MBENVFlag;
 + (void)setAsApplicationDefaultEnvironment:(nonnull MBEnvironment *)env;
 
 @end
-
-
-/**
- 关于状态
- 
-    MBENVFlag 描述的应该是可以持续的状态，而不是一个瞬间发生的事件，
-    事件用通知、delegate 之类的响应就好了，MBEnvironment 不是干这个的。
-
- @warning MBENVFlag 状态不应持久化
- */
-typedef NS_OPTIONS(MBENVFlag, MBEnvironmentFlag) {
-    //- 应用整体状态
-    /// 应用现在处于前台
-    MBENVAppInForeground                = 1 << 0,
-
-    /// 应用启动后至少进过一次前台
-    MBENVAppHasEnterForegroundOnce      = 1 << 1,
-
-    //- 用户状态
-    /// 用户已登入
-    MBENVUserHasLogged                  = 1 << 5,
-
-    /// 本次启动当前用户的用户信息已成功获取过
-    MBENVUserInfoFetched                = 1 << 6,
-
-    //- 模块生命周期
-    /// 导航已加载
-    MBENVNaigationLoaded                = 1 << 10,
-    
-    /// 主页，dashboard 已获取
-    MBENVMainViewReady                  = 1 << 11,
-    
-    /// 主页，打卡详情已成功加载过
-    MBENVMainViewHasDetailFetched       = 1 << 12,
-};
-

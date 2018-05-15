@@ -1,5 +1,6 @@
 
 #import "MBEnvironment.h"
+#import <RFKit/NSArray+RFKit.h>
 
 @interface MBEnvironmentObserver : NSObject
 @property MBENVFlag flags;
@@ -119,7 +120,7 @@ static NSMutableArray<MBEnvironmentObserver *> *MBApplicationDefaultHandlers;
                 ob.hasCalledWhenMeet = YES;
             }
             else if (ob.target) {
-                [[UIApplication sharedApplication] sendAction:ob.selector to:ob.target from:self forEvent:nil];
+                [UIApplication.sharedApplication sendAction:ob.selector to:ob.target from:self forEvent:nil];
                 ob.hasCalledWhenMeet = YES;
             }
             else {

@@ -36,30 +36,6 @@
     return history;
 }
 
-- (nonnull NSMutableArray *)rf_mapedArrayWithBlock:(id _Nullable (^_Nonnull)(id _Nonnull))block {
-    NSMutableArray *map = [NSMutableArray arrayWithCapacity:self.count];
-    [self enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        id value = block(obj);
-        [map rf_addObject:value];
-    }];
-    return map;
-}
-
-- (NSArray *)arrayByRemovingObject:(id)anObject {
-    if (![self containsObject:anObject]) {
-        return self.copy;
-    }
-    NSMutableArray *newArr = self.mutableCopy;
-    [newArr removeObject:anObject];
-    return newArr.copy;
-}
-
-- (NSArray *)arrayByRemovingObjectsPassingTest:(BOOL (^_Nonnull)(id _Nonnull obj, NSUInteger idx, BOOL *_Nonnull stop))predicate {
-    NSMutableArray *newArr = self.mutableCopy;
-    [newArr removeObjectsPassingTest:predicate];
-    return newArr;
-}
-
 - (BOOL)containsAnyObjectInArray:(nullable NSArray *)otherArray {
     for (id object in otherArray) {
         if ([self containsObject:object]) return YES;
@@ -93,11 +69,6 @@
     [self removeObjectsPassingTest:^BOOL(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         return ![otherArray containsObject:obj];
     }];
-}
-
-- (void)revert {
-    NSArray *revertedArr = self.reverseObjectEnumerator.allObjects;
-    [self setArray:revertedArr];
 }
 
 - (void)moveObjectAtIndex:(NSUInteger)fromIndex toIndex:(NSUInteger)toIndex {

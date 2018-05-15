@@ -13,6 +13,7 @@
 @implementation MBNavigationController
 
 - (void)onInit {
+    _operationQueue = [NSMutableArray arrayWithCapacity:10];
     [super onInit];
     RFAssert(![MBApp status].globalNavigationController, @"重复设置全局导航？");
     [MBApp status].globalNavigationController = self;
@@ -51,6 +52,60 @@
             viewController.navigationItem.backBarButtonItem = [UIBarButtonItem.alloc initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
         }
     }
+    [self changeNavigationStack:^(MBNavigationController *this) {
+        [this setNeedsPerformNavigationOperation];
+    }];
+}
+
+#pragma mark - 导航队列
+
+- (void)setNeedsPerformNavigationOperation {
+    if (!self.operationQueue.count
+        || !self.shouldPerfromQunedQperation) return;
+    
+    MBNavigationOperation *perfromedOp = nil;
+    if ((perfromedOp = [self perfromedNavigationOperation])) {
+        [self.operationQueue removeObject:perfromedOp];
+        return;
+    }
+}
+
+- (BOOL)shouldPerfromQunedQperation {
+    if (self.transitionCoordinator) return NO;
+    if (self.presentedViewController) return NO;
+    
+    // 键盘弹出忽略
+    if (UIResponder.firstResponder) return NO;
+    
+    if ([self.topViewController conformsToProtocol:@protocol(UIViewControllerIsFlowScence)]) {
+        return NO;
+    }
+    return YES;
+}
+
+- (nullable MBNavigationOperation *)perfromedNavigationOperation {
+    id performedOp = nil;
+    NSMutableArray *needsRemovedOps = nil;
+    for (__kindof MBNavigationOperation *op in self.operationQueue) {
+        NSArray<Class> *topVCClasses = op.topViewControllers;
+        if (topVCClasses && ![topVCClasses containsObject:self.topViewController.class]) continue;
+        
+        if ([op perform:self]) {
+            performedOp = op;
+            break;
+        }
+        else {
+            if (!needsRemovedOps) {
+                needsRemovedOps = [NSMutableArray.alloc initWithCapacity:self.operationQueue.count];
+            }
+            [needsRemovedOps addObject:op];
+        }
+    } // END: each in operationQueue
+    
+    if (needsRemovedOps.count) {
+        [self.operationQueue removeObjectsInArray:needsRemovedOps];
+    }
+    return performedOp;
 }
 
 @end
@@ -63,6 +118,16 @@
     [self popViewControllerAnimated:YES];
 }
 
+- (void)changeNavigationStack:(void (^)(MBNavigationController * _Nonnull))block {
+    id <UIViewControllerTransitionCoordinator> co = self.transitionCoordinator;
+    if (!co) {
+        block(self);
+    }
+    [co animateAlongsideTransition:nil completion:^(id<UIViewControllerTransitionCoordinatorContext>  _Nonnull context) {
+        block(self);
+    }];
+}
+
 - (void)popViewControllersOfScence:(Protocol *)aProtocol {
     UIViewController *vc;
     for (UIViewController *obj in self.viewControllers.reverseObjectEnumerator) {
@@ -73,7 +138,4 @@
     [self popToViewController:vc animated:YES];
 }
 
-@end
-
-@implementation MBRootNavigationBar
 @end

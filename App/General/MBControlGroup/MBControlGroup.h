@@ -27,7 +27,7 @@
 @interface MBControlGroup : UIControl <
     RFInitializing
 >
-@property (nonatomic, nullable, strong) IBOutletCollection(UIControl) NSArray *controls;
+@property (nonatomic, nullable) IBOutletCollection(UIControl) NSArray *controls;
 
 @property (nonatomic, nullable, weak) IBOutlet UIControl *selectedControl;
 - (void)setSelectedControl:(nullable UIControl *)selectedControl animated:(BOOL)animated;

@@ -49,7 +49,7 @@ BOOL NSDateIsRecent(NSDate *_Nullable date, NSTimeInterval range) {
 }
 
 - (nonnull NSString *)timeString2 {
-    if ([self isSameDayWithDate:[NSDate date]]) {
+    if ([self isSameDayWithDate:NSDate.date]) {
         return [[NSDateFormatter cachedHMDateFormatter] stringFromDate:self];
     }
     else {
@@ -87,7 +87,7 @@ BOOL NSDateIsRecent(NSDate *_Nullable date, NSTimeInterval range) {
 }
 
 + (MBDateDayIdentifier)dayIdentifierForToday {
-    return [[NSDate date] dayIdentifier];
+    return NSDate.date.dayIdentifier;
 }
 
 - (MBDateDayIdentifier)dayIdentifier {
