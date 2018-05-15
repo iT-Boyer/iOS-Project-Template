@@ -1,7 +1,7 @@
 
 #import "MBListDataSource.h"
+#import "CommonUI.h"
 #import "API.h"
-#import "APINetworkActivityManager.h"
 #import "MBModel.h"
 #import "MBNavigationController.h"
 

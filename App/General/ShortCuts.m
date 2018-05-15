@@ -1,9 +1,7 @@
 
 #import "ShortCuts.h"
-#import "App-Swift.h"
+#import "CommonUI.h"
 #import "DataStack.h"
-#import "MBApp.h"
-#import "MBNavigationController.h"
 
 /**
  备忘
@@ -19,10 +17,8 @@ MBEnvironment *AppEnv() {
     return [MBApp status].env;
 }
 
-#import "APApplicationDelegate.h"
-
-APApplicationDelegate *__nonnull AppDelegate() {
-    APApplicationDelegate *ad = (id)[UIApplication sharedApplication].delegate;
+ApplicationDelegate *__nonnull AppDelegate() {
+    ApplicationDelegate *ad = (id)[UIApplication sharedApplication].delegate;
     RFAssert(ad, @"Shared app delegate nil?");
     return ad;
 }
@@ -80,7 +76,7 @@ API *AppAPI(void) {
     return MBApp.status.api;
 }
 
-APINetworkActivityManager *__nonnull AppHUD(void) {
+MessageManager *__nonnull AppHUD(void) {
     return MBApp.status.hud;
 }
 

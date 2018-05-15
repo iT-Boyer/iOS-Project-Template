@@ -38,9 +38,9 @@ FOUNDATION_EXPORT DebugConfig *AppDebugConfig(void);
 /// 状态依赖
 MBEnvironment *AppEnv(void);
 
-@class APApplicationDelegate;
+@class ApplicationDelegate;
 /// 快速访问 APApplicationDelegate 实例
-APApplicationDelegate *__nonnull AppDelegate(void);
+ApplicationDelegate *__nonnull AppDelegate(void);
 
 @class RootViewController;
 /// 全局根视图
@@ -69,8 +69,8 @@ MBWorkerQueue *AppBackgroundWorkerQueue(void);
 /// 应用接口
 API *AppAPI(void);
 
-@class APINetworkActivityManager;
-APINetworkActivityManager *__nonnull AppHUD(void);
+@class MessageManager;
+MessageManager *__nonnull AppHUD(void);
 
 #pragma mark - 用户信息
 

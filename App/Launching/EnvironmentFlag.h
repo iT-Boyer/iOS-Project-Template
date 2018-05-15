@@ -18,7 +18,7 @@
  
  @warning MBENVFlag 状态不应持久化
  */
-typedef NS_OPTIONS(MBENVFlag, MBEnvironmentFlag) {
+typedef NS_OPTIONS(MBENVFlag, MBENV) {
     //- 应用整体状态
     /// 应用现在处于前台
     MBENVAppInForeground                = 1 << 0,

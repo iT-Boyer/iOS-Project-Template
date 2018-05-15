@@ -1,6 +1,6 @@
 
 #import "MBApp.h"
-#import "APINetworkActivityManager.h"
+#import "CommonUI.h"
 #import "DataStack.h"
 
 @implementation MBApp
@@ -129,9 +129,9 @@
 }
 
 @synthesize hud = _hud;
-- (APINetworkActivityManager *)hud {
+- (MessageManager *)hud {
     if (!_hud) {
-        _hud = [APINetworkActivityManager new];
+        _hud = [MessageManager new];
     }
     return _hud;
 }

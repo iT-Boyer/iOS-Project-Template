@@ -25,8 +25,6 @@
 
 #pragma mark -
 
-@property BOOL launchGuard;
-
 /// 上次启动时间
 @property (nullable, copy) NSDate *applicationLastLaunchTime;
 

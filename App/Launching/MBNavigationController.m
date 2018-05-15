@@ -1,8 +1,6 @@
 
 #import "MBNavigationController.h"
-#import "MBApp.h"
-#import "APApplicationDelegate.h"
-
+#import "CommonUI.h"
 
 @interface MBNavigationController () <
     UIApplicationDelegate,

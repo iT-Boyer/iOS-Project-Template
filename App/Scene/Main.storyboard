@@ -31,7 +31,7 @@
         <scene sceneID="RootScene">
             <objects>
                 <navigationController storyboardIdentifier="MBNavigationController" definesPresentationContext="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RootNavigation" customClass="MBNavigationController" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" backIndicatorImage="navigation_back_indicator" backIndicatorTransitionMaskImage="navigation_back_indicator" id="RootNavigationBar" customClass="MBRootNavigationBar">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" backIndicatorImage="navigation_back_indicator" backIndicatorTransitionMaskImage="navigation_back_indicator" id="RootNavigationBar">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

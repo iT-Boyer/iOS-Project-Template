@@ -1,7 +1,6 @@
 
 #import "DataStack.h"
-#import "MBApp.h"
-#import "APApplicationDelegate.h"
+#import "CommonUI.h"
 #import "NSFileManager+RFKit.h"
 
 static BOOL MBDataStackRealmResetAlertShow;

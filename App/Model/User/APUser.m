@@ -1,9 +1,9 @@
 
 #import "APUser.h"
-#import "APINetworkActivityManager.h"
 #import "DataStack.h"
 #import "MBApp.h"
 #import "APUserInfo.h"
+#import "CommonUI.h"
 
 @interface APUser ()
 #if MBUserStringUID
@@ -195,7 +195,7 @@
         DebugLog(YES, @"UDSynchronizeFail", @"用户信息存储失败");
         static dispatch_once_t onceToken;
         dispatch_once(&onceToken, ^{
-            [UIAlertView showWithTitle:@"系统错误" message:@"暂时不能保存您的用户信息，如果你反复遇到这个提示，建议您重启 iPhone 以解决这个问题" buttonTitle:@"本次启动不再提示"];
+//            [UIAlertView showWithTitle:@"系统错误" message:@"暂时不能保存您的用户信息，如果你反复遇到这个提示，建议您重启 iPhone 以解决这个问题" buttonTitle:@"本次启动不再提示"];
         });
     }
 }

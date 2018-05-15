@@ -8,7 +8,6 @@
 
 _makeObjectProperty(debugConfigJSON, setDebugConfigJSON);
 
-_makeBoolProperty(launchGuard, setLaunchGuard)
 _makeObjectProperty(applicationLastLaunchTime, setApplicationLastLaunchTime)
 _makeObjectProperty(lastVersion, setLastVersion)
 _makeObjectProperty(previousVersion, setPreviousVersion)

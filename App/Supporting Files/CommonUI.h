@@ -14,6 +14,7 @@
  下面的组件中应避免引入这个 header 防止循环引入
  */
 #import "Common.h"
+#import "App-Swift.h"
 
 // AutoLayout 常用类
 #import "MBLayoutConstraint.h"

@@ -34,7 +34,7 @@ void DebugAlert(NSString *_Nonnull format, ...) {
     va_end(args);
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
-    [UIAlertView showWithTitle:@"Debug Only" message:msg buttonTitle:nil];
+//    [UIAlertView showWithTitle:@"Debug Only" message:msg buttonTitle:nil];
 #pragma clang diagnostic pop
 }
 
@@ -56,7 +56,7 @@ void DebugLog(BOOL fatal, NSString *_Nullable recordID, NSString *_Nonnull forma
         dispatch_sync_on_main(^{
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
-            [UIAlertView showWithTitle:@"Debug Only" message:msg buttonTitle:nil];
+//            [UIAlertView showWithTitle:@"Debug Only" message:msg buttonTitle:nil];
 #pragma clang diagnostic pop
         });
     }
