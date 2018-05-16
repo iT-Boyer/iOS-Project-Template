@@ -1,8 +1,8 @@
 
 #import "NSUserDefaults+App.h"
 #import "MBApp.h"
-#import "MBModel.h"
-#import <MBUserDefaultsMakeProperty.h>
+#import <MBAppKit/MBModel.h>
+#import <MBAppKit/MBUserDefaultsMakeProperty.h>
 
 @implementation NSUserDefaults (App)
 

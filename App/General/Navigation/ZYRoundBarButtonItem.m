@@ -1,15 +1,9 @@
-//
-//  ZYRoundBarButtonItem.m
-//  Feel
-//
-//  Created by ddhjy on 9/9/16.
-//  Copyright © 2016 Beijing ZhiYun ZhiYuan Technology Co., Ltd. All rights reserved.
-//
 
 #import "ZYRoundBarButtonItem.h"
+#import "Common.h"
 #import "MBButton.h"
-#import "RFDrawImage.h"
-#import "UIView+RFLayerApperance.h"
+#import <RFAlpha/RFDrawImage.h>
+#import <RFAlpha/UIView+RFLayerApperance.h>
 
 @implementation ZYRoundBarButtonItem
 

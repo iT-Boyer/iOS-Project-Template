@@ -1,12 +1,14 @@
-//
-//  MBNavigationTitleView.h
-//  Feel
-//
-//  Created by BB9z on 4/29/15.
-//  Copyright (c) 2015 Beijing ZhiYun ZhiYuan Technology Co., Ltd. All rights reserved.
-//
-
-#import "Common.h"
+/*!
+ MBNavigationTitleView
+ 
+ Copyright © 2018 RFUI.
+ Copyright © 2015 Beijing ZhiYun ZhiYuan Technology Co., Ltd.
+ https://github.com/BB9z/iOS-Project-Template
+ 
+ Apache License, Version 2.0
+ http://www.apache.org/licenses/LICENSE-2.0
+ */
+#import <UIKit/UIKit.h>
 
 /**
  设置为 UINavigationItem 的 titleView，在显示出来的时候会填满导航条（除了左右按钮的空间）

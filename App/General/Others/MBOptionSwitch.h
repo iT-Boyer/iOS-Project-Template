@@ -1,12 +1,15 @@
-//
-//  MBOptionSwitch.h
-//  Feel
-//
-//  Created by BB9z on 10/17/15.
-//  Copyright © 2015 Beijing ZhiYun ZhiYuan Technology Co., Ltd. All rights reserved.
-//
-
-#import "Common.h"
+/*!
+ MBOptionSwitch
+ 
+ Copyright © 2018 RFUI.
+ Copyright © 2015 Beijing ZhiYun ZhiYuan Technology Co., Ltd.
+ https://github.com/BB9z/iOS-Project-Template
+ 
+ Apache License, Version 2.0
+ http://www.apache.org/licenses/LICENSE-2.0
+ */
+#import <RFInitializing/RFInitializing.h>
+#import <UIKit/UIKit.h>
 
 /**
  自动从 NSUserDefaults 读取设置并可自动更新首选项的 UISwitch

@@ -1,6 +1,7 @@
 
 #import "MBLabel.h"
-#import "RFKVOWrapper.h"
+#import <RFAlpha/RFKVOWrapper.h>
+#import <RFKit/UIView+RFAnimate.h>
 
 @interface MBLabel ()
 @property (nonatomic, strong) id referenceTargetSizeChangeObserver;

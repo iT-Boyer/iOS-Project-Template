@@ -1,6 +1,7 @@
 
 #import "MBParallaxView.h"
-#import "RFKVOWrapper.h"
+#import <RFAlpha/RFKVOWrapper.h>
+#import <RFKit/UIView+RFAnimate.h>
 
 @interface MBParallaxView ()
 @property (strong, nonatomic) id scrollObserver;

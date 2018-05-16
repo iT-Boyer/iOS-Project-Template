@@ -1,13 +1,14 @@
 /*!
  UIKit+App
 
- Copyright © 2016 Beijing ZhiYun ZhiYuan Technology Co., Ltd. All rights reserved.
- https://github.com/zhiyun168/Feel-iOS
+ Copyright © 2018 RFUI.
+ Copyright © 2016 Beijing ZhiYun ZhiYuan Technology Co., Ltd.
+ https://github.com/BB9z/iOS-Project-Template
+
+ Apache License, Version 2.0
+ http://www.apache.org/licenses/LICENSE-2.0
  */
-
 #import "UIKit+App.h"
-
-#define FromViewContains(View, CLASS) ([View containsClassInResponderChain:[CLASS class]])
 
 @interface UIView (App)
 
@@ -17,7 +18,5 @@
 - (BOOL)containsClassInResponderChain:(Class)aClass;
 
 - (id)firstResponderOfClass:(Class)aClass;
-
-+ (instancetype)loadFromNib;
 
 @end

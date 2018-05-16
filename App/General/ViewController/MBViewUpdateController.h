@@ -1,12 +1,14 @@
-//
-//  MBViewUpdateController.h
-//  Feel
-//
-//  Created by BB9z on 19/01/2017.
-//  Copyright © 2017 Beijing ZhiYun ZhiYuan Technology Co., Ltd. All rights reserved.
-//
-
-#import "Common.h"
+/*!
+ MBViewUpdateController
+ 
+ Copyright © 2018 RFUI.
+ Copyright © 2017 Beijing ZhiYun ZhiYuan Technology Co., Ltd.
+ https://github.com/BB9z/iOS-Project-Template
+ 
+ Apache License, Version 2.0
+ http://www.apache.org/licenses/LICENSE-2.0
+ */
+#import <MBAppKit/MBAppKit.h>
 
 @protocol MBViewUpdateControllerDelegate;
 

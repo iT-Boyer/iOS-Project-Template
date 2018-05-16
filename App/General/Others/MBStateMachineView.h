@@ -1,12 +1,15 @@
-//
-//  MBStateMachineView.h
-//  Feel
-//
-//  Created by BB9z on 11/4/15.
-//  Copyright © 2015 Beijing ZhiYun ZhiYuan Technology Co., Ltd. All rights reserved.
-//
-
-#import "Common.h"
+/*!
+ MBStateMachineView
+ 
+ Copyright © 2018 RFUI.
+ Copyright © 2015 Beijing ZhiYun ZhiYuan Technology Co., Ltd.
+ https://github.com/RFUI/MBAppKit
+ 
+ Apache License, Version 2.0
+ http://www.apache.org/licenses/LICENSE-2.0
+ */
+#import <UIKit/UIKit.h>
+#import <RFInitializing/RFInitializing.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

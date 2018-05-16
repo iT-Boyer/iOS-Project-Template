@@ -1,5 +1,6 @@
 
 #import "MBStateMachineView.h"
+#import <RFKit/UIView+RFKit.h>
 
 @interface MBStateMachineView ()
 @property (nonatomic, strong) NSHashTable<id<MBStateMachineViewDelegate>> *delegates;

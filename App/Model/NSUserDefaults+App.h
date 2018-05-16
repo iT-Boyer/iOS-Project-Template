@@ -1,13 +1,15 @@
-//
-//  NSUserDefaults+App.h
-//  Feel
-//
-//  Created by BB9z on 3/25/15.
-//  Copyright (c) 2015 Beijing ZhiYun ZhiYuan Technology Co., Ltd. All rights reserved.
-//
+/*!
+ NSUserDefaults+App
+ 
+ Copyright © 2018 RFUI.
+ Copyright © 2015 Beijing ZhiYun ZhiYuan Technology Co., Ltd.
+ https://github.com/BB9z/iOS-Project-Template
+ 
+ Apache License, Version 2.0
+ http://www.apache.org/licenses/LICENSE-2.0
+ */
 
-#import <MBGeneralType.h>
-#import <MBUserDefaults.h>
+#import <MBAppKit/MBUserDefaults.h>
 
 /**
  关于属性声明

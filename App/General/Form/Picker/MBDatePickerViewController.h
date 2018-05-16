@@ -1,14 +1,14 @@
-//
-//  MBDatePickerViewController.h
-//  Feel
-//
-//  Created by BB9z on 12/10/2016.
-//  Copyright © 2016 Beijing ZhiYun ZhiYuan Technology Co., Ltd. All rights reserved.
-//
-
-#import "CommonUI.h"
+/*!
+ MBDatePickerViewController
+ 
+ Copyright © 2018 RFUI.
+ Copyright © 2016 Beijing ZhiYun ZhiYuan Technology Co., Ltd.
+ https://github.com/BB9z/iOS-Project-Template
+ 
+ Apache License, Version 2.0
+ http://www.apache.org/licenses/LICENSE-2.0
+ */
 #import "MBModalPresentSegue.h"
-
 
 /**
  时间选择弹窗，使用 UIDatePicker

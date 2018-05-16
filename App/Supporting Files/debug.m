@@ -1,10 +1,3 @@
-//
-//  debug.m
-//  Feel
-//
-//  Created by BB9z on 2/12/15.
-//  Copyright (c) 2015 Beijing ZhiYun ZhiYuan Technology Co., Ltd. All rights reserved.
-//
 
 #import "debug.h"
 #import "NSUserDefaults+App.h"

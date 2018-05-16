@@ -1,15 +1,9 @@
-//
-//  MBKeyboardInputContainer.m
-//  Feel
-//
-//  Created by BB9z on 11/25/14.
-//  Copyright (c) 2014 Beijing ZhiYun ZhiYuan Information Technology Co., Ltd. All rights reserved.
-//
 
 #import "MBKeyboardFloatContainer.h"
-#import "RFKeyboard.h"
-#import "NSLayoutConstraint+RFKit.h"
-
+#import <RFKeyboard/RFKeyboard.h>
+#import <RFKit/UIResponder+RFKit.h>
+#import <RFKit/NSLayoutConstraint+RFKit.h>
+#import <RFKit/UIView+RFKit.h>
 
 @interface MBKeyboardFloatContainer ()
 /**

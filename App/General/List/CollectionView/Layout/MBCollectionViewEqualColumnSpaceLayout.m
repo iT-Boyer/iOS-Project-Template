@@ -1,10 +1,3 @@
-//
-//  MBCollectionViewEqualColumnSpaceLayout.m
-//  Feel
-//
-//  Created by ddhjy on 7/26/16.
-//  Copyright © 2016 Beijing ZhiYun ZhiYuan Technology Co., Ltd. All rights reserved.
-//
 
 #import "MBCollectionViewEqualColumnSpaceLayout.h"
 

@@ -28,8 +28,4 @@
     return nil;
 }
 
-+ (instancetype)loadFromNib {
-    return [self loadWithNibName:NSStringFromClass([self class])];
-}
-
 @end

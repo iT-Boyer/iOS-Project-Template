@@ -1,10 +1,12 @@
-//
-//  MBCollectionViewFocusCenterLayout.h
-//  Feel
-//
-//  Created by ddhjy on 21/11/2016.
-//  Copyright © 2016 Beijing ZhiYun ZhiYuan Technology Co., Ltd. All rights reserved.
-//
+/*!
+ MBCollectionViewCarouselLayout
+ 
+ Copyright © 2018 RFUI.
+ https://github.com/BB9z/iOS-Project-Template
+ 
+ Apache License, Version 2.0
+ http://www.apache.org/licenses/LICENSE-2.0
+ */
 
 #import "MBCollectionViewFlowLayout.h"
 

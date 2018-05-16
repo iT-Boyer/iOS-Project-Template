@@ -1,10 +1,12 @@
-//
-//  UILabel+App.h
-//  Feel
-//
-//  Created by BB9z on 24/11/2016.
-//  Copyright © 2016 Beijing ZhiYun ZhiYuan Technology Co., Ltd. All rights reserved.
-//
+/*!
+ iOS Project Template
+ 
+ Copyright © 2014 Chinamobo Co., Ltd.
+ https://github.com/BB9z/iOS-Project-Template
+ 
+ Apache License, Version 2.0
+ http://www.apache.org/licenses/LICENSE-2.0
+ */
 
 #import "UIKit+App.h"
 

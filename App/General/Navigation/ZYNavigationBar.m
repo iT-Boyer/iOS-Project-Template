@@ -1,7 +1,7 @@
 
 #import "ZYNavigationBar.h"
-#import "UIView+RFAnimate.h"
 #import "MBNavigationTitleView.h"
+#import <RFKit/UIView+RFAnimate.h>
 
 @interface ZYNavigationBar ()
 @property (nonatomic) BOOL hasLayoutOnce;

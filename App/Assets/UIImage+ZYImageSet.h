@@ -2,9 +2,20 @@
     UIImage+ZYImageSet
 
     Copyright © 2016 Beijing ZhiYun ZhiYuan Information Technology Co., Ltd.
-    https://github.com/zhiyun168/Feel-iOS
+    
 
     All rights reserved.
+ */
+
+/*!
+ MBDatePickerViewController
+ 
+ Copyright © 2018 RFUI.
+ Copyright © 2016 Beijing ZhiYun ZhiYuan Technology Co., Ltd.
+ 
+ 
+ Apache License, Version 2.0
+ http://www.apache.org/licenses/LICENSE-2.0
  */
 
 #import <UIKit/UIKit.h>

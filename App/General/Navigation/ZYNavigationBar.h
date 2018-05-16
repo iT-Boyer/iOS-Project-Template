@@ -1,10 +1,13 @@
-//
-//  ZYNavigationBar.h
-//  Feel
-//
-//  Created by BB9z on 2/3/15.
-//  Copyright (c) 2015 Beijing ZhiYun ZhiYuan Technology Co., Ltd. All rights reserved.
-//
+/*!
+ ZYNavigationBar
+ 
+ Copyright © 2018 RFUI.
+ Copyright © 2015 Beijing ZhiYun ZhiYuan Technology Co., Ltd.
+ https://github.com/BB9z/iOS-Project-Template
+ 
+ Apache License, Version 2.0
+ http://www.apache.org/licenses/LICENSE-2.0
+ */
 
 #import "Common.h"
 

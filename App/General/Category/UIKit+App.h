@@ -36,7 +36,6 @@ FOUNDATION_EXTERN UIStoryboard *_Nonnull MainStoryboard;
 #endif
 
 #import "NSArray+App.h"
-#import "NSTimer+App.h"
 #import "NSDataDetector+App.h"
 #import "NSDate+App.h"
 #import "NSDateFormatter+App.h"

@@ -1,6 +1,6 @@
 
 #import "MBScrollViewOffsetObserver.h"
-#import "RFKVOWrapper.h"
+#import <RFAlpha/RFKVOWrapper.h>
 
 @interface MBScrollViewContentOffsetControl ()
 @property (strong, nonatomic) id contentOffsetObserver;

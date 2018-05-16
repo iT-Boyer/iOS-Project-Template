@@ -1,12 +1,14 @@
-//
-//  MBNavigationItem.h
-//  Feel
-//
-//  Created by BB9z on 3/6/15.
-//  Copyright (c) 2015 Beijing ZhiYun ZhiYuan Technology Co., Ltd. All rights reserved.
-//
-
-#import "Common.h"
+/*!
+ MBNavigationItem
+ 
+ Copyright © 2018 RFUI.
+ Copyright © 2015 Beijing ZhiYun ZhiYuan Technology Co., Ltd.
+ https://github.com/RFUI/MBAppKit
+ 
+ Apache License, Version 2.0
+ http://www.apache.org/licenses/LICENSE-2.0
+ */
+#import <UIKit/UIKit.h>
 
 /**
  可以用另一个 UINavigationItem 设置 MBNavigationItem 的状态，并可以恢复原始状态

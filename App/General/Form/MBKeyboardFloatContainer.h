@@ -1,12 +1,15 @@
-//
-//  MBKeyboardInputContainer.h
-//  Feel
-//
-//  Created by BB9z on 11/25/14.
-//  Copyright (c) 2014 Beijing ZhiYun ZhiYuan Information Technology Co., Ltd. All rights reserved.
-//
-
-#import "Common.h"
+/*!
+ MBKeyboardFloatContainer
+ 
+ Copyright © 2018 RFUI.
+ Copyright © 2014 Beijing ZhiYun ZhiYuan Technology Co., Ltd.
+ https://github.com/BB9z/iOS-Project-Template
+ 
+ Apache License, Version 2.0
+ http://www.apache.org/licenses/LICENSE-2.0
+ */
+#import <UIKit/UIKit.h>
+#import <RFInitializing/RFInitializing.h>
 
 /**
  一般是界面底部的一个容器，键盘弹出来跟着向上浮动，键盘收起又回落了

@@ -2,7 +2,7 @@
 #import "MBNavigationItem.h"
 
 @interface MBNavigationItem ()
-@property (strong, nonatomic) UINavigationItem *orginalNavigationItem;
+@property (nonatomic) UINavigationItem *orginalNavigationItem;
 @end
 
 @implementation MBNavigationItem
