@@ -39,7 +39,9 @@ target 'App' do
     pod 'RFSegue', :subspecs => ['Async']
     pod 'MBAppKit', :path => 'MBAppKit', :subspecs => [
         'Button',
-        'Input'
+        'Environment',
+        'Input',
+        'Navigation',
     ]
 
     pod 'PreBuild', :path => 'PreBuild'

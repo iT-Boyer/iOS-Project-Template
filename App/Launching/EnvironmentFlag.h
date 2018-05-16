@@ -21,20 +21,19 @@
 typedef NS_OPTIONS(MBENVFlag, MBENV) {
     //- 应用整体状态
     /// 应用现在处于前台
-    MBENVAppInForeground                = 1 << 0,
+    MBENVFlagAppInForeground            = 1 << 0,
     
     /// 应用启动后至少进过一次前台
-    MBENVAppHasEnterForegroundOnce      = 1 << 1,
+    MBENVFlagAppHasEnterForegroundOnce  = 1 << 1,
     
     //- 用户状态
     /// 用户已登入
-    MBENVUserHasLogged                  = 1 << 4,
+    MBENVFlagUserHasLogged              = 1 << 4,
     
     /// 本次启动当前用户的用户信息已成功获取过
-    MBENVUserInfoFetched                = 1 << 5,
+    MBENVFlagUserInfoFetched            = 1 << 5,
     
     //- 模块生命周期
     /// 导航已加载
-    MBENVNaigationLoaded                = 1 << 10,
-    
+    MBENVFlagNaigationLoaded                = 1 << 10,
 };

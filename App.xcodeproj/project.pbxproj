@@ -21,14 +21,12 @@
 		D52EADEB2043B983007219E0 /* debug.m in Sources */ = {isa = PBXBuildFile; fileRef = D52EADE72043B983007219E0 /* debug.m */; };
 		D52EADF02043BA3D007219E0 /* ShortCuts.m in Sources */ = {isa = PBXBuildFile; fileRef = D52EADEE2043BA3D007219E0 /* ShortCuts.m */; };
 		D52EADF82043C0EC007219E0 /* NSUserDefaults+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D52EADF32043C0EB007219E0 /* NSUserDefaults+App.m */; };
-		D52EAE1E2043C3D5007219E0 /* MBEnvironment.m in Sources */ = {isa = PBXBuildFile; fileRef = D52EAE1C2043C3D5007219E0 /* MBEnvironment.m */; };
 		D52EAE242043C424007219E0 /* MBAnalytics.m in Sources */ = {isa = PBXBuildFile; fileRef = D52EAE222043C424007219E0 /* MBAnalytics.m */; };
 		D52EAE362043C6F7007219E0 /* APUser.m in Sources */ = {isa = PBXBuildFile; fileRef = D52EAE352043C6F7007219E0 /* APUser.m */; };
 		D544A396197CBE5300C65604 /* MBFormSelectButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D544A395197CBE5300C65604 /* MBFormSelectButton.m */; };
 		D544A39E197D1E8600C65604 /* JSONValueTransformer+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D544A39D197D1E8600C65604 /* JSONValueTransformer+App.m */; };
 		D552DD6F18C8506700D02290 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D552DD4C18C8506700D02290 /* HomeViewController.m */; };
 		D552DD7018C8506700D02290 /* DataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = D552DD4F18C8506700D02290 /* DataStack.m */; };
-		D552DD7418C8506700D02290 /* MBNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D552DD5918C8506700D02290 /* MBNavigationController.m */; };
 		D552DD7618C8506700D02290 /* API.m in Sources */ = {isa = PBXBuildFile; fileRef = D552DD5E18C8506700D02290 /* API.m */; };
 		D552DD7718C8506700D02290 /* APIJSONResponseSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = D552DD6318C8506700D02290 /* APIJSONResponseSerializer.m */; };
 		D552DD7B18C8506700D02290 /* APUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D552DD6E18C8506700D02290 /* APUserInfo.m */; };
@@ -38,6 +36,7 @@
 		D55959CA20AB93B20019D733 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D55959C920AB93B20019D733 /* Main.storyboard */; };
 		D55959D020AB97B00019D733 /* ApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55959CF20AB97B00019D733 /* ApplicationDelegate.swift */; };
 		D55959D320AB9FA20019D733 /* MessageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55959D220AB9FA20019D733 /* MessageManager.swift */; };
+		D55959D520ABA9B50019D733 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55959D420ABA9B50019D733 /* NavigationController.swift */; };
 		D564CF3C196D9A7A0087B179 /* MBFormSelectListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D564CF3B196D9A7A0087B179 /* MBFormSelectListViewController.m */; };
 		D564D5D31970EE340032FEC3 /* MBModalPresentSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = D564D5D21970EE340032FEC3 /* MBModalPresentSegue.m */; };
 		D5B49EC31C4111B600847925 /* MBFixWidthImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B49EBB1C4111B600847925 /* MBFixWidthImageView.m */; };
@@ -69,8 +68,6 @@
 		D5C636A72047CC5900851CF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5C636A62047CC5900851CF4 /* LaunchScreen.storyboard */; };
 		D5CB54591A302DD6003E53A4 /* MBAutoSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CB54581A302DD6003E53A4 /* MBAutoSearchBar.m */; };
 		D5D9F5142071BA6500B6FE9B /* UIViewController+RFInterfaceOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D9F5132071BA6500B6FE9B /* UIViewController+RFInterfaceOrientation.m */; };
-		D5E28C4B204404850046DB7C /* MBNavigationOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E28C4A204404850046DB7C /* MBNavigationOperation.m */; };
-		D5E28C4E204405840046DB7C /* MBNavigationStackTask.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E28C4C204405840046DB7C /* MBNavigationStackTask.m */; };
 		D5EE51192043DAA2009148B3 /* NSArray+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE50E42043DAA1009148B3 /* NSArray+App.m */; };
 		D5EE511A2043DAA2009148B3 /* UIFont+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE50E52043DAA1009148B3 /* UIFont+App.m */; };
 		D5EE511B2043DAA2009148B3 /* UILabel+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE50E62043DAA1009148B3 /* UILabel+App.m */; };
@@ -200,8 +197,6 @@
 		D52EADF32043C0EB007219E0 /* NSUserDefaults+App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+App.m"; sourceTree = "<group>"; };
 		D52EADF42043C0EB007219E0 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D52EADF62043C0EB007219E0 /* NSUserDefaults+App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+App.h"; sourceTree = "<group>"; };
-		D52EAE1C2043C3D5007219E0 /* MBEnvironment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBEnvironment.m; sourceTree = "<group>"; };
-		D52EAE1D2043C3D5007219E0 /* MBEnvironment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBEnvironment.h; sourceTree = "<group>"; };
 		D52EAE202043C424007219E0 /* MBAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBAnalytics.h; sourceTree = "<group>"; };
 		D52EAE222043C424007219E0 /* MBAnalytics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBAnalytics.m; sourceTree = "<group>"; };
 		D52EAE342043C6F7007219E0 /* APUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APUser.h; sourceTree = "<group>"; };
@@ -213,8 +208,6 @@
 		D552DD4C18C8506700D02290 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		D552DD4E18C8506700D02290 /* DataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataStack.h; sourceTree = "<group>"; };
 		D552DD4F18C8506700D02290 /* DataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataStack.m; sourceTree = "<group>"; };
-		D552DD5818C8506700D02290 /* MBNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBNavigationController.h; sourceTree = "<group>"; };
-		D552DD5918C8506700D02290 /* MBNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBNavigationController.m; sourceTree = "<group>"; };
 		D552DD5D18C8506700D02290 /* API.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = API.h; sourceTree = "<group>"; };
 		D552DD5E18C8506700D02290 /* API.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = API.m; sourceTree = "<group>"; };
 		D552DD6218C8506700D02290 /* APIJSONResponseSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIJSONResponseSerializer.h; sourceTree = "<group>"; };
@@ -230,6 +223,7 @@
 		D55959CD20AB95640019D733 /* EnvironmentFlag.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EnvironmentFlag.h; sourceTree = "<group>"; };
 		D55959CF20AB97B00019D733 /* ApplicationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationDelegate.swift; sourceTree = "<group>"; };
 		D55959D220AB9FA20019D733 /* MessageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageManager.swift; sourceTree = "<group>"; };
+		D55959D420ABA9B50019D733 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		D564CF3A196D9A7A0087B179 /* MBFormSelectListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBFormSelectListViewController.h; sourceTree = "<group>"; };
 		D564CF3B196D9A7A0087B179 /* MBFormSelectListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBFormSelectListViewController.m; sourceTree = "<group>"; };
 		D564D5D11970EE340032FEC3 /* MBModalPresentSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBModalPresentSegue.h; sourceTree = "<group>"; };
@@ -294,10 +288,6 @@
 		D5DCA6FB204698F700A4951A /* Appfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = Appfile; sourceTree = "<group>"; };
 		D5DCA6FC204698F700A4951A /* Fastfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = Fastfile; sourceTree = "<group>"; };
 		D5DCA7162046A62A00A4951A /* Target.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Target.xcconfig; sourceTree = "<group>"; };
-		D5E28C49204404840046DB7C /* MBNavigationOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBNavigationOperation.h; sourceTree = "<group>"; };
-		D5E28C4A204404850046DB7C /* MBNavigationOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBNavigationOperation.m; sourceTree = "<group>"; };
-		D5E28C4C204405840046DB7C /* MBNavigationStackTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBNavigationStackTask.m; sourceTree = "<group>"; };
-		D5E28C4D204405840046DB7C /* MBNavigationStackTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBNavigationStackTask.h; sourceTree = "<group>"; };
 		D5EE50E22043DAA1009148B3 /* NSOperationQueue+App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSOperationQueue+App.h"; sourceTree = "<group>"; };
 		D5EE50E32043DAA1009148B3 /* NSDateFormatter+App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+App.h"; sourceTree = "<group>"; };
 		D5EE50E42043DAA1009148B3 /* NSArray+App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+App.m"; sourceTree = "<group>"; };
@@ -643,16 +633,9 @@
 				D55959CF20AB97B00019D733 /* ApplicationDelegate.swift */,
 				D55959CD20AB95640019D733 /* EnvironmentFlag.h */,
 				D5C636A62047CC5900851CF4 /* LaunchScreen.storyboard */,
-				D52EAE1D2043C3D5007219E0 /* MBEnvironment.h */,
-				D52EAE1C2043C3D5007219E0 /* MBEnvironment.m */,
-				D552DD5818C8506700D02290 /* MBNavigationController.h */,
-				D552DD5918C8506700D02290 /* MBNavigationController.m */,
-				D5E28C49204404840046DB7C /* MBNavigationOperation.h */,
-				D5E28C4A204404850046DB7C /* MBNavigationOperation.m */,
-				D5E28C4D204405840046DB7C /* MBNavigationStackTask.h */,
-				D5E28C4C204405840046DB7C /* MBNavigationStackTask.m */,
 				D5EE51352043DB7C009148B3 /* MBRootWrapperViewController.h */,
 				D5EE51362043DB7C009148B3 /* MBRootWrapperViewController.m */,
+				D55959D420ABA9B50019D733 /* NavigationController.swift */,
 				D5EE51382043E0DF009148B3 /* RootViewController.swift */,
 			);
 			path = Launching;
@@ -1376,7 +1359,6 @@
 				D5EE51E82043F613009148B3 /* MBDesignView.m in Sources */,
 				D5EE51E42043F613009148B3 /* MBDispatchTimer.m in Sources */,
 				D5B49F081C41133A00847925 /* MBEntitiesCollectionView.m in Sources */,
-				D52EAE1E2043C3D5007219E0 /* MBEnvironment.m in Sources */,
 				D5B49EC31C4111B600847925 /* MBFixWidthImageView.m in Sources */,
 				D5F9F486208DC26600427201 /* MBFormFieldVerifyControl.m in Sources */,
 				D544A396197CBE5300C65604 /* MBFormSelectButton.m in Sources */,
@@ -1391,10 +1373,7 @@
 				D5EE523B2043F7B9009148B3 /* MBLoadButton.m in Sources */,
 				D564D5D31970EE340032FEC3 /* MBModalPresentSegue.m in Sources */,
 				D5B49EC41C4111B600847925 /* MBMultiLineLabel.m in Sources */,
-				D552DD7418C8506700D02290 /* MBNavigationController.m in Sources */,
 				D5EE51F42043F613009148B3 /* MBNavigationItem.m in Sources */,
-				D5E28C4B204404850046DB7C /* MBNavigationOperation.m in Sources */,
-				D5E28C4E204405840046DB7C /* MBNavigationStackTask.m in Sources */,
 				D5EE51F32043F613009148B3 /* MBNavigationTitleView.m in Sources */,
 				D5EE51342043DAA2009148B3 /* MBObjectiveC.m in Sources */,
 				D5EE51E52043F613009148B3 /* MBOptionSwitch.m in Sources */,
@@ -1427,6 +1406,7 @@
 				D5EE51ED2043F613009148B3 /* MBViewModel.m in Sources */,
 				D5EE51EE2043F613009148B3 /* MBViewUpdateController.m in Sources */,
 				D55959D320AB9FA20019D733 /* MessageManager.swift in Sources */,
+				D55959D520ABA9B50019D733 /* NavigationController.swift in Sources */,
 				D5EE51192043DAA2009148B3 /* NSArray+App.m in Sources */,
 				D5EE511E2043DAA2009148B3 /* NSDataDetector+App.m in Sources */,
 				D5EE51222043DAA2009148B3 /* NSDate+App.m in Sources */,

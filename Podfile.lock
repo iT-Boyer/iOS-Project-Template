@@ -21,12 +21,19 @@ PODS:
     - RFKit/Category/NSLayoutConstraint
     - RFKit/Category/NSURL
     - RFMessageManager/RFNetworkActivityIndicatorMessage (~> 0.3)
+  - MBAppKit/Environment (0.7.0):
+    - RFKit/Category/NSArray
+    - RFKit/Runtime
   - MBAppKit/Input (0.7.0):
     - MBAppKit/Core
     - RFAlpha/RFDelegateChain/UITextFieldDelegate
     - RFInitializing
     - RFKit/Category/UIResponder
     - RFKit/RFGeometry
+  - MBAppKit/Navigation (0.7.0):
+    - MBAppKit/Core
+    - RFAlpha/RFNavigationController
+    - RFKit/Category/UIResponder
   - PreBuild (0.1.0)
   - RFAlpha/RFBlockSelectorPerform (0.3.0)
   - RFAlpha/RFButton (0.3.0):
@@ -236,7 +243,9 @@ PODS:
 
 DEPENDENCIES:
   - MBAppKit/Button (from `MBAppKit`)
+  - MBAppKit/Environment (from `MBAppKit`)
   - MBAppKit/Input (from `MBAppKit`)
+  - MBAppKit/Navigation (from `MBAppKit`)
   - PreBuild (from `PreBuild`)
   - RFAlpha/RFBlockSelectorPerform (from `Frameworks/RFUI/Alpha`)
   - RFAlpha/RFButton (from `Frameworks/RFUI/Alpha`)
@@ -294,7 +303,7 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   JSONModel: 840bc0fcffb24b8454d2c026bf26fea454b8e98d
-  MBAppKit: cf2459c76fc8726077a4317d0b9f5076295fca2f
+  MBAppKit: cbf8e50d0e2fe720ddd33215b6e040216ff9c796
   PreBuild: e364b0801808623a87f3bc8ce2618b778a49380b
   RFAlpha: 7c95e513df650d65bb56fce52f98dbe231d785cd
   RFAPI: ad34a972e4c4813eea26ff2b6273e2d569772ebb
@@ -305,6 +314,6 @@ SPEC CHECKSUMS:
   RFSegue: 16a13d55032a737a93a1feb3c758077f708e3c70
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: 9fe848d681c142eda3966a8bed66e127b70f5cb7
+PODFILE CHECKSUM: f78264110a213195bbe4a912178d7bba0def1e54
 
 COCOAPODS: 1.5.2

@@ -22,11 +22,11 @@
     ud.userToken = user.token;
     [ud synchronize];
     if (user) {
-        [AppEnv() setFlagOn:MBENVUserHasLogged];
+        [AppEnv() setFlagOn:MBENVFlagUserHasLogged];
     }
     else {
-        [AppEnv() setFlagOff:MBENVUserHasLogged];
-        [AppEnv() setFlagOff:MBENVUserInfoFetched];
+        [AppEnv() setFlagOff:MBENVFlagUserHasLogged];
+        [AppEnv() setFlagOff:MBENVFlagUserInfoFetched];
     }
 }
 
@@ -161,7 +161,7 @@
         self.information = responseObject;
         [self save];
         if (self.isCurrent) {
-            [AppEnv() setFlagOn:MBENVUserInfoFetched];
+            [AppEnv() setFlagOn:MBENVFlagUserInfoFetched];
         }
 
         if (callback) {

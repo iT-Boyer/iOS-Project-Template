@@ -39,7 +39,7 @@ NSString *const APIURLAssetsBase              = @"http://img.example.com/";
     return YES;
 }
 
-- (BOOL)isSuccessResponse:(__autoreleasing id *)responseObjectRef error:(NSError *__autoreleasing *)error {
+- (BOOL)isSuccessResponse:(__strong id  _Nullable *)responseObjectRef error:(NSError *__autoreleasing  _Nullable *)error {
     // TODO: 判断是否是成功响应
     return YES;
 }
