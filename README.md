@@ -1,12 +1,28 @@
-# iOS 项目模版
+# *修改为项目名称*
 
-[使用指南](https://github.com/BB9z/iOS-Project-Template/wiki)
+仓库地址 *https://example.com/change-to-repo.git*
 
 ## 需求
 
 要求 Xcode 9，支持 iOS 9 及以上版本。
 
-## Licenses
+## 配置
+
+安装工具链依赖
+
+```sh
+gem install plist xcodeproj fastlane
+```
+
+执行以配置整个项目
+
+```sh
+fastlane setup_project
+```
+
+## 关于项目模版
+
+参见 https://github.com/BB9z/iOS-Project-Template/wiki
 
 ```text
 Copyright © 2018 RFUI, BB9z.
