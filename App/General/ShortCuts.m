@@ -1,7 +1,6 @@
 
 #import "ShortCuts.h"
 #import "CommonUI.h"
-#import "DataStack.h"
 
 /**
  备忘
@@ -113,21 +112,6 @@ NSUserDefaults *AppUserDefaultsShared() {
 
 NSAccountDefaults *_Nullable AppUserDefaultsPrivate() {
     return AppUser().profile;
-}
-
-#import <Realm/Realm.h>
-
-static RLMRealm *_StorageMain;
-
-RLMRealm *AppStorageShared() {
-    if (!_StorageMain) {
-        _StorageMain = [MBApp status].dataStack.sharedStorage;
-    }
-    return _StorageMain;
-}
-
-RLMRealm *_Nullable AppStoragePrivate() {
-    return AppUser().storage;
 }
 
 BOOL AppActive() {

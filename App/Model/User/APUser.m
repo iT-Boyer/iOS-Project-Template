@@ -1,9 +1,8 @@
 
 #import "APUser.h"
-#import "DataStack.h"
-#import "MBApp.h"
-#import "APUserInfo.h"
 #import "CommonUI.h"
+#import "APUserInfo.h"
+#import "MBApp.h"
 
 @interface APUser ()
 #if MBUserStringUID
@@ -110,35 +109,6 @@
     // 验证一些假设
 
 #endif
-}
-
-@synthesize storage = _storage;
-- (RLMRealm *)storage {
-    if (_storage) return _storage;
-
-    MBDataStack *ds = [MBApp status].dataStack;
-    _storage = [ds realmWithURL:({
-        NSString *suitName = [NSString stringWithFormat:@"User%ld%@.db", AppUserID(), AppDebugConfig().debugServer? @"D" : @""];
-        [ds.realmDirURL URLByAppendingPathComponent:suitName];
-    })];
-    return _storage;
-}
-
-- (void)writeStorage:(void (^)(RLMRealm *__nonnull))block {
-    NSParameterAssert(block);
-    dispatch_sync_on_main(^{
-        RLMRealm *s = self.storage;
-        if (s.inWriteTransaction) {
-            block(s);
-        }
-        else {
-            [s beginWriteTransaction];
-            block(s);
-            NSError __autoreleasing *e = nil;
-            [s commitWriteTransaction:&e];
-            if (e) dout_error(@"%@", e);
-        }
-    });
 }
 
 #pragma mark -

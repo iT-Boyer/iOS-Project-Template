@@ -16,7 +16,6 @@
 // 非核心模块不要 import，避免头文件的循环引用
 
 @class MessageManager;
-@class MBDataStack;
 @class MBNavigationController;
 
 /**
@@ -65,12 +64,5 @@
 
 /// 全局导航
 @property (nonatomic, nullable) MBNavigationController *globalNavigationController;
-
-#pragma mark - Data Pool
-
-/**
- 访问时懒加载
- */
-@property (nonatomic, null_resettable, strong) MBDataStack *dataStack;
 
 @end

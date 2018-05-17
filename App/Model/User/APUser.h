@@ -11,8 +11,6 @@
 #import "MBUser.h"
 #import "Common.h"
 
-@class RLMRealm;
-
 @interface APUser : MBUser
 
 #pragma mark - 状态
@@ -29,11 +27,6 @@
 #pragma mark - 挂载
 
 @property (nonatomic, nullable, readonly) NSAccountDefaults *profile;
-
-/// 数据库，懒加载
-@property (nonatomic, nonnull, readonly) RLMRealm *storage;
-
-- (void)writeStorage:(NS_NOESCAPE void (^__nonnull)(RLMRealm *__nonnull))block;
 
 #pragma mark - 流程
 

@@ -96,15 +96,6 @@ FOUNDATION_EXPORT NSUserDefaults *AppUserDefaultsShared(void);
 /// 当前用户的配置项
 FOUNDATION_EXPORT NSAccountDefaults *_Nullable AppUserDefaultsPrivate(void);
 
-@class RLMRealm;
-/// 应用数据库
-FOUNDATION_EXPORT RLMRealm *AppStorageShared(void);
-
-/// 用户专用数据库，只在登录后有效
-/// @warning 多次调用可能返回不同的非空对象，建议同一个上下文存储到一个临时变量里访问
-FOUNDATION_EXPORT RLMRealm *_Nullable AppStoragePrivate(void);
-
-
 #pragma mark - 特殊标记
 
 /// 应用已进入前台，但不包括应用启动和前后台切换过程中

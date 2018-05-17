@@ -1,7 +1,6 @@
 
 #import "MBApp.h"
 #import "CommonUI.h"
-#import "DataStack.h"
 
 @implementation MBApp
 
@@ -135,14 +134,6 @@
     }
     return _hud;
 }
-
-- (MBDataStack *)dataStack {
-    if (!_dataStack) {
-        _dataStack = [MBDataStack new];
-    }
-    return _dataStack;
-}
-
 
 #pragma mark - 其他业务
 

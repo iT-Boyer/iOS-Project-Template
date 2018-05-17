@@ -595,24 +595,6 @@
 				INFOPLIST_FILE = "pods-combine/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/build/Debug-iphoneos/AFNetworking",
-					"$(PROJECT_DIR)/Output/ChineseSorting",
-					"$(PROJECT_DIR)/Output/NBNRealmBrowser",
-					"$(PROJECT_DIR)/Output/SDWebImage",
-					"$(PROJECT_DIR)/Output/YLZHoledView",
-					"$(PROJECT_DIR)/build/Debug-iphoneos/AMPopTip",
-					"$(PROJECT_DIR)/build/Debug-iphoneos/CHTCollectionViewWaterfallLayout",
-					"$(PROJECT_DIR)/build/Debug-iphoneos/FSQCollectionViewAlignedLayout",
-					"$(PROJECT_DIR)/build/Debug-iphoneos/FXBlurView",
-					"$(PROJECT_DIR)/build/Debug-iphoneos/iCarousel",
-					"$(PROJECT_DIR)/build/Debug-iphoneos/JSONModel",
-					"$(PROJECT_DIR)/build/Debug-iphoneos/NJKWebViewProgress",
-					"$(PROJECT_DIR)/build/Debug-iphoneos/PSTAlertController",
-					"$(PROJECT_DIR)/build/Debug-iphoneos/SVProgressHUD",
-					"$(PROJECT_DIR)/build/Debug-iphoneos/UICollectionViewLeftAlignedLayout",
-				);
 				MACH_O_TYPE = staticlib;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.zhiyun168.app.pods-combine";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -639,24 +621,6 @@
 				INFOPLIST_FILE = "pods-combine/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/build/Debug-iphoneos/AFNetworking",
-					"$(PROJECT_DIR)/Output/ChineseSorting",
-					"$(PROJECT_DIR)/Output/NBNRealmBrowser",
-					"$(PROJECT_DIR)/Output/SDWebImage",
-					"$(PROJECT_DIR)/Output/YLZHoledView",
-					"$(PROJECT_DIR)/build/Debug-iphoneos/AMPopTip",
-					"$(PROJECT_DIR)/build/Debug-iphoneos/CHTCollectionViewWaterfallLayout",
-					"$(PROJECT_DIR)/build/Debug-iphoneos/FSQCollectionViewAlignedLayout",
-					"$(PROJECT_DIR)/build/Debug-iphoneos/FXBlurView",
-					"$(PROJECT_DIR)/build/Debug-iphoneos/iCarousel",
-					"$(PROJECT_DIR)/build/Debug-iphoneos/JSONModel",
-					"$(PROJECT_DIR)/build/Debug-iphoneos/NJKWebViewProgress",
-					"$(PROJECT_DIR)/build/Debug-iphoneos/PSTAlertController",
-					"$(PROJECT_DIR)/build/Debug-iphoneos/SVProgressHUD",
-					"$(PROJECT_DIR)/build/Debug-iphoneos/UICollectionViewLeftAlignedLayout",
-				);
 				MACH_O_TYPE = staticlib;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.zhiyun168.app.pods-combine";
 				PRODUCT_NAME = "$(TARGET_NAME)";
