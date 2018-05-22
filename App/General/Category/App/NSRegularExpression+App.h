@@ -12,9 +12,6 @@
 
 @interface NSRegularExpression (App)
 
-/// @xxx 的正则
-+ (nonnull NSRegularExpression *)globalMetionRegularExpression;
-
 /// 中日韩字符 的正则
 + (nonnull NSRegularExpression *)CJKCharRegularExpression;
 

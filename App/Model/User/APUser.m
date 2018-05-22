@@ -4,16 +4,7 @@
 #import "APUserInfo.h"
 #import "MBApp.h"
 
-@interface APUser ()
-#if MBUserStringUID
-@property (readwrite) MBIdentifier uid;
-#else
-@property (readwrite) MBID uid;
-#endif
-@end
-
 @implementation APUser
-@dynamic uid;
 
 + (void)onCurrentUserChanged:(APUser *)user {
     NSUserDefaults *ud = AppUserDefaultsShared();
@@ -163,10 +154,7 @@
             return;
         }
         DebugLog(YES, @"UDSynchronizeFail", @"用户信息存储失败");
-        static dispatch_once_t onceToken;
-        dispatch_once(&onceToken, ^{
-//            [UIAlertView showWithTitle:@"系统错误" message:@"暂时不能保存您的用户信息，如果你反复遇到这个提示，建议您重启 iPhone 以解决这个问题" buttonTitle:@"本次启动不再提示"];
-        });
+        // 出现这种情况可能必须让用户重启系统才能解决
     }
 }
 

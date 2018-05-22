@@ -10,10 +10,6 @@
     }
 }
 
-- (void)setItem:(id)item offscreenRendering:(BOOL)offscreenRendering {
-    self.item = item;
-}
-
 + (CGFloat)heightForItem:(id)item width:(CGFloat)width {
     return 44;
 }

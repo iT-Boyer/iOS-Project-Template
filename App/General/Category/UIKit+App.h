@@ -36,17 +36,14 @@ FOUNDATION_EXTERN UIStoryboard *_Nonnull MainStoryboard;
 #endif
 
 #import "NSArray+App.h"
-#import "NSDataDetector+App.h"
 #import "NSDate+App.h"
 #import "NSDateFormatter+App.h"
 #import "NSNumber+App.h"
-#import "NSOperationQueue+App.h"
 #import "NSRegularExpression+App.h"
 #import "NSString+App.h"
 #import "NSURL+App.h"
 
 #if !TARGET_OS_WATCH
-#import "UIAlertController+App.h"
 #import "UIButton+App.h"
 #import "UICollectionView+App.h"
 #import "UIColor+App.h"
@@ -55,7 +52,6 @@ FOUNDATION_EXTERN UIStoryboard *_Nonnull MainStoryboard;
 #import "UILabel+App.h"
 #import "UIPickerView+App.h"
 #import "UITableView+App.h"
-#import "UITableViewCell+App.h"
 #import "UITextField+App.h"
 #import "UIView+App.h"
 #import "UIViewController+App.h"

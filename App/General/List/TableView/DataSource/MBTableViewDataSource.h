@@ -49,6 +49,6 @@
 /**
  可选，默认在 cell 上执行 setItem 方法
  */
-@property (copy, nonatomic) void (^configureCell)(UITableView *tableView, id cell, NSIndexPath *indexPath, id item, BOOL offscreenRendering);
+@property (copy, nonatomic) void (^configureCell)(UITableView *tableView, id cell, NSIndexPath *indexPath, id item);
 
 @end

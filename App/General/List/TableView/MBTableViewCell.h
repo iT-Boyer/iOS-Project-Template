@@ -16,7 +16,6 @@
 /// 修改
 @property (nonatomic) IBInspectable BOOL selectedBackgroundEnable;
 @property (strong, nonatomic) id item;
-- (void)setItem:(id)item offscreenRendering:(BOOL)offscreenRendering;
 + (CGFloat)heightForItem:(id)item width:(CGFloat)width;
 
 /// 默认返回类名

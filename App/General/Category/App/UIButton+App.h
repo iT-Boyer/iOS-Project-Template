@@ -18,9 +18,4 @@
 /// 设置 normal 状态的标题
 - (void)setText:(nullable NSString *)text;
 
-/**
- 设置便利的按钮点击事件
- */
-@property (nonatomic, nullable, strong) void (^inlineTapActionBlock)(__kindof UIButton *__nonnull);
-
 @end

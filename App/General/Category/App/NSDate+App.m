@@ -45,10 +45,6 @@ BOOL NSDateIsRecent(NSDate *_Nullable date, NSTimeInterval range) {
 }
 
 - (nonnull NSString *)timeString {
-    return [[NSDateFormatter cachedHMDateFormatter] stringFromDate:self];
-}
-
-- (nonnull NSString *)timeString2 {
     if ([self isSameDayWithDate:NSDate.date]) {
         return [[NSDateFormatter cachedHMDateFormatter] stringFromDate:self];
     }
@@ -69,15 +65,6 @@ BOOL NSDateIsRecent(NSDate *_Nullable date, NSTimeInterval range) {
     }
 }
 
-- (nonnull NSString *)dayStringWithoutYear {
-    NSInteger dayDiff = [NSDate daysBetweenDate:[NSDate date] andDate:self];
-    if (dayDiff <=2 && dayDiff >= -2) {
-        NSString *key = [NSString stringWithFormat:@"NSDateDayOffsetName-%d", (int)dayDiff];
-        return NSLocalizedString(key, "本地化日期");
-    }
-    return [[NSDateFormatter cachedMDDateFormatter] stringFromDate:self];
-}
-
 + (MBDateTimeStamp)timestampForNow {
     return [[NSDate date] timeIntervalSince1970] * 1000.f;
 }
@@ -86,16 +73,8 @@ BOOL NSDateIsRecent(NSDate *_Nullable date, NSTimeInterval range) {
     return self.timeIntervalSince1970 * 1000.f;
 }
 
-+ (MBDateDayIdentifier)dayIdentifierForToday {
-    return NSDate.date.dayIdentifier;
-}
-
 - (MBDateDayIdentifier)dayIdentifier {
     return [[NSDateFormatter cachedDayIdentifierFormatter] stringFromDate:self];
-}
-
-+ (NSDate *)dateWithTimeStamp:(MBDateTimeStamp)timestamp {
-    return [NSDate dateWithTimeIntervalSince1970:timestamp / 1000];
 }
 
 + (nonnull NSString *)durationMSStringWithTimeStamp:(MBDateTimeStamp)duration {
@@ -103,7 +82,6 @@ BOOL NSDateIsRecent(NSDate *_Nullable date, NSTimeInterval range) {
     return [NSString stringWithFormat:@"%02d:%02d", (int)round((float)duration/1000)/60, (int)round((float)duration/1000)%60];
 }
 
-// Test Case: testLongDurationString
 + (nonnull NSString *)longDurationStringWithTimeInterval:(NSTimeInterval)duration unitRang:(nullable NSRange *)rangeRef {
     NSString *numberPart = nil;
     NSString *unitPart = nil;
@@ -138,40 +116,6 @@ BOOL NSDateIsRecent(NSDate *_Nullable date, NSTimeInterval range) {
     else {
         numberPart = [NSString stringWithFormat:@"%.1f", duration/3600/24/30];
         unitPart = @" 月";
-    }
-    if (rangeRef) {
-        *rangeRef = NSMakeRange(numberPart.length, unitPart.length);
-    }
-    return [NSString stringWithFormat:@"%@%@", numberPart, unitPart];
-}
-
-// Test Case: testMinuteDurationString
-+ (nonnull NSString *)longMinuteStringWithTimeInterval:(NSTimeInterval)duration unitRang:(nullable NSRange *)rangeRef {
-    NSString *numberPart = nil;
-    NSString *unitPart = nil;
-    if (duration < 1) {
-        numberPart = @"0";
-        unitPart = @" 分钟";
-    }
-    else if (duration < 60) {
-        numberPart = @"1";
-        unitPart = @" 分钟";
-    }
-    else if (duration < 9999.5 *60) {
-        numberPart = [NSString stringWithFormat:@"%.0f", duration/60];
-        unitPart = @" 分钟";
-    }
-    else if (duration < 999.95 *1000 *60) {
-        numberPart = [NSString stringWithFormat:@"%.1fk", duration/60/1000];
-        unitPart = @" 分钟";
-    }
-    else if (duration < 9999.5 *1000 *3600) {
-        numberPart = [NSString stringWithFormat:@"%.0fk", duration/3600/1000];
-        unitPart = @" 小时";
-    }
-    else {
-        numberPart = [NSString stringWithFormat:@"%.0fk", duration/3600/24/1000];
-        unitPart = @" 天";
     }
     if (rangeRef) {
         *rangeRef = NSMakeRange(numberPart.length, unitPart.length);

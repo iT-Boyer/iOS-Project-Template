@@ -14,7 +14,7 @@
     }
 
     if (!self.configureCell) {
-        [self setConfigureCell:^(UITableView *tableView, id cell, NSIndexPath *indexPath, id item, BOOL offscreenRendering) {
+        [self setConfigureCell:^(UITableView *tableView, id cell, NSIndexPath *indexPath, id item) {
             if ([cell respondsToSelector:@selector(setItem:)]) {
                 [cell setItem:item];
             }
@@ -65,12 +65,8 @@
     NSString *reuseIdentifier = self.cellReuseIdentifier(tableView, indexPath, item);
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
     RFAssert(cell, @"找不到 reuse identifier 为 %@ 的 cell", reuseIdentifier);
-    self.configureCell(tableView, cell, indexPath, item, NO);
+    self.configureCell(tableView, cell, indexPath, item);
     return cell;
-}
-
-- (void)tableView:(UITableView *)tableView configureCell:(id)cell forIndexPath:(NSIndexPath *)indexPath offscreenRendering:(BOOL)isOffscreenRendering {
-    self.configureCell(tableView, cell, indexPath, [self itemAtIndexPath:indexPath], isOffscreenRendering);
 }
 
 - (NSString *)tableView:(UITableView *)tableView cellReuseIdentifierForRowAtIndexPath:(NSIndexPath *)indexPath {

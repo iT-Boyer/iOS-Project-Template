@@ -3,14 +3,6 @@
 
 @implementation NSDateFormatter (App)
 
-+ (NSDateFormatter *)serverDayFormatter {
-    static NSDateFormatter * share;
-    if (!share) {
-        share = [NSDateFormatter dateFormatterWithDateFormat:@"yyyy'-'MM'-'dd" timeZoneWithName:@"Asia/Hong_Kong"];
-    }
-    return [share copy];
-}
-
 + (NSDateFormatter *)cachedDayIdentifierFormatter {
     static NSDateFormatter *df = nil;
     if (!df) {

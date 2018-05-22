@@ -18,11 +18,8 @@
 /// 除上面几个字段外，其余所有信息请定义在该属性中
 @property (nonatomic, nullable, strong) APUserInfo *information;
 
-/// 手机登录时用 Digest 验证，其他时候都用 token
+/// token
 @property (nonatomic, nullable, copy) NSString *token;
-
-/// 积分系统请求所需token
-@property (nonatomic, nullable, strong) NSString *ectoken;
 
 #pragma mark - 挂载
 

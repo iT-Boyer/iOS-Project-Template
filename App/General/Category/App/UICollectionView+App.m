@@ -1,10 +1,11 @@
 
 #import "UICollectionView+App.h"
+#import <MBAppKit/NSObject+MBAppKit.h>
 
 @implementation UICollectionView (App)
 
 - (void)registerNibWithClass:(Class)aClass {
-    NSString *name = NSStringFromClass(aClass);
+    NSString *name = aClass.className;
     UINib *nib = [UINib nibWithNibName:name bundle:nil];
     RFAssert(nib, @"找不到 %@ 对应的 cell nib", aClass);
     [self registerNib:nib forCellWithReuseIdentifier:name];

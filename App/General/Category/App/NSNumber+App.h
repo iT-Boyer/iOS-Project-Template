@@ -13,24 +13,6 @@
 @interface NSNumber (App)
 
 /**
- 大数时显示 x.x k，x.x 万，x.x 百万
- */
-- (nonnull NSString *)displayString;
-
-/**
- 跟 displayString 表现一致，带单位
- */
-- (nonnull NSString *)displayStringWithUnitRange:(nullable NSRange *)rangRef;
-
-+ (nonnull NSString *)stringFromInt:(int)value;
-
-/// 为 0 显示 --，正常显示 x.x
-+ (nonnull NSString *)stringFromFloat:(double)value;
-
-+ (nonnull NSString *)stringFromIntNumber:(nullable NSNumber *)value;
-+ (nonnull NSString *)stringFromFloatNumber:(nullable NSNumber *)value;
-
-/**
  将一个浮点数显示为字符串
 
  @code

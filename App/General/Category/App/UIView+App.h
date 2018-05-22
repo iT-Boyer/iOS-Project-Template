@@ -12,11 +12,6 @@
 
 @interface UIView (App)
 
-/// 像素尺寸
-- (CGSize)pixelSize;
-
-- (BOOL)containsClassInResponderChain:(Class)aClass;
-
-- (id)firstResponderOfClass:(Class)aClass;
+- (nullable id)firstResponderOfClass:(nonnull Class)aClass;
 
 @end

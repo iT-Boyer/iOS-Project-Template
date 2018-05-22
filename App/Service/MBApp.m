@@ -34,13 +34,6 @@
             // 升级
             else if (![_version isEqualToString:lastVersion]) {
                 _previousVersion = lastVersion;
-//                [MBAnalytics startFabric];
-//                [MBAnalytics logEventWithName:@"TI_AppUpdate" attributes:@{
-//                                                                           @"之前版本" : _previousVersion?: @"NA",
-//                                                                           @"启动次数": @(ud.launchCountCurrentVersion),
-//                                                                           @"总启动次数": @(ud.launchCount),
-//                                                                           @"Foundation": [NSString stringWithFormat:@"%f", NSFoundationVersionNumber],
-//                                                                           }];
                 ud.previousVersion = _previousVersion;
                 ud.launchCountCurrentVersion = 0;
             }

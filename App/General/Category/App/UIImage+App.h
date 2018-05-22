@@ -11,8 +11,6 @@
 #import "UIKit+App.h"
 
 @interface UIImage (App)
-+ (nonnull UIImage *)animatedIndicatorWhite;
-+ (nonnull UIImage *)animatedIndicator;
 
 @end
 

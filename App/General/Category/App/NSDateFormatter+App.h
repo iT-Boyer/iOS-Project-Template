@@ -12,9 +12,6 @@
 
 @interface NSDateFormatter (App)
 
-/// 服务器时间 yyyy-MM-dd
-+ (nonnull NSDateFormatter *)serverDayFormatter;
-
 /// MBDateDayIdentifier 专用格式化
 + (nonnull NSDateFormatter *)cachedDayIdentifierFormatter;
 

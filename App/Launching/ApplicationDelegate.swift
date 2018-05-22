@@ -8,6 +8,9 @@
  http://www.apache.org/licenses/LICENSE-2.0
  */
 
+/**
+ 注意是基于 MBApplicationDelegate 的，大部分 UIApplicationDelegate 方法需要调用 super，如果可能，外部推荐通过 addAppEventListener() 来监听事件。
+ */
 @UIApplicationMain
 class ApplicationDelegate: MBApplicationDelegate {
     override func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
@@ -19,11 +22,12 @@ class ApplicationDelegate: MBApplicationDelegate {
     override func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
         APUser.setup()
         RFKeyboard.autoDisimssKeyboardWhenTouch = true
+        setupUIAppearance()
         return true
     }
     
-    func generalAppearanceSetup() {
-        window.backgroundColor = .white
+    func setupUIAppearance() {
+        // 统一全局色，storyboard 的全局色只对部分 UI 生效，比如无法对 UIAlertController 应用
         window.tintColor = .globalTint
     }
     

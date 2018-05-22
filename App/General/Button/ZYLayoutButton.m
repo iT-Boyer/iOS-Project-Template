@@ -1,6 +1,5 @@
 
 #import "ZYLayoutButton.h"
-#import "MBAnalytics.h"
 #import "MBNavigationController.h"
 
 @interface RFButton ()
@@ -61,7 +60,6 @@
 
 - (void)onTouchUpInside {
     [super onTouchUpInside];
-    [self.viewController MBAnalyticsCustomEventWithSender:self attributes:nil];
     // @TODO
 //    if (self.jumpURL.length) {
 //        APNavigationControllerJumpWithURL([NSURL URLWithString:self.jumpURL]);

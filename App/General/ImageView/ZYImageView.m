@@ -1,6 +1,5 @@
 
 #import "ZYImageView.h"
-#import "MBAnalytics.h"
 #import "MBApp.h"
 #import "UIView+WebCacheOperation.h"
 #import "debug.h"

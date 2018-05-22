@@ -24,13 +24,6 @@
 FOUNDATION_EXPORT void RFDebugger(NSString *_Nullable format, ...) NS_FORMAT_FUNCTION(1, 2);
 
 /**
- 弹出调试信息，只在 debug mode 时
- 
- 函数内部不区分是否是 DEBUG 编译
- */
-FOUNDATION_EXPORT void DebugAlert(NSString *_Nonnull format, ...) NS_FORMAT_FUNCTION(1, 2);
-
-/**
  综合性调试方法，会在不同环境做合适的处理
  
  @param fatal 如果是 YES，在调试时会在这个位置停住
