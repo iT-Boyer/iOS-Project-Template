@@ -12,16 +12,9 @@
 
 #import "Common.h"
 
-/** `
+/**
  dout() 的行为可在 Build settings 的 Preprocessor Macros 项调节
  */
-
-/**
- Stop on Debugger() for iOS
-
- 函数内部不区分是否是 DEBUG 编译
- */
-FOUNDATION_EXPORT void RFDebugger(NSString *_Nullable format, ...) NS_FORMAT_FUNCTION(1, 2);
 
 /**
  综合性调试方法，会在不同环境做合适的处理

@@ -75,7 +75,6 @@
 		D5EE51202043DAA2009148B3 /* UIImage+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE50EB2043DAA1009148B3 /* UIImage+App.m */; };
 		D5EE51212043DAA2009148B3 /* UIViewController+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE50EC2043DAA1009148B3 /* UIViewController+App.m */; };
 		D5EE51222043DAA2009148B3 /* NSDate+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE50EE2043DAA1009148B3 /* NSDate+App.m */; };
-		D5EE51252043DAA2009148B3 /* UIPickerView+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE50F12043DAA1009148B3 /* UIPickerView+App.m */; };
 		D5EE51262043DAA2009148B3 /* UITableView+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE50F22043DAA1009148B3 /* UITableView+App.m */; };
 		D5EE51272043DAA2009148B3 /* UITextField+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE50F62043DAA1009148B3 /* UITextField+App.m */; };
 		D5EE51282043DAA2009148B3 /* UICollectionView+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE50F72043DAA1009148B3 /* UICollectionView+App.m */; };
@@ -281,7 +280,6 @@
 		D5EE50EC2043DAA1009148B3 /* UIViewController+App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+App.m"; sourceTree = "<group>"; };
 		D5EE50ED2043DAA1009148B3 /* UIColor+App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+App.h"; sourceTree = "<group>"; };
 		D5EE50EE2043DAA1009148B3 /* NSDate+App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+App.m"; sourceTree = "<group>"; };
-		D5EE50F12043DAA1009148B3 /* UIPickerView+App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIPickerView+App.m"; sourceTree = "<group>"; };
 		D5EE50F22043DAA1009148B3 /* UITableView+App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+App.m"; sourceTree = "<group>"; };
 		D5EE50F32043DAA1009148B3 /* NSURL+App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+App.h"; sourceTree = "<group>"; };
 		D5EE50F42043DAA1009148B3 /* UIView+App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+App.h"; sourceTree = "<group>"; };
@@ -293,7 +291,6 @@
 		D5EE50FC2043DAA1009148B3 /* NSNumber+App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+App.h"; sourceTree = "<group>"; };
 		D5EE50FD2043DAA1009148B3 /* UILabel+App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+App.h"; sourceTree = "<group>"; };
 		D5EE50FE2043DAA1009148B3 /* UIFont+App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+App.h"; sourceTree = "<group>"; };
-		D5EE50FF2043DAA1009148B3 /* UIPickerView+App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIPickerView+App.h"; sourceTree = "<group>"; };
 		D5EE51012043DAA1009148B3 /* NSDate+App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+App.h"; sourceTree = "<group>"; };
 		D5EE51032043DAA1009148B3 /* UIColor+App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+App.m"; sourceTree = "<group>"; };
 		D5EE51042043DAA1009148B3 /* UIViewController+App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+App.h"; sourceTree = "<group>"; };
@@ -912,8 +909,6 @@
 				D5EE50EB2043DAA1009148B3 /* UIImage+App.m */,
 				D5EE50FD2043DAA1009148B3 /* UILabel+App.h */,
 				D5EE50E62043DAA1009148B3 /* UILabel+App.m */,
-				D5EE50FF2043DAA1009148B3 /* UIPickerView+App.h */,
-				D5EE50F12043DAA1009148B3 /* UIPickerView+App.m */,
 				D5EE510E2043DAA1009148B3 /* UITableView+App.h */,
 				D5EE50F22043DAA1009148B3 /* UITableView+App.m */,
 				D5EE510B2043DAA1009148B3 /* UITextField+App.h */,
@@ -1341,7 +1336,6 @@
 				D5EE520D2043F61D009148B3 /* UIImageView+MBRenderingMode.m in Sources */,
 				D5EE51322043DAA2009148B3 /* UIKit+App.m in Sources */,
 				D5EE511B2043DAA2009148B3 /* UILabel+App.m in Sources */,
-				D5EE51252043DAA2009148B3 /* UIPickerView+App.m in Sources */,
 				D5EE51262043DAA2009148B3 /* UITableView+App.m in Sources */,
 				D5EE51272043DAA2009148B3 /* UITextField+App.m in Sources */,
 				D5EE512E2043DAA2009148B3 /* UIView+App.m in Sources */,

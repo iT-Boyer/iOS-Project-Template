@@ -2,21 +2,6 @@
 #import "debug.h"
 #import "NSUserDefaults+App.h"
 
-// @TODO
-//MB_SHOULD_MERGE_INTO_LIB
-void RFDebugger(NSString *format, ...) {
-    if (format) {
-        va_list args;
-        va_start(args, format);
-        NSLogv(format, args);
-        va_end(args);
-    }
-    @try {
-        @throw [NSException exceptionWithName:@"pause" reason:@"debug" userInfo:nil];
-    }
-    @catch (NSException *exception) { }
-}
-
 void DebugLog(BOOL fatal, NSString *_Nullable recordID, NSString *_Nonnull format, ...) {
     va_list args;
     va_start(args, format);

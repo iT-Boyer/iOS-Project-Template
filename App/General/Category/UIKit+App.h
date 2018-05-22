@@ -50,7 +50,6 @@ FOUNDATION_EXTERN UIStoryboard *_Nonnull MainStoryboard;
 #import "UIFont+App.h"
 #import "UIImage+App.h"
 #import "UILabel+App.h"
-#import "UIPickerView+App.h"
 #import "UITableView+App.h"
 #import "UITextField+App.h"
 #import "UIView+App.h"
