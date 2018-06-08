@@ -26,7 +26,7 @@ fastlane setup_project
 
 ```text
 Copyright © 2018 RFUI, BB9z.
-Copyright © 2014－2016 Beijing ZhiYun ZhiYuan Information Technology Co., Ltd.
+Copyright © 2014-2016 Beijing ZhiYun ZhiYuan Information Technology Co., Ltd.
 Copyright © 2013-2014 Chinamobo Co., Ltd.
 
 Licensed under the Apache License, Version 2.0 (the "License");

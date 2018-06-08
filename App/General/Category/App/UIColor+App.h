@@ -28,15 +28,6 @@ extern int const UIColorGlobalTintColorHex;
 /// 占位符文本颜色
 @property (class, nonnull, readonly) UIColor *globalPlaceholderTextColor;
 
-/// 最深的背景色 #222
-@property (class, nonnull, readonly) UIColor *globalDarkBackgroundColor;
-/// 最浅的背景色 #F5F5F5
-@property (class, nonnull, readonly) UIColor *globalLightBackgroundColor;
-/// 页面背景色全部变为 #F0F4F8
-@property (class, nonnull, readonly) UIColor *globalPageBackgroundColor;
-/// 默认 cell 点击时的高亮色
-@property (class, nonnull, readonly) UIColor *globalCellSelectionColor;
-
 /// 错误红 #800000
 @property (class, nonnull, readonly) UIColor *globalErrorRead;
 

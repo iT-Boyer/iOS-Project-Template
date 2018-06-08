@@ -21,4 +21,18 @@ extension String {
         let rs = trimmingCharacters(in: .whitespaces)
         return rs.isNotEmpty ? rs : nil
     }
+    
+    /// 用 separator 连接两个 string
+    static func join(_ str1: String?, _ str2: String?, separator: String = "") -> String {
+        if str1 != nil && str2 != nil {
+            return String(format: "%@%@%@", str1!, separator, str2!)
+        }
+        if str1 != nil {
+            return str1!
+        }
+        if str2 != nil {
+            return str2!
+        }
+        return ""
+    }
 }

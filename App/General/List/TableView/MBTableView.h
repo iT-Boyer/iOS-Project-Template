@@ -9,7 +9,7 @@
  http://www.apache.org/licenses/LICENSE-2.0
  */
 
-#import "Common.h"
+#import <RFKit/RFRuntime.h>
 #import "MBTableViewPullToFetchControl.h"
 #import "MBTableViewDataSource.h"
 
@@ -23,14 +23,12 @@
 @interface MBTableView : UITableView <
     RFInitializing
 >
-@property (strong, nonatomic) MBTableViewPullToFetchControl *pullToFetchController;
-
-@property (strong, nonatomic) NSArray<NSIndexPath *> *indexPathsForVisibleCellsBeforeReloadingData;
+@property (null_resettable, nonatomic) MBTableViewPullToFetchControl *pullToFetchController;
 
 /**
  类里已内置了一个强引用的 MBTableViewDataSource
  */
-@property (weak, nonatomic) MBTableViewDataSource *dataSource;
+@property (weak, null_resettable, nonatomic) MBTableViewDataSource *dataSource;
 
 /**
  获取数据
@@ -42,26 +40,22 @@
 /**
  移动到 window 时，如果之前数据没有成功加载，则尝试获取数据，默认关
  */
-@property (nonatomic) IBInspectable BOOL autoFetchWhenMoveToWindow;
+@property IBInspectable BOOL autoFetchWhenMoveToWindow;
 
 /**
  获取结束后调用
  */
-@property (copy, nonatomic) void (^fetchPageEnd)(BOOL nextPage, MBListDataSource *dataSource);
+@property (nullable) void (^fetchPageEnd)(BOOL nextPage, MBTableViewDataSource *__nonnull dataSource);
 
 /**
  从列表中删除一个对象的傻瓜方法，会设置好其他该设置的状态
  */
-- (void)removeItem:(id)item withRowAnimation:(UITableViewRowAnimation)animation;
+- (void)removeItem:(nullable id)item withRowAnimation:(UITableViewRowAnimation)animation;
 
 /// 重置，以便作为另一个表格展示
 - (void)prepareForReuse;
 
 - (void)insertRowsWithRowRange:(NSRange)range inSection:(NSInteger)section rowAnimation:(UITableViewRowAnimation)animation;
 - (void)deleteRowsWithRowRange:(NSRange)range inSection:(NSInteger)section rowAnimation:(UITableViewRowAnimation)animation;
-
-#pragma mark -
-- (void)updateCellHeightOfCell:(UITableViewCell *)cell animated:(BOOL)animated;
-- (void)updateCellHeightAtIndexPath:(NSIndexPath *)indexPath animated:(BOOL)animated;
 
 @end

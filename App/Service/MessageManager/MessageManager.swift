@@ -8,6 +8,9 @@
  http://www.apache.org/licenses/LICENSE-2.0
  */
 
+/**
+ 
+ */
 class MessageManager: RFSVProgressMessageManager {
     
     /**
@@ -40,6 +43,19 @@ class MessageManager: RFSVProgressMessageManager {
         show(msg)
     }
     
+    /**
+     队列显示一段文本，显示一段时间后自动隐藏
+     */
+    @objc func showInfoStatus(_ message: String?) {
+        guard let msg = try? RFNetworkActivityIndicatorMessage(configuration: { cm in
+            guard let m = cm as? RFNetworkActivityIndicatorMessage else { return }
+            m.identifier = ""
+            m.message = message
+            m.status = .success
+            m.priority = .queue
+        }) else { return }
+        show(msg)
+    }
     
     /**
      显示一个错误提醒，一段时间后自动隐藏

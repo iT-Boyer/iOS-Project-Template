@@ -20,8 +20,6 @@
 
 + (null_unspecified instancetype)globalController;
 
-- (void)onSplashFinshed;
-
 @end
 
 #pragma mark - View 截图

@@ -1,23 +1,30 @@
 
-#import "ZYRoundBarButtonItem.h"
-#import "Common.h"
+#import "MBRoundBarButtonItem.h"
+#import "UIColor+App.h"
 #import "MBButton.h"
 #import <RFAlpha/RFDrawImage.h>
 #import <RFAlpha/UIView+RFLayerApperance.h>
 
-@implementation ZYRoundBarButtonItem
+@interface MBRoundBarButtonItem ()
+@property UIButton *buttonView;
+@end
+
+@implementation MBRoundBarButtonItem
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    [self _ZYRoundBarButtonItem_setupCustomView];
+    [self _MBRoundBarButtonItem_setupCustomView];
 }
 
-- (void)_ZYRoundBarButtonItem_setupCustomView {
+- (void)_MBRoundBarButtonItem_setupCustomView {
     UIButton *contentButton = [UIButton buttonWithType:UIButtonTypeCustom];
     UIColor *color = self.tintColor;
     UIColor *highlightColor = color.rf_darkerColor;
-    UIImage *backgrounImage = [RFDrawImage imageWithRoundingCorners:UIEdgeInsetsMakeWithSameMargin(3) size:CGSizeMake(7, 7) fillColor:color strokeColor:nil strokeWidth:0 boxMargin:UIEdgeInsetsZero resizableCapInsets:UIEdgeInsetsMakeWithSameMargin(3) scaleFactor:0];
-    UIImage *backgrounHighlightImage = [RFDrawImage imageWithRoundingCorners:UIEdgeInsetsMakeWithSameMargin(3) size:CGSizeMake(7, 7) fillColor:highlightColor strokeColor:nil strokeWidth:0 boxMargin:UIEdgeInsetsZero resizableCapInsets:UIEdgeInsetsMakeWithSameMargin(3) scaleFactor:0];
+    CGFloat corners = 3;
+    UIEdgeInsets imageInsets = UIEdgeInsetsMakeWithSameMargin(corners);
+    CGSize imageSize = CGSizeMake(corners + corners + 1, corners + corners + 1);
+    UIImage *backgrounImage = [RFDrawImage imageWithRoundingCorners:imageInsets size:imageSize fillColor:color strokeColor:nil strokeWidth:0 boxMargin:UIEdgeInsetsZero resizableCapInsets:imageInsets scaleFactor:0];
+    UIImage *backgrounHighlightImage = [RFDrawImage imageWithRoundingCorners:imageInsets size:imageSize fillColor:highlightColor strokeColor:nil strokeWidth:0 boxMargin:UIEdgeInsetsZero resizableCapInsets:imageInsets scaleFactor:0];
 
     [contentButton setBackgroundImage:backgrounImage forState:UIControlStateNormal];
     [contentButton setBackgroundImage:backgrounHighlightImage forState:UIControlStateHighlighted];
@@ -32,11 +39,12 @@
         frame;
     });
     contentButton.frame = buttonFrame;
-    [contentButton addTarget:self action:@selector(_ZYRoundBarButtonItem_buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [contentButton addTarget:self action:@selector(_MBRoundBarButtonItem_buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    self.buttonView = contentButton;
     
     // 按钮相对于系统默认位置的偏移
     UIOffset offset = UIOffsetMake(6, 0);
-    MBControlTouchExpandContainerView *layoutOffsetView = [[MBControlTouchExpandContainerView alloc] init];
+    MBControlTouchExpandContainerView *layoutOffsetView = MBControlTouchExpandContainerView.new;
     layoutOffsetView.controls = @[contentButton];
     layoutOffsetView.bounds = ({
         CGRect bounds = buttonFrame;
@@ -49,8 +57,8 @@
     self.customView = layoutOffsetView;
 }
 
-- (void)_ZYRoundBarButtonItem_buttonTapped:(UIButton *)button {
-    [[UIApplication sharedApplication] sendAction:self.action to:self.target from:self forEvent:nil];
+- (void)_MBRoundBarButtonItem_buttonTapped:(UIButton *)button {
+    [UIApplication.sharedApplication sendAction:self.action to:self.target from:self forEvent:nil];
 }
 
 @end

@@ -1,19 +1,18 @@
 
 #import "ZYSMSCodeSendButton.h"
-#import "RFTimer.h"
+#import <RFAlpha/RFTimer.h>
 
 @interface ZYSMSCodeSendButton ()
-@property (strong, nonatomic) RFTimer *timer;
+@property RFTimer *timer;
 @end
 
 @implementation ZYSMSCodeSendButton
 
-- (void)onInit {
-    [super onInit];
-
+- (NSUInteger)frozeSecond {
     if (_frozeSecond <= 0) {
         _frozeSecond = 60;
     }
+    return _frozeSecond;
 }
 
 - (void)awakeFromNib {

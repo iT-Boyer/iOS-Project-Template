@@ -10,6 +10,10 @@
  应用主导航控制器
  */
 class NavigationController: MBNavigationController {
+    override class func storyboardName() -> String {
+        return "Main"
+    }
+    
     override func onInit() {
         super.onInit()
         MBApp.status().globalNavigationController = self

@@ -16,6 +16,6 @@
 @interface ZYTemplateImageView : UIImageView
 
 /// 当 tintColor 和 ignoredTintColor 相同时，图片按原始效果渲染
-@property (nonatomic, nullable, strong) IBInspectable UIColor *ignoredTintColor;
+@property (nullable, nonatomic) IBInspectable UIColor *ignoredTintColor;
 
 @end

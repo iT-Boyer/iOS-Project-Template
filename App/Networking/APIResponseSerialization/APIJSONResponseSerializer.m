@@ -129,15 +129,16 @@ HTTP 状态与 ResponseSerializer 的 acceptableStatusCodes 预期不符合\n\
     }
 
     // 检查是否是错误信息
-    if ([responseObject isKindOfClass:[NSDictionary class]]) {
-        APIJSONError *APIError = [[APIJSONError alloc] initWithDictionary:responseObject error:nil];
+    NSDictionary *rsp = responseObject;
+    // TODO: 根据接口返回修改下面
+    if ([rsp[@"code"] intValue] != 0) {
+        APIJSONError *APIError = [[APIJSONError alloc] initWithDictionary:rsp error:&e];
         if (APIError) {
-            [self makeError:error withDebugMessage:[NSString stringWithFormat:@"服务器返回的错误信息：%@\n", [APIError localizedDescription]] domain:APIErrorDomain code:APIError.errorCode description:APIError.errorDescription reason:nil suggestion:nil url:response.URL];
-            return nil;
+            [self makeError:error withDebugMessage:[NSString stringWithFormat:@"服务器返回的错误信息：%@", APIError.localizedDescription] domain:APIErrorDomain code:APIError.errorCode description:APIError.localizedDescription reason:nil suggestion:nil url:response.URL];
         }
+        return nil;
     }
-    
-    return responseObject;
+    return rsp[@"data"];
 }
 
 #pragma mark - NSCoding

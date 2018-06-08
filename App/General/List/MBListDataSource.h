@@ -8,8 +8,7 @@
  Apache License, Version 2.0
  http://www.apache.org/licenses/LICENSE-2.0
  */
-#import "Common.h"
-#import "RFDelegateChain.h"
+#import <RFAlpha/RFDelegateChain.h>
 
 /**
  单 section 的列表 dataSource
@@ -33,16 +32,6 @@
 - (nullable ItemType)itemAtIndexPath:(nullable NSIndexPath *)indexPath;
 - (nonnull NSArray<ItemType> *)itemsForindexPaths:(nonnull NSArray<NSIndexPath *> *)indexPaths;
 - (nullable NSIndexPath *)indexPathForItem:(nullable ItemType)item;
-
-/**
- 使用这个方法会自动处理条目
- */
-//- (void)insertObjects:(NSArray *)objects atBegin:(BOOL)atBegin;
-
-/**
- 使用这个方法会自动处理条目
- */
-//- (void)replaceItems:(NSArray *)items;
 
 #pragma mark - 分页
 
@@ -95,13 +84,14 @@ typedef NS_ENUM(short, MBDataSourcePageEndDetectPolicy) {
 @property MBDataSourcePageEndDetectPolicy pageEndDetectPolicy;
 
 #pragma mark - 条目获取
+
 /// 是否正在获取数据
 @property (readonly) BOOL fetching;
 @property BOOL hasSuccessFetched;
-@property (nullable, copy) IBInspectable NSString *fetchAPIName;
 
-/// 当改属性是 NSMutableDictionary 或空时会附加分页参数
+@property (nullable, copy) IBInspectable NSString *fetchAPIName;
 @property (nullable) NSDictionary *fetchParameters;
+@property (nullable) NSError *lastFetchError;
 
 /**
  加载数据
@@ -111,7 +101,12 @@ typedef NS_ENUM(short, MBDataSourcePageEndDetectPolicy) {
  */
 - (void)fetchItemsFromViewController:(nullable id)viewController nextPage:(BOOL)nextPage success:(void (^__nullable)(__kindof MBListDataSource *__nonnull dateSource, NSArray *__nullable fetchedItems))success completion:(void (^__nullable)(__kindof MBListDataSource *__nonnull dateSource))completion;
 
-@property (nonatomic, nullable, copy) void (^fetchDataFailure)(MBListDataSource *__nonnull ds, NSError *__nonnull error);
+/**
+ 用给定的原始数据重置列表数据，并把状态属性置为合适的值
+ 
+ 取消正在获取的数据，标记分页到底
+ */
+- (void)setItemsWithRawData:(nullable id)responseData;
 
 #pragma mark - 条目处理
 
@@ -146,8 +141,14 @@ typedef NS_ENUM(short, MBDataSourceDistinctRule) {
  */
 @property MBDataSourceDistinctRule distinctRule;
 
-/**
- 最后的条目处理机会，典型情形显示前将数据 model 转换为显示 model
- */
-//@property (copy, nonatomic) NSArray *(^finalizeItems)(__unused NSArray *oldItems, NSArray *newItems);
+#pragma mark - 事件处理
+
+/// 数据请求失败默认的错误处理（应用级别）
+/// 返回 YES 终止错误处理流程
+@property (class, nullable, nonatomic) BOOL (^defaultFetchFailureHandler)(MBListDataSource *__nonnull ds, NSError *__nonnull error);
+
+/// 注册数据请求结束的事件处理
+- (void)addFetchComplationCallback:(void (^__nonnull)(__kindof MBListDataSource *__nonnull ds, NSError *__nullable error))callback refrenceObject:(nonnull id)object;
+- (void)removeFetchComplationCallbacksOnRefrenceObject:(nonnull id)object;
+
 @end

@@ -1,13 +1,17 @@
 
 #import "MBListDataSource.h"
-#import "CommonUI.h"
-#import "API.h"
-#import "MBModel.h"
-#import "MBNavigationController.h"
+#import <RFAlpha/RFCallbackControl.h>
+#import <RFKit/NSArray+RFKit.h>
+#import <MBAppKit/MBAppKit.h>
+#import <MBAppKit/MBAPI.h>
+
+@interface MBListDataSourceFetchComplationCallback : RFCallback
+@end
 
 @interface MBListDataSource ()
-@property (readwrite) BOOL fetching;
-@property (weak, nonatomic) NSOperation *fetchOperation;
+@property BOOL fetching;
+@property (weak) NSOperation *fetchOperation;
+@property (nonatomic) RFCallbackControl<MBListDataSourceFetchComplationCallback *> *fetchComplationCallbacks;
 @end
 
 @implementation MBListDataSource
@@ -18,7 +22,17 @@
     self.items = [NSMutableArray array];
     self.maxIDParameterName = @"MAX_ID";
     self.pageParameterName = @"page";
-    self.pageSizeParameterName = @"page_size";
+    self.pageSizeParameterName = @"per_page";
+}
+
+- (void)prepareForReuse {
+    [self.items removeAllObjects];
+    self.empty = NO;
+    self.page = 0;
+    self.maxID = nil;
+    self.pageEnd = NO;
+    self.fetching = NO;
+    [self.fetchOperation cancel];
 }
 
 - (id)itemAtIndexPath:(NSIndexPath *)indexPath {
@@ -78,7 +92,7 @@
 
     @weakify(self);
     __block BOOL operationSuccess = NO;
-    self.fetchOperation = [API requestWithName:self.fetchAPIName parameters:parameter viewController:viewController forceLoad:NO loadingMessage:nil modal:NO success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    self.fetchOperation = [MBAPI requestWithName:self.fetchAPIName parameters:parameter viewController:viewController forceLoad:NO loadingMessage:nil modal:NO success:^(AFHTTPRequestOperation *operation, id responseObject) {
         operationSuccess = YES;
         @strongify(self);
         if (!self) return;
@@ -103,27 +117,21 @@
             success(self, responseArray);
         }
         self.hasSuccessFetched = YES;
+        self.lastFetchError = nil;
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         // 超时不产生反应
         @strongify(self);
-        if ([error.domain isEqualToString:NSURLErrorDomain]
-            && error.code == NSURLErrorTimedOut) {
-            return;
-        }
-
-        // 404 弹出
-        if ([error.domain isEqualToString:APIErrorDomain] && error.code == 404) {
-            // @TODO
-//            [AppNavigationController() popViewControllerAfter];
-        }
-
-        [AppHUD() alertError:error title:nil];
+        if (!self) return;
         
-        if (self.fetchDataFailure) {
-            self.fetchDataFailure(self, error);
+        self.lastFetchError = error;
+        BOOL (^cb)(MBListDataSource *, NSError *) = self.class.defaultFetchFailureHandler;
+        if (cb && cb(self, error)) {
+            return;
         }
     } completion:^(AFHTTPRequestOperation *operation) {
         @strongify(self);
+        if (!self) return;
+
         if (!operationSuccess) {
             // 请求失败的话分页应该减回去
             self.page--;
@@ -132,7 +140,30 @@
         if (completion) {
             completion(self);
         }
+        [self.fetchComplationCallbacks performWithSource:self filter:nil];
     }];
+}
+
+- (void)setItemsWithRawData:(id)responseData {
+    self.fetching = NO;
+    [self.fetchOperation cancel];
+    self.page = 0;
+    self.maxID = nil;
+    
+    NSMutableArray *items = self.items;
+    [items removeAllObjects];
+    NSArray *responseArray = nil;
+    if (self.processItems) {
+        responseArray = self.processItems(nil, responseData);
+    }
+    else if ([responseData isKindOfClass:NSArray.class]) {
+        responseArray = responseData;
+    }
+    
+    [self _MBListDataSource_handleResponseArray:responseArray items:items];
+    self.pageEnd = YES;
+    self.hasSuccessFetched = YES;
+    self.lastFetchError = nil;
 }
 
 - (void)_MBListDataSource_handleResponseArray:(NSArray *)responseArray items:(NSMutableArray *)items {
@@ -177,14 +208,39 @@
     }
 }
 
-- (void)prepareForReuse {
-    [self.items removeAllObjects];
-    self.empty = NO;
-    self.page = 0;
-    self.maxID = nil;
-    self.pageEnd = NO;
-    self.fetching = NO;
-    [self.fetchOperation cancel];
+#pragma mark -
+
+static id _defaultFetchFailureHandler = nil;
++ (BOOL (^)(MBListDataSource * _Nonnull, NSError * _Nonnull))defaultFetchFailureHandler {
+    return _defaultFetchFailureHandler;
+}
++ (void)setDefaultFetchFailureHandler:(BOOL (^)(MBListDataSource * _Nonnull, NSError * _Nonnull))defaultFetchFailureHandler {
+    _defaultFetchFailureHandler = defaultFetchFailureHandler;
+}
+
+- (RFCallbackControl *)fetchComplationCallbacks {
+    if (_fetchComplationCallbacks) return _fetchComplationCallbacks;
+    RFCallbackControl *c = RFCallbackControl.new;
+    c.objectClass = MBListDataSourceFetchComplationCallback.class;
+    _fetchComplationCallbacks = c;
+    return _fetchComplationCallbacks;
+}
+
+- (void)addFetchComplationCallback:(void (^)(__kindof MBListDataSource * _Nonnull, NSError * _Nullable))callback refrenceObject:(id)object {
+    [self.fetchComplationCallbacks addCallback:callback refrenceObject:object];
+}
+
+- (void)removeFetchComplationCallbacksOnRefrenceObject:(id)object {
+    [self.fetchComplationCallbacks removeCallbackOfRefrenceObject:object];
+}
+
+@end
+
+@implementation MBListDataSourceFetchComplationCallback
+
+- (void)perfromBlock:(nonnull id)block source:(MBListDataSource *)source {
+    void (^cb)(__kindof MBListDataSource *__nonnull ds, NSError *__nullable error) = block;
+    cb(source, source.lastFetchError);
 }
 
 @end

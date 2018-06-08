@@ -11,9 +11,7 @@
 #import "Common.h"
 
 /**
- 卡片 image view
-
- 根据自身尺寸载入不同尺寸图像，可选显示下载进度
+ 远程图片显示 view
 
  对部分默认属性进行了重设
  */
@@ -46,13 +44,15 @@
 @property (nullable) IBInspectable UIImage *failureImage;
 
 /**
- 显示下载进度，默认 NO
- */
-@property IBInspectable BOOL downloadIndicatorEnabld;
-
-/**
  激活固有大小修正，强制按比例显示。默认 NO
  */
 @property IBInspectable BOOL intrinsicContentSizeFixEnabled;
+
+/**
+ 默认移出 window 会暂停当前下载，加回继续下载
+ 
+ 设置为 YES 以禁止该行为
+ */
+@property IBInspectable BOOL disableDownloadPauseWhenRemoveFromWindow;
 
 @end

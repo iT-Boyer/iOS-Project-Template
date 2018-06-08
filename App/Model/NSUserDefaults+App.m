@@ -24,7 +24,7 @@ _makeObjectProperty(lastUserID, setLastUserID);
 _makeIntegerProperty(lastUserID, setLastUserID);
 #endif
 _makeObjectProperty(userAccount, setUserAccount);
-_makeObjectProperty(APUserInfo, setUserInformation);
+_makeObjectProperty(APUserInfo, setAPUserInfo);
 _makeObjectProperty(userToken, setUserToken);
 
 _makeObjectProperty(lastNotificationRecived, setLastNotificationRecived);

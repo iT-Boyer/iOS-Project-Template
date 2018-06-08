@@ -1,6 +1,7 @@
 
 #import "MBTableListDisplayer.h"
 #import "API.h"
+#import <RFKit/UITableView+RFKit.h>
 
 @interface MBTableListDisplayer ()
 @end
@@ -85,7 +86,6 @@ RFInitializingRootForUIViewController
     [self setupDataSource:dc.dataSource];
     if (!self.disableAutoRefreshAfterViewLoadded) {
         [dc refresh];
-        [dc.listView setAutoFetchWhenMoveToWindow:YES];
     }
 }
 

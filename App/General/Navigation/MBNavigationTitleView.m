@@ -7,7 +7,7 @@
 
 @implementation MBNavigationTitleView
 
-// 这个类只是用于标识，布局操作是在 ZYNavigationBar 中完成的
+// 这个类只是用于标识，布局操作是在 MBNavigationBar 中完成的
 // 下面这段是辅助布局的，iOS 10 SDK 修改后，导航上布局代码触发的事件太晚了，导致进入界面后会闪一下
 - (void)willMoveToWindow:(UIWindow *)newWindow {
     [super willMoveToWindow:newWindow];

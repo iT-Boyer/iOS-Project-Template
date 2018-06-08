@@ -1,5 +1,6 @@
 
 #import "MBTableViewPullToFetchControl.h"
+#import <RFKit/UIView+RFKit.h>
 
 @implementation MBTableViewPullToFetchControl
 @dynamic headerContainer;

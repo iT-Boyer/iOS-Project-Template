@@ -1,13 +1,13 @@
 
-#import "ZYNavigationBar.h"
+#import "MBNavigationBar.h"
 #import "MBNavigationTitleView.h"
 #import <RFKit/UIView+RFAnimate.h>
 
-@interface ZYNavigationBar ()
+@interface MBNavigationBar ()
 @property (nonatomic) BOOL hasLayoutOnce;
 @end
 
-@implementation ZYNavigationBar
+@implementation MBNavigationBar
 RFInitializingRootForUIView
 
 - (void)onInit {
@@ -21,13 +21,12 @@ RFInitializingRootForUIView
     UIView *backgroundView = self.subviews.firstObject;
     if (!backgroundView) return;
 
-    UIImageView *iv = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"zy_navigation_bar_shadow"]];
     CGRect frame = backgroundView.bounds;
     frame.origin.y += frame.size.height;
     frame.size.height = 7;
-    iv.frame = frame;
+    UIImageView *iv = [UIImageView.alloc initWithFrame:frame];
     iv.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleTopMargin;
-    self.ZYShadowImageView = iv;
+    self.customShadowImageView = iv;
 
     [backgroundView addSubview:iv];
 }
@@ -39,7 +38,6 @@ RFInitializingRootForUIView
         // 这里的判断不是为了解决新布局方式先有鸡还是先有蛋的问题
         // 发现在部分设备上会遇到在 layoutSubviews 里访问 titleView 直接挂掉的问题
         // 怀疑界面元素是懒加载的，在下面的布局代码在访问时触发了创建，创建就需要布局，内部状态冲突了导致的
-        // https://fabric.io/zhiyun168/ios/apps/com.zhiyun168.feel/issues/5743fcc9ffcdc042504c0c64
         self.hasLayoutOnce = YES;
     }
     else {

@@ -8,16 +8,13 @@
  Apache License, Version 2.0
  http://www.apache.org/licenses/LICENSE-2.0
  */
-#import "Common.h"
-#import "RFTableViewPullToFetchPlugin.h"
+#import <RFAlpha/RFTableViewPullToFetchPlugin.h>
 
 @interface MBRefreshHeaderView : UIView
 @property (weak, nonatomic) IBOutlet UIView *contentView;
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
-@property (nonatomic) NSDate *lastTime;
-@property (weak, nonatomic) IBOutlet UILabel *lastTimeLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *indicatorImageView;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicatorView;
+@property (weak, nonatomic) IBOutlet UIImageView *activityIndicatorView;
 
 /**
  外部的空内容指示视图，如果设置 MBRefreshFooterView 会根据自身 empty 属性变化设置该视图的显隐

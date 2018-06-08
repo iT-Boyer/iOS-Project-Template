@@ -3,6 +3,7 @@
 #import "RFAnimationTransitioning.h"
 #import "UIViewController+RFDNavigationAppearance.h"
 #import <RFKeyboard/RFKeyboard.h>
+#import "API.h"
 
 @interface MBSearchTransitioning : RFAnimationTransitioning
 @end
@@ -49,12 +50,19 @@
 }
 
 - (void)onCancel:(id)sender {
-    if (self.searchTextField.isFirstResponder
-        && self.searchTextField.text.length) {
-        [self.searchTextField resignFirstResponder];
-        return;
+    MBSearchTextField *sf = self.searchTextField;
+    BOOL skipPop = sf.isFirstResponder && sf.text.length;
+    if (sf.isFirstResponder) {
+        [sf resignFirstResponder];
     }
-    [self.navigationController popViewControllerAnimated:YES];
+    sf.text = nil;
+    if (sf.isSearching && sf.APIName) {
+        [AppAPI() cancelOperationWithIdentifier:sf.APIName];
+        sf.isSearching = NO;
+    }
+    if (!skipPop) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 - (NSString *)RFTransitioningStyle {

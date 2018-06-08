@@ -1,6 +1,6 @@
 
 #import "MBLayoutConstraint.h"
-#import "NSLayoutConstraint+RFKit.h"
+#import <RFKit/NSLayoutConstraint+RFKit.h>
 
 @interface MBLayoutConstraint ()
 @end

@@ -13,7 +13,7 @@
 @interface NSNumber (App)
 
 /**
- 将一个浮点数显示为字符串
+ 将一个浮点数显示为价格字符串
 
  @code
  [NSNumber priceStringFromFloat:1.0199999 addPadding:YES];  // 1.02

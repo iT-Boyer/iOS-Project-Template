@@ -29,6 +29,18 @@ class ApplicationDelegate: MBApplicationDelegate {
     func setupUIAppearance() {
         // 统一全局色，storyboard 的全局色只对部分 UI 生效，比如无法对 UIAlertController 应用
         window.tintColor = .globalTint
+        MBListDataSource<AnyObject>.defaultFetchFailureHandler = { ds, error in
+            let e = error as NSError
+            if e.domain == NSURLErrorDomain &&
+                (e.code == NSURLErrorTimedOut
+                || e.code == NSURLErrorNotConnectedToInternet) {
+                // 超时断网不报错
+            }
+            else {
+                AppHUD().alertError(API.transformNSURLError(e) as NSError?, title: nil)
+            }
+            return false
+        }
     }
     
     override func applicationDidBecomeActive(_ application: UIApplication) {

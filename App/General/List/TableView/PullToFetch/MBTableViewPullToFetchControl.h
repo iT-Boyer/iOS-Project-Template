@@ -19,6 +19,6 @@
  这个类对外观进行了进一步的封装，外观的调整需修改 MBRefreshHeaderView 和 MBRefreshFooterView。
  */
 @interface MBTableViewPullToFetchControl : RFTableViewPullToFetchPlugin
-@property(strong, nonatomic) MBRefreshHeaderView *headerContainer;
-@property(strong, nonatomic) MBRefreshFooterView *footerContainer;
+@property MBRefreshHeaderView *headerContainer;
+@property MBRefreshFooterView *footerContainer;
 @end

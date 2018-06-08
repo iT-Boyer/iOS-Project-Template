@@ -1,26 +1,11 @@
 
 #import "MBTableViewDataSource.h"
-#import "UIView+RFAnimate.h"
+#import "MBListDateItem.h"
+#import <RFKit/NSArray+RFKit.h>
+#import <RFKit/UIView+RFAnimate.h>
 
 @implementation MBTableViewDataSource
 @dynamic delegate;
-
-- (void)onInit {
-    [super onInit];
-    if (!self.cellReuseIdentifier) {
-        [self setCellReuseIdentifier:^NSString *(UITableView *tableView, NSIndexPath *indexPath, id item) {
-            return @"Cell";
-        }];
-    }
-
-    if (!self.configureCell) {
-        [self setConfigureCell:^(UITableView *tableView, id cell, NSIndexPath *indexPath, id item) {
-            if ([cell respondsToSelector:@selector(setItem:)]) {
-                [cell setItem:item];
-            }
-        }];
-    }
-}
 
 - (void)fetchItemsFromViewController:(id)viewController nextPage:(BOOL)nextPage success:(void (^)(MBTableViewDataSource *, NSArray *))success completion:(void (^)(MBTableViewDataSource *))completion {
     @autoreleasepool {
@@ -55,6 +40,35 @@
         } completion:(id)completion];
     }
 }
+
+- (void)clearData {
+    [self prepareForReuse];
+    [self.tableView reloadData];
+}
+
+- (NSString * _Nonnull (^)(UITableView * _Nonnull, NSIndexPath * _Nonnull, id _Nonnull))cellReuseIdentifier {
+    if (!_cellReuseIdentifier) {
+        _cellReuseIdentifier = ^NSString *(UITableView *tableView, NSIndexPath *indexPath, id item) {
+            return @"Cell";
+        };
+    }
+    return _cellReuseIdentifier;
+}
+
+- (void (^)(UITableView * _Nonnull, id _Nonnull, NSIndexPath * _Nonnull, id _Nonnull))configureCell {
+    if (!_configureCell) {
+        _configureCell = ^(UITableView *tableView, id cell, NSIndexPath *indexPath, id item) {
+            if (![cell respondsToSelector:@selector(setItem:)]) return;
+            if ([item isKindOfClass:MBListDataItem.class]) {
+                item = [(MBListDataItem *)item item];
+            }
+            [cell setItem:item];
+        };
+    }
+    return _configureCell;
+}
+
+#pragma mark -
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.items.count;

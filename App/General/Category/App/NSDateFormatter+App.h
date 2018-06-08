@@ -24,9 +24,6 @@
 /// 本地化的 hh:mm
 + (nonnull NSDateFormatter *)cachedHMDateFormatter;
 
-/// 本地化的 X月X日 hh:mm
-+ (nonnull NSDateFormatter *)cachedMDHMDateFormatter;
-
 /// 本地化的周几
 + (nonnull NSDateFormatter *)cachedShortWeekDayFormatter;
 

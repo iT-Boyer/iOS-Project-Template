@@ -30,11 +30,6 @@ MakeSolidColor(globalTitleTextColor, 0x535353)
 MakeSolidColor(globalBodyTextColor, 0x5e6066)
 MakeSolidColor(globalDetialTextColor, 0x9b9b9b)
 MakeColor(globalPlaceholderTextColor, 0x000019, 0.22)
-
-MakeSolidColor(globalDarkBackgroundColor, 0x222222)
-MakeSolidColor(globalLightBackgroundColor, 0xF5F5F5)
-MakeSolidColor(globalPageBackgroundColor, 0xF0F4F8)
-MakeSolidColor(globalCellSelectionColor, 0xD9D9D9)
 MakeSolidColor(globalErrorRead, 0x800000)
 
 #pragma mark -

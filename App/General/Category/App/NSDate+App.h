@@ -8,7 +8,6 @@
  http://www.apache.org/licenses/LICENSE-2.0
  */
 
-#import "UIKit+App.h"
 #import <MBGeneralType.h>
 
 /// 判断一个时间是否在最近给定的范围内
@@ -34,7 +33,7 @@ extern BOOL NSDateIsRecent(NSDate *_Nullable date, NSTimeInterval range);
 /**
  刚刚、几分钟前、几小时前等样式
  */
-- (nonnull NSString *)displayString;
+@property (nonnull, readonly) NSString *recentString;
 
 /**
  今天，则“今天”
@@ -44,7 +43,7 @@ extern BOOL NSDateIsRecent(NSDate *_Nullable date, NSTimeInterval range);
 - (nonnull NSString *)displayDateString;
 
 /**
- 本地化的 hh:mm，非当日会带上月日
+ 本地化的 hh:mm
  */
 - (nonnull NSString *)timeString;
 
@@ -56,10 +55,6 @@ extern BOOL NSDateIsRecent(NSDate *_Nullable date, NSTimeInterval range);
 
 - (nonnull MBDateDayIdentifier)dayIdentifier;
 
-/// mm:ss 样式的时长
-+ (nonnull NSString *)durationMSStringWithTimeStamp:(MBDateTimeStamp)duration;
-
-/// 长时间的时长，根据长度单位自动切换为：分钟、小时、天、月、年
-+ (nonnull NSString *)longDurationStringWithTimeInterval:(NSTimeInterval)duration unitRang:(nullable NSRange *)rangeRef;
++ (nonnull NSDate *)dateWithTimeStamp:(MBDateTimeStamp)timestamp;
 
 @end

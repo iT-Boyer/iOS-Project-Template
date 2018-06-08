@@ -1,6 +1,6 @@
 
 #import "MBRefreshFooterView.h"
-#import "UIView+RFAnimate.h"
+#import <RFKit/UIView+RFAnimate.h>
 
 @implementation MBRefreshFooterView
 RFInitializingRootForUIView
@@ -22,7 +22,6 @@ RFInitializingRootForUIView
 
 - (void)setEmpty:(BOOL)empty {
     _empty = empty;
-    self.backgroundImageView.hidden = !empty;
     self.emptyLabel.hidden = !empty;
     self.outerEmptyView.hidden = !empty;
     self.textLabel.hidden = empty;

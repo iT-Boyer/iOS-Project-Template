@@ -37,7 +37,4 @@
  */
 - (void)updateInformationFromViewController:(nullable UIViewController *)viewController complation:(nullable MBGeneralCallback)complation;
 
-/// 持久化当前状态
-- (void)save;
-
 @end

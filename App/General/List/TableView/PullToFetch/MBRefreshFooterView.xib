@@ -15,48 +15,40 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6jf-Ir-Qfe">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
-                </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="暂时没有信息" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="xPA-CM-bcH" userLabel="EMPTY">
-                    <rect key="frame" x="20" y="12" width="280" height="17"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <color key="textColor" red="0.68627450980000004" green="0.70588235290000001" blue="0.73333333329999995" alpha="1" colorSpace="calibratedRGB"/>
+                    <rect key="frame" x="20" y="12.5" width="280" height="16"/>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="~ App ~" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="nXb-T0-3xY" userLabel="END">
-                    <rect key="frame" x="20" y="14" width="280" height="12"/>
-                    <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="10"/>
-                    <color key="textColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.53333333329999999" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="没有更多了，感谢你的关注" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="nXb-T0-3xY" userLabel="END">
+                    <rect key="frame" x="20" y="12" width="280" height="16"/>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="~ App ~" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NyE-WE-LQo" userLabel="Loading">
-                    <rect key="frame" x="20" y="12" width="280" height="17"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <color key="textColor" red="0.68627450980000004" green="0.70588235290000001" blue="0.73333333329999995" alpha="1" colorSpace="calibratedRGB"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NyE-WE-LQo" userLabel="Loading">
+                    <rect key="frame" x="20" y="20.5" width="280" height="0.0"/>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="centerY" secondItem="xPA-CM-bcH" secondAttribute="centerY" id="7g4-ex-GZN"/>
-                <constraint firstAttribute="bottom" secondItem="6jf-Ir-Qfe" secondAttribute="bottom" id="AL4-WT-INU"/>
-                <constraint firstAttribute="trailing" secondItem="6jf-Ir-Qfe" secondAttribute="trailing" id="BJ4-cN-W1s"/>
+                <constraint firstItem="nXb-T0-3xY" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="AiF-Ry-zBS"/>
                 <constraint firstItem="xPA-CM-bcH" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="Cwf-k3-QVG"/>
                 <constraint firstAttribute="trailing" secondItem="xPA-CM-bcH" secondAttribute="trailing" priority="999" constant="20" id="F33-aS-6vF"/>
-                <constraint firstItem="6jf-Ir-Qfe" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="FYF-Da-hXa"/>
-                <constraint firstItem="6jf-Ir-Qfe" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="O1p-aG-vaW"/>
                 <constraint firstAttribute="trailing" secondItem="nXb-T0-3xY" secondAttribute="trailing" priority="999" constant="20" id="QWt-Q8-bCp"/>
                 <constraint firstAttribute="trailing" secondItem="NyE-WE-LQo" secondAttribute="trailing" priority="999" constant="20" id="XH2-qW-qbd"/>
                 <constraint firstAttribute="centerY" secondItem="NyE-WE-LQo" secondAttribute="centerY" id="hvS-jA-8PS"/>
-                <constraint firstItem="nXb-T0-3xY" firstAttribute="centerY" secondItem="6jf-Ir-Qfe" secondAttribute="centerY" id="mX6-Zx-dyB"/>
                 <constraint firstItem="nXb-T0-3xY" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="tbi-PC-XLe"/>
                 <constraint firstItem="NyE-WE-LQo" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="yxh-XP-Ba6"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="backgroundImageView" destination="6jf-Ir-Qfe" id="Jrt-lP-nV7"/>
                 <outlet property="emptyLabel" destination="xPA-CM-bcH" id="2xK-2d-1fc"/>
                 <outlet property="endLabel" destination="nXb-T0-3xY" id="gz9-WB-13z"/>
                 <outlet property="textLabel" destination="NyE-WE-LQo" id="qlD-hm-BYd"/>

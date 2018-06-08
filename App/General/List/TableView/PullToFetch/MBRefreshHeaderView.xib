@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -18,27 +18,26 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ldh-iV-JBW" userLabel="Content">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                     <subviews>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="~ SENSORO ~" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dqo-Gw-i52">
-                            <rect key="frame" x="50" y="14" width="220" height="17"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <color key="textColor" red="0.66666668653488159" green="0.66666668653488159" blue="0.66666668653488159" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="状态" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dqo-Gw-i52">
+                            <rect key="frame" x="146.5" y="14.5" width="27" height="16"/>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="table_refresh_indicator" translatesAutoresizingMaskIntoConstraints="NO" id="xpr-dT-IXF">
-                            <rect key="frame" x="30" y="12" width="12" height="20"/>
+                            <rect key="frame" x="119.5" y="12" width="12" height="20"/>
                         </imageView>
-                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="CTQ-9u-7GT">
-                            <rect key="frame" x="30" y="12" width="20" height="20"/>
-                        </activityIndicatorView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="table_refresh" translatesAutoresizingMaskIntoConstraints="NO" id="ajc-2u-dO5" customClass="MBIndefiniteRotationImageView">
+                            <rect key="frame" x="108" y="10" width="24" height="24"/>
+                        </imageView>
                     </subviews>
                     <constraints>
-                        <constraint firstAttribute="centerY" secondItem="CTQ-9u-7GT" secondAttribute="centerY" id="4Nn-fz-9td"/>
-                        <constraint firstItem="dqo-Gw-i52" firstAttribute="leading" secondItem="Ldh-iV-JBW" secondAttribute="leading" priority="999" constant="50" id="9xX-H6-JdT"/>
+                        <constraint firstItem="dqo-Gw-i52" firstAttribute="leading" secondItem="ajc-2u-dO5" secondAttribute="trailing" constant="15" id="47H-Kh-ftZ"/>
+                        <constraint firstItem="dqo-Gw-i52" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Ldh-iV-JBW" secondAttribute="leading" priority="999" constant="50" id="9xX-H6-JdT"/>
                         <constraint firstAttribute="centerX" secondItem="dqo-Gw-i52" secondAttribute="centerX" id="C1s-f3-hRN"/>
                         <constraint firstAttribute="centerY" secondItem="xpr-dT-IXF" secondAttribute="centerY" id="dQw-xg-3cW"/>
+                        <constraint firstItem="dqo-Gw-i52" firstAttribute="leading" secondItem="xpr-dT-IXF" secondAttribute="trailing" constant="15" id="hMa-zl-YBW"/>
                         <constraint firstAttribute="centerY" secondItem="dqo-Gw-i52" secondAttribute="centerY" id="mOl-pZ-rd9"/>
-                        <constraint firstItem="xpr-dT-IXF" firstAttribute="leading" secondItem="Ldh-iV-JBW" secondAttribute="leading" constant="30" id="qtb-fk-m54"/>
-                        <constraint firstItem="CTQ-9u-7GT" firstAttribute="leading" secondItem="Ldh-iV-JBW" secondAttribute="leading" constant="30" id="svV-Ce-Tzr"/>
+                        <constraint firstItem="ajc-2u-dO5" firstAttribute="centerY" secondItem="Ldh-iV-JBW" secondAttribute="centerY" id="nr5-hG-Umz"/>
                     </constraints>
                 </view>
             </subviews>
@@ -52,7 +51,7 @@
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="activityIndicatorView" destination="CTQ-9u-7GT" id="OC1-ab-Fg6"/>
+                <outlet property="activityIndicatorView" destination="ajc-2u-dO5" id="ThZ-ue-oH4"/>
                 <outlet property="contentView" destination="Ldh-iV-JBW" id="7SQ-eL-GOJ"/>
                 <outlet property="indicatorImageView" destination="xpr-dT-IXF" id="680-0p-MbC"/>
                 <outlet property="statusLabel" destination="dqo-Gw-i52" id="2iV-dI-azn"/>
@@ -60,6 +59,7 @@
         </view>
     </objects>
     <resources>
+        <image name="table_refresh" width="24" height="24"/>
         <image name="table_refresh_indicator" width="12" height="20"/>
     </resources>
 </document>

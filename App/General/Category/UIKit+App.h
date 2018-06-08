@@ -44,6 +44,7 @@ FOUNDATION_EXTERN UIStoryboard *_Nonnull MainStoryboard;
 #import "NSURL+App.h"
 
 #if !TARGET_OS_WATCH
+#import "UIAlertController+App.h"
 #import "UIButton+App.h"
 #import "UICollectionView+App.h"
 #import "UIColor+App.h"

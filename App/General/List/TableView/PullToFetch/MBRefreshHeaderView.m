@@ -1,6 +1,7 @@
 
 #import "MBRefreshHeaderView.h"
-#import "UIView+RFAnimate.h"
+#import <RFKit/UIView+RFKit.h>
+#import <RFKit/UIView+RFAnimate.h>
 
 @implementation MBRefreshHeaderView
 
@@ -8,7 +9,6 @@
     [super awakeFromNib];
 
     self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleBottomMargin;
-    self.lastTimeLabel.hidden = YES;
     self.contentView.autoresizingMask = UIViewAutoresizingFlexibleSize;
     self.contentView.translatesAutoresizingMaskIntoConstraints = YES;
 }

@@ -16,8 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
     MBModel
 >
 
-@property (nonatomic, nullable, strong) ObjectType item;
-@property (nonatomic, strong) NSString *cellReuseIdentifier;
+@property (nonatomic, nullable) ObjectType item;
+@property (nonatomic) NSString *cellReuseIdentifier;
 
 + (instancetype)dataItemWithItem:(nullable ObjectType)item cellReuseIdentifier:(NSString *)identifier;
 
@@ -25,9 +25,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MBListSectionDataItem<SectionType, RowType> : NSObject
 
-@property (nonatomic, nullable, strong) SectionType sectionItem;
-@property (nonatomic, strong) NSString *sectionIndicator;
-@property (nonatomic, strong) NSMutableArray<MBListDataItem<RowType> *> *rows;
+@property (nonatomic, nullable) SectionType sectionItem;
+@property (nonatomic) NSString *sectionIndicator;
+@property (nonatomic) NSMutableArray<MBListDataItem<RowType> *> *rows;
 
 + (instancetype)dataItemWithSectionItem:(nullable SectionType)sectionItem sectionIndicator:(NSString *)sectionIndicator rows:(NSMutableArray<MBListDataItem<RowType> *> *)rows;
 

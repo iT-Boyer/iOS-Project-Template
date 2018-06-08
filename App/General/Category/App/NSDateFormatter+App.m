@@ -37,14 +37,6 @@
     return df;
 }
 
-+ (NSDateFormatter *)cachedMDHMDateFormatter {
-    static NSDateFormatter *df = nil;
-    if (!df) {
-        df = [NSDateFormatter currentLocaleFormatterFromTemplate:@"MMMMd hh:mm"];
-    }
-    return df;
-}
-
 + (NSDateFormatter *)cachedShortWeekDayFormatter {
     static NSDateFormatter *df = nil;
     if (!df) {

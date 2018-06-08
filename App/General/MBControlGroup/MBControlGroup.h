@@ -21,7 +21,7 @@
  
  这个类可以有多种用法，一般有：
  1. 作为 NSObject 而不是一个视图使用，用来控制逻辑，可以在 IB 中加入一个 NSObject 修改类，然后连接 controls 等属性，继承 UIControl 只是为了便于发送事件
- 2. 作为子控件的父 view 静态使用，有几个按钮，默认选中哪个，均可以（并且是可选的）在 IB 中连线实现
+ 2. 作为子控件的父 view 静态使用，有几个按钮、默认选中哪个，均可以（并且是可选的）在 IB 中连线实现
  3. 作为子控件的父 view 动态使用，Control group 会管理布局，动态增减子按钮布局会随之更新
  */
 @interface MBControlGroup : UIControl <
@@ -67,10 +67,11 @@
 @property IBInspectable CGFloat itemSpacing;
 
 /// 控件距 frame 边框的边距
+#if TARGET_INTERFACE_BUILDER
+@property IBInspectable CGRect itemInsets;
+#else
 @property UIEdgeInsets itemInsets;
-
-/// 仅用于 IB 中设置
-@property (nonatomic) IBInspectable CGRect IBItemInsets;
+#endif
 
 #pragma mark - Delegate
 

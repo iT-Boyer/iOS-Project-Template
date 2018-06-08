@@ -1,5 +1,6 @@
 
 #import "MBCollectionViewDataSource.h"
+#import <MBAppKit/MBGeneral.h>
 
 @implementation MBCollectionViewDataSource
 @dynamic delegate;

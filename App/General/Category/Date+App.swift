@@ -25,4 +25,9 @@ extension Date {
     var dayEnd: Date {
         return (self as NSDate).dayEnd
     }
+    
+    /// 刚刚、几分钟前、几小时前等样式
+    var recentString: String {
+        return (self as NSDate).recentString
+    }
 }

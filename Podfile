@@ -14,6 +14,7 @@ target 'App' do
     pod 'RFAlpha', :path => 'Frameworks/RFUI/Alpha', :subspecs => [
         'RFBlockSelectorPerform',
         'RFButton',
+        'RFCallbackControl',
         'RFContainerView',
         'RFDelegateChain/UICollectionViewDelegateFlowLayout',
         'RFDelegateChain/UICollectionViewDataSource',

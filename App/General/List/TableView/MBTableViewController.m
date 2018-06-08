@@ -1,5 +1,6 @@
 
 #import "MBTableViewController.h"
+#import <RFKit/UITableView+RFKit.h>
 
 @interface MBTableViewController ()
 @end

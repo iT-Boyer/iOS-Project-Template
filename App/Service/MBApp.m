@@ -56,37 +56,6 @@
 
 - (void)afterInit {
     [self api];
-#if DEBUG
-// @TODO
-//    if (self.debugConfig.showFlexWhenLaunch) {
-//        [[FLEXManager sharedManager] showExplorer];
-//    }
-    
-    __weak DebugConfig *dc = self.debugConfig;
-    
-    if (!dc.debugServer
-        && !dc.disableNoticeSwithToDebugServer) {
-//        PSTAlertAction *switchAction = [PSTAlertAction actionWithTitle:@"切换" style:PSTAlertActionStyleDefault handler:^(PSTAlertAction *action) {
-//            dc.debugServer = YES;
-//            [dc synchronize];
-//            exit(0);
-//        }];
-//
-//        void (^showAlertBlock)(NSString *, NSString *, void (^)(PSTAlertAction *)) = ^(NSString *title, NSString *nextTitle, void (^nextAction)(PSTAlertAction *)) {
-//            PSTAlertController *ac = [PSTAlertController alertWithTitle:@"注意" message:title];
-//            [ac addAction:switchAction];
-//            [ac addAction:[PSTAlertAction actionWithTitle:nextTitle style:PSTAlertActionStyleDefault handler:nextAction]];
-//            [ac showWithSender:nil controller:nil animated:YES completion:nil];
-//        };
-//
-//        showAlertBlock(@"你正在使用开发版本但处于生产环境\n需要切换到测试服务器吗？\n(调试菜单可禁用本提示)", @"暂不", ^(PSTAlertAction *action1) {
-//            showAlertBlock(@"开发版产生的不完善数据可能会污染线上环境并导致严重后果", @"下一步", ^(PSTAlertAction *action2) {
-//                showAlertBlock(@"你仍确定的要处于生产环境吗", @"确定", nil);
-//            });
-//        });
-    }
-#endif
-    
     if (self.previousVersion) {
         [self migrateFromVersion:self.previousVersion];
     }

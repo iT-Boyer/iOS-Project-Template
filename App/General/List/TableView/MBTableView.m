@@ -2,6 +2,7 @@
 #import "MBTableView.h"
 #import "API.h"
 #import "MBRefreshFooterView.h"
+#import <RFKit/UIResponder+RFKit.h>
 
 @interface MBTableView ()
 @property (nonatomic) MBTableViewDataSource *trueDataSource;
@@ -64,10 +65,10 @@ RFInitializingRootForUIView
         }
         self.pullToFetchController.footerReachEnd = dateSource.pageEnd;
         success = YES;
-    } completion:^(MBListDataSource *dateSource) {
+    } completion:^(MBTableViewDataSource *dateSource) {
         @strongify(self);
-        [self.pullToFetchController markProcessFinshed];
         self.pullToFetchController.autoFetchWhenScroll = success;
+        [self.pullToFetchController markProcessFinshed];
         if (self.fetchPageEnd) {
             self.fetchPageEnd(nextPage, dateSource);
         }
@@ -123,31 +124,15 @@ RFInitializingRootForUIView
 - (void)setDataSource:(id<UITableViewDataSource>)dataSource {
     self.trueDataSource.delegate = dataSource;
 
-    // 较新的 iOS 会缓存 delegate 响应方法的结果，需要重置刷新
-    if (RF_iOS9Before) return;
     // 视图释放时可能会调置空方法，此时不调 super
     if (!dataSource) return;
+    // iOS 9 之后会缓存 delegate 响应方法的结果，需要重置刷新
     [super setDataSource:nil];
     [super setDataSource:self.trueDataSource];
 }
 
 - (id<UITableViewDataSource>)dataSource {
     return self.trueDataSource;
-}
-
-#pragma mark - Cell height
-
-- (void)updateCellHeightAtIndexPath:(NSIndexPath *)indexPath animated:(BOOL)animated {
-    if (indexPath) {
-        [self reloadRowsAtIndexPaths:@[ indexPath ] withRowAnimation:animated? UITableViewRowAnimationFade : UITableViewRowAnimationNone];
-    }
-}
-
-- (void)updateCellHeightOfCell:(UITableViewCell *)cell animated:(BOOL)animated {
-    NSIndexPath *ip = [self indexPathForCell:cell];
-    if (ip) {
-        [self updateCellHeightAtIndexPath:ip animated:YES];
-    }
 }
 
 @end

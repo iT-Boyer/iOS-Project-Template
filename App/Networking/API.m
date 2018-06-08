@@ -1,8 +1,9 @@
 
 #import "API.h"
-#import "debug.h"
 #import "APIJSONResponseSerializer.h"
 #import "SDWebImageManager.h"
+#import <RFMessageManager/RFMessageManager+RFDisplay.h>
+#import "CommonUI.h"
 
 RFDefineConstString(APIErrorDomain);
 NSString *const APIURLAssetsBase              = @"http://img.example.com/";
@@ -36,7 +37,56 @@ NSString *const APIURLAssetsBase              = @"http://img.example.com/";
 #pragma mark - 通用流程
 
 - (BOOL)generalHandlerForError:(NSError *)error withDefine:(RFAPIDefine *)define controlInfo:(RFAPIControl *)controlInfo requestOperation:(AFHTTPRequestOperation *)operation operationFailureCallback:(void (^)(AFHTTPRequestOperation *, NSError *))operationFailureCallback {
+    
+    error = [self.class transformNSURLError:error];
+    if (!define || [define.path hasPrefix:@"http"]) {
+        // 没有 define 或 define 里写的绝对路径，意味着不是我们主要的业务逻辑
+        if (operationFailureCallback) {
+            operationFailureCallback(operation, error);
+        }
+        else {
+            [self.networkActivityIndicatorManager alertError:error title:nil];
+        }
+        return NO;
+    }
+    
+    if ([error.domain isEqualToString:APIErrorDomain]) {
+        // 根据业务做统一处理，比如 token 失效登出
+        switch (error.code) {
+//            case token_invald: {
+//                if (APUser.currentUser) {
+//                    APUser.currentUser = nil;
+//                    [AppHUD() showErrorStatus:@"已登出，请重新登录"];
+//                }
+//                APUser.currentUser = nil;
+//                return NO;
+//            }
+        }
+    }
     return YES;
+}
+
+/// 重新包装系统错误
++ (NSError *)transformNSURLError:(NSError *)error {
+    if (![error.domain isEqualToString:NSURLErrorDomain]) return error;
+    
+    NSString *localizedDescription;
+#define _Error(NAME)\
+    NAME:\
+        localizedDescription = NSLocalizedString(@#NAME, nil);\
+        break
+    
+    switch (error.code) {
+        case _Error(NSURLErrorNetworkConnectionLost);
+        case _Error(NSURLErrorNotConnectedToInternet);
+        case _Error(NSURLErrorTimedOut);
+        case _Error(NSURLErrorCannotParseResponse);
+        case _Error(NSURLErrorSecureConnectionFailed);
+    }
+    if (localizedDescription) {
+        return [NSError errorWithDomain:NSURLErrorDomain code:error.code localizedDescription:localizedDescription];
+    }
+    return error;
 }
 
 - (BOOL)isSuccessResponse:(__strong id  _Nullable *)responseObjectRef error:(NSError *__autoreleasing  _Nullable *)error {

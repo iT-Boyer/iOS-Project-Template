@@ -7,6 +7,9 @@ RFInitializingRootForUIView
 
 - (void)onInit {
     self.dataSource = self;
+    if (!self.delegate) {
+        self.delegate = self;
+    }
     self.scrollsToTop = NO;
 }
 

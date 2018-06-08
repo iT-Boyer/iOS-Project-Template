@@ -8,7 +8,7 @@
     http://www.apache.org/licenses/LICENSE-2.0
  */
 #import "MBTableView.h"
-#import "MBGeneralListDisplaying.h"
+#import <MBAppKit/MBGeneral.h>
 
 /**
  比普通 UIViewController + MBTableView 多了以下特性：

@@ -117,11 +117,6 @@ RFInitializingRootForUIView
 
 #pragma mark - Layout
 
-@dynamic IBItemInsets;
-- (void)setIBItemInsets:(CGRect)insets {
-    self.itemInsets = UIEdgeInsetsMake(insets.origin.y, insets.origin.x, insets.size.height, insets.size.width);
-}
-
 - (void)updateConstraints {
     [super updateConstraints];
     if (!self.selfLayoutEnabled) return;

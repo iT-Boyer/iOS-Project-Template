@@ -12,28 +12,42 @@
 #import <MBAppKit/MBGeneralListDisplaying.h>
 #import "MBTabControl.h"
 
+/**
+ 
+ */
 @interface MBTabController : RFPageTabController <
     RFTabControllerDelegate,
     MBGeneralListDisplaying
 >
-@property (weak, nonatomic) IBOutlet MBTabControl *tabControl;
+@property (weak, nullable, nonatomic) IBOutlet MBTabControl *tabControl;
 
 /**
- tab 切换时调用这个方法更新列表设置和页面统计
+ 设置 tab controller 的 navigationItem 左右按钮为当前 vc 的
+ 
+ 默认 NO，不会设置 title 或 titleView
  */
-- (void)updateListWhenSelectedIndexChanged;
+@property IBInspectable BOOL shouldSetNavigationBarButtonItemsToSelectedViewController;
+
+#pragma mark - 切换事件
 
 /**
- 手势驱动的切换，和 tabControl 响应的事件会调用下面两个方法，手动调用 setSelectedIndex:animated:completion: 则不会
+ 当前 vc 切换前后调用，供子类重载
 
  will did 可以保证成对出现，否则可能是个 bug
  
- 默认实现都是空
+ 默认什么也不做
  */
-- (void)willSelectViewController:(UIViewController *)viewController atIndex:(NSUInteger)index;
-- (void)didSelectViewController:(UIViewController *)viewController atIndex:(NSUInteger)index;
+- (void)willSelectViewController:(nullable UIViewController *)viewController atIndex:(NSUInteger)index animated:(BOOL)animated;
+- (void)didSelectViewController:(nullable UIViewController *)viewController atIndex:(NSUInteger)index animated:(BOOL)animated;
 
-///标识是否是点击按钮驱动tab切换,default = NO;
-@property (nonatomic) BOOL isTapTabControlSwichPage;
+/**
+ 当前 vc 切换时调研，子类可重载
+ 
+ 默认做了不少事：尝试管理列表的 scrollsToTop 属性，尝试刷新未获取数据的列表，管理 APIGroupIdentifier 并取消之前 vc 的请求，可选设置导航 item
+ */
+- (void)updatesForSelectedViewControllerChanged:(nullable __kindof UIViewController *)selectedViewController animated:(BOOL)animated;
+
+/// 标识当前切换是用户点击 tab 切换的还是用户滑动或代码调用
+@property BOOL isTapTabControlSwichPage;
 
 @end

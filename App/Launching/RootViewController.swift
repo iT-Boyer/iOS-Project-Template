@@ -8,7 +8,7 @@
 
 import Foundation
 
-@objc class RootViewController: MBRootWrapperViewController {
+class RootViewController: MBRootWrapperViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("hello")

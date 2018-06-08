@@ -1,6 +1,6 @@
 
 #import "MBCollapsibleView.h"
-#import "UIView+RFAnimate.h"
+#import <RFKit/UIView+RFAnimate.h>
 
 @implementation MBCollapsibleView
 RFInitializingRootForUIView

@@ -1,5 +1,6 @@
 
 #import "NSDate+App.h"
+#import "NSDateFormatter+App.h"
 
 BOOL NSDateIsRecent(NSDate *_Nullable date, NSTimeInterval range) {
     if (!date) return NO;
@@ -17,14 +18,14 @@ BOOL NSDateIsRecent(NSDate *_Nullable date, NSTimeInterval range) {
 }
 
 - (BOOL)isSameYearWithDate:(NSDate *)date {
-    if (!date) return false;
+    if (!date) return NO;
 
     NSDateComponents *target = [[NSCalendar currentCalendar] components:(NSCalendarUnit)(NSCalendarUnitYear) fromDate:date];
     NSDateComponents *source = [[NSCalendar currentCalendar] components:(NSCalendarUnit)(NSCalendarUnitYear) fromDate:self];
     return [target isEqual:source];
 }
 
-- (nonnull NSString *)displayString {
+- (nonnull NSString *)recentString {
     NSTimeInterval diff = -[self timeIntervalSinceDate:[NSDate date]];
     if (diff < 3600*24) {
         if (diff < 60) {
@@ -45,12 +46,7 @@ BOOL NSDateIsRecent(NSDate *_Nullable date, NSTimeInterval range) {
 }
 
 - (nonnull NSString *)timeString {
-    if ([self isSameDayWithDate:NSDate.date]) {
-        return [[NSDateFormatter cachedHMDateFormatter] stringFromDate:self];
-    }
-    else {
-        return [[NSDateFormatter cachedMDHMDateFormatter] stringFromDate:self];
-    }
+    return [[NSDateFormatter cachedHMDateFormatter] stringFromDate:self];
 }
 
 - (nonnull NSString *)displayDateString {
@@ -77,50 +73,8 @@ BOOL NSDateIsRecent(NSDate *_Nullable date, NSTimeInterval range) {
     return [[NSDateFormatter cachedDayIdentifierFormatter] stringFromDate:self];
 }
 
-+ (nonnull NSString *)durationMSStringWithTimeStamp:(MBDateTimeStamp)duration {
-    //平板支撑工具页时间四舍五入
-    return [NSString stringWithFormat:@"%02d:%02d", (int)round((float)duration/1000)/60, (int)round((float)duration/1000)%60];
-}
-
-+ (nonnull NSString *)longDurationStringWithTimeInterval:(NSTimeInterval)duration unitRang:(nullable NSRange *)rangeRef {
-    NSString *numberPart = nil;
-    NSString *unitPart = nil;
-    if (duration < 1) {
-        numberPart = @"0";
-        unitPart = @"";
-    }
-    if (duration < 999.95 *60) {
-        numberPart = [NSString stringWithFormat:@"%.1f", duration/60];
-        unitPart = @" 分钟";
-    }
-    else if (duration < 10000 *60) {
-        numberPart = [NSString stringWithFormat:@"%.0f", duration/60];
-        unitPart = @" 分钟";
-    }
-    else if (duration < 999.95 *3600) {
-        numberPart = [NSString stringWithFormat:@"%.1f", duration/3600];
-        unitPart = @" 小时";
-    }
-    else if (duration < 9999.5 *3600) {
-        numberPart = [NSString stringWithFormat:@"%.0f", duration/3600];
-        unitPart = @" 小时";
-    }
-    else if (duration < 999.95 *86400) {
-        numberPart = [NSString stringWithFormat:@"%.1f", duration/3600/24];
-        unitPart = @" 天";
-    }
-    else if (duration < 10000 *86400) {
-        numberPart = [NSString stringWithFormat:@"%.0f", duration/3600/24];
-        unitPart = @" 天";
-    }
-    else {
-        numberPart = [NSString stringWithFormat:@"%.1f", duration/3600/24/30];
-        unitPart = @" 月";
-    }
-    if (rangeRef) {
-        *rangeRef = NSMakeRange(numberPart.length, unitPart.length);
-    }
-    return [NSString stringWithFormat:@"%@%@", numberPart, unitPart];
++ (NSDate *)dateWithTimeStamp:(MBDateTimeStamp)timestamp {
+    return [NSDate dateWithTimeIntervalSince1970:timestamp / 1000];
 }
 
 @end

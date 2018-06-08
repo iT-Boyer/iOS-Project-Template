@@ -1,11 +1,12 @@
 /*!
-    MBRefreshFooterView
-
-    Copyright © 2015-2016 Beijing ZhiYun ZhiYuan Information Technology Co., Ltd.
-    https://github.com/BB9z/iOS-Project-Template
-
-    Apache License, Version 2.0
-    http://www.apache.org/licenses/LICENSE-2.0
+ MBVauleLabel
+ 
+ Copyright © 2018 RFUI.
+ Copyright © 2015-2016 Beijing ZhiYun ZhiYuan Information Technology Co., Ltd.
+ https://github.com/RFUI/MBAppKit
+ 
+ Apache License, Version 2.0
+ http://www.apache.org/licenses/LICENSE-2.0
  */
 
 #import "Common.h"
@@ -39,24 +40,4 @@
 /// 重写或设置 block 改变展示方式
 - (NSAttributedString *)displayAttributedStringForVaule:(id)value;
 @property (copy, nonatomic) NSAttributedString* (^vauleFormatBlock)(MBVauleAttributedLabel *label, id value);
-@end
-
-
-/**
- hh:mm:ss or mm:ss
- */
-@interface ZYDurationLabel : MBVauleLabel
-/// YES 时，如果没有小时，则以 mm:ss 格式显示
-@property (getter=isHourOptional) IBInspectable BOOL hourOptional;
-@end
-
-/**
- 999m or 3.21km
- */
-@interface ZYDistanceLabel : MBVauleAttributedLabel
-@property (nonatomic, copy) NSDictionary *numberAttributes;
-@property (nonatomic, copy) NSDictionary *unitAttributes;
-
-/// 开启时，不足 1000m 显示 xxm
-@property (nonatomic) IBInspectable BOOL autoUnit;
 @end

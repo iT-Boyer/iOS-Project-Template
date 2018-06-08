@@ -2,12 +2,13 @@
 #import "MBRootWrapperViewController.h"
 #import "MBNavigationController.h"
 #import "UIViewController+RFInterfaceOrientation.h"
+#import "CommonUI.h"
 
 static MBRootWrapperViewController *MBRootWrapperViewControllerGlobalInstance;
 
 @interface MBRootWrapperViewController ()
-@property (nonatomic) BOOL hasViewAppeared;
 @property (weak, nonatomic) UIView *snapRenderingContainer;
+@property (weak) UIViewController *splash;
 @end
 
 @implementation MBRootWrapperViewController
@@ -56,30 +57,43 @@ static MBRootWrapperViewController *MBRootWrapperViewControllerGlobalInstance;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.hasViewAppeared = NO;
-}
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    if (!self.hasViewAppeared) {
-        [self onSplashFinshed];
-    }
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    self.hasViewAppeared = YES;
-}
-
-#pragma mark - Splash
-
-- (void)onSplashFinshed {
-    MBNavigationController *nav = MBNavigationController.newFromStoryboard;
+    NavigationController *nav = NavigationController.newFromStoryboard;
     [self addChildViewController:nav];
     UIView *nv = nav.view;
     nv.autoresizingMask = UIViewAutoresizingFlexibleSize;
     nv.frame = self.view.bounds;
     [self.view insertSubview:nv atIndex:0];
+    
+    [self setupSplash];
+}
+
+#pragma mark - Splash
+
+- (void)setupSplash {
+    UIStoryboard *ls = [UIStoryboard storyboardWithName:@"LaunchScreen" bundle:nil];
+    UIViewController *vc = [ls instantiateInitialViewController];
+    [self addChildViewController:vc intoView:self.view];
+    self.splash = vc;
+    // TODO: 移除或添加信号发送
+    // 等待主页加载完毕后隐藏启动闪屏，最多等 3s
+//    [AppEnv() waitFlags:MBENVFlagHomeLoaded do:^{
+//        [self splashFinish];
+//    } timeout:3];
+//    dispatch_after_seconds(3, ^{
+        [self splashFinish];
+//    });
+}
+
+- (void)splashFinish {
+    if (!self.splash) return;
+    UIViewController *vc = self.splash;
+    self.splash = nil;
+    [UIView animateWithDuration:0.3 animations:^{
+        vc.view.alpha = 0;
+    } completion:^(BOOL finished) {
+        [vc removeFromParentViewControllerAndView];
+    }];
 }
 
 #pragma mark - Snap render

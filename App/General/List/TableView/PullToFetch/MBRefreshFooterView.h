@@ -9,8 +9,7 @@
  Apache License, Version 2.0
  http://www.apache.org/licenses/LICENSE-2.0
  */
-#import "Common.h"
-#import "RFTableViewPullToFetchPlugin.h"
+#import <RFAlpha/RFTableViewPullToFetchPlugin.h>
 
 @interface MBRefreshFooterView : UIView <
     RFInitializing
@@ -30,8 +29,6 @@
  置为 YES 将显示 emptyLabel 的内容
  */
 @property (nonatomic) BOOL empty;
-
-@property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 
 @property (nonatomic) RFPullToFetchIndicatorStatus status;
 - (void)updateStatus:(RFPullToFetchIndicatorStatus)status distance:(CGFloat)distance control:(RFTableViewPullToFetchPlugin *)control;

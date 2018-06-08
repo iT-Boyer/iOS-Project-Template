@@ -21,6 +21,8 @@ extern NSString *__nonnull const APIURLAssetsBase;
  */
 @interface API : MBAPI
 
++ (nullable NSError *)transformNSURLError:(nullable NSError *)error;
+
 #pragma mark - 具体业务
 
 

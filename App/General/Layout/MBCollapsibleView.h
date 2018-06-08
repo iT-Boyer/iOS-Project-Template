@@ -9,7 +9,8 @@
  http://www.apache.org/licenses/LICENSE-2.0
  */
 
-#import "Common.h"
+#import <UIKit/UIKit.h>
+#import <RFInitializing/RFInitializing.h>
 
 /**
  折叠区域，通过控制 expand 属性调整尺寸
@@ -40,7 +41,7 @@
 @property (nonatomic) IBInspectable BOOL expand;
 
 /**
- 控制折叠是水平方向还是竖直方向
+ 控制折叠是水平方向还是竖直方向，默认 NO——竖直方向
  */
 @property (nonatomic) IBInspectable BOOL horizontal;
 
@@ -59,7 +60,7 @@
 @property IBInspectable CGFloat expandedWidth;
 
 /**
- 展开时使用自动高度
+ 展开时使用 Auto Layout 自动尺寸
  */
 @property IBInspectable BOOL useIntrinsicExpandSize;
 
