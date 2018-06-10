@@ -15,9 +15,9 @@
 @interface UIViewController (RFInterfaceOrientation)
 
 /**
- 0 默认或未设置，支持所有方向
- 1 锁定竖屏
- 2 锁定横屏
+ 0 锁定竖屏
+ 1 锁定横屏
+ 2 支持所有方向
  */
 @property IBInspectable NSInteger RFInterfaceOrientation;
 

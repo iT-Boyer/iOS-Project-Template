@@ -13,37 +13,35 @@ static MBRootWrapperViewController *MBRootWrapperViewControllerGlobalInstance;
 
 @implementation MBRootWrapperViewController
 
+- (UIViewController *)childViewControllerForStatusBarStyle {
+    return self.childViewControllers.firstObject;
+}
+- (UIViewController *)childViewControllerForStatusBarHidden {
+
+    return self.childViewControllers.firstObject;
+}
+
+- (UIViewController *)childViewControllerForHomeIndicatorAutoHidden {
+    return self.childViewControllers.firstObject;
+}
+
+- (UIViewController *)childViewControllerForScreenEdgesDeferringSystemGestures {
+    return self.childViewControllers.firstObject;
+}
+
+- (UIViewController *)childViewControllerContainingSegueSource:(UIStoryboardUnwindSegueSource *)source {
+    return self.childViewControllers.firstObject;
+}
+
 - (BOOL)shouldAutorotate {
-    return self._styleViewController.shouldAutorotate;
+    return self.childViewControllers.firstObject.shouldAutorotate;
 }
 
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations {
-    UIViewController *vc = self._styleViewController;
-    if (vc.RFInterfaceOrientationSet) {
-        NSInteger o = vc.RFInterfaceOrientation;
-        if (o == 1) {
-            return UIInterfaceOrientationMaskPortrait|UIInterfaceOrientationMaskPortraitUpsideDown;
-        }
-        else if (o == 2) {
-            return UIInterfaceOrientationMaskLandscape;
-        }
-        return UIInterfaceOrientationMaskAll;
-    }
-    return vc.supportedInterfaceOrientations;
+    return self.childViewControllers.firstObject.supportedInterfaceOrientations;
 }
 
-- (UIViewController *)childViewControllerForStatusBarHidden {
-    return self._styleViewController;
-}
-
-- (UIViewController *)childViewControllerForStatusBarStyle {
-    return self._styleViewController;
-}
-
-- (UIViewController *)_styleViewController {
-    UINavigationController *vc = self.childViewControllers.lastObject;
-    return [vc isKindOfClass:UINavigationController.class]? vc.topViewController : vc;
-}
+#pragma mark -
 
 - (void)awakeFromNib {
     [super awakeFromNib];

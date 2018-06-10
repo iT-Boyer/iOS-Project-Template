@@ -8,7 +8,7 @@
  http://www.apache.org/licenses/LICENSE-2.0
  */
 
-#import <UIKit/UIKit.h>
+#import <RFAlpha/RFNavigationController.h>
 
 @interface UIViewController (RFDNavigationAppearance)
 
@@ -27,6 +27,6 @@
  */
 @property IBInspectable BOOL RFPrefersDisabledInteractivePopGesture;
 
-- (nullable NSDictionary<NSString *, id> *)RFNavigationAppearanceAttributes;
+- (nullable NSMutableDictionary<RFViewControllerAppearanceAttributeKey, id> *)RFNavigationAppearanceAttributes;
 
 @end
