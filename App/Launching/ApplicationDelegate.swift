@@ -37,7 +37,7 @@ class ApplicationDelegate: MBApplicationDelegate {
                 // 超时断网不报错
             }
             else {
-                AppHUD().alertError(API.transformNSURLError(e) as NSError?, title: nil)
+                AppHUD().alertError(e, title: nil)
             }
             return false
         }

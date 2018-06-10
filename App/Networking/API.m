@@ -50,6 +50,15 @@ NSString *const APIURLAssetsBase              = @"http://img.example.com/";
         return NO;
     }
     
+    if ([error.domain isEqualToString:NSURLErrorDomain]) {
+        // 特殊情况，清除缓存
+        if (error.code == NSURLErrorCannotParseResponse) {
+            // 移除不能解析请求的缓存
+            // 移除单个请求的貌似没效果
+            [NSURLCache.sharedURLCache removeAllCachedResponses];
+        }
+    } // END: NSURLErrorDomain 下错误处理
+    
     if ([error.domain isEqualToString:APIErrorDomain]) {
         // 根据业务做统一处理，比如 token 失效登出
         switch (error.code) {
@@ -63,28 +72,39 @@ NSString *const APIURLAssetsBase              = @"http://img.example.com/";
 //            }
         }
     }
-    return YES;
+    
+    //- 最终处理，报告错误
+    if (operationFailureCallback) {
+        operationFailureCallback(operation, error);
+    }
+    else {
+        [self.networkActivityIndicatorManager alertError:error title:nil];
+    }
+    return NO;  // 需要为 NO，终止默认的错误处理
 }
 
 /// 重新包装系统错误
 + (NSError *)transformNSURLError:(NSError *)error {
     if (![error.domain isEqualToString:NSURLErrorDomain]) return error;
     
-    NSString *localizedDescription;
+    NSString *msg = nil;
 #define _Error(NAME)\
     NAME:\
-        localizedDescription = NSLocalizedString(@#NAME, nil);\
+        msg = NSLocalizedString(@#NAME, nil);\
         break
     
     switch (error.code) {
+        case _Error(NSURLErrorCannotConnectToHost);
+        case _Error(NSURLErrorCannotFindHost);
+        case _Error(NSURLErrorCannotParseResponse);
+        case _Error(NSURLErrorDNSLookupFailed);
         case _Error(NSURLErrorNetworkConnectionLost);
         case _Error(NSURLErrorNotConnectedToInternet);
-        case _Error(NSURLErrorTimedOut);
-        case _Error(NSURLErrorCannotParseResponse);
         case _Error(NSURLErrorSecureConnectionFailed);
+        case _Error(NSURLErrorTimedOut);
     }
-    if (localizedDescription) {
-        return [NSError errorWithDomain:NSURLErrorDomain code:error.code localizedDescription:localizedDescription];
+    if (msg) {
+        return [NSError errorWithDomain:error.domain code:error.code localizedDescription:msg];
     }
     return error;
 }
