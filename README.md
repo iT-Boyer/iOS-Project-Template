@@ -20,7 +20,7 @@ gem install plist xcodeproj fastlane
 fastlane setup_project
 ```
 
-## 关于项目模版
+## 关于项目模版
 
 参见 https://github.com/BB9z/iOS-Project-Template/wiki
 
