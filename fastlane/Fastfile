@@ -11,7 +11,7 @@
 
 # This is the minimum version number required.
 # Update this, if you use features of a newer version
-fastlane_version "2.0.0"
+fastlane_version "2.90.0"
 
 default_platform :ios
 
@@ -26,7 +26,7 @@ end
 
 desc "安装整个项目依赖"
 lane :setup_project do
-    sh('git pull --recurse-submodules')
+    sh('git submodule update --init --recursive')
     cocoapods
     cocoapods(podfile: "PreBuild")
     sh('cd .. && ./PreBuild/Support/clean_output.sh')
