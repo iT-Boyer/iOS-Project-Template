@@ -1435,6 +1435,7 @@
 					"DEBUG=1",
 					"RFDEBUG=1",
 					"RFDebugLevel=4",
+					"MBBuildConfiguration=\\\"Debug\\\"",
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -1489,7 +1490,10 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = "RFDEBUG=0";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"RFDEBUG=0",
+					"MBBuildConfiguration=\\\"Release\\\"",
+				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -1633,6 +1637,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"RFDEBUG=1",
 					"RFDebugLevel=3",
+					"MBBuildConfiguration=\\\"Alpha\\\"",
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
