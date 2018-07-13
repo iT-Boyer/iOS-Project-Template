@@ -45,10 +45,6 @@ BOOL NSDateIsRecent(NSDate *_Nullable date, NSTimeInterval range) {
     return self.displayDateString;
 }
 
-- (nonnull NSString *)timeString {
-    return [[NSDateFormatter cachedHMDateFormatter] stringFromDate:self];
-}
-
 - (nonnull NSString *)displayDateString {
     if ([self isSameDayWithDate:[NSDate date]]) {
         return @"今天";
@@ -61,20 +57,12 @@ BOOL NSDateIsRecent(NSDate *_Nullable date, NSTimeInterval range) {
     }
 }
 
-+ (MBDateTimeStamp)timestampForNow {
-    return [[NSDate date] timeIntervalSince1970] * 1000.f;
-}
-
 - (MBDateTimeStamp)timestamp {
     return self.timeIntervalSince1970 * 1000.f;
 }
 
 - (MBDateDayIdentifier)dayIdentifier {
     return [[NSDateFormatter cachedDayIdentifierFormatter] stringFromDate:self];
-}
-
-+ (NSDate *)dateWithTimeStamp:(MBDateTimeStamp)timestamp {
-    return [NSDate dateWithTimeIntervalSince1970:timestamp / 1000];
 }
 
 @end

@@ -1,15 +1,6 @@
-/*!
- Date+App.swift
- 
- Copyright © 2018 RFUI.
- https://github.com/BB9z/iOS-Project-Template
- 
- Apache License, Version 2.0
- http://www.apache.org/licenses/LICENSE-2.0
+/**
+ 应用级别的便捷方法
  */
-
-import Foundation
-
 extension Date {
     /// 毫秒时间戳
     var timestamp: Int64 {
@@ -29,5 +20,17 @@ extension Date {
     /// 刚刚、几分钟前、几小时前等样式
     var recentString: String {
         return (self as NSDate).recentString
+    }
+    
+    /// 后台专用日期格式 yyyy-MM-dd
+    var dayIdentifier: MBDateDayIdentifier {
+        return DateFormatter.cachedDayIdentifier().string(from: self) as MBDateDayIdentifier
+    }
+}
+
+extension TimeInterval {
+    var mmssString: String {
+        let value = Int(self.rounded())
+        return String(format: "%02d:%02d", value/60,  value%60)
     }
 }

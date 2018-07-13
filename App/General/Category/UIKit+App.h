@@ -28,13 +28,6 @@ FOUNDATION_EXPORT void limitedDouble(double *_Nonnull value, double min, double 
  */
 FOUNDATION_EXPORT void limitedOffsetChange(double *_Nonnull source, double target, double limitation);
 
-#if !TARGET_OS_WATCH
-/**
- Storyboard 全局变量
- */
-FOUNDATION_EXTERN UIStoryboard *_Nonnull MainStoryboard;
-#endif
-
 #import "NSArray+App.h"
 #import "NSDate+App.h"
 #import "NSDateFormatter+App.h"

@@ -1,14 +1,6 @@
-/*!
- String+App.swift
- 
- Copyright © 2018 RFUI.
- https://github.com/BB9z/iOS-Project-Template
- 
- Apache License, Version 2.0
- http://www.apache.org/licenses/LICENSE-2.0
+/**
+ 应用级别的便捷方法
  */
-import Foundation
-
 extension String {
     
     /// 非空，结合空的判断使用起来更容易些

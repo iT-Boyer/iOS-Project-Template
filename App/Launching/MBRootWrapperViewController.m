@@ -46,7 +46,6 @@ static MBRootWrapperViewController *MBRootWrapperViewControllerGlobalInstance;
 - (void)awakeFromNib {
     [super awakeFromNib];
     MBRootWrapperViewControllerGlobalInstance = self;
-    MainStoryboard = self.storyboard;
 }
 
 + (instancetype)globalController {

@@ -14,8 +14,6 @@
 extern BOOL NSDateIsRecent(NSDate *_Nullable date, NSTimeInterval range);
 
 @interface NSMilliDate (App)
-
-
 @end
 
 @interface NSDate (App)
@@ -42,19 +40,9 @@ extern BOOL NSDateIsRecent(NSDate *_Nullable date, NSTimeInterval range);
  */
 - (nonnull NSString *)displayDateString;
 
-/**
- 本地化的 hh:mm
- */
-- (nonnull NSString *)timeString;
-
-/// 当前时间的毫秒时间戳
-+ (MBDateTimeStamp)timestampForNow;
-
 /// 毫秒时间戳
 - (MBDateTimeStamp)timestamp;
 
 - (nonnull MBDateDayIdentifier)dayIdentifier;
-
-+ (nonnull NSDate *)dateWithTimeStamp:(MBDateTimeStamp)timestamp;
 
 @end

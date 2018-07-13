@@ -5,7 +5,7 @@
 @implementation UIViewController (App)
 
 + (nonnull instancetype)newFromStoryboard {
-    UIStoryboard *sb = self.storyboardName? [UIStoryboard storyboardWithName:self.storyboardName bundle:nil] : MainStoryboard;
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:self.storyboardName bundle:nil];
     NSString *iden = self.className;
     @try {
         return [sb instantiateViewControllerWithIdentifier:iden];

@@ -1,12 +1,12 @@
-//
-//  Array+App.swift
-//  ZNArt
-//
-//  Created by BB9z on 2018/5/28.
-//  Copyright © 2018 znart.com. All rights reserved.
-//
-
+/**
+ 应用级别的便捷方法
+ */
 extension Array {
+    
+    /// 非空，结合空的判断使用起来更容易些
+    var isNotEmpty: Bool {
+        return !isEmpty
+    }
     
     /// 安全的获取元素，index 超出范围返回 nil
     func rf_object(at index: Int) -> Element? {
@@ -14,5 +14,12 @@ extension Array {
             return self[index]
         }
         return nil
+    }
+}
+
+extension Array where Iterator.Element: Hashable {
+    /// 返回去重的数组
+    func uniqued() -> [Element] {
+        return Array(Set<Element>(self))
     }
 }

@@ -1,14 +1,12 @@
-//
-//  NSPointArray+App.swift
-//  ZNArt
-//
-//  Created by BB9z on 2018/5/17.
-//  Copyright © 2018 znart.com. All rights reserved.
-//
-
-import Foundation
-
 /**
+ NSPointArray+App.swift
+ 
+ Copyright © 2018 RFUI.
+ https://github.com/BB9z/iOS-Project-Template
+ 
+ Apache License, Version 2.0
+ http://www.apache.org/licenses/LICENSE-2.0
+
  便于在 Swift 中安全、方便地使用 NSPointerArray
  */
 extension NSPointerArray {

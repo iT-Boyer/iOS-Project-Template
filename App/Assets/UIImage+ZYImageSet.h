@@ -1,18 +1,8 @@
 /*!
-    UIImage+ZYImageSet
-
-    Copyright © 2016 Beijing ZhiYun ZhiYuan Information Technology Co., Ltd.
-    
-
-    All rights reserved.
- */
-
-/*!
- MBDatePickerViewController
+ UIImage+ZYImageSet
  
  Copyright © 2018 RFUI.
  Copyright © 2016 Beijing ZhiYun ZhiYuan Technology Co., Ltd.
- 
  
  Apache License, Version 2.0
  http://www.apache.org/licenses/LICENSE-2.0

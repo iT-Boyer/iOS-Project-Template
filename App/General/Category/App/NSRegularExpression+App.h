@@ -13,6 +13,6 @@
 @interface NSRegularExpression (App)
 
 /// 中日韩字符 的正则
-+ (nonnull NSRegularExpression *)CJKCharRegularExpression;
+@property (class, readonly, nonnull) NSRegularExpression *CJKCharRegularExpression;
 
 @end
