@@ -7,6 +7,7 @@
 @implementation MBCollectionViewEqualColumnSpaceLayout
 
 - (void)prepareLayout {
+    [super prepareLayout];
     NSAssert(self.scrollDirection == UICollectionViewScrollDirectionVertical, @"Only vertical direction is supported.");
     NSUInteger columns = self.numberOfColumns;
     CGFloat itemSpace = (self.collectionView.width - self.itemSize.width * columns) / (columns + 1);
@@ -16,8 +17,6 @@
     inset.right = itemSpace;
     self.sectionInset = inset;
     self.minimumInteritemSpacing = itemSpace;
-    
-    [super prepareLayout];
 }
 
 @end

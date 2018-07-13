@@ -3,6 +3,7 @@
 
 @interface MBControlGroup ()
 @property (nonatomic) CGFloat MBControlGroup_intrinsicContentWidth;
+@property CFAbsoluteTime _MBControlGroup_lastChangeTime;
 @end
 
 @implementation MBControlGroup
@@ -46,6 +47,10 @@ RFInitializingRootForUIView
 - (void)MBControlGroup_onSubControlTapped:(UIControl *)sender {
     if (self.deselectWhenSelection
         && self.selectedControl == sender) {
+        if (self.minimumSelectionChangeInterval
+            && CFAbsoluteTimeGetCurrent() - self._MBControlGroup_lastChangeTime < self.minimumSelectionChangeInterval) {
+            return;
+        }
         // 点击已选中控件取消
         self.selectedControl = nil;
         if (self.selectionNoticeOnlySendWhenButtonTapped) {
@@ -54,6 +59,10 @@ RFInitializingRootForUIView
         return;
     }
 
+    if (self.minimumSelectionChangeInterval
+        && CFAbsoluteTimeGetCurrent() - self._MBControlGroup_lastChangeTime < self.minimumSelectionChangeInterval) {
+        return;
+    }
     if ([self.delegate respondsToSelector:@selector(controlGroup:shouldSelectControlAtIndex:)]) {
         NSInteger idx = [self.controls indexOfObject:sender];
         if (![self.delegate controlGroup:self shouldSelectControlAtIndex:idx]) {
@@ -74,6 +83,7 @@ RFInitializingRootForUIView
             _selectedControl.selected = NO;
         }
         _selectedControl = selectedControl;
+        self._MBControlGroup_lastChangeTime = CFAbsoluteTimeGetCurrent();
         if (selectedControl) {
             [self selectControl:selectedControl];
             selectedControl.selected = YES;

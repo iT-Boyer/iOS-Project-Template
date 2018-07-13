@@ -26,6 +26,7 @@
 }
 
 - (void)prepareLayout {
+    [super prepareLayout];
     BOOL isVertical = (self.scrollDirection == UICollectionViewScrollDirectionVertical);
     _viewSize = isVertical? self.collectionView.height : self.collectionView.width;
     if (self.fixedCellPadding != 0) {
@@ -54,7 +55,6 @@
         inset.right = padding;
     }
     self.sectionInset = inset;
-    [super prepareLayout];
 }
 
 - (CGPoint)targetContentOffsetForProposedContentOffset:(CGPoint)proposedContentOffset withScrollingVelocity:(CGPoint)velocity {

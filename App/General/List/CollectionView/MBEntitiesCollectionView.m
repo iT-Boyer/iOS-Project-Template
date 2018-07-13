@@ -1,6 +1,5 @@
 
 #import "MBEntitiesCollectionView.h"
-#import "MBGeneralCellResponding.h"
 
 @implementation MBEntitiesCollectionView
 RFInitializingRootForUIView
@@ -44,6 +43,26 @@ RFInitializingRootForUIView
         _items = items;
         [self reloadData];
     }
+}
+
+- (void)appendItem:(id)item {
+    if (!item) return;
+    if (![_items isKindOfClass:NSMutableArray.class]) {
+        _items = [NSMutableArray.alloc initWithArray:_items];
+    }
+    [(NSMutableArray *)_items addObject:item];
+    [self insertItemsAtIndexPaths:@[ [NSIndexPath indexPathForItem:_items.count - 1 inSection:0] ]];
+}
+
+- (void)removeItem:(id)item {
+    if (!item) return;
+    NSInteger idx = [self.items indexOfObject:item];
+    if (idx == NSNotFound) return;
+    if (![_items isKindOfClass:NSMutableArray.class]) {
+        _items = [NSMutableArray.alloc initWithArray:_items];
+    }
+    [(NSMutableArray *)_items removeObjectAtIndex:idx];
+    [self deleteItemsAtIndexPaths:@[ [NSIndexPath indexPathForItem:idx inSection:0] ]];
 }
 
 @end

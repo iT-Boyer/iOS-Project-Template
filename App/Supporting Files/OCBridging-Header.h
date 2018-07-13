@@ -14,6 +14,7 @@
 #import "MBNavigationController.h"
 #import "MBNavigationController+Router.h"
 #import "MBRootWrapperViewController.h"
+#import "MBSearchTextField.h"
 #import "MBTableViewDataSource.h"
 #import "MBTextField.h"
 #import "NSUserDefaults+App.h"

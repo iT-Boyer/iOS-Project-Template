@@ -44,6 +44,18 @@
 - (void)deselectControl:(nonnull UIControl *)control;
 
 /**
+ 切换操作的最短间隔
+ 
+ 非 0 时，如果当前切换距上一次切换的时间短于给定阈值，则取消当前切换；
+ 同时，这个限制只针对用户点击触发，通过代码设置当前选中不会被取消
+ */
+#if TARGET_INTERFACE_BUILDER
+@property IBInspectable double minimumSelectionChangeInterval;
+#else
+@property NSTimeInterval minimumSelectionChangeInterval;
+#endif
+
+/**
  设为 YES，只在用户点子按钮时告知 delegate tab 切换，否则只要 selectedIndex 变化就会通知 delegate
 
  这个开关本不应该存在，应该默认开启。但因为历史原因，涉及代码太多，未默认开启，子类应该默认开启

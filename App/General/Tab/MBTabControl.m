@@ -14,6 +14,7 @@
     [super onInit];
     _indicatingImageBottomHeight = 2;
     _indicatingImageExpand = 2;
+    self.minimumSelectionChangeInterval = 0.2;
 }
 
 - (void)updateIndicatingImage {

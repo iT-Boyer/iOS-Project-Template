@@ -6,7 +6,9 @@
 #import "MBNavigationItem.h"
 #import "MBTableListDisplayer.h"
 
-@interface MBTabController ()
+@interface MBTabController () <
+    MBControlGroupDelegate
+>
 @property (nonatomic) NSString *pageAPIGroupIdentifier;
 @end
 
@@ -23,8 +25,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    if (!self.tabControl.delegate) {
+        self.tabControl.delegate = self;
+    }
     self.tabControl.selectionNoticeOnlySendWhenButtonTapped = YES;
     self.pageViewController.APIGroupIdentifier = self.APIGroupIdentifier;
+}
+
+- (BOOL)controlGroup:(MBControlGroup *)controlGroup shouldSelectControlAtIndex:(NSInteger)index {
+    if (self.isTransitioning) return NO;
+    return YES;
 }
 
 - (BOOL)pageEventManual {

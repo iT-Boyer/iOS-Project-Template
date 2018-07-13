@@ -1,17 +1,18 @@
 
 #import "MBTextView.h"
-#import "UITextViewDelegateChain.h"
-#import "UIKit+App.h"
-#import "UIView+RFAnimate.h"
+#import "UIColor+App.h"
+#import <RFAlpha/UITextViewDelegateChain.h>
+#import <RFKit/UIView+RFAnimate.h>
+
 
 // TODO 限制行数
 // REF: https://developer.apple.com/library/mac/documentation/cocoa/conceptual/TextLayout/Tasks/CountLines.html#//apple_ref/doc/uid/20001810-CJBGBIBB
 
 @interface MBTextView ()
 
-@property (strong, nonatomic) UITextViewDelegateChain *trueDelegate;
-@property (strong, nonatomic) UILabel *placeholderLabel;
-@property (nonatomic) CGSize currentSize;
+@property (nonatomic) UITextViewDelegateChain *trueDelegate;
+@property (nonatomic) UILabel *placeholderLabel;
+@property CGSize currentSize;
 
 @end
 
@@ -26,7 +27,7 @@ RFInitializingRootForUIView
     self.scrollsToTop = NO;
 
     if (!self.placeholderTextColor) {
-        self.placeholderTextColor = [UIColor globalPlaceholderTextColor];
+        self.placeholderTextColor = UIColor.globalPlaceholderTextColor;
     }
     
     /// 使 TextView 和 backgroundImageView 无缝贴着
@@ -34,7 +35,7 @@ RFInitializingRootForUIView
         self.textContainerInset = UIEdgeInsetsMake(10, 7, 5, 6);
     }
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChange) name:UITextViewTextDidChangeNotification object:self];
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(textDidChange) name:UITextViewTextDidChangeNotification object:self];
 }
 
 - (void)afterInit {
@@ -49,7 +50,7 @@ RFInitializingRootForUIView
 }
 
 - (void)dealloc{
-    [[NSNotificationCenter defaultCenter] removeObserver:UITextViewTextDidChangeNotification];
+    [NSNotificationCenter.defaultCenter removeObserver:UITextViewTextDidChangeNotification];
 }
 
 #pragma mark -监听文字改变
@@ -103,25 +104,21 @@ RFInitializingRootForUIView
 
 - (void)setPlaceholder:(NSString *)placeholder {
     _placeholder = placeholder;
-    
     self.placeholderLabel.text = placeholder;
 }
 
 - (void)setPlaceholderTextColor:(UIColor *)placeholderTextColor {
     _placeholderTextColor = placeholderTextColor;
-    
     self.placeholderLabel.textColor = placeholderTextColor;
 }
 
 - (void)setText:(NSString *)text {
     [super setText:text];
-    
     [self textDidChange];
 }
 
 - (void)setAttributedText:(NSAttributedString*)attributedText {
     [super setAttributedText:attributedText];
-    
     [self textDidChange];
 }
 
@@ -148,7 +145,7 @@ RFInitializingRootForUIView
 
 - (UITextViewDelegateChain *)trueDelegate {
     if (!_trueDelegate) {
-        _trueDelegate = [UITextViewDelegateChain new];
+        _trueDelegate = UITextViewDelegateChain.new;
 
         [_trueDelegate setDidBeginEditing:^(UITextView *textView, id<UITextViewDelegate> delegate) {
             if ([delegate respondsToSelector:@selector(textViewDidBeginEditing:)]) {
@@ -225,20 +222,6 @@ RFInitializingRootForUIView
         }];
     }
     return _trueDelegate;
-}
-
-@end
-
-
-@implementation MBTextViewBackgroundImageView
-RFInitializingRootForUIView
-
-- (void)onInit {
-    self.image = [UIImage imageNamed:@"text_field_bg_normal"];
-    self.highlightedImage = [UIImage imageNamed:@"text_field_bg_focused"];
-}
-
-- (void)afterInit {
 }
 
 @end

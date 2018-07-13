@@ -28,7 +28,7 @@
 
 @protocol MBModalPresentSegueDelegate <NSObject>
 @required
-- (void)setViewHidden:(BOOL)hidden animated:(BOOL)animated completion:(void (^)(void))completion;
+- (void)setViewHidden:(BOOL)hidden animated:(BOOL)animated completion:(nullable void (^)(void))completion;
 
 @end
 
@@ -36,19 +36,25 @@
     MBModalPresentSegueDelegate
 >
 
-@property(nonatomic) UIAlertControllerStyle preferredStyle;
+@property (nonatomic) UIAlertControllerStyle preferredStyle;
 
 /**
  从其他视图弹出
  */
-- (void)presentFromViewController:(UIViewController *)parentViewController animated:(BOOL)animated completion:(void (^)(void))completion;
+- (void)presentFromViewController:(nullable UIViewController *)parentViewController animated:(BOOL)animated completion:(nullable void (^)(void))completion;
 
-@property (weak, nonatomic) IBOutlet UIView *maskView;
-@property (weak, nonatomic) IBOutlet UIView *containerView;
+@property (weak, nullable, nonatomic) IBOutlet UIView *maskView;
+@property (weak, nullable, nonatomic) IBOutlet UIView *containerView;
 
-- (void)setViewHidden:(BOOL)hidden animated:(BOOL)animated completion:(void (^)(void))completion;
+/// 子类重写以改变动效
+- (void)setViewHidden:(BOOL)hidden animated:(BOOL)animated completion:(nullable void (^)(void))completion;
 
-- (void)dismissAnimated:(BOOL)flag completion:(void (^)(void))completion;
-- (IBAction)dismiss:(UIButton *)sender;
+/// MBModalPresent 的标准 dismiss 方法
+- (void)dismissAnimated:(BOOL)flag completion:(nullable void (^)(void))completion NS_SWIFT_UNAVAILABLE("跟 UIKit 的 dismissViewControllerAnimated:completion: 重名了");
+
+/// 被重写的系统方法，只 dismiss 自身
+- (void)dismissViewControllerAnimated:(BOOL)flag completion:(nullable void (^)(void))completion;
+
+- (IBAction)dismiss:(nullable UIButton *)sender;
 
 @end

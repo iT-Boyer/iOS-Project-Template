@@ -1,14 +1,16 @@
 /*!
-    MBEntitiesCollectionView
-
-    Copyright © 2014-2016 Beijing ZhiYun ZhiYuan Information Technology Co., Ltd.
-    https://github.com/Chinamobo/iOS-Project-Template
-
-    Apache License, Version 2.0
-    http://www.apache.org/licenses/LICENSE-2.0
+ MBEntitiesCollectionView
+ 
+ Copyright © 2018 RFUI.
+ Copyright © 2014-2016 Beijing ZhiYun ZhiYuan Information Technology Co., Ltd.
+ https://github.com/BB9z/iOS-Project-Template
+ 
+ Apache License, Version 2.0
+ http://www.apache.org/licenses/LICENSE-2.0
  */
 
-#import "Common.h"
+#import <RFInitializing/RFInitializing.h>
+#import <MBAppKit/MBAppKit.h>
 
 /**
  一个简单快速的 collection view 子类：
@@ -17,6 +19,8 @@
  - 默认 reuse identifier 为 "Cell"
  - Cell 点击时尝试执行 cell 的 onCellSelected 方法
  - 默认 scrollsToTop 为 NO
+ 
+ 在 Swift 中需要用 typealias 声明一下，直接带 generic type IB 的表现会异常
  */
 @interface MBEntitiesCollectionView<ItemType> : UICollectionView <
     RFInitializing,
@@ -30,5 +34,8 @@
  可选 cell 设置 block，默认直接给 item
  */
 @property (nullable) void (^cellConfigBlock)(__kindof UICollectionViewCell *__nonnull cell, ItemType __nonnull item);
+
+- (void)appendItem:(nullable id)item;
+- (void)removeItem:(nullable id)item;
 
 @end

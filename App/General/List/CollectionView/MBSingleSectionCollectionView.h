@@ -19,6 +19,8 @@
  注意：因为 collection view 会缓存代理可响应的方法，增减 dataSource / delegate 的实现方法时需要重新设置一下 dataSource / delegate 属性
  
  默认使用自带的一个数组作为数据源
+ 
+ 在 Swift 中需要用 typealias 声明一下，直接带 generic type IB 的表现会异常
  */
 @interface MBSingleSectionCollectionView<ObjectType> : UICollectionView <
     RFInitializing

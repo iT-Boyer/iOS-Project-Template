@@ -87,4 +87,16 @@
     return self.cellReuseIdentifier(tableView, indexPath, [self itemAtIndexPath:indexPath]);
 }
 
+#pragma mark -
+
+- (void)removeItem:(id)item withRowAnimation:(UITableViewRowAnimation)animation {
+    NSIndexPath *ip = [self indexPathForItem:item];
+    if (!ip) return;
+    [self.items removeObject:item];
+    if (self.items.count == 0 && self.pageEnd) {
+        self.empty = YES;
+    }
+    [self.tableView deleteRowsAtIndexPaths:@[ ip ] withRowAnimation:animation];
+}
+
 @end

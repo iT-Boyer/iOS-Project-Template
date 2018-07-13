@@ -1,5 +1,6 @@
 
 #import "MBModalPresentSegue.h"
+#import <MBAPI.h>
 #import "MBNavigationController.h"
 #import "UIView+RFAnimate.h"
 #import "UIViewController+RFKit.h"
@@ -22,7 +23,7 @@
 @implementation MBModalPresentPushSegue
 
 - (void)perform {
-    [AppNavigationController() pushViewController:self.destinationViewController animated:YES];
+    [(UINavigationController *)AppNavigationController() pushViewController:self.destinationViewController animated:YES];
 }
 
 @end
@@ -57,7 +58,12 @@
     [self dismissAnimated:YES completion:nil];
 }
 
+- (void)dismissViewControllerAnimated:(BOOL)flag completion:(void (^)(void))completion {
+    [self dismissAnimated:flag completion:completion];
+}
+
 - (void)dismissAnimated:(BOOL)flag completion:(void (^)(void))completion {
+    [MBAPI.global cancelOperationsWithGroupIdentifier:self.APIGroupIdentifier];
     @weakify(self);
     [self setViewHidden:YES animated:YES completion:^{
         @strongify(self);

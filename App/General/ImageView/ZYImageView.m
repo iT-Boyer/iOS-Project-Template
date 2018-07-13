@@ -181,7 +181,8 @@ RFInitializingRootForUIView
     CGSize imageSize = self.image.size;
     CGFloat width = self.bounds.size.width;
     if (imageSize.width <= 0
-        || imageSize.height <= 0) {
+        || imageSize.height <= 0
+        || width == 0) {
         return osize;
     }
     switch (self.contentMode) {

@@ -103,6 +103,14 @@ RFInitializingRootForUIView
     [self reloadData];
 }
 
+- (void)deleteRowsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation {
+    [super deleteRowsAtIndexPaths:indexPaths withRowAnimation:animation];
+    if (self.dataSource.empty && !self.pullToFetchController.footerContainer.empty) {
+        self.pullToFetchController.footerContainer.empty = YES;
+        self.pullToFetchController.headerContainer.empty = YES;
+    }
+}
+
 - (void)insertRowsWithRowRange:(NSRange)range inSection:(NSInteger)section rowAnimation:(UITableViewRowAnimation)animation {
     NSMutableArray *indexPathes = [NSMutableArray arrayWithCapacity:range.length];
     for (NSUInteger i = 0; i < range.length; i++) {

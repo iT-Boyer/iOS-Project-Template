@@ -56,4 +56,8 @@
  */
 @property (null_resettable, nonatomic) void (^configureCell)(UITableView *__nonnull tableView, id __nonnull cell, NSIndexPath *__nonnull indexPath, id __nonnull item);
 
+#pragma mark -
+
+- (void)removeItem:(nullable id)item withRowAnimation:(UITableViewRowAnimation)animation;
+
 @end

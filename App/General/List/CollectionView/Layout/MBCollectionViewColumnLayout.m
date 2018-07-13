@@ -54,6 +54,7 @@
 }
 
 - (void)prepareLayout {
+    [super prepareLayout];
     CGSize reference = self.referenceItemSize;
     if (self.autoColumnDecideOnItemMinimumWidth) {
         CGFloat width = [self innerLayoutWidthForSection:0];
@@ -62,7 +63,6 @@
 
     CGFloat itemWidth = [self itemWidthInSectionAtIndex:0];
     self.itemSize = CGSizeMake(itemWidth, itemWidth/reference.width*reference.height);
-    [super prepareLayout];
 }
 
 - (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds {
