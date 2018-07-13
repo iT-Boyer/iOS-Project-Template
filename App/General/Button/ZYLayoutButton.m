@@ -1,13 +1,10 @@
 
 #import "ZYLayoutButton.h"
 #import "MBNavigationController.h"
-
-@interface RFButton ()
-- (void)onTouchUpInside;
-@end
+#import "MBNavigationController+Router.h"
 
 @interface ZYLayoutButton ()
-@property (nonatomic) BOOL touchDownEffectApplied;
+@property BOOL touchDownEffectApplied;
 @end
 
 @implementation ZYLayoutButton
@@ -33,6 +30,16 @@
     }
 }
 
+- (void)afterInit {
+    [super afterInit];
+    if (self.touchUpInsideCallback) return;
+    self.touchUpInsideCallback = ^(ZYLayoutButton * _Nonnull sender) {
+        if (sender.jumpURL.length) {
+            AppNavigationJump(sender.jumpURL, nil);
+        }
+    };
+}
+
 - (void)_touchDownEffect {
     if (self.touchEffectDisabled) return;
     if (self.touchDownEffectApplied) return;
@@ -56,14 +63,6 @@
     [UIView animateWithDuration:self.releaseDuration delay:0.1 usingSpringWithDamping:0.5 initialSpringVelocity:1 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         self.layer.transform = CATransform3DIdentity;
     } completion:nil];
-}
-
-- (void)onTouchUpInside {
-    [super onTouchUpInside];
-    // @TODO
-//    if (self.jumpURL.length) {
-//        APNavigationControllerJumpWithURL([NSURL URLWithString:self.jumpURL]);
-//    }
 }
 
 @end

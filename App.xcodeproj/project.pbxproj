@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		94ECC1B77A22CF317A7F58EC /* libPods-App.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 876FAF4532C71792409ABBB0 /* libPods-App.a */; };
+		D501844B20F86112009481D4 /* MBNavigationController+Router.m in Sources */ = {isa = PBXBuildFile; fileRef = D501844920F86111009481D4 /* MBNavigationController+Router.m */; };
 		D501844E20F865D3009481D4 /* Number+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D501844C20F865D2009481D4 /* Number+App.swift */; };
 		D501844F20F865D3009481D4 /* UITableView+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D501844D20F865D3009481D4 /* UITableView+App.swift */; };
 		D50693D819495D9E0002BFCC /* MBControlGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = D50693D719495D9E0002BFCC /* MBControlGroup.m */; };
@@ -17,6 +18,7 @@
 		D5197A4217EECAAF00CA387C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5197A4117EECAAF00CA387C /* UIKit.framework */; };
 		D5197D3217F027B400CA387C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D5197D3417F027B400CA387C /* InfoPlist.strings */; };
 		D5197D3517F027BB00CA387C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D5197D3717F027BB00CA387C /* Localizable.strings */; };
+		D52A04E520F85F2600F535ED /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52A04E420F85F2600F535ED /* Button.swift */; };
 		D52EAB642043B6B3007219E0 /* Icon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D52EAB5F2043B6B3007219E0 /* Icon.xcassets */; };
 		D52EAB652043B6B3007219E0 /* UIImage+ZYImageSet.m in Sources */ = {isa = PBXBuildFile; fileRef = D52EAB602043B6B3007219E0 /* UIImage+ZYImageSet.m */; };
 		D52EAB672043B6B3007219E0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D52EAB622043B6B3007219E0 /* Images.xcassets */; };
@@ -156,6 +158,8 @@
 		3256FDE7328872456EDD9BAD /* Pods-App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-App/Pods-App.debug.xcconfig"; sourceTree = "<group>"; };
 		433A60DB1D59B04FB32CB5E0 /* Pods-App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App.release.xcconfig"; path = "Pods/Target Support Files/Pods-App/Pods-App.release.xcconfig"; sourceTree = "<group>"; };
 		876FAF4532C71792409ABBB0 /* libPods-App.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-App.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D501844920F86111009481D4 /* MBNavigationController+Router.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBNavigationController+Router.m"; sourceTree = "<group>"; };
+		D501844A20F86111009481D4 /* MBNavigationController+Router.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBNavigationController+Router.h"; sourceTree = "<group>"; };
 		D501844C20F865D2009481D4 /* Number+App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Number+App.swift"; sourceTree = "<group>"; };
 		D501844D20F865D3009481D4 /* UITableView+App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+App.swift"; sourceTree = "<group>"; };
 		D50693D619495D9E0002BFCC /* MBControlGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBControlGroup.h; sourceTree = "<group>"; };
@@ -169,6 +173,7 @@
 		D5197D0417F01E1D00CA387C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		D5197D3317F027B400CA387C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D5197D3617F027BB00CA387C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D52A04E420F85F2600F535ED /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		D52EAB5F2043B6B3007219E0 /* Icon.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icon.xcassets; sourceTree = "<group>"; };
 		D52EAB602043B6B3007219E0 /* UIImage+ZYImageSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ZYImageSet.m"; sourceTree = "<group>"; };
 		D52EAB612043B6B3007219E0 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -582,6 +587,8 @@
 				D55959CF20AB97B00019D733 /* ApplicationDelegate.swift */,
 				D55959CD20AB95640019D733 /* EnvironmentFlag.h */,
 				D5C636A62047CC5900851CF4 /* LaunchScreen.storyboard */,
+				D501844A20F86111009481D4 /* MBNavigationController+Router.h */,
+				D501844920F86111009481D4 /* MBNavigationController+Router.m */,
 				D5EE51352043DB7C009148B3 /* MBRootWrapperViewController.h */,
 				D5EE51362043DB7C009148B3 /* MBRootWrapperViewController.m */,
 				D55959D420ABA9B50019D733 /* NavigationController.swift */,
@@ -1070,6 +1077,7 @@
 		D5EE52282043F7B9009148B3 /* Button */ = {
 			isa = PBXGroup;
 			children = (
+				D52A04E420F85F2600F535ED /* Button.swift */,
 				D5EE52292043F7B9009148B3 /* ZYLayoutButton.h */,
 				D5EE52312043F7B9009148B3 /* ZYLayoutButton.m */,
 			);
@@ -1249,6 +1257,7 @@
 				D52EAE362043C6F7007219E0 /* APUser.m in Sources */,
 				D552DD7B18C8506700D02290 /* APUserInfo.m in Sources */,
 				D588308D20CACB33002030C4 /* Array+App.swift in Sources */,
+				D52A04E520F85F2600F535ED /* Button.swift in Sources */,
 				D5EE519A2043F5F3009148B3 /* CALayer+MBAnimationPersistence.m in Sources */,
 				D5F9F47F208D921200427201 /* Date+App.swift in Sources */,
 				D52EADEB2043B983007219E0 /* debug.m in Sources */,
@@ -1282,6 +1291,7 @@
 				D564D5D31970EE340032FEC3 /* MBModalPresentSegue.m in Sources */,
 				D5B49EC41C4111B600847925 /* MBMultiLineLabel.m in Sources */,
 				D588308620CAB8AE002030C4 /* MBNavigationBar.m in Sources */,
+				D501844B20F86112009481D4 /* MBNavigationController+Router.m in Sources */,
 				D5EE51F42043F613009148B3 /* MBNavigationItem.m in Sources */,
 				D5EE51F32043F613009148B3 /* MBNavigationTitleView.m in Sources */,
 				D5EE51342043DAA2009148B3 /* MBObjectiveC.m in Sources */,

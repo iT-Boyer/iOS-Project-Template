@@ -8,15 +8,14 @@
  Apache License, Version 2.0
  http://www.apache.org/licenses/LICENSE-2.0
  */
-#import "Common.h"
-#import "RFButton.h"
+#import <RFAlpha/RFButton.h>
 
 @interface ZYLayoutButton : RFButton
 
 /**
  禁用点按效果
  */
-@property (nonatomic) IBInspectable BOOL touchEffectDisabled;
+@property IBInspectable BOOL touchEffectDisabled;
 
 /**
  重写已实现按下效果
@@ -38,6 +37,11 @@
 @property (nonatomic) IBInspectable float touchDuration;
 @property (nonatomic) IBInspectable float releaseDuration;
 
-@property (copy, nonatomic) IBInspectable NSString *jumpURL;
+/**
+ 跳转链接
+ 
+ 如果设置了 touchUpInsideCallback，默认的点击跳转不会被执行
+ */
+@property IBInspectable NSString *jumpURL;
 
 @end

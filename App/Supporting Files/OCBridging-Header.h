@@ -12,6 +12,7 @@
 #import "MBLayoutConstraint.h"
 #import "MBModalPresentSegue.h"
 #import "MBNavigationController.h"
+#import "MBNavigationController+Router.h"
 #import "MBRootWrapperViewController.h"
 #import "MBTableViewDataSource.h"
 #import "MBTextField.h"
