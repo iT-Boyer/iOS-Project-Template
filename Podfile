@@ -9,7 +9,7 @@ platform :ios, '9.0'
 target 'App' do
     pod 'RFKit', :subspecs => [
         'Category/UIScrollView+RFScrolling',
-        'Category/UISearchBar'
+        'Category/UISearchBar',
     ]
     pod 'RFAlpha', :path => 'Frameworks/RFUI/Alpha', :subspecs => [
         'RFBlockSelectorPerform',
@@ -33,7 +33,7 @@ target 'App' do
         'RFTimer',
         'RFViewApperance/RFLine',
         'RFViewApperance/RFLayerApperance',
-        'RFWindow'
+        'RFWindow',
     ]
     pod 'RFKeyboard', :git => 'https://github.com/RFUI/RFKeyboard.git'
     pod 'RFMessageManager', :subspecs => ['SVProgressHUD']
@@ -43,6 +43,7 @@ target 'App' do
         'Environment',
         'Input',
         'Navigation',
+        'Worker',
     ]
 
     pod 'PreBuild', :path => 'PreBuild'
