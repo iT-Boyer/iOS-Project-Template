@@ -107,9 +107,7 @@ HTTP 状态与 ResponseSerializer 的 acceptableStatusCodes 预期不符合\n\
 - (id)responseObjectForResponse:(NSURLResponse *)response data:(NSData *)data error:(NSError *__autoreleasing *)error {
 
     if (![self validateResponse:(NSHTTPURLResponse *)response data:data error:error]) {
-        if ([(NSError *)(*error) code] == NSURLErrorCannotDecodeContentData) {
-            return nil;
-        }
+        return nil;
     }
 
     NSString *responseString = [[NSString alloc] initWithData:data encoding:self.stringEncoding];
