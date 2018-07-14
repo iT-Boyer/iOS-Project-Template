@@ -57,6 +57,10 @@
 
 - (void)fetchItemsFromViewController:(nullable id)viewController nextPage:(BOOL)nextPage success:(void (^)(__kindof MBListDataSource *dateSource, NSArray *fetchedItems))success completion:(void (^)(__kindof MBListDataSource *dateSource))completion {
     if (self.fetching) return;
+    if (!self.fetchAPIName) {
+        dout_warning(@"Datasource 的 fetchAPIName 未设置")
+        return;
+    }
     self.fetching = YES;
 
     // Reload from top, reset properties.
@@ -83,11 +87,6 @@
             parameter[self.pageParameterName] = @(self.page);
         }
         parameter[self.pageSizeParameterName] = @(self.pageSize);
-    }
-
-    if (!self.fetchAPIName) {
-        dout_warning(@"Datasource 的 fetchAPIName 未设置")
-        return;
     }
 
     @weakify(self);
@@ -119,7 +118,6 @@
         self.hasSuccessFetched = YES;
         self.lastFetchError = nil;
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        // 超时不产生反应
         @strongify(self);
         if (!self) return;
         

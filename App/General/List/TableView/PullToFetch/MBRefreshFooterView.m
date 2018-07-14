@@ -24,7 +24,7 @@ RFInitializingRootForUIView
     _empty = empty;
     self.emptyLabel.hidden = !empty;
     self.outerEmptyView.hidden = !empty;
-    self.textLabel.hidden = empty;
+    self.textLabel.hidden = empty || (self.status == RFPullToFetchIndicatorStatusFrozen);
     self.endLabel.hidden = empty;
 }
 
