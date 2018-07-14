@@ -16,8 +16,8 @@ static MBRootWrapperViewController *MBRootWrapperViewControllerGlobalInstance;
 - (UIViewController *)childViewControllerForStatusBarStyle {
     return self.childViewControllers.firstObject;
 }
-- (UIViewController *)childViewControllerForStatusBarHidden {
 
+- (UIViewController *)childViewControllerForStatusBarHidden {
     return self.childViewControllers.firstObject;
 }
 
@@ -90,6 +90,7 @@ static MBRootWrapperViewController *MBRootWrapperViewControllerGlobalInstance;
         vc.view.alpha = 0;
     } completion:^(BOOL finished) {
         [vc removeFromParentViewControllerAndView];
+        [AppEnv() setFlagOn:MBENVFlagNaigationLoaded];
     }];
 }
 

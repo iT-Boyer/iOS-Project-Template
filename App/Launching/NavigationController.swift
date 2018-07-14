@@ -21,6 +21,5 @@ class NavigationController: MBNavigationController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        AppEnv().setFlagOn(MBENV.flagNaigationLoaded.rawValue)
     }
 }

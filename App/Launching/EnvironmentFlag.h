@@ -35,5 +35,5 @@ typedef NS_OPTIONS(MBENVFlag, MBENV) {
     
     //- 模块生命周期
     /// 导航已加载
-    MBENVFlagNaigationLoaded                = 1 << 10,
+    MBENVFlagNaigationLoaded            = 1 << 10,
 };
