@@ -4,6 +4,7 @@
 #import "SDWebImageManager.h"
 #import <RFMessageManager/RFMessageManager+RFDisplay.h>
 #import "CommonUI.h"
+#import "NSUserDefaults+MBDebug.h"
 
 RFDefineConstString(APIErrorDomain);
 NSString *const APIURLAssetsBase              = @"http://img.example.com/";
@@ -16,7 +17,7 @@ NSString *const APIURLAssetsBase              = @"http://img.example.com/";
 - (void)onInit {
     [super onInit];
     
-    if (AppDebugConfig().allowSSLDebug) {
+    if (NSUserDefaults.standardUserDefaults._debugAPIAllowSSLDebug) {
         // 允许外部 SSL 嗅探
         self.securityPolicy = [AFSecurityPolicy defaultPolicy];
         self.securityPolicy.allowInvalidCertificates = YES;

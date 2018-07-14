@@ -16,7 +16,7 @@
 // 非核心模块不要 import，避免头文件的循环引用
 
 @class MessageManager;
-@class MBNavigationController;
+@class NavigationController;
 
 /**
  全局变量中心
@@ -63,6 +63,6 @@
 @property (nonnull, readonly) MessageManager *hud;
 
 /// 全局导航
-@property (nonatomic, nullable) MBNavigationController *globalNavigationController;
+@property (nonatomic, nullable) NavigationController *globalNavigationController;
 
 @end

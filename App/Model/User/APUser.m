@@ -87,7 +87,7 @@
 
 - (void)onInit {
     [super onInit];
-    BOOL debugServer = AppDebugConfig().debugServer;
+    BOOL debugServer = NO;
 #if MBUserStringUID
     NSString *suitName = [NSString stringWithFormat:@"User%@%@", self.uid, debugServer? @"D" : @""].rf_MD5String;
 #else

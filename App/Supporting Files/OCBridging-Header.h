@@ -20,6 +20,7 @@
 #import "NSUserDefaults+App.h"
 #import "ShortCuts.h"
 #import "UIKit+App.h"
+#import "UIViewController+RFDNavigationAppearance.h"
 #import "ZYLayoutButton.h"
 #import <MBAppKit/MBApplicationDelegate.h>
 #import <MBAppKit/MBGeneral.h>

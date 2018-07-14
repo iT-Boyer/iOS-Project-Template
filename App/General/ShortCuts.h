@@ -31,24 +31,24 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - 应用配置/环境
 
-@class DebugConfig;
-FOUNDATION_EXPORT DebugConfig *AppDebugConfig(void);
+/// 编译环境，Debug、Alpha、Release
+FOUNDATION_EXPORT NSString *AppBuildConfiguration(void);
 
 @class MBEnvironment;
 /// 状态依赖
-MBEnvironment *AppEnv(void);
+FOUNDATION_EXPORT MBEnvironment *AppEnv(void);
 
 @class ApplicationDelegate;
 /// 快速访问 APApplicationDelegate 实例
-ApplicationDelegate *__nonnull AppDelegate(void);
+FOUNDATION_EXPORT ApplicationDelegate *__nonnull AppDelegate(void);
 
 @class RootViewController;
 /// 全局根视图
 FOUNDATION_EXPORT RootViewController *_Nullable AppRootViewController(void);
 
-@class MBNavigationController;
+@class NavigationController;
 /// 全局导航
-MBNavigationController *__nullable AppNavigationController(void);
+FOUNDATION_EXPORT NavigationController *__nullable AppNavigationController(void);
 
 /**
  尝试获取当前视图上的 item
@@ -56,27 +56,30 @@ MBNavigationController *__nullable AppNavigationController(void);
  @param exceptClass 可选，非空将检查 item 类型，只在符合时才返回
  @return 当前视图上的 item，会尝试遍历一层子 vc
  */
-id __nullable AppCurrentViewControllerItem(Class __nullable exceptClass);
+FOUNDATION_EXPORT id __nullable AppCurrentViewControllerItem(Class __nullable exceptClass);
 
-@class MBWorkerQueue;
+//@class MBWorkerQueue;
 /// 全局 worker 队列
-MBWorkerQueue *AppWorkerQueue(void);
+//FOUNDATION_EXPORT MBWorkerQueue *AppWorkerQueue(void);
 
 /// 后台 worker 队列，注意后台的意思是 perform 是在后台线程执行的
-MBWorkerQueue *AppBackgroundWorkerQueue(void);
+//FOUNDATION_EXPORT MBWorkerQueue *AppBackgroundWorkerQueue(void);
 
 @class API;
 /// 应用接口
-API *AppAPI(void);
+FOUNDATION_EXPORT API *AppAPI(void);
+
+//@class BadgeManager;
+//FOUNDATION_EXPORT BadgeManager *__nonnull AppBadge(void);
 
 @class MessageManager;
-MessageManager *__nonnull AppHUD(void);
+FOUNDATION_EXPORT MessageManager *__nonnull AppHUD(void);
 
 #pragma mark - 用户信息
 
 @class APUser;
 /// 当前登录的用户，可以用来判断是否已登录
-APUser *__nullable AppUser(void);
+FOUNDATION_EXPORT APUser *__nullable AppUser(void);
 
 /// 当前用户的 ID
 FOUNDATION_EXPORT long AppUserID(void);
@@ -85,7 +88,7 @@ FOUNDATION_EXPORT long AppUserID(void);
 FOUNDATION_EXPORT NSNumber *AppUserIDNumber(void);
 
 @class APUserInfo;
-APUserInfo *_Nullable AppUserInformation(void);
+FOUNDATION_EXPORT APUserInfo *_Nullable AppUserInformation(void);
 
 #pragma mark - 存储
 

@@ -8,8 +8,9 @@
  保持这里的纯粹性——只提供快捷访问，和必要的简单变量缓存。
  不在这写创建逻辑，会导致难于维护
  */
-DebugConfig *AppDebugConfig() {
-    return [MBApp status].debugConfig;
+
+NSString *AppBuildConfiguration(void) {
+    return @MBBuildConfiguration;
 }
 
 MBEnvironment *AppEnv() {
@@ -28,14 +29,14 @@ RootViewController *_Nullable AppRootViewController() {
     return RootViewController.globalController;
 }
 
-MBNavigationController *__nullable AppNavigationController() {
+NavigationController *__nullable AppNavigationController() {
     return [MBApp status].globalNavigationController;
 }
 
 //MBWorkerQueue *AppWorkerQueue() {
 //    return [MBApp status].workerQueue;
 //}
-//
+
 //MBWorkerQueue *AppBackgroundWorkerQueue() {
 //    return [MBApp status].backgroundWorkerQueue;
 //}
@@ -74,6 +75,10 @@ id __nullable AppCurrentViewControllerItem(Class __nullable exceptClass) {
 API *AppAPI(void) {
     return MBApp.status.api;
 }
+
+//BadgeManager *__nonnull AppBadge(void) {
+//    return BadgeManager.defaultManager;
+//}
 
 MessageManager *__nonnull AppHUD(void) {
     return MBApp.status.hud;

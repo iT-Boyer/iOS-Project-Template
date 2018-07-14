@@ -1,0 +1,115 @@
+
+#import "MBDebugViews.h"
+#import "NSUserDefaults+MBDebug.h"
+#import "UIViewController+App.h"
+
+@implementation MBDebugContainerView
+
+- (void)willMoveToWindow:(UIWindow *)newWindow {
+    [super willMoveToWindow:newWindow];
+    if (!NSUserDefaults.standardUserDefaults._debugEnabled) {
+        [self removeFromSuperview];
+    }
+}
+
+@end
+
+
+@implementation MBDebugContainerScrollView
+
+- (void)willMoveToWindow:(UIWindow *)newWindow {
+    [super willMoveToWindow:newWindow];
+    if (!NSUserDefaults.standardUserDefaults._debugEnabled) {
+        [self removeFromSuperview];
+    }
+}
+
+@end
+
+#import <RFWindow.h>
+#import "MBDebugFloatConsoleViewController.h"
+#if DEBUG
+#import <FLEX/FLEXManager.h>
+#endif
+
+@interface MBDebugWindowButton ()
+@property (nonatomic) BOOL enableObserverActived;
+@end
+
+@implementation MBDebugWindowButton
+RFInitializingRootForUIView
+
+- (void)onInit {
+    [self addTarget:self action:@selector(onButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+}
+
+#if TARGET_OS_SIMULATOR
+
+- (void)afterInit {
+    self.enableObserverActived = YES;
+#if DEBUG
+    FLEXManager *fm = [FLEXManager sharedManager];
+    [fm registerSimulatorShortcutWithKey:@"d" modifiers:UIKeyModifierControl action:^{
+        NSUserDefaults.standardUserDefaults._debugEnabled = YES;
+        [self onButtonTapped];
+    } description:@"Toggle debug menu"];
+#endif
+}
+
+- (void)setEnableObserverActived:(BOOL)enableObserverActived {
+    if (_enableObserverActived == enableObserverActived) return;
+    if (_enableObserverActived) {
+        [NSNotificationCenter.defaultCenter removeObserver:self name:NSUserDefaultsDidChangeNotification object:NSUserDefaults.standardUserDefaults];
+    }
+    _enableObserverActived = enableObserverActived;
+    if (enableObserverActived) {
+        [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(onUserDefaultsChanged) name:NSUserDefaultsDidChangeNotification object:NSUserDefaults.standardUserDefaults];
+    }
+}
+
+- (void)onUserDefaultsChanged {
+    dispatch_async_on_main(^{
+        BOOL debugMode = NSUserDefaults.standardUserDefaults._debugEnabled;
+        self.hidden = !debugMode;
+    });
+}
+
+- (void)dealloc {
+    self.enableObserverActived = NO;
+}
+#else
+- (void)afterInit {
+}
+#endif // END: TARGET_OS_SIMULATOR
+
+- (void)didMoveToWindow {
+    [super didMoveToWindow];
+#if TARGET_OS_SIMULATOR
+    [self setupAsTopMostViewInWindow:self.window];
+    self.hidden = !NSUserDefaults.standardUserDefaults._debugEnabled;
+#else
+    if (!NSUserDefaults.standardUserDefaults._debugEnabled) {
+        [self removeFromSuperview];
+    }
+    else {
+        [self setupAsTopMostViewInWindow:self.window];
+    }
+#endif
+}
+
+- (void)setupAsTopMostViewInWindow:(UIWindow *)window {
+    if (!window || [window.subviews containsObject:self]) return;
+    [window insertSubview:self atIndex:window.subviews.count];
+}
+
+- (void)onButtonTapped {
+    if (!self.win) {
+        RFWindow *win = [[RFWindow alloc] init];
+        win.backgroundColor = nil;
+        self.win = win;
+    }
+    self.win.rootViewController = [MBDebugFloatConsoleViewController newFromStoryboard];
+    self.win.hidden = NO;
+}
+
+@end

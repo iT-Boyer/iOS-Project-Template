@@ -17,10 +17,6 @@
     self = [super init];
     if (self) {
         NSUserDefaults *ud = AppUserDefaultsShared();
-        NSString *json = ud.debugConfigJSON;
-        DebugConfig *dc = [[DebugConfig alloc] initWithString:json error:nil];
-        _debugConfig = dc?: [DebugConfig new];
-        
         { // 版本设置
             NSString *v = NSBundle.mainBundle.infoDictionary[@"CFBundleShortVersionString"];
             _version = v;
@@ -96,6 +92,21 @@
     }
     return _hud;
 }
+
+//@synthesize workerQueue = _workerQueue;
+//- (MBWorkerQueue *)workerQueue {
+//    if (_workerQueue) return _workerQueue;
+//    _workerQueue = [MBWorkerQueue new];
+//    return _workerQueue;
+//}
+
+//@synthesize backgroundWorkerQueue = _backgroundWorkerQueue;
+//- (MBWorkerQueue *)backgroundWorkerQueue {
+//    if (_backgroundWorkerQueue) return _backgroundWorkerQueue;
+//    _backgroundWorkerQueue = [MBWorkerQueue new];
+//    _backgroundWorkerQueue.dispatchQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0);
+//    return _backgroundWorkerQueue;
+//}
 
 #pragma mark - 其他业务
 
