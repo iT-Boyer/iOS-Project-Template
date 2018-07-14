@@ -3,6 +3,8 @@
 "Done"      = "完成";
 "Edit"      = "编辑";
 "Add"       = "添加";
+"Save"      = "保存";
+"Delete"    = "删除";
 
 "NSURLErrorCannotConnectToHost"         = "无法连接到服务器";
 "NSURLErrorCannotFindHost"              = "找不到到服务器";

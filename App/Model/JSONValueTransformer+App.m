@@ -8,7 +8,7 @@
     http://www.apache.org/licenses/LICENSE-2.0
  */
 #import "MBModel.h"
-#import "NSDateFormatter+RFKit.h"
+#import "NSDateFormatter+App.h"
 #import <MBGeneralType.h>
 
 /**

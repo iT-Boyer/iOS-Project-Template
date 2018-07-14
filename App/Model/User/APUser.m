@@ -1,5 +1,6 @@
 
 #import "APUser.h"
+#import "API.h"
 #import "MBApp.h"
 #import "APUserInfo.h"
 #import "CommonUI.h"
@@ -67,7 +68,7 @@
         return;
     }
     [self setCurrentUser:user];
-        
+    
     [API backgroundRequestWithName:@"AccountRefresh" parameters:nil completion:^(BOOL success, id  _Nullable responseObject, NSError * _Nullable error) {
         if (![responseObject isKindOfClass:NSDictionary.class]) {
             return;

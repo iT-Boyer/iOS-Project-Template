@@ -47,6 +47,8 @@ target 'App' do
     ]
 
     pod 'PreBuild', :path => 'PreBuild'
+    
+    pod 'FLEX', :configurations => ['Debug']
 
     # target "Test" do
     #     inherit! :search_paths

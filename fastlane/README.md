@@ -44,6 +44,11 @@ fastlane sort_project
 fastlane ios test
 ```
 Runs all the tests
+### ios alpha
+```
+fastlane ios alpha
+```
+打包上传到 fir.im
 ### ios beta
 ```
 fastlane ios beta

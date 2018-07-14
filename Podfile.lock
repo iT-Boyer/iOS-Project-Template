@@ -6,6 +6,7 @@ PODS:
   - AFNetworking/Reachability (2.6.3)
   - AFNetworking/Security (2.6.3)
   - AFNetworking/Serialization (2.6.3)
+  - FLEX (2.4.0)
   - JSONModel (1.7.0)
   - MBAppKit/Button (0.8.0):
     - RFInitializing
@@ -249,6 +250,7 @@ PODS:
   - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
+  - FLEX
   - MBAppKit/Button (from `MBAppKit`)
   - MBAppKit/Environment (from `MBAppKit`)
   - MBAppKit/Input (from `MBAppKit`)
@@ -286,6 +288,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AFNetworking
+    - FLEX
     - JSONModel
     - RFAPI
     - RFInitializing
@@ -311,6 +314,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
+  FLEX: bd1a39e55b56bb413b6f1b34b3c10a0dc44ef079
   JSONModel: 840bc0fcffb24b8454d2c026bf26fea454b8e98d
   MBAppKit: fc1317330196c27fa56a12f758f8d2b3ec97b621
   PreBuild: e364b0801808623a87f3bc8ce2618b778a49380b
@@ -323,6 +327,6 @@ SPEC CHECKSUMS:
   RFSegue: 16a13d55032a737a93a1feb3c758077f708e3c70
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: f327dc0cb7c0b357c7b3a9053f34da310e2d66e4
+PODFILE CHECKSUM: bcb022173c2c2a06b652e167045f73bee8237204
 
 COCOAPODS: 1.5.3

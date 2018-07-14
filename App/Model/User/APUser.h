@@ -15,11 +15,14 @@
 
 #pragma mark - 状态
 
-/// 除上面几个字段外，其余所有信息请定义在该属性中
-@property (nonatomic, nullable, strong) APUserInfo *information;
+/**
+ 用户基本信息
+ 
+ 不为空，操作上可以便捷一些
+ */
+@property (nonnull) APUserInfo *information;
 
-/// token
-@property (nonatomic, nullable, copy) NSString *token;
+@property (nonatomic, nullable) NSString *token;
 
 #pragma mark - 挂载
 

@@ -9,6 +9,7 @@
  http://www.apache.org/licenses/LICENSE-2.0
  */
 #import "MBAPI.h"
+#import <MBAppKit/MBGeneralCallback.h>
 
 extern NSString *__nonnull const APIErrorDomain;
 extern NSString *__nonnull const APIURLAssetsBase;
@@ -23,6 +24,8 @@ extern NSString *__nonnull const APIURLAssetsBase;
 
 #pragma mark - 具体业务
 
+/// 请求回调合一
++ (nullable AFHTTPRequestOperation *)requestWithName:(nonnull NSString *)APIName parameters:(nullable NSDictionary *)parameters viewController:(nullable UIViewController *)viewController loadingMessage:(nullable NSString *)message modal:(BOOL)modal completion:(nullable MBGeneralCallback)completion;
 
 @end
 

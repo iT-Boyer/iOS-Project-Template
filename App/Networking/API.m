@@ -117,6 +117,21 @@ NSString *const APIURLAssetsBase              = @"http://img.example.com/";
 
 #pragma mark - 具体业务
 
++ (AFHTTPRequestOperation *)requestWithName:(NSString *)APIName parameters:(NSDictionary *)parameters viewController:(UIViewController *)viewController loadingMessage:(NSString *)message modal:(BOOL)modal completion:(MBGeneralCallback)completion {
+    __block MBGeneralCallback cb = completion;
+    return [super requestWithName:APIName parameters:parameters viewController:viewController forceLoad:NO loadingMessage:message modal:modal success:^(AFHTTPRequestOperation * _Nullable operation, id  _Nullable responseObject) {
+        cb(YES, responseObject, nil);
+        cb = nil;
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        cb(NO, nil, error);
+        cb = nil;
+    } completion:^(AFHTTPRequestOperation * _Nullable operation) {
+        if (cb) {
+            cb(NO, nil, nil);
+        }
+    }];
+}
+
 @end
 
 
