@@ -6,8 +6,6 @@
 
 @implementation NSUserDefaults (App)
 
-_makeObjectProperty(debugConfigJSON, setDebugConfigJSON);
-
 _makeObjectProperty(applicationLastLaunchTime, setApplicationLastLaunchTime)
 _makeObjectProperty(lastVersion, setLastVersion)
 _makeObjectProperty(previousVersion, setPreviousVersion)

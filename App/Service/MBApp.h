@@ -48,9 +48,6 @@
  */
 - (BOOL)isNewVersion:(NSString *_Nonnull)version;
 
-/// init 时创建
-@property (nonnull, readonly) DebugConfig *debugConfig;
-
 #pragma mark - 挂载的 manager
 
 /// 状态管理

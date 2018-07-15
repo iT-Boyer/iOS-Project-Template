@@ -57,18 +57,3 @@ unsigned long long MBApplicationMemoryUsed(void) {
 unsigned long long MBApplicationMemoryAll(void) {
     return [NSProcessInfo processInfo].physicalMemory;
 }
-
-BOOL DebugFlagForceLoadLocalAppConfig;
-
-@implementation DebugConfig
-
-- (void)synchronize {
-    NSString *json = [self toJSONString];
-    AppUserDefaultsShared().debugConfigJSON = json;
-}
-
-- (BOOL)productServer {
-    return !self.debugServer && !self.alphaServer;
-}
-
-@end

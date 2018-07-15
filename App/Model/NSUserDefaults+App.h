@@ -23,10 +23,6 @@
  */
 @interface NSUserDefaults (App)
 
-@property (nullable, copy) NSString *debugConfigJSON;
-
-#pragma mark -
-
 /// 上次启动时间
 @property (nullable, copy) NSDate *applicationLastLaunchTime;
 
