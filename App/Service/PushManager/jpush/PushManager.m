@@ -1,7 +1,6 @@
 
-#import "JPushManager.h"
-#import "MBApplicationDelegate.h"
-#import "UIDevice+ZYIdentifier.h"
+#import "PushManager.h"
+#import <MBAppKit/MBApplicationDelegate.h>
 #import "debug.h"
 #import <JPush/JPUSHService.h>
 @import ObjectiveC;
@@ -11,32 +10,31 @@
 BOOL MBDebugConfigPushDebugLogEnabled = NO;
 
 
-@interface JPushManager () <
-    UNUserNotificationCenterDelegate>
-{
+@interface PushManager () <
+    UNUserNotificationCenterDelegate
+> {
     BOOL _initWithConfiguration;
 }
-@property (nonatomic, strong, readwrite) NSMutableSet *pushTags;
+@property (nonatomic, readwrite) NSMutableSet *pushTags;
 
 /// 超时重设次数
-@property (nonatomic) int aliasAndTagSyncRetryLimite;
+@property int aliasAndTagSyncRetryLimite;
 @end
 
 
-@implementation JPushManager
-RFInitializingRootForNSObject;
+@implementation PushManager
+RFInitializingRootForNSObject
 
-+ (nonnull instancetype)managerWithConfiguration : (void (^_Nonnull)(JPushManager *_Nonnull manager))configBlock
-{
++ (nonnull instancetype)managerWithConfiguration:(void (^_Nonnull)(PushManager *_Nonnull manager))configBlock {
     NSParameterAssert(configBlock);
-    JPushManager *this = [self new];
+    PushManager *this = [self new];
     configBlock(this);
     this->_initWithConfiguration = YES;
-
+    
     NSAssert(this.appKey, @"JPush app key 必需设置");
-    [JPUSHService setupWithOption:this.launchOptions appKey:this.appKey channel:nil apsForProduction:this.apsForProduction advertisingIdentifier:[UIDevice ZYIdentifierForAdvertising]];
-    if (NSClassFromString(@"UNUserNotificationCenter")) {
-        [UNUserNotificationCenter currentNotificationCenter].delegate = this;
+    [JPUSHService setupWithOption:this.launchOptions appKey:this.appKey channel:nil apsForProduction:this.apsForProduction advertisingIdentifier:nil];
+    if (@available(iOS 10.0, *)) {
+        UNUserNotificationCenter.currentNotificationCenter.delegate = this;
     }
     return this;
 }
@@ -57,12 +55,10 @@ RFInitializingRootForNSObject;
     self.pushTags = [NSMutableSet setWithCapacity:20];
 }
 
-- (void)afterInit
-{
-    douto([UNUserNotificationCenter currentNotificationCenter].delegate)
-        RFAssert(_initWithConfiguration, @"You must create JPushManager with managerWithConfiguration: method.");
+- (void)afterInit {
+    RFAssert(_initWithConfiguration, @"You must create PushManager with managerWithConfiguration: method.");
     if (MBDebugConfigPushDebugLogEnabled) {
-        dout_debug(@"JPushManager 启动检查");
+        dout_debug(@"PushManager 启动检查");
     }
     if (self.resetBadgeAfterLaunching) {
         // 在前台且未设置进入前台时自动清零才在这里清零
@@ -71,7 +67,7 @@ RFInitializingRootForNSObject;
         }
     }
 
-    [AppDelegate() addAppEventListener:self];
+    [(MBApplicationDelegate *)AppDelegate() addAppEventListener:self];
     [self registerForRemoteNotificationsIfNeeded];
 
     NSDictionary *lq = self.launchOptions;
@@ -92,33 +88,22 @@ RFInitializingRootForNSObject;
     }
 }
 
-- (void)dealloc
-{
+- (void)dealloc {
     self.resetBadgeWhenApplicationBecomeActive = NO;
 }
 
-- (void)registerForRemoteNotificationsIfNeeded
-{
+- (void)registerForRemoteNotificationsIfNeeded {
     UIApplication *ap = [UIApplication sharedApplication];
-    if ([ap respondsToSelector:@selector(registerForRemoteNotifications)]) {
-        [ap registerForRemoteNotifications];
-        UIUserNotificationType notificationTypes = UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert;
-        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:notificationTypes categories:nil];
-        [ap registerUserNotificationSettings:settings];
-    } else {
-        // iOS 7
-        UIRemoteNotificationType notificationTypes = UIRemoteNotificationTypeBadge |
-            UIRemoteNotificationTypeSound |
-            UIRemoteNotificationTypeAlert;
-        [ap registerForRemoteNotificationTypes:notificationTypes];
-    }
+    [ap registerForRemoteNotifications];
+    UIUserNotificationType notificationTypes = UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert;
+    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:notificationTypes categories:nil];
+    [ap registerUserNotificationSettings:settings];
 }
 
 
 MBSynthesizeSetNeedsDelayMethodUsingAssociatedObject(setNeedsSyncAliasAndTag, doSetAliasAndTag, 0.1);
 
-- (void)doSetAliasAndTag
-{
+- (void)doSetAliasAndTag {
     if (self.aliasAndTagSyncRetryLimite <= 0) {
         DebugLog(NO, nil, @"已达到推送标签设置重试上限");
         return;
@@ -142,7 +127,7 @@ MBSynthesizeSetNeedsDelayMethodUsingAssociatedObject(setNeedsSyncAliasAndTag, do
         }
         return;
     }
-
+    
     [JPUSHService setTags:ft alias:self.pushAlias fetchCompletionHandle:^(int iResCode, NSSet *iTags, NSString *iAlias) {
         // should retain self
         if (iResCode == 0) {
@@ -164,8 +149,7 @@ MBSynthesizeSetNeedsDelayMethodUsingAssociatedObject(setNeedsSyncAliasAndTag, do
     }];
 }
 
-+ (nonnull NSString *)stringFromDeviceToken:(nonnull NSData *)deviceToken
-{
++ (nonnull NSString *)stringFromDeviceToken:(nonnull NSData *)deviceToken {
     const char *data = deviceToken.bytes;
     NSMutableString *token = [NSMutableString string];
 
@@ -182,8 +166,7 @@ MBSynthesizeSetNeedsDelayMethodUsingAssociatedObject(setNeedsSyncAliasAndTag, do
  当应用切到后台，或从后台启动，didReceiveRemoteNotification 调用，此时 AppActive() 是 NO
  如果应用在前台，收到通知，didReceiveRemoteNotification 调用，此时 AppActive() 是 YES
  */
-- (void)handleRemoteNotification:(NSDictionary *)notification fromLaunch:(BOOL)fromLaunch
-{
+- (void)handleRemoteNotification:(NSDictionary *)notification fromLaunch:(BOOL)fromLaunch {
     dout_info(@"收到推送信息：%@", notification);
     RFAssert(notification, @"不应为空");
     if (!notification) return;
@@ -207,8 +190,7 @@ MBSynthesizeSetNeedsDelayMethodUsingAssociatedObject(setNeedsSyncAliasAndTag, do
     self.lastNotificationReceived = notification;
 }
 
-- (void)handleLocalNotification:(UILocalNotification *)notification fromLaunch:(BOOL)fromLaunch
-{
+- (void)handleLocalNotification:(UILocalNotification *)notification fromLaunch:(BOOL)fromLaunch {
     dout_info(@"收到本地推送信息：%@", notification);
     RFAssert(notification, @"不应为空");
     if (!notification) return;
@@ -223,25 +205,24 @@ MBSynthesizeSetNeedsDelayMethodUsingAssociatedObject(setNeedsSyncAliasAndTag, do
 }
 
 // The method will be called on the delegate only if the application is in the foreground. If the method is not implemented or the handler is not called in a timely manner then the notification will not be presented. The application can choose to have the notification presented as a sound, badge, alert and/or in the notification list. This decision should be based on whether the information in the notification is otherwise visible to the user.
-- (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler
-{
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler  API_AVAILABLE(ios(10.0)) {
     NSDictionary *userInfo = notification.request.content.userInfo;
-    if ([notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
+    if ([notification.request.trigger isKindOfClass:UNPushNotificationTrigger.class]) {
         [JPUSHService handleRemoteNotification:userInfo];
     }
     completionHandler(UNNotificationPresentationOptionAlert);
 }
 
 // The method will be called on the delegate when the user responded to the notification by opening the application, dismissing the notification or choosing a UNNotificationAction. The delegate must be set before the application returns from applicationDidFinishLaunching:.
-- (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)(void))completionHandler
-{
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)(void))completionHandler API_AVAILABLE(ios(10.0)) {
     NSDictionary *userInfo = response.notification.request.content.userInfo;
-    if ([response.notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
+    if ([response.notification.request.trigger isKindOfClass:UNPushNotificationTrigger.class]) {
         if (self.receiveRemoteNotificationHandler) {
             self.receiveRemoteNotificationHandler(userInfo, response.notification, YES);
         }
         self.lastNotificationReceived = userInfo;
-    } else {
+    }
+    else {
         if (self.receiveLocalNotificationHandler) {
             self.receiveLocalNotificationHandler(userInfo, response.notification, YES);
         }
@@ -252,54 +233,48 @@ MBSynthesizeSetNeedsDelayMethodUsingAssociatedObject(setNeedsSyncAliasAndTag, do
 
 #pragma mark - Application 事件响应
 
-- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
-{
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     [JPUSHService registerDeviceToken:deviceToken];
     NSString *tokenString = [self.class stringFromDeviceToken:deviceToken];
     self.deviceToken = tokenString;
 }
 
-- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
-{
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
     [self handleRemoteNotification:userInfo fromLaunch:NO];
 }
 
-- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
-{
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
     [self handleLocalNotification:notification fromLaunch:NO];
 }
 
 #pragma mark - 角标管理
 
-- (void)setResetBadgeWhenApplicationBecomeActive:(BOOL)resetBadgeWhenApplicationBecomeActive
-{
+- (void)setResetBadgeWhenApplicationBecomeActive:(BOOL)resetBadgeWhenApplicationBecomeActive {
     if (_resetBadgeWhenApplicationBecomeActive != resetBadgeWhenApplicationBecomeActive) {
         if (_resetBadgeWhenApplicationBecomeActive) {
-            [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidBecomeActiveNotification object:nil];
+            [NSNotificationCenter.defaultCenter removeObserver:self name:UIApplicationDidBecomeActiveNotification object:nil];
         }
         _resetBadgeWhenApplicationBecomeActive = resetBadgeWhenApplicationBecomeActive;
         if (resetBadgeWhenApplicationBecomeActive) {
-            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onApplicationBecomeActiveThenResetBadge) name:UIApplicationDidBecomeActiveNotification object:nil];
+            [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(onApplicationBecomeActiveThenResetBadge) name:UIApplicationDidBecomeActiveNotification object:nil];
         }
     }
 }
 
-- (void)onApplicationBecomeActiveThenResetBadge
-{
+- (void)onApplicationBecomeActiveThenResetBadge {
     // 保持两秒在前台才去清零
     dispatch_after_seconds(2, ^{
-        if (AppActive()) {
+        if (UIApplication.sharedApplication.applicationState == UIApplicationStateActive) {
             [self resetBadge];
         }
     });
 }
 
-- (void)resetBadge
-{
+- (void)resetBadge {
     if (MBDebugConfigPushDebugLogEnabled) {
         dout_debug(@"应用通知气泡清零");
     }
-    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
+    [UIApplication.sharedApplication setApplicationIconBadgeNumber:0];
     [JPUSHService resetBadge];
 }
 

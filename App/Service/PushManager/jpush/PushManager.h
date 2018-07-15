@@ -1,18 +1,22 @@
 /*!
-    JPushManager
-    v 5.0
+ PushManager
+ jPush 实现
+ 
+ Copyright © 2018 RFUI.
+ Copyright © 2014-2017 Beijing ZhiYun ZhiYuan Technology Co., Ltd.
+ Copyright © 2014 Chinamobo Co., Ltd.
+ https://github.com/BB9z/iOS-Project-Template
 
-    Copyright © 2014 Chinamobo Co., Ltd.
-    https://github.com/Chinamobo/iOS-Project-Template
-
-    Apache License, Version 2.0
-    http://www.apache.org/licenses/LICENSE-2.0
+ Apache License, Version 2.0
+ http://www.apache.org/licenses/LICENSE-2.0
  */
-
-#import "Common.h"
+#import <UIKit/UIKit.h>
+#import <RFInitializing/RFInitializing.h>
 
 /**
- 极光推送封装，需要至少 2.1
+ 极光推送封装
+ 
+ pod 'JPush'
 
  使用：
  1. managerWithConfiguration: 初始化实例
@@ -21,7 +25,11 @@
  
  这个类是按原样使用设计的，既不应该重写，也不应该拿来修改。
  */
-@interface JPushManager : NSObject <UIApplicationDelegate, RFInitializing>
+NS_CLASS_AVAILABLE_IOS(8_0)
+@interface PushManager: NSObject <
+    UIApplicationDelegate,
+    RFInitializing
+>
 
 #pragma mark - 初始状态配置
 
@@ -30,34 +38,34 @@
 
  @param configBlock 不能为空，在这个 block 里进行设置
  */
-+ (nonnull instancetype)managerWithConfiguration:(void (^_Nonnull)(JPushManager *_Nonnull manager))configBlock;
++ (nonnull instancetype)managerWithConfiguration:(void (^__nonnull)(PushManager *__nonnull manager))configBlock;
 
 /// JPush 的 app key
-@property (nonatomic, nonnull, strong) NSString *appKey;
+@property (copy, nonnull) NSString *appKey;
 
 /// 服务器端推送使用生产证书还是测试证书
-@property (nonatomic) BOOL apsForProduction;
+@property BOOL apsForProduction;
 
 /// 应用启动时的 launchOptions
 /// manager 创建后会被清空
-@property (nonatomic, nullable, strong) NSDictionary *launchOptions;
+@property (nullable) NSDictionary *launchOptions;
 
 #pragma mark - 启动流程
 
 /// 处理收到的通知
 /// notification 可能是 UNNotification
-@property (nonatomic, nullable, copy) void (^receiveRemoteNotificationHandler)(NSDictionary *__nonnull info, id __nullable notification, BOOL userClick);
+@property (nullable) void (^receiveRemoteNotificationHandler)(NSDictionary *__nonnull info, id __nullable notification, BOOL userClick);
 
 /// 处理收到的本地通知
 /// notification 可能是 UILocalNotification 或 UNNotification
-@property (nonatomic, nullable, copy) void (^receiveLocalNotificationHandler)(NSDictionary *__nonnull info, id __nullable notification, BOOL userClick);
+@property (nullable) void (^receiveLocalNotificationHandler)(NSDictionary *__nonnull info, id __nullable notification, BOOL userClick);
 
 /**
  最后收到的推送，可以用于判断通知收到的时机
  
  如果最近一条是本地通知，内容是通知对象的 userInfo
  */
-@property (nonatomic, nullable, strong) NSDictionary *lastNotificationReceived;
+@property (nullable) NSDictionary *lastNotificationReceived;
 
 #pragma mark - Alias Tag
 
@@ -80,7 +88,7 @@
  
  默认 YES
  */
-@property (nonatomic) BOOL resetBadgeAfterLaunching;
+@property BOOL resetBadgeAfterLaunching;
 
 /**
  应用进入前台后重置角标

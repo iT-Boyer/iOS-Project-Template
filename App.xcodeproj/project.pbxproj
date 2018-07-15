@@ -512,11 +512,11 @@
 			path = MBControlGroup;
 			sourceTree = "<group>";
 		};
-		D5170CE8191B327A000C7D45 /* JPushManager */ = {
+		D5170CE8191B327A000C7D45 /* PushManager */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = JPushManager;
+			path = PushManager;
 			sourceTree = "<group>";
 		};
 		D5197A3117EECAAF00CA387C = {
@@ -704,9 +704,9 @@
 		D5542F131918B82100831016 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				D5170CE8191B327A000C7D45 /* JPushManager */,
 				D501845D20F8863E009481D4 /* MBDebug */,
 				D55959D120AB9F930019D733 /* MessageManager */,
+				D5170CE8191B327A000C7D45 /* PushManager */,
 				D5542F141918B83400831016 /* MBApp.h */,
 				D5542F151918B83400831016 /* MBApp.m */,
 			);
