@@ -1,5 +1,6 @@
 
 #import "MBCollectionViewEqualColumnSpaceLayout.h"
+#import <RFKit/UIView+RFAnimate.h>
 
 @interface MBCollectionViewEqualColumnSpaceLayout ()
 @end

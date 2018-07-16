@@ -2,12 +2,13 @@
  MBRootWrapperViewController
  
  Copyright © 2018 RFUI. All rights reserved.
+ Copyright © 2014-2017 Beijing ZhiYun ZhiYuan Technology Co., Ltd.
  https://github.com/RFUI/MBAppKit
  
  Apache License, Version 2.0
  http://www.apache.org/licenses/LICENSE-2.0
  */
-#import "Common.h"
+#import <RFKit/RFRuntime.h>
 
 /**
  整个应用的根 vc，除了是主导航的容器外，还承担了很多其他功能

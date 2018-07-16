@@ -1,17 +1,14 @@
 /*!
-    MBTableViewArrayDataSource
-    v 0.1
-
-    Copyright © 2015 Beijing ZhiYun ZhiYuan Information Technology Co., Ltd.
-    https://github.com/Chinamobo/iOS-Project-Template
-
-    Apache License, Version 2.0
-    http://www.apache.org/licenses/LICENSE-2.0
+ MBTableViewArrayDataSource
+ 
+ Copyright © 2018 RFUI.
+ Copyright © 2015-2016 Beijing ZhiYun ZhiYuan Information Technology Co., Ltd.
+ https://github.com/BB9z/iOS-Project-Template
+ 
+ Apache License, Version 2.0
+ http://www.apache.org/licenses/LICENSE-2.0
  */
-
-#import "Common.h"
-
-NS_ASSUME_NONNULL_BEGIN
+#import <MBAppKit/MBAppKit.h>
 
 /**
  数组作为数据源的 table view data source
@@ -20,15 +17,15 @@ NS_ASSUME_NONNULL_BEGIN
     RFInitializing,
     UITableViewDataSource
 >
-@property (nonatomic, nullable, weak) IBOutlet UITableView *tableView;
+@property (weak, nullable, nonatomic) IBOutlet UITableView *tableView;
 
-@property (nonatomic) NSMutableArray *items;
+@property (nullable, nonatomic) NSMutableArray *items;
 
 - (nonnull id)itemAtIndexPath:(nonnull NSIndexPath *)indexPath;
 
 - (nullable NSIndexPath *)indexPathForItem:(nonnull id)item;
 
-@property (nonatomic, nullable, copy) NSString *_Nonnull (^cellIdentifierProvider)(__kindof MBTableViewArrayDataSource *_Nonnull dataSource, id _Nonnull item, NSIndexPath *_Nonnull indexPath);
+@property (nullable) NSString *__nonnull (^cellIdentifierProvider)(__kindof MBTableViewArrayDataSource *__nonnull dataSource, id __nonnull item, NSIndexPath *__nonnull indexPath);
 
 #pragma mark - List operation
 // 这些操作会更新单元对应的数据
@@ -39,8 +36,6 @@ NS_ASSUME_NONNULL_BEGIN
  @param indexPath 如果不合法会忽略
  @param newIndexPath 如果越界会崩溃
  */
-- (void)moveRowAtIndexPath:(NSIndexPath *)indexPath toIndexPath:(NSIndexPath *)newIndexPath;
+- (void)moveRowAtIndexPath:(nullable NSIndexPath *)indexPath toIndexPath:(nullable NSIndexPath *)newIndexPath;
 
 @end
-
-NS_ASSUME_NONNULL_END

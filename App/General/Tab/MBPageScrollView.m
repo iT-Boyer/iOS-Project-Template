@@ -1,12 +1,8 @@
 
 #import "MBPageScrollView.h"
-#import "UIView+RFAnimate.h"
+#import <RFKit/UIView+RFAnimate.h>
 
-@interface MBPageScrollView ()
-@end
-
-@implementation MBPageScrollView
-{
+@implementation MBPageScrollView {
     NSInteger _page;
 }
 @dynamic page;

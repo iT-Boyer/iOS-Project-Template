@@ -1,15 +1,15 @@
 /*!
-    MBControlGroup
-    v 0.3
+ MBControlGroup
 
-    Copyright © 2014 Chinamobo Co., Ltd.
-    https://github.com/Chinamobo/iOS-Project-Template
-
-    Apache License, Version 2.0
-    http://www.apache.org/licenses/LICENSE-2.0
+ Copyright © 2018 RFUI.
+ Copyright © 2014-2016 Beijing ZhiYun ZhiYuan Technology Co., Ltd.
+ Copyright © 2014 Chinamobo Co., Ltd.
+ https://github.com/BB9z/iOS-Project-Template
+ 
+ Apache License, Version 2.0
+ http://www.apache.org/licenses/LICENSE-2.0
  */
-
-#import "Common.h"
+#import <MBAppKit/MBAppKit.h>
 
 @protocol MBControlGroupDelegate;
 

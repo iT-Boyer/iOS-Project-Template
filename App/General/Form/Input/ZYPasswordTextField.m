@@ -1,5 +1,6 @@
 
 #import "ZYPasswordTextField.h"
+#import <RFKit/UIView+RFKit.h>
 
 @interface ZYPasswordTextField ()
 @end

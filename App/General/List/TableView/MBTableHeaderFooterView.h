@@ -1,15 +1,15 @@
 /*!
-    MBTableHeaderFooterView
-
-    Copyright © 2014-2016 Beijing ZhiYun ZhiYuan Information Technology Co., Ltd.
-    https://github.com/Chinamobo/iOS-Project-Template
-
-    Apache License, Version 2.0
-    http://www.apache.org/licenses/LICENSE-2.0
+ MBTableHeaderFooterView
+ 
+ Copyright © 2018 RFUI.
+ Copyright © 2014-2016 Beijing ZhiYun ZhiYuan Information Technology Co., Ltd.
+ https://github.com/BB9z/iOS-Project-Template
+ 
+ Apache License, Version 2.0
+ http://www.apache.org/licenses/LICENSE-2.0
  */
-
-#import "Common.h"
-#import "RFFeatureSupport.h"
+#import <RFKit/RFRuntime.h>
+#import <RFInitializing/RFInitializing.h>
 
 /**
  可以用 AutoLayout 自动调节高度的 tableHeaderView/tableFooterView

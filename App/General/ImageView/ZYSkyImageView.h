@@ -2,13 +2,12 @@
  ZYSkyImageView
  
  Copyright © 2018 RFUI.
- Copyright © 2014 Beijing ZhiYun ZhiYuan Technology Co., Ltd.
+ Copyright © 2014-2015 Beijing ZhiYun ZhiYuan Technology Co., Ltd.
  https://github.com/BB9z/iOS-Project-Template
  
  Apache License, Version 2.0
  http://www.apache.org/licenses/LICENSE-2.0
  */
-#import "Common.h"
 #import "ZYImageView.h"
 
 /**

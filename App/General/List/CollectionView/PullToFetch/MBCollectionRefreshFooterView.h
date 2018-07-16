@@ -7,9 +7,8 @@
     Apache License, Version 2.0
     http://www.apache.org/licenses/LICENSE-2.0
  */
-
-#import "Common.h"
-#import "RFRefreshControl.h"
+#import <RFKit/RFRuntime.h>
+#import <RFAlpha/RFRefreshControl.h>
 
 /**
  Collection view 的上拉加载下一页

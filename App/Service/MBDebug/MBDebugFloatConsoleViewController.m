@@ -7,6 +7,7 @@
 #import "MBDebugViews.h"
 #import "MBNavigationController+Router.h"
 #import "MBRootWrapperViewController.h"
+#import "UIKit+App.h"
 #import <RFAlpha/RFWindow.h>
 
 static unsigned long long LastMemoryUsed;

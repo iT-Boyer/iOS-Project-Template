@@ -8,8 +8,10 @@
  Apache License, Version 2.0
  http://www.apache.org/licenses/LICENSE-2.0
  */
-#import "MBUser.h"
-#import "Common.h"
+#import <MBAppKit/MBAppKit.h>
+#import <MBAppKit/MBUser.h>
+#import <MBAppKit/MBUserDefaults.h>
+#import "APUserInfo.h"
 
 @interface APUser : MBUser
 

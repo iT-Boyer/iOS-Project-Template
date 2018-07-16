@@ -1,5 +1,7 @@
 
 #import "MBCollectionViewCarouselLayout.h"
+#import "UIKit+App.h"
+#import <RFKit/UIView+RFAnimate.h>
 
 @interface MBCollectionViewCarouselLayout () {
     CGFloat _viewSize;

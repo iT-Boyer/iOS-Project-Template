@@ -1,9 +1,11 @@
 
 #import "MBModalPresentSegue.h"
-#import <MBAPI.h>
-#import "MBNavigationController.h"
-#import "UIView+RFAnimate.h"
-#import "UIViewController+RFKit.h"
+#import "ShortCuts.h"
+#import <MBAppKit/MBAPI.h>
+#import <MBAppKit/MBNavigationController.h>
+#import <RFKit/UIView+RFAnimate.h>
+#import <RFKit/UIView+RFKit.h>
+#import <RFKit/UIViewController+RFKit.h>
 
 @implementation MBModalPresentSegue
 

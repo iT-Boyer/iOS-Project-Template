@@ -1,13 +1,11 @@
 
 #import "ZYImageView.h"
-#import "MBApp.h"
-#import "UIView+WebCacheOperation.h"
-#import "debug.h"
 #import "ImageEntity.h"
+#import "MBApp.h"
+#import "debug.h"
 #import <SDWebImageManager.h>
+#import <UIView+WebCacheOperation.h>
 
-extern NSSet *APIOldImageHostSet;
-extern NSSet *APIImageHostSet;
 
 @interface ZYImageView ()
 @property NSOperation *dowloadOperation;

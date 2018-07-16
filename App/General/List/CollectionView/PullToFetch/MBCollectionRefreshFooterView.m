@@ -1,5 +1,6 @@
 
 #import "MBCollectionRefreshFooterView.h"
+#import <RFKit/UIView+RFKit.h>
 
 @interface MBCollectionRefreshFooterView ()
 @property (readwrite, nonatomic) BOOL end;

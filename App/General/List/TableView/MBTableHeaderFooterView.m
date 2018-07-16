@@ -1,7 +1,8 @@
 
 #import "MBTableHeaderFooterView.h"
-#import "UIView+RFAnimate.h"
-#import "RFKVOWrapper.h"
+#import <RFAlpha/RFKVOWrapper.h>
+#import <RFKit/UIView+RFAnimate.h>
+#import <RFKit/UIView+RFKit.h>
 #import "debug.h"
 
 @interface MBTableHeaderFooterView ()

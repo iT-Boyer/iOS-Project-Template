@@ -2,12 +2,13 @@
  MBSearchViewController
  
  Copyright © 2018 RFUI.
- https://github.com/RFUI/MBAppKit
- 
+ Copyright © 2014-2015, 2017 Beijing ZhiYun ZhiYuan Technology Co., Ltd.
+ https://github.com/BB9z/iOS-Project-Template
+
  Apache License, Version 2.0
  http://www.apache.org/licenses/LICENSE-2.0
  */
-#import "Common.h"
+#import <MBAppKit/MBAppKit.h>
 #import "MBSearchTextField.h"
 
 /**

@@ -1,8 +1,9 @@
 
 #import "MBSearchTextField.h"
-#import "UITextFiledDelegateChain.h"
-#import "RFTimer.h"
-#import "API.h"
+#import "ShortCuts.h"
+#import <RFAlpha/UITextFiledDelegateChain.h>
+#import <RFAlpha/RFTimer.h>
+#import <MBAppKit/MBAPI.h>
 
 @interface MBSearchTextField ()
 @property (nonatomic) RFTimer *autoSearchTimer;
@@ -39,7 +40,7 @@ RFInitializingRootForUIView
     }
     self.autoSearchTimer.suspended = YES;
     if (self.APIName) {
-        [AppAPI() cancelOperationWithIdentifier:self.APIName];
+        [(MBAPI *)AppAPI() cancelOperationWithIdentifier:self.APIName];
     }
     self.autoSearchTimer.suspended = NO;
 }

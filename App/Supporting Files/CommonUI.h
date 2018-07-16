@@ -13,5 +13,7 @@
 /**
  供 Objecive-C 代码引入 Swift 代码
  */
-#import "Common.h"
+#import <RFKit/RFRuntime.h>
+#import <RFInitializing/RFInitializing.h>
+#import <MBAppKit/MBAppKit.h>
 #import "App-Swift.h"

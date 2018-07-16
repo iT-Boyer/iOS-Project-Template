@@ -1,6 +1,10 @@
 
 #import "MBCollectionView.h"
-#import "RFKVOWrapper.h"
+#import <RFAlpha/RFKVOWrapper.h>
+#import <RFKit/UIResponder+RFKit.h>
+#import <RFKit/UIView+RFAnimate.h>
+#import <RFKit/UIView+RFKit.h>
+
 
 @interface MBCollectionView ()
 @property (nonatomic) BOOL refreshFooterViewStatusUpdateFlag;
@@ -270,15 +274,11 @@ RFInitializingRootForUIView
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    if (!self.hasLayoutOnce) {
-        self.hasLayoutOnce = YES;
-        if (!RF_iOS8Before) {
-            [self updateHeightIfNeeded];
-        }
-        [self RFAddObserver:self forKeyPath:@keypath(self, contentView.bounds) options:NSKeyValueObservingOptionNew queue:nil block:^(MBCollectionViewHeaderFooterView *observer, NSDictionary *change) {
-            [observer updateHeightIfNeeded];
-        }];
-    }
+    if (self.hasLayoutOnce) return;
+    self.hasLayoutOnce = YES;
+    [self RFAddObserver:self forKeyPath:@keypath(self, contentView.bounds) options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionInitial queue:nil block:^(MBCollectionViewHeaderFooterView *observer, NSDictionary *change) {
+        [observer updateHeightIfNeeded];
+    }];
 }
 
 @end

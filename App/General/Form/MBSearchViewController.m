@@ -1,9 +1,11 @@
 
 #import "MBSearchViewController.h"
-#import "RFAnimationTransitioning.h"
+#import "ShortCuts.h"
 #import "UIViewController+RFDNavigationAppearance.h"
+#import <RFAlpha/RFAnimationTransitioning.h>
 #import <RFKeyboard/RFKeyboard.h>
-#import "API.h"
+#import <RFKit/NSLayoutConstraint+RFKit.h>
+#import <MBAppKit/MBAPI.h>
 
 @interface MBSearchTransitioning : RFAnimationTransitioning
 @end
@@ -57,7 +59,7 @@
     }
     sf.text = nil;
     if (sf.isSearching && sf.APIName) {
-        [AppAPI() cancelOperationWithIdentifier:sf.APIName];
+        [(MBAPI *)AppAPI() cancelOperationWithIdentifier:sf.APIName];
         sf.isSearching = NO;
     }
     if (!skipPop) {

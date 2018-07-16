@@ -2,16 +2,15 @@
  MBSingleSectionCollectionView
  
  Copyright © 2018 RFUI.
- Copyright © 2015 Beijing ZhiYun ZhiYuan Technology Co., Ltd.
+ Copyright © 2015-2016 Beijing ZhiYun ZhiYuan Technology Co., Ltd.
  https://github.com/BB9z/iOS-Project-Template
  
  Apache License, Version 2.0
  http://www.apache.org/licenses/LICENSE-2.0
  */
-
-#import "Common.h"
-#import "UICollectionViewDataSourceChain.h"
-#import "UICollectionViewDelegateFlowLayoutChain.h"
+#import <MBAppKit/MBAppKit.h>
+#import <RFAlpha/UICollectionViewDataSourceChain.h>
+#import <RFAlpha/UICollectionViewDelegateFlowLayoutChain.h>
 
 /**
  利用 RFDelegateChain 实现 dataSource 和 delegate 的灵活配置从而便于复用的 CollectionView

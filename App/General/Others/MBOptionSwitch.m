@@ -1,6 +1,7 @@
 
 #import "MBOptionSwitch.h"
 #import "MBApp.h"
+#import "ShortCuts.h"
 
 @implementation MBOptionSwitch
 RFInitializingRootForUIView

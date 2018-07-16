@@ -18,11 +18,9 @@
     else {
         // iOS 8, iOS 9 都需要重设一下
         // REF: http://stackoverflow.com/a/30741478/945906
-        if (!RF_iOS8Before) {
-            UIColor *tintColor = self.tintColor;
-            self.tintColor = nil;
-            self.tintColor = tintColor;
-        }
+        UIColor *tintColor = self.tintColor;
+        self.tintColor = nil;
+        self.tintColor = tintColor;
     }
 }
 

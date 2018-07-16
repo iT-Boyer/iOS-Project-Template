@@ -8,7 +8,7 @@
  Apache License, Version 2.0
  http://www.apache.org/licenses/LICENSE-2.0
  */
-#import "Common.h"
+#import <RFKit/RFRuntime.h>
 
 /**
  从 iOS 7 开始，系统就支持将图片按照给的颜色渲染，
@@ -27,5 +27,5 @@
  
  不会影响以后设置 image 和其它相关属性
  */
-@property (nonatomic) IBInspectable BOOL renderingAsTemplate;
+@property (nonatomic) IBInspectable BOOL renderingAsTemplate API_AVAILABLE(ios(8.0), tvos(9.0));
 @end
