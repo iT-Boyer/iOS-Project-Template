@@ -3,8 +3,8 @@
 //
 
 #import "API.h"
-#import "APUser.h"
-#import "APUserInfo.h"
+#import "Account.h"
+#import "AccountEntity.h"
 #import "EnvironmentFlag.h"
 #import "MBApp.h"
 #import "MBButton.h"

@@ -1,5 +1,5 @@
 /*!
- APUser
+ Account
  
  Copyright © 2018 RFUI.
  Copyright © 2016 Beijing ZhiYun ZhiYuan Technology Co., Ltd.
@@ -11,9 +11,9 @@
 #import <MBAppKit/MBAppKit.h>
 #import <MBAppKit/MBUser.h>
 #import <MBAppKit/MBUserDefaults.h>
-#import "APUserInfo.h"
+#import "AccountEntity.h"
 
-@interface APUser : MBUser
+@interface Account : MBUser
 
 #pragma mark - 状态
 
@@ -22,7 +22,7 @@
  
  不为空，操作上可以便捷一些
  */
-@property (nonnull) APUserInfo *information;
+@property (nonnull) AccountEntity *information;
 
 @property (nonatomic, nullable) NSString *token;
 
@@ -38,7 +38,7 @@
 @property BOOL hasLoginedThisSession;
 
 /**
- @param complation item 参数是 APUserInfo。如果传空且 viewController 非空，默认出错弹窗
+ @param complation item 参数是 AccountEntity。如果传空且 viewController 非空，默认出错弹窗
  */
 - (void)updateInformationFromViewController:(nullable UIViewController *)viewController complation:(nullable MBGeneralCallback)complation;
 

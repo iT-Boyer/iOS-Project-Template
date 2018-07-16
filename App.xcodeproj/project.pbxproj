@@ -37,13 +37,13 @@
 		D52EADEB2043B983007219E0 /* debug.m in Sources */ = {isa = PBXBuildFile; fileRef = D52EADE72043B983007219E0 /* debug.m */; };
 		D52EADF02043BA3D007219E0 /* ShortCuts.m in Sources */ = {isa = PBXBuildFile; fileRef = D52EADEE2043BA3D007219E0 /* ShortCuts.m */; };
 		D52EADF82043C0EC007219E0 /* NSUserDefaults+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D52EADF32043C0EB007219E0 /* NSUserDefaults+App.m */; };
-		D52EAE362043C6F7007219E0 /* APUser.m in Sources */ = {isa = PBXBuildFile; fileRef = D52EAE352043C6F7007219E0 /* APUser.m */; };
+		D52EAE362043C6F7007219E0 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = D52EAE352043C6F7007219E0 /* Account.m */; };
 		D544A396197CBE5300C65604 /* MBFormSelectButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D544A395197CBE5300C65604 /* MBFormSelectButton.m */; };
 		D544A39E197D1E8600C65604 /* JSONValueTransformer+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D544A39D197D1E8600C65604 /* JSONValueTransformer+App.m */; };
 		D552DD6F18C8506700D02290 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D552DD4C18C8506700D02290 /* HomeViewController.m */; };
 		D552DD7618C8506700D02290 /* API.m in Sources */ = {isa = PBXBuildFile; fileRef = D552DD5E18C8506700D02290 /* API.m */; };
 		D552DD7718C8506700D02290 /* APIJSONResponseSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = D552DD6318C8506700D02290 /* APIJSONResponseSerializer.m */; };
-		D552DD7B18C8506700D02290 /* APUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D552DD6E18C8506700D02290 /* APUserInfo.m */; };
+		D552DD7B18C8506700D02290 /* AccountEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = D552DD6E18C8506700D02290 /* AccountEntity.m */; };
 		D5542EAA191887F500831016 /* APIDefine.plist in Resources */ = {isa = PBXBuildFile; fileRef = D5542EA9191887F500831016 /* APIDefine.plist */; };
 		D5542F161918B83400831016 /* MBApp.m in Sources */ = {isa = PBXBuildFile; fileRef = D5542F151918B83400831016 /* MBApp.m */; };
 		D558FDF52046913B00A01EE6 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5EE51382043E0DF009148B3 /* RootViewController.swift */; };
@@ -222,8 +222,8 @@
 		D52EADF32043C0EB007219E0 /* NSUserDefaults+App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+App.m"; sourceTree = "<group>"; };
 		D52EADF42043C0EB007219E0 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D52EADF62043C0EB007219E0 /* NSUserDefaults+App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+App.h"; sourceTree = "<group>"; };
-		D52EAE342043C6F7007219E0 /* APUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APUser.h; sourceTree = "<group>"; };
-		D52EAE352043C6F7007219E0 /* APUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APUser.m; sourceTree = "<group>"; };
+		D52EAE342043C6F7007219E0 /* Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Account.h; sourceTree = "<group>"; };
+		D52EAE352043C6F7007219E0 /* Account.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Account.m; sourceTree = "<group>"; };
 		D544A394197CBE5300C65604 /* MBFormSelectButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBFormSelectButton.h; sourceTree = "<group>"; };
 		D544A395197CBE5300C65604 /* MBFormSelectButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBFormSelectButton.m; sourceTree = "<group>"; };
 		D544A39D197D1E8600C65604 /* JSONValueTransformer+App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JSONValueTransformer+App.m"; sourceTree = "<group>"; };
@@ -233,8 +233,8 @@
 		D552DD5E18C8506700D02290 /* API.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = API.m; sourceTree = "<group>"; };
 		D552DD6218C8506700D02290 /* APIJSONResponseSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIJSONResponseSerializer.h; sourceTree = "<group>"; };
 		D552DD6318C8506700D02290 /* APIJSONResponseSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIJSONResponseSerializer.m; sourceTree = "<group>"; };
-		D552DD6D18C8506700D02290 /* APUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APUserInfo.h; sourceTree = "<group>"; };
-		D552DD6E18C8506700D02290 /* APUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APUserInfo.m; sourceTree = "<group>"; };
+		D552DD6D18C8506700D02290 /* AccountEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountEntity.h; sourceTree = "<group>"; };
+		D552DD6E18C8506700D02290 /* AccountEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountEntity.m; sourceTree = "<group>"; };
 		D5542EA9191887F500831016 /* APIDefine.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = APIDefine.plist; sourceTree = "<group>"; };
 		D5542F141918B83400831016 /* MBApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBApp.h; sourceTree = "<group>"; };
 		D5542F151918B83400831016 /* MBApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBApp.m; sourceTree = "<group>"; };
@@ -618,7 +618,7 @@
 			isa = PBXGroup;
 			children = (
 				D552DD5018C8506700D02290 /* JSON */,
-				D5BA55212046471800E4F335 /* User */,
+				D5BA55212046471800E4F335 /* Account */,
 				D544A39D197D1E8600C65604 /* JSONValueTransformer+App.m */,
 				D52EADF62043C0EB007219E0 /* NSUserDefaults+App.h */,
 				D52EADF32043C0EB007219E0 /* NSUserDefaults+App.m */,
@@ -894,15 +894,15 @@
 			path = PullToFetch;
 			sourceTree = "<group>";
 		};
-		D5BA55212046471800E4F335 /* User */ = {
+		D5BA55212046471800E4F335 /* Account */ = {
 			isa = PBXGroup;
 			children = (
-				D52EAE342043C6F7007219E0 /* APUser.h */,
-				D52EAE352043C6F7007219E0 /* APUser.m */,
-				D552DD6D18C8506700D02290 /* APUserInfo.h */,
-				D552DD6E18C8506700D02290 /* APUserInfo.m */,
+				D52EAE342043C6F7007219E0 /* Account.h */,
+				D52EAE352043C6F7007219E0 /* Account.m */,
+				D552DD6D18C8506700D02290 /* AccountEntity.h */,
+				D552DD6E18C8506700D02290 /* AccountEntity.m */,
 			);
-			path = User;
+			path = Account;
 			sourceTree = "<group>";
 		};
 		D5DCA6E92046971100A4951A /* Podfile */ = {
@@ -1314,11 +1314,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D52EAE362043C6F7007219E0 /* Account.m in Sources */,
+				D552DD7B18C8506700D02290 /* AccountEntity.m in Sources */,
 				D552DD7618C8506700D02290 /* API.m in Sources */,
 				D552DD7718C8506700D02290 /* APIJSONResponseSerializer.m in Sources */,
 				D55959D020AB97B00019D733 /* ApplicationDelegate.swift in Sources */,
-				D52EAE362043C6F7007219E0 /* APUser.m in Sources */,
-				D552DD7B18C8506700D02290 /* APUserInfo.m in Sources */,
 				D588308D20CACB33002030C4 /* Array+App.swift in Sources */,
 				D52A04E520F85F2600F535ED /* Button.swift in Sources */,
 				D5EE519A2043F5F3009148B3 /* CALayer+MBAnimationPersistence.m in Sources */,

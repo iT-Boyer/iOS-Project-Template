@@ -26,7 +26,7 @@
 		<key>Authorization</key>
 		<false/>
 		<key>Response Class</key>
-		<string>APUserInfo</string>
+		<string>AccountEntity</string>
 		<key>Response Type</key>
 		<integer>2</integer>
 	</dict>

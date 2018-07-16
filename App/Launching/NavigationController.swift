@@ -26,7 +26,7 @@ class NavigationController: MBNavigationController {
         bottomBarHidden = true
         AppAPI()
 
-        APUser.addCurrentUserChangeObserver(self, initial: false) { [weak self] user in
+        Account.addCurrentUserChangeObserver(self, initial: false) { [weak self] user in
             if user != nil {
                 self?.onLogin()
             }

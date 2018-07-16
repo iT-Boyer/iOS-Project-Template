@@ -64,11 +64,11 @@ NSString *const APIURLAssetsBase              = @"http://img.example.com/";
         // 根据业务做统一处理，比如 token 失效登出
         switch (error.code) {
 //            case token_invald: {
-//                if (APUser.currentUser) {
-//                    APUser.currentUser = nil;
+//                if (Account.currentUser) {
+//                    Account.currentUser = nil;
 //                    [AppHUD() showErrorStatus:@"已登出，请重新登录"];
 //                }
-//                APUser.currentUser = nil;
+//                Account.currentUser = nil;
 //                return NO;
 //            }
         }

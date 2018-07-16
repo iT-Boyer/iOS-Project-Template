@@ -1,5 +1,5 @@
 /*!
- APUserInfo
+ AccountEntity
  
  Copyright © 2018 RFUI. All rights reserved.
  https://github.com/RFUI/MBAppKit
@@ -12,7 +12,7 @@
 /**
  用户信息 model
  */
-@interface APUserInfo : MBModel
+@interface AccountEntity : MBModel
 #if MBUserStringUID
 @property (nonnull) MBIdentifier uid;
 #else

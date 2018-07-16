@@ -86,8 +86,8 @@ MessageManager *__nonnull AppHUD(void) {
 
 #pragma mark -
 
-APUser *__nullable AppUser() {
-    return [APUser currentUser];
+Account *__nullable AppUser() {
+    return [Account currentUser];
 }
 
 MBID AppUserID() {
@@ -105,7 +105,7 @@ NSNumber *AppUserIDNumber() {
     return _UserIDNumberCache;
 }
 
-APUserInfo *AppUserInformation() {
+AccountEntity *AppUserInformation() {
     return AppUser().information;
 }
 

@@ -77,9 +77,9 @@ FOUNDATION_EXPORT MessageManager *__nonnull AppHUD(void);
 
 #pragma mark - 用户信息
 
-@class APUser;
+@class Account;
 /// 当前登录的用户，可以用来判断是否已登录
-FOUNDATION_EXPORT APUser *__nullable AppUser(void);
+FOUNDATION_EXPORT Account *__nullable AppUser(void);
 
 /// 当前用户的 ID
 FOUNDATION_EXPORT long AppUserID(void);
@@ -87,8 +87,8 @@ FOUNDATION_EXPORT long AppUserID(void);
 /// 总是非空
 FOUNDATION_EXPORT NSNumber *AppUserIDNumber(void);
 
-@class APUserInfo;
-FOUNDATION_EXPORT APUserInfo *_Nullable AppUserInformation(void);
+@class AccountEntity;
+FOUNDATION_EXPORT AccountEntity *_Nullable AppUserInformation(void);
 
 #pragma mark - 存储
 

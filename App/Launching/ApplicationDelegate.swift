@@ -20,7 +20,7 @@ class ApplicationDelegate: MBApplicationDelegate {
     }
     
     override func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
-        APUser.setup()
+        Account.setup()
         RFKeyboard.autoDisimssKeyboardWhenTouch = true
         setupUIAppearance()
         return true

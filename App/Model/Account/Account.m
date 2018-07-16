@@ -1,11 +1,11 @@
 
-#import "APUser.h"
+#import "Account.h"
 #import "API.h"
 #import "MBApp.h"
-#import "APUserInfo.h"
+#import "AccountEntity.h"
 #import "Common.h"
 
-@interface APUser ()
+@interface Account ()
 #if MBUserStringUID
 @property (readwrite) MBIdentifier uid;
 #else
@@ -13,14 +13,14 @@
 #endif
 @end
 
-@implementation APUser
+@implementation Account
 @dynamic uid;
 
-+ (void)onCurrentUserChanged:(APUser *)user {
++ (void)onCurrentUserChanged:(Account *)user {
     NSUserDefaults *ud = AppUserDefaultsShared();
     ud.lastUserID = user.uid;
     ud.userToken = user.token;
-    ud.APUserInfo = user.information.toJSONString;
+    ud.AccountEntity = user.information.toJSONString;
     BOOL success = ud.synchronize;
     if (!success) {
         if (NSUserDefaults.standardUserDefaults.synchronize) {
@@ -62,9 +62,9 @@
     NSUserDefaults *ud = AppUserDefaultsShared();
     if (!ud.lastUserID) return;
 
-    APUser *user = [[self alloc] initWithID:ud.lastUserID];
+    Account *user = [[self alloc] initWithID:ud.lastUserID];
     if (!user.token.length) {
-        DebugLog(YES, @"LaunchUserNoToken", @"APUser has ID but no token");
+        DebugLog(YES, @"LaunchUserNoToken", @"Account has ID but no token");
         return;
     }
     [self setCurrentUser:user];
@@ -103,20 +103,20 @@
 #pragma mark -
 
 @synthesize information = _information;
-- (APUserInfo *)information {
+- (AccountEntity *)information {
     @synchronized(self) {
         if (_information) return _information;
         NSUserDefaults *ud = AppUserDefaultsShared();
-        APUserInfo *ui = [APUserInfo.alloc initWithString:ud.APUserInfo error:nil];
+        AccountEntity *ui = [AccountEntity.alloc initWithString:ud.AccountEntity error:nil];
         if (!ui) {
-            ud.APUserInfo = nil;
-            ui = APUserInfo.new;
+            ud.AccountEntity = nil;
+            ui = AccountEntity.new;
         }
         _information = ui;
         return _information;
     }
 }
-- (void)setInformation:(APUserInfo *)information {
+- (void)setInformation:(AccountEntity *)information {
     @synchronized(self) {
         if (_information) {
             // 新获取的字段经常会是部分的，需要补全一下
@@ -138,7 +138,7 @@
         }
         
         // 开始对接口/数据源取回的数据处理
-        // 原则是保留能从用户信息接口获取的字段，如果是登录接口附加的信息则移动到 APUser 上
+        // 原则是保留能从用户信息接口获取的字段，如果是登录接口附加的信息则移动到 Account 上
         
         
 #if DEBUG
@@ -146,7 +146,7 @@
         
 #endif
         if (self.isCurrent) {
-            AppUserDefaultsShared().APUserInfo = self.information.toJSONString;
+            AppUserDefaultsShared().AccountEntity = self.information.toJSONString;
         }
     }
 }
@@ -166,7 +166,7 @@
     }
     
     NSMutableDictionary *att = [NSMutableDictionary dictionaryWithCapacity:3];
-    [API requestWithName:@"UserInfo" parameters:att viewController:viewController forceLoad:YES loadingMessage:nil modal:NO success:^(AFHTTPRequestOperation *operation, APUserInfo *responseObject) {
+    [API requestWithName:@"UserInfo" parameters:att viewController:viewController forceLoad:YES loadingMessage:nil modal:NO success:^(AFHTTPRequestOperation *operation, AccountEntity *responseObject) {
         self.hasLoginedThisSession = YES;
         self.information = responseObject;
 
