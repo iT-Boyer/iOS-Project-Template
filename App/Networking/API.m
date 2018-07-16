@@ -3,7 +3,7 @@
 #import "APIJSONResponseSerializer.h"
 #import "SDWebImageManager.h"
 #import <RFMessageManager/RFMessageManager+RFDisplay.h>
-#import "CommonUI.h"
+#import "Common.h"
 #import "NSUserDefaults+MBDebug.h"
 
 RFDefineConstString(APIErrorDomain);

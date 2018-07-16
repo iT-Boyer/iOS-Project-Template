@@ -2,7 +2,7 @@
 #import "MBRootWrapperViewController.h"
 #import "MBNavigationController.h"
 #import "UIViewController+RFInterfaceOrientation.h"
-#import "CommonUI.h"
+#import "Common.h"
 
 static MBRootWrapperViewController *MBRootWrapperViewControllerGlobalInstance;
 

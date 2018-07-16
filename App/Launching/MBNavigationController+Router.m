@@ -1,6 +1,6 @@
 
 #import "MBNavigationController+Router.h"
-#import "CommonUI.h"
+#import "Common.h"
 
 @implementation MBNavigationController (Router)
 

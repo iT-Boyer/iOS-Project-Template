@@ -1,6 +1,6 @@
 
 #import "MBApp.h"
-#import "CommonUI.h"
+#import "Common.h"
 
 @implementation MBApp
 

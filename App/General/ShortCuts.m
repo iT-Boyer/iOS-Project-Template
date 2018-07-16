@@ -1,6 +1,6 @@
 
 #import "ShortCuts.h"
-#import "CommonUI.h"
+#import "Common.h"
 
 /**
  备忘

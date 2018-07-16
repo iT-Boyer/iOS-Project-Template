@@ -3,7 +3,7 @@
 #import "API.h"
 #import "MBApp.h"
 #import "APUserInfo.h"
-#import "CommonUI.h"
+#import "Common.h"
 
 @interface APUser ()
 #if MBUserStringUID
