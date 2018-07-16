@@ -1615,6 +1615,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.chinamobo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "App/Supporting Files/OCBridging-Header.h";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "App-Swift.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1640,6 +1641,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.chinamobo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "App/Supporting Files/OCBridging-Header.h";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "App-Swift.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1752,6 +1754,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.chinamobo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "App/Supporting Files/OCBridging-Header.h";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "App-Swift.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
