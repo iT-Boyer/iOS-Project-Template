@@ -50,6 +50,7 @@ RFInitializingRootForNSObject
 
     CGPoint const offset = self.scrollView.contentOffset;
     CGPoint const lastOffset = self.lastOffset;
+    if (CGPointEqualToPoint(lastOffset, offset)) return;
     CGPoint continuousOffset = self.continuousOffset;
 
     CGPoint diffOffset = (CGPoint){ offset.x - lastOffset.x, offset.y - lastOffset.y };
@@ -74,7 +75,13 @@ RFInitializingRootForNSObject
     for (MBScrollViewContentOffsetObserver *observer in self.observers) {
         if (!observer.enabled) continue;
         if (!observer.testBlock(self, offset)) continue;
-        observer.execution(self, offset);
+        @weakify(self);
+        dispatch_async_on_main(^{
+            @strongify(self);
+            if (!self) return;
+            if (!CGPointEqualToPoint(self.scrollView.contentOffset, offset)) return;
+            observer.execution(self, offset);
+        });
     }
 }
 

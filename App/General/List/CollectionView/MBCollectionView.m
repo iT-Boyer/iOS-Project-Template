@@ -167,9 +167,10 @@ RFInitializingRootForUIView
     UIEdgeInsets contentInset = self.trueContentInset;
     _dout_insets(contentInset)
 
+    CGFloat headerHeight = collectionHeaderView.height;
     CGRect frame = collectionHeaderView.frame;
     frame.origin.x = 0;
-    frame.origin.y = contentInset.top - collectionHeaderView.height;
+    frame.origin.y = contentInset.top - headerHeight;
     frame.size.width = self.width;
     collectionHeaderView.frame = frame;
     _dout_rect(frame)
@@ -190,7 +191,7 @@ RFInitializingRootForUIView
         // Adjust header offset when header is visable
         if (self.contentOffset.y <= 0) {
             CGPoint offset = self.contentOffset;
-            offset.y = -collectionHeaderView.height;
+            offset.y = -headerHeight;
             self.contentOffset = offset;
         }
 
@@ -199,10 +200,10 @@ RFInitializingRootForUIView
     else {
         // 同一个 header 的更新效果只是刷新 offset
         CGPoint offsetAdjust = self.contentOffset;
-        offsetAdjust.y += self.lastHeaderViewHeight - collectionHeaderView.height;
+        offsetAdjust.y += self.lastHeaderViewHeight - headerHeight;
         self.contentOffset = offsetAdjust;
     }
-    self.lastHeaderViewHeight = collectionHeaderView.height;
+    self.lastHeaderViewHeight = headerHeight;
 
     __unused CGFloat height = frame.size.height;
 
