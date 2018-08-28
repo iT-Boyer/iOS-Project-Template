@@ -33,7 +33,7 @@
 - (void)setSelectedControl:(nullable UIControl *)selectedControl animated:(BOOL)animated;
 
 /// 选中控件的 index，未选中任何控件是 NSNotFound
-@property (nonatomic) NSUInteger selectIndex;
+@property (nonatomic) NSInteger selectIndex;
 - (void)setSelectIndex:(NSInteger)selectIndex animated:(BOOL)animated;
 
 /// 设为 YES 当再次点击已选择控件时将取消该控件的选择状态，默认 NO

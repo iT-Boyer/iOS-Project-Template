@@ -104,7 +104,7 @@ RFInitializingRootForUIView
     return [NSSet setWithObjects:@keypathClassInstance(MBControlGroup, selectedControl), nil];
 }
 
-- (void)setSelectIndex:(NSUInteger)selectIndex {
+- (void)setSelectIndex:(NSInteger)selectIndex {
     [self setSelectIndex:selectIndex animated:NO];
 }
 
@@ -113,7 +113,7 @@ RFInitializingRootForUIView
     [self setSelectedControl:c animated:animated];
 }
 
-- (NSUInteger)selectIndex {
+- (NSInteger)selectIndex {
     return [self.controls indexOfObject:self.selectedControl];
 }
 
