@@ -23,15 +23,16 @@
     ud.AccountEntity = user.information.toJSONString;
     BOOL success = ud.synchronize;
     if (!success) {
-        if (NSUserDefaults.standardUserDefaults.synchronize) {
-            return;
-        }
-        DebugLog(YES, @"UDSynchronizeFail", @"用户信息存储失败");
-        static dispatch_once_t onceToken;
-        dispatch_once(&onceToken, ^{
-            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"系统错误" message:@"暂时不能保存您的用户信息，如果你反复遇到这个提示，建议您重启设备以解决这个问题" preferredStyle:UIAlertControllerStyleAlert];
-            [alert addAction:[UIAlertAction actionWithTitle:@"本次启动不再提示" style:UIAlertActionStyleDefault handler:nil]];
-            [UIViewController.rootViewControllerWhichCanPresentModalViewController presentViewController:alert animated:YES completion:nil];
+        dispatch_after_seconds(0, ^{
+            if (AppUserDefaultsShared().synchronize) return;
+            
+            DebugLog(YES, @"UDSynchronizeFail", @"用户信息存储失败");
+            static dispatch_once_t onceToken;
+            dispatch_once(&onceToken, ^{
+                UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"系统错误" message:@"暂时不能保存您的用户信息，如果你反复遇到这个提示，建议您重启设备以解决这个问题" preferredStyle:UIAlertControllerStyleAlert];
+                [alert addAction:[UIAlertAction actionWithTitle:@"本次启动不再提示" style:UIAlertActionStyleDefault handler:nil]];
+                [UIViewController.rootViewControllerWhichCanPresentModalViewController presentViewController:alert animated:YES completion:nil];
+            });
         });
     }
     if (user) {
