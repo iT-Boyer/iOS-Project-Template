@@ -1,7 +1,7 @@
 #! /bin/sh
 # Maintained by BB9z (https://github.com/BB9z)
 
-echo "MBAutoBuildScript 0.7"
+echo "MBAutoBuildScript 0.8"
 echo "Copyright © 2018 RFUI."
 echo "Copyright © 2016 Beijing ZhiYun ZhiYuan Technology Co., Ltd. All rights reserved."
 echo "-----------------------"
@@ -58,7 +58,10 @@ fi
 
 # 特定注释高亮
 if [ $EnableCodeCommentsHighlight = "YES" ]; then
+  # When find return nothing, grep will fail. Just ignore pipefail instead of strictly checking to improve performance.
+  set +o pipefail
   find "$SRCROOT" \( \( -not -path "${SRCROOT}/Pods/*" \) -and \( -name "*.swift" -or -name "*.h" -or -name "*.m" -or -name "*.mm" -or -name "*.c" \) \) -print0 | xargs -0 egrep --with-filename --line-number --only-matching "// ($CodeCommentsHighlightKeywordsExpression):.*\$" | perl -p -e "s/\/\/ ($CodeCommentsHighlightKeywordsExpression):/ warning: \$1/"
+  set -o pipefail
 fi
 
 # 提醒修改产品名
