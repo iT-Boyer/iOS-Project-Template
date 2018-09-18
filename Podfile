@@ -26,8 +26,6 @@ target 'App' do
         'RFNavigationController',
         'RFRefreshButton',
         'RFRefreshControl',
-        'RFSwizzle',
-        'RFSynthesize',
         'RFTabController',
         'RFTableViewPullToFetchPlugin',
         'RFTimer',

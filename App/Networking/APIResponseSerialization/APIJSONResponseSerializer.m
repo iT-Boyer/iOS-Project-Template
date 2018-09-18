@@ -1,6 +1,6 @@
 
 #import "APIJSONResponseSerializer.h"
-#import "RFKit.h"
+#import <RFKit/NSDictionary+RFKit.h>
 
 extern NSString *const APIErrorDomain;
 
