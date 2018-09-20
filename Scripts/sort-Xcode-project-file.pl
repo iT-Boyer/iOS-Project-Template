@@ -1,4 +1,4 @@
-#!/usr/bin/perl -w
+#!/usr/bin/env perl
 
 # Copyright (C) 2007, 2008, 2009, 2010 Apple Inc.  All rights reserved.
 #
@@ -11,7 +11,7 @@
 # 2.  Redistributions in binary form must reproduce the above copyright
 #     notice, this list of conditions and the following disclaimer in the
 #     documentation and/or other materials provided with the distribution. 
-# 3.  Neither the name of Apple Computer, Inc. ("Apple") nor the names of
+# 3.  Neither the name of Apple Inc. ("Apple") nor the names of
 #     its contributors may be used to endorse or promote products derived
 #     from this software without specific prior written permission. 
 #
@@ -29,6 +29,7 @@
 # Script to sort "children" and "files" sections in Xcode project.pbxproj files
 
 use strict;
+use warnings;
 
 use File::Basename;
 use File::Spec;
@@ -79,11 +80,11 @@ for my $projectFile (@ARGV) {
         next;
     }
 
-    # Grab the mainGroup for the project file
+    # Grab the mainGroup for the project file.
     my $mainGroup = "";
     open(IN, "< $projectFile") || die "Could not open $projectFile: $!";
     while (my $line = <IN>) {
-        $mainGroup = $2 if $line =~ m#^(\s*)mainGroup = ([0-9A-F]{24} /\* .+ \*/);$#;
+        $mainGroup = $2 if $line =~ m#^(\s*)mainGroup = ([0-9A-F]{24}( /\* .+ \*/)?);$#;
     }
     close(IN);
 
@@ -160,6 +161,11 @@ sub sortChildrenByFileName($$)
     if ((!$aSuffix && !$isFile{$aFileName} && $bSuffix) || ($aSuffix && !$bSuffix && !$isFile{$bFileName})) {
         return !$aSuffix ? -1 : 1;
     }
+    if ($aFileName =~ /^UnifiedSource\d+/ && $bFileName =~ /^UnifiedSource\d+/) {
+        my $aNumber = $1 if $aFileName =~ /^UnifiedSource(\d+)/;
+        my $bNumber = $1 if $bFileName =~ /^UnifiedSource(\d+)/;
+        return $aNumber <=> $bNumber;
+    }
     return lc($aFileName) cmp lc($bFileName);
 }
 
@@ -168,5 +174,10 @@ sub sortFilesByFileName($$)
     my ($a, $b) = @_;
     my $aFileName = $1 if $a =~ /^\s*[A-Z0-9]{24} \/\* (.+) in /;
     my $bFileName = $1 if $b =~ /^\s*[A-Z0-9]{24} \/\* (.+) in /;
+    if ($aFileName =~ /^UnifiedSource\d+/ && $bFileName =~ /^UnifiedSource\d+/) {
+        my $aNumber = $1 if $aFileName =~ /^UnifiedSource(\d+)/;
+        my $bNumber = $1 if $bFileName =~ /^UnifiedSource(\d+)/;
+        return $aNumber <=> $bNumber;
+    }
     return lc($aFileName) cmp lc($bFileName);
 }
