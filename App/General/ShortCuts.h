@@ -82,7 +82,7 @@ FOUNDATION_EXPORT MessageManager *__nonnull AppHUD(void);
 FOUNDATION_EXPORT Account *__nullable AppUser(void);
 
 /// 当前用户的 ID
-FOUNDATION_EXPORT long AppUserID(void);
+FOUNDATION_EXPORT MBID AppUserID(void);
 
 /// 总是非空
 FOUNDATION_EXPORT NSNumber *AppUserIDNumber(void);

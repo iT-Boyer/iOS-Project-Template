@@ -23,3 +23,12 @@ extension Array where Iterator.Element: Hashable {
         return Array(Set<Element>(self))
     }
 }
+
+extension Array where Iterator.Element: UIView {
+    /// 改变一组 view 的隐藏
+    func views(hidden: Bool) {
+        forEach { v in
+            v.isHidden = hidden
+        }
+    }
+}

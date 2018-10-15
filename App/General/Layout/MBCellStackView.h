@@ -1,11 +1,12 @@
-//
-//  MBCellStackView.h
-//  ZNArt
-//
-//  Created by BB9z on 2018/6/22.
-//  Copyright © 2018 znart.com. All rights reserved.
-//
-
+/*
+ MBCellStackView
+ 
+ Copyright © 2018 RFUI.
+ https://github.com/BB9z/iOS-Project-Template
+ 
+ Apache License, Version 2.0
+ http://www.apache.org/licenses/LICENSE-2.0
+ */
 #import <MBAppKit/MBAppKit.h>
 #import <RFInitializing/RFInitializing.h>
 

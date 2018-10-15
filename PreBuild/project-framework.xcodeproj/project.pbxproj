@@ -75,7 +75,7 @@
 		D5E763FD1DBDAB5C00959202 /* Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		D5E763FE1DBDAB5C00959202 /* Release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		D5E764471DBDDEDA00959202 /* PreBuild-Debug.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "PreBuild-Debug.podspec"; sourceTree = SOURCE_ROOT; };
-		D5E764481DBDDEDA00959202 /* PreBuild.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PreBuild.podspec; sourceTree = SOURCE_ROOT; };
+		D5E764481DBDDEDA00959202 /* PreBuild.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PreBuild.podspec; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		D5E764751DBDFEEA00959202 /* 样例.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "样例.h"; path = "../Parts/样例/样例.h"; sourceTree = "<group>"; };
 		D5E764771DBDFEF900959202 /* 样例.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "样例.m"; path = "../Parts/样例/样例.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
