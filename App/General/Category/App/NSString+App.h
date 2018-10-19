@@ -21,9 +21,6 @@
 /// 字符串硬换行的行数
 - (NSUInteger)rf_numberOfHardLineBreaks;
 
-- (long)longValue;
-- (long long)unsignedLongLongValue;
-
 /**
  判断给定新版本是否是更新的
  

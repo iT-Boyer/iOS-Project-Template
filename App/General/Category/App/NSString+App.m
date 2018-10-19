@@ -24,14 +24,6 @@
     return numberOfLines;
 }
 
-- (long)longValue {
-    return [self integerValue];
-}
-
-- (long long)unsignedLongLongValue {
-    return [self integerValue];
-}
-
 + (BOOL)isNewVersion:(NSString *)latestVersion currentversion:(NSString *)currentversion {
     NSParameterAssert(currentversion);
     if (!latestVersion) return NO;
