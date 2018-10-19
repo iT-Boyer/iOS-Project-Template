@@ -1,36 +1,12 @@
 
 #import "UIColor+App.h"
-
-int const UIColorGlobalTintColorHex = 0x40CCFF;
+#import "Common.h"
 
 @implementation UIColor (App)
 
-#define MakeColor(NAME, HEX, ALPHA) \
-    + (UIColor *)NAME {\
-    static UIColor *sharedInstance = nil; static dispatch_once_t oncePredicate;\
-    dispatch_once(&oncePredicate, ^{\
-        sharedInstance = [UIColor colorWithRGBHex:HEX alpha:ALPHA];\
-    });\
-    return sharedInstance; }
-
-#define MakeSolidColor(NAME, HEX) MakeColor(NAME, HEX, 1)
-
-MakeSolidColor(globalTintColor, UIColorGlobalTintColorHex)
-+ (UIColor *)globalHighlightedTintColor {
-    static UIColor *sharedInstance = nil;
-    static dispatch_once_t oncePredicate;
-    dispatch_once(&oncePredicate, ^{
-        sharedInstance = [[self globalTintColor] mixedColorWithRatio:.25 color:[UIColor colorWithRGBHex:0xFFFFFF]];
-    });
-    return sharedInstance;
++ (UIColor *)globalPlaceholderTextColor {
+    return self.systemPlaceholderColor;
 }
-MakeSolidColor(globalDisabledTintColor, 0xCCCCCC)
-
-MakeSolidColor(globalTitleTextColor, 0x535353)
-MakeSolidColor(globalBodyTextColor, 0x5e6066)
-MakeSolidColor(globalDetialTextColor, 0x9b9b9b)
-MakeColor(globalPlaceholderTextColor, 0x000019, 0.22)
-MakeSolidColor(globalErrorRead, 0x800000)
 
 #pragma mark -
 

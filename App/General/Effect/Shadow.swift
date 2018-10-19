@@ -39,6 +39,8 @@ class BackgroundView: UIView {
 
 /**
  给一个 view 的 layer 设置阴影样式
+ 
+ 生成的阴影无论参数还是效果与 Sketch 应用一致
  */
 func Shadow(view: UIView?, offset: CGPoint, blur: CGFloat, spread: CGFloat, color: UIColor, cornerRadius: CGFloat = 0) {
     guard let layer = view?.layer else {

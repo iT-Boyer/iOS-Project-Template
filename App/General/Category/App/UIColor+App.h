@@ -10,26 +10,10 @@
 
 #import "UIKit+App.h"
 
-/// 全局颜色十六进制色值
-extern int const UIColorGlobalTintColorHex;
-
 @interface UIColor (App)
 
-@property (class, nonnull, readonly) UIColor *globalTintColor;
-@property (class, nonnull, readonly) UIColor *globalHighlightedTintColor;
-@property (class, nonnull, readonly) UIColor *globalDisabledTintColor;
-
-/// 标题颜色 #535353
-@property (class, nonnull, readonly) UIColor *globalTitleTextColor;
-/// 正文颜色 #5E6066
-@property (class, nonnull, readonly) UIColor *globalBodyTextColor;
-/// 描述文本颜色 #9B9B9B
-@property (class, nonnull, readonly) UIColor *globalDetialTextColor;
 /// 占位符文本颜色
 @property (class, nonnull, readonly) UIColor *globalPlaceholderTextColor;
-
-/// 错误红 #800000
-@property (class, nonnull, readonly) UIColor *globalErrorRead;
 
 #pragma mark -
 

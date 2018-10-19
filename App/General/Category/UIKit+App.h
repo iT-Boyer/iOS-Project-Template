@@ -40,7 +40,6 @@ FOUNDATION_EXPORT void limitedOffsetChange(double *_Nonnull source, double targe
 #import "UIAlertController+App.h"
 #import "UIButton+App.h"
 #import "UICollectionView+App.h"
-#import "UIColor+App.h"
 #import "UIFont+App.h"
 #import "UIImage+App.h"
 #import "UILabel+App.h"

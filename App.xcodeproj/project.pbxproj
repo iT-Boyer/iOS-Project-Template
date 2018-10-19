@@ -92,6 +92,7 @@
 		D5B49F1A1C41133A00847925 /* MBRefreshHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5B49EFD1C41133A00847925 /* MBRefreshHeaderView.xib */; };
 		D5B49F1B1C41133A00847925 /* MBTableViewPullToFetchControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B49EFF1C41133A00847925 /* MBTableViewPullToFetchControl.m */; };
 		D5C636A72047CC5900851CF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5C636A62047CC5900851CF4 /* LaunchScreen.storyboard */; };
+		D5C82DDC2179D98C00E63A2A /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C82DDB2179D98C00E63A2A /* Color.swift */; };
 		D5D9F5142071BA6500B6FE9B /* UIViewController+RFInterfaceOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D9F5132071BA6500B6FE9B /* UIViewController+RFInterfaceOrientation.m */; };
 		D5EE51192043DAA2009148B3 /* NSArray+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE50E42043DAA1009148B3 /* NSArray+App.m */; };
 		D5EE511A2043DAA2009148B3 /* UIFont+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE50E52043DAA1009148B3 /* UIFont+App.m */; };
@@ -321,6 +322,7 @@
 		D5B49EFE1C41133A00847925 /* MBTableViewPullToFetchControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBTableViewPullToFetchControl.h; sourceTree = "<group>"; };
 		D5B49EFF1C41133A00847925 /* MBTableViewPullToFetchControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBTableViewPullToFetchControl.m; sourceTree = "<group>"; };
 		D5C636A62047CC5900851CF4 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D5C82DDB2179D98C00E63A2A /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		D5D4CC6E2043A6ED002FE9F0 /* OCBridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OCBridging-Header.h"; sourceTree = "<group>"; };
 		D5D9F5112071BA6400B6FE9B /* UIViewController+RFInterfaceOrientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+RFInterfaceOrientation.h"; sourceTree = "<group>"; };
 		D5D9F5132071BA6500B6FE9B /* UIViewController+RFInterfaceOrientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+RFInterfaceOrientation.m"; sourceTree = "<group>"; };
@@ -940,6 +942,7 @@
 			children = (
 				D5EE50E02043DAA1009148B3 /* App */,
 				D588308820CACB32002030C4 /* Array+App.swift */,
+				D5C82DDB2179D98C00E63A2A /* Color.swift */,
 				D5F9F47D208D921200427201 /* Date+App.swift */,
 				D5EE51132043DAA1009148B3 /* MBObjectiveC.h */,
 				D5EE51182043DAA1009148B3 /* MBObjectiveC.m */,
@@ -1333,6 +1336,7 @@
 				D588308D20CACB33002030C4 /* Array+App.swift in Sources */,
 				D52A04E520F85F2600F535ED /* Button.swift in Sources */,
 				D5EE519A2043F5F3009148B3 /* CALayer+MBAnimationPersistence.m in Sources */,
+				D5C82DDC2179D98C00E63A2A /* Color.swift in Sources */,
 				D5F9F47F208D921200427201 /* Date+App.swift in Sources */,
 				D52EADEB2043B983007219E0 /* debug.m in Sources */,
 				D501845B20F881B6009481D4 /* DissolveTransitioning.swift in Sources */,
@@ -1347,7 +1351,6 @@
 				D5B49F071C41133A00847925 /* MBCollectionView.m in Sources */,
 				D5B49F021C41133A00847925 /* MBCollectionViewArrayDataSource.m in Sources */,
 				D5F9F47C208D8F8700427201 /* MBCollectionViewCarouselLayout.m in Sources */,
-				D5936E09217977FB00BC4F03 /* MBIndefiniteRotationImageView.m in Sources */,
 				D5B49F041C41133A00847925 /* MBCollectionViewColumnLayout.m in Sources */,
 				D5B49F031C41133A00847925 /* MBCollectionViewDataSource.m in Sources */,
 				D5EE52212043F6A7009148B3 /* MBCollectionViewEqualColumnSpaceLayout.m in Sources */,
@@ -1364,6 +1367,7 @@
 				D5A3312421527BA100B0FD5B /* MBFlipCollapsibleView.m in Sources */,
 				D5F9F486208DC26600427201 /* MBFormFieldVerifyControl.m in Sources */,
 				D544A396197CBE5300C65604 /* MBFormSelectButton.m in Sources */,
+				D5936E09217977FB00BC4F03 /* MBIndefiniteRotationImageView.m in Sources */,
 				D5EE517A2043F5E6009148B3 /* MBKeyboardFloatContainer.m in Sources */,
 				D5EE52482043FB6A009148B3 /* MBLabel.m in Sources */,
 				D5B49EC61C4111B600847925 /* MBLayoutConstraint.m in Sources */,

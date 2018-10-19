@@ -1,7 +1,7 @@
 
 #import "ZYSkyImageView.h"
-#import "UIView+RFAnimate.h"
-#import "RFKVOWrapper.h"
+#import <RFAlpha/RFKVOWrapper.h>
+#import <RFKit/UIView+RFAnimate.h>
 
 @interface ZYSkyImageView ()
 @property (strong, nonatomic) id scrollObserver;

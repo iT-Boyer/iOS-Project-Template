@@ -153,7 +153,7 @@ class SearchTextField: MBSearchTextField {
     
     lazy var iconView: UIImageView = {
         let icon = UIImageView(image: #imageLiteral(resourceName: "search_24"))
-        icon.tintColor = UIColor.globalTint
+        icon.tintColor = .tint
         icon.contentMode = .center
         return icon
     }()
