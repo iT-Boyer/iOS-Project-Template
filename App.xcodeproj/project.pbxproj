@@ -63,6 +63,7 @@
 		D588309320CAD7F3002030C4 /* UIAlertController+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D588309220CAD7F3002030C4 /* UIAlertController+App.m */; };
 		D588309720CAE103002030C4 /* ImageEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = D588309520CAE103002030C4 /* ImageEntity.m */; };
 		D59066B620AD0C4500411410 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D59066B520AD0C4500411410 /* README.md */; };
+		D5936E09217977FB00BC4F03 /* MBIndefiniteRotationImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = D5936E07217977FA00BC4F03 /* MBIndefiniteRotationImageView.m */; };
 		D5A3312321527BA100B0FD5B /* MBCellStackView.m in Sources */ = {isa = PBXBuildFile; fileRef = D5A3311F21527BA100B0FD5B /* MBCellStackView.m */; };
 		D5A3312421527BA100B0FD5B /* MBFlipCollapsibleView.m in Sources */ = {isa = PBXBuildFile; fileRef = D5A3312021527BA100B0FD5B /* MBFlipCollapsibleView.m */; };
 		D5B49EC31C4111B600847925 /* MBFixWidthImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B49EBB1C4111B600847925 /* MBFixWidthImageView.m */; };
@@ -266,6 +267,8 @@
 		D588309520CAE103002030C4 /* ImageEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageEntity.m; sourceTree = "<group>"; };
 		D588309620CAE103002030C4 /* ImageEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageEntity.h; sourceTree = "<group>"; };
 		D59066B520AD0C4500411410 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D5936E07217977FA00BC4F03 /* MBIndefiniteRotationImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBIndefiniteRotationImageView.m; sourceTree = "<group>"; };
+		D5936E08217977FB00BC4F03 /* MBIndefiniteRotationImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBIndefiniteRotationImageView.h; sourceTree = "<group>"; };
 		D5A3311F21527BA100B0FD5B /* MBCellStackView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBCellStackView.m; sourceTree = "<group>"; };
 		D5A3312021527BA100B0FD5B /* MBFlipCollapsibleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBFlipCollapsibleView.m; sourceTree = "<group>"; };
 		D5A3312121527BA100B0FD5B /* MBCellStackView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBCellStackView.h; sourceTree = "<group>"; };
@@ -1028,6 +1031,8 @@
 				D5EE51962043F5F3009148B3 /* CALayer+MBAnimationPersistence.h */,
 				D5EE51952043F5F3009148B3 /* CALayer+MBAnimationPersistence.m */,
 				D501845920F881B6009481D4 /* DissolveTransitioning.swift */,
+				D5936E08217977FB00BC4F03 /* MBIndefiniteRotationImageView.h */,
+				D5936E07217977FA00BC4F03 /* MBIndefiniteRotationImageView.m */,
 				D501845A20F881B6009481D4 /* Shadow.swift */,
 			);
 			path = Effect;
@@ -1342,6 +1347,7 @@
 				D5B49F071C41133A00847925 /* MBCollectionView.m in Sources */,
 				D5B49F021C41133A00847925 /* MBCollectionViewArrayDataSource.m in Sources */,
 				D5F9F47C208D8F8700427201 /* MBCollectionViewCarouselLayout.m in Sources */,
+				D5936E09217977FB00BC4F03 /* MBIndefiniteRotationImageView.m in Sources */,
 				D5B49F041C41133A00847925 /* MBCollectionViewColumnLayout.m in Sources */,
 				D5B49F031C41133A00847925 /* MBCollectionViewDataSource.m in Sources */,
 				D5EE52212043F6A7009148B3 /* MBCollectionViewEqualColumnSpaceLayout.m in Sources */,
