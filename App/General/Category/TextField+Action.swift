@@ -9,9 +9,7 @@ extension UITextField {
     /// 清空输入框
     @IBAction func clearText(_ sender: Any?) {
         text = nil
-        if let self = self as? MBTextField {
-            self.updateUIForTextChanged()
-        }
+        sendActions(for: .editingChanged)
     }
     
     /// 切换密码显示

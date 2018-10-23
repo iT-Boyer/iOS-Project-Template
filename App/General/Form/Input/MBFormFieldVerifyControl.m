@@ -9,7 +9,8 @@
 @implementation MBFormFieldVerifyControl
 
 - (void)setTextFields:(NSArray *)textFields {
-    for (UITextField *f in textFields) {
+    if ([_textFields isEqualToArray:textFields]) return;
+    for (UITextField *f in _textFields) {
         [f removeTarget:self action:@selector(MBFormFieldVerifyControl_textEdit:) forControlEvents:UIControlEventEditingChanged];
     }
     _textFields = textFields;
