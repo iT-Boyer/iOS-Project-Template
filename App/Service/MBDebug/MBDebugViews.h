@@ -31,4 +31,6 @@
     RFInitializing
 >
 @property (nonatomic, strong) RFWindow *win;
+
++ (void)installToKeyWindow;
 @end

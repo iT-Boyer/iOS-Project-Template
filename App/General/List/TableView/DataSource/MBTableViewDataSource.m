@@ -89,6 +89,15 @@
 
 #pragma mark -
 
+- (void)reconfigVisableCells {
+    UITableView *tb = self.tableView;
+    for (UITableViewCell *cell in tb.visibleCells) {
+        NSIndexPath *ip = [tb indexPathForCell:cell];
+        if (!ip) continue;
+        self.configureCell(tb, cell, ip, [self itemAtIndexPath:ip]);
+    }
+}
+
 - (void)removeItem:(id)item withRowAnimation:(UITableViewRowAnimation)animation {
     NSIndexPath *ip = [self indexPathForItem:item];
     if (!ip) return;

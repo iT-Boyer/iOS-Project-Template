@@ -41,7 +41,6 @@ FOUNDATION_EXPORT void limitedOffsetChange(double *_Nonnull source, double targe
 #import "UIButton+App.h"
 #import "UICollectionView+App.h"
 #import "UIFont+App.h"
-#import "UIImage+App.h"
 #import "UILabel+App.h"
 #import "UITableView+App.h"
 #import "UITextField+App.h"

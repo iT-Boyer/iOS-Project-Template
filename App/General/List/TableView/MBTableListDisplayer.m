@@ -1,6 +1,7 @@
 
 #import "MBTableListDisplayer.h"
 #import "API.h"
+#import <MBAppKit/MBGeneralCellResponding.h>
 #import <RFKit/UITableView+RFKit.h>
 
 @interface MBTableListDisplayer ()
@@ -50,6 +51,12 @@ RFInitializingRootForUIViewController
 
 - (NSString *)APIGroupIdentifier {
     return self.parentViewController.APIGroupIdentifier;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (MBGeneralCellRespondingTableViewDidSelectImplementation(tableView, indexPath)) {
+        return;
+    }
 }
 
 #pragma mark - MBGeneralListDisplaying

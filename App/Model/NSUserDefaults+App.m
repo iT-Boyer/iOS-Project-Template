@@ -19,7 +19,14 @@ _makeObjectProperty(cachedLocation, setCachedLocation);
 #if MBUserStringUID
 _makeObjectProperty(lastUserID, setLastUserID);
 #else
-_makeIntegerProperty(lastUserID, setLastUserID);
+@dynamic lastUserID;
+- (int64_t)lastUserID {
+    return (int64_t)[[self objectForKey:@"_lastUserID"] longLongValue];
+}
+- (void)setLastUserID:(int64_t)lastUserID {
+    [self setObject:[NSNumber numberWithLongLong:lastUserID] forKey:@"_lastUserID"];
+    ClassSynchronize
+}
 #endif
 _makeObjectProperty(userAccount, setUserAccount);
 _makeObjectProperty(AccountEntity, setAccountEntity);

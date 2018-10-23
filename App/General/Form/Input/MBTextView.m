@@ -31,11 +31,9 @@ RFInitializingRootForUIView
     }
     
     /// 使 TextView 和 backgroundImageView 无缝贴着
-    if ([self respondsToSelector:@selector(setTextContainerInset:)]) {
-        self.textContainerInset = UIEdgeInsetsMake(10, 7, 5, 6);
-    }
+    self.textContainerInset = UIEdgeInsetsMake(10, 7, 5, 6);
     
-    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(textDidChange) name:UITextViewTextDidChangeNotification object:self];
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(_textDidChange) name:UITextViewTextDidChangeNotification object:self];
 }
 
 - (void)afterInit {
@@ -56,7 +54,7 @@ RFInitializingRootForUIView
 #pragma mark -监听文字改变
 
 /// UITextViewTextDidChangeNotification 通知回调
-- (void)textDidChange {
+- (void)_textDidChange {
     self.placeholderLabel.hidden = self.hasText;
 }
 
@@ -114,12 +112,12 @@ RFInitializingRootForUIView
 
 - (void)setText:(NSString *)text {
     [super setText:text];
-    [self textDidChange];
+    [self _textDidChange];
 }
 
 - (void)setAttributedText:(NSAttributedString*)attributedText {
     [super setAttributedText:attributedText];
-    [self textDidChange];
+    [self _textDidChange];
 }
 
 #pragma mark -

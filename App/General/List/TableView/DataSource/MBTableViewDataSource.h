@@ -58,6 +58,11 @@
 
 #pragma mark -
 
+/**
+ 刷新可见 cell
+ */
+- (void)reconfigVisableCells;
+
 - (void)removeItem:(nullable id)item withRowAnimation:(UITableViewRowAnimation)animation;
 
 @end

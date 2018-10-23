@@ -51,7 +51,7 @@
 #if MBUserStringUID
 @property (nullable) MBIdentifier lastUserID;
 #else
-@property long lastUserID;
+@property int64_t lastUserID;
 #endif
 
 @property (nullable, copy) NSString *userAccount;

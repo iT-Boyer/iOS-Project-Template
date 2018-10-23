@@ -5,12 +5,12 @@
 void DebugLog(BOOL fatal, NSString *_Nullable recordID, NSString *_Nonnull format, ...) {
     va_list args;
     va_start(args, format);
-    NSString *msg = [[NSString alloc] initWithFormat:format arguments:args];
+    NSLogv(format, args);
     va_end(args);
 
     if (fatal) {
         @try {
-            @throw [NSException exceptionWithName:@"pause" reason:msg userInfo:nil];
+            @throw [NSException exceptionWithName:@"pause" reason:nil userInfo:nil];
         }
         @catch (NSException *exception) { }
     }

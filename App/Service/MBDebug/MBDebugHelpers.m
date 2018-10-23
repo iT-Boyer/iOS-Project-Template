@@ -61,7 +61,14 @@ void DebugUIInspecteModel(NSObject *model) {
 #endif
     UIAlertController *as = [UIAlertController alertControllerWithTitle:model.debugDescription message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     [as addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
-    [(UIViewController *)AppRootViewController() presentViewController:as animated:YES completion:nil];
+    UIViewController *vp = (UIViewController *)AppRootViewController();
+    UIPopoverPresentationController *ppc = as.popoverPresentationController;
+    if (ppc) {
+        ppc.sourceView = vp.view;
+        ppc.sourceRect = (CGRect){ CGPointOfRectCenter(vp.view.bounds), CGSizeZero };
+        ppc.permittedArrowDirections = 0;
+    }
+    [vp presentViewController:as animated:YES completion:nil];
 }
 
 void DebugUIInspecteObjects(NSString *_Nonnull title, NSArray<id> *_Nonnull objects, NSString * (^_Nullable titleDisplay)(id _Nonnull), void (^_Nullable inspectBlock)(id _Nonnull))
@@ -84,5 +91,12 @@ void DebugUIInspecteObjects(NSString *_Nonnull title, NSArray<id> *_Nonnull obje
         }]];
     }
     [as addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
-    [(UIViewController *)AppRootViewController() presentViewController:as animated:YES completion:nil];
+    UIViewController *vp = (UIViewController *)AppRootViewController();
+    UIPopoverPresentationController *ppc = as.popoverPresentationController;
+    if (ppc) {
+        ppc.sourceView = vp.view;
+        ppc.sourceRect = (CGRect){ CGPointOfRectCenter(vp.view.bounds), CGSizeZero };
+        ppc.permittedArrowDirections = 0;
+    }
+    [vp presentViewController:as animated:YES completion:nil];
 }

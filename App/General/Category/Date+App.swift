@@ -70,3 +70,8 @@ extension TimeInterval {
         return (hour, minute, second)
     }
 }
+
+extension TimeZone {
+    /// 服务器时区
+    static var server = TimeZone(identifier: "Asia/Shanghai")!
+}

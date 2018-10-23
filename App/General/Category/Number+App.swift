@@ -3,8 +3,8 @@
  */
 extension Double {
     /// ¥xx.xx 价格的格式
-    func priceString() -> String {
-        return String(format: "¥%@", NSNumber.priceString(fromFloat: self, addPadding: true))
+    func priceString(addPadding: Bool = false) -> String {
+        return String(format: "¥%@", NSNumber.priceString(fromFloat: self, addPadding: addPadding))
     }
 }
 

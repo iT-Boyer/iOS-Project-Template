@@ -112,4 +112,12 @@ RFInitializingRootForUIView
     self.win.hidden = NO;
 }
 
++ (void)installToKeyWindow {
+    UIWindow *w = UIApplication.sharedApplication.keyWindow;
+    MBDebugWindowButton *button = [MBDebugWindowButton.alloc initWithFrame:CGRectMake(5, w.frame.size.height -20 -5, 20, 20)];
+    button.backgroundColor = [UIColor.redColor colorWithAlphaComponent:0.3];
+    button.autoresizingMask = UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleRightMargin;
+    [w addSubview:button];
+}
+
 @end

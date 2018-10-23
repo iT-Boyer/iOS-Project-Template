@@ -1,4 +1,4 @@
-/*!
+/*
  MBTextView
  
  Copyright © 2018 RFUI.
@@ -28,6 +28,7 @@
  - placeholder 的行为和 UITextField 不一致，虽行为也是可以模仿的，但会增加不必要的复杂，暂不实现
 
  */
+NS_CLASS_AVAILABLE_IOS(7_0)
 @interface MBTextView : UITextView <
     RFInitializing
 >
@@ -35,10 +36,6 @@
  可选背景图，获取焦点时设 highlighted 为 YES
  */
 @property (weak, nullable, nonatomic) IBOutlet UIImageView *backgroundImageView;
-
-#if TARGET_INTERFACE_BUILDER
-@property (nonatomic) CGRect textContainerInset;
-#endif
 
 #pragma mark - Place holder
 

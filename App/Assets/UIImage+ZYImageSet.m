@@ -24,7 +24,7 @@
     NSString *fullName = [NSString stringWithFormat:@"%@_%@", set, IDString];
     UIImage *image = [UIImage imageNamed:fullName];
     if (!image) {
-//        DebugLog(YES, nil, @"找不到名为 %@ 的图片", fullName);
+        DebugLog(YES, nil, @"找不到名为 %@ 的图片", fullName);
     }
     return image;
 }

@@ -5,6 +5,9 @@
 #import <MBAppKit/MBAppKit.h>
 #import <MBAppKit/MBAPI.h>
 
+/// 控制分页从几开始算
+static const NSInteger _MBListDataSourcePageStart = 1;
+
 @interface MBListDataSourceFetchComplationCallback : RFCallback
 @end
 
@@ -23,12 +26,13 @@
     self.maxIDParameterName = @"MAX_ID";
     self.pageParameterName = @"page";
     self.pageSizeParameterName = @"per_page";
+    self.pageEndDetectPolicy = MBDataSourcePageEndDetectPolicyStrict;
 }
 
 - (void)prepareForReuse {
     [self.items removeAllObjects];
     self.empty = NO;
-    self.page = 0;
+    self.page = _MBListDataSourcePageStart - 1;
     self.maxID = nil;
     self.pageEnd = NO;
     self.fetching = NO;
@@ -69,7 +73,7 @@
         self.maxID = nil;
     }
 
-    self.page = nextPage? self.page + 1 : 1;
+    self.page = nextPage? self.page + 1 : _MBListDataSourcePageStart;
     BOOL pagingEnabled = !self.pagingDisabled;
     NSMutableDictionary *parameter = [NSMutableDictionary dictionaryWithDictionary:self.fetchParameters];
     if (pagingEnabled) {

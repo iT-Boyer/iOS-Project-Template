@@ -48,7 +48,7 @@ static unsigned long long LastMemoryUsed;
     [super viewDidLoad];
 
     UINavigationController *nav = (UINavigationController *)AppNavigationController();
-    UIViewController *topVC = nav.presentedViewController ?: nav.topViewController;
+    UIViewController *topVC = nav.visibleViewController;
     self.buildInCommands = ({
         NSMutableArray *m = [NSMutableArray arrayWithCapacity:10];
         [m addObject:({
@@ -73,7 +73,11 @@ static unsigned long long LastMemoryUsed;
             DebugMenuItem(itemDes, nil, nil);
         })];
         [m addObject:DebugMenuItem(@"模拟内存警告", self, @selector(simulateMemoryWarning))];
-        [m rf_addObject:[self buildListInspectorMenuItem]];
+        id debugItem = self.buildListInspectorMenuItem;
+        if (debugItem) {
+            [m addObject:debugItem];
+            [m addObject:DebugMenuItem(@"Item cell 重载", self, @selector(reloadItemCells))];
+        }
         if ([topVC respondsToSelector:@selector(refresh)]) {
             [m addObject:DebugMenuItem(@"刷新列表", self, @selector(delayRefreshTopViewController))];
         }
@@ -98,14 +102,27 @@ static unsigned long long LastMemoryUsed;
 }
 
 - (UIViewController *)visibleViewController {
-    UIWindow *keyWindow = [UIApplication sharedApplication].keyWindow;
+    UIWindow *keyWindow = UIApplication.sharedApplication.keyWindow;
     UIView *currentView = [keyWindow hitTest:CGPointOfRectCenter(keyWindow.bounds) withEvent:nil];
     UIViewController *vc = currentView.viewController;
-    if (!vc) {
-        UINavigationController *nav = (UINavigationController *)AppNavigationController();
-        vc = nav.visibleViewController;
-    }
     return vc;
+}
+
+- (id)visibleListView {
+    UIViewController *topVC = self.visibleViewController;
+    if (![topVC respondsToSelector:@selector(listView)] && ![topVC respondsToSelector:@selector(tableView)] && ![topVC respondsToSelector:@selector(collectionView)]) {
+        return nil;
+    }
+    
+    id lv = nil;
+    if ([topVC respondsToSelector:@selector(listView)]) {
+        lv = [(id<MBGeneralListDisplaying>)topVC listView];
+    } else if ([topVC respondsToSelector:@selector(tableView)]) {
+        lv = [(UITableViewController *)topVC tableView];
+    } else if ([topVC respondsToSelector:@selector(collectionView)]) {
+        lv = [(UICollectionViewController *)topVC collectionView];
+    }
+    return lv;
 }
 
 #pragma mark - Buildin commands
@@ -123,8 +140,15 @@ static unsigned long long LastMemoryUsed;
     NSString *msg = [NSString stringWithFormat:@"%@", obj];
     printf("%s\n", [msg cStringUsingEncoding:NSUTF8StringEncoding]);
     UIAlertController *as = [UIAlertController alertControllerWithTitle:msg message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-    [as addCancelActionWithHandler:nil];
-    [as showWithController:(id)AppRootViewController() animated:YES completion:nil];
+    [as addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", @"取消") style:UIAlertActionStyleCancel handler:nil]];
+    UIViewController *vp = (UIViewController *)AppRootViewController();
+    UIPopoverPresentationController *ppc = as.popoverPresentationController;
+    if (ppc) {
+        ppc.sourceView = vp.view;
+        ppc.sourceRect = (CGRect){ CGPointOfRectCenter(vp.view.bounds), CGSizeZero };
+        ppc.permittedArrowDirections = 0;
+    }
+    [vp presentViewController:as animated:YES completion:nil];
 }
 
 - (void)showCurrentPageItem {
@@ -135,12 +159,21 @@ static unsigned long long LastMemoryUsed;
 - (void)simulateMemoryWarning {
     NSString *warningSelectorString = [@[ @"_", @"perform", @"Memory", @"Warning" ] componentsJoinedByString:@""];
     SEL warningSelector = NSSelectorFromString(warningSelectorString);
-    [[UIApplication sharedApplication] performSelector:warningSelector withObject:nil afterDelay:0];
+    [UIApplication.sharedApplication performSelector:warningSelector withObject:nil afterDelay:0];
 }
 
 - (void)delayRefreshTopViewController {
+    SEL refreshSel = @selector(refresh);
     UIViewController *vc = self.visibleViewController;
-    [vc performSelector:@selector(refresh) withObject:nil afterDelay:1];
+    if ([vc respondsToSelector:refreshSel]) {
+        [vc performSelector:refreshSel withObject:nil afterDelay:1];
+        return;
+    }
+    vc = vc.parentViewController;
+    if ([vc respondsToSelector:refreshSel]) {
+        [vc performSelector:refreshSel withObject:nil afterDelay:1];
+        return;
+    }
 }
 
 - (void)openURL {
@@ -164,7 +197,14 @@ static unsigned long long LastMemoryUsed;
             AppNavigationJump(url, nil);
         });
     }]];
-    [alert showWithController:(id)AppRootViewController() animated:YES completion:nil];
+    UIViewController *vp = (UIViewController *)AppRootViewController();
+    UIPopoverPresentationController *ppc = alert.popoverPresentationController;
+    if (ppc) {
+        ppc.sourceView = vp.view;
+        ppc.sourceRect = (CGRect){ CGPointOfRectCenter(vp.view.bounds), CGSizeZero };
+        ppc.permittedArrowDirections = 0;
+    }
+    [vp presentViewController:alert animated:YES completion:nil];
 }
 
 - (void)makeCrash {
@@ -185,25 +225,30 @@ static unsigned long long LastMemoryUsed;
 }
 
 - (UIBarButtonItem *)buildListInspectorMenuItem {
-    UIViewController *topVC = self.visibleViewController;
-    if (![topVC respondsToSelector:@selector(listView)] && ![topVC respondsToSelector:@selector(tableView)] && ![topVC respondsToSelector:@selector(collectionView)]) {
-        return nil;
-    }
-
-    id lv;
-    if ([topVC respondsToSelector:@selector(listView)]) {
-        lv = [(id<MBGeneralListDisplaying>)topVC listView];
-    } else if ([topVC respondsToSelector:@selector(tableView)]) {
-        lv = [(UITableViewController *)topVC tableView];
-    } else if ([topVC respondsToSelector:@selector(collectionView)]) {
-        lv = [(UICollectionViewController *)topVC collectionView];
-    }
-    if (!lv) return nil;
-
+    id lv = self.visibleListView;
     if ([lv respondsToSelector:@selector(mbdebug_showVisableItemMenu)]) {
         return DebugMenuItem(@"检查列表可视对象", lv, @selector(mbdebug_showVisableItemMenu));
-    } else {
+    }
+    else {
         return nil;
+    }
+}
+
+- (void)reloadItemCells {
+    id lv = self.visibleListView;
+    if ([lv isKindOfClass:UITableView.class]) {
+        UITableView *tb = lv;
+        for (id<MBGeneralItemExchanging> cell in tb.visibleCells) {
+            if (![cell respondsToSelector:@selector(item)]) continue;
+            cell.item = cell.item;
+        }
+    }
+    else if ([lv isKindOfClass:UICollectionView.class]) {
+        UICollectionView *cv = lv;
+        for (id<MBGeneralItemExchanging> cell in cv.visibleCells) {
+            if (![cell respondsToSelector:@selector(item)]) continue;
+            cell.item = cell.item;
+        }
     }
 }
 

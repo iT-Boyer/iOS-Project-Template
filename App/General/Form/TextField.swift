@@ -17,6 +17,8 @@ enum TextFieldContentType: String {
     case code       // 验证码
     case password   // 密码，不验证长度，只验证非空
     case password2  // 密码验证，严格验证
+    case name       // 姓名
+    case required   // 非空，为空时用 placeholder 提示
 }
 
 class TextField: MBTextField {
@@ -42,27 +44,30 @@ class TextField: MBTextField {
     
     override var formContentType: String? {
         didSet {
-            guard let type = formContentType else {
+            guard let type = TextFieldContentType(rawValue: formContentType ?? "") else {
                 return
             }
             switch type {
-            case TextFieldContentType.mobile.rawValue:
+            case .mobile:
                 keyboardType = .phonePad
                 if #available(iOS 10.0, *) {
                     textContentType = .telephoneNumber
                 }
-                
-            case TextFieldContentType.password.rawValue: fallthrough
-            case TextFieldContentType.password2.rawValue:
+            case .password, .password2:
                 if #available(iOS 11.0, *) {
                     textContentType = .password
                 }
                 
-            case TextFieldContentType.code.rawValue:
+            case .code:
                 keyboardType = .numberPad
                 
-            default: break
-            }
+            case .name:
+                keyboardType = .namePhonePad
+                if #available(iOS 10.0, *) {
+                    textContentType = .name
+                }
+            case .required: break
+            } // END: switch
         }
     }
     
@@ -72,29 +77,29 @@ class TextField: MBTextField {
     }
     
     private func _vaildFieldText() -> (String?, String?) {
-        guard let type = formContentType else {
+        guard let type = TextFieldContentType(rawValue: formContentType ?? "") else {
             return (text, nil)
         }
         switch type {
-        case TextFieldContentType.mobile.rawValue:
+        case .mobile:
             guard let str = text?.trimmed() else {
                 return (nil, "请输入手机号")
             }
-            guard (str as NSString).isValidPhoneNumber() else {
+            guard str.isValidPhoneNumber() else {
                 return (nil, "手机号格式错误")
             }
             return (str, nil)
-        case TextFieldContentType.code.rawValue:
+        case .code:
             guard let str = text?.trimmed() else {
                 return (nil, "请输入验证码")
             }
             return (str, nil)
-        case TextFieldContentType.password.rawValue:
+        case .password:
             guard let str = text, str.isNotEmpty else {
                 return (nil, "请输入密码")
             }
             return (str, nil)
-        case TextFieldContentType.password2.rawValue:
+        case .password2:
             guard let str = text, str.isNotEmpty else {
                 return (nil, "请输入确认密码")
             }
@@ -105,11 +110,25 @@ class TextField: MBTextField {
                 return (nil, "密码长度不能超过30位")
             }
             return (str, nil)
-        default:
-            return (text, nil)
-        }
+        case .name:
+            guard let str = text, str.isNotEmpty else {
+                return (nil, "请输入姓名")
+            }
+            return (str, nil)
+        case .required:
+            guard let str = text?.trimmed(), str.isNotEmpty else {
+                return (nil, placeholder)
+            }
+            return (str, nil)
+        } // END: switch
     }
     
+    /// 自动验证、提示并返回合法值
+    ///
+    /// - Parameters:
+    ///   - noticeWhenInvaild: 内容非法时弹出报错提示
+    ///   - becomeFirstResponderWhenInvaild: 内容非法时获取键盘焦点
+    /// - Returns: 合法值
     func vaildFieldText(noticeWhenInvaild: Bool = true, becomeFirstResponderWhenInvaild: Bool = true) -> String? {
         let (vaildText, errorMessage) = _vaildFieldText()
         if let e = errorMessage {

@@ -81,6 +81,7 @@ typedef NS_ENUM(short, MBDataSourcePageEndDetectPolicy) {
     /// 获取数量少于 page_size 就算到底
     MBDataSourcePageEndDetectPolicyStrict
 };
+/// 默认 Strict
 @property MBDataSourcePageEndDetectPolicy pageEndDetectPolicy;
 
 #pragma mark - 条目获取

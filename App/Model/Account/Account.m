@@ -93,7 +93,7 @@
 #if MBUserStringUID
     NSString *suitName = [NSString stringWithFormat:@"User%@%@", self.uid, debugServer? @"D" : @""].rf_MD5String;
 #else
-    NSString *suitName = [NSString stringWithFormat:@"User%ld%@", self.uid, debugServer? @"D" : @""].rf_MD5String;
+    NSString *suitName = [NSString stringWithFormat:@"User%lld%@", self.uid, debugServer? @"D" : @""].rf_MD5String;
 #endif
     _profile = [NSAccountDefaults.alloc initWithSuiteName:suitName];
 

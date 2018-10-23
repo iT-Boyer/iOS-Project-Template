@@ -17,9 +17,7 @@ enum ButtonStyle: String {
  */
 class Button: MBButton {
     override func setupAppearance() {
-        guard let style = styleName else {
-            return
-        }
+        guard let style = styleName else { return }
         switch style {
         case ButtonStyle.std.rawValue:
             // todo 设置样式
