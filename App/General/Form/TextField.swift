@@ -159,7 +159,7 @@ class SearchTextField: MBSearchTextField {
     }()
     
     lazy var loadingView: UIActivityIndicatorView = {
-        let a = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+        let a = UIActivityIndicatorView(style: .gray)
         a.center = CGPointOfRectCenter(self.leftView!.bounds)
         a.startAnimating()
         a.hidesWhenStopped = false

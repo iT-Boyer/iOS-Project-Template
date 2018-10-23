@@ -4,7 +4,7 @@
 
 ## 需求
 
-要求 Xcode 9.3，支持 iOS 9 及以上版本。
+要求 Xcode 10，支持 iOS 9 及以上版本。
 
 ## 配置
 
@@ -22,7 +22,7 @@ fastlane setup_project
 
 ## 关于项目模版
 
-参见 https://github.com/BB9z/iOS-Project-Template/wiki
+参见 [GitHub/BB9z/iOS-Project-Template/wiki](https://github.com/BB9z/iOS-Project-Template/wiki)
 
 ```text
 Copyright © 2018 RFUI, BB9z.

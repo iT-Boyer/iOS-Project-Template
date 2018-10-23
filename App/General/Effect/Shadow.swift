@@ -31,7 +31,7 @@ class BackgroundView: UIView {
     var lastLayerSize: CGSize = CGSize.zero {
         didSet {
             if oldValue == lastLayerSize { return }
-            let rect = UIEdgeInsetsInsetRect(layer.bounds, UIEdgeInsetsMakeWithSameMargin(-shadowSpread))
+            let rect = layer.bounds.inset(by: UIEdgeInsetsMakeWithSameMargin(-shadowSpread))
             layer.shadowPath = UIBezierPath(roundedRect: rect, cornerRadius: cornerRadius).cgPath
         }
     }
@@ -52,6 +52,6 @@ func Shadow(view: UIView?, offset: CGPoint, blur: CGFloat, spread: CGFloat, colo
     layer.shadowOpacity = 1
     layer.cornerRadius = cornerRadius
     
-    let rect = UIEdgeInsetsInsetRect(layer.bounds, UIEdgeInsetsMakeWithSameMargin(-spread))
+    let rect = layer.bounds.inset(by: UIEdgeInsetsMakeWithSameMargin(-spread))
     layer.shadowPath = UIBezierPath(roundedRect: rect, cornerRadius: cornerRadius).cgPath
 }

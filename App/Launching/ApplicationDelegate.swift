@@ -13,13 +13,13 @@
  */
 @UIApplicationMain
 class ApplicationDelegate: MBApplicationDelegate {
-    override func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
+    override func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         AppUserDefaultsShared().applicationLastLaunchTime = Date()
         MBApp.status()
         return true
     }
     
-    override func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
+    override func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         Account.setup()
         RFKeyboard.autoDisimssKeyboardWhenTouch = true
         setupUIAppearance()
