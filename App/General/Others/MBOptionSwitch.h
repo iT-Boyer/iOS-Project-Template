@@ -1,4 +1,4 @@
-/*!
+/*
  MBOptionSwitch
  
  Copyright © 2018 RFUI.

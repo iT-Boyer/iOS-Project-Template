@@ -1,10 +1,13 @@
-//
-//  MBTabControl.h
-//  Very+
-//
-//  Created by BB9z on 8/9/14.
-//  Copyright (c) 2014 Beijing ZhiYun ZhiYuan Information Technology Co., Ltd. All rights reserved.
-//
+/*
+ MBTabControl
+ 
+ Copyright © 2018 RFUI.
+ Copyright © 2014-2016 Beijing ZhiYun ZhiYuan Technology Co., Ltd.
+ https://github.com/BB9z/iOS-Project-Template
+ 
+ Apache License, Version 2.0
+ http://www.apache.org/licenses/LICENSE-2.0
+ */
 
 #import "MBControlGroup.h"
 

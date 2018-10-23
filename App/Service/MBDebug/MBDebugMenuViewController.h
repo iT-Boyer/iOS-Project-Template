@@ -1,4 +1,4 @@
-/*!
+/*
  MBDebugMenuViewController
  MBDebug
  

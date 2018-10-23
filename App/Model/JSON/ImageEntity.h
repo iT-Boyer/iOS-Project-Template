@@ -1,10 +1,13 @@
-//
-//  ImageEntity.h
-//  ZNArt
-//
-//  Created by BB9z on 2018/5/27.
-//  Copyright © 2018 znart.com. All rights reserved.
-//
+/*
+ ImageEntity
+ 
+ Copyright © 2018 RFUI.
+ Copyright © 2014-2016 Beijing ZhiYun ZhiYuan Technology Co., Ltd.
+ https://github.com/BB9z/iOS-Project-Template
+ 
+ Apache License, Version 2.0
+ http://www.apache.org/licenses/LICENSE-2.0
+ */
 
 #import <MBAppKit/MBAppKit.h>
 

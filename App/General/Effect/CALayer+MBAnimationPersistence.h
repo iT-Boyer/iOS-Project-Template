@@ -1,4 +1,4 @@
-/*!
+/*
  CALayer+MBAnimationPersistence
  
  基于 Matej Bukovinski 在 https://gist.github.com/matej/9639064 发布的基础上

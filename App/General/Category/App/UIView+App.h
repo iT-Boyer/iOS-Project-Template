@@ -1,5 +1,5 @@
-/*!
- UIKit+App
+/*
+ UIView+App
 
  Copyright © 2018 RFUI.
  Copyright © 2016 Beijing ZhiYun ZhiYuan Technology Co., Ltd.

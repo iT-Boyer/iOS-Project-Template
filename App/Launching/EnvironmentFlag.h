@@ -1,4 +1,4 @@
-/*!
+/*
  MBEnvironment flags
  
  Copyright © 2018 RFUI.

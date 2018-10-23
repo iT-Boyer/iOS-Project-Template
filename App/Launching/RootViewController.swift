@@ -3,10 +3,8 @@
 //  App
 //
 //  Created by BB9z on 26/02/2018.
-//  Copyright © 2018 Chinamobo. All rights reserved.
+//  Copyright © 2018 RFUI.
 //
-
-import Foundation
 
 class RootViewController: MBRootWrapperViewController {
     override func viewDidLoad() {

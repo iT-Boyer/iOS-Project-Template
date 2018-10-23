@@ -1,4 +1,4 @@
-/*!
+/*
  UIKit+IBInspectable.h
  
  Copyright © 2018 RFUI.

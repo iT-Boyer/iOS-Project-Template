@@ -1,7 +1,7 @@
 /*
  MBBadgeLabel
  
- Copyright © 2018 RFUI. All rights reserved.
+ Copyright © 2018 RFUI.
  https://github.com/BB9z/iOS-Project-Template
 
  Apache License, Version 2.0

@@ -1,4 +1,4 @@
-/*!
+/*
  MBTabController
  
  Copyright © 2018 RFUI.

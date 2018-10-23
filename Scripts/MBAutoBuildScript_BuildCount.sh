@@ -1,5 +1,5 @@
 #! /bin/sh
-# Copyright (c) 2013-2014 Chinamobo Co., Ltd. All rights reserved.
+# Copyright © 2013-2014 Chinamobo Co., Ltd.
 # Copyright © 2016 Beijing ZhiYun ZhiYuan Information Technology Co., Ltd.
 # Maintained by BB9z (https://github.com/BB9z)
 

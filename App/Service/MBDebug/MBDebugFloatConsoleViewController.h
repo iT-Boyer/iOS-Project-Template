@@ -1,4 +1,4 @@
-/*!
+/*
  MBDebugFloatConsoleViewController
  MBDebug
  

@@ -1,13 +1,12 @@
-/*!
-    MBTableViewPullToFetchControl
-    v 0.1
-
-    Copyright © 2014-2015 Beijing ZhiYun ZhiYuan Information Technology Co., Ltd.
-    Copyright © 2014 Chinamobo Co., Ltd.
-    https://github.com/Chinamobo/iOS-Project-Template
-
-    Apache License, Version 2.0
-    http://www.apache.org/licenses/LICENSE-2.0
+/*
+ MBTableViewPullToFetchControl
+ 
+ Copyright © 2014-2015 Beijing ZhiYun ZhiYuan Information Technology Co., Ltd.
+ Copyright © 2014 Chinamobo Co., Ltd.
+ https://github.com/BB9z/iOS-Project-Template
+ 
+ Apache License, Version 2.0
+ http://www.apache.org/licenses/LICENSE-2.0
  */
 #import "RFTableViewPullToFetchPlugin.h"
 #import "MBRefreshHeaderView.h"

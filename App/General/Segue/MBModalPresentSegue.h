@@ -1,4 +1,4 @@
-/*!
+/*
  MBModalPresentSegue
  
  Copyright © 2018 RFUI.

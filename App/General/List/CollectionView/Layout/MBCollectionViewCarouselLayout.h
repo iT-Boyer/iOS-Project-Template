@@ -1,4 +1,4 @@
-/*!
+/*
  MBCollectionViewCarouselLayout
  
  Copyright © 2018 RFUI.

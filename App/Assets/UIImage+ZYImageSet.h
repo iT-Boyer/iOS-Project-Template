@@ -1,4 +1,4 @@
-/*!
+/*
  UIImage+ZYImageSet
  
  Copyright © 2018 RFUI.

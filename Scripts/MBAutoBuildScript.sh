@@ -2,8 +2,8 @@
 # Maintained by BB9z (https://github.com/BB9z)
 
 echo "MBAutoBuildScript 0.8"
-echo "Copyright © 2018 RFUI."
-echo "Copyright © 2016 Beijing ZhiYun ZhiYuan Technology Co., Ltd. All rights reserved."
+echo "Copyright © 2014, 2018 RFUI."
+echo "Copyright © 2016-2017 Beijing ZhiYun ZhiYuan Technology Co., Ltd. All rights reserved."
 echo "-----------------------"
 set -euo pipefail
 

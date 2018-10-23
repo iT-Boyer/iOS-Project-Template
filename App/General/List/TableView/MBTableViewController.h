@@ -1,11 +1,12 @@
-/*!
-    MBTableViewController
-
-    Copyright © 2015 Beijing ZhiYun ZhiYuan Information Technology Co., Ltd.
-    https://github.com/Chinamobo/iOS-Project-Template
-
-    Apache License, Version 2.0
-    http://www.apache.org/licenses/LICENSE-2.0
+/*
+ MBTableViewController
+ 
+ Copyright © 2018 RFUI.
+ Copyright © 2015 Beijing ZhiYun ZhiYuan Information Technology Co., Ltd.
+ https://github.com/BB9z/iOS-Project-Template
+ 
+ Apache License, Version 2.0
+ http://www.apache.org/licenses/LICENSE-2.0
  */
 #import "MBTableView.h"
 #import <MBAppKit/MBGeneral.h>

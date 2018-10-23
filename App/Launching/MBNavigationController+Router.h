@@ -1,4 +1,4 @@
-/*!
+/*
  MBNavigationController+Router
  
  Copyright © 2018 RFUI.

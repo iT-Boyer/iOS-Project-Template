@@ -1,4 +1,4 @@
-/*!
+/*
  UIAlertController+App
  
  Copyright © 2018 RFUI.

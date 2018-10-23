@@ -1,7 +1,7 @@
-/*!
+/*
  MBFormSelectButton
  
- Copyright © RFUI.
+ Copyright © 2018 RFUI.
  Copyright © 2014 Beijing ZhiYun ZhiYuan Information Technology Co., Ltd.
  Copyright © 2014 Chinamobo Co., Ltd.
  https://github.com/BB9z/iOS-Project-Template

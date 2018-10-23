@@ -1,10 +1,3 @@
-//
-//  UIViewController+RFDNavigationAppearance.m
-//  RFDemo
-//
-//  Created by BB9z on 8/11/16.
-//  Copyright © 2016 RFUI. All rights reserved.
-//
 
 #import "UIViewController+RFDNavigationAppearance.h"
 #import "MBNavigationController.h"

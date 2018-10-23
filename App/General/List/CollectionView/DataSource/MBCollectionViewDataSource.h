@@ -1,12 +1,12 @@
-/*!
-    MBCollectionViewDataSource
-    v 0.1
-
-    Copyright © 2014-2015 Beijing ZhiYun ZhiYuan Information Technology Co., Ltd.
-    https://github.com/Chinamobo/iOS-Project-Template
-
-    Apache License, Version 2.0
-    http://www.apache.org/licenses/LICENSE-2.0
+/*
+ MBCollectionViewDataSource
+ 
+ Copyright © 2018 RFUI.
+ Copyright © 2014-2015 Beijing ZhiYun ZhiYuan Information Technology Co., Ltd.
+ https://github.com/BB9z/iOS-Project-Template
+ 
+ Apache License, Version 2.0
+ http://www.apache.org/licenses/LICENSE-2.0
  */
 
 #import "MBListDataSource.h"

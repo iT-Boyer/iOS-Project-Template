@@ -1,6 +1,7 @@
-/*!
- UIKit+App
+/*
+ UITextField+App
 
+ Copyright © 2018 RFUI.
  Copyright © 2016 Beijing ZhiYun ZhiYuan Technology Co., Ltd.
  https://github.com/BB9z/iOS-Project-Template
  
@@ -11,7 +12,9 @@
 #import "UIKit+App.h"
 
 @interface UITextField (App)
+
 - (nonnull NSString *)trimedText;
+
 - (NSRange)selectedRange;
 
 @end

@@ -1,4 +1,4 @@
-/*!
+/*
  ShortCuts.h
  
  Copyright © 2018 RFUI.
