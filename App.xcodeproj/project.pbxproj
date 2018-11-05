@@ -613,6 +613,13 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		D5488F99218FB7D2004CA3E0 /* MBShareManager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MBShareManager;
+			sourceTree = "<group>";
+		};
 		D552DD4918C8506700D02290 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
@@ -720,6 +727,7 @@
 			isa = PBXGroup;
 			children = (
 				D501845D20F8863E009481D4 /* MBDebug */,
+				D5488F99218FB7D2004CA3E0 /* MBShareManager */,
 				D55959D120AB9F930019D733 /* MessageManager */,
 				D5170CE8191B327A000C7D45 /* PushManager */,
 				D5542F141918B83400831016 /* MBApp.h */,
@@ -1012,10 +1020,10 @@
 		D5EE51602043F5E5009148B3 /* Input */ = {
 			isa = PBXGroup;
 			children = (
-				D5C3CBF7217EF0A10097CCD9 /* MBTextCountLabel.h */,
-				D5C3CBF8217EF0A10097CCD9 /* MBTextCountLabel.m */,
 				D5F9F484208DC26500427201 /* MBFormFieldVerifyControl.h */,
 				D5F9F485208DC26600427201 /* MBFormFieldVerifyControl.m */,
+				D5C3CBF7217EF0A10097CCD9 /* MBTextCountLabel.h */,
+				D5C3CBF8217EF0A10097CCD9 /* MBTextCountLabel.m */,
 				D5EE51632043F5E5009148B3 /* MBTextView.h */,
 				D5EE51692043F5E5009148B3 /* MBTextView.m */,
 				D5EE51642043F5E5009148B3 /* ZYVerifyTextField.h */,
@@ -1118,12 +1126,12 @@
 		D5EE51D02043F613009148B3 /* UIKit+IBInspectable */ = {
 			isa = PBXGroup;
 			children = (
-				D5C3CBF5217EEEDA0097CCD9 /* UITextView+ContainerInset.h */,
-				D5C3CBF4217EEEDA0097CCD9 /* UITextView+ContainerInset.m */,
 				D5EE51D12043F613009148B3 /* UICollectionView+Selection.h */,
 				D588307F20CA67A7002030C4 /* UICollectionViewFlowLayout+IBInspectable.h */,
 				D55959C720AB924D0019D733 /* UIKit+IBInspectable.h */,
 				D55959C620AB92000019D733 /* UIScrollView+ScrollsToTop.h */,
+				D5C3CBF5217EEEDA0097CCD9 /* UITextView+ContainerInset.h */,
+				D5C3CBF4217EEEDA0097CCD9 /* UITextView+ContainerInset.m */,
 				D5EE51D42043F613009148B3 /* UIViewController+RFDNavigationAppearance.h */,
 				D5EE51D32043F613009148B3 /* UIViewController+RFDNavigationAppearance.m */,
 				D5D9F5112071BA6400B6FE9B /* UIViewController+RFInterfaceOrientation.h */,
@@ -1358,10 +1366,9 @@
 				D588309720CAE103002030C4 /* ImageEntity.m in Sources */,
 				D544A39E197D1E8600C65604 /* JSONValueTransformer+App.m in Sources */,
 				D5542F161918B83400831016 /* MBApp.m in Sources */,
-				D5C3CBF9217EF0A10097CCD9 /* MBTextCountLabel.m in Sources */,
 				D5EE51E32043F613009148B3 /* MBAutoFadeoutView.m in Sources */,
+				D5C3CBF3217EEEA20097CCD9 /* MBBadgeLabel.m in Sources */,
 				D5A3312321527BA100B0FD5B /* MBCellStackView.m in Sources */,
-				D5C3CBF6217EEEDA0097CCD9 /* UITextView+ContainerInset.m in Sources */,
 				D5B49EC51C4111B600847925 /* MBCollapsibleView.m in Sources */,
 				D5B49F0B1C41133A00847925 /* MBCollectionRefreshFooterView.m in Sources */,
 				D5B49F071C41133A00847925 /* MBCollectionView.m in Sources */,
@@ -1403,7 +1410,6 @@
 				D5B49F171C41133A00847925 /* MBRefreshFooterView.m in Sources */,
 				D5B49F191C41133A00847925 /* MBRefreshHeaderView.m in Sources */,
 				D5EE51372043DB7C009148B3 /* MBRootWrapperViewController.m in Sources */,
-				D5C3CBF3217EEEA20097CCD9 /* MBBadgeLabel.m in Sources */,
 				D588308720CAB8AE002030C4 /* MBRoundBarButtonItem.m in Sources */,
 				D5F9F483208DBF5F00427201 /* MBSceneStackView.m in Sources */,
 				D5EE51EC2043F613009148B3 /* MBScrollViewOffsetObserver.m in Sources */,
@@ -1422,6 +1428,7 @@
 				D5B49F111C41133A00847925 /* MBTableViewDataSource.m in Sources */,
 				D5B49F1B1C41133A00847925 /* MBTableViewPullToFetchControl.m in Sources */,
 				D5EE51FF2043F613009148B3 /* MBTabScrollView.m in Sources */,
+				D5C3CBF9217EF0A10097CCD9 /* MBTextCountLabel.m in Sources */,
 				D5EE51812043F5E6009148B3 /* MBTextView.m in Sources */,
 				D501845620F86D75009481D4 /* MBValueMapPickerViewController.m in Sources */,
 				D5EE51F62043F613009148B3 /* MBVauleLabel.m in Sources */,
@@ -1461,6 +1468,7 @@
 				D5EE51262043DAA2009148B3 /* UITableView+App.m in Sources */,
 				D501844F20F865D3009481D4 /* UITableView+App.swift in Sources */,
 				D5EE51272043DAA2009148B3 /* UITextField+App.m in Sources */,
+				D5C3CBF6217EEEDA0097CCD9 /* UITextView+ContainerInset.m in Sources */,
 				D5EE512E2043DAA2009148B3 /* UIView+App.m in Sources */,
 				D5EE51212043DAA2009148B3 /* UIViewController+App.m in Sources */,
 				D5EE51FA2043F613009148B3 /* UIViewController+RFDNavigationAppearance.m in Sources */,
