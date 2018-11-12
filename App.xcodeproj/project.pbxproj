@@ -40,6 +40,7 @@
 		D52EAE362043C6F7007219E0 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = D52EAE352043C6F7007219E0 /* Account.m */; };
 		D544A396197CBE5300C65604 /* MBFormSelectButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D544A395197CBE5300C65604 /* MBFormSelectButton.m */; };
 		D544A39E197D1E8600C65604 /* JSONValueTransformer+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D544A39D197D1E8600C65604 /* JSONValueTransformer+App.m */; };
+		D54F0E4F2199A56E003370F4 /* DateFormatter+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54F0E4E2199A56E003370F4 /* DateFormatter+App.swift */; };
 		D552DD6F18C8506700D02290 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D552DD4C18C8506700D02290 /* HomeViewController.m */; };
 		D552DD7618C8506700D02290 /* API.m in Sources */ = {isa = PBXBuildFile; fileRef = D552DD5E18C8506700D02290 /* API.m */; };
 		D552DD7718C8506700D02290 /* APIJSONResponseSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = D552DD6318C8506700D02290 /* APIJSONResponseSerializer.m */; };
@@ -109,7 +110,6 @@
 		D5EE51262043DAA2009148B3 /* UITableView+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE50F22043DAA1009148B3 /* UITableView+App.m */; };
 		D5EE51272043DAA2009148B3 /* UITextField+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE50F62043DAA1009148B3 /* UITextField+App.m */; };
 		D5EE51282043DAA2009148B3 /* UICollectionView+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE50F72043DAA1009148B3 /* UICollectionView+App.m */; };
-		D5EE51292043DAA2009148B3 /* NSDateFormatter+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE50F92043DAA1009148B3 /* NSDateFormatter+App.m */; };
 		D5EE512C2043DAA2009148B3 /* UIColor+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE51032043DAA1009148B3 /* UIColor+App.m */; };
 		D5EE512D2043DAA2009148B3 /* NSString+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE510A2043DAA1009148B3 /* NSString+App.m */; };
 		D5EE512E2043DAA2009148B3 /* UIView+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE510C2043DAA1009148B3 /* UIView+App.m */; };
@@ -234,6 +234,7 @@
 		D544A394197CBE5300C65604 /* MBFormSelectButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBFormSelectButton.h; sourceTree = "<group>"; };
 		D544A395197CBE5300C65604 /* MBFormSelectButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBFormSelectButton.m; sourceTree = "<group>"; };
 		D544A39D197D1E8600C65604 /* JSONValueTransformer+App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JSONValueTransformer+App.m"; sourceTree = "<group>"; };
+		D54F0E4E2199A56E003370F4 /* DateFormatter+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+App.swift"; sourceTree = "<group>"; };
 		D552DD4B18C8506700D02290 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		D552DD4C18C8506700D02290 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		D552DD5D18C8506700D02290 /* API.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = API.h; sourceTree = "<group>"; };
@@ -341,7 +342,6 @@
 		D5DCA6FB204698F700A4951A /* Appfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = Appfile; sourceTree = "<group>"; };
 		D5DCA6FC204698F700A4951A /* Fastfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = Fastfile; sourceTree = "<group>"; };
 		D5DCA7162046A62A00A4951A /* Target.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Target.xcconfig; sourceTree = "<group>"; };
-		D5EE50E32043DAA1009148B3 /* NSDateFormatter+App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+App.h"; sourceTree = "<group>"; };
 		D5EE50E42043DAA1009148B3 /* NSArray+App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+App.m"; sourceTree = "<group>"; };
 		D5EE50E52043DAA1009148B3 /* UIFont+App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+App.m"; sourceTree = "<group>"; };
 		D5EE50E62043DAA1009148B3 /* UILabel+App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+App.m"; sourceTree = "<group>"; };
@@ -358,7 +358,6 @@
 		D5EE50F62043DAA1009148B3 /* UITextField+App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+App.m"; sourceTree = "<group>"; };
 		D5EE50F72043DAA1009148B3 /* UICollectionView+App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+App.m"; sourceTree = "<group>"; };
 		D5EE50F82043DAA1009148B3 /* NSArray+App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+App.h"; sourceTree = "<group>"; };
-		D5EE50F92043DAA1009148B3 /* NSDateFormatter+App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+App.m"; sourceTree = "<group>"; };
 		D5EE50FC2043DAA1009148B3 /* NSNumber+App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+App.h"; sourceTree = "<group>"; };
 		D5EE50FD2043DAA1009148B3 /* UILabel+App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+App.h"; sourceTree = "<group>"; };
 		D5EE50FE2043DAA1009148B3 /* UIFont+App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+App.h"; sourceTree = "<group>"; };
@@ -960,6 +959,7 @@
 				D588308820CACB32002030C4 /* Array+App.swift */,
 				D5C82DDB2179D98C00E63A2A /* Color.swift */,
 				D5F9F47D208D921200427201 /* Date+App.swift */,
+				D54F0E4E2199A56E003370F4 /* DateFormatter+App.swift */,
 				D5C3CBEE217ED20F0097CCD9 /* Geometry.swift */,
 				D5EE51132043DAA1009148B3 /* MBObjectiveC.h */,
 				D5EE51182043DAA1009148B3 /* MBObjectiveC.m */,
@@ -983,8 +983,6 @@
 				D5EE50E42043DAA1009148B3 /* NSArray+App.m */,
 				D5EE51012043DAA1009148B3 /* NSDate+App.h */,
 				D5EE50EE2043DAA1009148B3 /* NSDate+App.m */,
-				D5EE50E32043DAA1009148B3 /* NSDateFormatter+App.h */,
-				D5EE50F92043DAA1009148B3 /* NSDateFormatter+App.m */,
 				D5EE50FC2043DAA1009148B3 /* NSNumber+App.h */,
 				D5EE50E72043DAA1009148B3 /* NSNumber+App.m */,
 				D5EE51082043DAA1009148B3 /* NSRegularExpression+App.h */,
@@ -1359,6 +1357,7 @@
 				D5EE519A2043F5F3009148B3 /* CALayer+MBAnimationPersistence.m in Sources */,
 				D5C82DDC2179D98C00E63A2A /* Color.swift in Sources */,
 				D5F9F47F208D921200427201 /* Date+App.swift in Sources */,
+				D54F0E4F2199A56E003370F4 /* DateFormatter+App.swift in Sources */,
 				D52EADEB2043B983007219E0 /* debug.m in Sources */,
 				D501845B20F881B6009481D4 /* DissolveTransitioning.swift in Sources */,
 				D5C3CBEF217ED20F0097CCD9 /* Geometry.swift in Sources */,
@@ -1438,7 +1437,6 @@
 				D55959D520ABA9B50019D733 /* NavigationController.swift in Sources */,
 				D5EE51192043DAA2009148B3 /* NSArray+App.m in Sources */,
 				D5EE51222043DAA2009148B3 /* NSDate+App.m in Sources */,
-				D5EE51292043DAA2009148B3 /* NSDateFormatter+App.m in Sources */,
 				D5EE511C2043DAA2009148B3 /* NSNumber+App.m in Sources */,
 				D588309020CACB33002030C4 /* NSPointArray+App.swift in Sources */,
 				D5EE511D2043DAA2009148B3 /* NSRegularExpression+App.m in Sources */,

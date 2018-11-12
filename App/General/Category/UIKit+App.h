@@ -31,7 +31,6 @@ FOUNDATION_EXPORT void limitedOffsetChange(double *_Nonnull source, double targe
 
 #import "NSArray+App.h"
 #import "NSDate+App.h"
-#import "NSDateFormatter+App.h"
 #import "NSNumber+App.h"
 #import "NSRegularExpression+App.h"
 #import "NSString+App.h"
