@@ -132,8 +132,6 @@
 		D5EE51EA2043F613009148B3 /* MBParallaxView.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE51AF2043F612009148B3 /* MBParallaxView.m */; };
 		D5EE51EB2043F613009148B3 /* ZYSkyHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE51B02043F612009148B3 /* ZYSkyHeaderView.m */; };
 		D5EE51EC2043F613009148B3 /* MBScrollViewOffsetObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE51B12043F612009148B3 /* MBScrollViewOffsetObserver.m */; };
-		D5EE51ED2043F613009148B3 /* MBViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE51B32043F612009148B3 /* MBViewModel.m */; };
-		D5EE51EE2043F613009148B3 /* MBViewUpdateController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE51B42043F612009148B3 /* MBViewUpdateController.m */; };
 		D5EE51F32043F613009148B3 /* MBNavigationTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE51BF2043F613009148B3 /* MBNavigationTitleView.m */; };
 		D5EE51F42043F613009148B3 /* MBNavigationItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE51C02043F613009148B3 /* MBNavigationItem.m */; };
 		D5EE51F62043F613009148B3 /* MBVauleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE51C82043F613009148B3 /* MBVauleLabel.m */; };
@@ -401,10 +399,6 @@
 		D5EE51AF2043F612009148B3 /* MBParallaxView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBParallaxView.m; sourceTree = "<group>"; };
 		D5EE51B02043F612009148B3 /* ZYSkyHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYSkyHeaderView.m; sourceTree = "<group>"; };
 		D5EE51B12043F612009148B3 /* MBScrollViewOffsetObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBScrollViewOffsetObserver.m; sourceTree = "<group>"; };
-		D5EE51B32043F612009148B3 /* MBViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBViewModel.m; sourceTree = "<group>"; };
-		D5EE51B42043F612009148B3 /* MBViewUpdateController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBViewUpdateController.m; sourceTree = "<group>"; };
-		D5EE51B52043F612009148B3 /* MBViewUpdateController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBViewUpdateController.h; sourceTree = "<group>"; };
-		D5EE51B62043F612009148B3 /* MBViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBViewModel.h; sourceTree = "<group>"; };
 		D5EE51BF2043F613009148B3 /* MBNavigationTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBNavigationTitleView.m; sourceTree = "<group>"; };
 		D5EE51C02043F613009148B3 /* MBNavigationItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBNavigationItem.m; sourceTree = "<group>"; };
 		D5EE51C52043F613009148B3 /* MBNavigationItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBNavigationItem.h; sourceTree = "<group>"; };
@@ -703,7 +697,6 @@
 				D5EE51D82043F613009148B3 /* Tab */,
 				D5EE51C72043F613009148B3 /* Text */,
 				D5EE51D02043F613009148B3 /* UIKit+IBInspectable */,
-				D5EE51B22043F612009148B3 /* ViewController */,
 				D52EADEC2043BA3D007219E0 /* README.md */,
 				D52EADED2043BA3D007219E0 /* ShortCuts.h */,
 				D52EADEE2043BA3D007219E0 /* ShortCuts.m */,
@@ -1065,17 +1058,6 @@
 			path = ScrollView;
 			sourceTree = "<group>";
 		};
-		D5EE51B22043F612009148B3 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				D5EE51B62043F612009148B3 /* MBViewModel.h */,
-				D5EE51B32043F612009148B3 /* MBViewModel.m */,
-				D5EE51B52043F612009148B3 /* MBViewUpdateController.h */,
-				D5EE51B42043F612009148B3 /* MBViewUpdateController.m */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
 		D5EE51BA2043F612009148B3 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
@@ -1412,8 +1394,6 @@
 				D5EE51812043F5E6009148B3 /* MBTextView.m in Sources */,
 				D501845620F86D75009481D4 /* MBValueMapPickerViewController.m in Sources */,
 				D5EE51F62043F613009148B3 /* MBVauleLabel.m in Sources */,
-				D5EE51ED2043F613009148B3 /* MBViewModel.m in Sources */,
-				D5EE51EE2043F613009148B3 /* MBViewUpdateController.m in Sources */,
 				D55959D320AB9FA20019D733 /* MessageManager.swift in Sources */,
 				D55959D520ABA9B50019D733 /* NavigationController.swift in Sources */,
 				D5EE51192043DAA2009148B3 /* NSArray+App.m in Sources */,
