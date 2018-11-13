@@ -12,6 +12,7 @@
 #import <RFKit/RFRuntime.h>
 #import "RFReferenceSizing.h"
 
+// @MBDependency:0
 /**
  主要提供文字随尺寸变化而变化的功能
  */

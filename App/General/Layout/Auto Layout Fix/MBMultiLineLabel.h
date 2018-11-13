@@ -14,6 +14,7 @@
 
 @class MBLayoutConstraint;
 
+// @MBDependency:1
 /**
  解决 UILabel Auto Layout 自适应高度的一系列问题
  

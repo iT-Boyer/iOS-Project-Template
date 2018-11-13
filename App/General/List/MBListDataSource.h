@@ -10,6 +10,7 @@
  */
 #import <RFAlpha/RFDelegateChain.h>
 
+// @MBDependency:4
 /**
  单 section 的列表 dataSource
  */

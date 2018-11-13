@@ -13,6 +13,7 @@
 
 @class MBTabScrollView;
 
+// @MBDependency:3
 /**
  
  如果 controls 未设置，从 nib 中载入后，自动把子 view 中是 UIControl 的 view 设置为 controls

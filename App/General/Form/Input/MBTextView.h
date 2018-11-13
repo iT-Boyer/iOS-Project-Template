@@ -12,6 +12,7 @@
 #import <RFInitializing/RFInitializing.h>
 #import <MBAppKit/MBAppKit.h>
 
+// @MBDependency:2
 /**
  TextView 封装
 

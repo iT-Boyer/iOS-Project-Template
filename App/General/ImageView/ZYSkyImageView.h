@@ -10,6 +10,7 @@
  */
 #import "ZYImageView.h"
 
+// @MBDependency:1
 /**
  内容可以跟着一个 scrollView 同时滚动的 image view
  */

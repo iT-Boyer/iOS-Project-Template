@@ -10,6 +10,7 @@
 #import <RFInitializing/RFInitializing.h>
 #import <RFKit/RFRuntime.h>
 
+// @MBDependency:2
 /**
  红点 label
  

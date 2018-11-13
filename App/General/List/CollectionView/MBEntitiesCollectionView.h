@@ -12,6 +12,7 @@
 #import <RFInitializing/RFInitializing.h>
 #import <MBAppKit/MBAppKit.h>
 
+// @MBDependency:2
 /**
  一个简单快速的 collection view 子类：
  

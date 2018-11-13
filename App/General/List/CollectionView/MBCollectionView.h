@@ -12,6 +12,7 @@
 #import "MBCollectionRefreshFooterView.h"
 #import "MBCollectionViewDataSource.h"
 
+// @MBDependency:1
 @interface MBCollectionView : UICollectionView <
     RFInitializing
 >

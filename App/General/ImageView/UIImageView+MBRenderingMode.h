@@ -22,6 +22,7 @@
  */
 @interface UIImageView (MBRenderingMode)
 
+// @MBDependency:1
 /**
  设置时强制将图片按 UIImageRenderingModeAlwaysTemplate 方式渲染
  

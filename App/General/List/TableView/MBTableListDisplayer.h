@@ -11,6 +11,7 @@
 #import "MBTableView.h"
 #import "MBGeneralListDisplaying.h"
 
+// @MBDependency:4
 /**
  专用于嵌在其他界面的列表
 
@@ -32,7 +33,7 @@
 
 @end
 
-
+// @MBDependency:3
 /**
  嵌入了 MBTableListDisplayer 的普通 UIViewController，增加了便于修改 listDisplayer 的属性
  

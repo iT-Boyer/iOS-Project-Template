@@ -11,6 +11,7 @@
 
 @class MBTextField;
 
+// @MBDependency:2
 /**
  关联一组输入框和按钮，如果都验证通过使按钮 enable，否则 disable
  */

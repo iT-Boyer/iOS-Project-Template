@@ -13,6 +13,7 @@
 #import "MBTableViewPullToFetchControl.h"
 #import "MBTableViewDataSource.h"
 
+// @MBDependency:4
 /**
  Table view 基类
 

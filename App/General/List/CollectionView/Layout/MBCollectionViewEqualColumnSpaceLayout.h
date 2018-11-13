@@ -10,6 +10,7 @@
 
 #import "MBCollectionViewFlowLayout.h"
 
+// @MBDependency:2
 /**
  按照 collectionView 的宽度均分成 numberOfColumns 列，
  使得 sectionInset 的左右和 minimumInteritemSpacing 相同

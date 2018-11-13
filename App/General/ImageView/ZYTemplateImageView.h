@@ -10,6 +10,7 @@
  */
 #import <RFKit/RFRuntime.h>
 
+// @MBDependency:1
 /**
  设置的图像都会按 UIImageRenderingModeAlwaysTemplate 模式渲染的 image view
  */

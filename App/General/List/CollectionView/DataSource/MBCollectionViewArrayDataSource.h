@@ -10,6 +10,7 @@
  */
 #import <MBAppKit/MBAppKit.h>
 
+// @MBDependency:4
 /**
  数组作为数据源的 data source
  

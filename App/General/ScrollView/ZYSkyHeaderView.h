@@ -11,6 +11,7 @@
 
 #import "MBParallaxView.h"
 
+// @MBDependency:1
 /**
  继承于 MBParallaxView
  

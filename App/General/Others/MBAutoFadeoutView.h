@@ -12,6 +12,7 @@
 #import <RFKit/RFRuntime.h>
 #import <RFInitializing.h>
 
+// @MBDependency:2
 /**
  显示出来后，默认一段时间隐藏
  

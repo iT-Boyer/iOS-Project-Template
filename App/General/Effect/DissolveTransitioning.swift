@@ -8,6 +8,7 @@
  http://www.apache.org/licenses/LICENSE-2.0
  */
 
+// @MBDependency:2 示例性质
 /**
  alpha 渐变转场
  

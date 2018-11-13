@@ -10,6 +10,7 @@
  */
 #import <UIKit/UIKit.h>
 
+// @MBDependency:2
 /**
  
  增加了折叠展开支持

@@ -13,6 +13,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// @MBDependency:2
 @interface MBListDataItem<ObjectType> : NSObject <
     MBModel
 >
@@ -24,6 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+// @MBDependency:2
 @interface MBListSectionDataItem<SectionType, RowType> : NSObject
 
 @property (nonatomic, nullable) SectionType sectionItem;

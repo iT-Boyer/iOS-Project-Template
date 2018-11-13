@@ -8,9 +8,9 @@
  Apache License, Version 2.0
  http://www.apache.org/licenses/LICENSE-2.0
  */
-
 #import "MBPageScrollView.h"
 
+// @MBDependency:1
 /**
  修改了一些默认属性，其它跟 MBPageScrollView 一样
  */

@@ -11,6 +11,7 @@
 #import <RFInitializing/RFInitializing.h>
 #import <UIKit/UIKit.h>
 
+// @MBDependency:2
 /**
  自动从 NSUserDefaults 读取设置并可自动更新首选项的 UISwitch
  */

@@ -10,6 +10,7 @@
  */
 #import <MBAppKit/MBAppKit.h>
 
+// @MBDependency:4
 /**
  远程图片显示 view
 

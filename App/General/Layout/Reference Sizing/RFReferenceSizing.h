@@ -11,6 +11,7 @@
 
 #import <UIKit/UIKit.h>
 
+// @MBDependency:0
 /**
  元素尺寸随屏幕改变而调整
 

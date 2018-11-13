@@ -10,6 +10,7 @@
 
 #import "MBCollectionViewFlowLayout.h"
 
+// @MBDependency:2
 /**
  像 iCarousel 线性的效果
  

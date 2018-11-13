@@ -10,6 +10,7 @@
  */
 #import <MBAppKit/MBAppKit.h>
 
+// @MBDependency:3
 /**
  数组作为数据源的 table view data source
  */

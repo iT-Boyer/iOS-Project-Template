@@ -10,6 +10,7 @@
  */
 #import <UIKit/UIKit.h>
 
+// @MBDependency:1
 /**
  在 IB 中为了看清浅色元素或者为了标记区域，可以给 view 设置背景色，运行时再清空
 

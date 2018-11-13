@@ -11,6 +11,7 @@
 #import <RFKit/RFRuntime.h>
 #import <RFAlpha/RFRefreshControl.h>
 
+// @MBDependency:1
 /**
  Collection view 的上拉加载下一页
  */

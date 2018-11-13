@@ -10,6 +10,7 @@
  */
 #import <UIKit/UIKit.h>
 
+// @MBDependency:1
 /**
  MBRoundBarButtonItem 与普通 UIBarButtonItem 使用方式一样，运行时会带圆角背景。如果用正常的 UIBarButtonItem 来实现会比较麻烦，IB 中 拖 view 加 UIButton，连线，尺寸还不好调。
  

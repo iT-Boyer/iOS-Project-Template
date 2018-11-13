@@ -11,6 +11,7 @@
 #import <RFKit/RFRuntime.h>
 #import <RFInitializing/RFInitializing.h>
 
+// @MBDependency:1
 @interface MBNavigationBar : UINavigationBar <
     RFInitializing
 >

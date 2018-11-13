@@ -10,6 +10,7 @@
  */
 #import <RFAlpha/RFTableViewPullToFetchPlugin.h>
 
+// @MBDependency:4
 @interface MBRefreshHeaderView : UIView
 @property (weak, nonatomic) IBOutlet UIView *contentView;
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;

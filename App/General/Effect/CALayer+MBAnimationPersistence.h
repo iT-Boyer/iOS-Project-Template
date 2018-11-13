@@ -26,6 +26,7 @@
 
 #import <QuartzCore/QuartzCore.h>
 
+// @MBDependency:2
 /**
  CALayer 的动画在 view 移出 window 和应用进入后台都会被移除，
  这个扩展可以在应用进入后台后自动恢复动画，切换界面导致的动画移除需要手动调用 MBResumePersistentAnimationsIfNeeded

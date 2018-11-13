@@ -13,6 +13,7 @@
 
 @protocol MBControlGroupDelegate;
 
+// @MBDependency:4
 /**
  用于管理一组 UIControl 的选择状态，这组 UIControl 同时只有一个处于 selected 状态
  

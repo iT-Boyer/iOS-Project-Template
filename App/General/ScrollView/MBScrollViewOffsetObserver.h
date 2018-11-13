@@ -13,6 +13,7 @@
 
 @class MBScrollViewContentOffsetObserver;
 
+// @MBDependency:2
 /**
  监听 scrollView 的滚动，分发给多个监听代码
  */

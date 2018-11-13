@@ -12,6 +12,7 @@
 #import <MBAppKit/MBGeneralListDisplaying.h>
 #import "MBTabControl.h"
 
+// @MBDependency:2
 /**
  
  */

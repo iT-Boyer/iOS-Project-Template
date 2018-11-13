@@ -10,6 +10,7 @@
  */
 #import <UIKit/UIKit.h>
 
+// @MBDependency:2
 /**
  可以用另一个 UINavigationItem 设置 MBNavigationItem 的状态，并可以恢复原始状态
  

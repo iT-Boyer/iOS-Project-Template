@@ -19,6 +19,7 @@ typedef NS_ENUM(short, ZYVerifyTextFieldStatus) {
     ZYVerifyTextFieldStatusFail,
 };
 
+// @MBDependency:1
 /**
  失去焦点后异步验证用户输入是否有效
 

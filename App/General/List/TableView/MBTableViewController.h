@@ -11,6 +11,7 @@
 #import "MBTableView.h"
 #import <MBAppKit/MBGeneral.h>
 
+// @MBDependency:3
 /**
  比普通 UIViewController + MBTableView 多了以下特性：
 

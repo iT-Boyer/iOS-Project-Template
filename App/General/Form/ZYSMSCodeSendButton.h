@@ -11,6 +11,7 @@
 
 #import "MBButton.h"
 
+// @MBDependency:3
 /**
  短信发送按钮
  

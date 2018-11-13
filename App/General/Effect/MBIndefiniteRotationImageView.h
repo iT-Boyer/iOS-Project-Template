@@ -10,6 +10,7 @@
 
 #import <RFKit/RFRuntime.h>
 
+// @MBDependency:2
 /**
  无限旋转的 image view
  */

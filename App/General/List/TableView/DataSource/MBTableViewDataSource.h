@@ -10,6 +10,7 @@
  */
 #import "MBListDataSource.h"
 
+// @MBDependency:4
 @interface MBTableViewDataSource : MBListDataSource <
     UITableViewDataSource
 >

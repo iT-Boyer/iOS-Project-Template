@@ -10,6 +10,7 @@
  */
 #import "MBCollectionViewFlowLayout.h"
 
+// @MBDependency:3
 /**
  按列布局，根据列数等比例调整 cell 的大小并保持 cell 的间距不变
  

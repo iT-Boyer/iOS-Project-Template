@@ -11,6 +11,7 @@
 #import <RFKit/RFRuntime.h>
 #import <RFInitializing/RFInitializing.h>
 
+// @MBDependency:3
 /**
  可以用 AutoLayout 自动调节高度的 tableHeaderView/tableFooterView
  

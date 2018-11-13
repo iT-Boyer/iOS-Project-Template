@@ -10,6 +10,7 @@
 #import <MBAppKit/MBAppKit.h>
 #import <RFInitializing/RFInitializing.h>
 
+// @MBDependency:1
 /**
  复用填充一组 view
  

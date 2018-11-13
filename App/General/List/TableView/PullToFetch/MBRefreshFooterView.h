@@ -11,6 +11,7 @@
  */
 #import <RFAlpha/RFTableViewPullToFetchPlugin.h>
 
+// @MBDependency:4
 @interface MBRefreshFooterView : UIView <
     RFInitializing
 >

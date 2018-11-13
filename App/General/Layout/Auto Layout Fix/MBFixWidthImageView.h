@@ -11,6 +11,7 @@
  */
 #import <RFKit/RFRuntime.h>
 
+// @MBDependency:3
 /**
  等比例显示的，高度自适应的 image view
  

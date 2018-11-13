@@ -11,6 +11,7 @@
 #import <MBAppKit/MBAppKit.h>
 #import "MBSearchTextField.h"
 
+// @MBDependency:2
 /**
  通用沉浸式搜索界面
  

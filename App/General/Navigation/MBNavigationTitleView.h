@@ -10,6 +10,7 @@
  */
 #import <UIKit/UIKit.h>
 
+// @MBDependency:1
 /**
  设置为 UINavigationItem 的 titleView，在显示出来的时候会填满导航条（除了左右按钮的空间）
  */

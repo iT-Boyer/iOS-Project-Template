@@ -11,6 +11,7 @@
 #import <RFInitializing/RFInitializing.h>
 #import <RFKit/RFRuntime.h>
 
+// @MBDependency:2
 /**
  跟随 scrollView 滚动而滚动的 view
 

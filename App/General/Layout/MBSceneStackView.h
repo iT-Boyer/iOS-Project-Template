@@ -9,6 +9,7 @@
  */
 #import <RFKit/RFRuntime.h>
 
+// @MBDependency:2
 /**
  基于 UIStackView 的界面切换
  

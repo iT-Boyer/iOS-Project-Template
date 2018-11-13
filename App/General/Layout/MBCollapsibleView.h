@@ -12,6 +12,7 @@
 #import <UIKit/UIKit.h>
 #import <RFInitializing/RFInitializing.h>
 
+// @MBDependency:0 基本已被 UIStackView 替代
 /**
  折叠区域，通过控制 expand 属性调整尺寸
 

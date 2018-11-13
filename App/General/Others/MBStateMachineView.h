@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol MBStateMachineViewDelegate;
 
+// @MBDependency:2
 /**
  划定一个区域，改变一个标识符，这块区域将显示不同的内容，这就是状态机 view 的作用
 

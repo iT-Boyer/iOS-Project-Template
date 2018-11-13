@@ -11,6 +11,7 @@
 #import <RFKit/RFRuntime.h>
 #import <RFInitializing/RFInitializing.h>
 
+// @MBDependency:1
 /**
  设置
  */
@@ -22,7 +23,7 @@
 @property (copy, nonatomic) NSString* (^vauleFormatBlock)(MBVauleLabel *label, id value);
 @end
 
-
+// @MBDependency:2
 @interface MBVauleAttributedLabel : UILabel <
     RFInitializing
 >

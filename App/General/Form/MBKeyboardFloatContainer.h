@@ -11,6 +11,7 @@
 #import <UIKit/UIKit.h>
 #import <RFInitializing/RFInitializing.h>
 
+// @MBDependency:2
 /**
  一般是界面底部的一个容器，键盘弹出来跟着向上浮动，键盘收起又回落了
  

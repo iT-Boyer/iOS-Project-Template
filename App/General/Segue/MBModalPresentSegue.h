@@ -11,6 +11,7 @@
  */
 #import <RFSegue/RFSegue.h>
 
+// @MBDependency:4
 /**
  弹出新的视图，与 view controller 内建的弹出方式不同之处在于不会隐藏当前视图，新视图不是加在当前视图的 view 中的，而是尽可能加在根视图中，会覆盖导航条
  
@@ -20,6 +21,7 @@
 
 @end
 
+// @MBDependency:4
 /**
  从弹出层 push 到其他视图需使用本 segue，否则可能会导致布局问题，已知的是返回后，隐藏导航栏视图布局不会上移
  */

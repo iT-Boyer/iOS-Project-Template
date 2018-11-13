@@ -11,6 +11,7 @@
 #import <RFKit/RFRuntime.h>
 #import <RFInitializing/RFInitializing.h>
 
+// @MBDependency:4
 /**
  UICollectionViewFlowLayout 等价体，修正特定版本系统的 bug
  */

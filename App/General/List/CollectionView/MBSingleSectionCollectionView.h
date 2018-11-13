@@ -12,6 +12,7 @@
 #import <RFAlpha/UICollectionViewDataSourceChain.h>
 #import <RFAlpha/UICollectionViewDelegateFlowLayoutChain.h>
 
+// @MBDependency:1
 /**
  利用 RFDelegateChain 实现 dataSource 和 delegate 的灵活配置从而便于复用的 CollectionView
  

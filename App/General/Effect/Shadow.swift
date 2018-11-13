@@ -1,4 +1,5 @@
 
+// @MBDependency:3
 /**
  背景 view，用于设置阴影
  */

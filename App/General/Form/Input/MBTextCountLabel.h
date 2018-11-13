@@ -11,7 +11,7 @@
 #import <RFInitializing/RFInitializing.h>
 #import <RFKit/RFRuntime.h>
 
-
+// @MBDependency:2
 /**
  显示关联 textView 的文字长度，若超出指定长度，label 将变为高亮状态
  */

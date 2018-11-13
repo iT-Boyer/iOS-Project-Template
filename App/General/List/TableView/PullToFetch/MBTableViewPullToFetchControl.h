@@ -12,6 +12,7 @@
 #import "MBRefreshHeaderView.h"
 #import "MBRefreshFooterView.h"
 
+// @MBDependency:4
 /**
  RFTableViewPullToFetchPlugin 只是处理了下拉、上推的逻辑，没有包含外观。
  

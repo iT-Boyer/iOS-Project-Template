@@ -9,6 +9,7 @@
  */
 #import "MBModalPresentSegue.h"
 
+// @MBDependency:2
 /**
  给一组数据，从中选择一个
  
