@@ -57,6 +57,7 @@
         inset.right = padding;
     }
     self.sectionInset = inset;
+    [self.collectionView invalidateIntrinsicContentSize];
 }
 
 - (CGPoint)targetContentOffsetForProposedContentOffset:(CGPoint)proposedContentOffset withScrollingVelocity:(CGPoint)velocity {

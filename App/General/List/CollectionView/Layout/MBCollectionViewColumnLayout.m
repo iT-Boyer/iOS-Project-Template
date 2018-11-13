@@ -63,6 +63,7 @@
 
     CGFloat itemWidth = [self itemWidthInSectionAtIndex:0];
     self.itemSize = CGSizeMake(itemWidth, itemWidth/reference.width*reference.height);
+    [self.collectionView invalidateIntrinsicContentSize];
 }
 
 - (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds {

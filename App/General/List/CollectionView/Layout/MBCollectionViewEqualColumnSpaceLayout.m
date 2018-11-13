@@ -18,6 +18,7 @@
     inset.right = itemSpace;
     self.sectionInset = inset;
     self.minimumInteritemSpacing = itemSpace;
+    [self.collectionView invalidateIntrinsicContentSize];
 }
 
 @end
