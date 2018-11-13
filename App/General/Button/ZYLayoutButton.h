@@ -10,6 +10,11 @@
  */
 #import <RFAlpha/RFButton.h>
 
+// @MBDependency:3
+
+/**
+ 自定义元素布局的 button
+ */
 @interface ZYLayoutButton : RFButton
 
 /**

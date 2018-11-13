@@ -12,6 +12,7 @@
 
 @interface NSArray<ObjectType> (App)
 
+// @MBDependency:1
 /**
  构建新的历史记录数组，新的历史排在最前面，会去重复
 
@@ -27,6 +28,7 @@
 
 @interface NSMutableArray<ObjectType> (ZYAdd)
 
+// @MBDependency:2
 /**
  安全地替换数组中指定位置的元素
  
@@ -34,6 +36,7 @@
  */
 - (void)rf_replaceObjectAtIndex:(NSUInteger)index withObject:(nullable id)anObject;
 
+// @MBDependency:3
 /**
  将数组元素从一个位置移动另一个位置
  */

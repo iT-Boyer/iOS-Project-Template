@@ -14,6 +14,7 @@
 @import Foundation;
 @import ObjectiveC;
 
+// @MBDependency:1
 /**
  解析 objc_property_t
  */

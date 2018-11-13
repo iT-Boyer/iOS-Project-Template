@@ -13,8 +13,10 @@
 
 @interface UITextField (App)
 
+// @MBDependency:3
 - (nonnull NSString *)trimedText;
 
+// @MBDependency:2
 - (NSRange)selectedRange;
 
 @end

@@ -12,8 +12,8 @@
         return self;
     }
 
-    NSArray<NSString *> *cpHome = [pathHome componentsSeparatedByString:@"/"];
-    NSMutableArray<NSString *> *cpThis = [[pathThis componentsSeparatedByString:@"/"] mutableCopy];
+    NSArray<NSString *> *cpHome = pathHome.pathComponents;
+    NSMutableArray<NSString *> *cpThis = pathThis.pathComponents.mutableCopy;
     if (cpThis.count < cpHome.count) {
         return self;
     }
@@ -33,8 +33,8 @@
         return self;
     }
     [cpThis replaceObjectAtIndex:i withObject:hp];
-    NSString *resolvedPath = [cpThis componentsJoinedByString:@"/"];
-    return [NSURL fileURLWithPath:resolvedPath];
+    NSString *resolvedPath = [NSString pathWithComponents:cpThis];
+    return [NSURL.alloc initFileURLWithPath:resolvedPath];
 }
 
 - (BOOL)isHTTPURL {

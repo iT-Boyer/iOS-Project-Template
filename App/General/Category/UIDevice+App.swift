@@ -7,11 +7,13 @@ import SystemConfiguration.CaptiveNetwork
  */
 extension UIDevice {
     
+    // @MBDependency:2
     /// 用户网络是否是移动数据
     @objc var isUsingMobileNetwork: Bool {
         return CTTelephonyNetworkInfo().currentRadioAccessTechnology != nil
     }
     
+    // @MBDependency:2
     /// 用户网络是否是高速移动网络
     @objc var isUsingHighSpeedMobileNetwork: Bool {
         guard let t = CTTelephonyNetworkInfo().currentRadioAccessTechnology else {
@@ -37,6 +39,7 @@ extension UIDevice {
         }
     }
     
+    // @MBDependency:1
     /// 获取当前加入 Wi-Fi 的 SSID
     /// iOS 12 需要在 Capabilities 选项卡中打开 Access WiFi Information
     @objc var WiFiSSID: String? {

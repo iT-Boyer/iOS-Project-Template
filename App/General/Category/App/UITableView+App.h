@@ -13,7 +13,9 @@
 
 @interface UITableView (App)
 
+// @MBDependency:1
 - (void)appendAtRang:(NSRange)rang inSection:(NSUInteger)section animated:(BOOL)animated;
 
+// @MBDependency:2
 @property (nonatomic, readonly, nullable) NSArray<NSIndexPath *> *indexPathsForVisibleCells;
 @end

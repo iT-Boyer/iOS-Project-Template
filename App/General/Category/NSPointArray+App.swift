@@ -9,6 +9,8 @@
 
  便于在 Swift 中安全、方便地使用 NSPointerArray
  */
+
+// @MBDependency:2
 extension NSPointerArray {
     func addObject(_ object: AnyObject?) {
         guard let strongObject = object else { return }

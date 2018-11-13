@@ -48,7 +48,7 @@ extension Date {
     /**
      今天，则“今天”
      今年，则本地化的 X月X日
-     再久，本地化的X年X月X日
+     再久，本地化的 X年X月X日
      */
     var dayString: String {
         if Date.isSame(granularity: .day, self, Date()) {

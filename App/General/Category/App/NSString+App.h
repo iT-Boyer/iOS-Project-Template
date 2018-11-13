@@ -13,15 +13,19 @@
 
 @interface NSString (App)
 
+// @MBDependency:2
 /// email 格式检查
 - (BOOL)isValidEmail;
 
+// @MBDependency:3
 /// 是否是大陆手机手机号
 - (BOOL)isValidPhoneNumber;
 
+// @MBDependency:1
 /// 字符串硬换行的行数
 - (NSUInteger)rf_numberOfHardLineBreaks;
 
+// @MBDependency:2
 /**
  判断给定新版本是否是更新的
  

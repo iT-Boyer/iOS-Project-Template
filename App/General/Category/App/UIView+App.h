@@ -12,6 +12,7 @@
 
 @interface UIView (App)
 
+// @MBDependency:0
 - (nullable id)firstResponderOfClass:(nonnull Class)aClass;
 
 @end

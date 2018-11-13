@@ -29,7 +29,7 @@
     [contentButton setBackgroundImage:backgrounImage forState:UIControlStateNormal];
     [contentButton setBackgroundImage:backgrounHighlightImage forState:UIControlStateHighlighted];
     contentButton.titleLabel.font = [UIFont systemFontOfSize:14];
-    contentButton.text = self.title;
+    [contentButton setTitle:self.title forState:UIControlStateNormal];
     CGRect buttonFrame = ({
         CGRect frame = CGRectZero;
         CGSize preferSize = contentButton.intrinsicContentSize;

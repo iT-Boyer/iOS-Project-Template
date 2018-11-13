@@ -13,6 +13,7 @@
 /// Swift 对象与指针间的转换，对标 Objective-C 中的 __bridge 转换
 /// REF: https://stackoverflow.com/a/33310021/945906
 
+// @MBDependency:1
 func __bridge<T : AnyObject>(obj : T) -> UnsafeRawPointer {
     return UnsafeRawPointer(Unmanaged.passUnretained(obj).toOpaque())
 }

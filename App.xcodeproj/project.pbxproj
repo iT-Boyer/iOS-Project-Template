@@ -41,6 +41,8 @@
 		D544A396197CBE5300C65604 /* MBFormSelectButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D544A395197CBE5300C65604 /* MBFormSelectButton.m */; };
 		D544A39E197D1E8600C65604 /* JSONValueTransformer+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D544A39D197D1E8600C65604 /* JSONValueTransformer+App.m */; };
 		D54F0E4F2199A56E003370F4 /* DateFormatter+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54F0E4E2199A56E003370F4 /* DateFormatter+App.swift */; };
+		D54F0E542199BB22003370F4 /* UIButton+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54F0E532199BB22003370F4 /* UIButton+App.swift */; };
+		D54F0E562199BCB2003370F4 /* NSRegularExpression+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54F0E552199BCB2003370F4 /* NSRegularExpression+App.swift */; };
 		D552DD6F18C8506700D02290 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D552DD4C18C8506700D02290 /* HomeViewController.m */; };
 		D552DD7618C8506700D02290 /* API.m in Sources */ = {isa = PBXBuildFile; fileRef = D552DD5E18C8506700D02290 /* API.m */; };
 		D552DD7718C8506700D02290 /* APIJSONResponseSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = D552DD6318C8506700D02290 /* APIJSONResponseSerializer.m */; };
@@ -61,7 +63,6 @@
 		D588308E20CACB33002030C4 /* RFMessage+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D588308920CACB32002030C4 /* RFMessage+App.m */; };
 		D588308F20CACB33002030C4 /* MBSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = D588308A20CACB32002030C4 /* MBSwift.swift */; };
 		D588309020CACB33002030C4 /* NSPointArray+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D588308C20CACB33002030C4 /* NSPointArray+App.swift */; };
-		D588309320CAD7F3002030C4 /* UIAlertController+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D588309220CAD7F3002030C4 /* UIAlertController+App.m */; };
 		D588309720CAE103002030C4 /* ImageEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = D588309520CAE103002030C4 /* ImageEntity.m */; };
 		D59066B620AD0C4500411410 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D59066B520AD0C4500411410 /* README.md */; };
 		D5936E09217977FB00BC4F03 /* MBIndefiniteRotationImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = D5936E07217977FA00BC4F03 /* MBIndefiniteRotationImageView.m */; };
@@ -100,11 +101,7 @@
 		D5C82DDC2179D98C00E63A2A /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C82DDB2179D98C00E63A2A /* Color.swift */; };
 		D5D9F5142071BA6500B6FE9B /* UIViewController+RFInterfaceOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D9F5132071BA6500B6FE9B /* UIViewController+RFInterfaceOrientation.m */; };
 		D5EE51192043DAA2009148B3 /* NSArray+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE50E42043DAA1009148B3 /* NSArray+App.m */; };
-		D5EE511A2043DAA2009148B3 /* UIFont+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE50E52043DAA1009148B3 /* UIFont+App.m */; };
 		D5EE511B2043DAA2009148B3 /* UILabel+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE50E62043DAA1009148B3 /* UILabel+App.m */; };
-		D5EE511C2043DAA2009148B3 /* NSNumber+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE50E72043DAA1009148B3 /* NSNumber+App.m */; };
-		D5EE511D2043DAA2009148B3 /* NSRegularExpression+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE50E82043DAA1009148B3 /* NSRegularExpression+App.m */; };
-		D5EE511F2043DAA2009148B3 /* UIButton+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE50EA2043DAA1009148B3 /* UIButton+App.m */; };
 		D5EE51212043DAA2009148B3 /* UIViewController+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE50EC2043DAA1009148B3 /* UIViewController+App.m */; };
 		D5EE51222043DAA2009148B3 /* NSDate+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE50EE2043DAA1009148B3 /* NSDate+App.m */; };
 		D5EE51262043DAA2009148B3 /* UITableView+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE50F22043DAA1009148B3 /* UITableView+App.m */; };
@@ -235,6 +232,8 @@
 		D544A395197CBE5300C65604 /* MBFormSelectButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBFormSelectButton.m; sourceTree = "<group>"; };
 		D544A39D197D1E8600C65604 /* JSONValueTransformer+App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JSONValueTransformer+App.m"; sourceTree = "<group>"; };
 		D54F0E4E2199A56E003370F4 /* DateFormatter+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+App.swift"; sourceTree = "<group>"; };
+		D54F0E532199BB22003370F4 /* UIButton+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+App.swift"; sourceTree = "<group>"; };
+		D54F0E552199BCB2003370F4 /* NSRegularExpression+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSRegularExpression+App.swift"; sourceTree = "<group>"; };
 		D552DD4B18C8506700D02290 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		D552DD4C18C8506700D02290 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		D552DD5D18C8506700D02290 /* API.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = API.h; sourceTree = "<group>"; };
@@ -267,8 +266,6 @@
 		D588308A20CACB32002030C4 /* MBSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MBSwift.swift; sourceTree = "<group>"; };
 		D588308B20CACB33002030C4 /* RFMessage+App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RFMessage+App.h"; sourceTree = "<group>"; };
 		D588308C20CACB33002030C4 /* NSPointArray+App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSPointArray+App.swift"; sourceTree = "<group>"; };
-		D588309120CAD7F2002030C4 /* UIAlertController+App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+App.h"; sourceTree = "<group>"; };
-		D588309220CAD7F3002030C4 /* UIAlertController+App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+App.m"; sourceTree = "<group>"; };
 		D588309520CAE103002030C4 /* ImageEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageEntity.m; sourceTree = "<group>"; };
 		D588309620CAE103002030C4 /* ImageEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageEntity.h; sourceTree = "<group>"; };
 		D59066B520AD0C4500411410 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -343,11 +340,7 @@
 		D5DCA6FC204698F700A4951A /* Fastfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = Fastfile; sourceTree = "<group>"; };
 		D5DCA7162046A62A00A4951A /* Target.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Target.xcconfig; sourceTree = "<group>"; };
 		D5EE50E42043DAA1009148B3 /* NSArray+App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+App.m"; sourceTree = "<group>"; };
-		D5EE50E52043DAA1009148B3 /* UIFont+App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+App.m"; sourceTree = "<group>"; };
 		D5EE50E62043DAA1009148B3 /* UILabel+App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+App.m"; sourceTree = "<group>"; };
-		D5EE50E72043DAA1009148B3 /* NSNumber+App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+App.m"; sourceTree = "<group>"; };
-		D5EE50E82043DAA1009148B3 /* NSRegularExpression+App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSRegularExpression+App.m"; sourceTree = "<group>"; };
-		D5EE50EA2043DAA1009148B3 /* UIButton+App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+App.m"; sourceTree = "<group>"; };
 		D5EE50EC2043DAA1009148B3 /* UIViewController+App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+App.m"; sourceTree = "<group>"; };
 		D5EE50ED2043DAA1009148B3 /* UIColor+App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+App.h"; sourceTree = "<group>"; };
 		D5EE50EE2043DAA1009148B3 /* NSDate+App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+App.m"; sourceTree = "<group>"; };
@@ -358,14 +351,10 @@
 		D5EE50F62043DAA1009148B3 /* UITextField+App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+App.m"; sourceTree = "<group>"; };
 		D5EE50F72043DAA1009148B3 /* UICollectionView+App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+App.m"; sourceTree = "<group>"; };
 		D5EE50F82043DAA1009148B3 /* NSArray+App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+App.h"; sourceTree = "<group>"; };
-		D5EE50FC2043DAA1009148B3 /* NSNumber+App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+App.h"; sourceTree = "<group>"; };
 		D5EE50FD2043DAA1009148B3 /* UILabel+App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+App.h"; sourceTree = "<group>"; };
-		D5EE50FE2043DAA1009148B3 /* UIFont+App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+App.h"; sourceTree = "<group>"; };
 		D5EE51012043DAA1009148B3 /* NSDate+App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+App.h"; sourceTree = "<group>"; };
 		D5EE51032043DAA1009148B3 /* UIColor+App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+App.m"; sourceTree = "<group>"; };
 		D5EE51042043DAA1009148B3 /* UIViewController+App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+App.h"; sourceTree = "<group>"; };
-		D5EE51052043DAA1009148B3 /* UIButton+App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+App.h"; sourceTree = "<group>"; };
-		D5EE51082043DAA1009148B3 /* NSRegularExpression+App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSRegularExpression+App.h"; sourceTree = "<group>"; };
 		D5EE51092043DAA1009148B3 /* UICollectionView+App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+App.h"; sourceTree = "<group>"; };
 		D5EE510A2043DAA1009148B3 /* NSString+App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+App.m"; sourceTree = "<group>"; };
 		D5EE510B2043DAA1009148B3 /* UITextField+App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+App.h"; sourceTree = "<group>"; };
@@ -983,24 +972,16 @@
 				D5EE50E42043DAA1009148B3 /* NSArray+App.m */,
 				D5EE51012043DAA1009148B3 /* NSDate+App.h */,
 				D5EE50EE2043DAA1009148B3 /* NSDate+App.m */,
-				D5EE50FC2043DAA1009148B3 /* NSNumber+App.h */,
-				D5EE50E72043DAA1009148B3 /* NSNumber+App.m */,
-				D5EE51082043DAA1009148B3 /* NSRegularExpression+App.h */,
-				D5EE50E82043DAA1009148B3 /* NSRegularExpression+App.m */,
+				D54F0E552199BCB2003370F4 /* NSRegularExpression+App.swift */,
 				D5EE50F52043DAA1009148B3 /* NSString+App.h */,
 				D5EE510A2043DAA1009148B3 /* NSString+App.m */,
 				D5EE50F32043DAA1009148B3 /* NSURL+App.h */,
 				D5EE510D2043DAA1009148B3 /* NSURL+App.m */,
-				D588309120CAD7F2002030C4 /* UIAlertController+App.h */,
-				D588309220CAD7F3002030C4 /* UIAlertController+App.m */,
-				D5EE51052043DAA1009148B3 /* UIButton+App.h */,
-				D5EE50EA2043DAA1009148B3 /* UIButton+App.m */,
+				D54F0E532199BB22003370F4 /* UIButton+App.swift */,
 				D5EE51092043DAA1009148B3 /* UICollectionView+App.h */,
 				D5EE50F72043DAA1009148B3 /* UICollectionView+App.m */,
 				D5EE50ED2043DAA1009148B3 /* UIColor+App.h */,
 				D5EE51032043DAA1009148B3 /* UIColor+App.m */,
-				D5EE50FE2043DAA1009148B3 /* UIFont+App.h */,
-				D5EE50E52043DAA1009148B3 /* UIFont+App.m */,
 				D5EE50FD2043DAA1009148B3 /* UILabel+App.h */,
 				D5EE50E62043DAA1009148B3 /* UILabel+App.m */,
 				D5EE510E2043DAA1009148B3 /* UITableView+App.h */,
@@ -1437,9 +1418,8 @@
 				D55959D520ABA9B50019D733 /* NavigationController.swift in Sources */,
 				D5EE51192043DAA2009148B3 /* NSArray+App.m in Sources */,
 				D5EE51222043DAA2009148B3 /* NSDate+App.m in Sources */,
-				D5EE511C2043DAA2009148B3 /* NSNumber+App.m in Sources */,
 				D588309020CACB33002030C4 /* NSPointArray+App.swift in Sources */,
-				D5EE511D2043DAA2009148B3 /* NSRegularExpression+App.m in Sources */,
+				D54F0E562199BCB2003370F4 /* NSRegularExpression+App.swift in Sources */,
 				D5EE512D2043DAA2009148B3 /* NSString+App.m in Sources */,
 				D5EE512F2043DAA2009148B3 /* NSURL+App.m in Sources */,
 				D52EADF82043C0EC007219E0 /* NSUserDefaults+App.m in Sources */,
@@ -1453,12 +1433,10 @@
 				D5F9F480208D921200427201 /* String+App.swift in Sources */,
 				D559AD6821746EEC005D4BCD /* TextField+Action.swift in Sources */,
 				D501845820F88016009481D4 /* TextField.swift in Sources */,
-				D588309320CAD7F3002030C4 /* UIAlertController+App.m in Sources */,
-				D5EE511F2043DAA2009148B3 /* UIButton+App.m in Sources */,
+				D54F0E542199BB22003370F4 /* UIButton+App.swift in Sources */,
 				D5EE51282043DAA2009148B3 /* UICollectionView+App.m in Sources */,
 				D5EE512C2043DAA2009148B3 /* UIColor+App.m in Sources */,
 				D579495F21788D67002E1C4A /* UIDevice+App.swift in Sources */,
-				D5EE511A2043DAA2009148B3 /* UIFont+App.m in Sources */,
 				D52EAB652043B6B3007219E0 /* UIImage+ZYImageSet.m in Sources */,
 				D5EE520D2043F61D009148B3 /* UIImageView+MBRenderingMode.m in Sources */,
 				D5EE51322043DAA2009148B3 /* UIKit+App.m in Sources */,

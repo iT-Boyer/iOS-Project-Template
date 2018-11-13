@@ -31,16 +31,11 @@ FOUNDATION_EXPORT void limitedOffsetChange(double *_Nonnull source, double targe
 
 #import "NSArray+App.h"
 #import "NSDate+App.h"
-#import "NSNumber+App.h"
-#import "NSRegularExpression+App.h"
 #import "NSString+App.h"
 #import "NSURL+App.h"
 
 #if !TARGET_OS_WATCH
-#import "UIAlertController+App.h"
-#import "UIButton+App.h"
 #import "UICollectionView+App.h"
-#import "UIFont+App.h"
 #import "UILabel+App.h"
 #import "UITableView+App.h"
 #import "UITextField+App.h"
