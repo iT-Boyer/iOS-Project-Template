@@ -55,9 +55,9 @@ RFInitializingRootForNSObject
 }
 
 - (void)setItems:(NSArray *)items {
-    _items = items.copy;
     BOOL keep = self.keepSelectionAfterReload;
     NSArray *selectedItems = keep ? self.selectedItems : nil;
+    _items = items.copy;
     [self.collectionView reloadData];
     if (keep) {
         self.selectedItems = selectedItems;
