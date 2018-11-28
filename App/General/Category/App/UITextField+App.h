@@ -17,6 +17,7 @@
 - (nonnull NSString *)trimedText;
 
 // @MBDependency:2
+// @MBShouldMergeIntoLib
 - (NSRange)selectedRange;
 
 @end

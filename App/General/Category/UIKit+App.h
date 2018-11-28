@@ -75,6 +75,3 @@ FOUNDATION_EXPORT void limitedOffsetChange(double *_Nonnull source, double targe
 #if RFDEBUG
 #define NSLog(...) RFAssert(false, @"禁止使用 NSLog()");
 #endif
-
-/// 备忘声明，测试好的部分定期移到基础库中
-#define MB_SHOULD_MERGE_INTO_LIB
