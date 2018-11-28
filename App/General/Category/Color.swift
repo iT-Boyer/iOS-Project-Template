@@ -16,4 +16,7 @@ extension UIColor {
     
     /// UITextField 默认的占位符颜色
     @objc static let systemPlaceholderColor: UIColor = #colorLiteral(red: 0, green: 0, blue: 0.09803921569, alpha: 0.22)
+    
+    /// 全局按钮禁用背景色
+    @objc static let buttonDisabled: UIColor = #colorLiteral(red: 0.8666666667, green: 0.8666666667, blue: 0.8666666667, alpha: 1)
 }
