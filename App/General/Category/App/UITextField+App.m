@@ -3,7 +3,7 @@
 
 @implementation UITextField (App)
 
-- (nonnull NSString *)trimedText {
+- (nullable NSString *)trimedText {
     return [self.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 }
 

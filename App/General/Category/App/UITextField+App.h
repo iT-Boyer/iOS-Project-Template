@@ -14,7 +14,7 @@
 @interface UITextField (App)
 
 // @MBDependency:3
-- (nonnull NSString *)trimedText;
+- (nullable NSString *)trimedText;
 
 // @MBDependency:2
 // @MBShouldMergeIntoLib
