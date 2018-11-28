@@ -73,12 +73,6 @@ platform :ios do
       ipa_path = ENV["IPA_OUTPUT_PATH"];
       sh "fir publish \"#{ipa_path}\""
       
-      # 归档到编译目录
-      time_string = Time.new.strftime("%Y-%m-%d %H%M%S")
-      copy_artifacts(
-          target_path: "build/Alpha/#{time_string}",
-          artifacts: ['*.ipa', '*.dSYM.zip']
-      )
       notification(message: "✅ Alpha 发布成功", sound: "default")
       clean_build_artifacts
   end
@@ -92,20 +86,25 @@ platform :ios do
     gym(
       scheme: "App"
     )
+    # 手动签名，一般是账号不是管理员时
+    # gym(
+    #   scheme: "App",
+    #   export_options: {
+    #     uploadBitcode: true,
+    #     uploadSymbols: true,
+    #     compileBitcode: true,
+    #     signingStyle: "manual",
+    #     provisioningProfiles: {
+    #       "包名 com.example.app" => "Profile 名称（区分大小写）"
+    #     }
+    #   }
+    # )
     notification(message: "打包完毕，等待上传", sound: "default")
-    pilot
-    notification(message: "上传成功，开始上传符号文件到 fabric", sound: "default")
+    upload_to_testflight
+
+    # notification(message: "上传成功，开始上传符号文件到 fabric", sound: "default")
+    # upload_symbols_to_crashlytics
     
-    debug
-    upload_symbols_to_crashlytics
-    
-    # 归档到编译目录
-    time_string = Time.new.strftime("%Y-%m-%d %H%M%S")
-    copy_artifacts(
-      target_path: "build/Release/#{time_string}",
-      artifacts: ['*.ipa', '*.dSYM.zip']
-    )
-    debug
     notification(message: "✅ BETA 发布成功", sound: "default")
     clean_build_artifacts
   end
