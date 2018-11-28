@@ -253,6 +253,7 @@
 		D559AD6721746EEC005D4BCD /* TextField+Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TextField+Action.swift"; sourceTree = "<group>"; };
 		D564D5D11970EE340032FEC3 /* MBModalPresentSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBModalPresentSegue.h; sourceTree = "<group>"; };
 		D564D5D21970EE340032FEC3 /* MBModalPresentSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBModalPresentSegue.m; sourceTree = "<group>"; };
+		D569C9A421AE386B00211E36 /* MBGeneralSelection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBGeneralSelection.h; sourceTree = "<group>"; };
 		D579495E21788D67002E1C4A /* UIDevice+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+App.swift"; sourceTree = "<group>"; };
 		D588307F20CA67A7002030C4 /* UICollectionViewFlowLayout+IBInspectable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionViewFlowLayout+IBInspectable.h"; sourceTree = "<group>"; };
 		D588308220CAB8AE002030C4 /* MBNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBNavigationBar.h; sourceTree = "<group>"; };
@@ -730,6 +731,7 @@
 		D564CF39196D98E10087B179 /* Form */ = {
 			isa = PBXGroup;
 			children = (
+				D569C9A321AE386B00211E36 /* Selection */,
 				D5EE51602043F5E5009148B3 /* Input */,
 				D5EE51702043F5E5009148B3 /* Picker */,
 				D544A394197CBE5300C65604 /* MBFormSelectButton.h */,
@@ -754,6 +756,14 @@
 				D564D5D21970EE340032FEC3 /* MBModalPresentSegue.m */,
 			);
 			path = Segue;
+			sourceTree = "<group>";
+		};
+		D569C9A321AE386B00211E36 /* Selection */ = {
+			isa = PBXGroup;
+			children = (
+				D569C9A421AE386B00211E36 /* MBGeneralSelection.h */,
+			);
+			path = Selection;
 			sourceTree = "<group>";
 		};
 		D56E9951204696A3003C95BA /* Config */ = {
