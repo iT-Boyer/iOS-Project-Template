@@ -45,12 +45,12 @@
 }
 
 - (void)onLogin {
-    dout_info(@"当前用户 token 为: %@", self.token);
-    AppAPI().defineManager.authorizationHeader[@"Authorization"] = [NSString stringWithFormat:@"Bearer %@", self.token];
+    dout_info(@"当前用户 ID: %@, token: %@", @(self.uid), self.token);
+    AppAPI().defineManager.authorizationHeader[@"token"] = self.token;
 }
 
 - (void)onLogout {
-    [AppAPI().defineManager.authorizationHeader removeObjectForKey:@"Authorization"];
+    [AppAPI().defineManager.authorizationHeader removeObjectForKey:@"token"];
     [self resetCookies];
     [self.profile synchronize];
 }
@@ -167,9 +167,9 @@
     }
     
     NSMutableDictionary *att = [NSMutableDictionary dictionaryWithCapacity:3];
-    [API requestWithName:@"UserInfo" parameters:att viewController:viewController forceLoad:YES loadingMessage:nil modal:NO success:^(AFHTTPRequestOperation *operation, AccountEntity *responseObject) {
+    [API requestWithName:@"AcoountInfo" parameters:att viewController:viewController forceLoad:YES loadingMessage:nil modal:NO success:^(AFHTTPRequestOperation *operation, AccountEntity *rsp) {
         self.hasLoginedThisSession = YES;
-        self.information = responseObject;
+        self.information = rsp;
 
         if (self.isCurrent) {
             [AppEnv() setFlagOn:MBENVFlagUserInfoFetched];

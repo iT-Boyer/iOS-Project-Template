@@ -116,6 +116,8 @@
 
 #pragma mark -
 
+// 分享调用 https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&id=open1419317332
+
 - (void)shareLink:(NSURL *)link title:(NSString *)title description:(NSString *)description thumbImage:(UIImage *)thumb type:(MBShareType)type callback:(MBGeneralCallback)callback {
     MBGeneralCallback cb = MBSafeCallback(callback);
     

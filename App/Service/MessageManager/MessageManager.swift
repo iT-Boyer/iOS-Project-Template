@@ -64,6 +64,7 @@ class MessageManager: RFSVProgressMessageManager {
         guard let msg = try? RFNetworkActivityIndicatorMessage(configuration: { cm in
             guard let m = cm as? RFNetworkActivityIndicatorMessage else { return }
             m.identifier = ""
+            m.title = ""
             m.message = message
             m.status = .fail
             m.priority = .high
@@ -88,6 +89,7 @@ class MessageManager: RFSVProgressMessageManager {
         guard let msg = try? RFNetworkActivityIndicatorMessage(configuration: { cm in
             guard let m = cm as? RFNetworkActivityIndicatorMessage else { return }
             m.identifier = ""
+            m.title = ""
             m.message = message
             m.status = .fail
             m.priority = .high

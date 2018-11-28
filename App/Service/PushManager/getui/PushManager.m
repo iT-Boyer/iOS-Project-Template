@@ -1,13 +1,12 @@
 
 #import "PushManager.h"
-#import "MBApplicationDelegate.h"
-#import "debug.h"
+#import "ShortCuts.h"
+#import <MBAppKit/MBApplicationDelegate.h>
 #import <GTSDK/GeTuiSdk.h>
+#import <RFKit/NSJSONSerialization+RFKit.h>
 @import ObjectiveC;
 @import UserNotifications;
 // 这个类不应该跟应用业务扯上任何关系
-
-BOOL MBDebugConfigPushDebugLogEnabled = NO;
 
 @interface PushManager () <
     UNUserNotificationCenterDelegate,
@@ -23,7 +22,7 @@ BOOL MBDebugConfigPushDebugLogEnabled = NO;
 @implementation PushManager
 RFInitializingRootForNSObject;
 
-+ (nonnull instancetype)managerWithConfiguration : (void (^_Nonnull)(PushManager *_Nonnull manager))configBlock {
++ (nonnull instancetype)managerWithConfiguration:(NS_NOESCAPE void (^_Nonnull)(PushManager *_Nonnull manager))configBlock {
     NSParameterAssert(configBlock);
     PushManager *this = [self new];
     configBlock(this);
@@ -39,20 +38,11 @@ RFInitializingRootForNSObject;
 
 - (void)onInit {
     self.resetBadgeAfterLaunching = YES;
-
-    if (MBDebugConfigPushDebugLogEnabled) {
-#ifndef DEBUG
-        NSAssert(false, @"非开发模式需关闭日志");
-#endif
-    }
     self.pushTags = [NSMutableSet setWithCapacity:20];
 }
 
 - (void)afterInit {
     RFAssert(_initWithConfiguration, @"You must create PushManager with managerWithConfiguration: method.");
-    if (MBDebugConfigPushDebugLogEnabled) {
-        dout_debug(@"PushManager 启动检查");
-    }
     if (self.resetBadgeAfterLaunching) {
         // 在前台且未设置进入前台时自动清零才在这里清零
         if (AppActive() && !self.resetBadgeWhenApplicationBecomeActive) {
@@ -313,9 +303,6 @@ RFInitializingRootForNSObject;
 }
 
 - (void)resetBadge {
-    if (MBDebugConfigPushDebugLogEnabled) {
-        dout_debug(@"应用通知气泡清零");
-    }
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
     [GeTuiSdk resetBadge];
 }

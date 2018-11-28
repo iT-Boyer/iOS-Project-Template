@@ -8,10 +8,11 @@
  http://www.apache.org/licenses/LICENSE-2.0
  */
 
-#import "Common.h"
+#import <RFKit/RFRuntime.h>
+#import <RFInitializing/RFInitializing.h>
 
 /**
- 个推封装
+ 推送管理器，个推实现
 
  使用：
  1. managerWithConfiguration: 初始化实例，注意外部必须保存返回实例的引用，否则会自行释放掉
@@ -19,6 +20,13 @@
  3. 设置 receiveRemoteNotificationHandler, receiveLocalNotificationHandler 响应通知
  
  这个类是按原样使用设计的，既不应该重写，也不应该拿来修改。
+ 
+ ## 关于个推
+ 
+ - 推荐导入方式 pod 'GTSDK', '2.3.0.0-noidfa'
+ - 个推管理端 https://dev.getui.com
+ - 更新日志 http://docs.getui.com/getui/version/
+ 
  */
 @interface PushManager : NSObject <
     UIApplicationDelegate,
@@ -102,6 +110,3 @@
 - (void)resetBadge;
 
 @end
-
-/// 设为 YES 已启用额外的调试日志
-extern BOOL MBDebugConfigPushDebugLogEnabled;

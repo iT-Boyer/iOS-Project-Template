@@ -24,9 +24,6 @@ extern NSString *__nonnull const APIURLAssetsBase;
 
 #pragma mark - 具体业务
 
-/// 请求回调合一
-+ (nullable AFHTTPRequestOperation *)requestWithName:(nonnull NSString *)APIName parameters:(nullable NSDictionary *)parameters viewController:(nullable UIViewController *)viewController loadingMessage:(nullable NSString *)message modal:(BOOL)modal completion:(nullable MBGeneralCallback)completion;
-
 @end
 
 /**

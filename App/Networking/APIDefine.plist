@@ -19,16 +19,30 @@
 		<key>Expire</key>
 		<string>60</string>
 	</dict>
-	<key>User Login</key>
+	<key>@ Account</key>
 	<dict>
-		<key>Path</key>
-		<string>user/login</string>
-		<key>Authorization</key>
-		<false/>
-		<key>Response Class</key>
-		<string>AccountEntity</string>
-		<key>Response Type</key>
-		<integer>2</integer>
+		<key>Login</key>
+		<dict>
+			<key>Method</key>
+			<string>POST</string>
+			<key>Path</key>
+			<string>user/login</string>
+			<key>Authorization</key>
+			<false/>
+			<key>Response Class</key>
+			<string>AccountEntity</string>
+			<key>Response Type</key>
+			<integer>2</integer>
+		</dict>
+		<key>AcoountInfo</key>
+		<dict>
+			<key>Path</key>
+			<string>user/info</string>
+			<key>Response Class</key>
+			<string>AccountEntity</string>
+			<key>Response Type</key>
+			<integer>2</integer>
+		</dict>
 	</dict>
 	<key>@ 支持分组</key>
 	<dict>

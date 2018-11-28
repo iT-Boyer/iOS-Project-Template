@@ -63,7 +63,6 @@
 }
 
 - (void)migrateFromVersion:(NSString *_Nonnull)previousVersion {
-#ifndef DEMO
     NSParameterAssert(previousVersion);
     NSUserDefaults *ud = AppUserDefaultsShared();
     
@@ -72,7 +71,6 @@
 //        [ud removeObjectForKey:@"Last Pedometer Data Sync Time"];
 //    }
     [ud synchronize];
-#endif // ndef DEMO
 }
 
 #pragma mark -
