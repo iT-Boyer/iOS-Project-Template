@@ -56,7 +56,7 @@ RFInitializingRootForNSObject
 
 - (void)setItems:(NSArray *)items {
     BOOL keep = self.keepSelectionAfterReload;
-    NSArray *selectedItems = keep ? self.selectedItems : nil;
+    NSArray<id> *selectedItems = keep ? self.selectedItems : nil;
     _items = items.copy;
     [self.collectionView reloadData];
     if (keep) {
@@ -64,7 +64,7 @@ RFInitializingRootForNSObject
     }
 }
 
-- (NSArray *)selectedItems {
+- (NSArray<id> *)selectedItems {
     return [self itemsAtIndexPaths:self.collectionView.indexPathsForSelectedItems];
 }
 
@@ -169,12 +169,14 @@ RFInitializingRootForNSObject
     [self.collectionView deleteItemsAtIndexPaths:@[ indexPath ]];
 }
 
-- (void)appendItem:(id)item {
-    if (!item) return;
+- (NSIndexPath *)appendItem:(id)item {
+    if (!item) return nil;
     NSMutableArray *items = [NSMutableArray.alloc initWithArray:self.items];
     [items addObject:item];
     _items = items;
-    [self.collectionView insertItemsAtIndexPaths:@[ [self _indexPathForArrayIndex:items.count - 1] ]];
+    NSIndexPath *ip = [self _indexPathForArrayIndex:items.count - 1];
+    [self.collectionView insertItemsAtIndexPaths:@[ ip ]];
+    return ip;
 }
 
 @end

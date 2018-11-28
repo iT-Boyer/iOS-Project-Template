@@ -76,7 +76,9 @@
 
 /**
  附加一个对象在末尾
+ 
+ @return 插入对象对应的 index path
  */
-- (void)appendItem:(nullable ObjectType)item;
+- (nullable NSIndexPath *)appendItem:(nullable ObjectType)item;
 
 @end
