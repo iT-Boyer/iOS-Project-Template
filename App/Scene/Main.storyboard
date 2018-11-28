@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="J4D-jz-Ghe">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Root View Controller-->
-        <scene sceneID="m4b-rk-mo3">
+        <scene sceneID="RootScene">
             <objects>
-                <viewController storyboardIdentifier="RootViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="J4D-jz-Ghe" customClass="RootViewController" customModule="App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RootViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RootViewController" customClass="RootViewController" customModule="App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dCj-Pe-Ngv"/>
                         <viewControllerLayoutGuide type="bottom" id="YWp-4z-Hat"/>
@@ -25,12 +25,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eG5-0m-gVk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-927" y="-1"/>
+            <point key="canvasLocation" x="-1600" y="0.0"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="RootScene">
+        <scene sceneID="NavigatorScene">
             <objects>
-                <navigationController storyboardIdentifier="NavigationController" definesPresentationContext="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RootNavigation" customClass="NavigationController" customModule="App" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavigationController" definesPresentationContext="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="NavigationController" customClass="NavigationController" customModule="App" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" backIndicatorImage="navigation_back_indicator" backIndicatorTransitionMaskImage="navigation_back_indicator" id="RootNavigationBar">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -41,12 +41,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nlU-FP-eKo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-490" y="1"/>
+            <point key="canvasLocation" x="-800" y="0.0"/>
         </scene>
         <!--Welcome-->
         <scene sceneID="HomeScene">
             <objects>
-                <viewController id="HomeViewController" customClass="HomeViewController" sceneMemberID="viewController">
+                <viewController id="HomeViewController" customClass="HomeViewController" customModule="App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FFJ-GH-Vae"/>
                         <viewControllerLayoutGuide type="bottom" id="HPE-tx-xyO"/>

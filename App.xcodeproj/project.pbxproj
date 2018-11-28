@@ -43,7 +43,6 @@
 		D54F0E4F2199A56E003370F4 /* DateFormatter+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54F0E4E2199A56E003370F4 /* DateFormatter+App.swift */; };
 		D54F0E542199BB22003370F4 /* UIButton+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54F0E532199BB22003370F4 /* UIButton+App.swift */; };
 		D54F0E562199BCB2003370F4 /* NSRegularExpression+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54F0E552199BCB2003370F4 /* NSRegularExpression+App.swift */; };
-		D552DD6F18C8506700D02290 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D552DD4C18C8506700D02290 /* HomeViewController.m */; };
 		D552DD7618C8506700D02290 /* API.m in Sources */ = {isa = PBXBuildFile; fileRef = D552DD5E18C8506700D02290 /* API.m */; };
 		D552DD7718C8506700D02290 /* APIJSONResponseSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = D552DD6318C8506700D02290 /* APIJSONResponseSerializer.m */; };
 		D552DD7B18C8506700D02290 /* AccountEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = D552DD6E18C8506700D02290 /* AccountEntity.m */; };
@@ -56,6 +55,7 @@
 		D55959D520ABA9B50019D733 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55959D420ABA9B50019D733 /* NavigationController.swift */; };
 		D559AD6821746EEC005D4BCD /* TextField+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = D559AD6721746EEC005D4BCD /* TextField+Action.swift */; };
 		D564D5D31970EE340032FEC3 /* MBModalPresentSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = D564D5D21970EE340032FEC3 /* MBModalPresentSegue.m */; };
+		D569C9CF21AE8D3200211E36 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D569C9CE21AE8D3200211E36 /* HomeVC.swift */; };
 		D579495F21788D67002E1C4A /* UIDevice+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D579495E21788D67002E1C4A /* UIDevice+App.swift */; };
 		D588308620CAB8AE002030C4 /* MBNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D588308320CAB8AE002030C4 /* MBNavigationBar.m */; };
 		D588308720CAB8AE002030C4 /* MBRoundBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D588308520CAB8AE002030C4 /* MBRoundBarButtonItem.m */; };
@@ -232,8 +232,6 @@
 		D54F0E4E2199A56E003370F4 /* DateFormatter+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+App.swift"; sourceTree = "<group>"; };
 		D54F0E532199BB22003370F4 /* UIButton+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+App.swift"; sourceTree = "<group>"; };
 		D54F0E552199BCB2003370F4 /* NSRegularExpression+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSRegularExpression+App.swift"; sourceTree = "<group>"; };
-		D552DD4B18C8506700D02290 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
-		D552DD4C18C8506700D02290 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		D552DD5D18C8506700D02290 /* API.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = API.h; sourceTree = "<group>"; };
 		D552DD5E18C8506700D02290 /* API.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = API.m; sourceTree = "<group>"; };
 		D552DD6218C8506700D02290 /* APIJSONResponseSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIJSONResponseSerializer.h; sourceTree = "<group>"; };
@@ -254,6 +252,7 @@
 		D564D5D11970EE340032FEC3 /* MBModalPresentSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBModalPresentSegue.h; sourceTree = "<group>"; };
 		D564D5D21970EE340032FEC3 /* MBModalPresentSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBModalPresentSegue.m; sourceTree = "<group>"; };
 		D569C9A421AE386B00211E36 /* MBGeneralSelection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBGeneralSelection.h; sourceTree = "<group>"; };
+		D569C9CE21AE8D3200211E36 /* HomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		D579495E21788D67002E1C4A /* UIDevice+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+App.swift"; sourceTree = "<group>"; };
 		D588307F20CA67A7002030C4 /* UICollectionViewFlowLayout+IBInspectable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionViewFlowLayout+IBInspectable.h"; sourceTree = "<group>"; };
 		D588308220CAB8AE002030C4 /* MBNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBNavigationBar.h; sourceTree = "<group>"; };
@@ -615,8 +614,7 @@
 		D552DD4A18C8506700D02290 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				D552DD4B18C8506700D02290 /* HomeViewController.h */,
-				D552DD4C18C8506700D02290 /* HomeViewController.m */,
+				D569C9CE21AE8D3200211E36 /* HomeVC.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1334,7 +1332,7 @@
 				D52EADEB2043B983007219E0 /* debug.m in Sources */,
 				D501845B20F881B6009481D4 /* DissolveTransitioning.swift in Sources */,
 				D5C3CBEF217ED20F0097CCD9 /* Geometry.swift in Sources */,
-				D552DD6F18C8506700D02290 /* HomeViewController.m in Sources */,
+				D569C9CF21AE8D3200211E36 /* HomeVC.swift in Sources */,
 				D588309720CAE103002030C4 /* ImageEntity.m in Sources */,
 				D544A39E197D1E8600C65604 /* JSONValueTransformer+App.m in Sources */,
 				D5542F161918B83400831016 /* MBApp.m in Sources */,
