@@ -1,17 +1,18 @@
 PODS:
-  - SDWebImage (4.3.3):
-    - SDWebImage/Core (= 4.3.3)
-  - SDWebImage/Core (4.3.3)
-  - XXNibBridge (2.1)
+  - SDWebImage (4.4.3):
+    - SDWebImage/Core (= 4.4.3)
+  - SDWebImage/Core (4.4.3)
 
 DEPENDENCIES:
   - SDWebImage
-  - XXNibBridge
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - SDWebImage
 
 SPEC CHECKSUMS:
-  SDWebImage: de4d90b5bff3571eae7bd16202b1f43135409fa5
-  XXNibBridge: 04ce6b4f8a2e33857396f1c369581436c390cb7d
+  SDWebImage: c5594f1a19c48d526d321e548902b56b479cd508
 
-PODFILE CHECKSUM: 08b44bc4958dfa1d781732201f1e627e066878c7
+PODFILE CHECKSUM: 23a10972ab93f67a3d0a1647a66a67497a507785
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.6.0.beta.2

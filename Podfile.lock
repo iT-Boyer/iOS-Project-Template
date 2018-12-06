@@ -7,7 +7,7 @@ PODS:
   - AFNetworking/Security (2.6.3)
   - AFNetworking/Serialization (2.6.3)
   - FLEX (2.4.0)
-  - JSONModel (1.7.0)
+  - JSONModel (1.8.0)
   - MBAppKit/Button (0.8.1):
     - RFInitializing
     - RFKit/RFGeometry
@@ -313,10 +313,10 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   FLEX: bd1a39e55b56bb413b6f1b34b3c10a0dc44ef079
-  JSONModel: 840bc0fcffb24b8454d2c026bf26fea454b8e98d
-  MBAppKit: fd64f0ef13f25efcf7131576cf7439ee32ec89ed
-  PreBuild: e364b0801808623a87f3bc8ce2618b778a49380b
-  RFAlpha: b2ec078e5303a2b3732cb71e3310a9f3dd2934f1
+  JSONModel: 02ab723958366a3fd27da57ea2af2113658762e9
+  MBAppKit: ef1ae2c45e8383446c5b094931932cd9bf6f4da2
+  PreBuild: 2da262254b7424a314eac8b26963506d1ae9b817
+  RFAlpha: 89439f1138a4212505661d14a24ef4bebd6d6ab9
   RFAPI: ad34a972e4c4813eea26ff2b6273e2d569772ebb
   RFInitializing: 1ea7f66b2bf97a401a31482c4e2c2c19cdc9d89c
   RFKeyboard: a39d8c9fad5b2b8fe3df98fe94fa909229a4cd46
@@ -327,4 +327,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: c95868e8fd656f48288208d60741fd4548ca47e0
 
-COCOAPODS: 1.6.0.beta.1
+COCOAPODS: 1.6.0.beta.2

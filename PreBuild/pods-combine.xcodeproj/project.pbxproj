@@ -22,8 +22,6 @@
 
 /* Begin PBXBuildFile section */
 		425617BADF41E6C05477283E /* libPods-pods-combine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AAE0A3DA8CE2C449960CDA61 /* libPods-pods-combine.a */; };
-		D5A6FE181DBF01FA000B489C /* XXNibBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = D5A6FDE81DBF01FA000B489C /* XXNibBridge.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D5A6FE191DBF01FA000B489C /* XXNibConvention.h in Headers */ = {isa = PBXBuildFile; fileRef = D5A6FDE91DBF01FA000B489C /* XXNibConvention.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D5D9F6D12071C14C00B6FE9B /* SDAnimatedImageRep.h in Headers */ = {isa = PBXBuildFile; fileRef = D5D9F6B62071C14B00B6FE9B /* SDAnimatedImageRep.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D5D9F6D22071C14C00B6FE9B /* NSButton+WebCache.h in Headers */ = {isa = PBXBuildFile; fileRef = D5D9F6B72071C14B00B6FE9B /* NSButton+WebCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D5D9F6D32071C14C00B6FE9B /* SDWebImageCoder.h in Headers */ = {isa = PBXBuildFile; fileRef = D5D9F6B82071C14B00B6FE9B /* SDWebImageCoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -85,8 +83,6 @@
 		C5222B3473EE064AE93F3425 /* Pods-pods-combine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pods-combine.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pods-combine/Pods-pods-combine.debug.xcconfig"; sourceTree = "<group>"; };
 		D56280F12046E9E900E58406 /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = Pods/Pods.xcodeproj; sourceTree = "<group>"; };
 		D5663D282046E24700D1ABC1 /* libRFKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRFKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		D5A6FDE81DBF01FA000B489C /* XXNibBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXNibBridge.h; sourceTree = "<group>"; };
-		D5A6FDE91DBF01FA000B489C /* XXNibConvention.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXNibConvention.h; sourceTree = "<group>"; };
 		D5BA554F204682C800E4F335 /* libJSONModel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libJSONModel.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5BA5550204682C800E4F335 /* libSVProgressHUD.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libSVProgressHUD.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5BA5551204682C800E4F335 /* libXXNibBridge.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libXXNibBridge.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -176,19 +172,9 @@
 			isa = PBXGroup;
 			children = (
 				D5D9F6B52071C14B00B6FE9B /* SDWebImage */,
-				D5A6FDE71DBF01FA000B489C /* XXNibBridge */,
 			);
 			name = "Headers From Pods";
 			path = Pods/Headers/Public;
-			sourceTree = "<group>";
-		};
-		D5A6FDE71DBF01FA000B489C /* XXNibBridge */ = {
-			isa = PBXGroup;
-			children = (
-				D5A6FDE81DBF01FA000B489C /* XXNibBridge.h */,
-				D5A6FDE91DBF01FA000B489C /* XXNibConvention.h */,
-			);
-			path = XXNibBridge;
 			sourceTree = "<group>";
 		};
 		D5D9F6B52071C14B00B6FE9B /* SDWebImage */ = {
@@ -301,8 +287,6 @@
 				D5D9F6D52071C14C00B6FE9B /* UIImageView+WebCache.h in Headers */,
 				D5D9F6DE2071C14C00B6FE9B /* UIView+WebCache.h in Headers */,
 				D5D9F6DF2071C14C00B6FE9B /* UIView+WebCacheOperation.h in Headers */,
-				D5A6FE181DBF01FA000B489C /* XXNibBridge.h in Headers */,
-				D5A6FE191DBF01FA000B489C /* XXNibConvention.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,7 +302,6 @@
 				D5E7656C1DBE2E6A00959202 /* Frameworks */,
 				D5E7656D1DBE2E6A00959202 /* Headers */,
 				D5E7656E1DBE2E6A00959202 /* Resources */,
-				97C3BD6D104AB77F55FEF6FC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -423,24 +406,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		97C3BD6D104AB77F55FEF6FC /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-pods-combine/Pods-pods-combine-resources.sh",
-				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-pods-combine/Pods-pods-combine-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D5E765891DBE36ED00959202 /* ShellScript */ = {

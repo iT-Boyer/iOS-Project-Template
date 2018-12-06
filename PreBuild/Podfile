@@ -10,7 +10,6 @@ inhibit_all_warnings!
 target 'pods-combine' do
     # 这里应只包含编译源码需要的依赖，二进制包直接主项目导入
     pod 'SDWebImage'
-    pod 'XXNibBridge'
 end
 
 pre_install do |installer|

@@ -34,4 +34,3 @@
 #import <RFKit/RFRuntime.h>
 #import <RFMessageManager/RFSVProgressMessageManager.h>
 #import <RFSegue/RFAsynchronousSegue.h>
-#import <XXNibBridge.h>
