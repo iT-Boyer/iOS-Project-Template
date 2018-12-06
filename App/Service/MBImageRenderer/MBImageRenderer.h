@@ -10,6 +10,7 @@
 
 #import <RFKit/RFRuntime.h>
 
+// @MBDependency:2
 /**
  将 View Controller 的内容渲染为自适应尺寸的图片
  

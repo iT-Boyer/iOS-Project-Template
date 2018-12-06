@@ -2,7 +2,7 @@
 
 #pragma once
 
-#import <Foundation/Foundation.h>
+#import <RFKit/NSError+RFKit.h>
 
 /**
  定义应用共享错误码
