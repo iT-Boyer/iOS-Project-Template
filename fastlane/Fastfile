@@ -31,7 +31,7 @@ lane :setup_project do
     cocoapods(podfile: "PreBuild")
     sh('cd .. && ./PreBuild/Support/clean_output.sh')
     xcodebuild(scheme: "UpdateFramework", project: "PreBuild/pods-combine.xcodeproj")
-    xcodebuild(target: "build-all-parts", project: "PreBuild/project-framework.xcodeproj", configuration: "Release")
+    sh('cd .. && xcodebuild -target "build-all-parts" -project "PreBuild/project-framework.xcodeproj" -UseModernBuildSystem=NO')
     cocoapods
     sort_project
     notification(message: "项目依赖安装完毕", sound: "default")
