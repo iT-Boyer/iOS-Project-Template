@@ -1,8 +1,10 @@
 
 #import "MBTabControl.h"
+#import <RFAlpha/RFKVOWrapper.h>
+#import <RFKit/UIView+RFAnimate.h>
+#if __has_include("MBTabScrollView.h")
 #import "MBTabScrollView.h"
-#import "UIView+RFAnimate.h"
-#import "RFKVOWrapper.h"
+#endif
 
 @interface MBTabControl ()
 @property (weak, nonatomic) id tabScrollViewPageObserver;
@@ -67,20 +69,13 @@
         }
     }
 
-    self.tabScrollView.page = self.selectIndex;
+    [self _MBTabControl_updateTabScrollViewPageWithDuration:0];
 }
 
 - (void)setSelectedControl:(UIControl *)selectedControl {
     [super setSelectedControl:selectedControl];
 
-    if (self.pageScrollDuration) {
-        [UIView animateWithDuration:self.pageScrollDuration animations:^{
-            self.tabScrollView.page = self.selectIndex;
-        }];
-    }
-    else {
-        self.tabScrollView.page = self.selectIndex;
-    }
+    [self _MBTabControl_updateTabScrollViewPageWithDuration:self.pageScrollDuration];
     if (self.window) {
         [UIView animateWithDuration:.3 delay:0 usingSpringWithDamping:0.5 initialSpringVelocity:1 options:UIViewAnimationOptionBeginFromCurrentState|UIViewAnimationOptionCurveEaseOut animations:^{
             [self updateIndicatingImageViewFrame];
@@ -131,6 +126,19 @@
     indicator.center = center;
 }
 
+#if __has_include("MBTabScrollView.h")
+
+- (void)_MBTabControl_updateTabScrollViewPageWithDuration:(NSTimeInterval)duration {
+    if (duration) {
+        [UIView animateWithDuration:duration animations:^{
+            self.tabScrollView.page = self.selectIndex;
+        }];
+    }
+    else {
+        self.tabScrollView.page = self.selectIndex;
+    }
+}
+
 - (void)setTabScrollView:(MBTabScrollView *)tabScrollView {
     if (_tabScrollView != tabScrollView) {
         if (_tabScrollView && self.tabScrollViewPageObserver) {
@@ -152,5 +160,9 @@
         _tabScrollView = tabScrollView;
     }
 }
+#else
+- (void)_MBTabControl_updateTabScrollViewPageWithDuration:(NSTimeInterval)duration {
+}
+#endif
 
 @end
