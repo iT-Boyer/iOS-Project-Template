@@ -42,7 +42,7 @@ lane :update_pods_combine do
     cocoapods(podfile: "PreBuild")
     say "Please confirm to continue"
     prompt(text: "如果增删了 pod，你现在可能需要打开 pods-combine 项目调整头文件和 link 的引用，按回车继续", multi_line_end_keyword: "\n")
-    xcodebuild(scheme: "UpdateFramework", workspace: "PreBuild/pods-combine.xcworkspace")
+    xcodebuild(scheme: "UpdateFramework", project: "PreBuild/pods-combine.xcodeproj")
     cocoapods
     sort_project
     # sh('xcrun xcodebuild -target MBBuildSystem -project Feel.xcodeproj -configuration "Debug" || :')

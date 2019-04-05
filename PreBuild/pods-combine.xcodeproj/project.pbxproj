@@ -21,7 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		425617BADF41E6C05477283E /* libPods-pods-combine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AAE0A3DA8CE2C449960CDA61 /* libPods-pods-combine.a */; };
+		BB860BABB0E8ADBFEEC214B0 /* libPods-pods-combine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AAE0A3DA8CE2C449960CDA61 /* libPods-pods-combine.a */; };
 		D5D9F6D12071C14C00B6FE9B /* SDAnimatedImageRep.h in Headers */ = {isa = PBXBuildFile; fileRef = D5D9F6B62071C14B00B6FE9B /* SDAnimatedImageRep.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D5D9F6D22071C14C00B6FE9B /* NSButton+WebCache.h in Headers */ = {isa = PBXBuildFile; fileRef = D5D9F6B72071C14B00B6FE9B /* NSButton+WebCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D5D9F6D32071C14C00B6FE9B /* SDWebImageCoder.h in Headers */ = {isa = PBXBuildFile; fileRef = D5D9F6B82071C14B00B6FE9B /* SDWebImageCoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -50,7 +50,6 @@
 		D5D9F6EA2071C14C00B6FE9B /* UIImage+MultiFormat.h in Headers */ = {isa = PBXBuildFile; fileRef = D5D9F6CF2071C14B00B6FE9B /* UIImage+MultiFormat.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D5D9F6EB2071C14C00B6FE9B /* UIImage+GIF.h in Headers */ = {isa = PBXBuildFile; fileRef = D5D9F6D02071C14B00B6FE9B /* UIImage+GIF.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D5D9F6EC2071C15500B6FE9B /* libSDWebImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D5D9F6B42071C14600B6FE9B /* libSDWebImage.a */; };
-		D5D9F6ED2071C16600B6FE9B /* libXXNibBridge.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D56281022046E9E900E58406 /* libXXNibBridge.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,13 +59,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = 1E1C68AA45906A8200D8BBCA61A5606F;
 			remoteInfo = "Pods-pods-combine";
-		};
-		D56281012046E9E900E58406 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D56280F12046E9E900E58406 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 5CF9D921494C5FA5A6CD7A5798DDA2C0;
-			remoteInfo = XXNibBridge;
 		};
 		D5D9F6B32071C14600B6FE9B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -128,9 +120,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				425617BADF41E6C05477283E /* libPods-pods-combine.a in Frameworks */,
+				BB860BABB0E8ADBFEEC214B0 /* libPods-pods-combine.a in Frameworks */,
 				D5D9F6EC2071C15500B6FE9B /* libSDWebImage.a in Frameworks */,
-				D5D9F6ED2071C16600B6FE9B /* libXXNibBridge.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,7 +154,6 @@
 			children = (
 				D56280FC2046E9E900E58406 /* libPods-pods-combine.a */,
 				D5D9F6B42071C14600B6FE9B /* libSDWebImage.a */,
-				D56281022046E9E900E58406 /* libXXNibBridge.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -336,6 +326,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = D5E765661DBE2E6A00959202;
@@ -361,13 +352,6 @@
 			fileType = archive.ar;
 			path = "libPods-pods-combine.a";
 			remoteRef = D56280FB2046E9E900E58406 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		D56281022046E9E900E58406 /* libXXNibBridge.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libXXNibBridge.a;
-			remoteRef = D56281012046E9E900E58406 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		D5D9F6B42071C14600B6FE9B /* libSDWebImage.a */ = {
