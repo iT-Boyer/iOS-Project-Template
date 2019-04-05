@@ -67,6 +67,18 @@ class Button: MBButton {
         setBackgroundImage(disableBG, for: .disabled)
     }
     
+    /// 按钮选中时加粗
+    @IBInspectable var boldWhenSelected: Bool = false
+    
+    override var isSelected: Bool {
+        didSet {
+            guard boldWhenSelected else { return }
+            let size = titleLabel?.font.pointSize ?? UIFont.labelFontSize
+            
+            titleLabel?.font = UIFont.systemFont(ofSize: size, weight: isSelected ? .semibold : .regular)
+        }
+    }
+    
     @IBInspectable var jumpURL: String?
     
     override func onButtonTapped() {
