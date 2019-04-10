@@ -1,7 +1,7 @@
 /*
  MBCollectionViewEqualColumnSpaceLayout
  
- Copyright © 2018 RFUI.
+ Copyright © 2018-2019 RFUI.
  https://github.com/BB9z/iOS-Project-Template
  
  Apache License, Version 2.0
@@ -10,13 +10,28 @@
 
 #import "MBCollectionViewFlowLayout.h"
 
+typedef NS_ENUM(NSInteger, MBCollectionViewColumnLayoutStyle) {
+    /// sectionInset 的左右和 minimumInteritemSpacing 相同
+    MBCollectionViewColumnLayoutStyleSectionInsetEqualItemSpacing = 0,
+    /// 整个宽度按列数等分，cell 位于每块区域的中心
+    MBCollectionViewColumnLayoutStyleCenter,
+    /// 左右无边距的均分
+    MBCollectionViewColumnLayoutStyleNoSectionInset,
+};
+
 // @MBDependency:2
 /**
- 按照 collectionView 的宽度均分成 numberOfColumns 列，
- 使得 sectionInset 的左右和 minimumInteritemSpacing 相同
+ 把 collectionView 分成给定列数并对齐
  */
 @interface MBCollectionViewEqualColumnSpaceLayout : MBCollectionViewFlowLayout
 
+/// 列数
 @property (nonatomic) IBInspectable NSUInteger numberOfColumns;
+
+#if TARGET_INTERFACE_BUILDER
+@property (nonatomic) IBInspectable NSInteger layoutStyle;
+#else
+@property (nonatomic) MBCollectionViewColumnLayoutStyle layoutStyle;
+#endif
 
 @end
