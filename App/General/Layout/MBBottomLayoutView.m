@@ -68,8 +68,8 @@ RFInitializingRootForUIView
     self.layer.cornerRadius = cr;
     
     CGFloat margin = isClipping ? self.clippingMargin : 0;
-    self._leftConstraint.constant = margin;
-    self._rightConstraint.constant = margin;
+    self._leftConstraint.constant = self._leftConstraint.firstItem == self ? margin : -margin;
+    self._rightConstraint.constant = self._rightConstraint.firstItem == self ? -margin : margin;
 }
 
 - (void)setHidden:(BOOL)hidden {
@@ -81,7 +81,8 @@ RFInitializingRootForUIView
         if (self.hiddenMoveTopAnchor) {
             CGFloat guideY = CGRectGetMaxY(self.superview.safeAreaLayoutGuide.layoutFrame);
             CGFloat viewY = CGRectGetHeight(self.superview.bounds);
-            self._bottomConstraint.constant = hidden ? guideY - viewY : 0;
+            CGFloat constant = hidden ? guideY - viewY : 0;
+            self._bottomConstraint.constant = self._bottomConstraint.firstItem == self ? -constant : constant;
         }
     }
 }
