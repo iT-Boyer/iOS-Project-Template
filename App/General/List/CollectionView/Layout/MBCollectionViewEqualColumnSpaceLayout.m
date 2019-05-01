@@ -28,15 +28,16 @@
     
     switch (self.layoutStyle) {
         case MBCollectionViewColumnLayoutStyleCenter:
-            itemSpace = (self.collectionView.width / columns - self.itemSize.width);
+            itemSpace = floor((self.collectionView.width / columns -
+                               self.itemSize.width));
             insetSize = itemSpace / 2;
             break;
         case MBCollectionViewColumnLayoutStyleNoSectionInset:
-            itemSpace = (self.collectionView.width - self.itemSize.width * columns) / (columns - 1);
+            itemSpace = floor((self.collectionView.width - self.itemSize.width * columns) / (columns - 1));
             insetSize = 0;
             break;
         default:
-            itemSpace = (self.collectionView.width - self.itemSize.width * columns) / (columns + 1);
+            itemSpace = floor((self.collectionView.width - self.itemSize.width * columns) / (columns + 1));
             insetSize = itemSpace;
             break;
     }
