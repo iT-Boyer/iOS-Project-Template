@@ -1,7 +1,7 @@
 /*
  MBFixWidthImageView
  
- Copyright © 2018 RFUI.
+ Copyright © 2018-2019 RFUI.
  Copyright © 2015-2016 Beijing ZhiYun ZhiYuan Information Technology Co., Ltd.
  Copyright © 2014 Chinamobo Co., Ltd.
  https://github.com/BB9z/iOS-Project-Template
@@ -23,5 +23,12 @@
 /**
  未设置图片时默认的高宽比
  */
-@property (nonatomic) IBInspectable CGFloat defaultSizeRatio;
+@property IBInspectable CGFloat defaultSizeRatio;
+
+/**
+ 未设置图片时返回 no intrinsic size
+ 
+ 优先级低于 defaultSizeRatio
+ */
+@property IBInspectable BOOL perfersNoIntrinsicMetric;
 @end

@@ -13,15 +13,17 @@
 - (CGSize)intrinsicContentSize {
     CGSize imageSize = self.image.size;
     CGFloat width = self.bounds.size.width;
-    if ((imageSize.width <= 0 || imageSize.height <= 0)
-        && self.defaultSizeRatio) {
-        imageSize.width = width;
-        imageSize.height = width * self.defaultSizeRatio;
-        return imageSize;
-    }
 
-    if (imageSize.width == 0) {
-        return CGSizeMake(width, 0);
+    if (imageSize.width <= 0 || imageSize.height <= 0) {
+        if (self.defaultSizeRatio) {
+            return CGSizeMake(width, width * self.defaultSizeRatio);
+        }
+        if (self.perfersNoIntrinsicMetric) {
+            return super.intrinsicContentSize;
+        }
+        else {
+            return CGSizeMake(width, 0);
+        }
     }
 
     switch (self.contentMode) {
