@@ -50,18 +50,15 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.destinationViewController isKindOfClass:UINavigationController.class]) return;
     [self dismissAnimated:YES completion:nil];
 }
 
-- (IBAction)dismiss:(UIButton *)sender {
+- (IBAction)dismiss:(id)sender {
     if ([sender respondsToSelector:@selector(setEnabled:)]) {
-        sender.enabled = NO;
+        [(UIControl *)sender setEnabled:NO];
     }
     [self dismissAnimated:YES completion:nil];
-}
-
-- (void)dismissViewControllerAnimated:(BOOL)flag completion:(void (^)(void))completion {
-    [self dismissAnimated:flag completion:completion];
 }
 
 - (void)dismissAnimated:(BOOL)flag completion:(void (^)(void))completion {

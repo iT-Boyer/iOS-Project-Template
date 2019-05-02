@@ -1,7 +1,7 @@
 /*
  MBModalPresentSegue
  
- Copyright © 2018 RFUI.
+ Copyright © 2018-2019 RFUI.
  Copyright © 2014-2016 Beijing ZhiYun ZhiYuan Technology Co., Ltd.
  Copyright © 2014 Chinamobo Co., Ltd.
  https://github.com/BB9z/iOS-Project-Template
@@ -52,11 +52,8 @@
 - (void)setViewHidden:(BOOL)hidden animated:(BOOL)animated completion:(nullable void (^)(void))completion;
 
 /// MBModalPresent 的标准 dismiss 方法
-- (void)dismissAnimated:(BOOL)flag completion:(nullable void (^)(void))completion NS_SWIFT_UNAVAILABLE("跟 UIKit 的 dismissViewControllerAnimated:completion: 重名了");
+- (void)dismissAnimated:(BOOL)animated completion:(nullable void (^)(void))completion NS_SWIFT_NAME( dismissSelf(animated:completion:) );
 
-/// 被重写的系统方法，只 dismiss 自身
-- (void)dismissViewControllerAnimated:(BOOL)flag completion:(nullable void (^)(void))completion;
-
-- (IBAction)dismiss:(nullable UIButton *)sender;
+- (IBAction)dismiss:(nullable id)sender;
 
 @end
