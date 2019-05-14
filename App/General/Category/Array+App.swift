@@ -15,6 +15,28 @@ extension Array {
         }
         return nil
     }
+    
+    /**
+     从数组中提取元素，这些元素会从数组中移除并返回
+     
+     例
+     ```
+     var a = [1, 2, 3, 4, 5, 6]
+     print(a.extract { $0 < 3 })  // [1, 2]
+     print(a)                     // [3, 4, 5, 6]
+     ```
+     */
+    mutating func extract(while predicate: (Element) -> Bool) -> [Element] {
+        var elementRemoved = [Element]()
+        removeAll { e -> Bool in
+            let shouldExtracted = predicate(e)
+            if shouldExtracted {
+                elementRemoved.append(e)
+            }
+            return shouldExtracted
+        }
+        return elementRemoved
+    }
 }
 
 extension Array where Iterator.Element: Hashable {
