@@ -23,6 +23,10 @@ RFInitializingRootForUIView
     [self addTarget:self action:@selector(MBTextField_onTextFieldChanged:) forControlEvents:UIControlEventEditingChanged];
 }
 
+- (void)dealloc {
+    [_autoSearchTimer invalidate];
+}
+
 #pragma mark - Delegate
 
 - (void)setDelegate:(id<UITextFieldDelegate>)delegate {

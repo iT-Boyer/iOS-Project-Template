@@ -8,6 +8,10 @@
 
 @implementation ZYSMSCodeSendButton
 
+- (void)dealloc {
+    [self.timer invalidate];
+}
+
 - (NSUInteger)frozeSecond {
     if (_frozeSecond <= 0) {
         _frozeSecond = 60;
