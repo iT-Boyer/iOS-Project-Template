@@ -1,7 +1,7 @@
 /*
  MBCollectionViewColumnLayout
  
- Copyright © 2018 RFUI.
+ Copyright © 2018-2019 RFUI.
  Copyright © 2014-2015 Beijing ZhiYun ZhiYuan Information Technology Co., Ltd.
  https://github.com/BB9z/iOS-Project-Template
  
@@ -17,6 +17,7 @@
  可以指定一个固定列数或一个 cell 的参考大小自动调整列数
  
  不支持通过 delegate 设置 itemSize。如果 delegate 返回了 itemSize，则列设置将失效
+ 多 section 将根据第一个 section 的尺寸进行布局，不支持多 section 有不同的 itemSize。
  */
 @interface MBCollectionViewColumnLayout : MBCollectionViewFlowLayout
 

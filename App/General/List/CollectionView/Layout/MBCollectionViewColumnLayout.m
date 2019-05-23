@@ -55,6 +55,8 @@
 
 - (void)prepareLayout {
     [super prepareLayout];
+    if (self.collectionView.numberOfSections == 0) return;
+
     CGSize reference = self.referenceItemSize;
     if (self.autoColumnDecideOnItemMinimumWidth) {
         CGFloat width = [self innerLayoutWidthForSection:0];
