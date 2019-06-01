@@ -37,6 +37,19 @@ extension Array {
         }
         return elementRemoved
     }
+    
+    /**
+     遍历数组，同时访问元素和序号，并可随时终止遍历
+     */
+    func enumerateElements(_ block: (Element, Int, _ stoped: inout Bool) -> Void) {
+        var stop = false
+        for i in 0 ..< count {
+            block(self[i], i, &stop)
+            if stop {
+                return
+            }
+        }
+    }
 }
 
 extension Array where Iterator.Element: Hashable {
