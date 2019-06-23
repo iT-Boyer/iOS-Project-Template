@@ -41,6 +41,7 @@
 		D544A396197CBE5300C65604 /* MBFormSelectButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D544A395197CBE5300C65604 /* MBFormSelectButton.m */; };
 		D544A39E197D1E8600C65604 /* JSONValueTransformer+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D544A39D197D1E8600C65604 /* JSONValueTransformer+App.m */; };
 		D54AFCE722BF8C440031559F /* Sequence+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54AFCE622BF8C440031559F /* Sequence+App.swift */; };
+		D54AFCEB22BF8DFE0031559F /* Atomic.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54AFCEA22BF8DFD0031559F /* Atomic.swift */; };
 		D54F0E4F2199A56E003370F4 /* DateFormatter+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54F0E4E2199A56E003370F4 /* DateFormatter+App.swift */; };
 		D54F0E542199BB22003370F4 /* UIButton+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54F0E532199BB22003370F4 /* UIButton+App.swift */; };
 		D54F0E562199BCB2003370F4 /* NSRegularExpression+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54F0E552199BCB2003370F4 /* NSRegularExpression+App.swift */; };
@@ -237,6 +238,7 @@
 		D544A395197CBE5300C65604 /* MBFormSelectButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBFormSelectButton.m; sourceTree = "<group>"; };
 		D544A39D197D1E8600C65604 /* JSONValueTransformer+App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JSONValueTransformer+App.m"; sourceTree = "<group>"; };
 		D54AFCE622BF8C440031559F /* Sequence+App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Sequence+App.swift"; sourceTree = "<group>"; };
+		D54AFCEA22BF8DFD0031559F /* Atomic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Atomic.swift; sourceTree = "<group>"; };
 		D54F0E4E2199A56E003370F4 /* DateFormatter+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+App.swift"; sourceTree = "<group>"; };
 		D54F0E532199BB22003370F4 /* UIButton+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+App.swift"; sourceTree = "<group>"; };
 		D54F0E552199BCB2003370F4 /* NSRegularExpression+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSRegularExpression+App.swift"; sourceTree = "<group>"; };
@@ -1031,6 +1033,7 @@
 		D5EE50DF2043DAA1009148B3 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				D54AFCEA22BF8DFD0031559F /* Atomic.swift */,
 				D5EE50E02043DAA1009148B3 /* App */,
 				D588308820CACB32002030C4 /* Array+App.swift */,
 				D5C82DDB2179D98C00E63A2A /* Color.swift */,
@@ -1423,6 +1426,7 @@
 				D544A39E197D1E8600C65604 /* JSONValueTransformer+App.m in Sources */,
 				D5542F161918B83400831016 /* MBApp.m in Sources */,
 				D569C9EB21AE906900211E36 /* MBAudioRecorder.m in Sources */,
+				D54AFCEB22BF8DFE0031559F /* Atomic.swift in Sources */,
 				D5EE51E32043F613009148B3 /* MBAutoFadeoutView.m in Sources */,
 				D5C3CBF3217EEEA20097CCD9 /* MBBadgeLabel.m in Sources */,
 				D5E80580226F403D00901C41 /* MBBottomLayoutView.m in Sources */,
