@@ -1,4 +1,4 @@
-/**
+/*
  App 颜色定义
  */
 extension UIColor {

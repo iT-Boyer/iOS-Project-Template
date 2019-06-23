@@ -1,4 +1,4 @@
-/**
+/*
  MBSwift.swift
  
  Copyright © 2018 RFUI.

@@ -1,4 +1,4 @@
-/**
+/*
  NSPointArray+App.swift
  
  Copyright © 2018 RFUI.
@@ -6,11 +6,10 @@
  
  Apache License, Version 2.0
  http://www.apache.org/licenses/LICENSE-2.0
-
- 便于在 Swift 中安全、方便地使用 NSPointerArray
  */
 
 // @MBDependency:2
+/// 便于在 Swift 中安全、方便地使用 NSPointerArray
 extension NSPointerArray {
     func addObject(_ object: AnyObject?) {
         guard let strongObject = object else { return }

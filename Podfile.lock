@@ -8,10 +8,10 @@ PODS:
   - AFNetworking/Serialization (2.6.3)
   - FLEX (2.4.0)
   - JSONModel (1.8.0)
-  - MBAppKit/Button (0.8.1):
+  - MBAppKit/Button (0.9.0):
     - RFInitializing
     - RFKit/RFGeometry
-  - MBAppKit/Core (0.8.1):
+  - MBAppKit/Core (0.9.0):
     - AFNetworking/NSURLConnection (~> 2.6)
     - RFAlpha/RFSwizzle
     - RFAPI (~> 1.1)
@@ -22,22 +22,22 @@ PODS:
     - RFKit/Category/NSLayoutConstraint
     - RFKit/Category/NSURL
     - RFMessageManager/RFNetworkActivityIndicatorMessage (~> 0.3)
-  - MBAppKit/Environment (0.8.1):
+  - MBAppKit/Environment (0.9.0):
     - RFKit/Category/NSArray
     - RFKit/Runtime
-  - MBAppKit/Input (0.8.1):
+  - MBAppKit/Input (0.9.0):
     - MBAppKit/Core
     - RFAlpha/RFDelegateChain/UITextFieldDelegate
     - RFInitializing
     - RFKit/Category/UIResponder
     - RFKit/RFGeometry
-  - MBAppKit/Navigation (0.8.1):
+  - MBAppKit/Navigation (0.9.0):
     - MBAppKit/Core
     - RFAlpha/RFNavigationController
     - RFAlpha/RFSynthesize
     - RFKit/Category/NSArray
     - RFKit/Category/UIResponder
-  - MBAppKit/Worker (0.8.1):
+  - MBAppKit/Worker (0.9.0):
     - MBAppKit/Core
   - PreBuild (0.1.0)
   - RFAlpha/RFBlockSelectorPerform (0.5.0)
@@ -314,7 +314,7 @@ SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   FLEX: bd1a39e55b56bb413b6f1b34b3c10a0dc44ef079
   JSONModel: 02ab723958366a3fd27da57ea2af2113658762e9
-  MBAppKit: ef1ae2c45e8383446c5b094931932cd9bf6f4da2
+  MBAppKit: 49a160babb6bacfbfd6aec3122e018593f282d14
   PreBuild: 2da262254b7424a314eac8b26963506d1ae9b817
   RFAlpha: 89439f1138a4212505661d14a24ef4bebd6d6ab9
   RFAPI: ad34a972e4c4813eea26ff2b6273e2d569772ebb
