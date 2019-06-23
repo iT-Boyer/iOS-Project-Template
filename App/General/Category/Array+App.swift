@@ -52,12 +52,6 @@ extension Array {
     }
 }
 
-extension Array where Iterator.Element: Hashable {
-    /// 返回去重的数组
-    func uniqued() -> [Element] {
-        return Array(Set<Element>(self))
-    }
-}
 
 extension Array where Iterator.Element: UIView {
     /// 改变一组 view 的隐藏

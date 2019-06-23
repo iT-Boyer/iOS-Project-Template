@@ -40,6 +40,7 @@
 		D52EAE362043C6F7007219E0 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = D52EAE352043C6F7007219E0 /* Account.m */; };
 		D544A396197CBE5300C65604 /* MBFormSelectButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D544A395197CBE5300C65604 /* MBFormSelectButton.m */; };
 		D544A39E197D1E8600C65604 /* JSONValueTransformer+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D544A39D197D1E8600C65604 /* JSONValueTransformer+App.m */; };
+		D54AFCE722BF8C440031559F /* Sequence+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54AFCE622BF8C440031559F /* Sequence+App.swift */; };
 		D54F0E4F2199A56E003370F4 /* DateFormatter+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54F0E4E2199A56E003370F4 /* DateFormatter+App.swift */; };
 		D54F0E542199BB22003370F4 /* UIButton+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54F0E532199BB22003370F4 /* UIButton+App.swift */; };
 		D54F0E562199BCB2003370F4 /* NSRegularExpression+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54F0E552199BCB2003370F4 /* NSRegularExpression+App.swift */; };
@@ -235,6 +236,7 @@
 		D544A394197CBE5300C65604 /* MBFormSelectButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBFormSelectButton.h; sourceTree = "<group>"; };
 		D544A395197CBE5300C65604 /* MBFormSelectButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBFormSelectButton.m; sourceTree = "<group>"; };
 		D544A39D197D1E8600C65604 /* JSONValueTransformer+App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JSONValueTransformer+App.m"; sourceTree = "<group>"; };
+		D54AFCE622BF8C440031559F /* Sequence+App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Sequence+App.swift"; sourceTree = "<group>"; };
 		D54F0E4E2199A56E003370F4 /* DateFormatter+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+App.swift"; sourceTree = "<group>"; };
 		D54F0E532199BB22003370F4 /* UIButton+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+App.swift"; sourceTree = "<group>"; };
 		D54F0E552199BCB2003370F4 /* NSRegularExpression+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSRegularExpression+App.swift"; sourceTree = "<group>"; };
@@ -1040,6 +1042,7 @@
 				D588308A20CACB32002030C4 /* MBSwift.swift */,
 				D588308C20CACB33002030C4 /* NSPointArray+App.swift */,
 				D501844C20F865D2009481D4 /* Number+App.swift */,
+				D54AFCE622BF8C440031559F /* Sequence+App.swift */,
 				D5F9F47E208D921200427201 /* String+App.swift */,
 				D559AD6721746EEC005D4BCD /* TextField+Action.swift */,
 				D579495E21788D67002E1C4A /* UIDevice+App.swift */,
@@ -1506,6 +1509,7 @@
 				D588308E20CACB33002030C4 /* RFMessage+App.m in Sources */,
 				D5EE52472043FB6A009148B3 /* RFReferenceSizing.m in Sources */,
 				D558FDF52046913B00A01EE6 /* RootViewController.swift in Sources */,
+				D54AFCE722BF8C440031559F /* Sequence+App.swift in Sources */,
 				D501845C20F881B7009481D4 /* Shadow.swift in Sources */,
 				D52EADF02043BA3D007219E0 /* ShortCuts.m in Sources */,
 				D5F9F480208D921200427201 /* String+App.swift in Sources */,
