@@ -60,4 +60,12 @@ extension Array where Iterator.Element: UIView {
             v.isHidden = hidden
         }
     }
+    
+    /// 按照 tag 值从小到大重新排序
+    /// bug(Xcode 10.2): 用于修正 IBOutletCollection 顺序错乱
+    mutating func sortByTag() {
+        self = sorted(by: { a, b -> Bool in
+            return a.tag < b.tag
+        })
+    }
 }
