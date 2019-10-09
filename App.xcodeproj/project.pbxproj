@@ -1033,9 +1033,9 @@
 		D5EE50DF2043DAA1009148B3 /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				D54AFCEA22BF8DFD0031559F /* Atomic.swift */,
 				D5EE50E02043DAA1009148B3 /* App */,
 				D588308820CACB32002030C4 /* Array+App.swift */,
+				D54AFCEA22BF8DFD0031559F /* Atomic.swift */,
 				D5C82DDB2179D98C00E63A2A /* Color.swift */,
 				D5F9F47D208D921200427201 /* Date+App.swift */,
 				D54F0E4E2199A56E003370F4 /* DateFormatter+App.swift */,
@@ -1354,13 +1354,12 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-App/Pods-App-resources.sh",
-				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-App/Pods-App-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-App/Pods-App-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1413,6 +1412,7 @@
 				D552DD7718C8506700D02290 /* APIJSONResponseSerializer.m in Sources */,
 				D55959D020AB97B00019D733 /* ApplicationDelegate.swift in Sources */,
 				D588308D20CACB33002030C4 /* Array+App.swift in Sources */,
+				D54AFCEB22BF8DFE0031559F /* Atomic.swift in Sources */,
 				D52A04E520F85F2600F535ED /* Button.swift in Sources */,
 				D5EE519A2043F5F3009148B3 /* CALayer+MBAnimationPersistence.m in Sources */,
 				D5C82DDC2179D98C00E63A2A /* Color.swift in Sources */,
@@ -1426,7 +1426,6 @@
 				D544A39E197D1E8600C65604 /* JSONValueTransformer+App.m in Sources */,
 				D5542F161918B83400831016 /* MBApp.m in Sources */,
 				D569C9EB21AE906900211E36 /* MBAudioRecorder.m in Sources */,
-				D54AFCEB22BF8DFE0031559F /* Atomic.swift in Sources */,
 				D5EE51E32043F613009148B3 /* MBAutoFadeoutView.m in Sources */,
 				D5C3CBF3217EEEA20097CCD9 /* MBBadgeLabel.m in Sources */,
 				D5E80580226F403D00901C41 /* MBBottomLayoutView.m in Sources */,
@@ -1720,6 +1719,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = App/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1749,6 +1749,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = App/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1773,7 +1774,7 @@
 				EnableCodeCommentsHighlight = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				ProjectFilePath = "${SRCROOT}/${PROJECT}.xcodeproj";
-				ScriptPath = $SRCROOT/Scripts;
+				ScriptPath = "$SRCROOT/Scripts";
 			};
 			name = Debug;
 		};
@@ -1788,7 +1789,7 @@
 				EnableCodeCommentsHighlight = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				ProjectFilePath = "${SRCROOT}/${PROJECT}.xcodeproj";
-				ScriptPath = $SRCROOT/Scripts;
+				ScriptPath = "$SRCROOT/Scripts";
 			};
 			name = Release;
 		};
@@ -1868,6 +1869,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = App/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1892,7 +1894,7 @@
 				EnableCodeCommentsHighlight = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				ProjectFilePath = "${SRCROOT}/${PROJECT}.xcodeproj";
-				ScriptPath = $SRCROOT/Scripts;
+				ScriptPath = "$SRCROOT/Scripts";
 			};
 			name = Alpha;
 		};

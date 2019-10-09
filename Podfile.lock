@@ -284,7 +284,7 @@ DEPENDENCIES:
   - RFSegue/Async
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - AFNetworking
     - FLEX
     - JSONModel
@@ -325,6 +325,6 @@ SPEC CHECKSUMS:
   RFSegue: 16a13d55032a737a93a1feb3c758077f708e3c70
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: c95868e8fd656f48288208d60741fd4548ca47e0
+PODFILE CHECKSUM: e80ee546d01623f8019ea9aaca3045f17959a2d0
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.8.3
