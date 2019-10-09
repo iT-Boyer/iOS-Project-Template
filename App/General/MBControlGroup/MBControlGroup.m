@@ -22,6 +22,35 @@ RFInitializingRootForUIView
     return [NSString stringWithFormat:@"<%@: %p; selectedControl = %@; controls = %@>", self.class, self, self.selectedControl, self.controls];
 }
 
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    
+    if (!self.controls) {
+        NSMutableArray *controls = [NSMutableArray arrayWithCapacity:self.subviews.count];
+        __block NSInteger selectIndex = NSNotFound;
+        __block UIControl *prevSelectedControl = nil;
+        [self.subviews enumerateObjectsUsingBlock:^(UIControl *v, NSUInteger idx, BOOL *stop) {
+            if ([v isKindOfClass:[UIControl class]]) {
+                [controls addObject:v];
+                
+                if (v.selected) {
+                    selectIndex = idx;
+                    
+                    if (prevSelectedControl) {
+                        prevSelectedControl.selected = NO;
+                    }
+                    prevSelectedControl = v;
+                }
+            }
+        }];
+        
+        self.controls = controls;
+        if (selectIndex != NSNotFound) {
+            self.selectIndex = selectIndex;
+        }
+    }
+}
+
 #pragma mark - Controls Set
 
 - (void)setControls:(NSArray *)controls {

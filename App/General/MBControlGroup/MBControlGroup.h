@@ -1,7 +1,7 @@
 /*
  MBControlGroup
 
- Copyright © 2018 RFUI.
+ Copyright © 2018-2019 RFUI.
  Copyright © 2014-2016 Beijing ZhiYun ZhiYuan Technology Co., Ltd.
  Copyright © 2014 Chinamobo Co., Ltd.
  https://github.com/BB9z/iOS-Project-Template
@@ -28,6 +28,9 @@
 @interface MBControlGroup : UIControl <
     RFInitializing
 >
+/**
+ 如果 controls 未设置，从 nib 中载入后，自动把子 view 中是 UIControl 的 view 设置为 controls
+ */
 @property (nonatomic, nullable) IBOutletCollection(UIControl) NSArray *controls;
 
 @property (nonatomic, nullable, weak) IBOutlet UIControl *selectedControl;
