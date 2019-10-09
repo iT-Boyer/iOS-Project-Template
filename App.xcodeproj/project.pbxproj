@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -1298,7 +1298,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = AP;
-				LastUpgradeCheck = 1000;
+				LastUpgradeCheck = 1110;
 				ORGANIZATIONNAME = "";
 				TargetAttributes = {
 					D5197A3917EECAAF00CA387C = {
