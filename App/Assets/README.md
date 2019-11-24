@@ -1,5 +1,5 @@
 # Assets 目录
 
-存放资源文件，但是存放的东西相对固定。分成两个 assets 只是为了提高打包速度。
+资源文件目录。如果有 Asset Catalog （xcassets）不能管理的资源文件，请把它跟相关模块的文件放在一起，实在不知道放哪才扔到这。
 
-如果有 Asset Catalog（xcassets） 不能管理的资源文件，请把它跟相关模块的文件放在一起，实在不知道放哪再扔到这。
+Tips: 如果 build 时处理 xcassets 耗时很久，可以尝试分成多组 xcassets，可以加速打包速度。
