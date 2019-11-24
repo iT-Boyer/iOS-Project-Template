@@ -1,12 +1,12 @@
 PODS:
-  - AFNetworking/NSURLConnection (2.6.3):
+  - AFNetworking/NSURLConnection (2.7.0):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/Reachability (2.6.3)
-  - AFNetworking/Security (2.6.3)
-  - AFNetworking/Serialization (2.6.3)
-  - FLEX (2.4.0)
+  - AFNetworking/Reachability (2.7.0)
+  - AFNetworking/Security (2.7.0)
+  - AFNetworking/Serialization (2.7.0)
+  - FLEX (3.1.0)
   - JSONModel (1.8.0)
   - MBAppKit/Button (0.9.0):
     - RFInitializing
@@ -14,14 +14,13 @@ PODS:
   - MBAppKit/Core (0.9.0):
     - AFNetworking/NSURLConnection (~> 2.6)
     - RFAlpha/RFSwizzle
-    - RFAPI (~> 1.1)
+    - RFAPI (~> 1.2)
     - RFKit (~> 2.0)
     - RFKit/Category/NSDate
     - RFKit/Category/NSDateFormatter
     - RFKit/Category/NSJSONSerialization
     - RFKit/Category/NSLayoutConstraint
     - RFKit/Category/NSURL
-    - RFMessageManager/RFNetworkActivityIndicatorMessage (~> 0.3)
   - MBAppKit/Environment (0.9.0):
     - RFKit/Category/NSArray
     - RFKit/Runtime
@@ -123,18 +122,17 @@ PODS:
     - RFKit/Category/UIDevice
   - RFAlpha/RFViewApperance/RFLine (0.5.0):
     - RFAlpha/RFViewApperance/RFDrawView
-    - "RFKit/Category/UIView+RFAnimate"
   - RFAlpha/RFWindow (0.5.0):
     - RFInitializing (>= 1.1)
-  - RFAPI (1.1.0):
+  - RFAPI (1.2.0):
     - AFNetworking/NSURLConnection (~> 2.0)
     - JSONModel
     - RFInitializing (>= 1.1)
     - RFKit/Category/NSDictionary
     - RFKit/Category/NSFileManager
     - RFKit/Runtime (> 1.7)
-    - RFMessageManager/Manager (>= 0.3)
-    - RFMessageManager/RFNetworkActivityIndicatorMessage
+    - RFMessageManager/Manager (>= 0.5)
+    - RFMessageManager/RFNetworkActivityMessage
   - RFInitializing (1.1.0)
   - RFKeyboard (0.1.0):
     - RFKit/Runtime (>= 1.7)
@@ -231,15 +229,15 @@ PODS:
     - RFKit/Runtime
   - RFKit/Runtime (2.3.0):
     - RFKit/Foundation
-  - RFMessageManager/Manager (0.4.2):
+  - RFMessageManager/Manager (0.5.0):
     - RFInitializing (>= 1.1)
     - RFKit/Category/NSArray
     - RFKit/Runtime (>= 1.7)
-  - RFMessageManager/RFNetworkActivityIndicatorMessage (0.4.2):
+  - RFMessageManager/RFNetworkActivityMessage (0.5.0):
     - RFMessageManager/Manager
-  - RFMessageManager/SVProgressHUD (0.4.2):
+  - RFMessageManager/SVProgressHUD (0.5.0):
     - RFMessageManager/Manager
-    - RFMessageManager/RFNetworkActivityIndicatorMessage
+    - RFMessageManager/RFNetworkActivityMessage
     - SVProgressHUD
   - RFSegue/Async (4.0.0):
     - RFSegue/Core
@@ -277,6 +275,7 @@ DEPENDENCIES:
   - RFAlpha/RFViewApperance/RFLayerApperance (from `Frameworks/RFUI/Alpha`)
   - RFAlpha/RFViewApperance/RFLine (from `Frameworks/RFUI/Alpha`)
   - RFAlpha/RFWindow (from `Frameworks/RFUI/Alpha`)
+  - RFAPI (from `https://github.com/RFUI/RFAPI.git`)
   - RFKeyboard (from `https://github.com/RFUI/RFKeyboard.git`)
   - "RFKit/Category/UIScrollView+RFScrolling"
   - RFKit/Category/UISearchBar
@@ -284,11 +283,10 @@ DEPENDENCIES:
   - RFSegue/Async
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  trunk:
     - AFNetworking
     - FLEX
     - JSONModel
-    - RFAPI
     - RFInitializing
     - RFKit
     - RFMessageManager
@@ -302,29 +300,34 @@ EXTERNAL SOURCES:
     :path: PreBuild
   RFAlpha:
     :path: Frameworks/RFUI/Alpha
+  RFAPI:
+    :git: https://github.com/RFUI/RFAPI.git
   RFKeyboard:
     :git: https://github.com/RFUI/RFKeyboard.git
 
 CHECKOUT OPTIONS:
+  RFAPI:
+    :commit: 6239b1e9bdadb390347dd2f150a41e28db76311e
+    :git: https://github.com/RFUI/RFAPI.git
   RFKeyboard:
     :commit: ca5204d9c85f2350f58fb88ad2854dd4bb9ca4eb
     :git: https://github.com/RFUI/RFKeyboard.git
 
 SPEC CHECKSUMS:
-  AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
-  FLEX: bd1a39e55b56bb413b6f1b34b3c10a0dc44ef079
+  AFNetworking: 8dd5f9b9691e09186393069a12cc3b5ed7c8b511
+  FLEX: e7a0cc5ca79419d3b0cf0d39fa7a46cb39cec7fd
   JSONModel: 02ab723958366a3fd27da57ea2af2113658762e9
-  MBAppKit: 49a160babb6bacfbfd6aec3122e018593f282d14
+  MBAppKit: 6cde567fe107a6de495a21800afd09703e51f969
   PreBuild: 2da262254b7424a314eac8b26963506d1ae9b817
-  RFAlpha: 89439f1138a4212505661d14a24ef4bebd6d6ab9
-  RFAPI: ad34a972e4c4813eea26ff2b6273e2d569772ebb
+  RFAlpha: c3d4791813c3b466de40c8fd03916f502639658f
+  RFAPI: 742f964438d34ca4d2ef397fb9761ae7f4b84cfc
   RFInitializing: 1ea7f66b2bf97a401a31482c4e2c2c19cdc9d89c
   RFKeyboard: a39d8c9fad5b2b8fe3df98fe94fa909229a4cd46
   RFKit: 81d15fe229bb5335055336513aea14d898632cf9
-  RFMessageManager: a07ad8c1ace733ae254c297f7952a4f0d66f2f32
+  RFMessageManager: 574dc701e448c451ac86826f5e426bbe0e161a01
   RFSegue: 16a13d55032a737a93a1feb3c758077f708e3c70
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: e80ee546d01623f8019ea9aaca3045f17959a2d0
+PODFILE CHECKSUM: 06ed113220baba7288bd36c00eab29ab39dbfb09
 
-COCOAPODS: 1.8.3
+COCOAPODS: 1.8.4

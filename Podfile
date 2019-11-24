@@ -33,6 +33,7 @@ target 'App' do
         'RFViewApperance/RFLayerApperance',
         'RFWindow',
     ]
+    pod 'RFAPI', :git => 'https://github.com/RFUI/RFAPI.git'
     pod 'RFKeyboard', :git => 'https://github.com/RFUI/RFKeyboard.git'
     pod 'RFMessageManager', :subspecs => ['SVProgressHUD']
     pod 'RFSegue', :subspecs => ['Async']
