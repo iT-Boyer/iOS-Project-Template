@@ -23,6 +23,9 @@ class ApplicationDelegate: MBApplicationDelegate {
         Account.setup()
         RFKeyboard.autoDisimssKeyboardWhenTouch = true
         setupUIAppearance()
+        dispatch_after_seconds(0) {
+            MBDebugWindowButton.installToKeyWindow()
+        }
         return true
     }
     
