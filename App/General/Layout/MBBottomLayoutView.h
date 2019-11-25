@@ -1,7 +1,7 @@
 /*
  MBSceneStackView
  
- Copyright © 2018 RFUI.
+ Copyright © 2019 RFUI.
  https://github.com/BB9z/iOS-Project-Template
  
  Apache License, Version 2.0
@@ -29,6 +29,13 @@
 @interface MBBottomLayoutView: UIView <
     RFInitializing
 >
+
+/**
+ 当前是否已应用裁切
+
+ 正常无需手动设置，布局确定后自动设置，调用 setter 可强制应用
+ */
+@property (nonatomic) BOOL clipping;
 
 /**
  当内容不贴着屏幕时，需要裁切视图区域，这个属性控制裁切时的圆角
