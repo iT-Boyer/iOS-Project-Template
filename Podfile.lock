@@ -6,7 +6,6 @@ PODS:
   - AFNetworking/Reachability (2.7.0)
   - AFNetworking/Security (2.7.0)
   - AFNetworking/Serialization (2.7.0)
-  - FLEX (3.1.0)
   - JSONModel (1.8.0)
   - MBAppKit/Button (0.9.0):
     - RFInitializing
@@ -38,7 +37,7 @@ PODS:
     - RFKit/Category/UIResponder
   - MBAppKit/Worker (0.9.0):
     - MBAppKit/Core
-  - PreBuild (0.1.0)
+  - PBFlex (3.0.0)
   - RFAlpha/RFBlockSelectorPerform (0.5.0)
   - RFAlpha/RFButton (0.5.0):
     - RFInitializing (>= 1.1)
@@ -245,16 +244,18 @@ PODS:
     - RFKit/Category/UIDevice
     - RFKit/Category/UINavigationController
     - RFKit/Runtime (>= 1.7)
+  - SDWebImage (5.3.2):
+    - SDWebImage/Core (= 5.3.2)
+  - SDWebImage/Core (5.3.2)
   - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
-  - FLEX
   - MBAppKit/Button (from `MBAppKit`)
   - MBAppKit/Environment (from `MBAppKit`)
   - MBAppKit/Input (from `MBAppKit`)
   - MBAppKit/Navigation (from `MBAppKit`)
   - MBAppKit/Worker (from `MBAppKit`)
-  - PreBuild (from `PreBuild`)
+  - PBFlex
   - RFAlpha/RFBlockSelectorPerform (from `Frameworks/RFUI/Alpha`)
   - RFAlpha/RFButton (from `Frameworks/RFUI/Alpha`)
   - RFAlpha/RFCallbackControl (from `Frameworks/RFUI/Alpha`)
@@ -281,11 +282,15 @@ DEPENDENCIES:
   - RFKit/Category/UISearchBar
   - RFMessageManager/SVProgressHUD
   - RFSegue/Async
+  - SDWebImage
 
 SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - SDWebImage
+  https://github.com/PBPods/PBFlex.git:
+    - PBFlex
   trunk:
     - AFNetworking
-    - FLEX
     - JSONModel
     - RFInitializing
     - RFKit
@@ -296,8 +301,6 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   MBAppKit:
     :path: MBAppKit
-  PreBuild:
-    :path: PreBuild
   RFAlpha:
     :path: Frameworks/RFUI/Alpha
   RFAPI:
@@ -315,10 +318,9 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   AFNetworking: 8dd5f9b9691e09186393069a12cc3b5ed7c8b511
-  FLEX: e7a0cc5ca79419d3b0cf0d39fa7a46cb39cec7fd
   JSONModel: 02ab723958366a3fd27da57ea2af2113658762e9
   MBAppKit: 6cde567fe107a6de495a21800afd09703e51f969
-  PreBuild: 2da262254b7424a314eac8b26963506d1ae9b817
+  PBFlex: 3d5e1dd80d40a9f0d487b92eb7ea6cacf59db5ca
   RFAlpha: c3d4791813c3b466de40c8fd03916f502639658f
   RFAPI: 742f964438d34ca4d2ef397fb9761ae7f4b84cfc
   RFInitializing: 1ea7f66b2bf97a401a31482c4e2c2c19cdc9d89c
@@ -326,8 +328,9 @@ SPEC CHECKSUMS:
   RFKit: 81d15fe229bb5335055336513aea14d898632cf9
   RFMessageManager: 574dc701e448c451ac86826f5e426bbe0e161a01
   RFSegue: 16a13d55032a737a93a1feb3c758077f708e3c70
+  SDWebImage: 6ac2eb96571bff96ecde31a987172c5934a0eb7d
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: 06ed113220baba7288bd36c00eab29ab39dbfb09
+PODFILE CHECKSUM: 15e3305ebccccb6419bc2cbfe3a944b8671cef34
 
 COCOAPODS: 1.8.4

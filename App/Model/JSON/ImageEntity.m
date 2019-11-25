@@ -2,7 +2,8 @@
 #import "ImageEntity.h"
 #import <RFKit/UIView+RFAnimate.h>
 #import <RFKit/NSError+RFKit.h>
-#import <SDWebImageManager.h>
+#import <SDWebImage/SDWebImageManager.h>
+#import <SDWebImage/SDImageCache.h>
 
 @interface ImageEntity ()
 @property int width;
@@ -54,7 +55,7 @@
         for (NSNumber *widthObj in @[ @1080, @750, @640, @320, @160 ]) {
             CGFloat width = [widthObj floatValue];
             if (width > preferredPixelWidth) {
-                // 大图略过
+                // 大图略过b
                 continue;
             }
             

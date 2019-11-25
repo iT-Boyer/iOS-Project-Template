@@ -3,8 +3,8 @@
 #import "ImageEntity.h"
 #import "MBApp.h"
 #import "debug.h"
-#import <SDWebImageManager.h>
-#import <UIView+WebCacheOperation.h>
+#import <SDWebImage/SDWebImageManager.h>
+#import <SDWebImage/UIView+WebCacheOperation.h>
 
 
 @interface ZYImageView ()

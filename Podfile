@@ -6,6 +6,9 @@ platform :ios, '11.0'
 
 # inhibit_all_warnings!
 
+source 'https://github.com/PBPods/PBFlex.git'
+source 'https://github.com/CocoaPods/Specs.git'
+
 target 'App' do
     pod 'RFKit', :subspecs => [
         'Category/UIScrollView+RFScrolling',
@@ -45,9 +48,8 @@ target 'App' do
         'Worker',
     ]
 
-    pod 'PreBuild', :path => 'PreBuild'
-    
-    pod 'FLEX', :configurations => ['Debug']
+    pod 'SDWebImage'
+    pod 'PBFlex', :configurations => ['Debug']
 
     # target "Test" do
     #     inherit! :search_paths

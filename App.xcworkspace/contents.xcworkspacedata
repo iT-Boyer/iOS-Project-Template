@@ -10,19 +10,6 @@
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
-   <Group
-      location = "container:"
-      name = "PreBuild">
-      <FileRef
-         location = "group:PreBuild/README.md">
-      </FileRef>
-      <FileRef
-         location = "group:PreBuild/pods-combine.xcodeproj">
-      </FileRef>
-      <FileRef
-         location = "group:PreBuild/project-framework.xcodeproj">
-      </FileRef>
-   </Group>
    <FileRef
       location = "group:Scripts">
    </FileRef>

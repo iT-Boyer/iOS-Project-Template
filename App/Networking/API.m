@@ -1,10 +1,10 @@
 
 #import "API.h"
 #import "APIJSONResponseSerializer.h"
-#import "SDWebImageManager.h"
-#import <RFMessageManager/RFMessageManager+RFDisplay.h>
 #import "Common.h"
 #import "NSUserDefaults+MBDebug.h"
+#import <RFMessageManager/RFMessageManager+RFDisplay.h>
+#import <SDWebImage/SDWebImageManager.h>
 
 RFDefineConstString(APIErrorDomain);
 NSString *const APIURLAssetsBase              = @"http://img.example.com/";
@@ -134,7 +134,7 @@ void (^APISlientFailureHandler(BOOL logError))(id, NSError *)
     }
 }
 
-#import "UIImageView+WebCache.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @implementation UIImageView (App)
 
