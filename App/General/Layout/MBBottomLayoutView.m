@@ -5,7 +5,6 @@
 @property (nullable) NSLayoutConstraint *_bottomConstraint;
 @property (nullable) NSLayoutConstraint *_leftConstraint;
 @property (nullable) NSLayoutConstraint *_rightConstraint;
-@property (nonatomic) BOOL _MBBottomLayoutView_isClipping;
 @property NSNumber *_MBBottomLayoutView_isClippingSetValue;
 @property (nonatomic) BOOL _MBBottomLayoutView_isClipping;
 @end

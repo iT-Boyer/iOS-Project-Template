@@ -46,7 +46,7 @@ NSString *const APIURLAssetsBase              = @"http://img.example.com/";
             operationFailureCallback(operation, error);
         }
         else {
-            [self.networkActivityIndicatorManager alertError:error title:nil];
+            [self.networkActivityIndicatorManager alertError:error title:nil fallbackMessage:@"请求失败"];
         }
         return NO;
     }
@@ -79,7 +79,7 @@ NSString *const APIURLAssetsBase              = @"http://img.example.com/";
         operationFailureCallback(operation, error);
     }
     else {
-        [self.networkActivityIndicatorManager alertError:error title:nil];
+        [self.networkActivityIndicatorManager alertError:error title:nil fallbackMessage:@"请求失败"];
     }
     return NO;  // 需要为 NO，终止默认的错误处理
 }

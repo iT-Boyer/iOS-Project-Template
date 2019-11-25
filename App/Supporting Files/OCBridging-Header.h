@@ -34,5 +34,6 @@
 #import <RFKeyboard/RFKeyboard.h>
 #import <RFKit/NSFileManager+RFKit.h>
 #import <RFKit/RFRuntime.h>
+#import <RFMessageManager/RFMessageManager+RFDisplay.h>
 #import <RFMessageManager/RFSVProgressMessageManager.h>
 #import <RFSegue/RFAsynchronousSegue.h>

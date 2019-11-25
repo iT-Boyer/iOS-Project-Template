@@ -161,7 +161,7 @@
         ) {
         callback = ^(BOOL success, id _Nullable item, NSError *_Nullable error){
             if (error) {
-                [AppHUD() alertError:error title:nil];
+                [AppHUD() alertError:error title:nil fallbackMessage:nil];
             }
         };
     }
