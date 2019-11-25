@@ -1,6 +1,0 @@
-[submodule "MBAppKit"]
-	path = MBAppKit
-	url = https://github.com/RFUI/MBAppKit.git
-[submodule "Frameworks/RFUI/Alpha"]
-	path = Frameworks/RFUI/Alpha
-	url = https://github.com/RFUI/Alpha.git

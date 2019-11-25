@@ -14,7 +14,7 @@ target 'App' do
         'Category/UIScrollView+RFScrolling',
         'Category/UISearchBar',
     ]
-    pod 'RFAlpha', :path => 'Frameworks/RFUI/Alpha', :subspecs => [
+    pod 'RFAlpha', :git => 'https://github.com/RFUI/Alpha.git', :subspecs => [
         'RFBlockSelectorPerform',
         'RFButton',
         'RFCallbackControl',
@@ -40,7 +40,7 @@ target 'App' do
     pod 'RFKeyboard', :git => 'https://github.com/RFUI/RFKeyboard.git'
     pod 'RFMessageManager', :subspecs => ['SVProgressHUD']
     pod 'RFSegue', :subspecs => ['Async']
-    pod 'MBAppKit', :path => 'MBAppKit', :subspecs => [
+    pod 'MBAppKit', :git => 'https://github.com/RFUI/MBAppKit.git', :subspecs => [
         'Button',
         'Environment',
         'Input',

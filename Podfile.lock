@@ -250,32 +250,32 @@ PODS:
   - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
-  - MBAppKit/Button (from `MBAppKit`)
-  - MBAppKit/Environment (from `MBAppKit`)
-  - MBAppKit/Input (from `MBAppKit`)
-  - MBAppKit/Navigation (from `MBAppKit`)
-  - MBAppKit/Worker (from `MBAppKit`)
+  - MBAppKit/Button (from `https://github.com/RFUI/MBAppKit.git`)
+  - MBAppKit/Environment (from `https://github.com/RFUI/MBAppKit.git`)
+  - MBAppKit/Input (from `https://github.com/RFUI/MBAppKit.git`)
+  - MBAppKit/Navigation (from `https://github.com/RFUI/MBAppKit.git`)
+  - MBAppKit/Worker (from `https://github.com/RFUI/MBAppKit.git`)
   - PBFlex
-  - RFAlpha/RFBlockSelectorPerform (from `Frameworks/RFUI/Alpha`)
-  - RFAlpha/RFButton (from `Frameworks/RFUI/Alpha`)
-  - RFAlpha/RFCallbackControl (from `Frameworks/RFUI/Alpha`)
-  - RFAlpha/RFContainerView (from `Frameworks/RFUI/Alpha`)
-  - RFAlpha/RFDelegateChain/UICollectionViewDataSource (from `Frameworks/RFUI/Alpha`)
-  - RFAlpha/RFDelegateChain/UICollectionViewDelegateFlowLayout (from `Frameworks/RFUI/Alpha`)
-  - RFAlpha/RFDelegateChain/UISearchBarDelegate (from `Frameworks/RFUI/Alpha`)
-  - RFAlpha/RFDelegateChain/UITextFieldDelegate (from `Frameworks/RFUI/Alpha`)
-  - RFAlpha/RFDelegateChain/UITextViewDelegate (from `Frameworks/RFUI/Alpha`)
-  - RFAlpha/RFDrawImage (from `Frameworks/RFUI/Alpha`)
-  - RFAlpha/RFImageCropper (from `Frameworks/RFUI/Alpha`)
-  - RFAlpha/RFNavigationController (from `Frameworks/RFUI/Alpha`)
-  - RFAlpha/RFRefreshButton (from `Frameworks/RFUI/Alpha`)
-  - RFAlpha/RFRefreshControl (from `Frameworks/RFUI/Alpha`)
-  - RFAlpha/RFTabController (from `Frameworks/RFUI/Alpha`)
-  - RFAlpha/RFTableViewPullToFetchPlugin (from `Frameworks/RFUI/Alpha`)
-  - RFAlpha/RFTimer (from `Frameworks/RFUI/Alpha`)
-  - RFAlpha/RFViewApperance/RFLayerApperance (from `Frameworks/RFUI/Alpha`)
-  - RFAlpha/RFViewApperance/RFLine (from `Frameworks/RFUI/Alpha`)
-  - RFAlpha/RFWindow (from `Frameworks/RFUI/Alpha`)
+  - RFAlpha/RFBlockSelectorPerform (from `https://github.com/RFUI/Alpha.git`)
+  - RFAlpha/RFButton (from `https://github.com/RFUI/Alpha.git`)
+  - RFAlpha/RFCallbackControl (from `https://github.com/RFUI/Alpha.git`)
+  - RFAlpha/RFContainerView (from `https://github.com/RFUI/Alpha.git`)
+  - RFAlpha/RFDelegateChain/UICollectionViewDataSource (from `https://github.com/RFUI/Alpha.git`)
+  - RFAlpha/RFDelegateChain/UICollectionViewDelegateFlowLayout (from `https://github.com/RFUI/Alpha.git`)
+  - RFAlpha/RFDelegateChain/UISearchBarDelegate (from `https://github.com/RFUI/Alpha.git`)
+  - RFAlpha/RFDelegateChain/UITextFieldDelegate (from `https://github.com/RFUI/Alpha.git`)
+  - RFAlpha/RFDelegateChain/UITextViewDelegate (from `https://github.com/RFUI/Alpha.git`)
+  - RFAlpha/RFDrawImage (from `https://github.com/RFUI/Alpha.git`)
+  - RFAlpha/RFImageCropper (from `https://github.com/RFUI/Alpha.git`)
+  - RFAlpha/RFNavigationController (from `https://github.com/RFUI/Alpha.git`)
+  - RFAlpha/RFRefreshButton (from `https://github.com/RFUI/Alpha.git`)
+  - RFAlpha/RFRefreshControl (from `https://github.com/RFUI/Alpha.git`)
+  - RFAlpha/RFTabController (from `https://github.com/RFUI/Alpha.git`)
+  - RFAlpha/RFTableViewPullToFetchPlugin (from `https://github.com/RFUI/Alpha.git`)
+  - RFAlpha/RFTimer (from `https://github.com/RFUI/Alpha.git`)
+  - RFAlpha/RFViewApperance/RFLayerApperance (from `https://github.com/RFUI/Alpha.git`)
+  - RFAlpha/RFViewApperance/RFLine (from `https://github.com/RFUI/Alpha.git`)
+  - RFAlpha/RFWindow (from `https://github.com/RFUI/Alpha.git`)
   - RFAPI (from `https://github.com/RFUI/RFAPI.git`)
   - RFKeyboard (from `https://github.com/RFUI/RFKeyboard.git`)
   - "RFKit/Category/UIScrollView+RFScrolling"
@@ -286,13 +286,13 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
+    - RFInitializing
     - SDWebImage
   https://github.com/PBPods/PBFlex.git:
     - PBFlex
   trunk:
     - AFNetworking
     - JSONModel
-    - RFInitializing
     - RFKit
     - RFMessageManager
     - RFSegue
@@ -300,15 +300,21 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   MBAppKit:
-    :path: MBAppKit
+    :git: https://github.com/RFUI/MBAppKit.git
   RFAlpha:
-    :path: Frameworks/RFUI/Alpha
+    :git: https://github.com/RFUI/Alpha.git
   RFAPI:
     :git: https://github.com/RFUI/RFAPI.git
   RFKeyboard:
     :git: https://github.com/RFUI/RFKeyboard.git
 
 CHECKOUT OPTIONS:
+  MBAppKit:
+    :commit: b4c588d42c7df0cff5d0f6e7aa9b4b5a55b4b462
+    :git: https://github.com/RFUI/MBAppKit.git
+  RFAlpha:
+    :commit: d49804adc4ef5c067c81d7935fcdb8a8c67570a1
+    :git: https://github.com/RFUI/Alpha.git
   RFAPI:
     :commit: 6239b1e9bdadb390347dd2f150a41e28db76311e
     :git: https://github.com/RFUI/RFAPI.git
@@ -331,6 +337,6 @@ SPEC CHECKSUMS:
   SDWebImage: 6ac2eb96571bff96ecde31a987172c5934a0eb7d
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: 15e3305ebccccb6419bc2cbfe3a944b8671cef34
+PODFILE CHECKSUM: 910c87281923f7b8e2d11f5aec6d04a8f838774a
 
 COCOAPODS: 1.8.4
