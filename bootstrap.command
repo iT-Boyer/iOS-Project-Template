@@ -80,7 +80,6 @@ SedReplaceFormat () {
 # $3: 文件路径
 SedReplaceFileContent () {
     local format=$(SedReplaceFormat "$1 $2")
-    logInfo "$format"
     sed -i '' "$format" "$3"
 }
 
@@ -121,16 +120,23 @@ PromoteIfGemNotInstalled () {
 logInfo "本脚本将辅助你完成项目初始化"
 logInfo "在开始前先收集一些信息"
 
-logWarning "项目名由纯英文构成，不要包含空格、符号，否则脚本可能失败甚至损坏项目文件"
+isNeedsRename=false
 readonly oldName="App"
-readonly name=$(GetConfirmedInput "请输入新的项目名:")
+name="$oldName"
+if [ $( AskYesOrNo "是否需要重命名项目？" ) == "y" ]; then
+    isNeedsRename=true
+
+    logWarning "项目名由纯英文构成，不要包含空格、符号，否则脚本可能失败甚至损坏项目文件"
+    name=$(GetConfirmedInput "请输入新的项目名:")
+fi
+
 isValidProductName "$name" || {
     exit
 }
 
-isNeedsRecreateGit=0
+isNeedsRecreateGit=false
 if [ $( AskYesOrNo "是否需要重建 git 仓库？" ) == "y" ]; then
-    isNeedsRecreateGit=1
+    isNeedsRecreateGit=true
     if ! [ -x "$(command -v git)" ]; then
         logError "git 命令不存在"
         exit
@@ -139,13 +145,22 @@ fi
 
 echo ""
 logWarning "即将开始操作，请关闭打开的项目，并确认以下信息"
-logInfo "项目更名：$name"
-if [ $isNeedsRecreateGit == 1 ]; then
-    logInfo "重建 git 仓库"
+if $isNeedsRename ; then
+    logInfo " * 项目更名：$name"
 else
-    logInfo "不重建 git 仓库"
+    logInfo " * 跳过项目更名"
 fi
 
+if $isNeedsRecreateGit ; then
+    logInfo " * 重建 git 仓库"
+else
+    logInfo " * 不重建 git 仓库"
+fi
+
+logInfo " * 重新 pod install"
+logInfo " * 检查工具依赖是否安装"
+
+echo ""
 logInfo "点击任意键继续，如需终止按 Ctrl+C"
 read -n 1 -s -r
 echo ""
@@ -154,19 +169,21 @@ readonly backupDir="Backup/$(date "+%Y-%m-%d %H.%M.%S")"
 logInfo "备份文件到 $backupDir"
 mkdir -pv "$backupDir"
 
-logInfo "  $oldName.xcworkspace"
-cp -R "$oldName.xcworkspace" "$backupDir/$oldName.xcworkspace"
+if $isNeedsRename ; then
+    logInfo "  $oldName.xcworkspace"
+    cp -R "$oldName.xcworkspace" "$backupDir/$oldName.xcworkspace"
 
-logInfo "  $oldName.xcodeproj"
-cp -R "$oldName.xcodeproj" "$backupDir/$oldName.xcodeproj"
+    logInfo "  $oldName.xcodeproj"
+    cp -R "$oldName.xcodeproj" "$backupDir/$oldName.xcodeproj"
 
-logInfo "  Podfile"
-cp "Podfile" "$backupDir/Podfile"
+    logInfo "  Podfile"
+    cp "Podfile" "$backupDir/Podfile"
 
-logInfo "  ProjectFileVerification.rb"
-cp "Scripts/ProjectFileVerification.rb" "$backupDir/ProjectFileVerification.rb"
+    logInfo "  ProjectFileVerification.rb"
+    cp "Scripts/ProjectFileVerification.rb" "$backupDir/ProjectFileVerification.rb"
+fi
 
-if [ $isNeedsRecreateGit == 1 ]; then
+if $isNeedsRecreateGit ; then
     logInfo "  .git"
     mv ".git" "$backupDir/.git"
 
@@ -174,27 +191,29 @@ if [ $isNeedsRecreateGit == 1 ]; then
     git init
 fi
 
-logInfo "准备修改命名为：$name"
-logInfo "  当前改名的实现比较简单，直接对文本进行替换，如果失败请从备份目录找回文件手动改名"
-logInfo "  也可到 https://github.com/BB9z/iOS-Project-Template/issues 提醒我修正"
+if $isNeedsRename ; then
+    logInfo "准备修改命名为：$name"
+    logInfo "  当前改名的实现比较简单，直接对文本进行替换，如果失败请从备份目录找回文件手动改名"
+    logInfo "  也可到 https://github.com/BB9z/iOS-Project-Template/issues 提醒我修正"
 
-SedReplaceFileContent "$oldName.xcodeproj" "$name.xcodeproj" "$oldName.xcworkspace/contents.xcworkspacedata"
+    SedReplaceFileContent "$oldName.xcodeproj" "$name.xcodeproj" "$oldName.xcworkspace/contents.xcworkspacedata"
 
-SedReplaceFileContent "Pods-$oldName" "Pods-$name" "$oldName.xcodeproj/project.pbxproj"
-SedReplaceFileContent "$oldName.app"  "$name.app"  "$oldName.xcodeproj/project.pbxproj"
-sed -i '' "s/name = $oldName;/name = \"$name\";/g" "$oldName.xcodeproj/project.pbxproj"
-sed -i '' "s/Name = $oldName;/Name = \"$name\";/g" "$oldName.xcodeproj/project.pbxproj"
+    SedReplaceFileContent "Pods-$oldName" "Pods-$name" "$oldName.xcodeproj/project.pbxproj"
+    SedReplaceFileContent "$oldName.app"  "$name.app"  "$oldName.xcodeproj/project.pbxproj"
+    sed -i '' "s/name = $oldName;/name = \"$name\";/g" "$oldName.xcodeproj/project.pbxproj"
+    sed -i '' "s/Name = $oldName;/Name = \"$name\";/g" "$oldName.xcodeproj/project.pbxproj"
 
-SedReplaceFileContent '"$oldName"'      '"$name"'            "$oldName.xcodeproj/xcshareddata/xcschemes/$oldName.xcscheme"
-SedReplaceFileContent '"$oldName.app"'  '"$name.app"'        "$oldName.xcodeproj/xcshareddata/xcschemes/$oldName.xcscheme"
-SedReplaceFileContent "$oldName.xcodeproj" "$name.xcodeproj" "$oldName.xcodeproj/xcshareddata/xcschemes/$oldName.xcscheme"
+    SedReplaceFileContent '"$oldName"'      '"$name"'            "$oldName.xcodeproj/xcshareddata/xcschemes/$oldName.xcscheme"
+    SedReplaceFileContent '"$oldName.app"'  '"$name.app"'        "$oldName.xcodeproj/xcshareddata/xcschemes/$oldName.xcscheme"
+    SedReplaceFileContent "$oldName.xcodeproj" "$name.xcodeproj" "$oldName.xcodeproj/xcshareddata/xcschemes/$oldName.xcscheme"
 
-sed -i '' "s/target '$oldName' do/target '$name' do/g" "Podfile"
+    sed -i '' "s/target '$oldName' do/target '$name' do/g" "Podfile"
 
-SedReplaceFileContent "\"$oldName\"" "\"$name\"" "Scripts/ProjectFileVerification.rb"
+    SedReplaceFileContent "\"$oldName\"" "\"$name\"" "Scripts/ProjectFileVerification.rb"
 
-mv -v "$oldName.xcworkspace" "$name.xcworkspace"
-mv -v "$oldName.xcodeproj"   "$name.xcodeproj"
+    mv -v "$oldName.xcworkspace" "$name.xcworkspace"
+    mv -v "$oldName.xcodeproj"   "$name.xcodeproj"
+fi
 
 if ! [ -x "$(command -v pod)" ]; then
     logWarning "CocoaPods 貌似没有安装，请执行 gem install cocoapods 进行安装"
@@ -212,7 +231,6 @@ CheckGemInstalled "fastlane" || {
     logInput   "  安装请执行: gem install fastlane"
 }
 
-logInfo "项目设置完成，移除本脚本"
+logInfo "项目设置完成"
 logInfo "检查如果一切 OK 后，请删除 Backup 目录"
-rm $0
 open "$name.xcworkspace"
