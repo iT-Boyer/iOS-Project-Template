@@ -246,6 +246,9 @@ CheckGemInstalled "fastlane" || {
     logInput   "  安装请执行: gem install fastlane"
 }
 
+logInfo "整理项目文件"
+Scripts/sort_projects.sh
+
 echo "项目设置完成"
 logInfo "  检查一切 OK 后，可删除 Backup 目录"
 open "$name.xcworkspace"
