@@ -1,6 +1,6 @@
 #! /bin/sh
 
-# 项目自动更名，重建 git，检查工具依赖
+# 项目初始化：项目自动更名，重建 git，检查工具依赖等
 # Copyright © 2019 BB9z.
 
 set -euo pipefail
@@ -135,11 +135,19 @@ isValidProductName "$name" || {
 }
 
 isNeedsRecreateGit=false
+gitRemoteURL=""
 if [ $( AskYesOrNo "是否需要重建 git 仓库？" ) == "y" ]; then
     isNeedsRecreateGit=true
     if ! [ -x "$(command -v git)" ]; then
         logError "git 命令不存在"
         exit
+    fi
+
+    logInput "请输入新的仓库地址，为空跳过:"
+    logInfo  "  例：https://example.com/path.git, git@example.com:path.git"
+    read gitRemoteURL
+    if [ -z "$gitRemoteURL" ]; then
+        logInfo "跳过仓库地址设置"
     fi
 fi
 
@@ -153,6 +161,9 @@ fi
 
 if $isNeedsRecreateGit ; then
     logInfo " * 重建 git 仓库"
+    if [ -n "$gitRemoteURL" ]; then
+        logInfo " * 仓库远端地址：$gitRemoteURL"
+    fi
 else
     logInfo " * 不重建 git 仓库"
 fi
@@ -161,7 +172,7 @@ logInfo " * 重新 pod install"
 logInfo " * 检查工具依赖是否安装"
 
 echo ""
-logInfo "点击任意键继续，如需终止按 Ctrl+C"
+echo "点击任意键继续，如需终止按 Ctrl+C"
 read -n 1 -s -r
 echo ""
 
@@ -189,6 +200,10 @@ if $isNeedsRecreateGit ; then
 
     logInfo "重建 git 仓库"
     git init
+    if [ -n "$gitRemoteURL" ]; then
+        logInfo "设置 remote 地址"
+        git remote add origin "$gitRemoteURL"
+    fi
 fi
 
 if $isNeedsRename ; then
@@ -231,6 +246,6 @@ CheckGemInstalled "fastlane" || {
     logInput   "  安装请执行: gem install fastlane"
 }
 
-logInfo "项目设置完成"
-logInfo "检查如果一切 OK 后，请删除 Backup 目录"
+echo "项目设置完成"
+logInfo "  检查一切 OK 后，可删除 Backup 目录"
 open "$name.xcworkspace"
