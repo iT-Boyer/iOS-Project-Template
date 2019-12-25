@@ -11,7 +11,7 @@
 安装工具链依赖
 
 ```sh
-gem install plist xcodeproj fastlane
+gem install cocoapods plist xcodeproj fastlane
 ```
 
 执行以配置整个项目

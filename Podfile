@@ -2,14 +2,14 @@
 # Disable sending stats
 ENV['COCOAPODS_DISABLE_STATS'] = 'true'
 
-platform :ios, '11.0'
-
 # inhibit_all_warnings!
 
 source 'https://github.com/PBPods/PBFlex.git'
-source 'https://github.com/CocoaPods/Specs.git'
+source 'https://cdn.cocoapods.org/'
 
 target 'App' do
+    platform :ios, '11.0'
+
     pod 'RFKit', :subspecs => [
         'Category/UIScrollView+RFScrolling',
         'Category/UISearchBar',
