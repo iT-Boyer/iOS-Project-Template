@@ -38,16 +38,17 @@ RFInitializingRootForUIView
     return NO;
 }
 
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    [self _updateClipping];
+}
+
 - (void)_updateClipping {
-    if (@available(iOS 11.0, *)) {} else return;
-
     NSLayoutConstraint *c = self._bottomConstraint;
-    UILayoutGuide *lg = c.firstItem == self ? c.secondItem : c.firstItem;
-    if (![lg isKindOfClass:UILayoutGuide.class]) return;
-
-    UILayoutGuide *possibleSafeLayoutGuide = lg;
-    CGFloat layoutY = CGRectGetMaxY(possibleSafeLayoutGuide.layoutFrame);
-    self._MBBottomLayoutView_isClipping = layoutY != CGRectGetHeight(possibleSafeLayoutGuide.owningView.bounds);
+    UIView *superView = self.superview;
+    if (c && superView) {
+        self._MBBottomLayoutView_isClipping = CGRectGetMaxY(superView.bounds) - CGRectGetMaxY(self.frame) > c.constant;
+    }
 }
 
 - (void)updateConstraints {
@@ -74,9 +75,6 @@ RFInitializingRootForUIView
                 break;
         }
     }
-
-    // bug(iOS 11): layoutFrame size may be wrong at this time. Delay it.
-    [self performSelector:@selector(_updateClipping) withObject:nil afterDelay:0];
 }
 
 - (void)set_MBBottomLayoutView_isClipping:(BOOL)isClipping {
