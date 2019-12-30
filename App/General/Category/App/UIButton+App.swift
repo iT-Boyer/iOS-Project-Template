@@ -17,10 +17,10 @@ extension UIButton {
         }
         set {
             if title(for: state) != nil {
-                setTitle(text, for: state)
+                setTitle(newValue, for: state)
             }
             else {
-                setTitle(text, for: .normal)
+                setTitle(newValue, for: .normal)
             }
         }
     }

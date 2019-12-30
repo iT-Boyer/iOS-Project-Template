@@ -1,7 +1,7 @@
 /*
  MBFormSelectButton
  
- Copyright © 2018 RFUI.
+ Copyright © 2018-2019 RFUI.
  Copyright © 2014 Beijing ZhiYun ZhiYuan Information Technology Co., Ltd.
  Copyright © 2014 Chinamobo Co., Ltd.
  https://github.com/BB9z/iOS-Project-Template
@@ -29,5 +29,8 @@
 /// 修改该属性决定如何展示数值
 /// 未设置则显示 value 的 description
 @property (nullable) NSDictionary *valueDisplayMap;
+
+/// 决定 value 如何显示，供子类重写
+- (nullable NSString *)displayStringWithValue:(nullable id)value;
 
 @end

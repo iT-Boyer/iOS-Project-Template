@@ -117,3 +117,12 @@ extension TimeZone {
     /// 服务器时区
     static var server = TimeZone(identifier: "Asia/Shanghai")!
 }
+
+/// 应用毫秒时间戳
+typealias TimeStamp = Int64
+
+extension TimeStamp {
+    var date: Date {
+        return Date(timeIntervalSince1970: Double(self) / 1000.0)
+    }
+}

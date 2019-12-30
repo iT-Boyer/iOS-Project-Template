@@ -26,7 +26,7 @@ class SharePanelViewController: MBModalPresentViewController {
         }
         item.shareLink?(with: type) { [weak self] _, _, error in
             if let e = (error as NSError?) {
-                AppHUD().alertError(e, title: "分享失败")
+                AppHUD().alertError(e, title: "分享失败", fallbackMessage: nil)
             }
             else {
                 self?.dismiss(animated: true, completion: nil)

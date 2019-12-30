@@ -37,6 +37,7 @@ PODS:
     - RFKit/Category/UIResponder
   - MBAppKit/Worker (0.9.0):
     - MBAppKit/Core
+    - RFInitializing
   - PBFlex (3.1.0)
   - RFAlpha/RFBlockSelectorPerform (0.5.0)
   - RFAlpha/RFButton (0.5.0):
@@ -310,7 +311,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   MBAppKit:
-    :commit: 623febb3ad36058a34409a1d2b6814ef2979afa3
+    :commit: f75d852dc95041cbf487f5662a91d863e853714d
     :git: https://github.com/RFUI/MBAppKit.git
   RFAlpha:
     :commit: d49804adc4ef5c067c81d7935fcdb8a8c67570a1
@@ -325,7 +326,7 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   AFNetworking: 8dd5f9b9691e09186393069a12cc3b5ed7c8b511
   JSONModel: 02ab723958366a3fd27da57ea2af2113658762e9
-  MBAppKit: 1a2531f1ae8b3d46835a42fe52b43d89b6b11665
+  MBAppKit: 9112b6a45307e294f3c0b2666fb1a161cfd3cc1e
   PBFlex: e765540e4ec73fdf639a9b6eebc1453d83196f8d
   RFAlpha: c3d4791813c3b466de40c8fd03916f502639658f
   RFAPI: 742f964438d34ca4d2ef397fb9761ae7f4b84cfc
@@ -337,6 +338,6 @@ SPEC CHECKSUMS:
   SDWebImage: 5bf6aec6481ae2a062bdc59f9d6c1d1e552090e0
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: c6a80f6e62aea7b3d702be1bf9bead038e8a1357
+PODFILE CHECKSUM: 8c54967ad6b66ae34c3dd55c78178eed36e1c1fc
 
 COCOAPODS: 1.8.4

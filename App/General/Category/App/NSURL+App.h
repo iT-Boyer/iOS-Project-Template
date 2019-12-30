@@ -44,5 +44,3 @@
 - (BOOL)isHTTPURL;
 
 @end
-
-

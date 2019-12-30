@@ -21,15 +21,13 @@
 
 - (void)prepareLayout {
     [super prepareLayout];
-    NSAssert(self.scrollDirection == UICollectionViewScrollDirectionVertical, @"Only vertical direction is supported.");
     NSUInteger columns = self.numberOfColumns;
     CGFloat itemSpace = 0;
     CGFloat insetSize = 0;
     
     switch (self.layoutStyle) {
         case MBCollectionViewColumnLayoutStyleCenter:
-            itemSpace = floor((self.collectionView.width / columns -
-                               self.itemSize.width));
+            itemSpace = floor((self.collectionView.width / columns - self.itemSize.width));
             insetSize = itemSpace / 2;
             break;
         case MBCollectionViewColumnLayoutStyleNoSectionInset:
@@ -46,7 +44,12 @@
     inset.left = insetSize;
     inset.right = insetSize;
     self.sectionInset = inset;
-    self.minimumInteritemSpacing = itemSpace;
+    if (self.scrollDirection == UICollectionViewScrollDirectionHorizontal) {
+        self.minimumLineSpacing = itemSpace;
+    }
+    else {
+        self.minimumInteritemSpacing = itemSpace;
+    }
     [self.collectionView invalidateIntrinsicContentSize];
 }
 

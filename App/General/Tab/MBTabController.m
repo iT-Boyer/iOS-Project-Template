@@ -110,7 +110,7 @@
 - (void)updatesForSelectedViewControllerChanged:(__kindof UIViewController *)selectedViewController animated:(BOOL)animated {
     _douto(selectedViewController)
     [self.viewControllers enumerateObjectsUsingBlock:^(id<MBGeneralListDisplaying> dc, NSUInteger idx, BOOL *stop) {
-        UIScrollView *sv = [dc listView];
+        UIScrollView *sv = ([dc respondsToSelector:@selector(listView)])? [dc listView] : nil;
         sv.scrollsToTop = NO;
         
         if (dc == selectedViewController) {

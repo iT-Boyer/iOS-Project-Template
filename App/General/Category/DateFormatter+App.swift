@@ -23,6 +23,6 @@ extension DateFormatter {
     
     /// 本地化的周几
     @objc static let localizedShortWeek: DateFormatter = {
-        return DateFormatter.currentLocale(fromTemplate: "EEEEE")
+        return DateFormatter.currentLocale(fromTemplate: "EEE")
     }()
 }

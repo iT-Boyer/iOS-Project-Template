@@ -32,6 +32,13 @@
 
 @implementation MBModalPresentViewController
 
+- (UINavigationController *)navigationController {
+    if (!super.navigationController && [self.presentedViewController isKindOfClass:UINavigationController.class]) {
+        return (UINavigationController *)self.presentedViewController;
+    }
+    return super.navigationController;
+}
+
 - (void)presentFromViewController:(UIViewController *)parentViewController animated:(BOOL)animated completion:(void (^)(void))completion {
     if (!parentViewController) {
         parentViewController = [UIViewController rootViewControllerWhichCanPresentModalViewController];

@@ -1,7 +1,7 @@
 /*
  ZYLayoutButton
  
- Copyright © 2018 RFUI.
+ Copyright © 2018-2019 RFUI.
  Copyright © 2015 Beijing ZhiYun ZhiYuan Technology Co., Ltd.
  https://github.com/BB9z/iOS-Project-Template
  
@@ -41,6 +41,8 @@
 
 @property (nonatomic) IBInspectable float touchDuration;
 @property (nonatomic) IBInspectable float releaseDuration;
+
+@property IBInspectable BOOL reduceAlphaWhenDisabled;
 
 /**
  跳转链接

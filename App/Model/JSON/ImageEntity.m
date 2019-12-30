@@ -55,7 +55,7 @@
         for (NSNumber *widthObj in @[ @1080, @750, @640, @320, @160 ]) {
             CGFloat width = [widthObj floatValue];
             if (width > preferredPixelWidth) {
-                // 大图略过b
+                // 大图略过
                 continue;
             }
             

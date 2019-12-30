@@ -9,6 +9,7 @@
 @property AVAudioRecorder *_recorder;
 @property NSError *lastError;
 @property MBGeneralCallback _stopCallback;
+@property NSTimer *_recordingTimeout;
 @end
 
 @implementation MBAudioRecorder
@@ -35,6 +36,10 @@
              };
 }
 
+- (void)dealloc {
+    [self._recordingTimeout invalidate];
+}
+
 - (BOOL)startRecordError:(NSError *__autoreleasing  _Nullable *)outError {
     if (self._recorder) {
         if (outError) {
@@ -56,16 +61,31 @@
     }
     AVAudioRecorder *r = [AVAudioRecorder.alloc initWithURL:fileURL settings:self.settings error:outError];
     r.delegate = self;
-    if (r) {
-        self.paused = NO;
-        self.lastError = nil;
-        self._recorder = r;
-        return [r record];
+    if (!r) return NO;
+    self.paused = NO;
+    self.lastError = nil;
+    if (![r record]) return NO;
+    self._recorder = r;
+    if ([self.delegate respondsToSelector:@selector(audioRecorderDidStart:)]) {
+        [self.delegate audioRecorderDidStart:self];
     }
-    return NO;
+    if (self.durationLimitation > 0) {
+        NSTimer *tm = [NSTimer.alloc initWithFireDate:[NSDate dateWithTimeIntervalSinceNow:self.durationLimitation] interval:0 target:self selector:@selector(_MBAudioRecorder_onTimeout) userInfo:nil repeats:NO];
+        [NSRunLoop.mainRunLoop addTimer:tm forMode:NSRunLoopCommonModes];
+        self._recordingTimeout = tm;
+    }
+    return YES;
+}
+
+- (void)_MBAudioRecorder_onTimeout {
+    [self stopRecordComplation:nil];
 }
 
 - (void)stopRecordComplation:(void (^)(BOOL, NSURL *, NSError *))complation {
+    if (self._recordingTimeout) {
+        [self._recordingTimeout invalidate];
+        self._recordingTimeout = nil;
+    }
     MBGeneralCallback cb = MBSafeCallback(complation);
     AVAudioRecorder *r = self._recorder;
     if (!r) {
@@ -76,12 +96,18 @@
     self.paused = NO;
     self._stopCallback = complation;
     [r stop];
+    if (!self.disableAudioSessionCategotyRestoreWhenStop) {
+        [AVAudioSession.sharedInstance setCategory:AVAudioSessionCategorySoloAmbient error:nil];
+    }
 }
 
 - (void)audioRecorderDidFinishRecording:(AVAudioRecorder *)recorder successfully:(BOOL)flag {
     if (self._stopCallback) {
         self._stopCallback(flag, recorder.url, self.lastError);
         self._stopCallback = nil;
+    }
+    if ([self.delegate respondsToSelector:@selector(audioRecorder:finishedSuccessfully:file:error:)]) {
+        [self.delegate audioRecorder:self finishedSuccessfully:flag file:recorder.url error:self.lastError];
     }
 }
 

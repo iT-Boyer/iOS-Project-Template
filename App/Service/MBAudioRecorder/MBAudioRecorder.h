@@ -1,7 +1,7 @@
 /*
  MBAudioRecorder
  
- Copyright © 2018 RFUI.
+ Copyright © 2018-2019 RFUI.
  https://github.com/BB9z/iOS-Project-Template
  
  Apache License, Version 2.0
@@ -10,6 +10,8 @@
 
 #import <RFKit/RFRuntime.h>
 #import <AVFoundation/AVFoundation.h>
+
+@protocol MBAudioRecorderDelegate;
 
 // @MBDependency:2
 /**
@@ -40,19 +42,26 @@
  */
 @property (nullable) NSURL *recordFileURL;
 
-/// 非空会在录音开始时设置 audio session 的 category
+/// 限制录音时间，大于 0 时当录音时间超过给定时长自动停止
+/// @warning 暂不支持暂停
+@property NSTimeInterval durationLimitation;
+
+/// 当非空时，录音开始时设置，录音结束不自动还原
 @property (nullable) AVAudioSessionCategory preferredSessionCategory;
+
+/// 默认 NO，此时结束录音时会将 AVAudioSession 的 category 设置为 soloAmbient
+@property BOOL disableAudioSessionCategotyRestoreWhenStop;
 
 /**
  开始录音
- 
+
  如果已有录音正在录制，会报错；MBErrorOperationUnfinished
  */
 - (BOOL)startRecordError:(NSError * __nullable *__nullable)outError NS_SWIFT_NAME( startRecord() );
 
 /**
  停止录音
- 
+
  如果未开始会报错 MBErrorOperationCanceled。不会修改 audio session 的 category
  */
 - (void)stopRecordComplation:(nullable void (^)(BOOL, NSURL *__nullable, NSError *__nullable))complation;
@@ -60,4 +69,12 @@
 @property (readonly, getter=isRecording) BOOL recording;
 @property (nonatomic) BOOL paused;
 
+@property (weak, nullable) id<MBAudioRecorderDelegate> delegate;
+
+@end
+
+@protocol MBAudioRecorderDelegate <NSObject>
+@optional
+- (void)audioRecorderDidStart:(nonnull MBAudioRecorder *)recorder;
+- (void)audioRecorder:(nonnull MBAudioRecorder *)recorder finishedSuccessfully:(BOOL)flag file:(nullable NSURL *)file error:(nullable NSError *)error;
 @end

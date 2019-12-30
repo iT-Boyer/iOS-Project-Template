@@ -40,6 +40,13 @@
     };
 }
 
+- (void)setEnabled:(BOOL)enabled {
+    [super setEnabled:enabled];
+    if (self.reduceAlphaWhenDisabled) {
+        self.alpha = enabled ? 1 : 0.5;
+    }
+}
+
 - (void)_touchDownEffect {
     if (self.touchEffectDisabled) return;
     if (self.touchDownEffectApplied) return;
@@ -63,6 +70,10 @@
     [UIView animateWithDuration:self.releaseDuration delay:0.1 usingSpringWithDamping:0.5 initialSpringVelocity:1 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         self.layer.transform = CATransform3DIdentity;
     } completion:nil];
+}
+
+- (CGSize)intrinsicContentSize {
+    return self.bounds.size;
 }
 
 @end

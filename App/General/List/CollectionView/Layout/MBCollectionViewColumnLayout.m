@@ -49,7 +49,7 @@
     if (columnCount < 1) {
         columnCount = 1;
     }
-    CGFloat itemWidth = floorf((width - (columnCount - 1) * self.minimumInteritemSpacing) / columnCount);
+    CGFloat itemWidth = floor((width - (columnCount - 1) * self.minimumInteritemSpacing) / columnCount);
     return itemWidth;
 }
 
@@ -64,7 +64,7 @@
     }
 
     CGFloat itemWidth = [self itemWidthInSectionAtIndex:0];
-    self.itemSize = CGSizeMake(itemWidth, itemWidth/reference.width*reference.height);
+    self.itemSize = CGSizeMake(itemWidth, round(itemWidth/reference.width * reference.height));
     [self.collectionView invalidateIntrinsicContentSize];
 }
 
