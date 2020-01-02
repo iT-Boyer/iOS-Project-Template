@@ -67,7 +67,7 @@
         dispatch_after_seconds(1, checkBlock);
     }
     else if (tcontext.isInteractive) {
-        [tcontext notifyWhenInteractionEndsUsingBlock:^(id<UIViewControllerTransitionCoordinatorContext>  _Nonnull context) {
+        [tcontext notifyWhenInteractionChangesUsingBlock:^(id<UIViewControllerTransitionCoordinatorContext>  _Nonnull context) {
             dispatch_after_seconds(1, checkBlock);
         }];
     }

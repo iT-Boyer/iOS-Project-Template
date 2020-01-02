@@ -25,11 +25,6 @@ fastlane check_metadata
 fastlane setup_project
 ```
 安装整个项目依赖
-### update_pods_combine
-```
-fastlane update_pods_combine
-```
-更新 pods-combine
 ### sort_project
 ```
 fastlane sort_project

@@ -1,6 +1,7 @@
 
 #import "MBApp.h"
 #import "Common.h"
+@import UserNotifications;
 
 @implementation MBApp
 
@@ -25,7 +26,7 @@
             // 全新启动
             if (!lastVersion) {
                 // 一天内重新安装，通知会保留，需要清掉
-                [[UIApplication sharedApplication] cancelAllLocalNotifications];
+                [UNUserNotificationCenter.currentNotificationCenter removeAllPendingNotificationRequests];
             }
             // 升级
             else if (![_version isEqualToString:lastVersion]) {
