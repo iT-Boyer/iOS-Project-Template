@@ -19,11 +19,6 @@ target 'App' do
         'RFButton',
         'RFCallbackControl',
         'RFContainerView',
-        'RFDelegateChain/UICollectionViewDelegateFlowLayout',
-        'RFDelegateChain/UICollectionViewDataSource',
-        'RFDelegateChain/UISearchBarDelegate',
-        'RFDelegateChain/UITextFieldDelegate',
-        'RFDelegateChain/UITextViewDelegate',
         'RFDrawImage',
         'RFImageCropper',
         'RFNavigationController',
@@ -37,6 +32,13 @@ target 'App' do
         'RFWindow',
     ]
     pod 'RFAPI', :git => 'https://github.com/RFUI/RFAPI.git'
+    pod 'RFDelegateChain', :subspecs => [
+        'UICollectionViewDelegateFlowLayout',
+        'UICollectionViewDataSource',
+        'UISearchBarDelegate',
+        'UITextFieldDelegate',
+        'UITextViewDelegate',
+    ]
     pod 'RFKeyboard', :git => 'https://github.com/RFUI/RFKeyboard.git'
     pod 'RFMessageManager', :subspecs => ['SVProgressHUD']
     pod 'RFSegue', :subspecs => ['Async']
@@ -48,8 +50,8 @@ target 'App' do
         'Worker',
     ]
 
-    pod 'SDWebImage'
     pod 'PBFlex', :configurations => ['Debug']
+    pod 'SDWebImage'
 
     # target "Test" do
     #     inherit! :search_paths

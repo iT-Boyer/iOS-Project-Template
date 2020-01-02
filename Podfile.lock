@@ -25,7 +25,7 @@ PODS:
     - RFKit/Runtime
   - MBAppKit/Input (0.9.0):
     - MBAppKit/Core
-    - RFAlpha/RFDelegateChain/UITextFieldDelegate
+    - RFDelegateChain/UITextFieldDelegate
     - RFInitializing
     - RFKit/Category/UIResponder
     - RFKit/RFGeometry
@@ -39,90 +39,73 @@ PODS:
     - MBAppKit/Core
     - RFInitializing
   - PBFlex (3.1.0)
-  - RFAlpha/RFBlockSelectorPerform (0.5.0)
-  - RFAlpha/RFButton (0.5.0):
+  - RFAlpha/RFBlockSelectorPerform (0.6.0)
+  - RFAlpha/RFButton (0.6.0):
     - RFInitializing (>= 1.1)
     - RFKit/Runtime (>= 1.7.1)
-  - RFAlpha/RFCallbackControl (0.5.0):
+  - RFAlpha/RFCallbackControl (0.6.0):
     - RFKit/Category/NSArray
     - RFKit/Runtime (>= 1.7.1)
-  - RFAlpha/RFContainerView (0.5.0):
+  - RFAlpha/RFContainerView (0.6.0):
     - RFInitializing (>= 1.1)
     - RFKit/Category/UIView
     - RFKit/Category/UIViewController
     - RFKit/Runtime (>= 1.7.1)
-  - RFAlpha/RFDataSourceArray (0.5.0)
-  - RFAlpha/RFDelegateChain/Chain (0.5.0):
-    - RFInitializing (>= 1.1)
+  - RFAlpha/RFDataSourceArray (0.6.0)
+  - RFAlpha/RFDrawImage (0.6.0):
     - RFKit/Runtime (>= 1.7.1)
-  - RFAlpha/RFDelegateChain/UICollectionViewDataSource (0.5.0):
-    - RFAlpha/RFDelegateChain/Chain
-  - RFAlpha/RFDelegateChain/UICollectionViewDelegate (0.5.0):
-    - RFAlpha/RFDelegateChain/UIScrollViewDelegate
-  - RFAlpha/RFDelegateChain/UICollectionViewDelegateFlowLayout (0.5.0):
-    - RFAlpha/RFDelegateChain/UICollectionViewDelegate
-  - RFAlpha/RFDelegateChain/UIScrollViewDelegate (0.5.0):
-    - RFAlpha/RFDelegateChain/Chain
-  - RFAlpha/RFDelegateChain/UISearchBarDelegate (0.5.0):
-    - RFAlpha/RFDelegateChain/Chain
-  - RFAlpha/RFDelegateChain/UITextFieldDelegate (0.5.0):
-    - RFAlpha/RFDelegateChain/Chain
-  - RFAlpha/RFDelegateChain/UITextViewDelegate (0.5.0):
-    - RFAlpha/RFDelegateChain/Chain
-  - RFAlpha/RFDrawImage (0.5.0):
-    - RFKit/Runtime (>= 1.7.1)
-  - RFAlpha/RFImageCropper (0.5.0):
+  - RFAlpha/RFImageCropper (0.6.0):
     - RFInitializing (>= 1.1)
     - RFKit/Category/UIColor
     - RFKit/Category/UIImage
     - RFKit/Category/UIView
     - "RFKit/Category/UIView+RFAnimate"
     - RFKit/Runtime (>= 1.7.1)
-  - RFAlpha/RFKVOWrapper (0.5.0):
+  - RFAlpha/RFKVOWrapper (0.6.0):
     - RFKit/Runtime (>= 1.7.1)
-  - RFAlpha/RFNavigationController (0.5.0):
+  - RFAlpha/RFNavigationController (0.6.0):
     - RFAlpha/RFTransitioning/NavigationControllerTransition
     - RFKit/Category/NSError
     - RFKit/Category/UIView
     - "RFKit/Category/UIView+RFAnimate"
     - "RFKit/Category/UIViewController+RFInterfaceOrientation"
     - RFKit/Runtime (>= 1.7.1)
-  - RFAlpha/RFRefreshButton (0.5.0):
+  - RFAlpha/RFRefreshButton (0.6.0):
     - RFInitializing (>= 1.1)
     - RFKit/Category/UIView
     - RFKit/Runtime (>= 1.7.1)
-  - RFAlpha/RFRefreshControl (0.5.0):
+  - RFAlpha/RFRefreshControl (0.6.0):
     - RFKit/Runtime (>= 1.7.1)
-  - RFAlpha/RFSwizzle (0.5.0):
+  - RFAlpha/RFSwizzle (0.6.0):
     - RFKit/Runtime (>= 1.7.1)
-  - RFAlpha/RFSynthesize (0.5.0):
+  - RFAlpha/RFSynthesize (0.6.0):
     - RFKit/Runtime (>= 1.7.1)
-  - RFAlpha/RFTabController (0.5.0):
+  - RFAlpha/RFTabController (0.6.0):
     - RFAlpha/RFDataSourceArray
     - RFInitializing (>= 1.1)
     - RFKit/Category/NSArray
     - RFKit/Category/UIView
     - RFKit/Runtime (>= 1.7.1)
-  - RFAlpha/RFTableViewPullToFetchPlugin (0.5.0):
-    - RFAlpha/RFDelegateChain/Chain
+  - RFAlpha/RFTableViewPullToFetchPlugin (0.6.0):
     - RFAlpha/RFKVOWrapper
+    - RFDelegateChain/Chain
     - RFKit/Category/UIView
     - "RFKit/Category/UIView+RFAnimate"
-  - RFAlpha/RFTimer (0.5.0)
-  - RFAlpha/RFTransitioning/Core (0.5.0):
+  - RFAlpha/RFTimer (0.6.0)
+  - RFAlpha/RFTransitioning/Core (0.6.0):
     - RFInitializing (>= 1.1)
     - RFKit/Runtime (>= 1.7.1)
-  - RFAlpha/RFTransitioning/NavigationControllerTransition (0.5.0):
-    - RFAlpha/RFDelegateChain/Chain
+  - RFAlpha/RFTransitioning/NavigationControllerTransition (0.6.0):
     - RFAlpha/RFTransitioning/Core
-  - RFAlpha/RFViewApperance/RFDrawView (0.5.0):
+    - RFDelegateChain/Chain
+  - RFAlpha/RFViewApperance/RFDrawView (0.6.0):
     - RFInitializing (>= 1.1)
     - RFKit/Runtime (>= 1.7.1)
-  - RFAlpha/RFViewApperance/RFLayerApperance (0.5.0):
+  - RFAlpha/RFViewApperance/RFLayerApperance (0.6.0):
     - RFKit/Category/UIDevice
-  - RFAlpha/RFViewApperance/RFLine (0.5.0):
+  - RFAlpha/RFViewApperance/RFLine (0.6.0):
     - RFAlpha/RFViewApperance/RFDrawView
-  - RFAlpha/RFWindow (0.5.0):
+  - RFAlpha/RFWindow (0.6.0):
     - RFInitializing (>= 1.1)
   - RFAPI (1.2.0):
     - AFNetworking/NSURLConnection (~> 2.0)
@@ -133,7 +116,24 @@ PODS:
     - RFKit/Runtime (> 1.7)
     - RFMessageManager/Manager (>= 0.5)
     - RFMessageManager/RFNetworkActivityMessage
-  - RFInitializing (1.1.0)
+  - RFDelegateChain/Chain (1.0.0):
+    - RFInitializing (>= 1.1)
+    - RFKit/Runtime (>= 1.7.1)
+  - RFDelegateChain/UICollectionViewDataSource (1.0.0):
+    - RFDelegateChain/Chain
+  - RFDelegateChain/UICollectionViewDelegate (1.0.0):
+    - RFDelegateChain/UIScrollViewDelegate
+  - RFDelegateChain/UICollectionViewDelegateFlowLayout (1.0.0):
+    - RFDelegateChain/UICollectionViewDelegate
+  - RFDelegateChain/UIScrollViewDelegate (1.0.0):
+    - RFDelegateChain/Chain
+  - RFDelegateChain/UISearchBarDelegate (1.0.0):
+    - RFDelegateChain/Chain
+  - RFDelegateChain/UITextFieldDelegate (1.0.0):
+    - RFDelegateChain/Chain
+  - RFDelegateChain/UITextViewDelegate (1.0.0):
+    - RFDelegateChain/Chain
+  - RFInitializing (1.2.0)
   - RFKeyboard (0.1.0):
     - RFKit/Runtime (>= 1.7)
   - RFKit (2.4.0):
@@ -246,9 +246,9 @@ PODS:
     - RFKit/Category/UIDevice
     - RFKit/Category/UINavigationController
     - RFKit/Runtime (>= 1.7)
-  - SDWebImage (5.4.0):
-    - SDWebImage/Core (= 5.4.0)
-  - SDWebImage/Core (5.4.0)
+  - SDWebImage (5.4.1):
+    - SDWebImage/Core (= 5.4.1)
+  - SDWebImage/Core (5.4.1)
   - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
@@ -262,11 +262,6 @@ DEPENDENCIES:
   - RFAlpha/RFButton (from `https://github.com/RFUI/Alpha.git`)
   - RFAlpha/RFCallbackControl (from `https://github.com/RFUI/Alpha.git`)
   - RFAlpha/RFContainerView (from `https://github.com/RFUI/Alpha.git`)
-  - RFAlpha/RFDelegateChain/UICollectionViewDataSource (from `https://github.com/RFUI/Alpha.git`)
-  - RFAlpha/RFDelegateChain/UICollectionViewDelegateFlowLayout (from `https://github.com/RFUI/Alpha.git`)
-  - RFAlpha/RFDelegateChain/UISearchBarDelegate (from `https://github.com/RFUI/Alpha.git`)
-  - RFAlpha/RFDelegateChain/UITextFieldDelegate (from `https://github.com/RFUI/Alpha.git`)
-  - RFAlpha/RFDelegateChain/UITextViewDelegate (from `https://github.com/RFUI/Alpha.git`)
   - RFAlpha/RFDrawImage (from `https://github.com/RFUI/Alpha.git`)
   - RFAlpha/RFImageCropper (from `https://github.com/RFUI/Alpha.git`)
   - RFAlpha/RFNavigationController (from `https://github.com/RFUI/Alpha.git`)
@@ -279,6 +274,11 @@ DEPENDENCIES:
   - RFAlpha/RFViewApperance/RFLine (from `https://github.com/RFUI/Alpha.git`)
   - RFAlpha/RFWindow (from `https://github.com/RFUI/Alpha.git`)
   - RFAPI (from `https://github.com/RFUI/RFAPI.git`)
+  - RFDelegateChain/UICollectionViewDataSource
+  - RFDelegateChain/UICollectionViewDelegateFlowLayout
+  - RFDelegateChain/UISearchBarDelegate
+  - RFDelegateChain/UITextFieldDelegate
+  - RFDelegateChain/UITextViewDelegate
   - RFKeyboard (from `https://github.com/RFUI/RFKeyboard.git`)
   - "RFKit/Category/UIScrollView+RFScrolling"
   - RFKit/Category/UISearchBar
@@ -292,6 +292,7 @@ SPEC REPOS:
   trunk:
     - AFNetworking
     - JSONModel
+    - RFDelegateChain
     - RFInitializing
     - RFKit
     - RFMessageManager
@@ -311,10 +312,10 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   MBAppKit:
-    :commit: f75d852dc95041cbf487f5662a91d863e853714d
+    :commit: a0a24b07769f36809ccf3d851eec7308f296d016
     :git: https://github.com/RFUI/MBAppKit.git
   RFAlpha:
-    :commit: d49804adc4ef5c067c81d7935fcdb8a8c67570a1
+    :commit: e6dbca0a8ecee55f17c20aaecde505b4fd6aca27
     :git: https://github.com/RFUI/Alpha.git
   RFAPI:
     :commit: 6239b1e9bdadb390347dd2f150a41e28db76311e
@@ -326,18 +327,19 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   AFNetworking: 8dd5f9b9691e09186393069a12cc3b5ed7c8b511
   JSONModel: 02ab723958366a3fd27da57ea2af2113658762e9
-  MBAppKit: 9112b6a45307e294f3c0b2666fb1a161cfd3cc1e
+  MBAppKit: c79a366b282f21676f5a7d43df7b81c721a451fd
   PBFlex: e765540e4ec73fdf639a9b6eebc1453d83196f8d
-  RFAlpha: c3d4791813c3b466de40c8fd03916f502639658f
+  RFAlpha: a2ba9b06f5452e11c486abd3bf20c9036734ae7a
   RFAPI: 742f964438d34ca4d2ef397fb9761ae7f4b84cfc
-  RFInitializing: 1ea7f66b2bf97a401a31482c4e2c2c19cdc9d89c
+  RFDelegateChain: 06b2100d30de422eb7dee4ad833c8bd80c631f16
+  RFInitializing: c85e1d8b9c5b540761f7983af3e9bb517654ad84
   RFKeyboard: a39d8c9fad5b2b8fe3df98fe94fa909229a4cd46
   RFKit: b85177e1321171cfb342810880555a06fe12fbbe
   RFMessageManager: 574dc701e448c451ac86826f5e426bbe0e161a01
   RFSegue: 16a13d55032a737a93a1feb3c758077f708e3c70
-  SDWebImage: 5bf6aec6481ae2a062bdc59f9d6c1d1e552090e0
+  SDWebImage: 29c340dbdcef342bb13125553f4e19ce056b07a7
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: 8c54967ad6b66ae34c3dd55c78178eed36e1c1fc
+PODFILE CHECKSUM: a0a91aa74509557bbbe70082b1f40b08451e7ee9
 
 COCOAPODS: 1.8.4

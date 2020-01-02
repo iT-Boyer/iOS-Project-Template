@@ -1,7 +1,7 @@
 
 #import "MBTextView.h"
 #import "UIColor+App.h"
-#import <RFAlpha/UITextViewDelegateChain.h>
+#import <RFDelegateChain/UITextViewDelegateChain.h>
 #import <RFKit/UIView+RFAnimate.h>
 
 

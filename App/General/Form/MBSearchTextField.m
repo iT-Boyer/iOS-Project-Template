@@ -1,8 +1,8 @@
 
 #import "MBSearchTextField.h"
 #import "ShortCuts.h"
-#import <RFAlpha/UITextFiledDelegateChain.h>
 #import <RFAlpha/RFTimer.h>
+#import <RFDelegateChain/UITextFiledDelegateChain.h>
 #import <MBAppKit/MBAPI.h>
 
 @interface MBSearchTextField ()

@@ -9,8 +9,8 @@
  http://www.apache.org/licenses/LICENSE-2.0
  */
 #import <MBAppKit/MBAppKit.h>
-#import <RFAlpha/UICollectionViewDataSourceChain.h>
-#import <RFAlpha/UICollectionViewDelegateFlowLayoutChain.h>
+#import <RFDelegateChain/UICollectionViewDataSourceChain.h>
+#import <RFDelegateChain/UICollectionViewDelegateFlowLayoutChain.h>
 
 // @MBDependency:1
 /**
