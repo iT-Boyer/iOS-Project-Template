@@ -34,20 +34,13 @@ class NavigationController: MBNavigationController {
                 self?.onLogout()
             }
         }
+        hideShadow()
+    }
 
-        // @bug(iOS): 强制修改阴影
-        let bar = navigationBar
-        let shadow = RFLine(frame: CGRect(x: 0, y: bar.height - 1, width: bar.width, height: 1))
-        shadow.isUserInteractionEnabled = false
-        shadow.autoresizingMask = [ .flexibleTopMargin, .flexibleWidth ]
-        shadow.backgroundColor = UIColor(rgbHex: 0xF3F3F3)
-        shadow.isOpaque = true
-        bar.addSubview(shadow)
-        for v in bar.subviews.first?.subviews ?? [] {
-            if v is UIImageView && v.height <= 1 {
-                v.isHidden = true
-            }
-        }
+    /// 隐藏导航阴影
+    func hideShadow() {
+        navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationBar.shadowImage = UIImage()
     }
     
     func onLogout() {
