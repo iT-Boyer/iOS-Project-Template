@@ -340,10 +340,8 @@
 		D5D9F5112071BA6400B6FE9B /* UIViewController+RFInterfaceOrientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+RFInterfaceOrientation.h"; sourceTree = "<group>"; };
 		D5D9F5132071BA6500B6FE9B /* UIViewController+RFInterfaceOrientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+RFInterfaceOrientation.m"; sourceTree = "<group>"; };
 		D5DCA6EB2046972B00A4951A /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; name = Podfile; path = ../Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		D5DCA6F52046988300A4951A /* Podfile - PreBuildCombine */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; name = "Podfile - PreBuildCombine"; path = ../PreBuild/Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		D5DCA6FB204698F700A4951A /* Appfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = Appfile; sourceTree = "<group>"; };
 		D5DCA6FC204698F700A4951A /* Fastfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = Fastfile; sourceTree = "<group>"; };
-		D5DCA7162046A62A00A4951A /* Target.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Target.xcconfig; sourceTree = "<group>"; };
 		D5E8057E226F403C00901C41 /* MBBottomLayoutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBBottomLayoutView.h; sourceTree = "<group>"; };
 		D5E8057F226F403D00901C41 /* MBBottomLayoutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBBottomLayoutView.m; sourceTree = "<group>"; };
 		D5EE50E42043DAA1009148B3 /* NSArray+App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+App.m"; sourceTree = "<group>"; };
@@ -821,7 +819,6 @@
 			children = (
 				D5DCA6FA204698F700A4951A /* fastlane */,
 				D5DCA6E92046971100A4951A /* Podfile */,
-				D5DCA7162046A62A00A4951A /* Target.xcconfig */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -981,7 +978,6 @@
 			isa = PBXGroup;
 			children = (
 				D5DCA6EB2046972B00A4951A /* Podfile */,
-				D5DCA6F52046988300A4951A /* Podfile - PreBuildCombine */,
 			);
 			name = Podfile;
 			sourceTree = "<group>";
@@ -1544,7 +1540,6 @@
 /* Begin XCBuildConfiguration section */
 		D5197A6D17EECAAF00CA387C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D5DCA7162046A62A00A4951A /* Target.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1606,7 +1601,6 @@
 		};
 		D5197A6E17EECAAF00CA387C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D5DCA7162046A62A00A4951A /* Target.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1672,7 +1666,6 @@
 				CODE_SIGN_ENTITLEMENTS = "App/Supporting Files/debug.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
-				DEVELOPMENT_TEAM = Y85RFN6NXZ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
@@ -1709,7 +1702,6 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "App/Supporting Files/release.entitlements";
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
-				DEVELOPMENT_TEAM = Y85RFN6NXZ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
@@ -1741,7 +1733,7 @@
 				EnableCodeCommentsHighlight = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				ProjectFilePath = "${SRCROOT}/${PROJECT}.xcodeproj";
-				ScriptPath = "$SRCROOT/Scripts";
+				ScriptPath = $SRCROOT/Scripts;
 			};
 			name = Debug;
 		};
@@ -1756,13 +1748,12 @@
 				EnableCodeCommentsHighlight = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				ProjectFilePath = "${SRCROOT}/${PROJECT}.xcodeproj";
-				ScriptPath = "$SRCROOT/Scripts";
+				ScriptPath = $SRCROOT/Scripts;
 			};
 			name = Release;
 		};
 		D564D5D41970EF290032FEC3 /* Alpha */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D5DCA7162046A62A00A4951A /* Target.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1828,7 +1819,6 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "App/Supporting Files/alpha.entitlements";
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
-				DEVELOPMENT_TEAM = Y85RFN6NXZ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
@@ -1860,7 +1850,7 @@
 				EnableCodeCommentsHighlight = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				ProjectFilePath = "${SRCROOT}/${PROJECT}.xcodeproj";
-				ScriptPath = "$SRCROOT/Scripts";
+				ScriptPath = $SRCROOT/Scripts;
 			};
 			name = Alpha;
 		};
