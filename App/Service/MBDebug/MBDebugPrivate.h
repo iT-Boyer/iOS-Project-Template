@@ -12,7 +12,7 @@
 
 #import "ShortCuts.h"
 
-#if DEBUG
+#if __has_include("FLEX/FLEX.h")
 #import <FLEX/FLEX.h>
 
 // 默认私有头，暴露出来

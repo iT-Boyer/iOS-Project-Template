@@ -26,7 +26,7 @@
 - (void)jumpWithURL:(nullable NSString *)urlString object:(nullable id)object {
     NSURL *url = [NSURL URLWithString:urlString];
     if (url.isHTTPURL) {
-        [UIApplication.sharedApplication openURL:url];
+        [UIApplication.sharedApplication openURL:url options:@{} completionHandler:nil];
         return;
     }
     if (![url.scheme isEqualToString:@"com.znart"]) return;

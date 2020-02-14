@@ -39,7 +39,7 @@ static unsigned long long LastMemoryUsed;
 }
 
 - (IBAction)onFlex:(id)sender {
-#if DEBUG
+#if __has_include("FLEX/FLEX.h")
     [FLEXManager.sharedManager showExplorer];
 #endif
 }

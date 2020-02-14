@@ -1,5 +1,6 @@
 
 #import "MBDebugViews.h"
+#import "MBDebugPrivate.h"
 #import "NSUserDefaults+MBDebug.h"
 #import "UIViewController+App.h"
 
@@ -26,11 +27,8 @@
 
 @end
 
-#import <RFWindow.h>
+#import <RFAlpha/RFWindow.h>
 #import "MBDebugFloatConsoleViewController.h"
-#if DEBUG
-#import <FLEX/FLEXManager.h>
-#endif
 
 @interface MBDebugWindowButton ()
 @property (nonatomic) BOOL enableObserverActived;
@@ -47,7 +45,7 @@ RFInitializingRootForUIView
 
 - (void)afterInit {
     self.enableObserverActived = YES;
-#if DEBUG
+#if __has_include("FLEX/FLEX.h")
     FLEXManager *fm = [FLEXManager sharedManager];
     [fm registerSimulatorShortcutWithKey:@"d" modifiers:UIKeyModifierControl action:^{
         NSUserDefaults.standardUserDefaults._debugEnabled = YES;

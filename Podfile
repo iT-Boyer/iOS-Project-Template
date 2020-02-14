@@ -50,7 +50,7 @@ target 'App' do
         'Worker',
     ]
 
-    pod 'PBFlex', :configurations => ['Debug']
+#    pod 'FLEX', :configurations => ['Debug']
     pod 'SDWebImage'
 
     # target "Test" do

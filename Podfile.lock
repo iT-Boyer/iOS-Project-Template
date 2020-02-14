@@ -33,7 +33,6 @@ PODS:
   - MBAppKit/Worker (0.9.1):
     - MBAppKit/Core
     - RFInitializing
-  - PBFlex (3.1.0)
   - RFAlpha/RFBlockSelectorPerform (0.6.0)
   - RFAlpha/RFButton (0.6.0):
     - RFInitializing (>= 1.1)
@@ -252,7 +251,6 @@ DEPENDENCIES:
   - MBAppKit/Input (from `https://github.com/RFUI/MBAppKit.git`)
   - MBAppKit/Navigation (from `https://github.com/RFUI/MBAppKit.git`)
   - MBAppKit/Worker (from `https://github.com/RFUI/MBAppKit.git`)
-  - PBFlex
   - RFAlpha/RFBlockSelectorPerform
   - RFAlpha/RFButton
   - RFAlpha/RFCallbackControl
@@ -282,8 +280,6 @@ DEPENDENCIES:
   - SDWebImage
 
 SPEC REPOS:
-  https://github.com/PBPods/PBFlex.git:
-    - PBFlex
   trunk:
     - AFNetworking
     - JSONModel
@@ -305,7 +301,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   MBAppKit:
-    :commit: 6e7639ad17b5e58cc91390f0d0cc95b75840aec5
+    :commit: 7916338a0cda724342b872b00d62a093e0ab4a6f
     :git: https://github.com/RFUI/MBAppKit.git
   RFKeyboard:
     :commit: ca5204d9c85f2350f58fb88ad2854dd4bb9ca4eb
@@ -315,7 +311,6 @@ SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   JSONModel: 02ab723958366a3fd27da57ea2af2113658762e9
   MBAppKit: 5d6b48555d9ce8abe02681f19517c3d084ce05c6
-  PBFlex: e765540e4ec73fdf639a9b6eebc1453d83196f8d
   RFAlpha: a2ba9b06f5452e11c486abd3bf20c9036734ae7a
   RFAPI: 6ae20c6c6e78c6aa278912ba7e1ab98c6cde122d
   RFDelegateChain: 06b2100d30de422eb7dee4ad833c8bd80c631f16
@@ -327,6 +322,6 @@ SPEC CHECKSUMS:
   SDWebImage: 4d5c027c935438f341ed33dbac53ff9f479922ca
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: a7833573130fc7666d7408588ed854c2422e9ef1
+PODFILE CHECKSUM: f769f518bdc014c99012539385592d3aadde751f
 
 COCOAPODS: 1.8.4

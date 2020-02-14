@@ -1,6 +1,6 @@
 #!/bin/sh
 cd "$(dirname "$0")/.."
 echo $PWD
-pod install --verbose
+pod update --verbose
 ./Scripts/sort_projects.sh
-say "install done"
+say "update done"
