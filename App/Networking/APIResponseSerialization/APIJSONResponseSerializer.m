@@ -110,7 +110,7 @@ HTTP 状态与 ResponseSerializer 的 acceptableStatusCodes 预期不符合\n\
         return nil;
     }
 
-    NSString *responseString = [[NSString alloc] initWithData:data encoding:self.stringEncoding];
+    NSString *responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     if (!responseString.length) {
         [self makeError:error withDebugMessage:@"因编码问题不能处理响应数据\n建议先验证返回是否是合法的JSON，并联系后台人员" domain:NSURLErrorDomain code:NSURLErrorCannotDecodeContentData description:@"无法处理服务器的返回" reason:@"" suggestion:@"" url:response.URL];
         return nil;

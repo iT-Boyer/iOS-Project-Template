@@ -1,41 +1,36 @@
 PODS:
-  - AFNetworking/NSURLConnection (2.7.0):
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-  - AFNetworking/Reachability (2.7.0)
-  - AFNetworking/Security (2.7.0)
-  - AFNetworking/Serialization (2.7.0)
+  - AFNetworking/Reachability (3.2.1)
+  - AFNetworking/Security (3.2.1)
+  - AFNetworking/Serialization (3.2.1)
   - JSONModel (1.8.0)
-  - MBAppKit/Button (0.9.0):
+  - MBAppKit/Button (0.9.1):
     - RFInitializing
     - RFKit/RFGeometry
-  - MBAppKit/Core (0.9.0):
-    - AFNetworking/NSURLConnection (~> 2.6)
+  - MBAppKit/Core (0.9.1):
     - RFAlpha/RFSwizzle
-    - RFAPI (~> 1.2)
+    - RFAPI (>= 2.0.0-beta.1)
     - RFKit (~> 2.0)
     - RFKit/Category/NSDate
     - RFKit/Category/NSDateFormatter
     - RFKit/Category/NSJSONSerialization
     - RFKit/Category/NSLayoutConstraint
     - RFKit/Category/NSURL
-  - MBAppKit/Environment (0.9.0):
+  - MBAppKit/Environment (0.9.1):
     - RFKit/Category/NSArray
     - RFKit/Runtime
-  - MBAppKit/Input (0.9.0):
+  - MBAppKit/Input (0.9.1):
     - MBAppKit/Core
     - RFDelegateChain/UITextFieldDelegate
     - RFInitializing
     - RFKit/Category/UIResponder
     - RFKit/RFGeometry
-  - MBAppKit/Navigation (0.9.0):
+  - MBAppKit/Navigation (0.9.1):
     - MBAppKit/Core
     - RFAlpha/RFNavigationController
     - RFAlpha/RFSynthesize
     - RFKit/Category/NSArray
     - RFKit/Category/UIResponder
-  - MBAppKit/Worker (0.9.0):
+  - MBAppKit/Worker (0.9.1):
     - MBAppKit/Core
     - RFInitializing
   - PBFlex (3.1.0)
@@ -107,12 +102,12 @@ PODS:
     - RFAlpha/RFViewApperance/RFDrawView
   - RFAlpha/RFWindow (0.6.0):
     - RFInitializing (>= 1.1)
-  - RFAPI (1.2.0):
-    - AFNetworking/NSURLConnection (~> 2.0)
+  - RFAPI (2.0.0-beta.1):
+    - AFNetworking/Reachability (>= 2.3)
+    - AFNetworking/Security (>= 2.3)
+    - AFNetworking/Serialization (>= 2.3)
     - JSONModel
     - RFInitializing (>= 1.1)
-    - RFKit/Category/NSDictionary
-    - RFKit/Category/NSFileManager
     - RFKit/Runtime (> 1.7)
     - RFMessageManager/Manager (>= 0.5)
     - RFMessageManager/RFNetworkActivityMessage
@@ -230,13 +225,13 @@ PODS:
     - RFKit/Runtime
   - RFKit/Runtime (2.4.0):
     - RFKit/Foundation
-  - RFMessageManager/Manager (0.5.0):
+  - RFMessageManager/Manager (0.6.0):
     - RFInitializing (>= 1.1)
     - RFKit/Category/NSArray
     - RFKit/Runtime (>= 1.7)
-  - RFMessageManager/RFNetworkActivityMessage (0.5.0):
+  - RFMessageManager/RFNetworkActivityMessage (0.6.0):
     - RFMessageManager/Manager
-  - RFMessageManager/SVProgressHUD (0.5.0):
+  - RFMessageManager/SVProgressHUD (0.6.0):
     - RFMessageManager/Manager
     - RFMessageManager/RFNetworkActivityMessage
     - SVProgressHUD
@@ -246,9 +241,9 @@ PODS:
     - RFKit/Category/UIDevice
     - RFKit/Category/UINavigationController
     - RFKit/Runtime (>= 1.7)
-  - SDWebImage (5.4.1):
-    - SDWebImage/Core (= 5.4.1)
-  - SDWebImage/Core (5.4.1)
+  - SDWebImage (5.5.2):
+    - SDWebImage/Core (= 5.5.2)
+  - SDWebImage/Core (5.5.2)
   - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
@@ -258,28 +253,28 @@ DEPENDENCIES:
   - MBAppKit/Navigation (from `https://github.com/RFUI/MBAppKit.git`)
   - MBAppKit/Worker (from `https://github.com/RFUI/MBAppKit.git`)
   - PBFlex
-  - RFAlpha/RFBlockSelectorPerform (from `https://github.com/RFUI/Alpha.git`)
-  - RFAlpha/RFButton (from `https://github.com/RFUI/Alpha.git`)
-  - RFAlpha/RFCallbackControl (from `https://github.com/RFUI/Alpha.git`)
-  - RFAlpha/RFContainerView (from `https://github.com/RFUI/Alpha.git`)
-  - RFAlpha/RFDrawImage (from `https://github.com/RFUI/Alpha.git`)
-  - RFAlpha/RFImageCropper (from `https://github.com/RFUI/Alpha.git`)
-  - RFAlpha/RFNavigationController (from `https://github.com/RFUI/Alpha.git`)
-  - RFAlpha/RFRefreshButton (from `https://github.com/RFUI/Alpha.git`)
-  - RFAlpha/RFRefreshControl (from `https://github.com/RFUI/Alpha.git`)
-  - RFAlpha/RFTabController (from `https://github.com/RFUI/Alpha.git`)
-  - RFAlpha/RFTableViewPullToFetchPlugin (from `https://github.com/RFUI/Alpha.git`)
-  - RFAlpha/RFTimer (from `https://github.com/RFUI/Alpha.git`)
-  - RFAlpha/RFViewApperance/RFLayerApperance (from `https://github.com/RFUI/Alpha.git`)
-  - RFAlpha/RFViewApperance/RFLine (from `https://github.com/RFUI/Alpha.git`)
-  - RFAlpha/RFWindow (from `https://github.com/RFUI/Alpha.git`)
-  - RFAPI (from `https://github.com/RFUI/RFAPI.git`)
+  - RFAlpha/RFBlockSelectorPerform
+  - RFAlpha/RFButton
+  - RFAlpha/RFCallbackControl
+  - RFAlpha/RFContainerView
+  - RFAlpha/RFDrawImage
+  - RFAlpha/RFImageCropper
+  - RFAlpha/RFNavigationController
+  - RFAlpha/RFRefreshButton
+  - RFAlpha/RFRefreshControl
+  - RFAlpha/RFTabController
+  - RFAlpha/RFTableViewPullToFetchPlugin
+  - RFAlpha/RFTimer
+  - RFAlpha/RFViewApperance/RFLayerApperance
+  - RFAlpha/RFViewApperance/RFLine
+  - RFAlpha/RFWindow
   - RFDelegateChain/UICollectionViewDataSource
   - RFDelegateChain/UICollectionViewDelegateFlowLayout
   - RFDelegateChain/UISearchBarDelegate
   - RFDelegateChain/UITextFieldDelegate
   - RFDelegateChain/UITextViewDelegate
   - RFKeyboard (from `https://github.com/RFUI/RFKeyboard.git`)
+  - RFKit/Category/NSFileManager
   - "RFKit/Category/UIScrollView+RFScrolling"
   - RFKit/Category/UISearchBar
   - RFMessageManager/SVProgressHUD
@@ -292,6 +287,8 @@ SPEC REPOS:
   trunk:
     - AFNetworking
     - JSONModel
+    - RFAlpha
+    - RFAPI
     - RFDelegateChain
     - RFInitializing
     - RFKit
@@ -303,43 +300,33 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   MBAppKit:
     :git: https://github.com/RFUI/MBAppKit.git
-  RFAlpha:
-    :git: https://github.com/RFUI/Alpha.git
-  RFAPI:
-    :git: https://github.com/RFUI/RFAPI.git
   RFKeyboard:
     :git: https://github.com/RFUI/RFKeyboard.git
 
 CHECKOUT OPTIONS:
   MBAppKit:
-    :commit: a0a24b07769f36809ccf3d851eec7308f296d016
+    :commit: 6e7639ad17b5e58cc91390f0d0cc95b75840aec5
     :git: https://github.com/RFUI/MBAppKit.git
-  RFAlpha:
-    :commit: e6dbca0a8ecee55f17c20aaecde505b4fd6aca27
-    :git: https://github.com/RFUI/Alpha.git
-  RFAPI:
-    :commit: 6239b1e9bdadb390347dd2f150a41e28db76311e
-    :git: https://github.com/RFUI/RFAPI.git
   RFKeyboard:
     :commit: ca5204d9c85f2350f58fb88ad2854dd4bb9ca4eb
     :git: https://github.com/RFUI/RFKeyboard.git
 
 SPEC CHECKSUMS:
-  AFNetworking: 8dd5f9b9691e09186393069a12cc3b5ed7c8b511
+  AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   JSONModel: 02ab723958366a3fd27da57ea2af2113658762e9
-  MBAppKit: c79a366b282f21676f5a7d43df7b81c721a451fd
+  MBAppKit: 5d6b48555d9ce8abe02681f19517c3d084ce05c6
   PBFlex: e765540e4ec73fdf639a9b6eebc1453d83196f8d
   RFAlpha: a2ba9b06f5452e11c486abd3bf20c9036734ae7a
-  RFAPI: 742f964438d34ca4d2ef397fb9761ae7f4b84cfc
+  RFAPI: 6ae20c6c6e78c6aa278912ba7e1ab98c6cde122d
   RFDelegateChain: 06b2100d30de422eb7dee4ad833c8bd80c631f16
   RFInitializing: c85e1d8b9c5b540761f7983af3e9bb517654ad84
   RFKeyboard: a39d8c9fad5b2b8fe3df98fe94fa909229a4cd46
   RFKit: b85177e1321171cfb342810880555a06fe12fbbe
-  RFMessageManager: 574dc701e448c451ac86826f5e426bbe0e161a01
+  RFMessageManager: 2967d1f691a4ac310b76afc8ef505d9e9b5151f0
   RFSegue: 16a13d55032a737a93a1feb3c758077f708e3c70
-  SDWebImage: 29c340dbdcef342bb13125553f4e19ce056b07a7
+  SDWebImage: 4d5c027c935438f341ed33dbac53ff9f479922ca
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: a0a91aa74509557bbbe70082b1f40b08451e7ee9
+PODFILE CHECKSUM: a7833573130fc7666d7408588ed854c2422e9ef1
 
 COCOAPODS: 1.8.4

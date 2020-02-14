@@ -13,7 +13,7 @@ static const NSInteger _MBListDataSourcePageStart = 1;
 
 @interface MBListDataSource ()
 @property BOOL fetching;
-@property (weak) NSOperation *fetchOperation;
+@property (weak) id<RFAPITask> fetchOperation;
 @property (nonatomic) RFCallbackControl<MBListDataSourceFetchComplationCallback *> *fetchComplationCallbacks;
 @end
 
@@ -59,7 +59,7 @@ static const NSInteger _MBListDataSourcePageStart = 1;
     return items;
 }
 
-- (void)fetchItemsFromViewController:(nullable id)viewController nextPage:(BOOL)nextPage success:(void (^)(__kindof MBListDataSource *dateSource, NSArray *fetchedItems))success completion:(void (^)(__kindof MBListDataSource *dateSource))completion {
+- (void)fetchItemsFromViewController:(nullable UIViewController *)viewController nextPage:(BOOL)nextPage success:(void (^)(__kindof MBListDataSource *dateSource, NSArray *fetchedItems))success completion:(void (^)(__kindof MBListDataSource *dateSource))completion {
     if (self.fetching) return;
     if (!self.fetchAPIName) {
         dout_warning(@"Datasource 的 fetchAPIName 未设置")
@@ -93,56 +93,60 @@ static const NSInteger _MBListDataSourcePageStart = 1;
         parameter[self.pageSizeParameterName] = @(self.pageSize);
     }
 
-    @weakify(self);
-    __block BOOL operationSuccess = NO;
-    self.fetchOperation = [MBAPI requestWithName:self.fetchAPIName parameters:parameter viewController:viewController forceLoad:NO loadingMessage:nil modal:NO success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        operationSuccess = YES;
-        @strongify(self);
-        if (!self) return;
+    self.fetchOperation = [MBAPI.global requestWithName:self.fetchAPIName context:^(RFAPIRequestConext *c) {
+        c.parameters = parameter;
+        c.groupIdentifier = viewController.APIGroupIdentifier;
+        @weakify(self);
+        c.success = ^(id<RFAPITask>  _Nonnull task, id  _Nullable responseObject) {
+            @strongify(self);
+            if (!self) return;
 
-        NSMutableArray *items = self.items;
-        NSArray *responseArray = nil;
-        if (self.processItems) {
-            responseArray = self.processItems(nextPage? items.copy : nil, responseObject);
-        }
-        else if ([responseObject isKindOfClass:NSArray.class]) {
-            responseArray = responseObject;
-        }
-        
-        if (!nextPage) {
-            [items removeAllObjects];
-        }
-        [self _MBListDataSource_handleResponseArray:responseArray items:items];
-        if (!pagingEnabled) {
-            self.pageEnd = YES;
-        }
-        if (success) {
-            success(self, responseArray);
-        }
-        self.hasSuccessFetched = YES;
-        self.lastFetchError = nil;
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        @strongify(self);
-        if (!self) return;
-        
-        self.lastFetchError = error;
-        BOOL (^cb)(MBListDataSource *, NSError *) = self.class.defaultFetchFailureHandler;
-        if (cb && cb(self, error)) {
-            return;
-        }
-    } completion:^(AFHTTPRequestOperation *operation) {
-        @strongify(self);
-        if (!self) return;
+            NSMutableArray *items = self.items;
+            NSArray *responseArray = nil;
+            if (self.processItems) {
+                responseArray = self.processItems(nextPage? items.copy : nil, responseObject);
+            }
+            else if ([responseObject isKindOfClass:NSArray.class]) {
+                responseArray = responseObject;
+            }
 
-        if (!operationSuccess) {
-            // 请求失败的话分页应该减回去
-            self.page--;
-        }
-        self.fetching = NO;
-        if (completion) {
-            completion(self);
-        }
-        [self.fetchComplationCallbacks performWithSource:self filter:nil];
+            if (!nextPage) {
+                [items removeAllObjects];
+            }
+            [self _MBListDataSource_handleResponseArray:responseArray items:items];
+            if (!pagingEnabled) {
+                self.pageEnd = YES;
+            }
+            if (success) {
+                success(self, responseArray);
+            }
+            self.hasSuccessFetched = YES;
+            self.lastFetchError = nil;
+        };
+        c.failure = ^(id<RFAPITask>  _Nullable task, NSError * _Nonnull error) {
+            @strongify(self);
+            if (!self) return;
+
+            self.lastFetchError = error;
+            BOOL (^cb)(MBListDataSource *, NSError *) = self.class.defaultFetchFailureHandler;
+            if (cb && cb(self, error)) {
+                return;
+            }
+        };
+        c.finished = ^(id<RFAPITask>  _Nullable task, BOOL success) {
+            @strongify(self);
+            if (!self) return;
+
+            if (!success) {
+                // 请求失败的话分页应该减回去
+                self.page--;
+            }
+            self.fetching = NO;
+            if (completion) {
+                completion(self);
+            }
+            [self.fetchComplationCallbacks performWithSource:self filter:nil];
+        };
     }];
 }
 

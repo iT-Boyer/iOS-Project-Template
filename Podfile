@@ -11,10 +11,11 @@ target 'App' do
     platform :ios, '11.0'
 
     pod 'RFKit', :subspecs => [
+        'Category/NSFileManager',
         'Category/UIScrollView+RFScrolling',
         'Category/UISearchBar',
     ]
-    pod 'RFAlpha', :git => 'https://github.com/RFUI/Alpha.git', :subspecs => [
+    pod 'RFAlpha', :subspecs => [
         'RFBlockSelectorPerform',
         'RFButton',
         'RFCallbackControl',
@@ -31,7 +32,6 @@ target 'App' do
         'RFViewApperance/RFLayerApperance',
         'RFWindow',
     ]
-    pod 'RFAPI', :git => 'https://github.com/RFUI/RFAPI.git'
     pod 'RFDelegateChain', :subspecs => [
         'UICollectionViewDelegateFlowLayout',
         'UICollectionViewDataSource',

@@ -101,7 +101,7 @@ typedef NS_ENUM(short, MBDataSourcePageEndDetectPolicy) {
  @param nextPage 下一页还是从头加载
  @param success fetchedItems 是处理后的最终数据
  */
-- (void)fetchItemsFromViewController:(nullable id)viewController nextPage:(BOOL)nextPage success:(void (^__nullable)(__kindof MBListDataSource *__nonnull dateSource, NSArray *__nullable fetchedItems))success completion:(void (^__nullable)(__kindof MBListDataSource *__nonnull dateSource))completion;
+- (void)fetchItemsFromViewController:(nullable UIViewController *)viewController nextPage:(BOOL)nextPage success:(void (^__nullable)(__kindof MBListDataSource *__nonnull dateSource, NSArray *__nullable fetchedItems))success completion:(void (^__nullable)(__kindof MBListDataSource *__nonnull dateSource))completion;
 
 /**
  用给定的原始数据重置列表数据，并把状态属性置为合适的值

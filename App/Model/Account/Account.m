@@ -156,9 +156,7 @@
 
 - (void)updateInformationFromViewController:(UIViewController *)viewController complation:(MBGeneralCallback)complation {
     __block MBGeneralCallback callback = complation;
-    if (!callback
-        && viewController
-        ) {
+    if (!callback && viewController) {
         callback = ^(BOOL success, id _Nullable item, NSError *_Nullable error){
             if (error) {
                 [AppHUD() alertError:error title:nil fallbackMessage:nil];
@@ -167,26 +165,20 @@
     }
     
     NSMutableDictionary *att = [NSMutableDictionary dictionaryWithCapacity:3];
-    [API requestWithName:@"AcoountInfo" parameters:att viewController:viewController forceLoad:YES loadingMessage:nil modal:NO success:^(AFHTTPRequestOperation *operation, AccountEntity *rsp) {
-        self.hasLoginedThisSession = YES;
-        self.information = rsp;
+    [API.global requestWithName:@"AcoountInfo" context:^(RFAPIRequestConext *c) {
+        c.parameters = att;
+        c.success = ^(id<RFAPITask>  _Nonnull task, AccountEntity *rsp) {
+            self.hasLoginedThisSession = YES;
+            self.information = rsp;
 
-        if (self.isCurrent) {
-            [AppEnv() setFlagOn:MBENVFlagUserInfoFetched];
-        }
-
+            if (self.isCurrent) {
+                [AppEnv() setFlagOn:MBENVFlagUserInfoFetched];
+            }
+        };
         if (callback) {
-            callback(YES, self.information, nil);
-            callback = nil;
-        }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        if (callback) {
-            callback(NO, nil, error);
-            callback = nil;
-        }
-    } completion:^(AFHTTPRequestOperation *operation) {
-        if (callback) {
-            callback(NO, nil, operation.error);
+            c.finished = ^(id<RFAPITask>  _Nullable task, BOOL success) {
+                callback(success, self.information, task.error);
+            };
         }
     }];
 }

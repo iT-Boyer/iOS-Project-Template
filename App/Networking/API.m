@@ -3,6 +3,7 @@
 #import "APIJSONResponseSerializer.h"
 #import "Common.h"
 #import "NSUserDefaults+MBDebug.h"
+#import <AFNetworking/AFSecurityPolicy.h>
 #import <RFMessageManager/RFMessageManager+RFDisplay.h>
 #import <SDWebImage/SDWebImageManager.h>
 
@@ -37,13 +38,13 @@ NSString *const APIURLAssetsBase              = @"http://img.example.com/";
 
 #pragma mark - 通用流程
 
-- (BOOL)generalHandlerForError:(NSError *)error withDefine:(RFAPIDefine *)define controlInfo:(RFAPIControl *)controlInfo requestOperation:(AFHTTPRequestOperation *)operation operationFailureCallback:(void (^)(AFHTTPRequestOperation *, NSError *))operationFailureCallback {
+- (BOOL)generalHandlerForError:(NSError *)error withDefine:(RFAPIDefine *)define task:(id<RFAPITask>)task failureCallback:(RFAPIRequestFailureCallback)failure {
     
     error = [self.class transformNSURLError:error];
     if (!define || [define.path hasPrefix:@"http"]) {
         // 没有 define 或 define 里写的绝对路径，意味着不是我们主要的业务逻辑
-        if (operationFailureCallback) {
-            operationFailureCallback(operation, error);
+        if (failure) {
+            failure(task, error);
         }
         else {
             [self.networkActivityIndicatorManager alertError:error title:nil fallbackMessage:@"请求失败"];
@@ -75,8 +76,8 @@ NSString *const APIURLAssetsBase              = @"http://img.example.com/";
     }
     
     //- 最终处理，报告错误
-    if (operationFailureCallback) {
-        operationFailureCallback(operation, error);
+    if (failure) {
+        failure(task, error);
     }
     else {
         [self.networkActivityIndicatorManager alertError:error title:nil fallbackMessage:@"请求失败"];

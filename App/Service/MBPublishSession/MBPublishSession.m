@@ -181,20 +181,24 @@ static void UploadCacheSet(NSURL *fileURL, NSURL *remoteURL) {
         p = self.finalizeParametersForUploadFiles(self.filesUploadMap.copy);
     }
     #endif
-    
-    [API requestWithName:self.APIName parameters:p viewController:nil loadingMessage:@"" modal:YES completion:^(BOOL success, id  _Nullable item, NSError * _Nullable error) {
-        if (success) {
-            #if _mb_has_file_upload
+
+    [API.global requestWithName:self.APIName context:^(RFAPIRequestConext *c) {
+        c.parameters = p;
+        c.loadMessageShownModal = YES;
+#if _mb_has_file_upload
+        c.success = ^(id<RFAPITask>  _Nonnull task, id  _Nullable responseObject) {
             self.finalizeParametersForUploadFiles = nil;
-            #endif
-        }
-        MBGeneralCallback cb = self.publishCallback;
-        if (cb) {
-            cb(success, item, error);
-            self.publishCallback = nil;
-        }
-        self._publishing = NO;
-        [AppHUD() hideWithGroupIdentifier:@"MBPublishSession"];
+        };
+#endif
+        c.finished = ^(id<RFAPITask>  _Nullable task, BOOL success) {
+            MBGeneralCallback cb = self.publishCallback;
+            if (cb) {
+                cb(success, task.responseObject, task.error);
+                self.publishCallback = nil;
+            }
+            self._publishing = NO;
+            [AppHUD() hideWithGroupIdentifier:@"MBPublishSession"];
+        };
     }];
 }
 
