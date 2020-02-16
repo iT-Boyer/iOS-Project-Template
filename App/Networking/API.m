@@ -4,6 +4,7 @@
 #import "Common.h"
 #import "NSUserDefaults+MBDebug.h"
 #import <AFNetworking/AFSecurityPolicy.h>
+#import <RFAPI/RFAPIJSONModelTransformer.h>
 #import <RFMessageManager/RFMessageManager+RFDisplay.h>
 #import <SDWebImage/SDWebImageManager.h>
 
@@ -34,6 +35,8 @@ NSString *const APIURLAssetsBase              = @"http://img.example.com/";
     APIJSONResponseSerializer *rps = [APIJSONResponseSerializer serializer];
     rps.serverReportErrorUsingStatusCode = YES;
     dm.defaultResponseSerializer = rps;
+
+    self.modelTransformer = RFAPIJSONModelTransformer.new;
 }
 
 #pragma mark - 通用流程
@@ -80,7 +83,9 @@ NSString *const APIURLAssetsBase              = @"http://img.example.com/";
         failure(task, error);
     }
     else {
-        [self.networkActivityIndicatorManager alertError:error title:nil fallbackMessage:@"请求失败"];
+        dispatch_async_on_main(^{
+            [self.networkActivityIndicatorManager alertError:error title:nil fallbackMessage:@"请求失败"];
+        });
     }
     return NO;  // 需要为 NO，终止默认的错误处理
 }
