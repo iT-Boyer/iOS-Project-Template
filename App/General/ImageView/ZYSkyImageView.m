@@ -44,8 +44,8 @@ RFInitializingRootForUIView
 
     CGFloat heightShouldBe = -self.scrollView.contentOffset.y + 20 + self.offsetAdjust;
     _dout_float(self.scrollView.contentOffset.y)
-    if (heightShouldBe < 0) {
-        heightShouldBe = 0;
+    if (heightShouldBe < self.minimalHeight) {
+        heightShouldBe = self.minimalHeight;
     }
     if (self.resizeTowardsTop) {
         CGFloat bottom = self.bottomMargin;

@@ -1,10 +1,10 @@
 /*
  ZYSkyImageView
- 
- Copyright © 2018 RFUI.
+
+ Copyright © 2018, 2020 RFUI.
  Copyright © 2014-2015 Beijing ZhiYun ZhiYuan Technology Co., Ltd.
  https://github.com/BB9z/iOS-Project-Template
- 
+
  Apache License, Version 2.0
  http://www.apache.org/licenses/LICENSE-2.0
  */
@@ -12,13 +12,23 @@
 
 // @MBDependency:1
 /**
- 内容可以跟着一个 scrollView 同时滚动的 image view
+ image view 的内容跟随 scrollView 滚动而滚动，像是吸附在 scrollView 上
+
+ 原理是随着 scrollView 的 contentOffset Y 轴变化而调整 view 的高度
  */
 @interface ZYSkyImageView : ZYImageView <
     RFInitializing
 >
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
-@property (nonatomic) IBInspectable CGFloat offsetAdjust;
-@property (nonatomic) IBInspectable BOOL resizeTowardsTop;
+///
+@property (weak, nullable, nonatomic) IBOutlet UIScrollView *scrollView;
+
+/// view 高度和 contentOffset 偏移量的调节
+@property IBInspectable CGFloat offsetAdjust;
+
+/// view 最小高度
+@property IBInspectable CGFloat minimalHeight;
+
+/// 距父 view 底部的距离保持不变
+@property IBInspectable BOOL resizeTowardsTop;
 @end
