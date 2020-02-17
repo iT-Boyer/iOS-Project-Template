@@ -84,7 +84,7 @@ extension UINavigationController {
             return
         }
         var vcs = viewControllers
-        if let idx = vcs.index(of: vc) {
+        if let idx = vcs.lastIndex(of: vc) {
             vcs.remove(at: idx)
             setViewControllers(vcs, animated: true)
         }

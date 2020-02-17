@@ -4,9 +4,6 @@ ENV['COCOAPODS_DISABLE_STATS'] = 'true'
 
 # inhibit_all_warnings!
 
-source 'https://github.com/PBPods/PBFlex.git'
-source 'https://cdn.cocoapods.org/'
-
 target 'App' do
     platform :ios, '11.0'
 
