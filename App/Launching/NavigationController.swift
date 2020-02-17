@@ -2,9 +2,6 @@
 //  NavigationController.swift
 //  App
 //
-//  Created by BB9z on 2018/5/16.
-//  Copyright © 2018 RFUI.
-//
 
 /**
  应用主导航控制器
@@ -34,15 +31,8 @@ class NavigationController: MBNavigationController {
                 self?.onLogout()
             }
         }
-        hideShadow()
     }
 
-    /// 隐藏导航阴影
-    func hideShadow() {
-        navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationBar.shadowImage = UIImage()
-    }
-    
     func onLogout() {
         // todo
     }
