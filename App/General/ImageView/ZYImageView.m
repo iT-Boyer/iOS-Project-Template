@@ -8,12 +8,12 @@
 
 
 @interface ZYImageView ()
-@property NSOperation *dowloadOperation;
-@property (nonatomic) NSString *downloadingImageURL;
-@property NSString *completedImageURL;
+@property NSOperation *_dowloadOperation;
+@property (nonatomic) NSString *_downloadingImageURL;
+@property NSString *_completedImageURL;
 @property MBGeneralCallback complation;
-@property NSURL *URLForDownloadFinishCallbackVerifying;
-@property BOOL hasLayoutOnce;
+@property NSURL *_urlForDownloadFinishCallbackVerifying;
+@property BOOL _hasLayoutOnce;
 @end
 
 @implementation ZYImageView
@@ -32,15 +32,23 @@ RFInitializingRootForUIView
     if (self.image) {
         self.placeholderImage = self.image;
     }
-    if (self.placeholderImage) {
+    else if (self.placeholderImage) {
         self.image = self.placeholderImage;
+    }
+}
+
+- (void)setPlaceholderImage:(UIImage *)placeholderImage {
+    _placeholderImage = placeholderImage;
+    if (self._completedImageURL) return;
+    if (self._downloadingImageURL || !self.imageURL) {
+        self.image = placeholderImage;
     }
 }
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    if (!self.hasLayoutOnce) {
-        self.hasLayoutOnce = YES;
+    if (!self._hasLayoutOnce) {
+        self._hasLayoutOnce = YES;
     }
 }
 
@@ -48,12 +56,12 @@ RFInitializingRootForUIView
     [super didMoveToWindow];
     if (self.disableDownloadPauseWhenRemoveFromWindow) return;
     if (self.window) {
-        if (self.completedImageURL != self.imageURL) {
-            self.downloadingImageURL = self.imageURL;
+        if (self._completedImageURL != self.imageURL) {
+            self._downloadingImageURL = self.imageURL;
         }
     }
     else {
-        self.downloadingImageURL = nil;
+        self._downloadingImageURL = nil;
     }
 }
 
@@ -64,78 +72,77 @@ RFInitializingRootForUIView
 }
 
 - (void)setImageURL:(NSString *)imageURL {
-    if (![_imageURL isEqualToString:imageURL]) {
-        if (_imageURL) {
-            self.completedImageURL = nil;
-        }
-        _imageURL = imageURL;
-        self.image = self.placeholderImage;
-        if (imageURL) {
-            dispatch_block_t startLoadingBlock = ^(){
-                if (self.window) {
-                    self.downloadingImageURL = imageURL;
-                };
+    if ([_imageURL isEqualToString:imageURL]) return;
+    if (_imageURL) {
+        self._completedImageURL = nil;
+    }
+    _imageURL = imageURL.copy;
+    self.image = self.placeholderImage;
+    if (imageURL) {
+        dispatch_block_t startLoadingBlock = ^(){
+            if (self.window) {
+                self._downloadingImageURL = imageURL;
             };
+        };
 
-            if (self.hasLayoutOnce) {
-                startLoadingBlock();
-            }
-            else {
-                dispatch_after_seconds(0, startLoadingBlock);
-            }
+        if (self._hasLayoutOnce) {
+            startLoadingBlock();
         }
-        if (self.downloadingImageURL != imageURL) {
-            self.downloadingImageURL = nil;
+        else {
+            dispatch_after_seconds(0, startLoadingBlock);
         }
+    }
+    if (self._downloadingImageURL != imageURL) {
+        self._downloadingImageURL = nil;
     }
 }
 
-- (void)setDownloadingImageURL:(NSString *)downloadingImageURL {
-    if ([_downloadingImageURL isEqualToString:downloadingImageURL]) return;
+- (void)set_downloadingImageURL:(NSString *)imageURL {
+    if ([__downloadingImageURL isEqualToString:imageURL]) return;
 
-    if (_downloadingImageURL) {
-        if (downloadingImageURL == self.imageURL) {
+    if (__downloadingImageURL) {
+        if (imageURL == self.imageURL) {
             // 新值和 imageURL 相同，意味着传入的是新图片，应该通知旧的图片已取消
             if (self.complation) {
                 self.complation(NO, nil, nil);
                 self.complation = nil;
             }
         }
-        [self.dowloadOperation cancel];
+        [self._dowloadOperation cancel];
     }
-    _downloadingImageURL = downloadingImageURL;
-    if (downloadingImageURL) {
+    __downloadingImageURL = imageURL;
+    if (imageURL) {
         @weakify(self);
-        [ImageEntity fetchCahcedImageWithImagePath:downloadingImageURL preferredPixelWidth:[ImageEntity pixelWidthOfView:self] complation:^(UIImage * _Nullable cachedImage) {
+        [ImageEntity fetchCahcedImageWithImagePath:imageURL preferredPixelWidth:[ImageEntity pixelWidthOfView:self] complation:^(UIImage * _Nullable cachedImage) {
             @strongify(self);
             if (!self) return;
-            if (![downloadingImageURL isEqualToString:self.imageURL]) return;
-            
+            if (![imageURL isEqualToString:self.imageURL]) return;
+
             if (cachedImage) {
                 self.image = cachedImage;
                 if (self.complation) {
                     self.complation(YES, cachedImage, nil);
                 }
             }
-            [self loadImageFromRemoteWithURL:downloadingImageURL];
+            [self loadImageFromRemoteWithURL:imageURL];
         }];
     }
 }
 
 - (void)loadImageFromRemoteWithURL:(NSString *)imageURL {
-    RFAssert(self.hasLayoutOnce || self.width != 1000, @"只有布局过才知道需要加载多大的图片");
+    RFAssert(self._hasLayoutOnce || self.width != 1000, @"只有布局过才知道需要加载多大的图片");
     NSURL *url = [ImageEntity resizedImageURLWithURLString:imageURL preferringView:self];
-    self.URLForDownloadFinishCallbackVerifying = url;
-    
+    self._urlForDownloadFinishCallbackVerifying = url;
+
     @weakify(self);
-    self.dowloadOperation = (id)[SDWebImageManager.sharedManager loadImageWithURL:url options:SDWebImageHighPriority progress:nil completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, SDImageCacheType cacheType, BOOL finished, NSURL * _Nullable imageURL) {
+    self._dowloadOperation = (id)[SDWebImageManager.sharedManager loadImageWithURL:url options:SDWebImageHighPriority progress:nil completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, SDImageCacheType cacheType, BOOL finished, NSURL * _Nullable imageURL) {
         @strongify(self);
         if (!self) return;
-        
+
         dispatch_async_on_main(^{
-            if ([imageURL isEqual:self.URLForDownloadFinishCallbackVerifying]) {
-                self.URLForDownloadFinishCallbackVerifying = nil;
-                self.completedImageURL = self.imageURL;
+            if ([imageURL isEqual:self._urlForDownloadFinishCallbackVerifying]) {
+                self._urlForDownloadFinishCallbackVerifying = nil;
+                self._completedImageURL = self.imageURL;
                 if (image) {
                     self.image = image;
                 }
@@ -146,7 +153,7 @@ RFInitializingRootForUIView
                     self.image = self.placeholderImage;
                 }
             }
-            
+
             if (self.complation) {
                 self.complation(finished, image, error);
                 self.complation = nil;
