@@ -11,6 +11,7 @@
 #import "MBCollectionViewArrayDataSource.h"
 #import "MBDebugHelpers.h"
 #import "MBDebugViews.h"
+#import "MBFormFieldVerifyControl.h"
 #import "MBLayoutConstraint.h"
 #import "MBModalPresentSegue.h"
 #import "MBNavigationController+Router.h"

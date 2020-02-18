@@ -154,6 +154,7 @@
 		D5F9F480208D921200427201 /* String+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F9F47E208D921200427201 /* String+App.swift */; };
 		D5F9F483208DBF5F00427201 /* MBSceneStackView.m in Sources */ = {isa = PBXBuildFile; fileRef = D5F9F481208DBF5F00427201 /* MBSceneStackView.m */; };
 		D5F9F486208DC26600427201 /* MBFormFieldVerifyControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D5F9F485208DC26600427201 /* MBFormFieldVerifyControl.m */; };
+		D5FCB68E23FC108B001DE669 /* MBFormFieldVerifyControl+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FCB68D23FC108B001DE669 /* MBFormFieldVerifyControl+App.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -447,6 +448,7 @@
 		D5F9F482208DBF5F00427201 /* MBSceneStackView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBSceneStackView.h; sourceTree = "<group>"; };
 		D5F9F484208DC26500427201 /* MBFormFieldVerifyControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBFormFieldVerifyControl.h; sourceTree = "<group>"; };
 		D5F9F485208DC26600427201 /* MBFormFieldVerifyControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBFormFieldVerifyControl.m; sourceTree = "<group>"; };
+		D5FCB68D23FC108B001DE669 /* MBFormFieldVerifyControl+App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MBFormFieldVerifyControl+App.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1052,6 +1054,7 @@
 		D5EE51602043F5E5009148B3 /* Input */ = {
 			isa = PBXGroup;
 			children = (
+				D5FCB68D23FC108B001DE669 /* MBFormFieldVerifyControl+App.swift */,
 				D5F9F484208DC26500427201 /* MBFormFieldVerifyControl.h */,
 				D5F9F485208DC26600427201 /* MBFormFieldVerifyControl.m */,
 				D5C3CBF7217EF0A10097CCD9 /* MBTextCountLabel.h */,
@@ -1416,6 +1419,7 @@
 				D569C9F021AE908200211E36 /* MBErrorCode.m in Sources */,
 				D5B49EC31C4111B600847925 /* MBFixWidthImageView.m in Sources */,
 				D5A3312421527BA100B0FD5B /* MBFlipCollapsibleView.m in Sources */,
+				D5FCB68E23FC108B001DE669 /* MBFormFieldVerifyControl+App.swift in Sources */,
 				D5F9F486208DC26600427201 /* MBFormFieldVerifyControl.m in Sources */,
 				D544A396197CBE5300C65604 /* MBFormSelectButton.m in Sources */,
 				D569C9EC21AE906900211E36 /* MBImageRenderer.m in Sources */,
@@ -1701,6 +1705,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "App/Supporting Files/release.entitlements";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1818,6 +1823,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "App/Supporting Files/alpha.entitlements";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
