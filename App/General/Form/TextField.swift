@@ -4,7 +4,7 @@
 
 /**
  定义样式名
- 
+
  一般在 Interface Builder 中通过 styleName 设置
  */
 enum TextFieldStyle: String {
@@ -17,6 +17,8 @@ enum TextFieldContentType: String {
     case code       // 验证码
     case password   // 密码，不验证长度，只验证非空
     case password2  // 密码验证，严格验证
+    case userName   // 用户名
+    case email      // 电子邮箱
     case name       // 姓名
     case required   // 非空，为空时用 placeholder 提示
 }
@@ -29,7 +31,7 @@ class TextField: MBTextField {
         switch style {
         case TextFieldStyle.std.rawValue:
             textEdgeInsets = UIEdgeInsets(top: 7, left: 18, bottom: 7, right: 16)
-            
+
         case TextFieldStyle.frame.rawValue:
             var left = CGFloat(6)
             if iconImageView != nil {
@@ -41,41 +43,70 @@ class TextField: MBTextField {
             assert(false, "TextField: unrecognized style \(style)")
         }
     }
-    
+
     override var formContentType: String? {
         didSet {
             guard let type = TextFieldContentType(rawValue: formContentType ?? "") else {
                 return
             }
+            if textContentType == nil {
+                textContentType = textContentType(for: type)
+            }
             switch type {
             case .mobile:
                 keyboardType = .phonePad
-                if #available(iOS 10.0, *) {
-                    textContentType = .telephoneNumber
-                }
-            case .password, .password2:
-                if #available(iOS 11.0, *) {
-                    textContentType = .password
-                }
-                
             case .code:
                 keyboardType = .numberPad
-                
-            case .name:
+            case .userName:
                 keyboardType = .namePhonePad
-                if #available(iOS 10.0, *) {
-                    textContentType = .name
-                }
-            case .required: break
-            } // END: switch
+            case .email:
+                keyboardType = .emailAddress
+            case .name:
+                keyboardType = .default
+            default: break
+            }
         }
     }
-    
+
+    private func textContentType(for type: TextFieldContentType) -> UITextContentType? {
+        switch type {
+        case .mobile:
+            return .telephoneNumber
+        case .password:
+           if #available(iOS 12.0, *) {
+               if (nextField as? TextField)?.formContentType == TextFieldContentType.password2.rawValue {
+                   return .newPassword
+               }
+           }
+           else {
+               return .password
+           }
+        case .password2:
+            if #available(iOS 12.0, *) {
+                return .newPassword
+            } else {
+                return .password
+            }
+        case .code:
+            if #available(iOS 12.0, *) {
+                return .oneTimeCode
+            }
+        case .userName:
+            return .username
+        case .email:
+            return .emailAddress
+        case .name:
+            return .name
+        case .required: break
+        }
+        return nil
+    }
+
     override var isFieldVaild: Bool {
         let vtext = _vaildFieldText().0
         return vtext?.isNotEmpty == true
     }
-    
+
     private func _vaildFieldText() -> (String?, String?) {
         guard let type = TextFieldContentType(rawValue: formContentType ?? "") else {
             return (text, nil)
@@ -110,6 +141,19 @@ class TextField: MBTextField {
                 return (nil, "密码长度不能超过30位")
             }
             return (str, nil)
+        case .userName:
+            guard let str = text, str.isNotEmpty else {
+                return (nil, "请输入用户名")
+            }
+            return (str, nil)
+        case .email:
+            guard let str = text?.trimmed() else {
+                  return (nil, "请输入邮箱")
+              }
+              guard str.isValidEmail() else {
+                  return (nil, "邮箱格式错误")
+              }
+              return (str, nil)
         case .name:
             guard let str = text, str.isNotEmpty else {
                 return (nil, "请输入姓名")
@@ -122,7 +166,7 @@ class TextField: MBTextField {
             return (str, nil)
         } // END: switch
     }
-    
+
     /// 自动验证、提示并返回合法值
     ///
     /// - Parameters:
@@ -141,11 +185,24 @@ class TextField: MBTextField {
         }
         return vaildText
     }
-    
+
     override var iconImageView: UIImageView? {
         didSet {
             if let iv = iconImageView {
                 let ivFrame = iv.convert(iv.bounds, to: self)
+                var inset = textEdgeInsets
+                inset.left = ivFrame.maxX + 14
+                textEdgeInsets = inset
+            }
+        }
+    }
+
+    @IBOutlet var leftAccessoryView: UIView? {
+        didSet {
+            leftView = leftAccessoryView
+            leftViewMode = .always
+            if let lv = leftAccessoryView {
+                let ivFrame = convert(lv.bounds, to: self)
                 var inset = textEdgeInsets
                 inset.left = ivFrame.maxX + 14
                 textEdgeInsets = inset
@@ -169,14 +226,13 @@ class SearchTextField: MBSearchTextField {
         loadingView.move(xOffset: 2, yOffset: 0)
         loadingView.isHidden = true
     }
-    
+
     lazy var iconView: UIImageView = {
         let icon = UIImageView(image: #imageLiteral(resourceName: "search_24"))
-        icon.tintColor = .tint
         icon.contentMode = .center
         return icon
     }()
-    
+
     lazy var loadingView: UIActivityIndicatorView = {
         let a = UIActivityIndicatorView(style: .gray)
         a.center = CGPointOfRectCenter(self.leftView!.bounds)
@@ -184,7 +240,7 @@ class SearchTextField: MBSearchTextField {
         a.hidesWhenStopped = false
         return a
     }()
-    
+
     override var isSearching: Bool {
         didSet {
             iconView.isHidden = isSearching
