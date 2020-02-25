@@ -69,6 +69,7 @@
 		D5936E09217977FB00BC4F03 /* MBIndefiniteRotationImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = D5936E07217977FA00BC4F03 /* MBIndefiniteRotationImageView.m */; };
 		D5A3312321527BA100B0FD5B /* MBCellStackView.m in Sources */ = {isa = PBXBuildFile; fileRef = D5A3311F21527BA100B0FD5B /* MBCellStackView.m */; };
 		D5A3312421527BA100B0FD5B /* MBFlipCollapsibleView.m in Sources */ = {isa = PBXBuildFile; fileRef = D5A3312021527BA100B0FD5B /* MBFlipCollapsibleView.m */; };
+		D5B1905A24026DB90076CD61 /* EnumListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B1905924026DB90076CD61 /* EnumListView.swift */; };
 		D5B49EC31C4111B600847925 /* MBFixWidthImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B49EBB1C4111B600847925 /* MBFixWidthImageView.m */; };
 		D5B49EC41C4111B600847925 /* MBMultiLineLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B49EBD1C4111B600847925 /* MBMultiLineLabel.m */; };
 		D5B49EC51C4111B600847925 /* MBCollapsibleView.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B49EBF1C4111B600847925 /* MBCollapsibleView.m */; };
@@ -281,6 +282,7 @@
 		D5A3312021527BA100B0FD5B /* MBFlipCollapsibleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBFlipCollapsibleView.m; sourceTree = "<group>"; };
 		D5A3312121527BA100B0FD5B /* MBCellStackView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBCellStackView.h; sourceTree = "<group>"; };
 		D5A3312221527BA100B0FD5B /* MBFlipCollapsibleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBFlipCollapsibleView.h; sourceTree = "<group>"; };
+		D5B1905924026DB90076CD61 /* EnumListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnumListView.swift; sourceTree = "<group>"; };
 		D5B49EBA1C4111B600847925 /* MBFixWidthImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBFixWidthImageView.h; sourceTree = "<group>"; };
 		D5B49EBB1C4111B600847925 /* MBFixWidthImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBFixWidthImageView.m; sourceTree = "<group>"; };
 		D5B49EBC1C4111B600847925 /* MBMultiLineLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBMultiLineLabel.h; sourceTree = "<group>"; };
@@ -876,6 +878,7 @@
 				D5B49EC91C41133900847925 /* DataSource */,
 				D5B49ECE1C41133900847925 /* Layout */,
 				D5B49EDD1C41133900847925 /* PullToFetch */,
+				D5B1905924026DB90076CD61 /* EnumListView.swift */,
 				D5B49ED51C41133900847925 /* MBCollectionView.h */,
 				D5B49ED61C41133900847925 /* MBCollectionView.m */,
 				D5B49ED71C41133900847925 /* MBEntitiesCollectionView.h */,
@@ -1388,6 +1391,7 @@
 				D54F0E4F2199A56E003370F4 /* DateFormatter+App.swift in Sources */,
 				D52EADEB2043B983007219E0 /* debug.m in Sources */,
 				D501845B20F881B6009481D4 /* DissolveTransitioning.swift in Sources */,
+				D5B1905A24026DB90076CD61 /* EnumListView.swift in Sources */,
 				D5C3CBEF217ED20F0097CCD9 /* Geometry.swift in Sources */,
 				D569C9CF21AE8D3200211E36 /* HomeVC.swift in Sources */,
 				D588309720CAE103002030C4 /* ImageEntity.m in Sources */,
