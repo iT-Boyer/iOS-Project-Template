@@ -70,6 +70,7 @@
 		D5A3312321527BA100B0FD5B /* MBCellStackView.m in Sources */ = {isa = PBXBuildFile; fileRef = D5A3311F21527BA100B0FD5B /* MBCellStackView.m */; };
 		D5A3312421527BA100B0FD5B /* MBFlipCollapsibleView.m in Sources */ = {isa = PBXBuildFile; fileRef = D5A3312021527BA100B0FD5B /* MBFlipCollapsibleView.m */; };
 		D5B1905A24026DB90076CD61 /* EnumListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B1905924026DB90076CD61 /* EnumListView.swift */; };
+		D5B1906D2404AFDC0076CD61 /* SearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B1906C2404AFDC0076CD61 /* SearchTextField.swift */; };
 		D5B49EC31C4111B600847925 /* MBFixWidthImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B49EBB1C4111B600847925 /* MBFixWidthImageView.m */; };
 		D5B49EC41C4111B600847925 /* MBMultiLineLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B49EBD1C4111B600847925 /* MBMultiLineLabel.m */; };
 		D5B49EC51C4111B600847925 /* MBCollapsibleView.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B49EBF1C4111B600847925 /* MBCollapsibleView.m */; };
@@ -283,6 +284,7 @@
 		D5A3312121527BA100B0FD5B /* MBCellStackView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBCellStackView.h; sourceTree = "<group>"; };
 		D5A3312221527BA100B0FD5B /* MBFlipCollapsibleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBFlipCollapsibleView.h; sourceTree = "<group>"; };
 		D5B1905924026DB90076CD61 /* EnumListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnumListView.swift; sourceTree = "<group>"; };
+		D5B1906C2404AFDC0076CD61 /* SearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextField.swift; sourceTree = "<group>"; };
 		D5B49EBA1C4111B600847925 /* MBFixWidthImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBFixWidthImageView.h; sourceTree = "<group>"; };
 		D5B49EBB1C4111B600847925 /* MBFixWidthImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBFixWidthImageView.m; sourceTree = "<group>"; };
 		D5B49EBC1C4111B600847925 /* MBMultiLineLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBMultiLineLabel.h; sourceTree = "<group>"; };
@@ -504,15 +506,6 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
-		D50693D519495D940002BFCC /* MBControlGroup */ = {
-			isa = PBXGroup;
-			children = (
-				D50693D619495D9E0002BFCC /* MBControlGroup.h */,
-				D50693D719495D9E0002BFCC /* MBControlGroup.m */,
-			);
-			path = MBControlGroup;
-			sourceTree = "<group>";
-		};
 		D5170CE8191B327A000C7D45 /* PushManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -678,17 +671,17 @@
 		D552DD7C18C8541D00D02290 /* General */ = {
 			isa = PBXGroup;
 			children = (
-				D5EE52282043F7B9009148B3 /* Button */,
-				D5EE50DF2043DAA1009148B3 /* Category */,
+				D5EE52282043F7B9009148B3 /* Controls */,
 				D5EE51942043F5F3009148B3 /* Effect */,
+				D5EE50DF2043DAA1009148B3 /* Extensions */,
 				D564CF39196D98E10087B179 /* Form */,
 				D5EE52012043F61C009148B3 /* ImageView */,
 				D5B49EB61C4111B600847925 /* Layout */,
 				D5B49EC71C41133900847925 /* List */,
-				D50693D519495D940002BFCC /* MBControlGroup */,
 				D5EE51BA2043F612009148B3 /* Navigation */,
 				D5EE519C2043F612009148B3 /* Others */,
 				D5EE51AB2043F612009148B3 /* ScrollView */,
+				D5B1906B2404AFBE0076CD61 /* Search */,
 				D564D5D01970EE2C0032FEC3 /* Segue */,
 				D5EE51D82043F613009148B3 /* Tab */,
 				D5EE51C72043F613009148B3 /* Text */,
@@ -738,11 +731,6 @@
 				D544A395197CBE5300C65604 /* MBFormSelectButton.m */,
 				D5EE515A2043F5E4009148B3 /* MBKeyboardFloatContainer.h */,
 				D5EE515B2043F5E4009148B3 /* MBKeyboardFloatContainer.m */,
-				D5EE51752043F5E5009148B3 /* MBSearchTextField.h */,
-				D5EE51592043F5E4009148B3 /* MBSearchTextField.m */,
-				D5EE515D2043F5E4009148B3 /* MBSearchViewController.h */,
-				D5EE51762043F5E5009148B3 /* MBSearchViewController.m */,
-				D501845720F88016009481D4 /* TextField.swift */,
 				D5EE515E2043F5E5009148B3 /* ZYSMSCodeSendButton.h */,
 				D5EE515C2043F5E4009148B3 /* ZYSMSCodeSendButton.m */,
 			);
@@ -825,6 +813,18 @@
 				D5DCA6E92046971100A4951A /* Podfile */,
 			);
 			path = Config;
+			sourceTree = "<group>";
+		};
+		D5B1906B2404AFBE0076CD61 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				D5EE51752043F5E5009148B3 /* MBSearchTextField.h */,
+				D5EE51592043F5E4009148B3 /* MBSearchTextField.m */,
+				D5EE515D2043F5E4009148B3 /* MBSearchViewController.h */,
+				D5EE51762043F5E5009148B3 /* MBSearchViewController.m */,
+				D5B1906C2404AFDC0076CD61 /* SearchTextField.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 		D5B49EB61C4111B600847925 /* Layout */ = {
@@ -997,7 +997,7 @@
 			path = ../fastlane;
 			sourceTree = "<group>";
 		};
-		D5EE50DF2043DAA1009148B3 /* Category */ = {
+		D5EE50DF2043DAA1009148B3 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				D5EE50E02043DAA1009148B3 /* App */,
@@ -1020,7 +1020,7 @@
 				D5EE51122043DAA1009148B3 /* UIKit+App.m */,
 				D501844D20F865D3009481D4 /* UITableView+App.swift */,
 			);
-			path = Category;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		D5EE50E02043DAA1009148B3 /* App */ = {
@@ -1060,10 +1060,6 @@
 				D5FCB68D23FC108B001DE669 /* MBFormFieldVerifyControl+App.swift */,
 				D5F9F484208DC26500427201 /* MBFormFieldVerifyControl.h */,
 				D5F9F485208DC26600427201 /* MBFormFieldVerifyControl.m */,
-				D5C3CBF7217EF0A10097CCD9 /* MBTextCountLabel.h */,
-				D5C3CBF8217EF0A10097CCD9 /* MBTextCountLabel.m */,
-				D5EE51632043F5E5009148B3 /* MBTextView.h */,
-				D5EE51692043F5E5009148B3 /* MBTextView.m */,
 				D5EE51642043F5E5009148B3 /* ZYVerifyTextField.h */,
 				D5EE516B2043F5E5009148B3 /* ZYVerifyTextField.m */,
 			);
@@ -1144,8 +1140,13 @@
 			children = (
 				D5C3CBF1217EEEA20097CCD9 /* MBBadgeLabel.h */,
 				D5C3CBF2217EEEA20097CCD9 /* MBBadgeLabel.m */,
+				D5C3CBF7217EF0A10097CCD9 /* MBTextCountLabel.h */,
+				D5C3CBF8217EF0A10097CCD9 /* MBTextCountLabel.m */,
+				D5EE51632043F5E5009148B3 /* MBTextView.h */,
+				D5EE51692043F5E5009148B3 /* MBTextView.m */,
 				D5EE51CC2043F613009148B3 /* MBVauleLabel.h */,
 				D5EE51C82043F613009148B3 /* MBVauleLabel.m */,
+				D501845720F88016009481D4 /* TextField.swift */,
 			);
 			path = Text;
 			sourceTree = "<group>";
@@ -1197,14 +1198,16 @@
 			path = ImageView;
 			sourceTree = "<group>";
 		};
-		D5EE52282043F7B9009148B3 /* Button */ = {
+		D5EE52282043F7B9009148B3 /* Controls */ = {
 			isa = PBXGroup;
 			children = (
 				D52A04E420F85F2600F535ED /* Button.swift */,
+				D50693D619495D9E0002BFCC /* MBControlGroup.h */,
+				D50693D719495D9E0002BFCC /* MBControlGroup.m */,
 				D5EE52292043F7B9009148B3 /* ZYLayoutButton.h */,
 				D5EE52312043F7B9009148B3 /* ZYLayoutButton.m */,
 			);
-			path = Button;
+			path = Controls;
 			sourceTree = "<group>";
 		};
 		D5EE523F2043FB69009148B3 /* Reference Sizing */ = {
@@ -1484,6 +1487,7 @@
 				D501844E20F865D3009481D4 /* Number+App.swift in Sources */,
 				D5EE52472043FB6A009148B3 /* RFReferenceSizing.m in Sources */,
 				D558FDF52046913B00A01EE6 /* RootViewController.swift in Sources */,
+				D5B1906D2404AFDC0076CD61 /* SearchTextField.swift in Sources */,
 				D54AFCE722BF8C440031559F /* Sequence+App.swift in Sources */,
 				D501845C20F881B7009481D4 /* Shadow.swift in Sources */,
 				D52EADF02043BA3D007219E0 /* ShortCuts.m in Sources */,
