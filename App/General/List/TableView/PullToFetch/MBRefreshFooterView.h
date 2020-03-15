@@ -17,6 +17,7 @@
 >
 @property (weak, nonatomic) IBOutlet UILabel *emptyLabel;
 @property (weak, nonatomic) IBOutlet UILabel *endLabel;
+@property (weak, nonatomic) IBOutlet UIView *endView;
 @property (weak, nonatomic) IBOutlet UILabel *textLabel;
 
 /**

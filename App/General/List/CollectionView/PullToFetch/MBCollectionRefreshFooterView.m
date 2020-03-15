@@ -12,13 +12,6 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-
-    // onLoadNextPage: 确实未定义，需要通过 Responder chain 往上找
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wundeclared-selector"
-    [self.loadButton addTarget:nil action:@selector(onLoadNextPage:) forControlEvents:UIControlEventTouchUpInside];
-#pragma clang diagnostic pop
-
     self.status = RFRefreshControlStatusWaiting;
 }
 
@@ -33,6 +26,7 @@
             [_customEmptyView removeFromSuperview];
             if (self.status == RFRefreshControlStatusEmpty) {
                 self.endLabel.hidden = NO;
+                self.endView.hidden = NO;
             }
         }
 
@@ -52,6 +46,7 @@
 - (void)setEmpty:(BOOL)empty {
     _empty = empty;
     if (empty) {
+        self.outerEmptyView.hidden = NO;
         if (self.customEmptyView) {
             self.customEmptyView.hidden = NO;
         }
@@ -60,9 +55,15 @@
         }
     }
     else {
+        self.outerEmptyView.hidden = YES;
         self.customEmptyView.hidden = YES;
         self.emptyLabel.hidden = YES;
     }
+}
+
+- (void)setOuterEmptyView:(UIView *)outerEmptyView {
+    _outerEmptyView = outerEmptyView;
+    outerEmptyView.hidden = !self.empty;
 }
 
 - (void)setCustomEndView:(UIView *)customEndView {
@@ -71,6 +72,7 @@
             [_customEndView removeFromSuperview];
             if (self.status == RFRefreshControlStatusEnd) {
                 self.endLabel.hidden = NO;
+                self.endView.hidden = NO;
             }
         }
 
@@ -83,6 +85,7 @@
             [self addSubview:customEndView resizeOption:RFViewResizeOptionFill];
 
             self.endLabel.hidden = YES;
+            self.endView.hidden = YES;
         }
     }
 }
@@ -95,10 +98,12 @@
         }
         else {
             self.endLabel.hidden = NO;
+            self.endView.hidden = NO;
         }
     }
     else {
         self.endLabel.hidden = YES;
+        self.endView.hidden = YES;
         self.customEndView.hidden = YES;
     }
 }

@@ -26,6 +26,7 @@ RFInitializingRootForUIView
     self.outerEmptyView.hidden = !empty;
     self.textLabel.hidden = empty || (self.status == RFPullToFetchIndicatorStatusFrozen);
     self.endLabel.hidden = empty;
+    self.endView.hidden = empty;
 }
 
 - (void)setOuterEmptyView:(UIView *)outerEmptyView {
@@ -58,11 +59,13 @@ RFInitializingRootForUIView
     // 到底部了
     if (status == RFPullToFetchIndicatorStatusFrozen) {
         self.endLabel.hidden = NO;
+        self.endView.hidden = NO;
         label.hidden = YES;
         return;
     }
 
     self.endLabel.hidden = YES;
+    self.endView.hidden = YES;
     label.hidden = NO;
     switch (status) {
         case RFPullToFetchIndicatorStatusProcessing:

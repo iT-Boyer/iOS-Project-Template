@@ -1,7 +1,7 @@
-/*
+/*!
  MBCollectionRefreshFooterView
  
- Copyright © 2018 RFUI.
+ Copyright © 2018, 2020 BB9z.
  Copyright © 2014-2015 Beijing ZhiYun ZhiYuan Information Technology Co., Ltd.
  https://github.com/BB9z/iOS-Project-Template
  
@@ -30,6 +30,7 @@
 @property (readonly, nonatomic) BOOL end;
 
 @property (weak, nonatomic) IBOutlet UILabel *endLabel;
+@property (weak, nonatomic) IBOutlet UIView *endView;
 @property (strong, nonatomic) UIView *customEndView;
 
 #pragma mark - 内容为空
@@ -38,5 +39,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *emptyLabel;
 @property (strong, nonatomic) UIView *customEmptyView;
+@property (weak, nonatomic) IBOutlet UIView *outerEmptyView;
 
 @end

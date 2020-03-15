@@ -12,7 +12,6 @@
     self.headerContainer = [MBRefreshHeaderView loadWithNibName:nil];
 
     MBRefreshFooterView *fv = [MBRefreshFooterView loadWithNibName:nil];
-    fv.emptyLabel.text = @"(￣▽￣) 这里空空如也哦";
     self.footerContainer = fv;
     self.autoFetchWhenScroll = YES;
     self.autoFetchTolerateDistance = 100;
