@@ -128,7 +128,7 @@ PODS:
   - RFDelegateChain/UITextViewDelegate (1.0.0):
     - RFDelegateChain/Chain
   - RFInitializing (1.2.0)
-  - RFKeyboard (0.1.0):
+  - RFKeyboard (0.2.0):
     - RFKit/Runtime (>= 1.7)
   - RFKit (2.4.0):
     - RFKit/Default (= 2.4.0)
@@ -240,9 +240,9 @@ PODS:
     - RFKit/Category/UIDevice
     - RFKit/Category/UINavigationController
     - RFKit/Runtime (>= 1.7)
-  - SDWebImage (5.5.2):
-    - SDWebImage/Core (= 5.5.2)
-  - SDWebImage/Core (5.5.2)
+  - SDWebImage (5.6.1):
+    - SDWebImage/Core (= 5.6.1)
+  - SDWebImage/Core (5.6.1)
   - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
@@ -271,7 +271,7 @@ DEPENDENCIES:
   - RFDelegateChain/UISearchBarDelegate
   - RFDelegateChain/UITextFieldDelegate
   - RFDelegateChain/UITextViewDelegate
-  - RFKeyboard (from `https://github.com/RFUI/RFKeyboard.git`)
+  - RFKeyboard
   - RFKit/Category/NSFileManager
   - "RFKit/Category/UIScrollView+RFScrolling"
   - RFKit/Category/UISearchBar
@@ -287,6 +287,7 @@ SPEC REPOS:
     - RFAPI
     - RFDelegateChain
     - RFInitializing
+    - RFKeyboard
     - RFKit
     - RFMessageManager
     - RFSegue
@@ -296,16 +297,11 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   MBAppKit:
     :git: https://github.com/RFUI/MBAppKit.git
-  RFKeyboard:
-    :git: https://github.com/RFUI/RFKeyboard.git
 
 CHECKOUT OPTIONS:
   MBAppKit:
-    :commit: 4dda0883fa49dcd363ea7a919b72278d6be74315
+    :commit: 7f46a27d389db9cbc6f18f706d1bcb0d9ce183b1
     :git: https://github.com/RFUI/MBAppKit.git
-  RFKeyboard:
-    :commit: ca5204d9c85f2350f58fb88ad2854dd4bb9ca4eb
-    :git: https://github.com/RFUI/RFKeyboard.git
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
@@ -315,13 +311,13 @@ SPEC CHECKSUMS:
   RFAPI: 6ae20c6c6e78c6aa278912ba7e1ab98c6cde122d
   RFDelegateChain: 06b2100d30de422eb7dee4ad833c8bd80c631f16
   RFInitializing: c85e1d8b9c5b540761f7983af3e9bb517654ad84
-  RFKeyboard: a39d8c9fad5b2b8fe3df98fe94fa909229a4cd46
+  RFKeyboard: d270ea1f612d86c980974222bae7c6d7d04428be
   RFKit: b85177e1321171cfb342810880555a06fe12fbbe
   RFMessageManager: 2967d1f691a4ac310b76afc8ef505d9e9b5151f0
   RFSegue: 16a13d55032a737a93a1feb3c758077f708e3c70
-  SDWebImage: 4d5c027c935438f341ed33dbac53ff9f479922ca
+  SDWebImage: 7edb9c3ea661e77a66661f7f044de8c1b55d1120
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: 1b9dc26b33d413ca3884e59494ddcb3bf2c6fffb
+PODFILE CHECKSUM: 7f56ad35ba1e20056b1ce1ec98d6033f7160e03b
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.9.1

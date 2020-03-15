@@ -36,7 +36,7 @@ target 'App' do
         'UITextFieldDelegate',
         'UITextViewDelegate',
     ]
-    pod 'RFKeyboard', :git => 'https://github.com/RFUI/RFKeyboard.git'
+    pod 'RFKeyboard'
     pod 'RFMessageManager', :subspecs => ['SVProgressHUD']
     pod 'RFSegue', :subspecs => ['Async']
     pod 'MBAppKit', :git => 'https://github.com/RFUI/MBAppKit.git', :subspecs => [
