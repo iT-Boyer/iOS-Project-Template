@@ -25,7 +25,7 @@ fastlane setup_project
 参见 [GitHub/BB9z/iOS-Project-Template/wiki](https://github.com/BB9z/iOS-Project-Template/wiki)
 
 ```text
-Copyright © 2018-2019 RFUI, BB9z.
+Copyright © 2018-2020 RFUI, BB9z.
 Copyright © 2014-2016 Beijing ZhiYun ZhiYuan Information Technology Co., Ltd.
 Copyright © 2013-2014 Chinamobo Co., Ltd.
 
