@@ -38,15 +38,19 @@
         return;
     }
     BOOL v = YES;
+    BOOL hasViableField = NO;
     for (MBTextField *f in self.textFields) {
         if (self.validationSkipsHiddenFields) {
             if (!f.isVisible) continue;
+            hasViableField = YES;
         }
         if (!f.isFieldVaild) {
             v = NO;
             break;
         }
     }
+    // 从 nib 初始化时所有输入框都不可见，不能当验证通过更新
+    if (self.validationSkipsHiddenFields && !hasViableField) return;
     self.MBFormFieldVerifyControl_lastVaild = @(v);
 }
 

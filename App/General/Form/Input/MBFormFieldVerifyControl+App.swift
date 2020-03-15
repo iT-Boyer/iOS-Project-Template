@@ -13,17 +13,18 @@ extension MBFormFieldVerifyControl {
         }
         set {
             guard newValue else { return }
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                guard let button = self.invaildSubmitButton else {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { [weak self] in
+                guard let sf = self else { return }
+                guard let button = sf.invaildSubmitButton else {
                     NSLog("❌ MBFormFieldVerifyControl: invaildSubmitButton not set.")
                     return
                 }
                 if let control = button as? UIControl {
-                    control.addTarget(self, action: #selector(self.onInvaildSubmit(_:)), for: .touchUpInside)
+                    control.addTarget(sf, action: #selector(sf.onInvaildSubmit(_:)), for: .touchUpInside)
                 }
                 else if let item = button as? UIBarButtonItem {
-                    item.target = self
-                    item.action = #selector(self.onInvaildSubmit(_:))
+                    item.target = sf
+                    item.action = #selector(sf.onInvaildSubmit(_:))
                 }
                 else {
                     fatalError("Unexcept type.")
