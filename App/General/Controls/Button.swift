@@ -17,6 +17,9 @@ class Button: MBButton {
         
         /// 圆弧线框，颜色随 tintColor 改变
         case round
+
+        /// 仿列表样式，给点击时增加一个效果
+        case row
     }
     
     override func setupAppearance() {
@@ -25,12 +28,17 @@ class Button: MBButton {
         case Style.std.rawValue:
             // todo 设置样式
             break
+
         case Style.round.rawValue:
             setTitleColor(.white, for: .selected)
             setTitleColor(.white, for: .disabled)
             adjustsImageWhenHighlighted = false
             updateRoundStyleIfNeeded()
             break
+
+        case Style.row.rawValue:
+            setBackgroundImage(#imageLiteral(resourceName: "row_highlight"), for: .highlighted)
+            adjustsImageWhenHighlighted = false
         default: break
         }
     }
@@ -69,12 +77,25 @@ class Button: MBButton {
     
     /// 按钮选中时加粗
     @IBInspectable var boldWhenSelected: Bool = false
+    /// 按钮选中时字号增大
+    @IBInspectable var scaleWhenSelected: CGFloat = 0
+    private var normalFontSizeCached: CGFloat?
+    private var normalFontSize: CGFloat {
+        if let c = normalFontSizeCached {
+            return c
+        }
+        let size = titleLabel?.font.pointSize ?? UIFont.labelFontSize
+        normalFontSizeCached = size.rounded()
+        return size
+    }
     
     override var isSelected: Bool {
         didSet {
-            guard boldWhenSelected else { return }
-            let size = titleLabel?.font.pointSize ?? UIFont.labelFontSize
-            
+            guard boldWhenSelected || scaleWhenSelected > 0 else { return }
+            var size = normalFontSize
+            if isSelected && scaleWhenSelected > 0  {
+                size = size * scaleWhenSelected
+            }
             titleLabel?.font = UIFont.systemFont(ofSize: size, weight: isSelected ? .semibold : .regular)
         }
     }
