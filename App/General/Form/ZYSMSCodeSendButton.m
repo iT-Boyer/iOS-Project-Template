@@ -32,6 +32,12 @@
     [self invalidateIntrinsicContentSize];
 }
 
+- (void)markSending:(NSString *)sendingMessage {
+    NSString *message = sendingMessage ?: [self titleForState:UIControlStateSelected];
+    [self setTitle:message ?: @"发送中" forState:UIControlStateDisabled];
+    self.enabled = NO;
+}
+
 - (void)froze {
     self.enabled = NO;
     if (self.timer.isScheduled) return;

@@ -1,7 +1,7 @@
-/*
+/*!
  ZYSMSCodeSendButton
  
- Copyright © 2018 RFUI.
+ Copyright © 2018, 2020 RFUI.
  Copyright © 2014 Beijing ZhiYun ZhiYuan Technology Co., Ltd.
  https://github.com/BB9z/iOS-Project-Template
  
@@ -30,7 +30,7 @@
  发送短信后显示的文字
  
  必须包含 %d 或其他整型格式化字符，例如：@"%d 秒后重发"
- 默认设置为 Storyboard 中 Disabled 状态的标题
+ 默认设置为 interface builder 中 disabled 状态的标题
  */
 @property (nullable) NSString *disableNoticeFormat;
 
@@ -45,6 +45,15 @@
  短信发送后按钮解禁的时间，timeIntervalSinceReferenceDate
  */
 @property NSTimeInterval unfreezeTime;
+
+/**
+ 标记往服务器的请求正在发送中
+
+ 同时禁用按钮，并设置禁用文字标题
+
+ @param sendingMessage 即将显示的文本，如果为空，尝试取 selected 状态的文本
+ */
+- (void)markSending:(nullable NSString *)sendingMessage NS_SWIFT_NAME( markSending(message:) );
 
 /**
  冻结按钮，进入倒计时
