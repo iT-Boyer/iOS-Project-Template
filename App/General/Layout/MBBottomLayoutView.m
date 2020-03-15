@@ -41,6 +41,7 @@ RFInitializingRootForUIView
 - (void)layoutSubviews {
     [super layoutSubviews];
     [self _updateClipping];
+    [self _updateCornerRadius];
 }
 
 - (void)_updateClipping {
@@ -82,6 +83,15 @@ RFInitializingRootForUIView
     [self willChangeValueForKey:@"clipping"];
     __MBBottomLayoutView_isClipping = isClipping;
     [self didChangeValueForKey:@"clipping"];
+    [self _updateCornerRadius];
+
+    CGFloat margin = isClipping ? self.clippingMargin : 0;
+    self._leftConstraint.constant = self._leftConstraint.firstItem == self ? margin : -margin;
+    self._rightConstraint.constant = self._rightConstraint.firstItem == self ? -margin : margin;
+}
+
+- (void)_updateCornerRadius {
+    BOOL isClipping = self._MBBottomLayoutView_isClipping;
     CGFloat cr = 0;
     if (isClipping) {
         cr = self.bounds.size.height / 2;
@@ -90,10 +100,6 @@ RFInitializingRootForUIView
         }
     }
     self.layer.cornerRadius = cr;
-
-    CGFloat margin = isClipping ? self.clippingMargin : 0;
-    self._leftConstraint.constant = self._leftConstraint.firstItem == self ? margin : -margin;
-    self._rightConstraint.constant = self._rightConstraint.firstItem == self ? -margin : margin;
 }
 
 - (void)setHidden:(BOOL)hidden {
