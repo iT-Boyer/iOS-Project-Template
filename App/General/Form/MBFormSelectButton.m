@@ -48,7 +48,7 @@
     if (self.valueDisplayMap) {
         return self.valueDisplayMap[value];
     }
-    return [NSString stringWithFormat:@"%@", value];
+    return [NSString.alloc initWithFormat:@"%@", value];
 }
 
 @end
