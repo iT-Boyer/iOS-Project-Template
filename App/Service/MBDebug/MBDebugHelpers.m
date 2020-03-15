@@ -52,7 +52,7 @@ NSString *DebugItemDescription(id item) {
 }
 
 void DebugUIInspecteModel(NSObject *model) {
-#if __has_include("FLEX/FLEX.h")
+#if __has_include("FLEX/FLEX.h") && DEBUG
     UIViewController *vc = [FLEXObjectExplorerFactory explorerViewControllerForObject:model];
     if (vc) {
         [(UINavigationController *)AppNavigationController() pushViewController:vc animated:YES];

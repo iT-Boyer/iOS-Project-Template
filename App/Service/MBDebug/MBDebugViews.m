@@ -45,7 +45,7 @@ RFInitializingRootForUIView
 
 - (void)afterInit {
     self.enableObserverActived = YES;
-#if __has_include("FLEX/FLEX.h")
+#if __has_include("FLEX/FLEX.h") && DEBUG
     FLEXManager *fm = [FLEXManager sharedManager];
     [fm registerSimulatorShortcutWithKey:@"d" modifiers:UIKeyModifierControl action:^{
         NSUserDefaults.standardUserDefaults._debugEnabled = YES;
