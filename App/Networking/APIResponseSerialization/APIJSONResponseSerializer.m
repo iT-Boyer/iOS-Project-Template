@@ -129,10 +129,14 @@ HTTP 状态与 ResponseSerializer 的 acceptableStatusCodes 预期不符合\n\
     // 检查是否是错误信息
     NSDictionary *rsp = responseObject;
     // TODO: 根据接口返回修改下面
+    if (![rsp isKindOfClass:NSDictionary.class]) {
+        [self makeError:error withDebugMessage:@"响应非字典" domain:NSURLErrorDomain code:NSURLErrorCannotParseResponse description:@"返回数据结构异常" reason:@"" suggestion:@"" url:response.URL];
+        return nil;
+    }
     if ([rsp[@"code"] intValue] != 0) {
         APIJSONError *APIError = [[APIJSONError alloc] initWithDictionary:rsp error:&e];
         if (APIError) {
-            [self makeError:error withDebugMessage:[NSString stringWithFormat:@"服务器返回的错误信息：%@", APIError.localizedDescription] domain:APIErrorDomain code:APIError.errorCode description:APIError.localizedDescription reason:nil suggestion:nil url:response.URL];
+            [self makeError:error withDebugMessage:[NSString stringWithFormat:@"服务器返回的错误信息：%@", APIError.localizedDescription] domain:APIErrorDomain code:APIError.code description:APIError.localizedDescription reason:nil suggestion:nil url:response.URL];
         }
         return nil;
     }
@@ -175,16 +179,15 @@ HTTP 状态与 ResponseSerializer 的 acceptableStatusCodes 预期不符合\n\
 
 @implementation APIJSONError
 MBModelKeyMapper(APIJSONError,
-                 @"error", @keypath(this, errorDescription),
-                 @"code", @keypath(this, errorCode)
+                 @"error", @keypath(this, errorDescription)
                  )
 
-+ (NSString *)localizedDescriptionKeyForErrorCode:(int)errorCode {
++ (NSString *)localizedDescriptionKeyForErrorCode:(long)errorCode {
     return nil;
 }
 
 - (NSString *)localizedDescription {
-    NSString *description = [APIJSONError localizedDescriptionKeyForErrorCode:self.errorCode];
+    NSString *description = [APIJSONError localizedDescriptionKeyForErrorCode:self.code];
     if (!description) {
         description = self.errorDescription;
     }

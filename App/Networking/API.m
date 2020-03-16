@@ -43,7 +43,10 @@ NSString *const APIURLAssetsBase              = @"http://img.example.com/";
 
 - (BOOL)generalHandlerForError:(NSError *)error withDefine:(RFAPIDefine *)define task:(id<RFAPITask>)task failureCallback:(RFAPIRequestFailureCallback)failure {
     // @bug(RFAPI: beta1): 没有在 completionQueue 调用
-    
+    // @bug(RFAPI: beta1): 取消没有过滤
+    if (error.code == NSURLErrorCancelled) {
+        return NO;
+    }
     error = [self.class transformNSURLError:error];
     if (!define || [define.path hasPrefix:@"http"]) {
         // 没有 define 或 define 里写的绝对路径，意味着不是我们主要的业务逻辑

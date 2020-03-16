@@ -165,8 +165,9 @@
     }
     
     NSMutableDictionary *att = [NSMutableDictionary dictionaryWithCapacity:3];
-    [API.global requestWithName:@"AcoountInfo" context:^(RFAPIRequestConext *c) {
+    [API requestName:@"AcoountInfo" context:^(RFAPIRequestConext *c) {
         c.parameters = att;
+        c.groupIdentifier = viewController.APIGroupIdentifier;
         c.success = ^(id<RFAPITask>  _Nonnull task, AccountEntity *rsp) {
             self.hasLoginedThisSession = YES;
             self.information = rsp;

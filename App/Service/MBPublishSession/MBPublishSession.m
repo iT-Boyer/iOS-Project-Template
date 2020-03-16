@@ -182,7 +182,7 @@ static void UploadCacheSet(NSURL *fileURL, NSURL *remoteURL) {
     }
     #endif
 
-    [API.global requestWithName:self.APIName context:^(RFAPIRequestConext *c) {
+    [API requestName:self.APIName context:^(RFAPIRequestConext *c) {
         c.parameters = p;
         c.loadMessageShownModal = YES;
 #if _mb_has_file_upload

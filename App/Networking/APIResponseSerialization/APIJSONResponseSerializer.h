@@ -71,8 +71,8 @@
  */
 @interface APIJSONError : JSONModel
 
-/// 接口返回的错误码
-@property int errorCode;
+/// 接口状态码
+@property long code;
 
 /// 接口返回的错误描述
 @property (nullable) NSString *errorDescription;
@@ -96,6 +96,6 @@
 
  @return 错误码对应的错误信息
  */
-+ (nullable NSString *)localizedDescriptionKeyForErrorCode:(int)errorCode;
++ (nullable NSString *)localizedDescriptionKeyForErrorCode:(long)errorCode;
 
 @end

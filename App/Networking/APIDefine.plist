@@ -5,19 +5,13 @@
 	<key>DEFAULT</key>
 	<dict>
 		<key>Base</key>
-		<string>http://example.com</string>
+		<string>https://example.com</string>
 		<key>Path Prefix</key>
-		<string>api/index?c=</string>
+		<string>api/</string>
 		<key>Method</key>
 		<string>GET</string>
 		<key>Authorization</key>
 		<true/>
-		<key>Cache Policy</key>
-		<integer>0</integer>
-		<key>Offline Policy</key>
-		<integer>0</integer>
-		<key>Expire</key>
-		<string>60</string>
 	</dict>
 	<key>@ Account</key>
 	<dict>

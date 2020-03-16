@@ -69,7 +69,7 @@
 }
 
 - (void)dismissAnimated:(BOOL)flag completion:(void (^)(void))completion {
-    [MBAPI.global cancelOperationsWithGroupIdentifier:self.APIGroupIdentifier];
+    [MBAPI cancelOperationsWithViewController:self];
     @weakify(self);
     [self setViewHidden:YES animated:YES completion:^{
         @strongify(self);
