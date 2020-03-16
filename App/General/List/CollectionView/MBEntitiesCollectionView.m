@@ -32,7 +32,7 @@ RFInitializingRootForUIView
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = (id)[collectionView cellForItemAtIndexPath:indexPath];
+    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
     if ([cell respondsToSelector:@selector(onCellSelected)]) {
         [(id<MBGeneralCellResponding>)cell onCellSelected];
     }

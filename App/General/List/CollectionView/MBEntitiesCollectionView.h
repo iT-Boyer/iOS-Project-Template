@@ -36,7 +36,7 @@
  */
 @property (nullable) void (^cellConfigBlock)(__kindof UICollectionViewCell *__nonnull cell, ItemType __nonnull item);
 
-- (void)appendItem:(nullable id)item;
-- (void)removeItem:(nullable id)item;
+- (void)appendItem:(nullable ItemType)item;
+- (void)removeItem:(nullable ItemType)item;
 
 @end

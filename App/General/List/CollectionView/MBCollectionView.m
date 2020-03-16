@@ -1,13 +1,20 @@
 
 #import "MBCollectionView.h"
+#import <MBAppKit/MBGeneralSetNeedsDoSomthing.h>
 #import <RFAlpha/RFKVOWrapper.h>
+#import <RFAlpha/UIScrollView+RFScrollViewContentDistance.h>
 #import <RFKit/UIResponder+RFKit.h>
+#import <RFKit/UIScrollView+RFScrolling.h>
 #import <RFKit/UIView+RFAnimate.h>
 #import <RFKit/UIView+RFKit.h>
 
-
-@interface MBCollectionView ()
+@interface MBCollectionView () <
+    UICollectionViewDelegate
+>
+@property (nonatomic) MBCollectionViewDataSource *trueDataSource;
 @property (nonatomic) BOOL refreshFooterViewStatusUpdateFlag;
+
+@property BOOL autoFetchWhenScroll;
 
 /// 真实的 contentInset 被劫持了，这个属性存储的是外部设置的 contentInset，实际 contentInset 会加上 header 高度
 @property (nonatomic) UIEdgeInsets trueContentInset;
@@ -19,68 +26,80 @@
 @dynamic dataSource;
 RFInitializingRootForUIView
 
-- (NSString *)debugDescription {
-    return [NSString stringWithFormat:@"<%@: %p, content>", self.class, self];
-}
-
 - (void)onInit {
-    self.trueDataSource = [MBCollectionViewDataSource new];
+    MBCollectionViewDataSource *ds = MBCollectionViewDataSource.new;
+    ds.collectionView = self;
+    ds.delegate = self;
+    @weakify(self);
+    [ds addFetchComplationCallback:^(MBCollectionViewDataSource *d, NSError * _Nullable error) {
+        @strongify(self);
+        [self.refreshControl endRefreshing];
+        self.autoFetchWhenScroll = !error;
+    } refrenceObject:self];
+    self.trueDataSource = ds;
+    [super setDataSource:ds];
     self.alwaysBounceVertical = YES;
-
-    [self registerNib:[UINib nibWithNibName:@metamacro_stringify(MBCollectionRefreshFooterView) bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@metamacro_stringify(MBCollectionRefreshFooterView)];
 }
 
 - (void)afterInit {
-    __weak UIRefreshControl *rc = _mb_refreshControl;
+    self.delegate = self;
+    self.dataSource.delegate = (id<UICollectionViewDataSource>)self;
+    UIRefreshControl *rc = self.refreshControl;
+    if (!rc && !self.disableRefreshControl) {
+        self.refreshControl = [UIRefreshControl.alloc init];
+    }
     @weakify(self);
     [self RFAddObserver:self forKeyPath:@keypath(self, refreshFooterViewStatusUpdateFlag) options:NSKeyValueObservingOptionInitial|NSKeyValueObservingOptionNew queue:nil block:^(id observer, NSDictionary *change) {
         @strongify(self);
         rc.enabled = !self.dataSource.fetching;
-        [self updateFooterStatus];
+        [self MBCollectionView_setNeedsUpdateFooterRefreshing];
     }];
 }
 
-- (UIRefreshControl *)mb_refreshControl {
-    if (!_mb_refreshControl) {
-        _mb_refreshControl = ({
-            UIRefreshControl *rc = [UIRefreshControl new];
-            [rc addTarget:self action:@selector(onRefreshControlStatusChanged) forControlEvents:UIControlEventValueChanged];
-            [self addSubview:rc];
-            rc;
-        });
-    }
-    return _mb_refreshControl;
-}
-
-- (void)setHeaderView:(UIView *)headerView {
-    _headerView = headerView;
-    
-    CGSize size = headerView.bounds.size;
-    size.width = self.width;
-    ((UICollectionViewFlowLayout *)self.collectionViewLayout).headerReferenceSize = size;
-}
-
 - (void)dealloc {
-    self.delegate = nil;
+    [super setDataSource:nil];
+    [super setDelegate:nil];
 }
 
-- (void)onRefreshControlStatusChanged {
-    UIRefreshControl *rc = _mb_refreshControl;
-    if (rc.refreshing) {
-        MBCollectionViewDataSource *ds = self.dataSource;
-        [ds fetchItemsFromViewController:self.viewController nextPage:NO success:^(MBCollectionViewDataSource *dateSource, NSArray *fetchedItems) {
-            [dateSource.collectionView reloadData];
-            [rc endRefreshing];
-        } completion:nil];
+- (void)prepareForReuse {
+    [self.dataSource prepareForReuse];
+    [self reloadData];
+}
+
+- (void)willMoveToWindow:(UIWindow *)newWindow {
+    [super willMoveToWindow:newWindow];
+    if (newWindow) {
+        if (self.autoFetchWhenMoveToWindow
+            && !self.dataSource.hasSuccessFetched
+            && !self.dataSource.fetching) {
+            [self fetchItemsNextPage:NO success:nil completion:nil];
+        }
     }
 }
+
+#pragma mark - Refresh Control / Header
+
+- (void)setRefreshControl:(UIRefreshControl *)refreshControl {
+    SEL sel = @selector(MBCollectionView_onRefreshControlStatusChanged);
+    [self.refreshControl removeTarget:self action:sel forControlEvents:UIControlEventValueChanged];
+    [super setRefreshControl:refreshControl];
+    [refreshControl addTarget:self action:sel forControlEvents:UIControlEventValueChanged];
+}
+
+- (void)MBCollectionView_onRefreshControlStatusChanged {
+    [self fetchItemsNextPage:NO success:nil completion:nil];
+}
+
+#pragma mark Refresh Footer
 
 + (NSSet *)keyPathsForValuesAffectingRefreshFooterViewStatusUpdateFlag {
     MBCollectionView *this;
     return [NSSet setWithObjects:@keypath(this, dataSource.fetching), @keypath(this, dataSource.pageEnd), @keypath(this, dataSource.empty), nil];
 }
 
-- (void)updateFooterStatus {
+MBSynthesizeSetNeedsMethodUsingAssociatedObject(MBCollectionView_setNeedsUpdateFooterRefreshing, MBCollectionView_updateFooterRefreshing, 0)
+
+- (void)MBCollectionView_updateFooterRefreshing {
     MBCollectionViewDataSource *ds = self.dataSource;
     MBCollectionRefreshFooterView *ft = self.refreshFooterView;
     if (ds.fetching) {
@@ -97,49 +116,75 @@ RFInitializingRootForUIView
     }
 }
 
-- (MBCollectionRefreshFooterView *)refreshFooterView {
-    if (!_refreshFooterView) {
-        @try {
-            // 等内容加载出来再尝试创建，否则会抛异常
-            if (self.collectionViewLayout.collectionViewContentSize.height > 10) {
-                _refreshFooterView = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@metamacro_stringify(MBCollectionRefreshFooterView) forIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+    __kindof UICollectionReusableView *view = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"RefreshFooter" forIndexPath:indexPath];
+    if ([view isKindOfClass:MBCollectionRefreshFooterView.class]) {
+        MBCollectionRefreshFooterView *rv = view;
+        self.refreshFooterView = rv;
+        if (self.refreshFooterConfig) {
+            self.refreshFooterConfig(rv);
+        }
+        [self MBCollectionView_updateFooterRefreshing];
+    }
+    return view;
+}
+
+- (IBAction)loadNextPage:(id)sender {
+    [self fetchItemsNextPage:YES success:nil completion:nil];
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if (!self.autoFetchWhenScroll) return;
+    CGFloat distance = self.distanceBetweenContentAndBottom;
+    if (distance < -200) return;
+    if (self.refreshControl.isRefreshing
+        || self.dataSource.fetching
+        || self.dataSource.pageEnd) return;
+    [self loadNextPage:self];
+}
+
+#pragma mark - DataSource Forward
+
+- (void)setDataSource:(id<UICollectionViewDataSource>)dataSource {
+    self.trueDataSource.delegate = dataSource;
+
+    // 视图释放时可能会调置空方法，此时不调 super
+    if (!dataSource) return;
+    // iOS 9 之后会缓存 delegate 响应方法的结果，需要重置刷新
+    [super setDataSource:nil];
+    [super setDataSource:self.trueDataSource];
+}
+
+- (id<UICollectionViewDataSource>)dataSource {
+    return self.trueDataSource;
+}
+
+- (void)fetchItemsNextPage:(BOOL)nextPage success:(void (^)(MBCollectionViewDataSource * _Nonnull, NSArray * _Nullable))success completion:(void (^)(MBCollectionViewDataSource * _Nonnull))completion {
+    UIRefreshControl *rc = self.refreshControl;
+    if (rc) {
+        if (!nextPage) {
+            if (!rc.isRefreshing) {
+                rc.enabled = NO;
             }
         }
-        @catch (NSException *exception) {
-            douto(exception)
+    }
+    if (!nextPage) {
+        [self.dataSource cancelFetching];
+        [self scrollToTopAnimated:!rc.isRefreshing];
+    }
+    [self.dataSource fetchItemsFromViewController:self.viewController nextPage:nextPage success:^(MBCollectionViewDataSource *dateSource, NSArray *fetchedItems) {
+        [dateSource.collectionView reloadData];
+        if (success) {
+            success(dateSource, fetchedItems);
         }
-    }
-    return _refreshFooterView;
-}
-
-- (void)prepareForReuse {
-    [self.dataSource prepareForReuse];
-    [self reloadData];
-}
-
-#pragma mark - Data Source
-
-- (void)setDataSource:(MBCollectionViewDataSource *)dataSource {
-    if ([dataSource isKindOfClass:[MBCollectionViewDataSource class]]) {
-        self.trueDataSource = dataSource;
-    }
-    else {
-        if (self.trueDataSource) {
-            self.trueDataSource.delegate = dataSource;
+    } completion:^(MBCollectionViewDataSource *dateSource) {
+        if (rc.isRefreshing) {
+            [rc endRefreshing];
         }
-        else {
-            [super setDataSource:dataSource];
+        if (completion) {
+            completion(dateSource);
         }
-    }
-}
-
-- (void)setTrueDataSource:(MBCollectionViewDataSource *)trueDataSource {
-    _trueDataSource = trueDataSource;
-    trueDataSource.collectionView = self;
-    if (![self.dataSource isKindOfClass:[MBCollectionViewDataSource class]]) {
-        trueDataSource.delegate = self.dataSource;
-    }
-    [super setDataSource:trueDataSource];
+    }];
 }
 
 #pragma mark - Collection Header View
@@ -211,17 +256,17 @@ RFInitializingRootForUIView
     _dout_bool(CGRectContainsRect(frame, self.bounds))
     // 如果 header 在视野内，需要调整 offset 使内容向下移动
     // 不在视野内无操作防抖动
-//    if (CGRectContainsRect(frame, self.bounds)) {
-//        // 上面留出的空白
-//        CGFloat currentTopPadding = [super contentOffset].y - contentInset.top;
-//        dout_float(currentTopPadding)
-//        dout_float(height)
-//
-//        CGPoint offset = self.contentOffset;
-//        offset.y -= height - currentTopPadding;
-//        self.contentOffset = offset;
-//    }
-//    dout_point(self.contentOffset)
+    //    if (CGRectContainsRect(frame, self.bounds)) {
+    //        // 上面留出的空白
+    //        CGFloat currentTopPadding = [super contentOffset].y - contentInset.top;
+    //        dout_float(currentTopPadding)
+    //        dout_float(height)
+    //
+    //        CGPoint offset = self.contentOffset;
+    //        offset.y -= height - currentTopPadding;
+    //        self.contentOffset = offset;
+    //    }
+    //    dout_point(self.contentOffset)
 
     // 调整 collection view 顶部空白
     // 在最后更新是因为 contentInset 内的设置依赖 header 高度
