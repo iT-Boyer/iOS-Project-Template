@@ -71,7 +71,7 @@ class Button: MBButton {
         let selectedBG = RFDrawImage.image(withRoundingCorners: roundInset, size: bgSize, fill: tintColor, stroke: nil, strokeWidth: 0, boxMargin: .zero, resizableCapInsets: resizeInset, scaleFactor: 0)
         setBackgroundImage(selectedBG, for: .selected)
         
-        let disableBG = RFDrawImage.image(withRoundingCorners: roundInset, size: bgSize, fill: .buttonDisabled, stroke: nil, strokeWidth: 0, boxMargin: .zero, resizableCapInsets: resizeInset, scaleFactor: 0)
+        let disableBG = RFDrawImage.image(withRoundingCorners: roundInset, size: bgSize, fill: UIColor(named: "button_disabled")!, stroke: nil, strokeWidth: 0, boxMargin: .zero, resizableCapInsets: resizeInset, scaleFactor: 0)
         setBackgroundImage(disableBG, for: .disabled)
     }
     

@@ -36,7 +36,6 @@ FOUNDATION_EXPORT void limitedOffsetChange(double *_Nonnull source, double targe
 
 #if !TARGET_OS_WATCH
 #import "UICollectionView+App.h"
-#import "UIColor+App.h"
 #import "UILabel+App.h"
 #import "UITableView+App.h"
 #import "UITextField+App.h"

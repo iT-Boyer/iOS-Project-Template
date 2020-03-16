@@ -1,6 +1,5 @@
 
 #import "MBTextView.h"
-#import "UIColor+App.h"
 #import <RFDelegateChain/UITextViewDelegateChain.h>
 #import <RFKit/UIView+RFAnimate.h>
 
@@ -27,7 +26,7 @@ RFInitializingRootForUIView
     self.scrollsToTop = NO;
 
     if (!self.placeholderTextColor) {
-        self.placeholderTextColor = UIColor.globalPlaceholderTextColor;
+        self.placeholderTextColor = [UIColor colorNamed:@"placeholder_text"];
     }
     
     /// 使 TextView 和 backgroundImageView 无缝贴着
