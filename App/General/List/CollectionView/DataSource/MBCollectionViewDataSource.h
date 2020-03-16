@@ -18,14 +18,25 @@
 @interface MBCollectionViewDataSource : MBListDataSource <
     UICollectionViewDataSource
 >
-@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
-- (void)fetchItemsFromViewController:(id)viewController nextPage:(BOOL)nextPage success:(void (^)(MBCollectionViewDataSource *dateSource, NSArray *fetchedItems))success completion:(void (^)(MBListDataSource *dateSource))completion;
-
-- (void)fetchNextPageFromViewController:(id)viewController completion:(void (^)(MBListDataSource *dateSource))completion;
+@property (weak, nullable) IBOutlet UICollectionView *collectionView;
 
 #pragma mark -
-@property (copy, nonatomic) NSString *(^cellReuseIdentifier)(UICollectionView *collectionView, NSIndexPath *indexPath, id item);
-@property (copy, nonatomic) void (^configureCell)(UICollectionView *collectionView, id cell, NSIndexPath *indexPath, id item);
+
+/// 返回 cell 的 reuse identifier，默认实现返回 "Cell"
+@property (null_resettable, nonatomic) NSString *__nonnull (^cellReuseIdentifier)(UICollectionView *__nonnull collectionView, NSIndexPath *__nonnull indexPath, id __nonnull item);
+
+/// 对 cell 进行定制，默认实现尝试设置 item 属性
+@property (null_resettable, nonatomic) void (^configureCell)(UICollectionView *__nonnull collectionView, __kindof UICollectionViewCell *__nonnull cell, NSIndexPath *__nonnull indexPath, id __nonnull item);
+
+#pragma mark -
+
+/**
+ 刷新可见 cell
+ */
+- (void)reconfigVisableCells;
+
+/// 删除条目
+- (void)removeItem:(nullable id)item;
 
 @end

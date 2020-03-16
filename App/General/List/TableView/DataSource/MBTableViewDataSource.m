@@ -108,4 +108,26 @@
     [self.tableView deleteRowsAtIndexPaths:@[ ip ] withRowAnimation:animation];
 }
 
+- (NSIndexPath *)appendItem:(id)item withRowAnimation:(UITableViewRowAnimation)animation {
+    if (!item) return nil;
+    NSIndexPath *ip = [self indexPathForItem:item];
+    if (ip) return nil;
+    [self.items addObject:item];
+    ip = [self indexPathForItem:item];
+    NSAssert(ip, nil);
+    if (self.empty) {
+        self.empty = NO;
+    }
+    if (!self.tableView.window) {
+        animation = UITableViewRowAnimationNone;
+    }
+    [self.tableView insertRowsAtIndexPaths:@[ ip ] withRowAnimation:animation];
+    return ip;
+}
+
+- (void)setItemsWithRawData:(id)responseData {
+    [super setItemsWithRawData:responseData];
+    [self.tableView reloadData];
+}
+
 @end

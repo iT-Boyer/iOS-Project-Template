@@ -1,28 +1,36 @@
 
 #import "MBCollectionViewDataSource.h"
 #import <MBAppKit/MBGeneral.h>
+#import <RFDelegateChain/RFDelegateChain.h>
 
 @implementation MBCollectionViewDataSource
-@dynamic delegate;
 
-- (void)onInit {
-    [super onInit];
-    if (!self.cellReuseIdentifier) {
-        [self setCellReuseIdentifier:^NSString *(UICollectionView *collectionView, NSIndexPath *indexPath, id item) {
+- (NSString * _Nonnull (^)(UICollectionView * _Nonnull, NSIndexPath * _Nonnull, id _Nonnull))cellReuseIdentifier {
+    if (!_cellReuseIdentifier) {
+        _cellReuseIdentifier = ^NSString *(UICollectionView *collectionView, NSIndexPath *indexPath, id item) {
             return @"Cell";
-        }];
+        };
     }
+    return _cellReuseIdentifier;
+}
 
-    if (!self.configureCell) {
-        [self setConfigureCell:^(UICollectionView *collectionView, id<MBSenderEntityExchanging> cell, NSIndexPath *indexPath, id item) {
+- (void (^)(UICollectionView * _Nonnull, __kindof UICollectionViewCell * _Nonnull, NSIndexPath * _Nonnull, id _Nonnull))configureCell {
+    if (!_configureCell) {
+        _configureCell = ^(UICollectionView *collectionView, id<MBSenderEntityExchanging> cell, NSIndexPath *indexPath, id item) {
             if ([cell respondsToSelector:@selector(setItem:)]) {
                 [cell setItem:item];
             }
-        }];
+        };
     }
+    return _configureCell;
 }
 
+#pragma mark -
+
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    if (!self.collectionView) {
+        self.collectionView = collectionView;
+    }
     return 1;
 }
 
@@ -38,24 +46,30 @@
     return cell;
 }
 
-- (void)fetchItemsFromViewController:(id)viewController nextPage:(BOOL)nextPage success:(void (^)(MBCollectionViewDataSource *, NSArray *))success completion:(void (^)(MBListDataSource *))completion {
-    @autoreleasepool {
-        [super fetchItemsFromViewController:viewController nextPage:nextPage success:(id)success completion:completion];
+#pragma mark -
+
+- (void)reconfigVisableCells {
+    UICollectionView *tb = self.collectionView;
+    for (UICollectionViewCell *cell in tb.visibleCells) {
+        NSIndexPath *ip = [tb indexPathForCell:cell];
+        if (!ip) continue;
+        self.configureCell(tb, cell, ip, [self itemAtIndexPath:ip]);
     }
 }
 
-- (void)fetchNextPageFromViewController:(id)viewController completion:(void (^)(MBListDataSource *dateSource))completion {
-    [self fetchItemsFromViewController:viewController nextPage:YES success:^(MBCollectionViewDataSource *dateSource, NSArray *fetchedItems) {
-        [dateSource.collectionView reloadData];
-    } completion:completion];
+- (void)removeItem:(id)item {
+    NSIndexPath *ip = [self indexPathForItem:item];
+    if (!ip) return;
+    [self.items removeObject:item];
+    if (self.items.count == 0 && self.pageEnd) {
+        self.empty = YES;
+    }
+    [self.collectionView deleteItemsAtIndexPaths:@[ ip ]];
 }
 
-// 这个方法没有 forward 到 delegate？
-- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
-    if ([self.delegate respondsToSelector:@selector(collectionView:viewForSupplementaryElementOfKind:atIndexPath:)]) {
-        return [self.delegate collectionView:collectionView viewForSupplementaryElementOfKind:kind atIndexPath:indexPath];
-    }
-    return nil;
+- (void)setItemsWithRawData:(id)responseData {
+    [super setItemsWithRawData:responseData];
+    [self.collectionView reloadData];
 }
 
 @end

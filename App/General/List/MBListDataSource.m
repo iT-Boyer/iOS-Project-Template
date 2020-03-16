@@ -5,15 +5,12 @@
 #import <MBAppKit/MBAppKit.h>
 #import <MBAppKit/MBAPI.h>
 
-/// 控制分页从几开始算
-static const NSInteger _MBListDataSourcePageStart = 1;
-
 @interface MBListDataSourceFetchComplationCallback : RFCallback
 @end
 
 @interface MBListDataSource ()
 @property BOOL fetching;
-@property (weak) id<RFAPITask> fetchOperation;
+@property (weak, nonatomic) id<RFAPITask> fetchOperation;
 @property (nonatomic) RFCallbackControl<MBListDataSourceFetchComplationCallback *> *fetchComplationCallbacks;
 @end
 
@@ -21,22 +18,21 @@ static const NSInteger _MBListDataSourcePageStart = 1;
 
 - (void)onInit {
     [super onInit];
+    self.pageStartZero = self.class.defualtPageStartZero;
+    self.page = self.pageStartZero ? - 1 : 0;
     self.pageSize = 10;
-    self.items = [NSMutableArray array];
-    self.maxIDParameterName = @"MAX_ID";
-    self.pageParameterName = @"page";
-    self.pageSizeParameterName = @"per_page";
+    self.items = [NSMutableArray.alloc initWithCapacity:40];
     self.pageEndDetectPolicy = MBDataSourcePageEndDetectPolicyStrict;
 }
 
 - (void)prepareForReuse {
     [self.items removeAllObjects];
     self.empty = NO;
-    self.page = _MBListDataSourcePageStart - 1;
+    self.page = self.pageStartZero ? - 1 : 0;
     self.maxID = nil;
     self.pageEnd = NO;
     self.fetching = NO;
-    [self.fetchOperation cancel];
+    self.fetchOperation = nil;
 }
 
 - (id)itemAtIndexPath:(NSIndexPath *)indexPath {
@@ -62,7 +58,7 @@ static const NSInteger _MBListDataSourcePageStart = 1;
 - (void)fetchItemsFromViewController:(nullable UIViewController *)viewController nextPage:(BOOL)nextPage success:(void (^)(__kindof MBListDataSource *dateSource, NSArray *fetchedItems))success completion:(void (^)(__kindof MBListDataSource *dateSource))completion {
     if (self.fetching) return;
     if (!self.fetchAPIName) {
-        dout_warning(@"Datasource 的 fetchAPIName 未设置")
+        NSAssert(false, @"Datasource 的 fetchAPIName 未设置");
         return;
     }
     self.fetching = YES;
@@ -73,7 +69,7 @@ static const NSInteger _MBListDataSourcePageStart = 1;
         self.maxID = nil;
     }
 
-    self.page = nextPage? self.page + 1 : _MBListDataSourcePageStart;
+    self.page = nextPage? self.page + 1 : (self.pageStartZero ? 0 : 1);
     BOOL pagingEnabled = !self.pagingDisabled;
     NSMutableDictionary *parameter = [NSMutableDictionary dictionaryWithDictionary:self.fetchParameters];
     if (pagingEnabled) {
@@ -92,14 +88,15 @@ static const NSInteger _MBListDataSourcePageStart = 1;
         }
         parameter[self.pageSizeParameterName] = @(self.pageSize);
     }
-
-    self.fetchOperation = [MBAPI.global requestWithName:self.fetchAPIName context:^(RFAPIRequestConext *c) {
+    
+    self.fetchOperation = [MBAPI requestName:self.fetchAPIName context:^(RFAPIRequestConext *c) {
         c.parameters = parameter;
         c.groupIdentifier = viewController.APIGroupIdentifier;
         @weakify(self);
         c.success = ^(id<RFAPITask>  _Nonnull task, id  _Nullable responseObject) {
             @strongify(self);
             if (!self) return;
+            if (task != self.fetchOperation) return;
 
             NSMutableArray *items = self.items;
             NSArray *responseArray = nil;
@@ -121,12 +118,14 @@ static const NSInteger _MBListDataSourcePageStart = 1;
                 success(self, responseArray);
             }
             self.hasSuccessFetched = YES;
-            self.lastFetchError = nil;
         };
         c.failure = ^(id<RFAPITask>  _Nullable task, NSError * _Nonnull error) {
             @strongify(self);
             if (!self) return;
+            if (task != self.fetchOperation) return;
 
+            // 请求失败的话分页应该减回去
+            self.page--;
             self.lastFetchError = error;
             BOOL (^cb)(MBListDataSource *, NSError *) = self.class.defaultFetchFailureHandler;
             if (cb && cb(self, error)) {
@@ -136,11 +135,8 @@ static const NSInteger _MBListDataSourcePageStart = 1;
         c.finished = ^(id<RFAPITask>  _Nullable task, BOOL success) {
             @strongify(self);
             if (!self) return;
+            if (task != self.fetchOperation) return;
 
-            if (!success) {
-                // 请求失败的话分页应该减回去
-                self.page--;
-            }
             self.fetching = NO;
             if (completion) {
                 completion(self);
@@ -150,9 +146,13 @@ static const NSInteger _MBListDataSourcePageStart = 1;
     }];
 }
 
+- (void)cancelFetching {
+    self.fetchOperation = nil;
+}
+
 - (void)setItemsWithRawData:(id)responseData {
     self.fetching = NO;
-    [self.fetchOperation cancel];
+    self.fetchOperation = nil;
     self.page = 0;
     self.maxID = nil;
     
@@ -185,33 +185,97 @@ static const NSInteger _MBListDataSourcePageStart = 1;
         }
         
         // 不重复，直接加
-        if (![items containsObject:obj]) {
+        NSInteger existsIdx = [items indexOfObject:obj];
+        if (existsIdx == NSNotFound) {
             [items addObject:obj];
             return;
         }
         
         // 处理重复
-        if (self.distinctRule == MBDataSourceDistinctRuleIgnore) {
-        }
-        else if (self.distinctRule == MBDataSourceDistinctRuleUpdate) {
-            items[[items indexOfObject:obj]] = obj;
-        }
-        else if (self.distinctRule == MBDataSourceDistinctRuleReplace) {
-            [items removeObject:obj];
-            [items addObject:obj];
-        }
-        else {
-            [items addObject:obj];
+        switch (self.distinctRule) {
+            case MBDataSourceDistinctRuleIgnore:
+                break;
+            case MBDataSourceDistinctRuleUpdate:
+                items[existsIdx] = obj;
+                break;
+            case MBDataSourceDistinctRuleReplace:
+                [items removeObjectAtIndex:existsIdx];
+                [items addObject:obj];
+                break;
+            case MBDataSourceDistinctRuleDefault:
+            default:
+                [items addObject:obj];
+                break;
         }
     }];
     
     self.empty = (items.count == 0 && responseArray.count == 0);
     if (self.pageEndDetectPolicy == MBDataSourcePageEndDetectPolicyEmpty) {
-        self.pageEnd = !!(responseArray.count == 0);
+        self.pageEnd = (responseArray.count == 0);
     }
     else {
         self.pageEnd = (responseArray.count < self.pageSize);
     }
+}
+
+#pragma mark -
+
+- (void)setFetchOperation:(id<RFAPITask>)fetchOperation {
+    if (_fetchOperation == fetchOperation) return;
+    if (_fetchOperation) {
+        [_fetchOperation cancel];
+        self.lastFetchError = nil;
+    }
+    _fetchOperation = fetchOperation;
+}
+
+static BOOL _globalPageStartZero = NO;
++ (BOOL)defualtPageStartZero {
+    return _globalPageStartZero;
+}
++ (void)setDefualtPageStartZero:(BOOL)pageStartZero {
+    _globalPageStartZero = pageStartZero;
+}
+
+- (NSString *)pageParameterName {
+    if (!_pageParameterName) {
+        _pageParameterName = self.class.defaultPageParameterName ?: @"page";
+    }
+    return _pageParameterName;
+}
+- (NSString *)pageSizeParameterName {
+    if (!_pageSizeParameterName) {
+        _pageSizeParameterName = self.class.defaultPageSizeParameterName ?: @"page_size";
+    }
+    return _pageSizeParameterName;
+}
+- (NSString *)maxIDParameterName {
+    if (!_maxIDParameterName) {
+        _maxIDParameterName = self.class.defaultMaxIDParameterName ?: @"MAX_ID";
+    }
+    return _maxIDParameterName;
+}
+
+static NSString *_globalPageParameterName = nil;
++ (NSString *)defaultPageParameterName {
+    return _globalPageParameterName;
+}
++ (void)setDefaultPageParameterName:(NSString *)defaultPageParameterName {
+    _globalPageParameterName = defaultPageParameterName;
+}
+static NSString *_globalPageSizeParameterName = nil;
++ (NSString *)defaultPageSizeParameterName {
+    return _globalPageSizeParameterName;
+}
++ (void)setDefaultPageSizeParameterName:(NSString *)defaultPageSizeParameterName {
+    _globalPageSizeParameterName = defaultPageSizeParameterName;
+}
+static NSString *_globalMaxIDParameterName = nil;
++ (NSString *)defaultMaxIDParameterName {
+    return _globalMaxIDParameterName;
+}
++ (void)setDefaultMaxIDParameterName:(NSString *)defaultMaxIDParameterName {
+    _globalMaxIDParameterName = defaultMaxIDParameterName;
 }
 
 #pragma mark -

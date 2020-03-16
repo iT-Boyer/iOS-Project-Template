@@ -1,10 +1,10 @@
-/*
+/*!
  MBListDataSource
- 
- Copyright © 2018 RFUI.
+
+ Copyright © 2018, 2020 RFUI.
  Copyright © 2014-2016 Beijing ZhiYun ZhiYuan Information Technology Co., Ltd.
  https://github.com/BB9z/iOS-Project-Template
- 
+
  Apache License, Version 2.0
  http://www.apache.org/licenses/LICENSE-2.0
  */
@@ -18,14 +18,14 @@
 
 /**
  清空数据、重置状态，以便作为另一个列表的 dataSource 使用
- 
+
  不会重设配置量
 */
 - (void)prepareForReuse;
 
 #pragma mark - Items
 
-@property (nonatomic, nullable) NSMutableArray<ItemType> *items;
+@property (nullable, nonatomic) NSMutableArray<ItemType> *items;
 
 /// 列表为空
 @property BOOL empty;
@@ -39,8 +39,11 @@
 /// 禁用分页
 @property BOOL pagingDisabled;
 
+/// 分页是否从 0 开始算，默认 NO 从第 1 页开始算
+@property BOOL pageStartZero;
+
 typedef NS_ENUM(short, MBDataSourcePageStyle) {
-    /// 默认，把当前页数作为游标，从 1 开始计算
+    /// 默认，把当前页数作为游标
     MBDataSourceDefaultPageStyle = 0,
 
     /// 把上一页最后的 item 的 ID 作为分页游标
@@ -52,24 +55,28 @@ typedef NS_ENUM(short, MBDataSourcePageStyle) {
  */
 @property MBDataSourcePageStyle pageStyle;
 
-@property NSInteger page;
+/// 分页大小
 @property NSUInteger pageSize;
 
+/// 当前加载到的页码
+@property NSInteger page;
+
+/// 当前加载到的用于分页的 ID
 @property (nullable) id maxID;
 
 /// maxID 的获取是通过在最后一个 item 上执行 valueForKeyPath: 获取的
 @property (nullable) NSString *maxIDKeypath;
 
 /// 默认 page
-@property (nullable) NSString *pageParameterName;
+@property (null_resettable, nonatomic) NSString *pageParameterName;
 
 /// 默认 page_size
-@property (nullable) NSString *pageSizeParameterName;
+@property (null_resettable, nonatomic) NSString *pageSizeParameterName;
 
 /// 默认 MAX_ID
-@property (nullable) NSString *maxIDParameterName;
+@property (null_resettable, nonatomic) NSString *maxIDParameterName;
 
-/// 页面到底了
+/// 列表是否到底了
 @property BOOL pageEnd;
 
 /**
@@ -85,27 +92,53 @@ typedef NS_ENUM(short, MBDataSourcePageEndDetectPolicy) {
 /// 默认 Strict
 @property MBDataSourcePageEndDetectPolicy pageEndDetectPolicy;
 
+#pragma mark 应用级别设置
+
+/// 设置应用级别的，分页是否从 0 开始算，否则是第 1 页
+@property (class) BOOL defualtPageStartZero;
+
+/// 设置应用级别的，分页参数名
+@property (class, nullable) NSString *defaultPageParameterName;
+/// 设置应用级别的，分页大小参数名
+@property (class, nullable) NSString *defaultPageSizeParameterName;
+/// 设置应用级别的，分页 ID 参数名
+@property (class, nullable) NSString *defaultMaxIDParameterName;
+
 #pragma mark - 条目获取
 
 /// 是否正在获取数据
 @property (readonly) BOOL fetching;
+
+/// 列表是否已经有任何成功的获取
 @property BOOL hasSuccessFetched;
 
-@property (nullable, copy) IBInspectable NSString *fetchAPIName;
+/// 请求接口名
+@property (nullable) IBInspectable NSString *fetchAPIName;
+
+/// 除分页参数外，附加的请求参数
 @property (nullable) NSDictionary *fetchParameters;
+
+/// 本次请求失败的错误信息
 @property (nullable) NSError *lastFetchError;
 
 /**
  加载数据
- 
+
+ 如果正在获取数据，不会执行任一回调
+
  @param nextPage 下一页还是从头加载
  @param success fetchedItems 是处理后的最终数据
  */
 - (void)fetchItemsFromViewController:(nullable UIViewController *)viewController nextPage:(BOOL)nextPage success:(void (^__nullable)(__kindof MBListDataSource *__nonnull dateSource, NSArray *__nullable fetchedItems))success completion:(void (^__nullable)(__kindof MBListDataSource *__nonnull dateSource))completion;
 
 /**
+ 取消当前加载
+ */
+- (void)cancelFetching;
+
+/**
  用给定的原始数据重置列表数据，并把状态属性置为合适的值
- 
+
  取消正在获取的数据，标记分页到底
  */
 - (void)setItemsWithRawData:(nullable id)responseData;
@@ -114,7 +147,7 @@ typedef NS_ENUM(short, MBDataSourcePageEndDetectPolicy) {
 
 /**
  对网络请求返回的数据进行第一次处理，典型情形如手工去重、模型转换
- 
+
  @param oldItems 数据源中目前存在对象的拷贝，如果是刷新获取会是 nil，获取下一页时一定是个数组
  @param newItems 请求返回的对象，有可能不是数组，这种情况有必要处理
 

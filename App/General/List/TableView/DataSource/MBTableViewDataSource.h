@@ -64,6 +64,10 @@
  */
 - (void)reconfigVisableCells;
 
+/// 删除条目
 - (void)removeItem:(nullable id)item withRowAnimation:(UITableViewRowAnimation)animation;
+
+/// 添加到末尾
+- (nullable NSIndexPath *)appendItem:(nullable id)item withRowAnimation:(UITableViewRowAnimation)animation;
 
 @end

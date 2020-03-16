@@ -43,7 +43,8 @@ RFInitializingRootForUIView
 
             [control setFooterProcessBlock:^{
                 @strongify(self);
-                [self fetchItemsWithPageFlag:(self.dataSource.page != 0)];
+                NSInteger startPage = MBListDataSource.defualtPageStartZero ? -1 : 0;
+                [self fetchItemsWithPageFlag:(self.dataSource.page != startPage)];
             }];
             
             control;
