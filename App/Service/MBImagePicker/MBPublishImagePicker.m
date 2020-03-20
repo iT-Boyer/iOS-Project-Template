@@ -5,6 +5,7 @@
 #import "ShortCuts.h"
 #import "UIKit+App.h"
 #import <RFAlpha/RFImageCropperView.h>
+#import <RFAlpha/RFKVOWrapper.h>
 #if __has_include("API+FileUpload.h")
 #import "API+FileUpload.h"
 #endif
@@ -22,7 +23,9 @@ static MBPublishImagePicker *MBPBLiveInstance = nil;
     UIImagePickerControllerDelegate,
     UINavigationControllerDelegate
 >
-@property (nonnull) MBGeneralCallback safeCallback;
+@property MBGeneralCallback safeCallback;
+@property (weak) id systemImagePickerVC;
+@property BOOL hasSystemImagePickerShown;
 @end
 
 
@@ -38,8 +41,13 @@ static MBPublishImagePicker *MBPBLiveInstance = nil;
 + (void)pickImageWithConfiguration:(NS_NOESCAPE void (^)(MBPublishImagePicker *_Nonnull))configBlock complation:(MBGeneralCallback)complation {
     MBGeneralCallback safeCallback = MBSafeCallback(complation);
     if (MBPBLiveInstance) {
-        safeCallback(NO, nil, [NSError errorWithDomain:MBPublishImagePicker.errorDomain code:MBErrorOperationRepeat localizedDescription:@"已经在选择图片"]);
-        return;
+        if (MBPBLiveInstance.hasSystemImagePickerShown && MBPBLiveInstance.systemImagePickerVC == nil) {
+            MBPBLiveInstance = nil;
+        }
+        else {
+            safeCallback(NO, nil, [NSError errorWithDomain:MBPublishImagePicker.errorDomain code:MBErrorOperationRepeat localizedDescription:@"已经在选择图片"]);
+            return;
+        }
     }
 
     MBPublishImagePicker *instance = [MBPublishImagePicker new];
@@ -103,24 +111,36 @@ static MBPublishImagePicker *MBPBLiveInstance = nil;
     pik.sourceType = sourceType;
     pik.delegate = self;
     [AppNavigationController() presentViewController:pik animated:YES completion:nil];
+    self.systemImagePickerVC = pik;
+    self.hasSystemImagePickerShown = YES;
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *, id> *)info {
     if (self.shouldReturnRawPickerInfoInsteadOfImageObject) {
-        MBPBLiveInstance.safeCallback(YES, info, nil);
-        MBPBLiveInstance = nil;
+        [self _executeCallbackSuccess:info];
         [picker dismissViewControllerAnimated:YES completion:nil];
         return;
     }
 
     UIImage *orgImage = info[UIImagePickerControllerOriginalImage];
     if (!orgImage) {
-        MBPBLiveInstance.safeCallback(NO, nil, [NSError errorWithDomain:MBPublishImagePicker.errorDomain code:MBErrorDataNotAvailable localizedDescription:@"图片选取失败"]);
-        MBPBLiveInstance = nil;
+        [self _executeCallbackFail:[NSError errorWithDomain:MBPublishImagePicker.errorDomain code:MBErrorDataNotAvailable localizedDescription:@"图片选取失败"]];
         [picker dismissViewControllerAnimated:YES completion:nil];
         return;
     }
 
+    [self systemImagePickerDidReturnImage:orgImage];
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    [self _executeCallbackFail:nil];
+}
+
+#pragma mark - 选完图片后的操作
+
+- (void)systemImagePickerDidReturnImage:(nonnull UIImage *)orgImage {
     if (self.cropAfterImageSelected) {
         MBPublishAvatarImageCropperViewController *vc = [MBPublishAvatarImageCropperViewController newFromStoryboard];
         vc.image = orgImage;
@@ -131,20 +151,10 @@ static MBPublishImagePicker *MBPBLiveInstance = nil;
             [self uploadImage:orgImage];
         }
         else {
-            MBPBLiveInstance.safeCallback(YES, orgImage, nil);
-            MBPBLiveInstance = nil;
+            [self _executeCallbackSuccess:orgImage];
         }
     }
-    [picker dismissViewControllerAnimated:YES completion:nil];
 }
-
-- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
-    [picker dismissViewControllerAnimated:YES completion:nil];
-    MBPBLiveInstance.safeCallback(NO, nil, nil);
-    MBPBLiveInstance = nil;
-}
-
-#pragma mark - 选完图片后的操作
 
 - (void)cropFinishedWithCroppedImage:(UIImage *)image cancel:(BOOL)cancel {
     if (cancel || !self.autoUpload) {
@@ -153,8 +163,7 @@ static MBPublishImagePicker *MBPBLiveInstance = nil;
         return;
     }
     if (!image) {
-        self.safeCallback(NO, nil, [NSError errorWithDomain:MBPublishImagePicker.errorDomain code:MBErrorDataNotAvailable localizedDescription:@"裁切图像获取失败"]);
-        MBPBLiveInstance = nil;
+        [self _executeCallbackFail:[NSError errorWithDomain:MBPublishImagePicker.errorDomain code:MBErrorDataNotAvailable localizedDescription:@"裁切图像获取失败"]];
         return;
     }
     [self uploadImage:image];
@@ -167,8 +176,7 @@ static MBPublishImagePicker *MBPBLiveInstance = nil;
         }
         NSData *imageData = UIImageJPEGRepresentation(image, .6);
         if (!imageData) {
-            self.safeCallback(NO, nil, [NSError errorWithDomain:MBPublishImagePicker.errorDomain code:MBErrorDataNotAvailable localizedDescription:@"上传图片无法获取"]);
-            MBPBLiveInstance = nil;
+            [self _executeCallbackFail:[NSError errorWithDomain:MBPublishImagePicker.errorDomain code:MBErrorDataNotAvailable localizedDescription:@"上传图片无法获取"]];
             return;
         }
         [AppHUD() showActivityIndicatorWithIdentifier:@"imageUpload" groupIdentifier:self.className model:YES message:self.loadingText];
@@ -182,6 +190,22 @@ static MBPublishImagePicker *MBPBLiveInstance = nil;
         RFAssert(false, @"图片上传组件未导入");
         #endif
     }
+}
+
+- (void)_executeCallbackSuccess:(nullable id)responseObject {
+    MBGeneralCallback cb = self.safeCallback;
+     RFAssert(cb, @"已经执行回调了？");
+     self.safeCallback = nil;
+     cb(YES, responseObject, nil);
+     MBPBLiveInstance = nil;
+}
+
+- (void)_executeCallbackFail:(nullable NSError *)error {
+    MBGeneralCallback cb = self.safeCallback;
+    RFAssert(cb, @"已经执行回调了？");
+    self.safeCallback = nil;
+    cb(NO, nil, error);
+    MBPBLiveInstance = nil;
 }
 
 + (NSString *)errorDomain {
