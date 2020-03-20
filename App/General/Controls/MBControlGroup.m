@@ -11,6 +11,7 @@
 RFInitializingRootForUIView
 
 - (void)onInit {
+    _selectionNoticeOnlySendWhenButtonTapped = YES;
     _MBControlGroup_intrinsicContentWidth = UIViewNoIntrinsicMetric;
 }
 
@@ -29,7 +30,8 @@ RFInitializingRootForUIView
         NSMutableArray *controls = [NSMutableArray arrayWithCapacity:self.subviews.count];
         __block NSInteger selectIndex = NSNotFound;
         __block UIControl *prevSelectedControl = nil;
-        [self.subviews enumerateObjectsUsingBlock:^(UIControl *v, NSUInteger idx, BOOL *stop) {
+        NSArray *subviews = self.stackLayoutView ? self.stackLayoutView.arrangedSubviews : self.subviews;
+        [subviews enumerateObjectsUsingBlock:^(UIControl *v, NSUInteger idx, BOOL *stop) {
             if ([v isKindOfClass:[UIControl class]]) {
                 [controls addObject:v];
                 
@@ -99,7 +101,7 @@ RFInitializingRootForUIView
         }
     }
 
-    self.selectedControl = sender;
+    [self setSelectedControl:sender animated:YES];
     if (self.selectionNoticeOnlySendWhenButtonTapped) {
         [self sendActionsForControlEvents:UIControlEventValueChanged];
     }
@@ -198,33 +200,36 @@ RFInitializingRootForUIView
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    
-    if (self.selfLayoutEnabled
-        && !CGRectEqualToRect(self.bounds, CGRectZero)) {
-        UIEdgeInsets itemInset = self.itemInsets;
-        CGFloat itemSpacing = self.itemSpacing;
-        NSArray<UIView *> *controls = self.controls;
 
-        CGRect contentFrame = UIEdgeInsetsInsetRect(self.bounds, itemInset);
+    if (self.stackLayoutView || !self.selfLayoutEnabled) return;
+    if (CGRectEqualToRect(self.bounds, CGRectZero)) return;
+    [self updateSelfLayout];
+}
 
-        CGFloat x = CGRectGetMinX(contentFrame);
-        CGFloat y = CGRectGetMinY(contentFrame);
-        CGFloat itemHeight = contentFrame.size.height;
+- (void)updateSelfLayout {
+    UIEdgeInsets itemInset = self.itemInsets;
+    CGFloat itemSpacing = self.itemSpacing;
+    NSArray<UIView *> *controls = self.controls;
 
-        for (UIView *v in controls) {
-            CGFloat itemWidth = [v systemLayoutSizeFittingSize:contentFrame.size].width;
-            if (itemWidth == UIViewNoIntrinsicMetric) {
-                itemWidth = v.width;
-            }
-            CGRect frame = CGRectMake(x, y, itemWidth, itemHeight);
-            v.frame = frame;
-            _dout_rect(v.frame)
-            x += itemWidth + itemSpacing;
+    CGRect contentFrame = UIEdgeInsetsInsetRect(self.bounds, itemInset);
+
+    CGFloat x = CGRectGetMinX(contentFrame);
+    CGFloat y = CGRectGetMinY(contentFrame);
+    CGFloat itemHeight = contentFrame.size.height;
+
+    for (UIView *v in controls) {
+        CGFloat itemWidth = [v systemLayoutSizeFittingSize:contentFrame.size].width;
+        if (itemWidth == UIViewNoIntrinsicMetric) {
+            itemWidth = v.width;
         }
-
-        CGFloat contentWidth = x - (controls.count? itemSpacing : 0) + itemInset.right;
-        self.MBControlGroup_intrinsicContentWidth = contentWidth;
+        CGRect frame = CGRectMake(x, y, itemWidth, itemHeight);
+        v.frame = frame;
+        _dout_rect(v.frame)
+        x += itemWidth + itemSpacing;
     }
+
+    CGFloat contentWidth = x - (controls.count? itemSpacing : 0) + itemInset.right;
+    self.MBControlGroup_intrinsicContentWidth = contentWidth;
 }
 
 #pragma mark Content Size
@@ -237,6 +242,9 @@ RFInitializingRootForUIView
 }
 
 - (CGSize)intrinsicContentSize {
+    if (self.stackLayoutView) {
+        return self.stackLayoutView.intrinsicContentSize;
+    }
     CGSize size = [super intrinsicContentSize];
     if (self.MBControlGroup_intrinsicContentWidth != UIViewNoIntrinsicMetric) {
         size.width = self.MBControlGroup_intrinsicContentWidth;

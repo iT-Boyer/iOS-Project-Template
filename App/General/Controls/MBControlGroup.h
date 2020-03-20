@@ -1,7 +1,7 @@
-/*
+/*!
  MBControlGroup
 
- Copyright © 2018-2019 RFUI.
+ Copyright © 2018-2020 RFUI.
  Copyright © 2014-2016 Beijing ZhiYun ZhiYuan Technology Co., Ltd.
  Copyright © 2014 Chinamobo Co., Ltd.
  https://github.com/BB9z/iOS-Project-Template
@@ -23,21 +23,30 @@
  这个类可以有多种用法，一般有：
  1. 作为 NSObject 而不是一个视图使用，用来控制逻辑，可以在 IB 中加入一个 NSObject 修改类，然后连接 controls 等属性，继承 UIControl 只是为了便于发送事件
  2. 作为子控件的父 view 静态使用，有几个按钮、默认选中哪个，均可以（并且是可选的）在 IB 中连线实现
- 3. 作为子控件的父 view 动态使用，Control group 会管理布局，动态增减子按钮布局会随之更新
+ 3. 作为子控件的父 view 动态使用，Control group 会管理布局，动态增减子按钮布局会随之更新，或者使用 UIStackView 管理按钮布局
  */
 @interface MBControlGroup : UIControl <
     RFInitializing
 >
 /**
- 如果 controls 未设置，从 nib 中载入后，自动把子 view 中是 UIControl 的 view 设置为 controls
+ 如果 controls 未设置，从 nib 中载入后，自动把 stackLayoutView 或子 view 中是 UIControl 的 view 设置为 controls
  */
-@property (nonatomic, nullable) IBOutletCollection(UIControl) NSArray *controls;
+@property (nullable, nonatomic) IBOutletCollection(UIControl) NSArray *controls;
 
-@property (nonatomic, nullable, weak) IBOutlet UIControl *selectedControl;
+/// 当前选中的控件
+@property (weak, nullable, nonatomic) IBOutlet UIControl *selectedControl;
+
+/**
+ 切换选中控件
+
+ 子类如需切换控件时的定制可重载此方法
+ */
 - (void)setSelectedControl:(nullable UIControl *)selectedControl animated:(BOOL)animated;
 
 /// 选中控件的 index，未选中任何控件是 NSNotFound
 @property (nonatomic) NSInteger selectIndex;
+
+/// 切换选中控件
 - (void)setSelectIndex:(NSInteger)selectIndex animated:(BOOL)animated;
 
 /// 设为 YES 当再次点击已选择控件时将取消该控件的选择状态，默认 NO
@@ -60,13 +69,19 @@
 #endif
 
 /**
- 设为 YES，只在用户点子按钮时告知 delegate tab 切换，否则只要 selectedIndex 变化就会通知 delegate
+ 默认 YES，只在用户点子按钮时告知 delegate tab 切换
 
- 这个开关本不应该存在，应该默认开启。但因为历史原因，涉及代码太多，未默认开启，子类应该默认开启
+ 为 NO 时只要 selectedIndex 变化就会通知 delegate
  */
 @property IBInspectable BOOL selectionNoticeOnlySendWhenButtonTapped;
 
 #pragma mark - Layout
+
+/**
+ 如果非空，将使用该 UIStackView 进行布局，下列的 layout 属性失效
+ */
+@property (weak, nullable) IBOutlet UIStackView *stackLayoutView;
+
 // layout 相关属性都不是修改后立即生效的，但会在下次布局时使用
 // 如果需要变化立即生效，可以手动调用 setNeedsLayout
 
@@ -88,6 +103,8 @@
 #else
 @property UIEdgeInsets itemInsets;
 #endif
+
+- (void)updateSelfLayout;
 
 #pragma mark - Delegate
 
