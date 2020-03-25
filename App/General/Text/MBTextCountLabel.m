@@ -47,6 +47,10 @@ RFInitializingRootForUIView
 }
 
 - (void)_updateForTextChange:(UITextView *)textView {
+    if (self.textChangeUpdateBlock) {
+        self.textChangeUpdateBlock(self);
+        return;
+    }
     if (!textView) {
         self.text = nil;
         return;
@@ -60,8 +64,15 @@ RFInitializingRootForUIView
     }
     
     if (textView.markedTextRange) return;
-    
-    self.text = [NSString.alloc initWithFormat:@"%ld/%ld", lenText, lenMax];
+
+    if (self.maxLengthColor) {
+        NSMutableAttributedString *as = [NSMutableAttributedString.alloc initWithString:@(lenText).stringValue];
+        [as appendAttributedString:[NSAttributedString.alloc initWithString:[NSString.alloc initWithFormat:@"/%ld", lenMax] attributes:@{ NSForegroundColorAttributeName: self.maxLengthColor }]];
+        self.attributedText = as;
+    }
+    else {
+        self.text = [NSString.alloc initWithFormat:@"%ld/%ld", lenText, lenMax];
+    }
     self.highlighted = lenText >= lenMax;
 }
 
