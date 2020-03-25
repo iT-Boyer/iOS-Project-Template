@@ -64,7 +64,7 @@ RFInitializingRootForUIView
             if (!textField.text.length) {
                 return NO;
             }
-            [self doSearchforce];
+            [self MBSearchTextField_doSearchIsAuto:NO];
             return YES;
         }];
     }
@@ -81,20 +81,23 @@ RFInitializingRootForUIView
         @weakify(self);
         [_autoSearchTimer setFireBlock:^(RFTimer *timer, NSUInteger repeatCount) {
             @strongify(self);
-            [self doSearchforce];
+            [self MBSearchTextField_doSearchIsAuto:YES];
         }];
     }
     return _autoSearchTimer;
 }
 
 - (void)doSearchforce {
+    [self MBSearchTextField_doSearchIsAuto:NO];
+}
+- (void)MBSearchTextField_doSearchIsAuto:(BOOL)isAuto {
     if ((self.disallowEmptySearch && !self.text.length)
         || self.text.length < self.autoSearchMinimumLength) {
         return;
     }
     if (self.doSearch) {
         self.isSearching = YES;
-        self.doSearch(self.text);
+        self.doSearch(self.text, isAuto);
     }
 }
 

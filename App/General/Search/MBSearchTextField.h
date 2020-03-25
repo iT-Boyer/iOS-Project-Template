@@ -1,7 +1,7 @@
-/*
+/*!
  MBSearchTextField
  
- Copyright © 2018 RFUI.
+ Copyright © 2018, 2020 RFUI.
  Copyright © 2016 Beijing ZhiYun ZhiYuan Technology Co., Ltd.
  https://github.com/BB9z/iOS-Project-Template
  
@@ -13,7 +13,7 @@
 
 // @MBDependency:2
 /**
- 
+ 搜索输入框
  */
 @interface MBSearchTextField : UITextField <
     RFInitializing
@@ -45,7 +45,10 @@
 
 #pragma mark -
 
-@property (nullable) void (^doSearch)(NSString *__nullable keyWords);
+/**
+ 执行搜索
+ */
+@property (nullable) void (^doSearch)(NSString *__nullable keyWords, BOOL isAutoSearch);
 
 /**
  强制立即搜索
