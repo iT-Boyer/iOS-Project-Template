@@ -1,7 +1,7 @@
-/*
+/*!
  MBTableViewDataSource
  
- Copyright © 2018 RFUI.
+ Copyright © 2018, 2020 RFUI.
  Copyright © 2014-2015 Beijing ZhiYun ZhiYuan Information Technology Co., Ltd.
  https://github.com/BB9z/iOS-Project-Template
  

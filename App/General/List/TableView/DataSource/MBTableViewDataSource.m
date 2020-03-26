@@ -1,6 +1,9 @@
 
 #import "MBTableViewDataSource.h"
+#if __has_include("MBListDateItem.h")
 #import "MBListDateItem.h"
+#endif
+#import <MBAppKit/MBGeneralItemExchanging.h>
 #import <RFKit/NSArray+RFKit.h>
 #import <RFKit/UIView+RFAnimate.h>
 
@@ -59,9 +62,11 @@
     if (!_configureCell) {
         _configureCell = ^(UITableView *tableView, id cell, NSIndexPath *indexPath, id item) {
             if (![cell respondsToSelector:@selector(setItem:)]) return;
+#if __has_include("MBListDateItem.h")
             if ([item isKindOfClass:MBListDataItem.class]) {
                 item = [(MBListDataItem *)item item];
             }
+#endif
             [cell setItem:item];
         };
     }
