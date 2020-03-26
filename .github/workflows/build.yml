@@ -1,0 +1,19 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup Project
+      run: fastlane setup_project
+      
+    - name: Build maccatalyst target
+      run: xcodebuild -workspace "App.xcworkspace" -scheme "App"  -destination 'platform=macOS,arch=x86_64' | xcpretty
+
+    - name: Build iOS target
+      run: xcodebuild -workspace "App.xcworkspace" -scheme "App"  -destination 'platform=iOS Simulator,name=iPhone 11' | xcpretty
