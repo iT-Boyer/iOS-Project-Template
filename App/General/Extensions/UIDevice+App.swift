@@ -1,5 +1,5 @@
 
-import CoreTelephony.CTTelephonyNetworkInfo
+import CoreTelephony
 import SystemConfiguration.CaptiveNetwork
 
 /**
@@ -10,12 +10,19 @@ extension UIDevice {
     // @MBDependency:2
     /// 用户网络是否是移动数据
     @objc var isUsingMobileNetwork: Bool {
+        #if targetEnvironment(macCatalyst)
+        return false
+        #else
         return CTTelephonyNetworkInfo().currentRadioAccessTechnology != nil
+        #endif
     }
     
     // @MBDependency:2
     /// 用户网络是否是高速移动网络
     @objc var isUsingHighSpeedMobileNetwork: Bool {
+        #if targetEnvironment(macCatalyst)
+        return false
+        #else
         guard let t = CTTelephonyNetworkInfo().currentRadioAccessTechnology else {
             return false
         }
@@ -37,6 +44,7 @@ extension UIDevice {
         default:
             return true
         }
+        #endif
     }
     
     // @MBDependency:1
