@@ -27,6 +27,11 @@
 @property (null_resettable, nonatomic) MBTableViewPullToFetchControl *pullToFetchController;
 
 /**
+ 便捷设置底部刷新 view 的 outerEmptyView，仅支持 interface builder 中设置
+ */
+@property (weak, nullable) IBOutlet UIView *outerEmptyView;
+
+/**
  类里已内置了一个强引用的 MBTableViewDataSource
  */
 @property (weak, null_resettable, nonatomic) MBTableViewDataSource *dataSource;
@@ -36,7 +41,7 @@
  
  pullToFetchController 触发获取操作时调用的就是这个方法，如果要静默更新则可手动调用该方法
  */
-- (void)fetchItemsWithPageFlag:(BOOL)nextPage;
+- (void)fetchItemsWithPageFlag:(BOOL)nextPage NS_SWIFT_NAME( fetchItems(nextPage:));
 
 /**
  移动到 window 时，如果之前数据没有成功加载，则尝试获取数据，默认关

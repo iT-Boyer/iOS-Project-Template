@@ -23,6 +23,16 @@ RFInitializingRootForUIView
     [self pullToFetchController];
 }
 
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    UIView *ev = self.outerEmptyView;
+    if (ev) {
+        self.outerEmptyView = nil;
+        self.pullToFetchController.footerContainer.outerEmptyView = ev;
+        self.pullToFetchController.footerContainer.emptyLabel.text = nil;
+    }
+}
+
 - (void)dealloc {
     [super setDataSource:nil];
     [super setDelegate:nil];
@@ -80,7 +90,8 @@ RFInitializingRootForUIView
     [super willMoveToWindow:newWindow];
     if (newWindow) {
         if (self.autoFetchWhenMoveToWindow
-            && !self.dataSource.hasSuccessFetched) {
+            && !self.dataSource.hasSuccessFetched
+            && !self.dataSource.fetching) {
             [self.pullToFetchController triggerHeaderProcess];
         }
         else {
@@ -99,7 +110,9 @@ RFInitializingRootForUIView
 
 - (void)prepareForReuse {
     [self.dataSource prepareForReuse];
-    [self.pullToFetchController markProcessFinshed];
+    if (self.pullToFetchController.fetching) {
+        [self.pullToFetchController markProcessFinshed];
+    }
     self.pullToFetchController.footerReachEnd = NO;
     [self reloadData];
 }
