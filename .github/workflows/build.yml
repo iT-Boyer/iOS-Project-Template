@@ -18,7 +18,19 @@ jobs:
           ${{ runner.os }}-pods-
 
     - name: Setup Project
-      run: fastlane setup_project
+      run: |
+        isNeedsPodInstall=false
+        diff "Podfile.lock" "Pods/Manifest.lock" >/dev/null || {
+          isNeedsPodInstall=true
+        }
+        if $isNeedsPodInstall; then
+          pod install || {
+            echo "pod install fails, try update repo"
+            pod install --repo-update
+          }
+        else
+          echo "Podfile unchanged, skip pod install."
+        fi
       
     - name: Build maccatalyst target
       run: xcodebuild -workspace "App.xcworkspace" -scheme "App"  -destination 'platform=macOS,arch=x86_64' | xcpretty
