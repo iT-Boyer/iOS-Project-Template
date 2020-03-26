@@ -103,6 +103,8 @@
 		D5C636A72047CC5900851CF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5C636A62047CC5900851CF4 /* LaunchScreen.storyboard */; };
 		D5C82DDC2179D98C00E63A2A /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C82DDB2179D98C00E63A2A /* Color.swift */; };
 		D5D9F5142071BA6500B6FE9B /* UIViewController+RFInterfaceOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D9F5132071BA6500B6FE9B /* UIViewController+RFInterfaceOrientation.m */; };
+		D5DB4C19241DD71300832A0A /* MBEntitiesTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D5DB4C18241DD71300832A0A /* MBEntitiesTableView.m */; };
+		D5DB4C1C241E243900832A0A /* MBCollectionListDisplayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D5DB4C1B241E243900832A0A /* MBCollectionListDisplayer.m */; };
 		D5DB4C22241E39EA00832A0A /* UIKit+DynamicType.m in Sources */ = {isa = PBXBuildFile; fileRef = D5DB4C21241E39EA00832A0A /* UIKit+DynamicType.m */; };
 		D5E80580226F403D00901C41 /* MBBottomLayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E8057F226F403D00901C41 /* MBBottomLayoutView.m */; };
 		D5EE51192043DAA2009148B3 /* NSArray+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE50E42043DAA1009148B3 /* NSArray+App.m */; };
@@ -344,6 +346,10 @@
 		D5D4CC6E2043A6ED002FE9F0 /* OCBridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OCBridging-Header.h"; sourceTree = "<group>"; };
 		D5D9F5112071BA6400B6FE9B /* UIViewController+RFInterfaceOrientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+RFInterfaceOrientation.h"; sourceTree = "<group>"; };
 		D5D9F5132071BA6500B6FE9B /* UIViewController+RFInterfaceOrientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+RFInterfaceOrientation.m"; sourceTree = "<group>"; };
+		D5DB4C17241DD71300832A0A /* MBEntitiesTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBEntitiesTableView.h; sourceTree = "<group>"; };
+		D5DB4C18241DD71300832A0A /* MBEntitiesTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBEntitiesTableView.m; sourceTree = "<group>"; };
+		D5DB4C1A241E243900832A0A /* MBCollectionListDisplayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBCollectionListDisplayer.h; sourceTree = "<group>"; };
+		D5DB4C1B241E243900832A0A /* MBCollectionListDisplayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBCollectionListDisplayer.m; sourceTree = "<group>"; };
 		D5DB4C20241E39EA00832A0A /* UIKit+DynamicType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIKit+DynamicType.h"; sourceTree = "<group>"; };
 		D5DB4C21241E39EA00832A0A /* UIKit+DynamicType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIKit+DynamicType.m"; sourceTree = "<group>"; };
 		D5DCA6EB2046972B00A4951A /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; name = Podfile; path = ../Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -879,6 +885,8 @@
 				D5B49ECE1C41133900847925 /* Layout */,
 				D5B49EDD1C41133900847925 /* PullToFetch */,
 				D5B1905924026DB90076CD61 /* EnumListView.swift */,
+				D5DB4C1A241E243900832A0A /* MBCollectionListDisplayer.h */,
+				D5DB4C1B241E243900832A0A /* MBCollectionListDisplayer.m */,
 				D5B49ED51C41133900847925 /* MBCollectionView.h */,
 				D5B49ED61C41133900847925 /* MBCollectionView.m */,
 				D5B49ED71C41133900847925 /* MBEntitiesCollectionView.h */,
@@ -930,6 +938,8 @@
 			children = (
 				D5B49EE81C41133A00847925 /* DataSource */,
 				D5B49EF71C41133A00847925 /* PullToFetch */,
+				D5DB4C17241DD71300832A0A /* MBEntitiesTableView.h */,
+				D5DB4C18241DD71300832A0A /* MBEntitiesTableView.m */,
 				D5B49EED1C41133A00847925 /* MBTableHeaderFooterView.h */,
 				D5B49EEE1C41133A00847925 /* MBTableHeaderFooterView.m */,
 				D5B49EEF1C41133A00847925 /* MBTableListDisplayer.h */,
@@ -1406,6 +1416,7 @@
 				D5E80580226F403D00901C41 /* MBBottomLayoutView.m in Sources */,
 				D5A3312321527BA100B0FD5B /* MBCellStackView.m in Sources */,
 				D5B49EC51C4111B600847925 /* MBCollapsibleView.m in Sources */,
+				D5DB4C1C241E243900832A0A /* MBCollectionListDisplayer.m in Sources */,
 				D5B49F0B1C41133A00847925 /* MBCollectionRefreshFooterView.m in Sources */,
 				D5B49F071C41133A00847925 /* MBCollectionView.m in Sources */,
 				D5B49F021C41133A00847925 /* MBCollectionViewArrayDataSource.m in Sources */,
@@ -1423,6 +1434,7 @@
 				D5EE51E82043F613009148B3 /* MBDesignView.m in Sources */,
 				D569C9E921AE906900211E36 /* MBEmbedWebView.m in Sources */,
 				D5B49F081C41133A00847925 /* MBEntitiesCollectionView.m in Sources */,
+				D5DB4C19241DD71300832A0A /* MBEntitiesTableView.m in Sources */,
 				D569C9F021AE908200211E36 /* MBErrorCode.m in Sources */,
 				D5B49EC31C4111B600847925 /* MBFixWidthImageView.m in Sources */,
 				D5A3312421527BA100B0FD5B /* MBFlipCollapsibleView.m in Sources */,
