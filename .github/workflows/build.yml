@@ -12,8 +12,10 @@ jobs:
     - name: CocoaPods Cache
       uses: actions/cache@v1
       with:
-        path: "Pods/"
-        key: cocoapods
+        path: "Pods"
+        key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-pods-
 
     - name: Setup Project
       run: fastlane setup_project
