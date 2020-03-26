@@ -16,13 +16,6 @@
 
 @implementation MBSearchViewController
 
-- (instancetype)initWithCoder:(NSCoder *)aDecoder {
-    self.RFPrefersNavigationBarHidden = YES;
-    self.RFPrefersLightContentBarStyle = NO;
-    // 在 initWithCoder: 前设置默认属性，以便外面的设置不会被覆盖
-    return [super initWithCoder:aDecoder];
-}
-
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     if (self.keyboardAdjustLayoutConstraint) {
