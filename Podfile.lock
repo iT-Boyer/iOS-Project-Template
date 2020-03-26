@@ -300,7 +300,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   MBAppKit:
-    :commit: 7f46a27d389db9cbc6f18f706d1bcb0d9ce183b1
+    :commit: 3c5c1a7b3f085a8004f878524d6d048f78eb96d6
     :git: https://github.com/RFUI/MBAppKit.git
 
 SPEC CHECKSUMS:

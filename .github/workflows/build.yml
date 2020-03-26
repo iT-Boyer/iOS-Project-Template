@@ -19,6 +19,7 @@ jobs:
 
     - name: Setup Project
       run: |
+        pod --version
         isNeedsPodInstall=false
         diff "Podfile.lock" "Pods/Manifest.lock" >/dev/null || {
           isNeedsPodInstall=true
