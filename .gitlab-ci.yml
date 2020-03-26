@@ -1,0 +1,74 @@
+# GitLab CI 配置文件
+# 
+# Runner 的 tags 请按需修改
+
+stages:
+  - deploy
+
+variables:
+  # 如用 submodules，则取消注释
+  # GIT_SUBMODULE_STRATEGY: recursive
+
+  # 必填，指定项目构建用哪个 scheme
+  XC_BUILD_SCHEME: App
+
+  # 必填，指定构建项目工作区
+  XC_BUILD_WORKSPACE: App.xcworkspace
+
+  # 非必填，默认 Release。Release/Debug... 
+  XC_BUILD_CONFIGURATION: Release
+
+  # Provisioning Profile 文件 ID，留空尝试让 Xcode 自动选择签名
+  XC_PROVISIONING_ID: ""
+
+  # 代码签名身份，留空尝试让 Xcode 自动选择签名
+  XC_CODE_SIGN_IDENTITY: ""
+
+  # 导入 provisioning profile 文件的路径，留空跳过导入
+  XC_IMPORT_PROVISIONING_PATH: ""
+
+  # 导入 p12 签名证书的路径，留空跳过导入
+  XC_IMPORT_CERTIFICATE_PATH: ""
+
+  # 导入证书的密码
+  XC_IMPORT_CERTIFICATE_PASSWORD: ""
+
+  # 存放 fir.im 上传 token 的环境变量名，留空不上传
+  FIR_UPLOAD_TOKEN: FIR_TOKEN
+
+cache:
+  key: "v1"
+  paths:
+    - Pods/
+
+develop_deploy:
+  stage: deploy
+  tags:
+    - mobile-publish
+  only:
+    - develop
+  script: ./CI/gitlab.sh
+  variables:
+    XC_BUILD_CONFIGURATION: Debug
+
+demo_deploy:
+  stage: deploy
+  tags:
+    - mobile-publish
+  only:
+    - alpha
+  script: ./CI/gitlab.sh
+  variables:
+    FIR_UPLOAD_TOKEN: ZMM_FIR_TOKEN
+    XC_BUILD_CONFIGURATION: Alpha
+
+release_deploy:
+  stage: deploy
+  tags:
+    - mobile-publish
+  only:
+    - release
+    - master
+  script: ./CI/gitlab.sh
+  variables:
+    FIR_UPLOAD_TOKEN: ""
