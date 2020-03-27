@@ -29,6 +29,7 @@ jobs:
             echo "pod install fails, try update repo"
             pod install --repo-update
           }
+          touch "Scripts/PreBuild.time"
         else
           echo "Podfile unchanged, skip pod install."
         fi
