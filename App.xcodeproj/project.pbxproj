@@ -105,6 +105,7 @@
 		D5D9F5142071BA6500B6FE9B /* UIViewController+RFInterfaceOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D9F5132071BA6500B6FE9B /* UIViewController+RFInterfaceOrientation.m */; };
 		D5DB4C19241DD71300832A0A /* MBEntitiesTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D5DB4C18241DD71300832A0A /* MBEntitiesTableView.m */; };
 		D5DB4C1C241E243900832A0A /* MBCollectionListDisplayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D5DB4C1B241E243900832A0A /* MBCollectionListDisplayer.m */; };
+		D5DB4C1F241E27B800832A0A /* MBKeyboardAdjustScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = D5DB4C1D241E27B700832A0A /* MBKeyboardAdjustScrollView.m */; };
 		D5DB4C22241E39EA00832A0A /* UIKit+DynamicType.m in Sources */ = {isa = PBXBuildFile; fileRef = D5DB4C21241E39EA00832A0A /* UIKit+DynamicType.m */; };
 		D5E80580226F403D00901C41 /* MBBottomLayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E8057F226F403D00901C41 /* MBBottomLayoutView.m */; };
 		D5EE51192043DAA2009148B3 /* NSArray+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE50E42043DAA1009148B3 /* NSArray+App.m */; };
@@ -350,6 +351,8 @@
 		D5DB4C18241DD71300832A0A /* MBEntitiesTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBEntitiesTableView.m; sourceTree = "<group>"; };
 		D5DB4C1A241E243900832A0A /* MBCollectionListDisplayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBCollectionListDisplayer.h; sourceTree = "<group>"; };
 		D5DB4C1B241E243900832A0A /* MBCollectionListDisplayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBCollectionListDisplayer.m; sourceTree = "<group>"; };
+		D5DB4C1D241E27B700832A0A /* MBKeyboardAdjustScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBKeyboardAdjustScrollView.m; sourceTree = "<group>"; };
+		D5DB4C1E241E27B700832A0A /* MBKeyboardAdjustScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBKeyboardAdjustScrollView.h; sourceTree = "<group>"; };
 		D5DB4C20241E39EA00832A0A /* UIKit+DynamicType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIKit+DynamicType.h"; sourceTree = "<group>"; };
 		D5DB4C21241E39EA00832A0A /* UIKit+DynamicType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIKit+DynamicType.m"; sourceTree = "<group>"; };
 		D5DCA6EB2046972B00A4951A /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; name = Podfile; path = ../Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -1118,6 +1121,8 @@
 		D5EE51AB2043F612009148B3 /* ScrollView */ = {
 			isa = PBXGroup;
 			children = (
+				D5DB4C1E241E27B700832A0A /* MBKeyboardAdjustScrollView.h */,
+				D5DB4C1D241E27B700832A0A /* MBKeyboardAdjustScrollView.m */,
 				D5EE51AC2043F612009148B3 /* MBParallaxView.h */,
 				D5EE51AF2043F612009148B3 /* MBParallaxView.m */,
 				D5EE51AE2043F612009148B3 /* MBScrollViewOffsetObserver.h */,
@@ -1443,6 +1448,7 @@
 				D544A396197CBE5300C65604 /* MBFormSelectButton.m in Sources */,
 				D569C9EC21AE906900211E36 /* MBImageRenderer.m in Sources */,
 				D5936E09217977FB00BC4F03 /* MBIndefiniteRotationImageView.m in Sources */,
+				D5DB4C1F241E27B800832A0A /* MBKeyboardAdjustScrollView.m in Sources */,
 				D5EE517A2043F5E6009148B3 /* MBKeyboardFloatContainer.m in Sources */,
 				D5EE52482043FB6A009148B3 /* MBLabel.m in Sources */,
 				D5B49EC61C4111B600847925 /* MBLayoutConstraint.m in Sources */,
