@@ -25,14 +25,14 @@
  
  @param callback item 是上传好的 URL 地址
  */
-- (id<MBFileUploadTask>)uploadImageWithData:(NSData *)jpegData callback:(MBGeneralCallback)callback;
+- (nullable id<MBFileUploadTask>)uploadImageWithData:(nonnull NSData *)jpegData callback:(nonnull MBGeneralCallback)callback;
 
 /**
  文件上传
  
  @param callback item 是上传好的 URL 地址
  */
-- (id<MBFileUploadTask>)uploadFile:(NSURL *)fileURL callback:(MBGeneralCallback)callback;
+- (nullable id<MBFileUploadTask>)uploadFile:(nonnull NSURL *)fileURL callback:(nonnull MBGeneralCallback)callback;
 
 @end
 
