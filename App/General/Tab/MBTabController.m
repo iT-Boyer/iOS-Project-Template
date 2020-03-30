@@ -27,7 +27,6 @@
     if (!self.tabControl.delegate) {
         self.tabControl.delegate = self;
     }
-    self.tabControl.selectionNoticeOnlySendWhenButtonTapped = YES;
     self.pageViewController.APIGroupIdentifier = self.APIGroupIdentifier;
 }
 

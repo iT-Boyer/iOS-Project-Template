@@ -1,7 +1,7 @@
-/*
+/*!
  MBTabControl
  
- Copyright © 2018-2019 RFUI.
+ Copyright © 2018-2020 RFUI.
  Copyright © 2014-2016 Beijing ZhiYun ZhiYuan Technology Co., Ltd.
  https://github.com/BB9z/iOS-Project-Template
  
@@ -25,7 +25,7 @@
 /**
  如果设置了该属性，tab control 的选中状态会跟着 scroll view 自动联动—— scroll view 滚动，tab control 切换状态跟着变；tab control 选中切换，scroll view 切换到相应页
  */
-@property (weak, nonatomic) IBOutlet MBTabScrollView *tabScrollView;
+@property (weak, nullable, nonatomic) IBOutlet MBTabScrollView *tabScrollView;
 #endif
 
 /**
@@ -41,9 +41,10 @@
  默认 NO，目前只支持初始化时设置
  */
 @property (nonatomic) IBInspectable BOOL indicatorEnabled;
-@property (nonatomic) IBInspectable CGFloat indicatorBottomSpacing;
 
-@property (strong, nonatomic) UIImageView *indicatingImageView;
+@property (nullable, nonatomic) UIImageView *indicatingImageView;
+
+@property (nonatomic) IBInspectable CGFloat indicatorBottomSpacing;
 
 /// 默认 2
 @property (nonatomic) IBInspectable CGFloat indicatingImageBottomHeight;
