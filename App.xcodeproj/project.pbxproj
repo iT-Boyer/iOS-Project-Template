@@ -582,6 +582,13 @@
 			path = Origin;
 			sourceTree = "<group>";
 		};
+		D519A0C3243461EF00E26A64 /* MBNotificationCenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MBNotificationCenter;
+			sourceTree = "<group>";
+		};
 		D52EAB5E2043B6B3007219E0 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
@@ -729,6 +736,7 @@
 				D569C9D021AE906100211E36 /* MBFileUploader */,
 				D569C9D621AE906700211E36 /* MBImagePicker */,
 				D569C9E221AE906900211E36 /* MBImageRenderer */,
+				D519A0C3243461EF00E26A64 /* MBNotificationCenter */,
 				D569C9DC21AE906800211E36 /* MBPublishSession */,
 				D5488F99218FB7D2004CA3E0 /* MBShareManager */,
 				D569C9D921AE906800211E36 /* MBWebView */,
