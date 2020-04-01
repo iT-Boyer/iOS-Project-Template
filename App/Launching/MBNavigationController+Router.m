@@ -2,6 +2,8 @@
 #import "MBNavigationController+Router.h"
 #import "Common.h"
 
+NSString *const AppScheme = @"example";
+
 @implementation MBNavigationController (Router)
 
 #define _CommandJump(STRING, VCCLASS, MODEL) \
@@ -29,7 +31,7 @@
         [UIApplication.sharedApplication openURL:url options:@{} completionHandler:nil];
         return;
     }
-    if (![url.scheme isEqualToString:@"com.znart"]) return;
+    if (![url.scheme isEqualToString:AppScheme]) return;
     
     // 相同页面不再跳转
     if ([url isEqual:self.currentPageURL]) {
@@ -72,8 +74,10 @@ void AppNavigationJump(NSString *__nullable url, id __nullable additonalObject) 
         [AppNavigationController() jumpWithURL:url object:additonalObject];
         return;
     }
+    BOOL hasWaiting = _tmp_url.length;
     _tmp_url = url;
     _tmp_obj = additonalObject;
+    if (hasWaiting) return;
     [AppEnv() waitFlags:MBENVFlagNaigationLoaded do:^{
         [AppNavigationController() jumpWithURL:_tmp_url object:_tmp_obj];
         _tmp_url = nil;

@@ -1,15 +1,13 @@
-/**
- ApplicationDelegate.swift
- 
- Copyright © 2018 RFUI.
- https://github.com/BB9z/iOS-Project-Template
- 
- Apache License, Version 2.0
- http://www.apache.org/licenses/LICENSE-2.0
- */
+//
+//  ApplicationDelegate.swift
+//  App
+//
 
 /**
- 注意是基于 MBApplicationDelegate 的，大部分 UIApplicationDelegate 方法需要调用 super，如果可能，外部推荐通过 addAppEventListener() 来监听事件。
+ 注意是基于 MBApplicationDelegate 的，大部分 UIApplicationDelegate 方法需要调用 super
+
+ 外部推荐尽可能通过 addAppEventListener() 来监听事件；
+ MBApplicationDelegate 默认未分发的方法可以自定义，通过 enumerateEventListeners() 方法进行分发。
  */
 @UIApplicationMain
 class ApplicationDelegate: MBApplicationDelegate {
@@ -55,5 +53,23 @@ class ApplicationDelegate: MBApplicationDelegate {
     override func applicationDidEnterBackground(_ application: UIApplication) {
         AppEnv().setFlagOff(MBENV.flagAppInForeground.rawValue)
         super.applicationDidEnterBackground(application)
+    }
+
+    override func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+        var hasHande = false
+        enumerateEventListeners { d in
+            if d.application?(application, continue: userActivity, restorationHandler: restorationHandler) ?? false {
+                hasHande = true
+            }
+        }
+        return hasHande
+    }
+
+    override func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        if url.scheme == AppScheme {
+            AppNavigationJump(url.absoluteString, nil)
+            return true
+        }
+        return super.application(app, open: url, options: options)
     }
 }
