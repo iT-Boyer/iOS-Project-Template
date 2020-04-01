@@ -29,6 +29,7 @@
 		D519A0C02434444200E26A64 /* MBShareManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D519A0BD2434444200E26A64 /* MBShareManager.m */; };
 		D519A0C12434444200E26A64 /* EntityShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = D519A0BE2434444200E26A64 /* EntityShare.swift */; };
 		D519A0C22434444200E26A64 /* SharePanelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D519A0BF2434444200E26A64 /* SharePanelVC.swift */; };
+		D519A0CF2434883400E26A64 /* MBMaskHiddenView.m in Sources */ = {isa = PBXBuildFile; fileRef = D519A0CE2434883300E26A64 /* MBMaskHiddenView.m */; };
 		D52A04E520F85F2600F535ED /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52A04E420F85F2600F535ED /* Button.swift */; };
 		D52EAB652043B6B3007219E0 /* UIImage+ZYImageSet.m in Sources */ = {isa = PBXBuildFile; fileRef = D52EAB602043B6B3007219E0 /* UIImage+ZYImageSet.m */; };
 		D52EAB672043B6B3007219E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D52EAB622043B6B3007219E0 /* Assets.xcassets */; };
@@ -214,6 +215,8 @@
 		D519A0BD2434444200E26A64 /* MBShareManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBShareManager.m; sourceTree = "<group>"; };
 		D519A0BE2434444200E26A64 /* EntityShare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityShare.swift; sourceTree = "<group>"; };
 		D519A0BF2434444200E26A64 /* SharePanelVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharePanelVC.swift; sourceTree = "<group>"; };
+		D519A0CD2434883300E26A64 /* MBMaskHiddenView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBMaskHiddenView.h; sourceTree = "<group>"; };
+		D519A0CE2434883300E26A64 /* MBMaskHiddenView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBMaskHiddenView.m; sourceTree = "<group>"; };
 		D52A04E420F85F2600F535ED /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		D52EAB602043B6B3007219E0 /* UIImage+ZYImageSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ZYImageSet.m"; sourceTree = "<group>"; };
 		D52EAB612043B6B3007219E0 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -1125,6 +1128,8 @@
 				D501845920F881B6009481D4 /* DissolveTransitioning.swift */,
 				D5936E08217977FB00BC4F03 /* MBIndefiniteRotationImageView.h */,
 				D5936E07217977FA00BC4F03 /* MBIndefiniteRotationImageView.m */,
+				D519A0CD2434883300E26A64 /* MBMaskHiddenView.h */,
+				D519A0CE2434883300E26A64 /* MBMaskHiddenView.m */,
 				D501845A20F881B6009481D4 /* Shadow.swift */,
 			);
 			path = Effect;
@@ -1482,6 +1487,7 @@
 				D5B49EC61C4111B600847925 /* MBLayoutConstraint.m in Sources */,
 				D5B49F0E1C41133A00847925 /* MBListDataSource.m in Sources */,
 				D5B49F0F1C41133A00847925 /* MBListDateItem.m in Sources */,
+				D519A0CF2434883400E26A64 /* MBMaskHiddenView.m in Sources */,
 				D564D5D31970EE340032FEC3 /* MBModalPresentSegue.m in Sources */,
 				D5B49EC41C4111B600847925 /* MBMultiLineLabel.m in Sources */,
 				D588308620CAB8AE002030C4 /* MBNavigationBar.m in Sources */,
