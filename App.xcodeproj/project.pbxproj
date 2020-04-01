@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -26,6 +26,9 @@
 		D50693D819495D9E0002BFCC /* MBControlGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = D50693D719495D9E0002BFCC /* MBControlGroup.m */; };
 		D5197D3217F027B400CA387C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D5197D3417F027B400CA387C /* InfoPlist.strings */; };
 		D5197D3517F027BB00CA387C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D5197D3717F027BB00CA387C /* Localizable.strings */; };
+		D519A0C02434444200E26A64 /* MBShareManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D519A0BD2434444200E26A64 /* MBShareManager.m */; };
+		D519A0C12434444200E26A64 /* EntityShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = D519A0BE2434444200E26A64 /* EntityShare.swift */; };
+		D519A0C22434444200E26A64 /* SharePanelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D519A0BF2434444200E26A64 /* SharePanelVC.swift */; };
 		D52A04E520F85F2600F535ED /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52A04E420F85F2600F535ED /* Button.swift */; };
 		D52EAB652043B6B3007219E0 /* UIImage+ZYImageSet.m in Sources */ = {isa = PBXBuildFile; fileRef = D52EAB602043B6B3007219E0 /* UIImage+ZYImageSet.m */; };
 		D52EAB672043B6B3007219E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D52EAB622043B6B3007219E0 /* Assets.xcassets */; };
@@ -207,6 +210,10 @@
 		D5197A4517EECAAF00CA387C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
 		D5197D3317F027B400CA387C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D5197D3617F027BB00CA387C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D519A0BC2434444200E26A64 /* MBShareManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBShareManager.h; sourceTree = "<group>"; };
+		D519A0BD2434444200E26A64 /* MBShareManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBShareManager.m; sourceTree = "<group>"; };
+		D519A0BE2434444200E26A64 /* EntityShare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityShare.swift; sourceTree = "<group>"; };
+		D519A0BF2434444200E26A64 /* SharePanelVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharePanelVC.swift; sourceTree = "<group>"; };
 		D52A04E420F85F2600F535ED /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		D52EAB602043B6B3007219E0 /* UIImage+ZYImageSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ZYImageSet.m"; sourceTree = "<group>"; };
 		D52EAB612043B6B3007219E0 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -566,6 +573,15 @@
 			path = App;
 			sourceTree = "<group>";
 		};
+		D519A0BB2434444200E26A64 /* Origin */ = {
+			isa = PBXGroup;
+			children = (
+				D519A0BC2434444200E26A64 /* MBShareManager.h */,
+				D519A0BD2434444200E26A64 /* MBShareManager.m */,
+			);
+			path = Origin;
+			sourceTree = "<group>";
+		};
 		D52EAB5E2043B6B3007219E0 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
@@ -595,6 +611,9 @@
 		D5488F99218FB7D2004CA3E0 /* MBShareManager */ = {
 			isa = PBXGroup;
 			children = (
+				D519A0BB2434444200E26A64 /* Origin */,
+				D519A0BE2434444200E26A64 /* EntityShare.swift */,
+				D519A0BF2434444200E26A64 /* SharePanelVC.swift */,
 			);
 			path = MBShareManager;
 			sourceTree = "<group>";
@@ -1293,7 +1312,7 @@
 				};
 			};
 			buildConfigurationList = D5197A3517EECAAF00CA387C /* Build configuration list for PBXProject "App" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 11.0";
 			developmentRegion = "zh-Hans";
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -1409,6 +1428,7 @@
 				D54F0E4F2199A56E003370F4 /* DateFormatter+App.swift in Sources */,
 				D52EADEB2043B983007219E0 /* debug.m in Sources */,
 				D501845B20F881B6009481D4 /* DissolveTransitioning.swift in Sources */,
+				D519A0C12434444200E26A64 /* EntityShare.swift in Sources */,
 				D5B1905A24026DB90076CD61 /* EnumListView.swift in Sources */,
 				D5C3CBEF217ED20F0097CCD9 /* Geometry.swift in Sources */,
 				D569C9CF21AE8D3200211E36 /* HomeVC.swift in Sources */,
@@ -1475,6 +1495,7 @@
 				D5EE51EC2043F613009148B3 /* MBScrollViewOffsetObserver.m in Sources */,
 				D5EE51792043F5E6009148B3 /* MBSearchTextField.m in Sources */,
 				D5EE51872043F5E6009148B3 /* MBSearchViewController.m in Sources */,
+				D519A0C02434444200E26A64 /* MBShareManager.m in Sources */,
 				D5EE521A2043F693009148B3 /* MBSingleSectionCollectionView.m in Sources */,
 				D5EE51E62043F613009148B3 /* MBStateMachineView.m in Sources */,
 				D588308F20CACB33002030C4 /* MBSwift.swift in Sources */,
@@ -1508,6 +1529,7 @@
 				D5B1906D2404AFDC0076CD61 /* SearchTextField.swift in Sources */,
 				D54AFCE722BF8C440031559F /* Sequence+App.swift in Sources */,
 				D501845C20F881B7009481D4 /* Shadow.swift in Sources */,
+				D519A0C22434444200E26A64 /* SharePanelVC.swift in Sources */,
 				D52EADF02043BA3D007219E0 /* ShortCuts.m in Sources */,
 				D5F9F480208D921200427201 /* String+App.swift in Sources */,
 				D559AD6821746EEC005D4BCD /* TextField+Action.swift in Sources */,
@@ -1714,6 +1736,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.chinamobo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
@@ -1743,6 +1766,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.chinamobo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
@@ -1861,6 +1885,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.chinamobo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
