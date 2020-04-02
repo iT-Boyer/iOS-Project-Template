@@ -30,6 +30,7 @@
 		D519A0C12434444200E26A64 /* EntityShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = D519A0BE2434444200E26A64 /* EntityShare.swift */; };
 		D519A0C22434444200E26A64 /* SharePanelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D519A0BF2434444200E26A64 /* SharePanelVC.swift */; };
 		D519A0CF2434883400E26A64 /* MBMaskHiddenView.m in Sources */ = {isa = PBXBuildFile; fileRef = D519A0CE2434883300E26A64 /* MBMaskHiddenView.m */; };
+		D519A0D82436310900E26A64 /* NSObject+MBSwift.m in Sources */ = {isa = PBXBuildFile; fileRef = D519A0D72436310900E26A64 /* NSObject+MBSwift.m */; };
 		D52A04E520F85F2600F535ED /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52A04E420F85F2600F535ED /* Button.swift */; };
 		D52EAB652043B6B3007219E0 /* UIImage+ZYImageSet.m in Sources */ = {isa = PBXBuildFile; fileRef = D52EAB602043B6B3007219E0 /* UIImage+ZYImageSet.m */; };
 		D52EAB672043B6B3007219E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D52EAB622043B6B3007219E0 /* Assets.xcassets */; };
@@ -217,6 +218,8 @@
 		D519A0BF2434444200E26A64 /* SharePanelVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharePanelVC.swift; sourceTree = "<group>"; };
 		D519A0CD2434883300E26A64 /* MBMaskHiddenView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBMaskHiddenView.h; sourceTree = "<group>"; };
 		D519A0CE2434883300E26A64 /* MBMaskHiddenView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBMaskHiddenView.m; sourceTree = "<group>"; };
+		D519A0D62436310900E26A64 /* NSObject+MBSwift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MBSwift.h"; sourceTree = "<group>"; };
+		D519A0D72436310900E26A64 /* NSObject+MBSwift.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MBSwift.m"; sourceTree = "<group>"; };
 		D52A04E420F85F2600F535ED /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		D52EAB602043B6B3007219E0 /* UIImage+ZYImageSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ZYImageSet.m"; sourceTree = "<group>"; };
 		D52EAB612043B6B3007219E0 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -590,6 +593,90 @@
 			children = (
 			);
 			path = MBNotificationCenter;
+			sourceTree = "<group>";
+		};
+		D519A0D02434905D00E26A64 /* Format */ = {
+			isa = PBXGroup;
+			children = (
+				D5F9F47D208D921200427201 /* Date+App.swift */,
+				D54F0E4E2199A56E003370F4 /* DateFormatter+App.swift */,
+				D501844C20F865D2009481D4 /* Number+App.swift */,
+			);
+			path = Format;
+			sourceTree = "<group>";
+		};
+		D519A0D12434907700E26A64 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				D588308820CACB32002030C4 /* Array+App.swift */,
+				D5C3CBEE217ED20F0097CCD9 /* Geometry.swift */,
+				D5EE50F82043DAA1009148B3 /* NSArray+App.h */,
+				D5EE50E42043DAA1009148B3 /* NSArray+App.m */,
+				D5EE51012043DAA1009148B3 /* NSDate+App.h */,
+				D5EE50EE2043DAA1009148B3 /* NSDate+App.m */,
+				D588308C20CACB33002030C4 /* NSPointArray+App.swift */,
+				D5EE50F52043DAA1009148B3 /* NSString+App.h */,
+				D5EE510A2043DAA1009148B3 /* NSString+App.m */,
+				D5EE50F32043DAA1009148B3 /* NSURL+App.h */,
+				D5EE510D2043DAA1009148B3 /* NSURL+App.m */,
+				D54AFCE622BF8C440031559F /* Sequence+App.swift */,
+				D5F9F47E208D921200427201 /* String+App.swift */,
+				D5EE51172043DAA1009148B3 /* UIKit+App.h */,
+				D5EE51122043DAA1009148B3 /* UIKit+App.m */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		D519A0D22434908B00E26A64 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				D5C82DDB2179D98C00E63A2A /* Color.swift */,
+				D54F0E552199BCB2003370F4 /* NSRegularExpression+App.swift */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		D519A0D3243490B600E26A64 /* UI App */ = {
+			isa = PBXGroup;
+			children = (
+				D559AD6721746EEC005D4BCD /* TextField+Action.swift */,
+				D579495E21788D67002E1C4A /* UIDevice+App.swift */,
+			);
+			path = "UI App";
+			sourceTree = "<group>";
+		};
+		D519A0D4243490BC00E26A64 /* UI System */ = {
+			isa = PBXGroup;
+			children = (
+				D5EE50FD2043DAA1009148B3 /* UILabel+App.h */,
+				D5EE50E62043DAA1009148B3 /* UILabel+App.m */,
+				D54F0E532199BB22003370F4 /* UIButton+App.swift */,
+				D5EE51092043DAA1009148B3 /* UICollectionView+App.h */,
+				D5EE50F72043DAA1009148B3 /* UICollectionView+App.m */,
+				D5EE510E2043DAA1009148B3 /* UITableView+App.h */,
+				D5EE50F22043DAA1009148B3 /* UITableView+App.m */,
+				D501844D20F865D3009481D4 /* UITableView+App.swift */,
+				D5EE510B2043DAA1009148B3 /* UITextField+App.h */,
+				D5EE50F62043DAA1009148B3 /* UITextField+App.m */,
+				D5EE50F42043DAA1009148B3 /* UIView+App.h */,
+				D5EE510C2043DAA1009148B3 /* UIView+App.m */,
+				D5EE51042043DAA1009148B3 /* UIViewController+App.h */,
+				D5EE50EC2043DAA1009148B3 /* UIViewController+App.m */,
+			);
+			path = "UI System";
+			sourceTree = "<group>";
+		};
+		D519A0D524362F3A00E26A64 /* Language */ = {
+			isa = PBXGroup;
+			children = (
+				D519A0D62436310900E26A64 /* NSObject+MBSwift.h */,
+				D519A0D72436310900E26A64 /* NSObject+MBSwift.m */,
+				D54AFCEA22BF8DFD0031559F /* Atomic.swift */,
+				D5EE51132043DAA1009148B3 /* MBObjectiveC.h */,
+				D5EE51182043DAA1009148B3 /* MBObjectiveC.m */,
+				D588308A20CACB32002030C4 /* MBSwift.swift */,
+			);
+			path = Language;
 			sourceTree = "<group>";
 		};
 		D52EAB5E2043B6B3007219E0 /* Assets */ = {
@@ -1043,56 +1130,14 @@
 		D5EE50DF2043DAA1009148B3 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				D5EE50E02043DAA1009148B3 /* App */,
-				D588308820CACB32002030C4 /* Array+App.swift */,
-				D54AFCEA22BF8DFD0031559F /* Atomic.swift */,
-				D5C82DDB2179D98C00E63A2A /* Color.swift */,
-				D5F9F47D208D921200427201 /* Date+App.swift */,
-				D54F0E4E2199A56E003370F4 /* DateFormatter+App.swift */,
-				D5C3CBEE217ED20F0097CCD9 /* Geometry.swift */,
-				D5EE51132043DAA1009148B3 /* MBObjectiveC.h */,
-				D5EE51182043DAA1009148B3 /* MBObjectiveC.m */,
-				D588308A20CACB32002030C4 /* MBSwift.swift */,
-				D588308C20CACB33002030C4 /* NSPointArray+App.swift */,
-				D501844C20F865D2009481D4 /* Number+App.swift */,
-				D54AFCE622BF8C440031559F /* Sequence+App.swift */,
-				D5F9F47E208D921200427201 /* String+App.swift */,
-				D559AD6721746EEC005D4BCD /* TextField+Action.swift */,
-				D579495E21788D67002E1C4A /* UIDevice+App.swift */,
-				D5EE51172043DAA1009148B3 /* UIKit+App.h */,
-				D5EE51122043DAA1009148B3 /* UIKit+App.m */,
-				D501844D20F865D3009481D4 /* UITableView+App.swift */,
+				D519A0D02434905D00E26A64 /* Format */,
+				D519A0D12434907700E26A64 /* Foundation */,
+				D519A0D524362F3A00E26A64 /* Language */,
+				D519A0D22434908B00E26A64 /* Resource */,
+				D519A0D3243490B600E26A64 /* UI App */,
+				D519A0D4243490BC00E26A64 /* UI System */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		D5EE50E02043DAA1009148B3 /* App */ = {
-			isa = PBXGroup;
-			children = (
-				D5EE50F82043DAA1009148B3 /* NSArray+App.h */,
-				D5EE50E42043DAA1009148B3 /* NSArray+App.m */,
-				D5EE51012043DAA1009148B3 /* NSDate+App.h */,
-				D5EE50EE2043DAA1009148B3 /* NSDate+App.m */,
-				D54F0E552199BCB2003370F4 /* NSRegularExpression+App.swift */,
-				D5EE50F52043DAA1009148B3 /* NSString+App.h */,
-				D5EE510A2043DAA1009148B3 /* NSString+App.m */,
-				D5EE50F32043DAA1009148B3 /* NSURL+App.h */,
-				D5EE510D2043DAA1009148B3 /* NSURL+App.m */,
-				D54F0E532199BB22003370F4 /* UIButton+App.swift */,
-				D5EE51092043DAA1009148B3 /* UICollectionView+App.h */,
-				D5EE50F72043DAA1009148B3 /* UICollectionView+App.m */,
-				D5EE50FD2043DAA1009148B3 /* UILabel+App.h */,
-				D5EE50E62043DAA1009148B3 /* UILabel+App.m */,
-				D5EE510E2043DAA1009148B3 /* UITableView+App.h */,
-				D5EE50F22043DAA1009148B3 /* UITableView+App.m */,
-				D5EE510B2043DAA1009148B3 /* UITextField+App.h */,
-				D5EE50F62043DAA1009148B3 /* UITextField+App.m */,
-				D5EE50F42043DAA1009148B3 /* UIView+App.h */,
-				D5EE510C2043DAA1009148B3 /* UIView+App.m */,
-				D5EE51042043DAA1009148B3 /* UIViewController+App.h */,
-				D5EE50EC2043DAA1009148B3 /* UIViewController+App.m */,
-			);
-			path = App;
 			sourceTree = "<group>";
 		};
 		D5EE51602043F5E5009148B3 /* Input */ = {
@@ -1455,6 +1500,7 @@
 				D5A3312321527BA100B0FD5B /* MBCellStackView.m in Sources */,
 				D5B49EC51C4111B600847925 /* MBCollapsibleView.m in Sources */,
 				D5DB4C1C241E243900832A0A /* MBCollectionListDisplayer.m in Sources */,
+				D519A0D82436310900E26A64 /* NSObject+MBSwift.m in Sources */,
 				D5B49F0B1C41133A00847925 /* MBCollectionRefreshFooterView.m in Sources */,
 				D5B49F071C41133A00847925 /* MBCollectionView.m in Sources */,
 				D5B49F021C41133A00847925 /* MBCollectionViewArrayDataSource.m in Sources */,

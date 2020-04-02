@@ -31,3 +31,25 @@ extension UITableView {
         return count
     }
 }
+
+/// 防止 cell 高亮时变色
+class TableCellBackground: UIView {
+    var color: UIColor? {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+    override var backgroundColor: UIColor? {
+        get {
+            return color
+        }
+        set {
+            if color != nil { return }
+            color = newValue
+        }
+    }
+    override func draw(_ rect: CGRect) {
+        color?.setFill()
+        UIRectFill(rect)
+    }
+}

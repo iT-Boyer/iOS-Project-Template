@@ -33,7 +33,7 @@
 @end
 
 
-@implementation NSMutableArray (ZYAdd)
+@implementation NSMutableArray (App)
 
 - (void)rf_replaceObjectAtIndex:(NSUInteger)index withObject:(id)anObject {
     if (index >= self.count || !anObject) return;

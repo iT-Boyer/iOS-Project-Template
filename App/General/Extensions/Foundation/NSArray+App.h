@@ -26,7 +26,7 @@
 @end
 
 
-@interface NSMutableArray<ObjectType> (ZYAdd)
+@interface NSMutableArray<ObjectType> (App)
 
 // @MBDependency:2
 /**
