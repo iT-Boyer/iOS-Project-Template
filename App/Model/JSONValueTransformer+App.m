@@ -40,14 +40,4 @@
     return [NSString stringWithFormat:@"%ld", (long)[date timeIntervalSince1970]];
 }
 
-- (NSDate *)NSMilliDateFromNSNumber:(NSNumber *)number {
-    NSTimeInterval time = [number doubleValue]/1000;
-    if (!time) return nil;
-    return [NSDate dateWithTimeIntervalSince1970:time];
-}
-
-- (NSNumber *)JSONObjectFromNSMilliDate:(NSMilliDate *)date {
-    return @([date timeIntervalSince1970] * 1000LL);
-}
-
 @end

@@ -2,6 +2,12 @@
  应用级别的便捷方法
  */
 extension Date {
+
+    /// 判断一个时间是否在最近给定的范围内
+    static func isRecent(_ date: Date?, range: TimeInterval) -> Bool {
+        guard let date = date else { return false }
+        return fabs(date.timeIntervalSinceNow) <= range
+    }
     
     // @MBDependency:2
     /// 毫秒时间戳
