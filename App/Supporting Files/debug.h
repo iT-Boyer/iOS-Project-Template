@@ -26,6 +26,7 @@
  @param recordID 非空时，会在正式和内测环境记录 Fabric 错误
  */
 FOUNDATION_EXPORT void DebugLog(BOOL fatal, NSString *_Nullable recordID, NSString *_Nonnull format, ...) NS_FORMAT_FUNCTION(3, 4);
+FOUNDATION_EXPORT void DebugLogSwift(BOOL fatal, NSString *_Nullable recordID, NSString *__nonnull message) NS_SWIFT_NAME(DebugLog(_:_:_:));
 
 /**
  断言 obj 是 aClass

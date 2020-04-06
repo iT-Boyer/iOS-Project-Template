@@ -20,6 +20,10 @@ void DebugLog(BOOL fatal, NSString *_Nullable recordID, NSString *_Nonnull forma
     }
 }
 
+void DebugLogSwift(BOOL fatal, NSString *_Nullable recordID, NSString *__nonnull message) {
+    DebugLog(fatal, recordID, @"%@", message);
+}
+
 BOOL RFAssertKindOfClass(id obj, Class aClass) {
     if (obj
         && ![obj isKindOfClass:aClass]) {
