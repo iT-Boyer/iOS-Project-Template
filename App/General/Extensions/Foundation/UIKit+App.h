@@ -30,7 +30,6 @@ FOUNDATION_EXPORT void limitedDouble(double *_Nonnull value, double min, double 
 FOUNDATION_EXPORT void limitedOffsetChange(double *_Nonnull source, double target, double limitation);
 
 #import "NSArray+App.h"
-#import "NSDate+App.h"
 #import "NSString+App.h"
 #import "NSURL+App.h"
 

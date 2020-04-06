@@ -643,11 +643,11 @@
 		D519A0D4243490BC00E26A64 /* UI System */ = {
 			isa = PBXGroup;
 			children = (
-				D5EE50FD2043DAA1009148B3 /* UILabel+App.h */,
-				D5EE50E62043DAA1009148B3 /* UILabel+App.m */,
 				D54F0E532199BB22003370F4 /* UIButton+App.swift */,
 				D5EE51092043DAA1009148B3 /* UICollectionView+App.h */,
 				D5EE50F72043DAA1009148B3 /* UICollectionView+App.m */,
+				D5EE50FD2043DAA1009148B3 /* UILabel+App.h */,
+				D5EE50E62043DAA1009148B3 /* UILabel+App.m */,
 				D5EE510E2043DAA1009148B3 /* UITableView+App.h */,
 				D5EE50F22043DAA1009148B3 /* UITableView+App.m */,
 				D501844D20F865D3009481D4 /* UITableView+App.swift */,
@@ -664,12 +664,12 @@
 		D519A0D524362F3A00E26A64 /* Language */ = {
 			isa = PBXGroup;
 			children = (
-				D519A0D62436310900E26A64 /* NSObject+MBSwift.h */,
-				D519A0D72436310900E26A64 /* NSObject+MBSwift.m */,
 				D54AFCEA22BF8DFD0031559F /* Atomic.swift */,
 				D5EE51132043DAA1009148B3 /* MBObjectiveC.h */,
 				D5EE51182043DAA1009148B3 /* MBObjectiveC.m */,
 				D588308A20CACB32002030C4 /* MBSwift.swift */,
+				D519A0D62436310900E26A64 /* NSObject+MBSwift.h */,
+				D519A0D72436310900E26A64 /* NSObject+MBSwift.m */,
 			);
 			path = Language;
 			sourceTree = "<group>";
@@ -959,12 +959,16 @@
 				D5A3311F21527BA100B0FD5B /* MBCellStackView.m */,
 				D5B49EBE1C4111B600847925 /* MBCollapsibleView.h */,
 				D5B49EBF1C4111B600847925 /* MBCollapsibleView.m */,
+				D5EE51A32043F612009148B3 /* MBDesignView.h */,
+				D5EE51A72043F612009148B3 /* MBDesignView.m */,
 				D5A3312221527BA100B0FD5B /* MBFlipCollapsibleView.h */,
 				D5A3312021527BA100B0FD5B /* MBFlipCollapsibleView.m */,
 				D5B49EC01C4111B600847925 /* MBLayoutConstraint.h */,
 				D5B49EC11C4111B600847925 /* MBLayoutConstraint.m */,
 				D5F9F482208DBF5F00427201 /* MBSceneStackView.h */,
 				D5F9F481208DBF5F00427201 /* MBSceneStackView.m */,
+				D5EE519D2043F612009148B3 /* MBStateMachineView.h */,
+				D5EE51A42043F612009148B3 /* MBStateMachineView.m */,
 			);
 			path = Layout;
 			sourceTree = "<group>";
@@ -1166,6 +1170,8 @@
 				D5EE51962043F5F3009148B3 /* CALayer+MBAnimationPersistence.h */,
 				D5EE51952043F5F3009148B3 /* CALayer+MBAnimationPersistence.m */,
 				D501845920F881B6009481D4 /* DissolveTransitioning.swift */,
+				D5EE51A52043F612009148B3 /* MBAutoFadeoutView.h */,
+				D5EE519F2043F612009148B3 /* MBAutoFadeoutView.m */,
 				D5936E08217977FB00BC4F03 /* MBIndefiniteRotationImageView.h */,
 				D5936E07217977FA00BC4F03 /* MBIndefiniteRotationImageView.m */,
 				D519A0CD2434883300E26A64 /* MBMaskHiddenView.h */,
@@ -1178,14 +1184,6 @@
 		D5EE519C2043F612009148B3 /* Others */ = {
 			isa = PBXGroup;
 			children = (
-				D5EE51A52043F612009148B3 /* MBAutoFadeoutView.h */,
-				D5EE519F2043F612009148B3 /* MBAutoFadeoutView.m */,
-				D5EE51A32043F612009148B3 /* MBDesignView.h */,
-				D5EE51A72043F612009148B3 /* MBDesignView.m */,
-				D5EE51A82043F612009148B3 /* MBOptionSwitch.h */,
-				D5EE51A12043F612009148B3 /* MBOptionSwitch.m */,
-				D5EE519D2043F612009148B3 /* MBStateMachineView.h */,
-				D5EE51A42043F612009148B3 /* MBStateMachineView.m */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -1291,6 +1289,8 @@
 				D52A04E420F85F2600F535ED /* Button.swift */,
 				D50693D619495D9E0002BFCC /* MBControlGroup.h */,
 				D50693D719495D9E0002BFCC /* MBControlGroup.m */,
+				D5EE51A82043F612009148B3 /* MBOptionSwitch.h */,
+				D5EE51A12043F612009148B3 /* MBOptionSwitch.m */,
 				D5EE52292043F7B9009148B3 /* ZYLayoutButton.h */,
 				D5EE52312043F7B9009148B3 /* ZYLayoutButton.m */,
 			);
@@ -1495,7 +1495,6 @@
 				D5A3312321527BA100B0FD5B /* MBCellStackView.m in Sources */,
 				D5B49EC51C4111B600847925 /* MBCollapsibleView.m in Sources */,
 				D5DB4C1C241E243900832A0A /* MBCollectionListDisplayer.m in Sources */,
-				D519A0D82436310900E26A64 /* NSObject+MBSwift.m in Sources */,
 				D5B49F0B1C41133A00847925 /* MBCollectionRefreshFooterView.m in Sources */,
 				D5B49F071C41133A00847925 /* MBCollectionView.m in Sources */,
 				D5B49F021C41133A00847925 /* MBCollectionViewArrayDataSource.m in Sources */,
@@ -1571,6 +1570,7 @@
 				D55959D320AB9FA20019D733 /* MessageManager.swift in Sources */,
 				D55959D520ABA9B50019D733 /* NavigationController.swift in Sources */,
 				D5EE51192043DAA2009148B3 /* NSArray+App.m in Sources */,
+				D519A0D82436310900E26A64 /* NSObject+MBSwift.m in Sources */,
 				D588309020CACB33002030C4 /* NSPointArray+App.swift in Sources */,
 				D54F0E562199BCB2003370F4 /* NSRegularExpression+App.swift in Sources */,
 				D5EE512D2043DAA2009148B3 /* NSString+App.m in Sources */,
