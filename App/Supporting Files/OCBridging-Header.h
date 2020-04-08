@@ -4,8 +4,6 @@
 
 #import "debug.h"
 #import "API.h"
-#import "Account.h"
-#import "AccountEntity.h"
 #import "EnvironmentFlag.h"
 #import "ImageEntity.h"
 #import "MBApp.h"
@@ -30,6 +28,8 @@
 #import "ZYLayoutButton.h"
 #import <MBAppKit/MBApplicationDelegate.h>
 #import <MBAppKit/MBGeneral.h>
+#import <MBAppKit/MBModel.h>
+#import <MBAppKit/MBUser.h>
 #import <RFAlpha/RFAnimationTransitioning.h>
 #import <RFAlpha/RFContainerView.h>
 #import <RFAlpha/RFDrawImage.h>

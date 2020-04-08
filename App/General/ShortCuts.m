@@ -90,6 +90,11 @@ Account *__nullable AppUser() {
     return [Account currentUser];
 }
 
+#if MBUserStringUID
+MBIdentifier AppUserID() {
+    return AppUser().uid;
+}
+#else
 MBID AppUserID() {
     return AppUser().uid;
 }
@@ -104,6 +109,7 @@ NSNumber *AppUserIDNumber() {
     _UserIDNumberCache = @(AppUserID());
     return _UserIDNumberCache;
 }
+#endif
 
 AccountEntity *AppUserInformation() {
     return AppUser().information;

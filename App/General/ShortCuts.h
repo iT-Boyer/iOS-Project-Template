@@ -39,7 +39,7 @@ FOUNDATION_EXPORT NSString *AppBuildConfiguration(void);
 FOUNDATION_EXPORT MBEnvironment *AppEnv(void);
 
 @class ApplicationDelegate;
-/// 快速访问 APApplicationDelegate 实例
+/// 快速访问 application delegate 实例
 FOUNDATION_EXPORT ApplicationDelegate *__nonnull AppDelegate(void);
 
 @class RootViewController;
@@ -70,6 +70,7 @@ FOUNDATION_EXPORT id __nullable AppCurrentViewControllerItem(Class __nullable ex
 FOUNDATION_EXPORT API *AppAPI(void);
 
 //@class BadgeManager;
+/// 全局红点管理器
 //FOUNDATION_EXPORT BadgeManager *__nonnull AppBadge(void);
 
 @class MessageManager;
@@ -82,10 +83,14 @@ FOUNDATION_EXPORT MessageManager *__nonnull AppHUD(void);
 FOUNDATION_EXPORT Account *__nullable AppUser(void);
 
 /// 当前用户的 ID
+#if MBUserStringUID
+FOUNDATION_EXPORT MBIdentifier __nullable AppUserID(void);
+#else
 FOUNDATION_EXPORT MBID AppUserID(void);
 
 /// 总是非空
 FOUNDATION_EXPORT NSNumber *AppUserIDNumber(void);
+#endif
 
 @class AccountEntity;
 FOUNDATION_EXPORT AccountEntity *_Nullable AppUserInformation(void);

@@ -11,7 +11,6 @@
 #import "API.h"
 #import "EnvironmentFlag.h"
 #import "debug.h"
-#import "Account.h"
 #import "NSUserDefaults+App.h"
 // 非核心模块不要 import，避免头文件的循环引用
 
