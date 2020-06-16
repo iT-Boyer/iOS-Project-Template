@@ -1,5 +1,6 @@
 
 #import "NSUserDefaults+App.h"
+#import "Common.h"
 #import "MBApp.h"
 #import <MBAppKit/MBModel.h>
 #import <MBAppKit/MBUserDefaultsMakeProperty.h>
@@ -21,15 +22,15 @@ _makeObjectProperty(lastUserID, setLastUserID);
 #else
 @dynamic lastUserID;
 - (int64_t)lastUserID {
-    return (int64_t)[[self objectForKey:@"_lastUserID"] longLongValue];
+    return (int64_t)[(NSNumber *)[self objectForKey:@"_lastUserID"] longLongValue];
 }
 - (void)setLastUserID:(int64_t)lastUserID {
-    [self setObject:[NSNumber numberWithLongLong:lastUserID] forKey:@"_lastUserID"];
+    [self setObject:@(lastUserID) forKey:@"_lastUserID"];
     ClassSynchronize
 }
 #endif
 _makeObjectProperty(userAccount, setUserAccount);
-_makeObjectProperty(AccountEntity, setAccountEntity);
+_makeObjectProperty(accountEntity, setAccountEntity);
 _makeObjectProperty(userToken, setUserToken);
 
 _makeObjectProperty(lastNotificationRecived, setLastNotificationRecived);

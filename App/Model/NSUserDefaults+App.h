@@ -55,7 +55,7 @@
 #endif
 
 @property (nullable, copy) NSString *userAccount;
-@property (nullable, copy) NSString *AccountEntity;
+@property (nullable, copy) NSString *accountEntity;
 @property (nullable, copy) NSString *userToken;
 
 #pragma mark - 通知
