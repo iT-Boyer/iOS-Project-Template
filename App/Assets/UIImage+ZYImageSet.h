@@ -4,8 +4,8 @@
  Copyright © 2018 RFUI.
  Copyright © 2016 Beijing ZhiYun ZhiYuan Technology Co., Ltd.
  
- Apache License, Version 2.0
- http://www.apache.org/licenses/LICENSE-2.0
+ The MIT License
+ https://opensource.org/licenses/MIT
  */
 
 #import <UIKit/UIKit.h>

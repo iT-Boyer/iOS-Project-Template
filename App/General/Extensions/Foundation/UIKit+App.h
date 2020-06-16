@@ -6,8 +6,8 @@
  Copyright © 2014 Chinamobo Co., Ltd.
  https://github.com/BB9z/iOS-Project-Template
 
- Apache License, Version 2.0
- http://www.apache.org/licenses/LICENSE-2.0
+ The MIT License
+ https://opensource.org/licenses/MIT
  
  全局资源共享
  
