@@ -540,7 +540,11 @@ static BOOL g_WeiboRegisterFlag = NO;
         message.title = title;
         message.description = description;
         if ([thumb isKindOfClass:UIImage.class]) {
-            [message setThumbImage:thumb];
+            UIImage *image = thumb;
+            if (image.pixelSize.width > 240 || image.pixelSize.height > 240) {
+                image = [image imageAspectFillSize:CGSizeMake(240, 240) opaque:YES scale:1];
+            }
+            [message setThumbImage:image];
         }
 
         WXWebpageObject *ext = WXWebpageObject.object;
