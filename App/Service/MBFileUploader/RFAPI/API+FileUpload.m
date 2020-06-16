@@ -9,7 +9,7 @@
     NSParameterAssert(callback);
     return (id<MBFileUploadTask>)[self requestWithName:@"Upload" context:^(RFAPIRequestConext *c) {
         c.formData = ^(id<AFMultipartFormData> formData) {
-            [formData appendPartWithFileData:jpegData name:@"file" fileName:@"image" mimeType:@"image/jpeg"];
+            [formData appendPartWithFileData:jpegData name:@"file" fileName:@"image.jpg" mimeType:@"image/jpeg"];
         };
         c.combinedComplation = ^(id<RFAPITask>  _Nullable task, id  _Nullable responseObject, NSError * _Nullable error) {
             [self.class _handleFileUploadCallback:callback rsp:responseObject error:error];
