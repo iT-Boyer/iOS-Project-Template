@@ -16,7 +16,7 @@
         self.image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     }
     else {
-        // iOS 8, iOS 9 都需要重设一下
+        // iOS 8-12 都需要重设一下
         // REF: http://stackoverflow.com/a/30741478/945906
         UIColor *tintColor = self.tintColor;
         self.tintColor = nil;
