@@ -64,6 +64,10 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>允许应用使用相机以拍照上传图片</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>允许应用访问照片库以上传图片</string>
 	<key>UIBackgroundModes</key>
 	<array/>
 	<key>UIFileSharingEnabled</key>
