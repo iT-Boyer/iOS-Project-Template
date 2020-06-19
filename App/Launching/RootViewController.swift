@@ -7,8 +7,4 @@
 //
 
 class RootViewController: MBRootWrapperViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        print("hello")
-    }
 }

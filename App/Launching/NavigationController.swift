@@ -3,6 +3,13 @@
 //  App
 //
 
+enum NavigationTab: Int {
+    case home = 0, more, count
+    static let defaule = NavigationTab.home
+
+    static let login = NSNotFound
+}
+
 /**
  应用主导航控制器
  */
@@ -23,7 +30,7 @@ class NavigationController: MBNavigationController {
         bottomBarHidden = true
         AppAPI()
 
-        Account.addCurrentUserChangeObserver(self, initial: false) { [weak self] user in
+        Account.addCurrentUserChangeObserver(self, initial: true) { [weak self] user in
             if user != nil {
                 self?.onLogin()
             }
@@ -34,15 +41,19 @@ class NavigationController: MBNavigationController {
     }
 
     func onLogout() {
-        // todo
+        presentLoginScene()
+        tabControllers.count = 0
+        tabControllers.count = NavigationTab.count.rawValue
     }
     
     func onLogin() {
-        // todo
+        tabItems?.selectIndex = NavigationTab.defaule.rawValue
+        onTabSelect(tabItems!)
     }
-    
+
     override func presentLoginScene() {
-        // todo
+        tabItems?.selectIndex = NavigationTab.login
+        setViewControllers([ WelcomeViewController.newFromStoryboard() ], animated: true)
     }
     
     override func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
@@ -52,31 +63,80 @@ class NavigationController: MBNavigationController {
             // 禁用返回手势，只禁用就行，会自行恢复
             interactivePopGestureRecognizer?.isEnabled = false
         }
+
+    }
+
+    // MARK: -
+
+    var tabItems: MBControlGroup? {
+        return bottomBar as? MBControlGroup
+    }
+
+    lazy var tabControllers: NSPointerArray = {
+        let pa = NSPointerArray(options: .strongMemory)
+        pa.count = NavigationTab.count.rawValue
+        return pa
+    }()
+}
+
+
+// MARK: - Tab
+
+extension NavigationController: MBControlGroupDelegate {
+    func controlGroup(_ controlGroup: MBControlGroup, shouldSelectControlAt index: Int) -> Bool {
+        return true
+    }
+
+    @IBAction func onTabSelect(_ sender: MBControlGroup) {
+        let vc: UIViewController = viewControllerAtTabIndex(sender.selectIndex)
+        let newVCs = [ vc ]
+        if viewControllers != newVCs {
+            viewControllers = newVCs
+        }
+    }
+
+    func viewControllerAtTabIndex(_ index: Int) -> UIViewController {
+        if let vc = tabControllers.object(at: index) {
+            return vc as! UIViewController
+        }
+        var vc: UIViewController!
+        switch index {
+        case NavigationTab.home.rawValue:
+            vc = HomeViewController.newFromStoryboard()
+        case NavigationTab.more.rawValue:
+            vc = MoreViewController.newFromStoryboard()
+
+        default:
+            fatalError()
+            break
+        }
+        vc.rfPrefersBottomBarShown = true
+        tabControllers.replaceObject(at: index, withObject: vc)
+        return vc
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        let idx = tabItems?.selectIndex
+        for i in 0..<tabControllers.count {
+            if i != idx {
+                tabControllers.replacePointer(at: i, withPointer: nil)
+            }
+        }
     }
 }
+
+extension NavigationController: MBDebugNavigationReleaseChecking {
+    func debugShouldIgnoralCheckRelease(for viewController: UIViewController!) -> Bool {
+        return (tabControllers.allObjects as NSArray).contains(viewController!)
+    }
+}
+
 
 // MARK: - Jump
 extension NavigationController {
     @IBAction func navigationBackToHome(_ sender: Any?) {
-        popToRootViewController(animated: true)
-    }
-}
-
-// MARK: -
-
-extension UINavigationController {
-    func remove(_ vc: UIViewController?, animated: Bool) {
-        guard let vc = vc, viewControllers.contains(vc) else {
-            return
-        }
-        if vc == topViewController {
-            popViewController(animated: animated)
-            return
-        }
-        var vcs = viewControllers
-        if let idx = vcs.lastIndex(of: vc) {
-            vcs.remove(at: idx)
-            setViewControllers(vcs, animated: true)
-        }
+        tabItems?.selectIndex = NavigationTab.defaule.rawValue
+        onTabSelect(tabItems!)
     }
 }

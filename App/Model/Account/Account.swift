@@ -130,7 +130,7 @@ class Account : MBUser {
 
     private static let noticeDefaultsSynchronizeFail: Void = {
         let alert = UIAlertController(title: "系统错误", message: "暂时不能保存您的用户信息，如果你反复遇到这个提示，建议您重启设备以解决这个问题", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "本次启动不再提示", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "知道了", style: .default, handler: nil))
         UIViewController.rootViewControllerWhichCanPresentModal()?.present(alert, animated: true, completion: nil)
     }()
 
