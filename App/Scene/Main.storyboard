@@ -58,7 +58,7 @@
                             <rect key="frame" x="50" y="0.0" width="150" height="50"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="test_icon_24" translatesAutoresizingMaskIntoConstraints="NO" id="JP6-J7-YQI">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Icon/test24" translatesAutoresizingMaskIntoConstraints="NO" id="JP6-J7-YQI">
                                     <rect key="frame" x="59" y="2" width="32" height="32"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </imageView>
@@ -86,7 +86,7 @@
                             <rect key="frame" x="200" y="0.0" width="150" height="50"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="test_icon_24" translatesAutoresizingMaskIntoConstraints="NO" id="tXk-dQ-Hb3">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Icon/test24" translatesAutoresizingMaskIntoConstraints="NO" id="tXk-dQ-Hb3">
                                     <rect key="frame" x="59" y="2" width="32" height="32"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </imageView>
@@ -254,7 +254,7 @@
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="dynamicTypeEnabled" value="YES"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="test_icon_24" translatesAutoresizingMaskIntoConstraints="NO" id="XUh-r2-bV0">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon/test24" translatesAutoresizingMaskIntoConstraints="NO" id="XUh-r2-bV0">
                                                         <rect key="frame" x="15" y="14.5" width="24" height="24"/>
                                                     </imageView>
                                                 </subviews>
@@ -299,7 +299,7 @@
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="dynamicTypeEnabled" value="YES"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="test_icon_24" translatesAutoresizingMaskIntoConstraints="NO" id="hgP-Ei-IU5">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon/test24" translatesAutoresizingMaskIntoConstraints="NO" id="hgP-Ei-IU5">
                                                         <rect key="frame" x="15" y="14.5" width="24" height="24"/>
                                                     </imageView>
                                                 </subviews>
@@ -348,9 +348,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Icon/test24" width="24" height="24"/>
         <image name="nav_back" width="9" height="16"/>
         <image name="nav_back_layoutfix" width="23" height="19"/>
-        <image name="test_icon_24" width="24" height="24"/>
         <namedColor name="tint">
             <color red="0.0" green="0.45882352941176469" blue="0.85882352941176465" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
