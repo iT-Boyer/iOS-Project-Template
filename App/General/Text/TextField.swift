@@ -38,8 +38,11 @@ class TextField: MBTextField {
                 left = textEdgeInsets.left
             }
             textEdgeInsets = UIEdgeInsets(top: 7, left: left, bottom: 7, right: 12)
+            backgroundImage = #imageLiteral(resourceName: "text_field_bg_normal")
+            backgroundHighlightedImage = #imageLiteral(resourceName: "text_field_bg_focused")
+            disabledBackground = #imageLiteral(resourceName: "text_field_bg_disabled")  
 
-        default:
+        case .none:
             assert(false, "TextField: unrecognized style \(style)")
         }
     }

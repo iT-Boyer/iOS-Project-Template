@@ -187,7 +187,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="LBY-xX-2FD">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="241"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="294"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cjX-RA-jd4" userLabel="Header">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
@@ -230,7 +230,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8aF-pa-XHN" customClass="RFButton">
                                                 <rect key="frame" x="0.0" y="135" width="375" height="53"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8QD-ib-yEs" customClass="Button" customModule="ProSystem" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8QD-ib-yEs" customClass="Button" customModule="App" customModuleProvider="target">
                                                         <rect key="frame" x="-1" y="0.0" width="376" height="53"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <userDefinedRuntimeAttributes>
@@ -275,7 +275,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vJi-ag-3Ys" customClass="RFButton">
                                                 <rect key="frame" x="0.0" y="188" width="375" height="53"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Quc-gh-fsA" customClass="Button" customModule="ProSystem" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Quc-gh-fsA" customClass="Button" customModule="App" customModuleProvider="target">
                                                         <rect key="frame" x="-1" y="0.0" width="376" height="53"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <userDefinedRuntimeAttributes>
@@ -315,6 +315,52 @@
                                                     <outlet property="agentButton" destination="Quc-gh-fsA" id="BNz-Ct-h23"/>
                                                     <outlet property="icon" destination="hgP-Ei-IU5" id="y9F-lO-tvC"/>
                                                     <outlet property="titleLabel" destination="jJO-hY-5Jd" id="eeH-EM-bMl"/>
+                                                </connections>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xiT-kp-gBt" customClass="RFButton">
+                                                <rect key="frame" x="0.0" y="241" width="375" height="53"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YMg-ec-Vdw" customClass="Button" customModule="App" customModuleProvider="target">
+                                                        <rect key="frame" x="-1" y="0.0" width="376" height="53"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="row"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </button>
+                                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xP8-Og-fui" customClass="RFLine">
+                                                        <rect key="frame" x="50" y="52" width="325" height="1"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                                        <color key="backgroundColor" systemColor="systemGray3Color" red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="onePixel" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="登出" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dOg-uv-gQT">
+                                                        <rect key="frame" x="49" y="17.5" width="311" height="18"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                        <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="dynamicTypeEnabled" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon/test24" translatesAutoresizingMaskIntoConstraints="NO" id="0fs-wj-dXI">
+                                                        <rect key="frame" x="15" y="14.5" width="24" height="24"/>
+                                                    </imageView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="0fs-wj-dXI" firstAttribute="centerY" secondItem="xiT-kp-gBt" secondAttribute="centerY" id="Afw-BH-eTi"/>
+                                                    <constraint firstItem="dOg-uv-gQT" firstAttribute="leading" secondItem="0fs-wj-dXI" secondAttribute="trailing" constant="10" id="Bpi-yQ-jn4"/>
+                                                    <constraint firstAttribute="trailing" secondItem="dOg-uv-gQT" secondAttribute="trailing" constant="15" id="UBg-iN-fFZ"/>
+                                                    <constraint firstItem="0fs-wj-dXI" firstAttribute="leading" secondItem="xiT-kp-gBt" secondAttribute="leading" constant="15" id="iPG-Ks-8JJ"/>
+                                                    <constraint firstAttribute="height" constant="53" id="wTp-1y-MLb"/>
+                                                    <constraint firstItem="dOg-uv-gQT" firstAttribute="centerY" secondItem="xiT-kp-gBt" secondAttribute="centerY" id="zld-6k-dgj"/>
+                                                </constraints>
+                                                <connections>
+                                                    <action selector="onLogout:" destination="YHn-r6-0DO" eventType="touchUpInside" id="htl-Cr-ywU"/>
+                                                    <outlet property="agentButton" destination="YMg-ec-Vdw" id="jKF-um-Gvp"/>
+                                                    <outlet property="icon" destination="0fs-wj-dXI" id="5Pb-qd-lTg"/>
+                                                    <outlet property="titleLabel" destination="dOg-uv-gQT" id="vIX-kd-bsN"/>
                                                 </connections>
                                             </view>
                                         </subviews>
