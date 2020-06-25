@@ -28,19 +28,21 @@ class TextField: MBTextField {
         guard let style = styleName else {
             return
         }
-        switch style {
-        case TextFieldStyle.std.rawValue:
-            textEdgeInsets = UIEdgeInsets(top: 7, left: 18, bottom: 7, right: 16)
+        switch TextFieldStyle(rawValue: style) {
+        case .std:
+            break
 
-        case TextFieldStyle.frame.rawValue:
-            var left = CGFloat(6)
-            if iconImageView != nil {
-                left = textEdgeInsets.left
+        case .frame:
+            var inset = UIEdgeInsets.zero
+            if let lv = leftAccessoryView {
+                let ivFrame = convert(lv.bounds, to: self)
+                inset.left = ivFrame.maxX + 14
             }
-            textEdgeInsets = UIEdgeInsets(top: 7, left: left, bottom: 7, right: 12)
+            textEdgeInsets = inset
+            
             backgroundImage = #imageLiteral(resourceName: "text_field_bg_normal")
             backgroundHighlightedImage = #imageLiteral(resourceName: "text_field_bg_focused")
-            disabledBackground = #imageLiteral(resourceName: "text_field_bg_disabled")  
+            disabledBackground = #imageLiteral(resourceName: "text_field_bg_disabled")
 
         case .none:
             assert(false, "TextField: unrecognized style \(style)")

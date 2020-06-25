@@ -70,6 +70,7 @@
 		D5740B51249B8B60001CBCB2 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5740B50249B8B5F001CBCB2 /* Login.storyboard */; };
 		D5740B53249B8B7C001CBCB2 /* LoginVCs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5740B52249B8B7C001CBCB2 /* LoginVCs.swift */; };
 		D5740B56249C5316001CBCB2 /* MoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5740B55249C5316001CBCB2 /* MoreVC.swift */; };
+		D5740B58249C7C5D001CBCB2 /* LoginForms.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5740B57249C7C5D001CBCB2 /* LoginForms.swift */; };
 		D579495F21788D67002E1C4A /* UIDevice+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D579495E21788D67002E1C4A /* UIDevice+App.swift */; };
 		D588308620CAB8AE002030C4 /* MBNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D588308320CAB8AE002030C4 /* MBNavigationBar.m */; };
 		D588308720CAB8AE002030C4 /* MBRoundBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D588308520CAB8AE002030C4 /* MBRoundBarButtonItem.m */; };
@@ -291,6 +292,7 @@
 		D5740B50249B8B5F001CBCB2 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		D5740B52249B8B7C001CBCB2 /* LoginVCs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVCs.swift; sourceTree = "<group>"; };
 		D5740B55249C5316001CBCB2 /* MoreVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreVC.swift; sourceTree = "<group>"; };
+		D5740B57249C7C5D001CBCB2 /* LoginForms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginForms.swift; sourceTree = "<group>"; };
 		D579495E21788D67002E1C4A /* UIDevice+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+App.swift"; sourceTree = "<group>"; };
 		D588307F20CA67A7002030C4 /* UICollectionViewFlowLayout+IBInspectable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionViewFlowLayout+IBInspectable.h"; sourceTree = "<group>"; };
 		D588308220CAB8AE002030C4 /* MBNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBNavigationBar.h; sourceTree = "<group>"; };
@@ -941,6 +943,7 @@
 			isa = PBXGroup;
 			children = (
 				D5740B50249B8B5F001CBCB2 /* Login.storyboard */,
+				D5740B57249C7C5D001CBCB2 /* LoginForms.swift */,
 				D5740B52249B8B7C001CBCB2 /* LoginVCs.swift */,
 			);
 			path = Login;
@@ -1487,6 +1490,7 @@
 				D569C9CF21AE8D3200211E36 /* HomeVC.swift in Sources */,
 				D588309720CAE103002030C4 /* ImageEntity.m in Sources */,
 				D544A39E197D1E8600C65604 /* JSONValueTransformer+App.m in Sources */,
+				D5740B58249C7C5D001CBCB2 /* LoginForms.swift in Sources */,
 				D5740B53249B8B7C001CBCB2 /* LoginVCs.swift in Sources */,
 				D5542F161918B83400831016 /* MBApp.m in Sources */,
 				D569C9EB21AE906900211E36 /* MBAudioRecorder.m in Sources */,
