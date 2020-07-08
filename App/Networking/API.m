@@ -36,6 +36,20 @@ NSString *const APIURLAssetsBase              = @"http://img.example.com/";
     rps.serverReportErrorUsingStatusCode = YES;
     dm.defaultResponseSerializer = rps;
 
+    // 针对演示用接口做的调整，正式项目请移除这部分代码
+    if ([dm.defaultDefine.baseURL.host isEqualToString:@"bb9z.github.io"]) {
+        // 演示接口只支持 GET 方法，且需要附加 JSON 后缀
+        for (RFAPIDefine *define in dm.defines) {
+            if (![define.path hasPrefix:@"http"]) {
+                define.path = [define.path stringByAppendingPathExtension:@"json"];
+                define.method = @"GET";
+            }
+        }
+    }
+    else {
+        dout_warning(@"⚠️ 请移除演示代码 %s %s", __FILE__, __FUNCTION__)
+    }
+
     self.modelTransformer = RFAPIJSONModelTransformer.new;
 }
 

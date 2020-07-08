@@ -12,7 +12,7 @@
         <!--Welcome View Controller-->
         <scene sceneID="Ou0-Jg-jgt">
             <objects>
-                <viewController storyboardIdentifier="WelcomeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="v8V-Z6-Prg" customClass="WelcomeViewController" customModule="App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WelcomeViewController" id="v8V-Z6-Prg" customClass="WelcomeViewController" customModule="App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zmh-UN-gZa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -402,7 +402,17 @@
                 <customObject id="9JR-qN-NBT" customClass="MBFormFieldVerifyControl">
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="addInvaildAction" value="YES"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="validationSkipsHiddenFields" value="YES"/>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <outlet property="invaildSubmitButton" destination="r3u-ct-3gb" id="GBr-wN-M4m"/>
+                        <outlet property="submitButton" destination="nJA-yz-uBF" id="A0a-cR-Ge1"/>
+                        <outletCollection property="textFields" destination="o11-KH-Ncd" id="dDL-Zc-vrl"/>
+                        <outletCollection property="textFields" destination="lTy-5P-FQ3" id="dmu-gf-HEU"/>
+                        <outletCollection property="textFields" destination="oZS-wW-8M2" id="OaQ-ql-qFc"/>
+                        <outletCollection property="textFields" destination="VKG-Z7-eXF" id="p2R-UW-SiQ"/>
+                        <outletCollection property="textFields" destination="vIY-Jb-xDQ" id="dvz-ml-b4P"/>
+                    </connections>
                 </customObject>
             </objects>
             <point key="canvasLocation" x="1989" y="728"/>
@@ -856,10 +866,10 @@
             </objects>
             <point key="canvasLocation" x="485" y="728"/>
         </scene>
-        <!--View Controller-->
+        <!--Login Password View Controller-->
         <scene sceneID="twA-ac-df8">
             <objects>
-                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="8FP-X5-hGE" sceneMemberID="viewController">
+                <viewController id="8FP-X5-hGE" customClass="LoginPasswordViewController" customModule="App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NNo-C6-n94">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="680"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1354,10 +1364,10 @@
             </objects>
             <point key="canvasLocation" x="485" y="2138"/>
         </scene>
-        <!--View Controller-->
+        <!--Login Register View Controller-->
         <scene sceneID="dvE-xd-b4L">
             <objects>
-                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="ybf-0G-iJD" sceneMemberID="viewController">
+                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="ybf-0G-iJD" customClass="LoginRegisterViewController" customModule="App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yAx-u5-37J">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="626"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

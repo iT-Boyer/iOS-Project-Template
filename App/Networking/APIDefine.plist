@@ -5,9 +5,9 @@
 	<key>DEFAULT</key>
 	<dict>
 		<key>Base</key>
-		<string>https://example.com</string>
+		<string>https://bb9z.github.io</string>
 		<key>Path Prefix</key>
-		<string>api/</string>
+		<string>API-Documentation-Sample/demo/</string>
 		<key>Method</key>
 		<string>GET</string>
 		<key>Authorization</key>
@@ -15,14 +15,73 @@
 	</dict>
 	<key>@ Account</key>
 	<dict>
-		<key>Login</key>
+		<key>SignInUpSend</key>
 		<dict>
 			<key>Method</key>
 			<string>POST</string>
 			<key>Path</key>
-			<string>user/login</string>
+			<string>account/signinup/code</string>
 			<key>Authorization</key>
 			<false/>
+			<key>Response Type</key>
+			<integer>1</integer>
+		</dict>
+		<key>SignInUp</key>
+		<dict>
+			<key>Method</key>
+			<string>POST</string>
+			<key>Path</key>
+			<string>account/signinup</string>
+			<key>Authorization</key>
+			<false/>
+			<key>Response Class</key>
+			<string>LoginResponseEntity</string>
+			<key>Response Type</key>
+			<integer>2</integer>
+		</dict>
+		<key>LoginPassword</key>
+		<dict>
+			<key>Method</key>
+			<string>POST</string>
+			<key>Path</key>
+			<string>account/login/password</string>
+			<key>Authorization</key>
+			<false/>
+			<key>Response Class</key>
+			<string>LoginResponseEntity</string>
+			<key>Response Type</key>
+			<integer>2</integer>
+		</dict>
+		<key>RegisterCode</key>
+		<dict>
+			<key>Method</key>
+			<string>POST</string>
+			<key>Path</key>
+			<string>account/register/code</string>
+			<key>Authorization</key>
+			<false/>
+			<key>Response Type</key>
+			<integer>1</integer>
+		</dict>
+		<key>Register</key>
+		<dict>
+			<key>Method</key>
+			<string>POST</string>
+			<key>Path</key>
+			<string>account/register</string>
+			<key>Authorization</key>
+			<false/>
+			<key>Response Class</key>
+			<string>LoginResponseEntity</string>
+			<key>Response Type</key>
+			<integer>2</integer>
+		</dict>
+		<key>LoginToken</key>
+		<dict>
+			<key>Method</key>
+			<string>POST</string>
+			<key>Path</key>
+			<string>account/login/token</string>
 			<key>Response Class</key>
 			<string>AccountEntity</string>
 			<key>Response Type</key>
@@ -31,31 +90,67 @@
 		<key>AcoountInfo</key>
 		<dict>
 			<key>Path</key>
-			<string>user/info</string>
+			<string>account/info</string>
 			<key>Response Class</key>
 			<string>AccountEntity</string>
 			<key>Response Type</key>
 			<integer>2</integer>
 		</dict>
-	</dict>
-	<key>@ 支持分组</key>
-	<dict>
-		<key>User Reset Password</key>
+		<key>AccountEdit</key>
 		<dict>
+			<key>Method</key>
+			<string>PATCH</string>
 			<key>Path</key>
-			<string>user/reset</string>
+			<string>account/info</string>
+			<key>Response Class</key>
+			<string>AccountEntity</string>
+			<key>Response Type</key>
+			<integer>2</integer>
+		</dict>
+		<key>OTACSend</key>
+		<dict>
+			<key>Method</key>
+			<string>POST</string>
+			<key>Path</key>
+			<string>account/otac/send</string>
 			<key>Authorization</key>
 			<false/>
-			<key>Notes</key>
-			<string>密码重置</string>
+			<key>Response Type</key>
+			<integer>1</integer>
 		</dict>
-		<key>User Change Password</key>
+		<key>OTACVerify</key>
 		<dict>
+			<key>Method</key>
+			<string>POST</string>
 			<key>Path</key>
-			<string>user/password</string>
-			<key>Notes</key>
-			<string>修改密码</string>
+			<string>account/otac/verify</string>
+			<key>Authorization</key>
+			<false/>
+			<key>Response Type</key>
+			<integer>0</integer>
+		</dict>
+		<key>PasswordReset</key>
+		<dict>
+			<key>Method</key>
+			<string>PUT</string>
+			<key>Path</key>
+			<string>account/password/reset</string>
+			<key>Authorization</key>
+			<false/>
+			<key>Response Type</key>
+			<integer>1</integer>
+		</dict>
+		<key>PasswordChange</key>
+		<dict>
+			<key>Method</key>
+			<string>PUT</string>
+			<key>Path</key>
+			<string>account/password</string>
+			<key>Response Type</key>
+			<integer>1</integer>
 		</dict>
 	</dict>
+	<key>@ 支持分组</key>
+	<dict/>
 </dict>
 </plist>

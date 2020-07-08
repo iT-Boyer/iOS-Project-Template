@@ -5,6 +5,8 @@
 
 /**
  用户账户信息 model
+
+ https://bb9z.github.io/API-Documentation-Sample/Sample/Entity#AccountEntity
 */
 @objc(AccountEntity)
 class AccountEntity: MBModel {
@@ -14,10 +16,39 @@ class AccountEntity: MBModel {
     @objc var uid: MBID = 0
     #endif
 
-    /// 转移到其他对象上
-    @objc var token: String?
+    @objc var name: String?
+    @objc var avatar: String?
+    @objc var sex: NSNumber?
 
-//    override class func keyMapper() -> JSONKeyMapper! {
-//        return JSONKeyMapper(modelToJSONDictionary: [#keyPath(AccountEntity.uid) : "id"])
-//    }
+    override class func keyMapper() -> JSONKeyMapper! {
+        return JSONKeyMapper(modelToJSONDictionary: [#keyPath(AccountEntity.uid) : "id"])
+    }
+}
+
+
+/**
+ 用户登入时带 token 的结构
+
+ https://bb9z.github.io/API-Documentation-Sample/Sample/Account#SignInUp
+ */
+@objc(LoginResponseEntity)
+class LoginResponseEntity : MBModel {
+    @objc var info: AccountEntity?
+    @objc var token: String?
+    @objc var is_new: NSNumber?
+
+    /// 收到服务器登入信息，设置当前用户
+    func setAsCurrent() {
+        guard let info = info, let token = token else {
+            AppHUD().showErrorStatus("服务器返回信息缺失")
+            return
+        }
+        #if MBUserStringUID
+        let user = Account(id: info.uid as String)
+        #else
+        let user = Account(id: info.uid)
+        #endif
+        user?.token = token
+        Account.current = user
+    }
 }
