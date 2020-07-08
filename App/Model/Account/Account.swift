@@ -44,7 +44,13 @@ class Account : MBUser {
             defer { objc_sync_exit(self) }
 
             _information = newValue
-            if newValue.uid > 0, uid != newValue.uid {
+
+            #if MBUserStringUID
+            let uidChanged = newValue.uid.length > 0 && uid != newValue.uid as String
+            #else
+            let uidChanged = newValue.uid > 0 && uid != newValue.uid
+            #endif
+            if uidChanged {
                 if uid != Account.userIDUndetermined {
                     DebugLog(true, "MBUserInformationIDMismatch", "用户信息 ID 不匹配")
                 }
@@ -84,9 +90,12 @@ class Account : MBUser {
     /// 应用启动后初始流程
     class func setup() {
         if AppUser() != nil { return }
-
+        #if MBUserStringUID
+        guard let userID = AppUserDefaultsShared().lastUserID else { return }
+        #else
         let userID = AppUserDefaultsShared().lastUserID
         guard userID > 0 else { return }
+        #endif
         guard let token = AppUserDefaultsShared().userToken else {
             DebugLog(true, "LaunchUserNoToken", "Account has ID but no token")
             return
@@ -104,7 +113,11 @@ class Account : MBUser {
     override class func onCurrentUserChanged(_ currentUser: MBUser?) {
         let user = currentUser as? Account
         let ud = AppUserDefaultsShared()
+        #if MBUserStringUID
+        ud.lastUserID = nil
+        #else
         ud.lastUserID = user?.uid ?? 0
+        #endif
         ud.userToken = user?.token
         ud.accountEntity = user?.information.toJSONString()
         if !ud.synchronize() {

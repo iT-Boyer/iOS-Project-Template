@@ -9,6 +9,7 @@
  https://opensource.org/licenses/MIT
  */
 
+#import <MBAppKit/MBGeneralType.h>
 #import <MBAppKit/MBUserDefaults.h>
 
 /**

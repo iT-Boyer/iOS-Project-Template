@@ -45,7 +45,9 @@ target 'App' do
         'Input',
         'Navigation',
         'Worker',
+        'UserIDIsString',
     ]
+    pod 'RFAPI', :git => 'https://github.com/RFUI/RFAPI.git'
 
 #    pod 'FLEX', :configurations => ['Debug']
     pod 'SDWebImage'
