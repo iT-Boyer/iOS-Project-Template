@@ -896,10 +896,10 @@
             </objects>
             <point key="canvasLocation" x="-188" y="728"/>
         </scene>
-        <!--View Controller-->
+        <!--Password Reset Mobile View Controller-->
         <scene sceneID="nH8-OC-nUj">
             <objects>
-                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="MhX-4F-DlR" sceneMemberID="viewController">
+                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="MhX-4F-DlR" customClass="PasswordResetMobileViewController" customModule="App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="R2r-yU-KQK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="626"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -921,6 +921,9 @@
                         <viewLayoutGuide key="safeArea" id="vsY-q3-18x"/>
                     </view>
                     <navigationItem key="navigationItem" id="B7r-48-Ogp"/>
+                    <connections>
+                        <segue destination="KpK-uL-NKZ" kind="show" identifier="NEXT" id="gAE-cn-RqM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hdn-hh-ock" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1109,7 +1112,6 @@
                                                     </userDefinedRuntimeAttributes>
                                                     <connections>
                                                         <action selector="onSubmit:" destination="bYU-L9-xW1" eventType="touchUpInside" id="OgK-zd-niW"/>
-                                                        <segue destination="KpK-uL-NKZ" kind="custom" customClass="RFAsynchronousPushSegue" id="lzj-i5-6Uh"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -1157,16 +1159,16 @@
             </objects>
             <point key="canvasLocation" x="485" y="1456"/>
         </scene>
-        <!--View Controller-->
+        <!--Password Reset View Controller-->
         <scene sceneID="AZ1-fS-4LD">
             <objects>
-                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="KpK-uL-NKZ" sceneMemberID="viewController">
+                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="KpK-uL-NKZ" customClass="PasswordResetViewController" customModule="App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="s3b-3a-GYx">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="626"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="170-cu-Hfv">
-                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="626"/>
                                 <connections>
                                     <segue destination="MIH-6T-8at" kind="embed" id="cJi-kY-e6D"/>
                                 </connections>

@@ -183,3 +183,80 @@ class LoginRegisterViewController: LoginFormBaseViewController {
         return parameters
     }
 }
+
+/**
+ 通过手机找回密码验证
+ */
+class PasswordResetMobileViewController: LoginFormBaseViewController {
+    var form: LoginMobileVerifyCodeScene {
+        children.first as! LoginMobileVerifyCodeScene
+    }
+
+    override func sendCodeContext() -> (sendCodeButton: ZYSMSCodeSendButton?, apiName: String, requestParameters: [String : Any])? {
+        guard let mobile = form.mobileField?.vaildFieldText() else {
+            return nil
+        }
+        return (form.sendCodeButton, "OTACSend", ["mobile": mobile])
+    }
+
+    @IBAction func onSubmit(_ sender: Any) {
+        guard let mobile = form.mobileField?.vaildFieldText(),
+            let code = form.codeField.vaildFieldText() else {
+                return
+        }
+        dismissKeyboard()
+        API.requestName("OTACVerify") { c in
+            c.parameters = ["mobile": mobile, "code": code]
+            c.loadMessage = ""
+            c.groupIdentifier = apiGroupIdentifier
+            c.bindControls = [form.submitButton as Any]
+            c.success { [weak self] _, rsp in
+                guard let sf = self else { return }
+                guard let info = rsp as? [String: String],
+                    let token = info["ot_token"] else {
+                        AppHUD().showErrorStatus("服务器返回异常")
+                        return
+                }
+                sf.item = token
+                sf.performSegue(withIdentifier: "NEXT", sender: sf)
+            }
+        }
+    }
+
+    /// ot_token
+    @objc var item: String?
+}
+
+/**
+ 密码找回，设置新密码
+ */
+class PasswordResetViewController: LoginFormBaseViewController {
+    var form: LoginPasswordSetScene {
+        children.first as! LoginPasswordSetScene
+    }
+
+    /// ot_token
+    @objc var item: String!
+
+    @IBAction func onSubmit(_ sender: Any) {
+        guard let token = item else {
+            AppHUD().showErrorStatus("内部参数异常")
+            return
+        }
+        guard let password = form.passwordField.vaildFieldText() else {
+            return
+        }
+        dismissKeyboard()
+        API.requestName("PasswordReset") { c in
+            c.parameters = ["ot_token": token, "password": password]
+            c.loadMessage = ""
+            c.loadMessageShownModal = true
+            c.groupIdentifier = apiGroupIdentifier
+            c.bindControls = [form.submitButton as Any]
+            c.success { _, _ in
+                AppHUD().showSuccessStatus("密码已重置")
+                AppNavigationController()?.popToRootViewController(animated: true)
+            }
+        }
+    }
+}
