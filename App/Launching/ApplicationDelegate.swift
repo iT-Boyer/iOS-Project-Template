@@ -11,13 +11,13 @@
  */
 @UIApplicationMain
 class ApplicationDelegate: MBApplicationDelegate {
-    override func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+    override func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
         AppUserDefaultsShared().applicationLastLaunchTime = Date()
         MBApp.status()
         return true
     }
-    
-    override func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+
+    override func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
         Account.setup()
         RFKeyboard.autoDisimssKeyboardWhenTouch = true
         setupUIAppearance()
@@ -26,7 +26,7 @@ class ApplicationDelegate: MBApplicationDelegate {
         }
         return true
     }
-    
+
     func setupUIAppearance() {
         // 统一全局色，storyboard 的全局色只对部分 UI 生效，比如无法对 UIAlertController 应用
         window.tintColor = UIColor(named: "tint")
@@ -40,20 +40,19 @@ class ApplicationDelegate: MBApplicationDelegate {
                 (e.code == NSURLErrorTimedOut
                 || e.code == NSURLErrorNotConnectedToInternet) {
                 // 超时断网不报错
-            }
-            else {
+            } else {
                 AppHUD().alertError(e, title: nil, fallbackMessage: "列表加载失败")
             }
             return false
         }
     }
-    
+
     override func applicationDidBecomeActive(_ application: UIApplication) {
         AppEnv().setFlagOn(MBENV.flagAppInForeground.rawValue)
         AppEnv().setFlagOn(MBENV.flagAppHasEnterForegroundOnce.rawValue)
         super.applicationDidBecomeActive(application)
     }
-    
+
     override func applicationDidEnterBackground(_ application: UIApplication) {
         AppEnv().setFlagOff(MBENV.flagAppInForeground.rawValue)
         super.applicationDidEnterBackground(application)
@@ -61,15 +60,15 @@ class ApplicationDelegate: MBApplicationDelegate {
 
     override func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
         var hasHande = false
-        enumerateEventListeners { d in
-            if d.application?(application, continue: userActivity, restorationHandler: restorationHandler) ?? false {
+        enumerateEventListeners { listener in
+            if listener.application?(application, continue: userActivity, restorationHandler: restorationHandler) ?? false {
                 hasHande = true
             }
         }
         return hasHande
     }
 
-    override func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+    override func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
         if url.scheme == AppScheme {
             AppNavigationJump(url.absoluteString, nil)
             return true

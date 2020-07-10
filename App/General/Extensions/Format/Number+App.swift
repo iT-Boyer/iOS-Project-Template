@@ -16,23 +16,21 @@ extension Double {
         let price100 = Int64((self * 100).rounded())
         if price100 % 100 == 0 {
             return String(format: "%.0f", self)
-        }
-        else if price100 % 10 == 0 {
+        } else if price100 % 10 == 0 {
             return String(format: "%.1f", self)
-        }
-        else {
+        } else {
             return String(format: "%.2f", self)
         }
     }
 }
 
 extension NumberFormatter {
-    
+
     // @MBDependency:1
     /// 带千位分隔符的数字
     static var decimalFormatter: NumberFormatter {
-        let f = NumberFormatter()
-        f.numberStyle = .decimal
-        return f
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        return formatter
     }
 }

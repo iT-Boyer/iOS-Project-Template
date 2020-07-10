@@ -21,10 +21,9 @@ class AccountEntity: MBModel {
     @objc var sex: NSNumber?
 
     override class func keyMapper() -> JSONKeyMapper! {
-        return JSONKeyMapper(modelToJSONDictionary: [#keyPath(AccountEntity.uid) : "id"])
+        return JSONKeyMapper(modelToJSONDictionary: [#keyPath(AccountEntity.uid): "id"])
     }
 }
-
 
 /**
  用户登入时带 token 的结构
@@ -32,10 +31,10 @@ class AccountEntity: MBModel {
  https://bb9z.github.io/API-Documentation-Sample/Sample/Account#SignInUp
  */
 @objc(LoginResponseEntity)
-class LoginResponseEntity : MBModel {
+class LoginResponseEntity: MBModel {
     @objc var info: AccountEntity?
     @objc var token: String?
-    @objc var is_new: NSNumber?
+    @objc var isNew: NSNumber?
 
     /// 收到服务器登入信息，设置当前用户
     func setAsCurrent() {
@@ -50,5 +49,9 @@ class LoginResponseEntity : MBModel {
         #endif
         user?.token = token
         Account.current = user
+    }
+
+    override class func keyMapper() -> JSONKeyMapper! {
+        return JSONKeyMapper(modelToJSONDictionary: [#keyPath(LoginResponseEntity.isNew): "is_new"])
     }
 }

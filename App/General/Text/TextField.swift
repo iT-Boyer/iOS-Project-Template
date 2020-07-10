@@ -34,12 +34,12 @@ class TextField: MBTextField {
 
         case .frame:
             var inset = UIEdgeInsets.zero
-            if let lv = leftAccessoryView {
-                let ivFrame = convert(lv.bounds, to: self)
+            if let aView = leftAccessoryView {
+                let ivFrame = convert(aView.bounds, to: self)
                 inset.left = ivFrame.maxX + 14
             }
             textEdgeInsets = inset
-            
+
             backgroundImage = #imageLiteral(resourceName: "text_field_bg_normal")
             backgroundHighlightedImage = #imageLiteral(resourceName: "text_field_bg_focused")
             disabledBackground = #imageLiteral(resourceName: "text_field_bg_disabled")
@@ -73,6 +73,7 @@ class TextField: MBTextField {
         }
     }
 
+    // swiftlint:disable:next cyclomatic_complexity
     private func textContentType(for type: TextFieldContentType) -> UITextContentType? {
         switch type {
         case .mobile:
@@ -82,8 +83,7 @@ class TextField: MBTextField {
                if (nextField as? TextField)?.formContentType == TextFieldContentType.password2.rawValue {
                    return .newPassword
                }
-           }
-           else {
+           } else {
                return .password
            }
         case .password2:
@@ -112,6 +112,7 @@ class TextField: MBTextField {
         return vtext?.isNotEmpty == true
     }
 
+    // swiftlint:disable:next cyclomatic_complexity function_body_length
     private func _vaildFieldText() -> (String?, String?) {
         guard let type = TextFieldContentType(rawValue: formContentType ?? "") else {
             return (text, nil)
@@ -161,12 +162,12 @@ class TextField: MBTextField {
             return (str, nil)
         case .email:
             guard let str = text?.trimmed() else {
-                  return (nil, "请输入邮箱")
-              }
-              guard str.isValidEmail() else {
-                  return (nil, "邮箱格式错误")
-              }
-              return (str, nil)
+                return (nil, "请输入邮箱")
+            }
+            guard str.isValidEmail() else {
+                return (nil, "邮箱格式错误")
+            }
+            return (str, nil)
         case .name:
             guard let str = text, str.isNotEmpty else {
                 return (nil, "请输入姓名")
@@ -201,8 +202,8 @@ class TextField: MBTextField {
 
     override var iconImageView: UIImageView? {
         didSet {
-            if let iv = iconImageView {
-                let ivFrame = iv.convert(iv.bounds, to: self)
+            if let iconView = iconImageView {
+                let ivFrame = iconView.convert(iconView.bounds, to: self)
                 var inset = textEdgeInsets
                 inset.left = ivFrame.maxX + 14
                 textEdgeInsets = inset
@@ -214,8 +215,8 @@ class TextField: MBTextField {
         didSet {
             leftView = leftAccessoryView
             leftViewMode = .always
-            if let lv = leftAccessoryView {
-                let ivFrame = convert(lv.bounds, to: self)
+            if let aView = leftAccessoryView {
+                let ivFrame = convert(aView.bounds, to: self)
                 var inset = textEdgeInsets
                 inset.left = ivFrame.maxX + 14
                 textEdgeInsets = inset

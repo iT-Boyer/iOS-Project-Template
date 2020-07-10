@@ -1,4 +1,3 @@
-
 // @MBDependency:3
 /**
  背景 view，用于设置阴影
@@ -9,16 +8,16 @@ class BackgroundView: UIView {
     @IBInspectable var shadowSpread: CGFloat = -2
     @IBInspectable var shadowColor: UIColor = UIColor.black.withAlphaComponent(0.3)
     @IBInspectable var cornerRadius: CGFloat = 6
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         updateLayerStyle()
     }
-    
+
     func updateLayerStyle() {
         Shadow(view: self, offset: shadowOffset, blur: shadowBlur, spread: shadowSpread, color: shadowColor, cornerRadius: cornerRadius)
     }
-    
+
     override var frame: CGRect {
         didSet {
             lastLayerSize = bounds.size
@@ -38,6 +37,7 @@ class BackgroundView: UIView {
     }
 }
 
+// swiftlint:disable identifier_name
 /**
  给一个 view 的 layer 设置阴影样式
  
@@ -52,7 +52,8 @@ func Shadow(view: UIView?, offset: CGPoint, blur: CGFloat, spread: CGFloat, colo
     layer.shadowRadius = blur
     layer.shadowOpacity = 1
     layer.cornerRadius = cornerRadius
-    
+
     let rect = layer.bounds.inset(by: UIEdgeInsetsMakeWithSameMargin(-spread))
     layer.shadowPath = UIBezierPath(roundedRect: rect, cornerRadius: cornerRadius).cgPath
 }
+// swiftlint:enable identifier_name

@@ -2,7 +2,7 @@
  应用级别的便捷方法
  */
 extension UIButton {
-    
+
     // @MBDependency:3
     /**
      便捷读取/设置当前状态的文字
@@ -18,8 +18,7 @@ extension UIButton {
         set {
             if title(for: state) != nil {
                 setTitle(newValue, for: state)
-            }
-            else {
+            } else {
                 setTitle(newValue, for: .normal)
             }
         }

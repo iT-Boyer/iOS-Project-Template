@@ -21,12 +21,10 @@ extension MBFormFieldVerifyControl {
                 }
                 if let control = button as? UIControl {
                     control.addTarget(sf, action: #selector(sf.onInvaildSubmit(_:)), for: .touchUpInside)
-                }
-                else if let item = button as? UIBarButtonItem {
+                } else if let item = button as? UIBarButtonItem {
                     item.target = sf
                     item.action = #selector(sf.onInvaildSubmit(_:))
-                }
-                else {
+                } else {
                     fatalError("Unexcept type.")
                 }
             }
@@ -41,9 +39,9 @@ extension MBFormFieldVerifyControl {
     func noticeIfInvaild(becomeFirstResponder: Bool = true) {
         if isValid { return }
         guard let fields = textFields as? [TextField] else { return }
-        for f in fields {
-            if validationSkipsHiddenFields && !f.isVisible { continue }
-            guard let _ = f.vaildFieldText(noticeWhenInvaild: true, becomeFirstResponderWhenInvaild: true) else {
+        for aField in fields {
+            if validationSkipsHiddenFields && !aField.isVisible { continue }
+            guard nil != aField.vaildFieldText(noticeWhenInvaild: true, becomeFirstResponderWhenInvaild: true) else {
                 return
             }
         }

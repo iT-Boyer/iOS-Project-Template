@@ -2,12 +2,12 @@
  应用级别的便捷方法
  */
 extension Array {
-    
+
     /// 非空，结合空的判断使用起来更容易些
     var isNotEmpty: Bool {
         return !isEmpty
     }
-    
+
     /// 安全的获取元素，index 超出范围返回 nil
     func rf_object(at index: Int) -> Element? {
         if 0..<count ~= index {
@@ -15,7 +15,7 @@ extension Array {
         }
         return nil
     }
-    
+
     /**
      从数组中提取元素，这些元素会从数组中移除并返回
      
@@ -37,7 +37,7 @@ extension Array {
         }
         return elementRemoved
     }
-    
+
     /**
      遍历数组，同时访问元素和序号，并可随时终止遍历
      */
@@ -52,7 +52,6 @@ extension Array {
     }
 }
 
-
 extension Array where Iterator.Element: UIView {
     /// 改变一组 view 的隐藏
     func views(hidden: Bool) {
@@ -60,12 +59,10 @@ extension Array where Iterator.Element: UIView {
             v.isHidden = hidden
         }
     }
-    
+
     /// 按照 tag 值从小到大重新排序
     /// bug(Xcode 10.2): 用于修正 IBOutletCollection 顺序错乱
     mutating func sortByTag() {
-        self = sorted(by: { a, b -> Bool in
-            return a.tag < b.tag
-        })
+        self = sorted(by: { $0.tag < $1.tag })
     }
 }

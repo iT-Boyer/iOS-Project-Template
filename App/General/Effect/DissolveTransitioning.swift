@@ -31,12 +31,11 @@
         let containerView = transitionContext.containerView
         let fromFrame = transitionContext.initialFrame(for: fromVC)
         let toFrame = transitionContext.finalFrame(for: toVC)
-        
+
         toView.frame = toFrame.contains(fromFrame) ? toFrame : fromFrame
         if reverse {
             containerView.insertSubview(toView, belowSubview: fromView)
-        }
-        else {
+        } else {
             containerView.insertSubview(toView, aboveSubview: fromView)
         }
         UIView.animate(withDuration: duration, delay: 0, options: .curveEaseInOut, animated: true, beforeAnimations: {
@@ -46,12 +45,11 @@
         }, animations: {
             if self.reverse {
                 fromView.alpha = 0
-            }
-            else {
+            } else {
                 toView.alpha = 1
             }
-        }) { _ in
+        }, completion: { _ in
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
-        }
+        })
     }
 }

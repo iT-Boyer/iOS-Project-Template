@@ -32,11 +32,11 @@ class SharePanelViewController: MBModalPresentViewController {
     @IBAction func onWeibo(_ sender: Any) {
         share(type: .sinaWeibo)
     }
-    
+
     func share(type: MBShareType) {
-        item.shareLink?(with: type) { [weak self] s, _, error in
+        item.shareLink?(with: type) { [weak self] success, _, error in
             let sf = self
-            if s {
+            if success {
                 AppHUD().showSuccessStatus("分享成功")
                 sf?.dismissSelf(animated: true, completion: nil)
             }

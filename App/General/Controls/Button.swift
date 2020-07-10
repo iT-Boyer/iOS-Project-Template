@@ -14,14 +14,14 @@ class Button: MBButton {
     enum Style: String {
         /// 默认按钮
         case std
-        
+
         /// 圆弧线框，颜色随 tintColor 改变
         case round
 
         /// 仿列表样式，给点击时增加一个效果
         case row
     }
-    
+
     override func setupAppearance() {
         guard let style = styleName else { return }
         switch style {
@@ -34,7 +34,6 @@ class Button: MBButton {
             setTitleColor(.white, for: .disabled)
             adjustsImageWhenHighlighted = false
             updateRoundStyleIfNeeded()
-            break
 
         case Style.row.rawValue:
             setBackgroundImage(#imageLiteral(resourceName: "row_highlight"), for: .highlighted)
@@ -42,16 +41,16 @@ class Button: MBButton {
         default: break
         }
     }
-    
+
     override func setupAppearanceAfterSizeChanged() {
         updateRoundStyleIfNeeded()
     }
-    
+
     override func tintColorDidChange() {
         super.tintColorDidChange()
         updateRoundStyleIfNeeded()
     }
-    
+
     func updateRoundStyleIfNeeded() {
         guard styleName == Style.round.rawValue else { return }
         let size = height
@@ -62,19 +61,19 @@ class Button: MBButton {
         let normalBG = RFDrawImage.image(withRoundingCorners: roundInset, size: bgSize, fill: .white, stroke: tintColor, strokeWidth: 1, boxMargin: .zero, resizableCapInsets: resizeInset, scaleFactor: 0)
         setBackgroundImage(normalBG, for: .normal)
         setTitleColor(tintColor, for: .normal)
-        
+
         let highlghtColor = tintColor.rf_lighter()
         let highlightBG = RFDrawImage.image(withRoundingCorners: roundInset, size: bgSize, fill: .white, stroke: highlghtColor, strokeWidth: 1, boxMargin: .zero, resizableCapInsets: resizeInset, scaleFactor: 0)
         setBackgroundImage(highlightBG, for: .highlighted)
         setTitleColor(highlghtColor, for: .highlighted)
-        
+
         let selectedBG = RFDrawImage.image(withRoundingCorners: roundInset, size: bgSize, fill: tintColor, stroke: nil, strokeWidth: 0, boxMargin: .zero, resizableCapInsets: resizeInset, scaleFactor: 0)
         setBackgroundImage(selectedBG, for: .selected)
-        
+
         let disableBG = RFDrawImage.image(withRoundingCorners: roundInset, size: bgSize, fill: UIColor(named: "button_disabled")!, stroke: nil, strokeWidth: 0, boxMargin: .zero, resizableCapInsets: resizeInset, scaleFactor: 0)
         setBackgroundImage(disableBG, for: .disabled)
     }
-    
+
     /// 按钮选中时加粗
     @IBInspectable var boldWhenSelected: Bool = false
     /// 按钮选中时字号增大
@@ -88,20 +87,20 @@ class Button: MBButton {
         normalFontSizeCached = size.rounded()
         return size
     }
-    
+
     override var isSelected: Bool {
         didSet {
             guard boldWhenSelected || scaleWhenSelected > 0 else { return }
             var size = normalFontSize
-            if isSelected && scaleWhenSelected > 0  {
-                size = size * scaleWhenSelected
+            if isSelected && scaleWhenSelected > 0 {
+                size *= scaleWhenSelected
             }
             titleLabel?.font = UIFont.systemFont(ofSize: size, weight: isSelected ? .semibold : .regular)
         }
     }
-    
+
     @IBInspectable var jumpURL: String?
-    
+
     override func onButtonTapped() {
         super.onButtonTapped()
         if jumpURL != nil {

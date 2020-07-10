@@ -17,11 +17,11 @@
  */
 class EnumListView: UICollectionView, UICollectionViewDelegateFlowLayout {
     typealias EnumObject = AnyObject & EnumListElement
-    
+
     override var intrinsicContentSize: CGSize {
         return self.collectionViewLayout.collectionViewContentSize
     }
-    
+
     override var bounds: CGRect {
         didSet {
             if oldValue.width != bounds.width {
@@ -29,7 +29,7 @@ class EnumListView: UICollectionView, UICollectionViewDelegateFlowLayout {
             }
         }
     }
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         let ds = MBCollectionViewArrayDataSource<EnumObject>()
@@ -39,41 +39,39 @@ class EnumListView: UICollectionView, UICollectionViewDelegateFlowLayout {
         listDataSource = ds
         delegate = self
     }
-    
+
     var listDataSource: MBCollectionViewArrayDataSource<EnumObject>!
-    
+
     /// 已选中 cell 再次点击反选
     @IBInspectable var allowsDeselection: Bool = true
-    
+
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if selectedIndexPath == indexPath {
             if allowsDeselection {
                 collectionView.deselectItem(at: indexPath, animated: true)
                 selectedIndexPath = nil
             }
-        }
-        else {
+        } else {
             selectedIndexPath = indexPath
         }
     }
-    
+
     var selectionDidChanged: ((EnumObject?) -> Void)?
     var selectedIndexPath: IndexPath? {
         didSet {
             if let cb = selectionDidChanged {
                 if let ip = selectedIndexPath, let obj = listDataSource.item(at: ip) {
                     cb(obj)
-                }
-                else {
+                } else {
                     cb(nil)
                 }
             }
         }
     }
-    
+
     @IBInspectable var cellMinWidth: CGFloat = 110
     @IBInspectable var cellHight: CGFloat = 36
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let string = listDataSource.item(at: indexPath)?.enumListDiscription ?? ""
         var size = (string as NSString).size(withAttributes: cellLabelAttributes)
@@ -83,7 +81,7 @@ class EnumListView: UICollectionView, UICollectionViewDelegateFlowLayout {
     }
 
     // 按需修改，用于计算 cell 大小
-    lazy var cellLabelAttributes: [NSAttributedString.Key : Any] = [.font: UIFont.systemFont(ofSize: 14, weight: .semibold)]
+    lazy var cellLabelAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.systemFont(ofSize: 14, weight: .semibold)]
 }
 
 class EnumListCell: UICollectionViewCell {
@@ -93,7 +91,7 @@ class EnumListCell: UICollectionViewCell {
         }
     }
     @IBOutlet weak var button: UIButton!
-    
+
     override var isSelected: Bool {
         didSet {
             button.isSelected = isSelected

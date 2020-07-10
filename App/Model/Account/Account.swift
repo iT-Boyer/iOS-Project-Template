@@ -3,11 +3,10 @@
 //  App
 //
 
-
 /**
  管理当前用户
  */
-class Account : MBUser {
+class Account: MBUser {
     #if MBUserStringUID
     static let userIDUndetermined = "<undetermined>"
     #else
@@ -31,13 +30,13 @@ class Account : MBUser {
             defer { objc_sync_exit(self) }
 
             if let ret = _information { return ret }
-            var ui = AccountEntity(string: AppUserDefaultsShared().accountEntity, error: nil)
-            if ui == nil {
+            var account = AccountEntity(string: AppUserDefaultsShared().accountEntity, error: nil)
+            if account == nil {
                 AppUserDefaultsShared().accountEntity = nil
-                ui = AccountEntity()
+                account = AccountEntity()
             }
-            _information = ui
-            return ui!
+            _information = account
+            return account!
         }
         set {
             objc_sync_enter(self)
@@ -112,30 +111,29 @@ class Account : MBUser {
 
     override class func onCurrentUserChanged(_ currentUser: MBUser?) {
         let user = currentUser as? Account
-        let ud = AppUserDefaultsShared()
+        let defaults = AppUserDefaultsShared()
         #if MBUserStringUID
-        ud.lastUserID = nil
+        defaults.lastUserID = nil
         #else
-        ud.lastUserID = user?.uid ?? 0
+        defaults.lastUserID = user?.uid ?? 0
         #endif
-        ud.userToken = user?.token
-        ud.accountEntity = user?.information.toJSONString()
-        if !ud.synchronize() {
+        defaults.userToken = user?.token
+        defaults.accountEntity = user?.information.toJSONString()
+        if !defaults.synchronize() {
             dispatch_after_seconds(0) {
-                if (AppUserDefaultsShared().synchronize()) { return }
+                if AppUserDefaultsShared().synchronize() { return }
                 DebugLog(true, "UDSynchronizeFail", "用户信息存储失败")
                 noticeDefaultsSynchronizeFail
             }
         }
-        if let u = user {
+        if let user = user {
             AppEnv().setFlagOn(MBENV.flagUserHasLogged.rawValue)
-            if !u.hasLoginedThisSession {
-                u.updateInformation { c in
+            if !user.hasLoginedThisSession {
+                user.updateInformation { c in
                     c.failureCallback = APISlientFailureHandler(true)
                 }
             }
-        }
-        else {
+        } else {
             AppEnv().setFlagOff(MBENV.flagUserHasLogged.rawValue)
             AppEnv().setFlagOff(MBENV.flagUserInfoFetched.rawValue)
         }

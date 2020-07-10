@@ -7,4 +7,5 @@ extension NSRegularExpression {
     // @MBDependency:1 范例性质
     /// 中日韩字符
     static let CJKChar: NSRegularExpression = try! NSRegularExpression(pattern: "\\p{InCJK}", options: .caseInsensitive)
+    // swiftlint:disable:previous force_try
 }

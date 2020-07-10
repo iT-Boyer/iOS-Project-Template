@@ -1,4 +1,3 @@
-
 /**
  搜索输入框，搜索时显示菊花进度
  */
@@ -22,11 +21,11 @@ class SearchTextField: MBSearchTextField {
     }()
 
     lazy var loadingView: UIActivityIndicatorView = {
-        let a = UIActivityIndicatorView(style: .gray)
-        a.center = CGPointOfRectCenter(self.leftView!.bounds)
-        a.startAnimating()
-        a.hidesWhenStopped = false
-        return a
+        let indicator = UIActivityIndicatorView(style: .gray)
+        indicator.center = CGPointOfRectCenter(self.leftView!.bounds)
+        indicator.startAnimating()
+        indicator.hidesWhenStopped = false
+        return indicator
     }()
 
     override var isSearching: Bool {

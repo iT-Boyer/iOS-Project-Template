@@ -20,14 +20,12 @@ final class Atomic<A> {
     init(_ value: A) {
         self._value = value
     }
-    
+
     var value: A {
-        get {
-            return queue.sync { self._value }
-        }
+        queue.sync { self._value }
     }
-    
-    func mutate(_ transform: (inout A) -> ()) {
+
+    func mutate(_ transform: (inout A) -> Void) {
         queue.sync {
             transform(&self._value)
         }

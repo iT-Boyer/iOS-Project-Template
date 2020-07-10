@@ -17,12 +17,12 @@ class NavigationController: MBNavigationController {
     override class func storyboardName() -> String {
         return "Main"
     }
-    
+
     override func onInit() {
         super.onInit()
         MBApp.status().globalNavigationController = self
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // 强制设置一些初始状态，否则会有异常
@@ -33,8 +33,7 @@ class NavigationController: MBNavigationController {
         Account.addCurrentUserChangeObserver(self, initial: true) { [weak self] user in
             if user != nil {
                 self?.onLogin()
-            }
-            else {
+            } else {
                 self?.onLogout()
             }
         }
@@ -45,7 +44,7 @@ class NavigationController: MBNavigationController {
         tabControllers.count = 0
         tabControllers.count = NavigationTab.count.rawValue
     }
-    
+
     func onLogin() {
         tabItems?.selectIndex = NavigationTab.defaule.rawValue
         onTabSelect(tabItems!)
@@ -55,10 +54,10 @@ class NavigationController: MBNavigationController {
         tabItems?.selectIndex = NavigationTab.login
         setViewControllers([ WelcomeViewController.newFromStoryboard() ], animated: true)
     }
-    
+
     override func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
         super.navigationController(navigationController, didShow: viewController, animated: animated)
-        
+
         if viewController.rfPrefersDisabledInteractivePopGesture {
             // 禁用返回手势，只禁用就行，会自行恢复
             interactivePopGestureRecognizer?.isEnabled = false
@@ -73,12 +72,11 @@ class NavigationController: MBNavigationController {
     }
 
     lazy var tabControllers: NSPointerArray = {
-        let pa = NSPointerArray(options: .strongMemory)
-        pa.count = NavigationTab.count.rawValue
-        return pa
+        let array = NSPointerArray(options: .strongMemory)
+        array.count = NavigationTab.count.rawValue
+        return array
     }()
 }
-
 
 // MARK: - Tab
 
@@ -96,8 +94,8 @@ extension NavigationController: MBControlGroupDelegate {
     }
 
     func viewControllerAtTabIndex(_ index: Int) -> UIViewController {
-        if let vc = tabControllers.object(at: index) {
-            return vc as! UIViewController
+        if let vc = tabControllers.object(at: index) as? UIViewController {
+            return vc
         }
         var vc: UIViewController!
         switch index {
@@ -108,7 +106,6 @@ extension NavigationController: MBControlGroupDelegate {
 
         default:
             fatalError()
-            break
         }
         vc.rfPrefersBottomBarShown = true
         tabControllers.replaceObject(at: index, withObject: vc)
@@ -118,10 +115,8 @@ extension NavigationController: MBControlGroupDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         let idx = tabItems?.selectIndex
-        for i in 0..<tabControllers.count {
-            if i != idx {
-                tabControllers.replacePointer(at: i, withPointer: nil)
-            }
+        for i in 0..<tabControllers.count where i != idx {
+            tabControllers.replacePointer(at: i, withPointer: nil)
         }
     }
 }
@@ -131,7 +126,6 @@ extension NavigationController: MBDebugNavigationReleaseChecking {
         return (tabControllers.allObjects as NSArray).contains(viewController!)
     }
 }
-
 
 // MARK: - Jump
 extension NavigationController {

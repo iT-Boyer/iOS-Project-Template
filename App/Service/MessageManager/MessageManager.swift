@@ -12,7 +12,7 @@
  
  */
 class MessageManager: RFSVProgressMessageManager {
-    
+
     /**
      显示加载状态
      */
@@ -22,7 +22,7 @@ class MessageManager: RFSVProgressMessageManager {
         msg.modal = model
         show(msg)
     }
-    
+
     /**
      显示一个操作成功的信息，显示一段时间后自动隐藏
      */
@@ -31,7 +31,7 @@ class MessageManager: RFSVProgressMessageManager {
         msg.priority = .high
         show(msg)
     }
-    
+
     /**
      队列显示一段文本，显示一段时间后自动隐藏
      */
@@ -40,7 +40,7 @@ class MessageManager: RFSVProgressMessageManager {
         msg.priority = .high
         show(msg)
     }
-    
+
     /**
      显示一个错误提醒，一段时间后自动隐藏
      */

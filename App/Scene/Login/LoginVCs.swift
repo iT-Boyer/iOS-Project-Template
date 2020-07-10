@@ -3,6 +3,9 @@
 //  App
 //
 
+// FIXME: 换个处理办法
+// swiftlint:disable force_cast
+
 /// 用于登入后移除导航中的登入页
 @objc protocol LoginVCs {
 }
@@ -16,7 +19,7 @@ class LoginFormBaseViewController: UIViewController, LoginVCs {
     /// 发送验证码相关的信息
     /// 返回 nil 不执行发送
     /// 因为 onSendCode() action 形式太固定了，抽出一层避免反复写同样的逻辑
-    func sendCodeContext() -> (sendCodeButton: ZYSMSCodeSendButton?, apiName: String, requestParameters: [String: Any])? {
+    func sendCodeContext() -> (apiName: String, requestParameters: [String: Any], sendCodeButton: ZYSMSCodeSendButton?)? {
         fatalError("需子类重载")
     }
 
@@ -48,11 +51,11 @@ class WelcomeViewController: LoginFormBaseViewController {
         children.first as! LoginMobileVerifyCodeScene
     }
 
-    override func sendCodeContext() -> (sendCodeButton: ZYSMSCodeSendButton?, apiName: String, requestParameters: [String : Any])? {
+    override func sendCodeContext() -> (apiName: String, requestParameters: [String: Any], sendCodeButton: ZYSMSCodeSendButton?)? {
         guard let mobile = form.mobileField?.vaildFieldText() else {
             return nil
         }
-        return (form.sendCodeButton, "SignInUpSend", ["mobile": mobile])
+        return ("SignInUpSend", ["mobile": mobile], form.sendCodeButton)
     }
 
     @IBAction func onSubmit(_ sender: Any) {
@@ -123,21 +126,20 @@ class LoginRegisterViewController: LoginFormBaseViewController {
         children.first as! LoginRegisterFormScene
     }
 
-    override func sendCodeContext() -> (sendCodeButton: ZYSMSCodeSendButton?, apiName: String, requestParameters: [String : Any])? {
+    override func sendCodeContext() -> (apiName: String, requestParameters: [String: Any], sendCodeButton: ZYSMSCodeSendButton?)? {
         var parameters = [String: Any]()
         if form.isEmailButton.isSelected {
             guard let email = form.emailField?.vaildFieldText() else {
                 return nil
             }
             parameters["email"] = email
-        }
-        else {
+        } else {
             guard let mobile = form.mobileField?.vaildFieldText() else {
                 return nil
             }
             parameters["mobile"] = mobile
         }
-        return (form.sendCodeButton, "RegisterCode", parameters)
+        return ("RegisterCode", parameters, form.sendCodeButton)
     }
 
     @IBAction func onSubmit(_ sender: Any) {
@@ -167,8 +169,7 @@ class LoginRegisterViewController: LoginFormBaseViewController {
                 return nil
             }
             parameters["email"] = email
-        }
-        else {
+        } else {
             guard let mobile = form.mobileField?.vaildFieldText() else {
                 return nil
             }
@@ -192,11 +193,11 @@ class PasswordResetMobileViewController: LoginFormBaseViewController {
         children.first as! LoginMobileVerifyCodeScene
     }
 
-    override func sendCodeContext() -> (sendCodeButton: ZYSMSCodeSendButton?, apiName: String, requestParameters: [String : Any])? {
+    override func sendCodeContext() -> (apiName: String, requestParameters: [String: Any], sendCodeButton: ZYSMSCodeSendButton?)? {
         guard let mobile = form.mobileField?.vaildFieldText() else {
             return nil
         }
-        return (form.sendCodeButton, "OTACSend", ["mobile": mobile])
+        return ("OTACSend", ["mobile": mobile], form.sendCodeButton)
     }
 
     @IBAction func onSubmit(_ sender: Any) {
