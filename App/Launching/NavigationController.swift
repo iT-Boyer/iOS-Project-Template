@@ -81,7 +81,7 @@ extension NavigationController: MBControlGroupDelegate {
         return true
     }
 
-    @IBAction func onTabSelect(_ sender: MBControlGroup) {
+    @IBAction private func onTabSelect(_ sender: MBControlGroup) {
         let vc: UIViewController = viewControllerAtTabIndex(sender.selectIndex)
         let newVCs = [ vc ]
         if viewControllers != newVCs {

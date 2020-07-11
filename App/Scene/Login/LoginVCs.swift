@@ -18,6 +18,7 @@ internal class LoginFormBaseViewController: UIViewController, LoginVCs {
     /// 返回 nil 不执行发送
     /// 因为 onSendCode() action 形式太固定了，抽出一层避免反复写同样的逻辑
     func sendCodeContext() -> (apiName: String, requestParameters: [String: Any], sendCodeButton: ZYSMSCodeSendButton?)? {
+        // swiftlint:disable:previous unavailable_function
         fatalError("需子类重载")
     }
 
