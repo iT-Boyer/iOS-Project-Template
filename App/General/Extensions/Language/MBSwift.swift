@@ -34,3 +34,20 @@ func __bridge_transfer<T: AnyObject>(ptr: UnsafeRawPointer) -> T {
 }
 
 // swiftlint:enable identifier_name
+
+/// 语言辅助工具
+enum MBSwift {
+
+    /// 强转类型非空值
+    ///
+    /// - Parameters:
+    ///   - obj: 必须非空，类型与 type 相符，否则终止运行
+    ///   - type: 转换类型
+    /// - Returns: 转换后的非空值
+    static func cast<T>(_ obj: Any?, as type: T.Type) -> T {
+        guard let instance = obj as? T else {
+            fatalError("Cast object is nil or type mismatched.")
+        }
+        return instance
+    }
+}

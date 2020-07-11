@@ -3,9 +3,6 @@
 //  App
 //
 
-// FIXME: 换个处理办法
-// swiftlint:disable force_cast
-
 /// 用于登入后移除导航中的登入页
 @objc protocol LoginVCs {
 }
@@ -47,7 +44,7 @@ internal class LoginFormBaseViewController: UIViewController, LoginVCs {
  */
 internal class WelcomeViewController: LoginFormBaseViewController {
     private var form: LoginMobileVerifyCodeScene {
-        children.first as! LoginMobileVerifyCodeScene
+        MBSwift.cast(children.first, as: LoginMobileVerifyCodeScene.self)
     }
 
     override func sendCodeContext() -> (apiName: String, requestParameters: [String: Any], sendCodeButton: ZYSMSCodeSendButton?)? {
@@ -94,7 +91,7 @@ internal class WelcomeViewController: LoginFormBaseViewController {
  */
 private class LoginPasswordViewController: LoginFormBaseViewController {
     private var form: LoginSigninFormScene {
-        children.first as! LoginSigninFormScene
+        MBSwift.cast(children.first, as: LoginSigninFormScene.self)
     }
 
     @IBAction private func onSubmit(_ sender: Any) {
@@ -122,7 +119,7 @@ private class LoginPasswordViewController: LoginFormBaseViewController {
  */
 private class LoginRegisterViewController: LoginFormBaseViewController {
     var form: LoginRegisterFormScene {
-        children.first as! LoginRegisterFormScene
+        MBSwift.cast(children.first, as: LoginRegisterFormScene.self)
     }
 
     override func sendCodeContext() -> (apiName: String, requestParameters: [String: Any], sendCodeButton: ZYSMSCodeSendButton?)? {
@@ -189,7 +186,7 @@ private class LoginRegisterViewController: LoginFormBaseViewController {
  */
 private class PasswordResetMobileViewController: LoginFormBaseViewController {
     var form: LoginMobileVerifyCodeScene {
-        children.first as! LoginMobileVerifyCodeScene
+        MBSwift.cast(children.first, as: LoginMobileVerifyCodeScene.self)
     }
 
     override func sendCodeContext() -> (apiName: String, requestParameters: [String: Any], sendCodeButton: ZYSMSCodeSendButton?)? {
@@ -232,7 +229,7 @@ private class PasswordResetMobileViewController: LoginFormBaseViewController {
  */
 private class PasswordResetViewController: LoginFormBaseViewController {
     var form: LoginPasswordSetScene {
-        children.first as! LoginPasswordSetScene
+        MBSwift.cast(children.first, as: LoginPasswordSetScene.self)
     }
 
     /// ot_token
