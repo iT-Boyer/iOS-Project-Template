@@ -28,7 +28,7 @@ class BackgroundView: UIView {
             lastLayerSize = bounds.size
         }
     }
-    var lastLayerSize: CGSize = CGSize.zero {
+    var lastLayerSize = CGSize.zero {
         didSet {
             if oldValue == lastLayerSize { return }
             let rect = layer.bounds.inset(by: UIEdgeInsetsMakeWithSameMargin(-shadowSpread))

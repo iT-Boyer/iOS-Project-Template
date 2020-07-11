@@ -19,7 +19,7 @@ class EnumListView: UICollectionView, UICollectionViewDelegateFlowLayout {
     typealias EnumObject = AnyObject & EnumListElement
 
     override var intrinsicContentSize: CGSize {
-        return self.collectionViewLayout.collectionViewContentSize
+        self.collectionViewLayout.collectionViewContentSize
     }
 
     override var bounds: CGRect {
@@ -101,6 +101,6 @@ class EnumListCell: UICollectionViewCell {
 
 extension NSString: EnumListElement {
     var enumListDiscription: String {
-        return self as String
+        self as String
     }
 }

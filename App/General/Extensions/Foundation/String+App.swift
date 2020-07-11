@@ -6,7 +6,7 @@ extension String {
     // @MBDependency:4
     /// 非空，结合空的判断使用起来更容易些
     var isNotEmpty: Bool {
-        return !isEmpty
+        !isEmpty
     }
 
     // @MBDependency:4
@@ -19,15 +19,11 @@ extension String {
     // @MBDependency:3
     /// 用 separator 连接两个 string
     static func join(_ str1: String?, _ str2: String?, separator: String = "") -> String {
-        if str1 != nil && str2 != nil {
-            return String(format: "%@%@%@", str1!, separator, str2!)
+        if let str1 = str1, let str2 = str2 {
+            return String(format: "%@%@%@", str1, separator, str2)
         }
-        if str1 != nil {
-            return str1!
-        }
-        if str2 != nil {
-            return str2!
-        }
+        if let str = str1 { return str }
+        if let str = str2 { return str }
         return ""
     }
 }

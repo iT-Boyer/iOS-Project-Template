@@ -12,24 +12,24 @@ extension Date {
     // @MBDependency:2
     /// 毫秒时间戳
     var timestamp: Int64 {
-        return Int64(timeIntervalSince1970 * 1000)
+        Int64(timeIntervalSince1970 * 1000)
     }
 
     // @MBDependency:2
     /// 一天的起始时间
     var dayStart: Date {
-        return (self as NSDate).dayStart
+        (self as NSDate).dayStart
     }
 
     // @MBDependency:2
     /// 一天的结束时间
     var dayEnd: Date {
-        return (self as NSDate).dayEnd
+        (self as NSDate).dayEnd
     }
 
     /// 后台专用日期格式
     var dayIdentifier: MBDateDayIdentifier {
-        return DateFormatter.dayIdentifier.string(from: self) as MBDateDayIdentifier
+        DateFormatter.dayIdentifier.string(from: self) as MBDateDayIdentifier
     }
 
     // @MBDependency:3
@@ -92,7 +92,7 @@ extension TimeInterval {
     /// XX:XX 时长显示，超过一小时不显示小时
     var mmssString: String {
         let value = Int(self.rounded())
-        return String(format: "%02d:%02d", value/60, value%60)
+        return String(format: "%02d:%02d", value / 60, value % 60)
     }
 
     // @MBDependency:2
@@ -126,6 +126,6 @@ typealias TimeStamp = Int64
 
 extension TimeStamp {
     var date: Date {
-        return Date(timeIntervalSince1970: Double(self) / 1000.0)
+        Date(timeIntervalSince1970: Double(self) / 1000.0)
     }
 }

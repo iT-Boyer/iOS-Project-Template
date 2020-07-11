@@ -38,7 +38,9 @@ class Button: MBButton {
         case Style.row.rawValue:
             setBackgroundImage(#imageLiteral(resourceName: "row_highlight"), for: .highlighted)
             adjustsImageWhenHighlighted = false
-        default: break
+
+        default:
+            break
         }
     }
 
@@ -55,8 +57,8 @@ class Button: MBButton {
         guard styleName == Style.round.rawValue else { return }
         let size = height
         guard size > 0 else { return }
-        let roundInset = UIEdgeInsetsMakeWithSameMargin(size/2)
-        let resizeInset = UIEdgeInsets(top: 0, left: size/2 + 1, bottom: 0, right: size/2 + 1)
+        let roundInset = UIEdgeInsetsMakeWithSameMargin(size / 2)
+        let resizeInset = UIEdgeInsets(top: 0, left: size / 2 + 1, bottom: 0, right: size / 2 + 1)
         let bgSize = CGSize(width: size + 3, height: size)
         let normalBG = RFDrawImage.image(withRoundingCorners: roundInset, size: bgSize, fill: .white, stroke: tintColor, strokeWidth: 1, boxMargin: .zero, resizableCapInsets: resizeInset, scaleFactor: 0)
         setBackgroundImage(normalBG, for: .normal)

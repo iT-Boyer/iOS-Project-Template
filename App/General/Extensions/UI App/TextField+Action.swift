@@ -9,15 +9,15 @@ extension UITextField {
 
     // @MBDependency:3
     /// 清空输入框
-    @IBAction func clearText(_ sender: Any?) {
+    @IBAction private func clearText(_ sender: Any?) {
         text = nil
         sendActions(for: .editingChanged)
     }
 
     // @MBDependency:3
     /// 切换密码显示
-    @IBAction func togglePasswordDisplay(_ sender: Any?) {
-        isSecureTextEntry = !isSecureTextEntry
+    @IBAction private func togglePasswordDisplay(_ sender: Any?) {
+        isSecureTextEntry.toggle()
         if let c = sender as? UIControl {
             c.isSelected = !isSecureTextEntry
         }

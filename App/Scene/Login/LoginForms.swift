@@ -20,14 +20,14 @@
  */
 
 /// 用户名+密码登入表单
-class LoginSigninFormScene: UITableViewController {
+internal class LoginSigninFormScene: UITableViewController {
     @IBOutlet weak var nameField: TextField!
     @IBOutlet weak var passwordField: TextField!
     @IBOutlet weak var submitButton: UIButton!
 }
 
 /// 手机号和验证码输入表单
-class LoginMobileVerifyCodeScene: UITableViewController {
+internal class LoginMobileVerifyCodeScene: UITableViewController {
     @IBOutlet weak var mobileField: TextField!
     @IBOutlet weak var codeField: TextField!
     @IBOutlet weak var sendCodeButton: ZYSMSCodeSendButton!
@@ -35,13 +35,13 @@ class LoginMobileVerifyCodeScene: UITableViewController {
 }
 
 /// 手机号和验证码发送表单
-class LoginMobileSendCodeFormScene: UITableViewController {
+internal class LoginMobileSendCodeFormScene: UITableViewController {
     @IBOutlet weak var mobileField: TextField!
     @IBOutlet weak var submitButton: UIButton!
 }
 
 /// 注册表单
-class LoginRegisterFormScene: UITableViewController {
+internal class LoginRegisterFormScene: UITableViewController {
     @IBOutlet weak var mobileField: TextField?
     @IBOutlet weak var emailField: TextField?
     @IBOutlet weak var isEmailButton: UIButton!
@@ -51,7 +51,7 @@ class LoginRegisterFormScene: UITableViewController {
     @IBOutlet weak var passwordField2: TextField!
     @IBOutlet weak var submitButton: UIButton!
 
-    @IBAction func onChangeIsEmail(_ sender: Any) {
+    @IBAction private func onChangeIsEmail(_ sender: Any) {
         updateUI(isEmail: !isEmailButton.isSelected)
     }
 
@@ -73,12 +73,13 @@ class LoginRegisterFormScene: UITableViewController {
         }
         return super.tableView(tableView, cellForRowAt: indexPath)
     }
+
     @IBOutlet weak var mobileCell: UITableViewCell!
     @IBOutlet weak var emailCell: UITableViewCell!
 }
 
 /// 密码重置表单（通过手机）
-class LoginPasswordResetFormScene: UITableViewController {
+internal class LoginPasswordResetFormScene: UITableViewController {
     @IBOutlet weak var mobileField: TextField!
     @IBOutlet weak var codeField: TextField!
     @IBOutlet weak var sendCodeButton: ZYSMSCodeSendButton!
@@ -88,7 +89,7 @@ class LoginPasswordResetFormScene: UITableViewController {
 }
 
 /// 密码设置表单
-class LoginPasswordSetScene: UITableViewController {
+internal class LoginPasswordSetScene: UITableViewController {
     @IBOutlet weak var passwordField: TextField!
     @IBOutlet weak var passwordField2: TextField!
     @IBOutlet weak var submitButton: UIButton!

@@ -1,13 +1,3 @@
-/*
- EntityShare
- 
- Copyright © 2018 RFUI.
- https://github.com/BB9z/iOS-Project-Template
- 
- The MIT License
- https://opensource.org/licenses/MIT
- */
-
 // todo: 扩展应用 model，使之符合 MBEntitySharing 协议
 
 extension ImageEntity {

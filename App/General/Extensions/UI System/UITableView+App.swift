@@ -39,7 +39,7 @@ class TableCellBackground: UIView {
     }
     override var backgroundColor: UIColor? {
         get {
-            return color
+            color
         }
         set {
             if color != nil { return }

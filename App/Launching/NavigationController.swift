@@ -3,10 +3,9 @@
 //  App
 //
 
-enum NavigationTab: Int {
+private enum NavigationTab: Int {
     case home = 0, more, count
     static let defaule = NavigationTab.home
-
     static let login = NSNotFound
 }
 
@@ -14,9 +13,7 @@ enum NavigationTab: Int {
  应用主导航控制器
  */
 class NavigationController: MBNavigationController {
-    override class func storyboardName() -> String {
-        return "Main"
-    }
+    override class func storyboardName() -> String { "Main" }
 
     override func onInit() {
         super.onInit()
@@ -62,13 +59,12 @@ class NavigationController: MBNavigationController {
             // 禁用返回手势，只禁用就行，会自行恢复
             interactivePopGestureRecognizer?.isEnabled = false
         }
-
     }
 
     // MARK: -
 
     var tabItems: MBControlGroup? {
-        return bottomBar as? MBControlGroup
+        bottomBar as? MBControlGroup
     }
 
     lazy var tabControllers: NSPointerArray = {
@@ -129,7 +125,7 @@ extension NavigationController: MBDebugNavigationReleaseChecking {
 
 // MARK: - Jump
 extension NavigationController {
-    @IBAction func navigationBackToHome(_ sender: Any?) {
+    @IBAction private func navigationBackToHome(_ sender: Any?) {
         tabItems?.selectIndex = NavigationTab.defaule.rawValue
         onTabSelect(tabItems!)
     }

@@ -8,8 +8,7 @@ extension MBFormFieldVerifyControl {
     /// 给 invaildSubmitButton 添加点击事件，不通过时自动提示
     @IBInspectable var addInvaildAction: Bool {
         get {
-            NSLog("⚠️ MBFormFieldVerifyControl: addInvaildAction getter unavailable.")
-            return false
+            fatalError("addInvaildAction getter unavailable.")
         }
         set {
             guard newValue else { return }
@@ -31,7 +30,7 @@ extension MBFormFieldVerifyControl {
         }
     }
 
-    @IBAction func onInvaildSubmit(_ sender: Any) {
+    @IBAction private func onInvaildSubmit(_ sender: Any) {
         noticeIfInvaild(becomeFirstResponder: true)
     }
 
@@ -41,7 +40,7 @@ extension MBFormFieldVerifyControl {
         guard let fields = textFields as? [TextField] else { return }
         for aField in fields {
             if validationSkipsHiddenFields && !aField.isVisible { continue }
-            guard nil != aField.vaildFieldText(noticeWhenInvaild: true, becomeFirstResponderWhenInvaild: true) else {
+            guard aField.vaildFieldText(noticeWhenInvaild: true, becomeFirstResponderWhenInvaild: true) != nil else {
                 return
             }
         }

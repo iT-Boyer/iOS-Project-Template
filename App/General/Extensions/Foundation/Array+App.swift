@@ -5,7 +5,7 @@ extension Array {
 
     /// 非空，结合空的判断使用起来更容易些
     var isNotEmpty: Bool {
-        return !isEmpty
+        !isEmpty
     }
 
     /// 安全的获取元素，index 超出范围返回 nil
@@ -63,6 +63,6 @@ extension Array where Iterator.Element: UIView {
     /// 按照 tag 值从小到大重新排序
     /// bug(Xcode 10.2): 用于修正 IBOutletCollection 顺序错乱
     mutating func sortByTag() {
-        self = sorted(by: { $0.tag < $1.tag })
+        self = sorted { $0.tag < $1.tag }
     }
 }

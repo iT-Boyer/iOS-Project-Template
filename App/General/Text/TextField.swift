@@ -68,7 +68,8 @@ class TextField: MBTextField {
                 keyboardType = .emailAddress
             case .name:
                 keyboardType = .default
-            default: break
+            default:
+                break
             }
         }
     }
@@ -102,7 +103,8 @@ class TextField: MBTextField {
             return .emailAddress
         case .name:
             return .name
-        case .required: break
+        case .required:
+            break
         }
         return nil
     }

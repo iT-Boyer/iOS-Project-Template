@@ -13,7 +13,7 @@ extension UIButton {
      */
     @objc var text: String? {
         get {
-            return currentTitle
+            currentTitle
         }
         set {
             if title(for: state) != nil {

@@ -4,6 +4,6 @@
 extension CGRect {
     /// 矩形中心点
     var center: CGPoint {
-        return CGPointOfRectCenter(self)
+        CGPointOfRectCenter(self)
     }
 }

@@ -10,6 +10,7 @@ class SearchTextField: MBSearchTextField {
         leftView.addSubview(iconView)
         iconView.frame = CGRect(x: 16, y: (leftView.height - 16) / 2, width: 16, height: 16)
         leftView.addSubview(loadingView)
+        loadingView.center = CGPointOfRectCenter(leftView.bounds)
         loadingView.move(xOffset: 2, yOffset: 0)
         loadingView.isHidden = true
     }
@@ -22,7 +23,6 @@ class SearchTextField: MBSearchTextField {
 
     lazy var loadingView: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView(style: .gray)
-        indicator.center = CGPointOfRectCenter(self.leftView!.bounds)
         indicator.startAnimating()
         indicator.hidesWhenStopped = false
         return indicator

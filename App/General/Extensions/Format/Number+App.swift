@@ -14,9 +14,9 @@ extension Double {
             return String(format: "%.2f", self)
         }
         let price100 = Int64((self * 100).rounded())
-        if price100 % 100 == 0 {
+        if price100.isMultiple(of: 100) {
             return String(format: "%.0f", self)
-        } else if price100 % 10 == 0 {
+        } else if price100.isMultiple(of: 10) {
             return String(format: "%.1f", self)
         } else {
             return String(format: "%.2f", self)

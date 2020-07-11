@@ -21,7 +21,7 @@ class AccountEntity: MBModel {
     @objc var sex: NSNumber?
 
     override class func keyMapper() -> JSONKeyMapper! {
-        return JSONKeyMapper(modelToJSONDictionary: [#keyPath(AccountEntity.uid): "id"])
+        JSONKeyMapper(modelToJSONDictionary: [#keyPath(AccountEntity.uid): "id"])
     }
 }
 
@@ -52,6 +52,6 @@ class LoginResponseEntity: MBModel {
     }
 
     override class func keyMapper() -> JSONKeyMapper! {
-        return JSONKeyMapper(modelToJSONDictionary: [#keyPath(LoginResponseEntity.isNew): "is_new"])
+        JSONKeyMapper(modelToJSONDictionary: [#keyPath(LoginResponseEntity.isNew): "is_new"])
     }
 }

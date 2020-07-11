@@ -14,7 +14,7 @@ class Account: MBUser {
     #endif
 
     override var description: String {
-        return "<Account \(ObjectIdentifier(self)): uid = \(uid), information: \(information.description), hasLoginedThisSession: \(hasLoginedThisSession)>"
+        "<Account \(ObjectIdentifier(self)): uid = \(uid), information: \(information.description), hasLoginedThisSession: \(hasLoginedThisSession)>"
     }
 
     // MARK: - 状态
