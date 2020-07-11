@@ -16,9 +16,6 @@ Scripts/build/
 build/
 DerivedData
 *.ipa
-PreBuild/Output
-PreBuild/Output-Debug
-PreBuild/Output-nibs
 
 # CocoaPods
 Pods/
