@@ -3,12 +3,14 @@
 //  App
 //
 
+// 登入相关页面的 IBAction 大都是通过响应链调用的，不能把它们标记成 private
+
 /// 用于登入后移除导航中的登入页
 @objc protocol LoginVCs {
 }
 
 /// 登入注册 vc 基类
-internal class LoginFormBaseViewController: UIViewController, LoginVCs {
+class LoginFormBaseViewController: UIViewController, LoginVCs {
     override class func storyboardName() -> String { "Login" }
 
     /// 发送验证码相关的信息
@@ -19,7 +21,7 @@ internal class LoginFormBaseViewController: UIViewController, LoginVCs {
         fatalError("需子类重载")
     }
 
-    @IBAction private func onSendCode(_ sender: Any) {
+    @IBAction func onSendCode(_ sender: Any) {
         guard let context = sendCodeContext() else { return }
         let codeButton = context.sendCodeButton
         codeButton?.markSending(message: nil)
@@ -42,7 +44,7 @@ internal class LoginFormBaseViewController: UIViewController, LoginVCs {
 /**
  未登入用户欢迎页
  */
-internal class WelcomeViewController: LoginFormBaseViewController {
+class WelcomeViewController: LoginFormBaseViewController {
     private var form: LoginMobileVerifyCodeScene {
         MBSwift.cast(children.first, as: LoginMobileVerifyCodeScene.self)
     }
@@ -54,7 +56,7 @@ internal class WelcomeViewController: LoginFormBaseViewController {
         return ("SignInUpSend", ["mobile": mobile], form.sendCodeButton)
     }
 
-    @IBAction private func onSubmit(_ sender: Any) {
+    @IBAction func onSubmit(_ sender: Any) {
         guard let mobile = form.mobileField?.vaildFieldText(),
             let code = form.codeField.vaildFieldText() else {
                 return
@@ -89,12 +91,12 @@ internal class WelcomeViewController: LoginFormBaseViewController {
 /**
  密码登入
  */
-private class LoginPasswordViewController: LoginFormBaseViewController {
+class LoginPasswordViewController: LoginFormBaseViewController {
     private var form: LoginSigninFormScene {
         MBSwift.cast(children.first, as: LoginSigninFormScene.self)
     }
 
-    @IBAction private func onSubmit(_ sender: Any) {
+    @IBAction func onSubmit(_ sender: Any) {
         guard let name = form.nameField?.vaildFieldText(),
             let password = form.passwordField.vaildFieldText() else {
                 return
@@ -117,7 +119,7 @@ private class LoginPasswordViewController: LoginFormBaseViewController {
 /**
  注册页
  */
-private class LoginRegisterViewController: LoginFormBaseViewController {
+class LoginRegisterViewController: LoginFormBaseViewController {
     var form: LoginRegisterFormScene {
         MBSwift.cast(children.first, as: LoginRegisterFormScene.self)
     }
@@ -138,7 +140,7 @@ private class LoginRegisterViewController: LoginFormBaseViewController {
         return ("RegisterCode", parameters, form.sendCodeButton)
     }
 
-    @IBAction private func onSubmit(_ sender: Any) {
+    @IBAction func onSubmit(_ sender: Any) {
         guard let parameters = submitRequestParameters() else {
             return
         }
@@ -184,7 +186,7 @@ private class LoginRegisterViewController: LoginFormBaseViewController {
 /**
  通过手机找回密码验证
  */
-private class PasswordResetMobileViewController: LoginFormBaseViewController {
+class PasswordResetMobileViewController: LoginFormBaseViewController {
     var form: LoginMobileVerifyCodeScene {
         MBSwift.cast(children.first, as: LoginMobileVerifyCodeScene.self)
     }
@@ -196,7 +198,7 @@ private class PasswordResetMobileViewController: LoginFormBaseViewController {
         return ("OTACSend", ["mobile": mobile], form.sendCodeButton)
     }
 
-    @IBAction private func onSubmit(_ sender: Any) {
+    @IBAction func onSubmit(_ sender: Any) {
         guard let mobile = form.mobileField?.vaildFieldText(),
             let code = form.codeField.vaildFieldText() else {
                 return
@@ -227,7 +229,7 @@ private class PasswordResetMobileViewController: LoginFormBaseViewController {
 /**
  密码找回，设置新密码
  */
-private class PasswordResetViewController: LoginFormBaseViewController {
+class PasswordResetViewController: LoginFormBaseViewController {
     var form: LoginPasswordSetScene {
         MBSwift.cast(children.first, as: LoginPasswordSetScene.self)
     }
@@ -235,7 +237,7 @@ private class PasswordResetViewController: LoginFormBaseViewController {
     /// ot_token
     @objc var item: String!
 
-    @IBAction private func onSubmit(_ sender: Any) {
+    @IBAction func onSubmit(_ sender: Any) {
         guard let token = item else {
             AppHUD().showErrorStatus("内部参数异常")
             return
