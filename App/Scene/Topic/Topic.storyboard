@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Topic List Displayer-->
+        <scene sceneID="oYp-sY-bz6">
+            <objects>
+                <tableViewController storyboardIdentifier="TopicListDisplayer" id="gv8-3M-lRT" customClass="TopicListDisplayer" customModule="App" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="tm3-tN-xJJ" customClass="MBTableView">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="eVL-uz-NeH" userLabel="去除底部分割线">
+                            <rect key="frame" x="0.0" y="169" width="414" height="1"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </view>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="113" id="r8R-Rp-ie0" customClass="TopicListCell" customModule="App" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="113"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="r8R-Rp-ie0" id="TKx-Yo-ygr">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="113"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="BYd-NJ-w40">
+                                            <rect key="frame" x="15" y="15" width="384" height="83"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5N4-3a-kDz">
+                                                    <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                                    <color key="backgroundColor" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="60" id="LXm-l7-lm8"/>
+                                                        <constraint firstAttribute="width" constant="60" id="juP-sT-vuz"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </imageView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="yAf-L7-qDz">
+                                                    <rect key="frame" x="75" y="0.0" width="309" height="74.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nOu-3k-Hjd">
+                                                            <rect key="frame" x="0.0" y="0.0" width="309" height="20.5"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Content" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oKA-mY-Wd1">
+                                                            <rect key="frame" x="0.0" y="28.5" width="309" height="18"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                            <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HAA-wl-XAa" userLabel="尺寸计算辅助（状态条）">
+                                                            <rect key="frame" x="0.0" y="54.5" width="309" height="20"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="20" id="2ge-3t-ms7"/>
+                                                            </constraints>
+                                                        </view>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                        </stackView>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j8w-wa-crh" userLabel="状态条">
+                                            <rect key="frame" x="90" y="78" width="309" height="20"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="时间" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bKy-kG-sPl">
+                                                    <rect key="frame" x="282" y="2" width="27" height="16"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                    <color key="textColor" systemColor="tertiaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="20" id="HDc-Qr-mwK"/>
+                                                <constraint firstAttribute="trailing" secondItem="bKy-kG-sPl" secondAttribute="trailing" id="f4J-MN-whD"/>
+                                                <constraint firstItem="bKy-kG-sPl" firstAttribute="centerY" secondItem="j8w-wa-crh" secondAttribute="centerY" id="ipg-sC-veC"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="BYd-NJ-w40" secondAttribute="trailing" constant="15" id="2s5-a8-SKN"/>
+                                        <constraint firstItem="BYd-NJ-w40" firstAttribute="leading" secondItem="TKx-Yo-ygr" secondAttribute="leading" constant="15" id="87x-Dp-t9c"/>
+                                        <constraint firstAttribute="bottom" secondItem="BYd-NJ-w40" secondAttribute="bottom" priority="500" constant="15" id="C5q-Pf-Nd3"/>
+                                        <constraint firstAttribute="bottom" secondItem="j8w-wa-crh" secondAttribute="bottom" constant="15" id="PWK-i3-sst"/>
+                                        <constraint firstItem="BYd-NJ-w40" firstAttribute="top" secondItem="TKx-Yo-ygr" secondAttribute="top" constant="15" id="S0V-hS-PxF"/>
+                                        <constraint firstItem="j8w-wa-crh" firstAttribute="leading" secondItem="yAf-L7-qDz" secondAttribute="leading" id="SHO-Di-cv3"/>
+                                        <constraint firstItem="j8w-wa-crh" firstAttribute="trailing" secondItem="yAf-L7-qDz" secondAttribute="trailing" id="jxA-b3-nE2"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="contentLabel" destination="oKA-mY-Wd1" id="LUm-CE-4H5"/>
+                                    <outlet property="dateLabel" destination="bKy-kG-sPl" id="OWo-MG-TQR"/>
+                                    <outlet property="titleLabel" destination="nOu-3k-Hjd" id="mzU-h5-MEF"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="autoFetchWhenMoveToWindow" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                        <connections>
+                            <outlet property="dataSource" destination="gv8-3M-lRT" id="tw1-OH-nQf"/>
+                            <outlet property="delegate" destination="gv8-3M-lRT" id="OPI-lH-Ia2"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="04g-2g-qKC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-7.2463768115942031" y="19.419642857142858"/>
+        </scene>
+        <!--Topics Recommand-->
+        <scene sceneID="8rd-iT-oVf">
+            <objects>
+                <viewController storyboardIdentifier="TopicRecommandListController" title="Topics Recommand" id="psb-kV-xlE" customClass="TopicRecommandListController" customModule="App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xGf-kA-Ix4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DgD-jf-UsI" customClass="RFContainerView">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="storyboardName" value="Topic"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="instantiationIdentifier" value="TopicListDisplayer"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="DgD-jf-UsI" secondAttribute="bottom" id="1Ga-v1-z21"/>
+                            <constraint firstItem="DgD-jf-UsI" firstAttribute="top" secondItem="xGf-kA-Ix4" secondAttribute="top" id="RYN-Zv-mQe"/>
+                            <constraint firstItem="DgD-jf-UsI" firstAttribute="leading" secondItem="blt-fa-er2" secondAttribute="leading" id="c65-Aa-p8S"/>
+                            <constraint firstItem="blt-fa-er2" firstAttribute="trailing" secondItem="DgD-jf-UsI" secondAttribute="trailing" id="uW7-mJ-dx2"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="blt-fa-er2"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="推荐帖子" id="2hM-AB-YYK"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="APIName" value="TopicListRecommended"/>
+                    </userDefinedRuntimeAttributes>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nq7-A4-H3u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="735" y="19"/>
+        </scene>
+    </scenes>
+</document>

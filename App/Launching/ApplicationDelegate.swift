@@ -29,10 +29,10 @@ class ApplicationDelegate: MBApplicationDelegate {
 
     func setupUIAppearance() {
         // 统一全局色，storyboard 的全局色只对部分 UI 生效，比如无法对 UIAlertController 应用
-        window.tintColor = UIColor(named: "tint")
+        window.tintColor = UIColor(named: "Color/primary")!
 
         // 列表 data source 全局调整
-        MBListDataSource<AnyObject>.defualtPageStartZero = true
+        MBListDataSource<AnyObject>.defualtPageStartZero = false
         MBListDataSource<AnyObject>.defaultPageSizeParameterName = "size"
         MBListDataSource<AnyObject>.defaultFetchFailureHandler = { ds, error in
             let e = error as NSError

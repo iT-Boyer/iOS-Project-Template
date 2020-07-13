@@ -40,10 +40,14 @@ NSString *const APIURLAssetsBase              = @"http://img.example.com/";
     if ([dm.defaultDefine.baseURL.host isEqualToString:@"bb9z.github.io"]) {
         // 演示接口只支持 GET 方法，且需要附加 JSON 后缀
         for (RFAPIDefine *define in dm.defines) {
-            if (![define.path hasPrefix:@"http"]) {
-                define.path = [define.path stringByAppendingPathExtension:@"json"];
-                define.method = @"GET";
+            // 非相对路径，意味着是外部接口，跳过
+            if ([define.path hasPrefix:@"http"]) continue;
+            if (define.responseExpectType == RFAPIDefineResponseExpectObjects) {
+                // 列表请求，改造分页参数
+                define.path = [define.path stringByAppendingPathComponent:@"{page}"];
             }
+            define.path = [define.path stringByAppendingPathExtension:@"json"];
+            define.method = @"GET";
         }
     }
     else {

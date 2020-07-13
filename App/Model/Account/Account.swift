@@ -113,7 +113,7 @@ class Account: MBUser {
         let user = currentUser as? Account
         let defaults = AppUserDefaultsShared()
         #if MBUserStringUID
-        defaults.lastUserID = nil
+        defaults.lastUserID = user?.uid
         #else
         defaults.lastUserID = user?.uid ?? 0
         #endif

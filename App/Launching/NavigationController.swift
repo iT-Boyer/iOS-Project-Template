@@ -4,7 +4,7 @@
 //
 
 private enum NavigationTab: Int {
-    case home = 0, more, count
+    case home = 0, topic, more, count
     static let defaule = NavigationTab.home
     static let login = NSNotFound
 }
@@ -94,13 +94,14 @@ extension NavigationController: MBControlGroupDelegate {
             return vc
         }
         var vc: UIViewController!
-        switch index {
-        case NavigationTab.home.rawValue:
+        switch NavigationTab(rawValue: index) {
+        case .home:
             vc = HomeViewController.newFromStoryboard()
-        case NavigationTab.more.rawValue:
+        case .topic:
+            vc = TopicRecommandListController.newFromStoryboard()
+        case .more:
             vc = MoreViewController.newFromStoryboard()
-
-        default:
+        case .some(.count), .none:
             fatalError()
         }
         vc.rfPrefersBottomBarShown = true

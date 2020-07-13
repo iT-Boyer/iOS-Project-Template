@@ -52,6 +52,6 @@ class LoginResponseEntity: MBModel {
     }
 
     override class func keyMapper() -> JSONKeyMapper! {
-        JSONKeyMapper(modelToJSONDictionary: [#keyPath(LoginResponseEntity.isNew): "is_new"])
+        JSONKeyMapper.forSnakeCase()
     }
 }

@@ -55,22 +55,22 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SSz-wD-ff7" customClass="ZYLayoutButton">
-                            <rect key="frame" x="50" y="0.0" width="150" height="50"/>
+                            <rect key="frame" x="50" y="0.0" width="100" height="50"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Icon/test24" translatesAutoresizingMaskIntoConstraints="NO" id="JP6-J7-YQI">
-                                    <rect key="frame" x="59" y="2" width="32" height="32"/>
+                                    <rect key="frame" x="34" y="2" width="32" height="32"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="首页" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="STZ-Lw-Ykh">
-                                    <rect key="frame" x="0.0" y="33" width="150" height="14"/>
+                                    <rect key="frame" x="0.0" y="33" width="100" height="14"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                     <accessibility key="accessibilityConfiguration">
                                         <bool key="isElement" value="NO"/>
                                     </accessibility>
                                     <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
                                     <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <color key="highlightedColor" name="tint"/>
+                                    <color key="highlightedColor" name="Color/primary"/>
                                 </label>
                             </subviews>
                             <accessibility key="accessibilityConfiguration" label="打卡">
@@ -82,23 +82,51 @@
                                 <outlet property="titleLabel" destination="STZ-Lw-Ykh" id="GGy-Ay-CGM"/>
                             </connections>
                         </view>
-                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bNQ-bc-RHO" customClass="ZYLayoutButton">
-                            <rect key="frame" x="200" y="0.0" width="150" height="50"/>
+                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YCl-3e-Tmq" customClass="ZYLayoutButton">
+                            <rect key="frame" x="150" y="0.0" width="100" height="50"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Icon/test24" translatesAutoresizingMaskIntoConstraints="NO" id="tXk-dQ-Hb3">
-                                    <rect key="frame" x="59" y="2" width="32" height="32"/>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Icon/test24" translatesAutoresizingMaskIntoConstraints="NO" id="uej-mT-e84">
+                                    <rect key="frame" x="34" y="2" width="32" height="32"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="我的" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Tl-DJ-wf5">
-                                    <rect key="frame" x="0.0" y="33" width="150" height="14"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="帖子" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iGb-wo-soZ">
+                                    <rect key="frame" x="0.0" y="33" width="100" height="14"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                     <accessibility key="accessibilityConfiguration">
                                         <bool key="isElement" value="NO"/>
                                     </accessibility>
                                     <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
                                     <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <color key="highlightedColor" name="tint"/>
+                                    <color key="highlightedColor" name="Color/primary"/>
+                                </label>
+                            </subviews>
+                            <accessibility key="accessibilityConfiguration" label="打卡">
+                                <accessibilityTraits key="traits" button="YES"/>
+                                <bool key="isElement" value="YES"/>
+                            </accessibility>
+                            <connections>
+                                <outlet property="icon" destination="uej-mT-e84" id="BzU-xx-9KJ"/>
+                                <outlet property="titleLabel" destination="iGb-wo-soZ" id="u3o-Rn-lOh"/>
+                            </connections>
+                        </view>
+                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bNQ-bc-RHO" customClass="ZYLayoutButton">
+                            <rect key="frame" x="250" y="0.0" width="100" height="50"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Icon/test24" translatesAutoresizingMaskIntoConstraints="NO" id="tXk-dQ-Hb3">
+                                    <rect key="frame" x="34" y="2" width="32" height="32"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="我的" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Tl-DJ-wf5">
+                                    <rect key="frame" x="0.0" y="33" width="100" height="14"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                    <accessibility key="accessibilityConfiguration">
+                                        <bool key="isElement" value="NO"/>
+                                    </accessibility>
+                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
+                                    <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="highlightedColor" name="Color/primary"/>
                                 </label>
                             </subviews>
                             <accessibility key="accessibilityConfiguration" label="我的">
@@ -397,8 +425,8 @@
         <image name="Icon/test24" width="24" height="24"/>
         <image name="nav_back" width="9" height="16"/>
         <image name="nav_back_layoutfix" width="23" height="19"/>
-        <namedColor name="tint">
-            <color red="0.0" green="0.45882352941176469" blue="0.85882352941176465" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="Color/primary">
+            <color red="0.1803921568627451" green="0.5607843137254902" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
