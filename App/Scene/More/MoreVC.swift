@@ -9,6 +9,22 @@
 class MoreViewController: UIViewController {
     override class func storyboardName() -> String { "Main" }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        updateAccountUI()
+        // 演示：为了区分数据来源，不在这里刷新数据了
+    }
+
+    @IBOutlet private weak var avatarView: ZYImageView!
+    @IBOutlet private weak var userNameLabel: UILabel!
+    @IBOutlet private weak var introductionLabel: UILabel!
+    private func updateAccountUI() {
+        let user = AppUserInformation()
+        avatarView.imageURL = user?.avatar
+        userNameLabel.text = user != nil ? user?.name : "请登录"
+        introductionLabel.text = user?.introduction
+    }
+
     @IBAction private func onLogout(_ sender: Any) {
         let alert = UIAlertController(title: "确定要登出么", message: nil, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))

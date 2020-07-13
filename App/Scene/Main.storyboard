@@ -220,7 +220,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cjX-RA-jd4" userLabel="Header">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LBW-LA-tRD">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LBW-LA-tRD" customClass="ZYImageView">
                                                         <rect key="frame" x="15" y="20" width="80" height="80"/>
                                                         <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
@@ -233,19 +233,30 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J6M-fW-VyP">
-                                                        <rect key="frame" x="110" y="50" width="250" height="20.5"/>
-                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="YI3-qu-Qil">
+                                                        <rect key="frame" x="110" y="38" width="250" height="44.5"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J6M-fW-VyP">
+                                                                <rect key="frame" x="0.0" y="0.0" width="250" height="20.5"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="介绍" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="smF-nO-h39">
+                                                                <rect key="frame" x="0.0" y="28.5" width="250" height="16"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="J6M-fW-VyP" secondAttribute="trailing" constant="15" id="24a-9k-W8v"/>
+                                                    <constraint firstItem="YI3-qu-Qil" firstAttribute="centerY" secondItem="cjX-RA-jd4" secondAttribute="centerY" id="2WA-Yf-VW3"/>
                                                     <constraint firstItem="LBW-LA-tRD" firstAttribute="leading" secondItem="cjX-RA-jd4" secondAttribute="leading" constant="15" id="CNI-uZ-YMx"/>
                                                     <constraint firstItem="LBW-LA-tRD" firstAttribute="centerY" secondItem="cjX-RA-jd4" secondAttribute="centerY" id="Iwf-CV-443"/>
-                                                    <constraint firstItem="J6M-fW-VyP" firstAttribute="leading" secondItem="LBW-LA-tRD" secondAttribute="trailing" constant="15" id="O6j-wn-QyA"/>
-                                                    <constraint firstItem="J6M-fW-VyP" firstAttribute="centerY" secondItem="cjX-RA-jd4" secondAttribute="centerY" id="cOh-kZ-10a"/>
+                                                    <constraint firstAttribute="trailing" secondItem="YI3-qu-Qil" secondAttribute="trailing" constant="15" id="TG3-Yc-VOV"/>
+                                                    <constraint firstItem="YI3-qu-Qil" firstAttribute="leading" secondItem="LBW-LA-tRD" secondAttribute="trailing" constant="15" id="hoD-6v-d02"/>
                                                     <constraint firstAttribute="height" constant="120" id="pJQ-NM-E39"/>
                                                 </constraints>
                                             </view>
@@ -415,6 +426,11 @@
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="RFPrefersNavigationBarHidden" value="YES"/>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <outlet property="avatarView" destination="LBW-LA-tRD" id="bCB-Y6-FOT"/>
+                        <outlet property="introductionLabel" destination="smF-nO-h39" id="N5z-eM-hV9"/>
+                        <outlet property="userNameLabel" destination="J6M-fW-VyP" id="roA-AD-FnR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kE3-Hh-PGn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

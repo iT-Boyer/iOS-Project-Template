@@ -114,6 +114,8 @@
 		D5B49F1A1C41133A00847925 /* MBRefreshHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5B49EFD1C41133A00847925 /* MBRefreshHeaderView.xib */; };
 		D5B49F1B1C41133A00847925 /* MBTableViewPullToFetchControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B49EFF1C41133A00847925 /* MBTableViewPullToFetchControl.m */; };
 		D5BF664B24BC1EEF008BC122 /* TopicListVCs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BF664A24BC1EEF008BC122 /* TopicListVCs.swift */; };
+		D5BF664D24BC81D7008BC122 /* CommentEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BF664C24BC81D7008BC122 /* CommentEntity.swift */; };
+		D5BF664F24BC8BE8008BC122 /* UserAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BF664E24BC8BE8008BC122 /* UserAvatarView.swift */; };
 		D5C3CBEF217ED20F0097CCD9 /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C3CBEE217ED20F0097CCD9 /* Geometry.swift */; };
 		D5C3CBF3217EEEA20097CCD9 /* MBBadgeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D5C3CBF2217EEEA20097CCD9 /* MBBadgeLabel.m */; };
 		D5C3CBF6217EEEDA0097CCD9 /* UITextView+ContainerInset.m in Sources */ = {isa = PBXBuildFile; fileRef = D5C3CBF4217EEEDA0097CCD9 /* UITextView+ContainerInset.m */; };
@@ -373,6 +375,8 @@
 		D5B49EFE1C41133A00847925 /* MBTableViewPullToFetchControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBTableViewPullToFetchControl.h; sourceTree = "<group>"; };
 		D5B49EFF1C41133A00847925 /* MBTableViewPullToFetchControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBTableViewPullToFetchControl.m; sourceTree = "<group>"; };
 		D5BF664A24BC1EEF008BC122 /* TopicListVCs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicListVCs.swift; sourceTree = "<group>"; };
+		D5BF664C24BC81D7008BC122 /* CommentEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentEntity.swift; sourceTree = "<group>"; };
+		D5BF664E24BC8BE8008BC122 /* UserAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAvatarView.swift; sourceTree = "<group>"; };
 		D5C3CBEE217ED20F0097CCD9 /* Geometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geometry.swift; sourceTree = "<group>"; };
 		D5C3CBF1217EEEA20097CCD9 /* MBBadgeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBBadgeLabel.h; sourceTree = "<group>"; };
 		D5C3CBF2217EEEA20097CCD9 /* MBBadgeLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBBadgeLabel.m; sourceTree = "<group>"; };
@@ -772,6 +776,7 @@
 		D552DD5018C8506700D02290 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
+				D5BF664C24BC81D7008BC122 /* CommentEntity.swift */,
 				D588309620CAE103002030C4 /* ImageEntity.h */,
 				D588309520CAE103002030C4 /* ImageEntity.m */,
 				D59066B520AD0C4500411410 /* README.md */,
@@ -856,6 +861,7 @@
 		D553507524BC1E7200282871 /* User */ = {
 			isa = PBXGroup;
 			children = (
+				D5BF664E24BC8BE8008BC122 /* UserAvatarView.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -1539,6 +1545,7 @@
 				D52A04E520F85F2600F535ED /* Button.swift in Sources */,
 				D5EE519A2043F5F3009148B3 /* CALayer+MBAnimationPersistence.m in Sources */,
 				D5C82DDC2179D98C00E63A2A /* Color.swift in Sources */,
+				D5BF664D24BC81D7008BC122 /* CommentEntity.swift in Sources */,
 				D5F9F47F208D921200427201 /* Date+App.swift in Sources */,
 				D54F0E4F2199A56E003370F4 /* DateFormatter+App.swift in Sources */,
 				D52EADEB2043B983007219E0 /* debug.m in Sources */,
@@ -1675,6 +1682,7 @@
 				D5EE51212043DAA2009148B3 /* UIViewController+App.m in Sources */,
 				D5EE51FA2043F613009148B3 /* UIViewController+RFDNavigationAppearance.m in Sources */,
 				D5D9F5142071BA6500B6FE9B /* UIViewController+RFInterfaceOrientation.m in Sources */,
+				D5BF664F24BC8BE8008BC122 /* UserAvatarView.swift in Sources */,
 				D553507324BBFB3E00282871 /* UserEntity.swift in Sources */,
 				D5EE520C2043F61D009148B3 /* ZYImageView.m in Sources */,
 				D5EE523D2043F7B9009148B3 /* ZYLayoutButton.m in Sources */,

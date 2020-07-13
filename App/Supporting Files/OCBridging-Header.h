@@ -59,7 +59,7 @@
 #import "ShortCuts.h"
 #import "UIKit+App.h"
 #import "UIViewController+RFDNavigationAppearance.h"
-//#import "ZYImageView.h"
+#import "ZYImageView.h"
 #import "ZYLayoutButton.h"
 #import "ZYSMSCodeSendButton.h"
 //#import "ZYSkyImageView.h"

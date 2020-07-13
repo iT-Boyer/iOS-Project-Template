@@ -17,6 +17,7 @@ class AccountEntity: MBModel {
     #endif
 
     @objc var name: String?
+    @objc var introduction: String?
     @objc var avatar: String?
     @objc var sex: NSNumber?
 

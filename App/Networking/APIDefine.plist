@@ -206,6 +206,15 @@
 			<key>Response Type</key>
 			<integer>1</integer>
 		</dict>
+		<key>CommentListTopic</key>
+		<dict>
+			<key>Path</key>
+			<string>topics/{tid}/comments</string>
+			<key>Response Class</key>
+			<string>CommentEntity</string>
+			<key>Response Type</key>
+			<integer>3</integer>
+		</dict>
 	</dict>
 </dict>
 </plist>

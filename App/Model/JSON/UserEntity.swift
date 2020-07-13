@@ -10,7 +10,7 @@
  */
 @objc(UserEntity)
 class UserEntity: MBModel {
-    @objc var uid: MBID = -1
+    @objc var uid: String = ""
     @objc var name: String = ""
     @objc var introduction: String?
     @objc var avatar: String?
@@ -18,8 +18,6 @@ class UserEntity: MBModel {
     @objc var likedCount: Int = 0
 
     override class func keyMapper() -> JSONKeyMapper! {
-        JSONKeyMapper.baseMapper(JSONKeyMapper.forSnakeCase(), withModelToJSONExceptions: [
-            #keyPath(TopicEntity.uid): "id"
-        ])
+        JSONKeyMapper.baseMapper(JSONKeyMapper.forSnakeCase(), withModelToJSONExceptions: [ "uid": "id" ])
     }
 }

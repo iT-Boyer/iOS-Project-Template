@@ -11,7 +11,7 @@
  */
 @objc(TopicEntity)
 class TopicEntity: MBModel {
-    @objc var uid: MBID = -1
+    @objc var uid: String = ""
     @objc var title: String?
     @objc var content: String?
     @objc var author: UserEntity?
@@ -26,8 +26,6 @@ class TopicEntity: MBModel {
 //    "last_comment": CommentEntity
 
     override class func keyMapper() -> JSONKeyMapper! {
-        JSONKeyMapper.baseMapper(JSONKeyMapper.forSnakeCase(), withModelToJSONExceptions: [
-            #keyPath(TopicEntity.uid): "id"
-        ])
+        JSONKeyMapper.baseMapper(JSONKeyMapper.forSnakeCase(), withModelToJSONExceptions: [ "uid": "id" ])
     }
 }
