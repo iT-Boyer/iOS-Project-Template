@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RootViewController">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RootViewController">
     <device id="retina4_7" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -257,7 +257,8 @@
                                                     <constraint firstItem="LBW-LA-tRD" firstAttribute="centerY" secondItem="cjX-RA-jd4" secondAttribute="centerY" id="Iwf-CV-443"/>
                                                     <constraint firstAttribute="trailing" secondItem="YI3-qu-Qil" secondAttribute="trailing" constant="15" id="TG3-Yc-VOV"/>
                                                     <constraint firstItem="YI3-qu-Qil" firstAttribute="leading" secondItem="LBW-LA-tRD" secondAttribute="trailing" constant="15" id="hoD-6v-d02"/>
-                                                    <constraint firstAttribute="height" constant="120" id="pJQ-NM-E39"/>
+                                                    <constraint firstAttribute="height" priority="500" constant="120" id="pJQ-NM-E39"/>
+                                                    <constraint firstItem="YI3-qu-Qil" firstAttribute="top" relation="greaterThanOrEqual" secondItem="cjX-RA-jd4" secondAttribute="top" constant="15" id="vUU-7w-bkW"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZhQ-cQ-6RL" userLabel="Space">
@@ -299,10 +300,11 @@
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstItem="6tP-H6-VgS" firstAttribute="leading" secondItem="XUh-r2-bV0" secondAttribute="trailing" constant="10" id="F6j-5h-rU8"/>
-                                                    <constraint firstAttribute="height" constant="53" id="Pag-I4-Qql"/>
+                                                    <constraint firstAttribute="height" priority="500" constant="53" id="Pag-I4-Qql"/>
                                                     <constraint firstItem="XUh-r2-bV0" firstAttribute="centerY" secondItem="8aF-pa-XHN" secondAttribute="centerY" id="V7V-xp-fsN"/>
                                                     <constraint firstItem="XUh-r2-bV0" firstAttribute="leading" secondItem="8aF-pa-XHN" secondAttribute="leading" constant="15" id="W60-Ze-Id1"/>
                                                     <constraint firstItem="6tP-H6-VgS" firstAttribute="centerY" secondItem="8aF-pa-XHN" secondAttribute="centerY" id="aZa-8Z-lpX"/>
+                                                    <constraint firstItem="6tP-H6-VgS" firstAttribute="top" relation="greaterThanOrEqual" secondItem="8aF-pa-XHN" secondAttribute="top" constant="15" id="dOZ-ul-dhL"/>
                                                     <constraint firstAttribute="trailing" secondItem="6tP-H6-VgS" secondAttribute="trailing" constant="15" id="khT-6g-F8Q"/>
                                                 </constraints>
                                                 <connections>
@@ -344,10 +346,11 @@
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstItem="hgP-Ei-IU5" firstAttribute="leading" secondItem="vJi-ag-3Ys" secondAttribute="leading" constant="15" id="Euf-0i-rYE"/>
+                                                    <constraint firstItem="jJO-hY-5Jd" firstAttribute="top" relation="greaterThanOrEqual" secondItem="vJi-ag-3Ys" secondAttribute="top" constant="15" id="I3i-Qc-FkR"/>
                                                     <constraint firstAttribute="trailing" secondItem="jJO-hY-5Jd" secondAttribute="trailing" constant="15" id="a93-DM-NLo"/>
                                                     <constraint firstItem="hgP-Ei-IU5" firstAttribute="centerY" secondItem="vJi-ag-3Ys" secondAttribute="centerY" id="bGX-Fu-IsA"/>
                                                     <constraint firstItem="jJO-hY-5Jd" firstAttribute="centerY" secondItem="vJi-ag-3Ys" secondAttribute="centerY" id="ftY-SW-JQv"/>
-                                                    <constraint firstAttribute="height" constant="53" id="gzi-d6-3ml"/>
+                                                    <constraint firstAttribute="height" priority="500" constant="53" id="gzi-d6-3ml"/>
                                                     <constraint firstItem="jJO-hY-5Jd" firstAttribute="leading" secondItem="hgP-Ei-IU5" secondAttribute="trailing" constant="10" id="kEF-3e-gl0"/>
                                                 </constraints>
                                                 <connections>
@@ -391,8 +394,9 @@
                                                     <constraint firstItem="0fs-wj-dXI" firstAttribute="centerY" secondItem="xiT-kp-gBt" secondAttribute="centerY" id="Afw-BH-eTi"/>
                                                     <constraint firstItem="dOg-uv-gQT" firstAttribute="leading" secondItem="0fs-wj-dXI" secondAttribute="trailing" constant="10" id="Bpi-yQ-jn4"/>
                                                     <constraint firstAttribute="trailing" secondItem="dOg-uv-gQT" secondAttribute="trailing" constant="15" id="UBg-iN-fFZ"/>
+                                                    <constraint firstItem="dOg-uv-gQT" firstAttribute="top" relation="greaterThanOrEqual" secondItem="xiT-kp-gBt" secondAttribute="top" constant="15" id="c9A-sg-6zv"/>
                                                     <constraint firstItem="0fs-wj-dXI" firstAttribute="leading" secondItem="xiT-kp-gBt" secondAttribute="leading" constant="15" id="iPG-Ks-8JJ"/>
-                                                    <constraint firstAttribute="height" constant="53" id="wTp-1y-MLb"/>
+                                                    <constraint firstAttribute="height" priority="500" constant="53" id="wTp-1y-MLb"/>
                                                     <constraint firstItem="dOg-uv-gQT" firstAttribute="centerY" secondItem="xiT-kp-gBt" secondAttribute="centerY" id="zld-6k-dgj"/>
                                                 </constraints>
                                                 <connections>

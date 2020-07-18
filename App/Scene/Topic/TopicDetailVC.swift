@@ -17,6 +17,7 @@ class TopicDetailViewController: UIViewController {
             ds.fetchAPIName = "CommentListTopic"
             ds.fetchParameters = ["tid": item.uid]
         }
+        listView.pullToFetchController.footerContainer.emptyLabel.text = "暂无评论"
         updateUI(item: item)
         refresh()
     }
