@@ -1,8 +1,7 @@
 
 #import "APIJSONResponseSerializer.h"
+#import "Common.h"
 #import <RFKit/NSDictionary+RFKit.h>
-
-extern NSString *const APIErrorDomain;
 
 @interface APIJSONResponseSerializer ()
 
@@ -136,7 +135,7 @@ HTTP 状态与 ResponseSerializer 的 acceptableStatusCodes 预期不符合\n\
     if ([rsp[@"code"] intValue] != 0) {
         APIJSONError *APIError = [[APIJSONError alloc] initWithDictionary:rsp error:&e];
         if (APIError) {
-            [self makeError:error withDebugMessage:[NSString stringWithFormat:@"服务器返回的错误信息：%@", APIError.localizedDescription] domain:APIErrorDomain code:APIError.code description:APIError.localizedDescription reason:nil suggestion:nil url:response.URL];
+            [self makeError:error withDebugMessage:[NSString stringWithFormat:@"服务器返回的错误信息：%@", APIError.localizedDescription] domain:API.errorDomain code:APIError.code description:APIError.localizedDescription reason:nil suggestion:nil url:response.URL];
         }
         return nil;
     }

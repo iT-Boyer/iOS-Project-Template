@@ -1,6 +1,6 @@
 
 #import "MBTableView.h"
-#import "API.h"
+#import "Common.h"
 #import "MBRefreshFooterView.h"
 #import <RFKit/UIResponder+RFKit.h>
 
