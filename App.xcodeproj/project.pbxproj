@@ -171,6 +171,7 @@
 		D5EE52472043FB6A009148B3 /* RFReferenceSizing.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE52402043FB69009148B3 /* RFReferenceSizing.m */; };
 		D5EE52482043FB6A009148B3 /* MBLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE52432043FB69009148B3 /* MBLabel.m */; };
 		D5F65F3424C1CAF20082FEC2 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F65F3324C1CAF10082FEC2 /* API.swift */; };
+		D5F65F3724C290320082FEC2 /* B9MulticastDelegate in Frameworks */ = {isa = PBXBuildFile; productRef = D5F65F3624C290320082FEC2 /* B9MulticastDelegate */; };
 		D5F9F47C208D8F8700427201 /* MBCollectionViewCarouselLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D5F9F47B208D8F8700427201 /* MBCollectionViewCarouselLayout.m */; };
 		D5F9F47F208D921200427201 /* Date+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F9F47D208D921200427201 /* Date+App.swift */; };
 		D5F9F480208D921200427201 /* String+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F9F47E208D921200427201 /* String+App.swift */; };
@@ -501,6 +502,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5F65F3724C290320082FEC2 /* B9MulticastDelegate in Frameworks */,
 				674FCCB03EFF1B157024C64B /* libPods-App.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1375,6 +1377,9 @@
 				D5197D2C17F0242C00CA387C /* PBXTargetDependency */,
 			);
 			name = App;
+			packageProductDependencies = (
+				D5F65F3624C290320082FEC2 /* B9MulticastDelegate */,
+			);
 			productName = App;
 			productReference = D5197A3A17EECAAF00CA387C /* App.app */;
 			productType = "com.apple.product-type.application";
@@ -1403,6 +1408,9 @@
 				Base,
 			);
 			mainGroup = D5197A3117EECAAF00CA387C;
+			packageReferences = (
+				D5F65F3524C290320082FEC2 /* XCRemoteSwiftPackageReference "MulticastDelegate" */,
+			);
 			productRefGroup = D5197A3B17EECAAF00CA387C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -2067,6 +2075,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D5F65F3524C290320082FEC2 /* XCRemoteSwiftPackageReference "MulticastDelegate" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/b9swift/MulticastDelegate";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D5F65F3624C290320082FEC2 /* B9MulticastDelegate */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D5F65F3524C290320082FEC2 /* XCRemoteSwiftPackageReference "MulticastDelegate" */;
+			productName = B9MulticastDelegate;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D5197A3217EECAAF00CA387C /* Project object */;
 }

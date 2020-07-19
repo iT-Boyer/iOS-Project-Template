@@ -47,17 +47,32 @@ class TopicListDisplayer: MBTableListDisplayer {
 }
 
 /// 帖子列表 cell
-class TopicListCell: UITableViewCell {
+class TopicListCell: UITableViewCell, TopicEntityUpdating {
     @objc var item: TopicEntity! {
         didSet {
+            if let old = oldValue {
+                old.delegates.remove(self)
+            }
+            item.delegates.add(self)
             avatarView.item = item.author
             titleLabel.text = item.title
             contentLabel.text = item.content?.replacingOccurrences(of: "\n", with: " ")
             dateLabel.text = item.createTime?.recentString
+            topicLikedChanged(item)
         }
     }
     @IBOutlet private weak var avatarView: UserAvatarView!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var contentLabel: UILabel!
     @IBOutlet private weak var dateLabel: UILabel!
+
+    @IBOutlet private weak var likeButton: UIButton!
+    @IBAction private func onLikeButtonTapped(_ sender: Any) {
+        item.toggleLike()
+    }
+    func topicLikedChanged(_ item: TopicEntity) {
+        likeButton.isSelected = item.isLiked
+        likeButton.setTitle("点赞 \(item.likeCount)", for: .normal)
+        likeButton.setTitle("已赞 \(item.likeCount)", for: .selected)
+    }
 }

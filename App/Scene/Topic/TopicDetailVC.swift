@@ -6,8 +6,12 @@
 /**
  帖子详情
  */
-class TopicDetailViewController: UIViewController {
-    @objc var item: TopicEntity!
+class TopicDetailViewController: UIViewController, TopicEntityUpdating {
+    @objc var item: TopicEntity! {
+        didSet {
+            item.delegates.add(self)
+        }
+    }
 
     @IBOutlet weak var listView: MBTableView!
 
@@ -48,6 +52,17 @@ class TopicDetailViewController: UIViewController {
     func updateUI(item: TopicEntity) {
         titleLabel.text = item.title ?? "加载中..."
         contentLabel.text = item.content
+        topicLikedChanged(item)
+    }
+
+    @IBOutlet private weak var likeButton: UIButton!
+    @IBAction private func onLikeButtonTapped(_ sender: Any) {
+        item.toggleLike()
+    }
+    func topicLikedChanged(_ item: TopicEntity) {
+        likeButton.isSelected = item.isLiked
+        likeButton.setTitle("点赞 \(item.likeCount)", for: .normal)
+        likeButton.setTitle("已赞 \(item.likeCount)", for: .selected)
     }
 }
 

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -64,44 +65,57 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HAA-wl-XAa" userLabel="尺寸计算辅助（状态条）">
                                                             <rect key="frame" x="0.0" y="54.5" width="309" height="20"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="20" id="2ge-3t-ms7"/>
+                                                                <constraint firstAttribute="height" constant="20" id="f2R-pL-WhI"/>
                                                             </constraints>
                                                         </view>
                                                     </subviews>
                                                 </stackView>
                                             </subviews>
                                         </stackView>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j8w-wa-crh" userLabel="状态条">
-                                            <rect key="frame" x="90" y="78" width="309" height="20"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="8Zb-tO-jNi" userLabel="状态条">
+                                            <rect key="frame" x="322" y="81" width="77" height="20"/>
                                             <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6GT-wz-vZX" customClass="MBButton">
+                                                    <rect key="frame" x="0.0" y="0.0" width="30" height="20"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                    <state key="normal" title="点赞">
+                                                        <color key="titleColor" name="Color/primary"/>
+                                                    </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="rect" keyPath="touchHitTestExpandInsets">
+                                                            <rect key="value" x="5" y="5" width="5" height="5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="onLikeButtonTapped:" destination="r8R-Rp-ie0" eventType="touchUpInside" id="fva-as-xiH"/>
+                                                    </connections>
+                                                </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="时间" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bKy-kG-sPl">
-                                                    <rect key="frame" x="282" y="2" width="27" height="16"/>
+                                                    <rect key="frame" x="50" y="0.0" width="27" height="20"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                     <color key="textColor" systemColor="tertiaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="20" id="HDc-Qr-mwK"/>
-                                                <constraint firstAttribute="trailing" secondItem="bKy-kG-sPl" secondAttribute="trailing" id="f4J-MN-whD"/>
-                                                <constraint firstItem="bKy-kG-sPl" firstAttribute="centerY" secondItem="j8w-wa-crh" secondAttribute="centerY" id="ipg-sC-veC"/>
+                                                <constraint firstAttribute="height" constant="20" id="uLH-Vv-y7h"/>
                                             </constraints>
-                                        </view>
+                                        </stackView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="BYd-NJ-w40" secondAttribute="trailing" constant="15" id="2s5-a8-SKN"/>
                                         <constraint firstItem="BYd-NJ-w40" firstAttribute="leading" secondItem="TKx-Yo-ygr" secondAttribute="leading" constant="15" id="87x-Dp-t9c"/>
                                         <constraint firstAttribute="bottom" secondItem="BYd-NJ-w40" secondAttribute="bottom" priority="500" constant="15" id="C5q-Pf-Nd3"/>
-                                        <constraint firstAttribute="bottom" secondItem="j8w-wa-crh" secondAttribute="bottom" constant="15" id="PWK-i3-sst"/>
+                                        <constraint firstAttribute="bottom" secondItem="8Zb-tO-jNi" secondAttribute="bottom" constant="12" id="MSa-RR-P4K"/>
                                         <constraint firstItem="BYd-NJ-w40" firstAttribute="top" secondItem="TKx-Yo-ygr" secondAttribute="top" constant="15" id="S0V-hS-PxF"/>
-                                        <constraint firstItem="j8w-wa-crh" firstAttribute="leading" secondItem="yAf-L7-qDz" secondAttribute="leading" id="SHO-Di-cv3"/>
-                                        <constraint firstItem="j8w-wa-crh" firstAttribute="trailing" secondItem="yAf-L7-qDz" secondAttribute="trailing" id="jxA-b3-nE2"/>
+                                        <constraint firstAttribute="trailing" secondItem="8Zb-tO-jNi" secondAttribute="trailing" constant="15" id="aMK-3u-DKa"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="avatarView" destination="5N4-3a-kDz" id="OGm-aA-FKc"/>
                                     <outlet property="contentLabel" destination="oKA-mY-Wd1" id="LUm-CE-4H5"/>
                                     <outlet property="dateLabel" destination="bKy-kG-sPl" id="OWo-MG-TQR"/>
+                                    <outlet property="likeButton" destination="6GT-wz-vZX" id="4bH-KS-H3y"/>
                                     <outlet property="titleLabel" destination="nOu-3k-Hjd" id="mzU-h5-MEF"/>
                                     <segue destination="GBt-fX-T04" kind="show" id="e8P-ph-z6R"/>
                                 </connections>
@@ -246,8 +260,31 @@
                                 </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Vz-E8-vEb" customClass="MBBottomLayoutView">
-                                <rect key="frame" x="0.0" y="724" width="414" height="84"/>
+                                <rect key="frame" x="0.0" y="724" width="414" height="50"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dKx-jg-E07">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sna-zR-8jb">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                <state key="normal" title="点赞" backgroundImage="button_rect"/>
+                                                <connections>
+                                                    <action selector="onLikeButtonTapped:" destination="GBt-fX-T04" eventType="touchUpInside" id="wLJ-wB-ZmX"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="fw1-dB-35N"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="dKx-jg-E07" secondAttribute="trailing" id="0hb-qu-QWr"/>
+                                    <constraint firstItem="dKx-jg-E07" firstAttribute="top" secondItem="8Vz-E8-vEb" secondAttribute="top" id="wqi-z9-zkc"/>
+                                    <constraint firstItem="dKx-jg-E07" firstAttribute="leading" secondItem="8Vz-E8-vEb" secondAttribute="leading" id="yIk-uH-CMY"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -255,7 +292,7 @@
                             <constraint firstItem="eoE-zg-V21" firstAttribute="bottom" secondItem="8Vz-E8-vEb" secondAttribute="top" constant="50" id="Mjx-ke-CwN"/>
                             <constraint firstItem="d4M-Vb-VvJ" firstAttribute="top" secondItem="kRO-Fj-cqR" secondAttribute="top" id="NPL-vI-3CD"/>
                             <constraint firstItem="d4M-Vb-VvJ" firstAttribute="leading" secondItem="eoE-zg-V21" secondAttribute="leading" id="S5e-6d-CQz"/>
-                            <constraint firstAttribute="bottom" secondItem="8Vz-E8-vEb" secondAttribute="bottom" id="aWe-75-xxp"/>
+                            <constraint firstItem="eoE-zg-V21" firstAttribute="bottom" secondItem="8Vz-E8-vEb" secondAttribute="bottom" id="aWe-75-xxp"/>
                             <constraint firstItem="eoE-zg-V21" firstAttribute="trailing" secondItem="d4M-Vb-VvJ" secondAttribute="trailing" id="uYH-5a-MQX"/>
                             <constraint firstItem="8Vz-E8-vEb" firstAttribute="leading" secondItem="eoE-zg-V21" secondAttribute="leading" id="vCc-0M-16W"/>
                             <constraint firstItem="eoE-zg-V21" firstAttribute="trailing" secondItem="8Vz-E8-vEb" secondAttribute="trailing" id="vlr-oA-HBF"/>
@@ -267,6 +304,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="contentLabel" destination="8Bh-Qr-WAg" id="bkk-re-9Ol"/>
+                        <outlet property="likeButton" destination="sna-zR-8jb" id="kIX-lT-h95"/>
                         <outlet property="listView" destination="d4M-Vb-VvJ" id="rQV-m1-TM5"/>
                         <outlet property="titleLabel" destination="LuW-MC-K4a" id="msS-4h-X5O"/>
                     </connections>
@@ -312,4 +350,10 @@
             <point key="canvasLocation" x="-7" y="721"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="button_rect" width="5" height="5"/>
+        <namedColor name="Color/primary">
+            <color red="0.1803921568627451" green="0.5607843137254902" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>
