@@ -12,6 +12,10 @@ import B9MulticastDelegate
  */
 @objc(TopicEntity)
 class TopicEntity: MBModel {
+    override class func keyMapper() -> JSONKeyMapper! {
+        JSONKeyMapper.baseMapper(JSONKeyMapper.forSnakeCase(), withModelToJSONExceptions: [ "uid": "id" ])
+    }
+
     @objc var uid: String = ""
     @objc var title: String?
     @objc var content: String?
@@ -20,13 +24,22 @@ class TopicEntity: MBModel {
     @objc var editTime: Date?
 //    "attachments": [AttachmentEntity],
     @objc var status: [String] = [String]()
-    @objc var allowOperations: [String] = [String]()
     @objc var commentCount: Int = 0
+
+    // MARK: -
+    @objc private var allowOperations = [String]()
+
+    // MARK: - 赞
+
+    var likeEnabled: Bool {
+        allowOperations.contains("like")
+    }
+
     @objc var likeCount: Int = 0
     @objc private(set) var isLiked: Bool = false
 //    "last_comment": CommentEntity
 
-    private var likeTask: RFAPITask?
+    private weak var likeTask: RFAPITask?
 
     /// 切换点赞状态
     func toggleLike() {
@@ -41,9 +54,7 @@ class TopicEntity: MBModel {
 
         let shouldLike = !isLiked
         isLiked = shouldLike
-        if likeCount > 0 {
-            likeCount += shouldLike ? 1 : -1
-        }
+        likeCount += shouldLike ? 1 : -1
         delegates.invoke { $0.topicLikedChanged?(self) }
 
         likeTask = API.requestName(shouldLike ? positiveAPI : negativeAPI, context: { c in
@@ -51,18 +62,14 @@ class TopicEntity: MBModel {
             c.complation { task, _, _ in
                 if task?.isSuccess == false {
                     self.isLiked = !shouldLike
-                    if self.likeCount > 0 {
-                        self.likeCount -= shouldLike ? 1 : -1
-                    }
+                    self.likeCount -= shouldLike ? 1 : -1
                     self.delegates.invoke { $0.topicLikedChanged?(self) }
                 }
             }
         })
     }
 
-    override class func keyMapper() -> JSONKeyMapper! {
-        JSONKeyMapper.baseMapper(JSONKeyMapper.forSnakeCase(), withModelToJSONExceptions: [ "uid": "id" ])
-    }
+    // MARK: -
 
     lazy var delegates = MulticastDelegate<TopicEntityUpdating>()
 }

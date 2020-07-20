@@ -60,9 +60,9 @@ class TopicDetailViewController: UIViewController, TopicEntityUpdating {
         item.toggleLike()
     }
     func topicLikedChanged(_ item: TopicEntity) {
+        likeButton.isEnabled = item.likeEnabled
         likeButton.isSelected = item.isLiked
-        likeButton.setTitle("点赞 \(item.likeCount)", for: .normal)
-        likeButton.setTitle("已赞 \(item.likeCount)", for: .selected)
+        likeButton.text = (item.isLiked ? "已赞" : "点赞") + " \(item.likeCount)"
     }
 }
 

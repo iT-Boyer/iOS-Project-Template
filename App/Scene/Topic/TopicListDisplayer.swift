@@ -29,7 +29,7 @@ class TopicListDisplayer: MBTableListDisplayer {
                 tp2.uid = "TPEmpty"
                 tp2.author = user1
                 tp2.title = "无内容帖子"
-                tp1.createTime = Date(timeIntervalSinceNow: -3600)
+                tp2.createTime = Date(timeIntervalSinceNow: -3600)
 
                 let tp3 = TopicEntity()
                 tp3.uid = "TP404"
@@ -71,8 +71,8 @@ class TopicListCell: UITableViewCell, TopicEntityUpdating {
         item.toggleLike()
     }
     func topicLikedChanged(_ item: TopicEntity) {
+        likeButton.isEnabled = item.likeEnabled
         likeButton.isSelected = item.isLiked
-        likeButton.setTitle("点赞 \(item.likeCount)", for: .normal)
-        likeButton.setTitle("已赞 \(item.likeCount)", for: .selected)
+        likeButton.text = (item.isLiked ? "已赞" : "点赞") + " \(item.likeCount)"
     }
 }
