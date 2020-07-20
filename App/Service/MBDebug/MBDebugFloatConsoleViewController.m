@@ -9,6 +9,9 @@
 #import "MBRootWrapperViewController.h"
 #import "UIKit+App.h"
 #import <RFAlpha/RFWindow.h>
+#if __has_include("SDWebImage.h")
+#import <SDWebImage/SDWebImage.h>
+#endif
 
 static unsigned long long LastMemoryUsed;
 
@@ -73,6 +76,7 @@ static unsigned long long LastMemoryUsed;
             DebugMenuItem(itemDes, nil, nil);
         })];
         [m addObject:DebugMenuItem(@"模拟内存警告", self, @selector(simulateMemoryWarning))];
+
         id debugItem = self.buildListInspectorMenuItem;
         if (debugItem) {
             [m addObject:debugItem];
@@ -82,6 +86,7 @@ static unsigned long long LastMemoryUsed;
             [m addObject:DebugMenuItem(@"刷新列表", self, @selector(delayRefreshTopViewController))];
         }
         [m addObject:DebugMenuItem(@"跳转链接", self, @selector(openURL))];
+        [m addObject:DebugMenuItem(@"重置网络存储", self, @selector(resetURLStorage))];
         [m addObject:DebugMenuItem(@"Crash now!", self, @selector(makeCrash))];
         [m addObject:DebugMenuItem(@"隐藏左下调试按钮片刻", self, @selector(hideDebugButtonSomewhile))];
         m;
@@ -205,6 +210,25 @@ static unsigned long long LastMemoryUsed;
         ppc.permittedArrowDirections = 0;
     }
     [vp presentViewController:alert animated:YES completion:nil];
+}
+
+- (void)resetURLStorage {
+    [NSURLCache.sharedURLCache removeAllCachedResponses];
+    NSURLCredentialStorage *aStorage = NSURLCredentialStorage.sharedCredentialStorage;
+    [aStorage.allCredentials enumerateKeysAndObjectsUsingBlock:^(NSURLProtectionSpace * _Nonnull space, NSDictionary<NSString *,NSURLCredential *> * _Nonnull obj, BOOL * _Nonnull stop) {
+        for (NSURLCredential *credential in obj.allValues) {
+            [aStorage removeCredential:credential forProtectionSpace:space];
+        }
+    }];
+    NSHTTPCookieStorage *cStorage = NSHTTPCookieStorage.sharedHTTPCookieStorage;
+    for (NSHTTPCookie *cookie in cStorage.cookies) {
+        [cStorage deleteCookie:cookie];
+    }
+#if __has_include("SDWebImage.h")
+    [SDImageCache.sharedImageCache clearMemory];
+    [SDImageCache.sharedImageCache clearDiskOnCompletion:nil];
+    [SDWebImageManager.sharedManager removeAllFailedURLs];
+#endif
 }
 
 - (void)makeCrash {
