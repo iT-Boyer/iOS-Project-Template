@@ -16,10 +16,21 @@ extension UIButton {
             currentTitle
         }
         set {
-            if title(for: state) != nil {
-                setTitle(newValue, for: state)
-            } else {
+            if title(for: state) == nil {
+                // 文字未设置，设置默认
                 setTitle(newValue, for: .normal)
+                return
+            }
+            setTitle(newValue, for: state)
+
+            // 状态包含点击态，需要设置排除点击态的样式
+            guard state.contains(.highlighted) else {
+                return
+            }
+            var stateWithoutHighlited = state
+            stateWithoutHighlited.remove(.highlighted)
+            if !stateWithoutHighlited.isEmpty {
+                setTitle(newValue, for: stateWithoutHighlited)
             }
         }
     }
