@@ -122,9 +122,6 @@ mqqopensdkapiV2、openQQWithURL、openTIMWithURL、openQQWithCommand、mqq、mqq
 
 @property (class, readonly, nonnull) MBShareManager *defaultManager;
 
-/// 应用启动后调用
-- (void)setupWithApplication:(nonnull UIApplication *)application launchingOptions:(nullable NSDictionary<UIApplicationLaunchOptionsKey, id> *)launchOptions;
-
 /// 是否可以分享到微信
 @property (class, readonly) BOOL isWechatEnabled;
 /// 是否可以分享到 QQ

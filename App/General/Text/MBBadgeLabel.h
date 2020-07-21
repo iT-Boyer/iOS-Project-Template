@@ -31,6 +31,8 @@
 
 /**
  设置显示数量
+
+ 为 0 隐藏
  */
 - (void)updateCount:(long)count;
 

@@ -16,6 +16,8 @@
 // @MBDependency:4
 /**
  从 storyboard 创建当前 vc 实例
+
+ Stroyboard ID 需要与类名一致，类里必须通过 storyboardName 指定 storyboard 文件的文件名
  */
 + (nonnull instancetype)newFromStoryboard;
 

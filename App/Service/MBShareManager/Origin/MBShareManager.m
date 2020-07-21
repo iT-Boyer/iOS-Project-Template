@@ -67,9 +67,6 @@ static BOOL g_WeiboRegisterFlag = NO;
     return self;
 }
 
-- (void)setupWithApplication:(UIApplication *)application launchingOptions:(NSDictionary *)launchOptions {
-}
-
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
 #if WechatEnabled
     if (g_WechatRegisterFlag) {
