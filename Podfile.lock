@@ -103,7 +103,7 @@ PODS:
     - RFAlpha/RFViewApperance/RFDrawView
   - RFAlpha/RFWindow (0.6.0):
     - RFInitializing (>= 1.1)
-  - RFAPI (2.0.0-beta.1):
+  - RFAPI (2.0.0-beta.2):
     - AFNetworking/Reachability (>= 2.3)
     - AFNetworking/Security (>= 2.3)
     - AFNetworking/Serialization (>= 2.3)
@@ -269,7 +269,7 @@ DEPENDENCIES:
   - RFAlpha/RFViewApperance/RFLayerApperance
   - RFAlpha/RFViewApperance/RFLine
   - RFAlpha/RFWindow
-  - RFAPI (from `https://github.com/RFUI/RFAPI.git`)
+  - RFAPI (>= 2.0.0-beta.2)
   - RFDelegateChain/UICollectionViewDataSource
   - RFDelegateChain/UICollectionViewDelegateFlowLayout
   - RFDelegateChain/UISearchBarDelegate
@@ -288,6 +288,7 @@ SPEC REPOS:
     - AFNetworking
     - JSONModel
     - RFAlpha
+    - RFAPI
     - RFDelegateChain
     - RFInitializing
     - RFKeyboard
@@ -300,23 +301,18 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   MBAppKit:
     :git: https://github.com/RFUI/MBAppKit.git
-  RFAPI:
-    :git: https://github.com/RFUI/RFAPI.git
 
 CHECKOUT OPTIONS:
   MBAppKit:
     :commit: 8b9576f871ceec3a0ae6d8ef5cffea93c36b25cc
     :git: https://github.com/RFUI/MBAppKit.git
-  RFAPI:
-    :commit: 051679383bf7dc08f4b954f55c7fc8eb2c591bf5
-    :git: https://github.com/RFUI/RFAPI.git
 
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
   JSONModel: 02ab723958366a3fd27da57ea2af2113658762e9
   MBAppKit: dfa9bd52a24c018595c7531445158519cf09dbd3
   RFAlpha: a2ba9b06f5452e11c486abd3bf20c9036734ae7a
-  RFAPI: 3ea13b0339204b86049f5f413016325fd40ac4b7
+  RFAPI: dcd1c98b1ca7de93b900111e1a5232a21a08a65f
   RFDelegateChain: 06b2100d30de422eb7dee4ad833c8bd80c631f16
   RFInitializing: c85e1d8b9c5b540761f7983af3e9bb517654ad84
   RFKeyboard: d270ea1f612d86c980974222bae7c6d7d04428be
@@ -326,6 +322,6 @@ SPEC CHECKSUMS:
   SDWebImage: 112503ec94a5a2a41869503844a15e8d8f1ead5c
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: 812189fbec15f58abb602474971bf6c8ce59a7c2
+PODFILE CHECKSUM: 25cd59e2bec9fc7c933d5d22875913764590c2b2
 
 COCOAPODS: 1.9.3
