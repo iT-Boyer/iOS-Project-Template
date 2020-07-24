@@ -36,6 +36,9 @@
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="prefersBackBarButtonTitleHidden" value="YES"/>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="prefersNoBarShadow" value="YES"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="bottomBarHeight">
+                            <real key="value" value="50"/>
+                        </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="bottomBar" destination="HWW-2K-HcN" id="EUf-B3-hJp"/>
