@@ -5,9 +5,9 @@
         "package": "B9MulticastDelegate",
         "repositoryURL": "https://github.com/b9swift/MulticastDelegate",
         "state": {
-          "branch": "master",
+          "branch": null,
           "revision": "db7366999a931637c9240cf2103f0f946d1ba664",
-          "version": null
+          "version": "1.0.0"
         }
       }
     ]
