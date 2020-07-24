@@ -125,6 +125,7 @@
 		D5DB4C1C241E243900832A0A /* MBCollectionListDisplayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D5DB4C1B241E243900832A0A /* MBCollectionListDisplayer.m */; };
 		D5DB4C1F241E27B800832A0A /* MBKeyboardAdjustScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = D5DB4C1D241E27B700832A0A /* MBKeyboardAdjustScrollView.m */; };
 		D5DB4C22241E39EA00832A0A /* UIKit+DynamicType.m in Sources */ = {isa = PBXBuildFile; fileRef = D5DB4C21241E39EA00832A0A /* UIKit+DynamicType.m */; };
+		D5DC60C124CA84BC00FBB147 /* EnvironmentFlag.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55959CD20AB95640019D733 /* EnvironmentFlag.swift */; };
 		D5E80580226F403D00901C41 /* MBBottomLayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E8057F226F403D00901C41 /* MBBottomLayoutView.m */; };
 		D5EE51192043DAA2009148B3 /* NSArray+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE50E42043DAA1009148B3 /* NSArray+App.m */; };
 		D5EE511B2043DAA2009148B3 /* UILabel+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE50E62043DAA1009148B3 /* UILabel+App.m */; };
@@ -274,7 +275,7 @@
 		D55959C620AB92000019D733 /* UIScrollView+ScrollsToTop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+ScrollsToTop.h"; sourceTree = "<group>"; };
 		D55959C720AB924D0019D733 /* UIKit+IBInspectable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIKit+IBInspectable.h"; sourceTree = "<group>"; };
 		D55959C920AB93B20019D733 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		D55959CD20AB95640019D733 /* EnvironmentFlag.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EnvironmentFlag.h; sourceTree = "<group>"; };
+		D55959CD20AB95640019D733 /* EnvironmentFlag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentFlag.swift; sourceTree = "<group>"; };
 		D55959CF20AB97B00019D733 /* ApplicationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationDelegate.swift; sourceTree = "<group>"; };
 		D55959D220AB9FA20019D733 /* MessageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageManager.swift; sourceTree = "<group>"; };
 		D55959D420ABA9B50019D733 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
@@ -788,7 +789,7 @@
 			isa = PBXGroup;
 			children = (
 				D55959CF20AB97B00019D733 /* ApplicationDelegate.swift */,
-				D55959CD20AB95640019D733 /* EnvironmentFlag.h */,
+				D55959CD20AB95640019D733 /* EnvironmentFlag.swift */,
 				D5C636A62047CC5900851CF4 /* LaunchScreen.storyboard */,
 				D501844A20F86111009481D4 /* MBNavigationController+Router.h */,
 				D501844920F86111009481D4 /* MBNavigationController+Router.m */,
@@ -1545,6 +1546,7 @@
 				D501845B20F881B6009481D4 /* DissolveTransitioning.swift in Sources */,
 				D519A0C12434444200E26A64 /* EntityShare.swift in Sources */,
 				D5B1905A24026DB90076CD61 /* EnumListView.swift in Sources */,
+				D5DC60C124CA84BC00FBB147 /* EnvironmentFlag.swift in Sources */,
 				D5C3CBEF217ED20F0097CCD9 /* Geometry.swift in Sources */,
 				D569C9CF21AE8D3200211E36 /* HomeVC.swift in Sources */,
 				D588309720CAE103002030C4 /* ImageEntity.m in Sources */,

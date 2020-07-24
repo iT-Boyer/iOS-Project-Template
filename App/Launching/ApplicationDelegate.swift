@@ -48,13 +48,13 @@ class ApplicationDelegate: MBApplicationDelegate {
     }
 
     override func applicationDidBecomeActive(_ application: UIApplication) {
-        AppEnv().setFlagOn(MBENV.flagAppInForeground.rawValue)
-        AppEnv().setFlagOn(MBENV.flagAppHasEnterForegroundOnce.rawValue)
+        AppEnv().setFlagOn(.appInForeground)
+        AppEnv().setFlagOn(.appHasEnterForegroundOnce)
         super.applicationDidBecomeActive(application)
     }
 
     override func applicationDidEnterBackground(_ application: UIApplication) {
-        AppEnv().setFlagOff(MBENV.flagAppInForeground.rawValue)
+        AppEnv().setFlagOff(.appInForeground)
         super.applicationDidEnterBackground(application)
     }
 

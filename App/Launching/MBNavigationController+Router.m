@@ -1,6 +1,7 @@
 
 #import "MBNavigationController+Router.h"
 #import "Common.h"
+#import <MBAppKit/MBEnvironment.h>
 
 NSString *const AppScheme = @"example";
 
@@ -69,8 +70,10 @@ static NSString *_tmp_url = nil;
 static id _tmp_obj = nil;
 
 void AppNavigationJump(NSString *__nullable url, id __nullable additonalObject) {
+    // FIXME(BB9z): 与 EnvironmentFlag.swift 关联
+    MBENVFlag naigationLoaded = 1 << 10;
     if (!url.length) return;
-    if ([AppEnv() meetFlags:MBENVFlagNaigationLoaded]) {
+    if ([AppEnv() meetFlags:naigationLoaded]) {
         [AppNavigationController() jumpWithURL:url object:additonalObject];
         return;
     }
@@ -78,7 +81,7 @@ void AppNavigationJump(NSString *__nullable url, id __nullable additonalObject) 
     _tmp_url = url;
     _tmp_obj = additonalObject;
     if (hasWaiting) return;
-    [AppEnv() waitFlags:MBENVFlagNaigationLoaded do:^{
+    [AppEnv() waitFlags:naigationLoaded do:^{
         [AppNavigationController() jumpWithURL:_tmp_url object:_tmp_obj];
         _tmp_url = nil;
         _tmp_obj = nil;

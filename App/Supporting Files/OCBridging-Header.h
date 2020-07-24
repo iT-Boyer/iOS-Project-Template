@@ -5,7 +5,6 @@
 #import "debug.h"
 //#import "API+FileUpload.h"
 #import "APIJSONResponseSerializer.h"
-#import "EnvironmentFlag.h"
 #import "ImageEntity.h"
 #import "MBApp.h"
 //#import "MBAudioRecorder.h"
@@ -66,6 +65,7 @@
 #import <AFNetworking/AFSecurityPolicy.h>
 #import <MBAppKit/MBAPI.h>
 #import <MBAppKit/MBApplicationDelegate.h>
+#import <MBAppKit/MBEnvironment.h>
 #import <MBAppKit/MBGeneral.h>
 #import <MBAppKit/MBModel.h>
 #import <MBAppKit/MBUser.h>

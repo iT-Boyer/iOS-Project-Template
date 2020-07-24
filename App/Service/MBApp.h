@@ -8,12 +8,12 @@
  The MIT License
  https://opensource.org/licenses/MIT
  */
-#import "EnvironmentFlag.h"
 #import "debug.h"
 #import "NSUserDefaults+App.h"
 // 非核心模块不要 import，避免头文件的循环引用
 
 @class API;
+@class MBEnvironment;
 @class MessageManager;
 @class NavigationController;
 

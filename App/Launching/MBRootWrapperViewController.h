@@ -1,7 +1,7 @@
 /*
  MBRootWrapperViewController
  
- Copyright © 2018 RFUI.
+ Copyright © 2018, 2020 RFUI.
  Copyright © 2014-2017 Beijing ZhiYun ZhiYuan Technology Co., Ltd.
  https://github.com/BB9z/iOS-Project-Template
  
@@ -11,10 +11,9 @@
 #import <RFKit/RFRuntime.h>
 
 /**
- 整个应用的根 vc，除了是主导航的容器外，还承担了很多其他功能
- 
- - 启动图的显示管理
- - 管理应用级别的提示，各种气泡，教程提示
+ 一般作为整个应用的根 vc
+
+ vc 的外观、旋转声明等以第一个子 vc 为准
  */
 @interface MBRootWrapperViewController : UIViewController
 

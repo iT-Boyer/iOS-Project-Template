@@ -127,15 +127,15 @@ class Account: MBUser {
             }
         }
         if let user = user {
-            AppEnv().setFlagOn(MBENV.flagUserHasLogged.rawValue)
+            AppEnv().setFlagOn(.userHasLogged)
             if !user.hasLoginedThisSession {
                 user.updateInformation { c in
                     c.failureCallback = APISlientFailureHandler(true)
                 }
             }
         } else {
-            AppEnv().setFlagOff(MBENV.flagUserHasLogged.rawValue)
-            AppEnv().setFlagOff(MBENV.flagUserInfoFetched.rawValue)
+            AppEnv().setFlagOff(.userHasLogged)
+            AppEnv().setFlagOff(.userInfoFetched)
         }
     }
 
@@ -168,7 +168,7 @@ class Account: MBUser {
                 self.hasLoginedThisSession = true
                 self.information = info
                 if self.isCurrent {
-                    AppEnv().setFlagOn(MBENV.flagUserInfoFetched.rawValue)
+                    AppEnv().setFlagOn(.userInfoFetched)
                 }
             }
         }

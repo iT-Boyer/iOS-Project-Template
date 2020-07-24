@@ -45,7 +45,7 @@ target 'App' do
         'Input',
         'Navigation',
         'Worker',
-        'UserIDIsString',
+        'UserIDIsString', # 如果 user ID 是整型的，请删除这条
     ]
     pod 'RFAPI', '>= 2.0.0-beta.2'
 
