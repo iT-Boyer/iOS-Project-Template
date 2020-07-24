@@ -33,9 +33,8 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="BYd-NJ-w40">
                                             <rect key="frame" x="15" y="15" width="384" height="83"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5N4-3a-kDz" customClass="UserAvatarView" customModule="App" customModuleProvider="target">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="5N4-3a-kDz" customClass="UserAvatarView" customModule="App" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
-                                                    <color key="backgroundColor" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="60" id="LXm-l7-lm8"/>
                                                         <constraint firstAttribute="width" constant="60" id="juP-sT-vuz"/>
@@ -201,9 +200,8 @@
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="onePixel" value="YES"/>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CIH-e9-1cM" customClass="UserAvatarView" customModule="App" customModuleProvider="target">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="CIH-e9-1cM" customClass="UserAvatarView" customModule="App" customModuleProvider="target">
                                                     <rect key="frame" x="15" y="15" width="60" height="60"/>
-                                                    <color key="backgroundColor" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="60" id="hXC-0c-TDW"/>
                                                         <constraint firstAttribute="width" constant="60" id="z2P-Os-3Pd"/>
@@ -348,6 +346,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="avatar_placeholder" width="80" height="80"/>
         <image name="button_rect" width="5" height="5"/>
     </resources>
 </document>

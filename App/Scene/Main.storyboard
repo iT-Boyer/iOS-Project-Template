@@ -220,9 +220,8 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cjX-RA-jd4" userLabel="Header">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LBW-LA-tRD" customClass="ZYImageView">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="LBW-LA-tRD" customClass="ZYImageView">
                                                         <rect key="frame" x="15" y="20" width="80" height="80"/>
-                                                        <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="80" id="9pZ-IJ-6EB"/>
                                                             <constraint firstAttribute="width" constant="80" id="GFt-7e-NN7"/>
@@ -443,6 +442,7 @@
     </scenes>
     <resources>
         <image name="Icon/test24" width="24" height="24"/>
+        <image name="avatar_placeholder" width="80" height="80"/>
         <image name="nav_back" width="9" height="16"/>
         <image name="nav_back_layoutfix" width="23" height="19"/>
         <namedColor name="Color/primary">
