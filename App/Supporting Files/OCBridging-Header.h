@@ -6,7 +6,6 @@
 //#import "API+FileUpload.h"
 #import "APIJSONResponseSerializer.h"
 #import "ImageEntity.h"
-#import "MBApp.h"
 //#import "MBAudioRecorder.h"
 //#import "MBBadgeLabel.h"
 #import "MBButton.h"
@@ -69,6 +68,7 @@
 #import <MBAppKit/MBGeneral.h>
 #import <MBAppKit/MBModel.h>
 #import <MBAppKit/MBUser.h>
+//#import <MBAppKit/MBWorkerQueue.h>
 #import <RFAPI/RFAPIJSONModelTransformer.h>
 #import <RFAlpha/RFAnimationTransitioning.h>
 #import <RFAlpha/RFContainerView.h>

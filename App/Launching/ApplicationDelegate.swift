@@ -13,7 +13,7 @@
 class ApplicationDelegate: MBApplicationDelegate {
     override func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
         AppUserDefaultsShared().applicationLastLaunchTime = Date()
-        MBApp.status()
+        _ = MBApp.status()
         return true
     }
 
@@ -48,8 +48,12 @@ class ApplicationDelegate: MBApplicationDelegate {
     }
 
     override func applicationDidBecomeActive(_ application: UIApplication) {
+        if !AppEnv().meetFlags(.appHasEnterForegroundOnce) {
+            AppEnv().setFlagOn(.appHasEnterForegroundOnce)
+            AppUserDefaultsShared().launchCount += 1
+            AppUserDefaultsShared().launchCountCurrentVersion += 1
+        }
         AppEnv().setFlagOn(.appInForeground)
-        AppEnv().setFlagOn(.appHasEnterForegroundOnce)
         super.applicationDidBecomeActive(application)
     }
 

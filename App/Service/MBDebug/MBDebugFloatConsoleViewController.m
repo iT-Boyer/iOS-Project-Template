@@ -1,7 +1,7 @@
 
 #import "MBDebugFloatConsoleViewController.h"
+#import "debug.h"
 #import "MBDebugPrivate.h"
-#import "MBApp.h"
 #import "MBDebugHelpers.h"
 #import "MBDebugMenuViewController.h"
 #import "MBDebugViews.h"

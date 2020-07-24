@@ -1,7 +1,6 @@
 
 #import "NSUserDefaults+App.h"
 #import "Common.h"
-#import "MBApp.h"
 #import <MBAppKit/MBModel.h>
 #import <MBAppKit/MBUserDefaultsMakeProperty.h>
 

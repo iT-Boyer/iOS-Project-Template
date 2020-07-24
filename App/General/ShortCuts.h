@@ -1,14 +1,14 @@
 /*
  ShortCuts.h
  
- Copyright © 2018 RFUI.
+ Copyright © 2018, 2020 RFUI.
  Copyright © 2015 Beijing ZhiYun ZhiYuan Technology Co., Ltd.
  https://github.com/BB9z/iOS-Project-Template
  
  The MIT License
  https://opensource.org/licenses/MIT
  */
-#import "MBModel.h"
+#import <MBAppKit/MBModel.h>
 
 /**
  快速访问一些全局对象
@@ -23,8 +23,7 @@
  关于命名
  ----
  所有快捷访问函数均以 App 开头
- 
- 一般 名字空间+限定+类型 的命名规则不同，这里按 名字空间+类型+限定 的方式命名
+
  */
 
 NS_ASSUME_NONNULL_BEGIN
