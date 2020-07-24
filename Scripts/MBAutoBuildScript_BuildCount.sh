@@ -1,9 +1,10 @@
-#! /bin/sh
-# Copyright © 2013-2014 Chinamobo Co., Ltd.
+#! /bin/bash
+# Copyright © 2020 BB9z.
 # Copyright © 2016 Beijing ZhiYun ZhiYuan Information Technology Co., Ltd.
+# Copyright © 2013-2014 Chinamobo Co., Ltd.
 # Maintained by BB9z (https://github.com/BB9z)
 
-echo "MBAutoBuildScript Build Count 0.6"
+echo "MBAutoBuildScript Build Count 1.0"
 echo "-----------------------"
 set -euo pipefail
 

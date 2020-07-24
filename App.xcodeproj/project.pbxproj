@@ -1914,7 +1914,6 @@
 				CodeCommentsHighlightSkipFrameworks = YES;
 				CodeReviewFixRightNowKeywordsExpression = "FUCK|FIXRIGHTNOW|NOTICE";
 				EnableAutoGroupSortByName = YES;
-				EnableChangeProductNameRemind = NO;
 				EnableCodeCommentsHighlight = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				ProjectFilePath = "${SRCROOT}/${PROJECT}.xcodeproj";
@@ -1929,7 +1928,6 @@
 				CodeCommentsHighlightSkipFrameworks = YES;
 				CodeReviewFixRightNowKeywordsExpression = "FUCK|FIXRIGHTNOW|NOTICE";
 				EnableAutoGroupSortByName = YES;
-				EnableChangeProductNameRemind = NO;
 				EnableCodeCommentsHighlight = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				ProjectFilePath = "${SRCROOT}/${PROJECT}.xcodeproj";
@@ -2035,7 +2033,6 @@
 				CodeCommentsHighlightSkipFrameworks = YES;
 				CodeReviewFixRightNowKeywordsExpression = "FUCK|FIXRIGHTNOW|NOTICE";
 				EnableAutoGroupSortByName = YES;
-				EnableChangeProductNameRemind = NO;
 				EnableCodeCommentsHighlight = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				ProjectFilePath = "${SRCROOT}/${PROJECT}.xcodeproj";

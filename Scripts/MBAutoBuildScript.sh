@@ -1,9 +1,9 @@
-#! /bin/sh
+#! /bin/bash
+# Copyright © 2014, 2018, 2020 BB9z.
+# Copyright © 2016-2017 Beijing ZhiYun ZhiYuan Technology Co., Ltd.
 # Maintained by BB9z (https://github.com/BB9z)
 
-echo "MBAutoBuildScript 0.8"
-echo "Copyright © 2014, 2018 RFUI."
-echo "Copyright © 2016-2017 Beijing ZhiYun ZhiYuan Technology Co., Ltd. All rights reserved."
+echo "MBAutoBuildScript 1.0"
 echo "-----------------------"
 set -euo pipefail
 
@@ -62,12 +62,6 @@ if [ $EnableCodeCommentsHighlight = "YES" ]; then
   set +o pipefail
   find "$SRCROOT" \( \( -not -path "${SRCROOT}/Pods/*" \) -and \( -name "*.swift" -or -name "*.h" -or -name "*.m" -or -name "*.mm" -or -name "*.c" \) \) -print0 | xargs -0 egrep --with-filename --line-number --only-matching "// ($CodeCommentsHighlightKeywordsExpression):.*\$" | perl -p -e "s/\/\/ ($CodeCommentsHighlightKeywordsExpression):/ warning: \$1/"
   set -o pipefail
-fi
-
-# 提醒修改产品名
-if [[ $EnableChangeProductNameRemind = "YES" && $PROJECT = "App" ]]; then
-  echo "$ProjectFilePath:0: 提示: 强制提醒修改产品名已启用，你必须先给项目改名才能编译"
-  exit 2
 fi
 
 touch "$timeFile"
