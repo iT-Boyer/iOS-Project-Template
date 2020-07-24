@@ -1,5 +1,5 @@
 /*
- ZYSkyHeaderView
+ MBSkyHeaderView
  
  Copyright © 2018 RFUI.
  Copyright © 2015 Beijing ZhiYun ZhiYuan Technology Co., Ltd.
@@ -17,6 +17,6 @@
  
  不同在于只有响应区域里 UIControl 的点击，其余事件传递给下层
  */
-@interface ZYSkyHeaderView : MBParallaxView
+@interface MBSkyHeaderView : MBParallaxView
 
 @end

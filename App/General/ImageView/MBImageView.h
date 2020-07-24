@@ -1,5 +1,5 @@
-/*!
- ZYImageView
+/*
+ MBImageView
 
  Copyright © 2018, 2020 RFUI.
  Copyright © 2016 Beijing ZhiYun ZhiYuan Technology Co., Ltd.
@@ -16,7 +16,7 @@
 
  对部分默认属性进行了重设
  */
-@interface ZYImageView : UIImageView <
+@interface MBImageView : UIImageView <
     RFInitializing
 >
 

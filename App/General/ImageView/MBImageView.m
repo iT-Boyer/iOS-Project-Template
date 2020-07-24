@@ -1,5 +1,5 @@
 
-#import "ZYImageView.h"
+#import "MBImageView.h"
 #import "ImageEntity.h"
 #import "MBApp.h"
 #import "debug.h"
@@ -7,7 +7,7 @@
 #import <SDWebImage/UIView+WebCacheOperation.h>
 
 
-@interface ZYImageView ()
+@interface MBImageView ()
 @property NSOperation *_dowloadOperation;
 @property (nonatomic) NSString *_downloadingImageURL;
 @property NSString *_completedImageURL;
@@ -16,7 +16,7 @@
 @property BOOL _hasLayoutOnce;
 @end
 
-@implementation ZYImageView
+@implementation MBImageView
 RFInitializingRootForUIView
 
 - (void)onInit {
@@ -163,7 +163,7 @@ RFInitializingRootForUIView
 }
 
 - (void)setImageWithURLString:(NSString *)path placeholderImage:(UIImage *)placeholder {
-    NSAssert(false, @"请使用 ZYImageView 的方法");
+    NSAssert(false, @"请使用 MBImageView 的方法");
 }
 
 #pragma mark -

@@ -1,13 +1,13 @@
 
-#import "ZYLayoutButton.h"
+#import "MBLayoutButton.h"
 #import "MBNavigationController.h"
 #import "MBNavigationController+Router.h"
 
-@interface ZYLayoutButton ()
+@interface MBLayoutButton ()
 @property BOOL touchDownEffectApplied;
 @end
 
-@implementation ZYLayoutButton
+@implementation MBLayoutButton
 
 - (void)onInit {
     [super onInit];
@@ -33,7 +33,7 @@
 - (void)afterInit {
     [super afterInit];
     if (self.touchUpInsideCallback) return;
-    self.touchUpInsideCallback = ^(ZYLayoutButton * _Nonnull sender) {
+    self.touchUpInsideCallback = ^(MBLayoutButton * _Nonnull sender) {
         if (sender.jumpURL.length) {
             AppNavigationJump(sender.jumpURL, nil);
         }

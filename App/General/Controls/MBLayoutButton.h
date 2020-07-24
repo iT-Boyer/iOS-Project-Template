@@ -1,5 +1,5 @@
 /*
- ZYLayoutButton
+ MBLayoutButton
  
  Copyright © 2018-2019 RFUI.
  Copyright © 2015 Beijing ZhiYun ZhiYuan Technology Co., Ltd.
@@ -15,7 +15,7 @@
 /**
  自定义元素布局的 button
  */
-@interface ZYLayoutButton : RFButton
+@interface MBLayoutButton : RFButton
 
 /**
  禁用点按效果

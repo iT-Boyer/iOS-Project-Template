@@ -15,7 +15,7 @@ class MoreViewController: UIViewController {
         // 演示：为了区分数据来源，不在这里刷新数据了
     }
 
-    @IBOutlet private weak var avatarView: ZYImageView!
+    @IBOutlet private weak var avatarView: MBImageView!
     @IBOutlet private weak var userNameLabel: UILabel!
     @IBOutlet private weak var introductionLabel: UILabel!
     private func updateAccountUI() {

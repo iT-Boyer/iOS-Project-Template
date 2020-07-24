@@ -1,11 +1,11 @@
 
-#import "ZYVerifyTextField.h"
+#import "MBVerifyTextField.h"
 
-@interface ZYVerifyTextField ()
+@interface MBVerifyTextField ()
 @property (readwrite, copy, nonatomic) NSString *lastCheckString;
 @end
 
-@implementation ZYVerifyTextField
+@implementation MBVerifyTextField
 
 - (void)onInit {
     [super onInit];
@@ -43,18 +43,18 @@
     return _indicatorButton;
 }
 
-- (void)setStatus:(ZYVerifyTextFieldStatus)status {
+- (void)setStatus:(MBVerifyTextFieldStatus)status {
     _status = status;
 
     RFRefreshButton *bt = self.indicatorButton;
 
-    bt.enabled = (status != ZYVerifyTextFieldStatusChecking);
-    bt.hidden = (status == ZYVerifyTextFieldStatusNone);
+    bt.enabled = (status != MBVerifyTextFieldStatusChecking);
+    bt.hidden = (status == MBVerifyTextFieldStatusNone);
 
-    if (status == ZYVerifyTextFieldStatusSuccess) {
+    if (status == MBVerifyTextFieldStatusSuccess) {
         bt.iconImageView.image = [UIImage imageNamed:@"input_vaild"];
     }
-    else if (status == ZYVerifyTextFieldStatusFail) {
+    else if (status == MBVerifyTextFieldStatusFail) {
         bt.iconImageView.image = [UIImage imageNamed:@"input_invaild"];
         self.verifyFaildNoticeView.hidden = NO;
     }
@@ -66,10 +66,10 @@
 
         if (!(operation.isCancelled || operation.isFinished)) {
             self.lastCheckString = self.text;
-            self.status = ZYVerifyTextFieldStatusChecking;
+            self.status = MBVerifyTextFieldStatusChecking;
         }
         else {
-            self.status = ZYVerifyTextFieldStatusNone;
+            self.status = MBVerifyTextFieldStatusNone;
         }
         _operation = operation;
     }

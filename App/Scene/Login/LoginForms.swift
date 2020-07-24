@@ -30,7 +30,7 @@ internal class LoginSigninFormScene: UITableViewController {
 internal class LoginMobileVerifyCodeScene: UITableViewController {
     @IBOutlet weak var mobileField: TextField!
     @IBOutlet weak var codeField: TextField!
-    @IBOutlet weak var sendCodeButton: ZYSMSCodeSendButton!
+    @IBOutlet weak var sendCodeButton: MBCodeSendButton!
     @IBOutlet weak var submitButton: UIButton!
 }
 
@@ -46,7 +46,7 @@ internal class LoginRegisterFormScene: UITableViewController {
     @IBOutlet weak var emailField: TextField?
     @IBOutlet weak var isEmailButton: UIButton!
     @IBOutlet weak var codeField: TextField?
-    @IBOutlet weak var sendCodeButton: ZYSMSCodeSendButton?
+    @IBOutlet weak var sendCodeButton: MBCodeSendButton?
     @IBOutlet weak var passwordField: TextField!
     @IBOutlet weak var passwordField2: TextField!
     @IBOutlet weak var submitButton: UIButton!
@@ -57,23 +57,24 @@ internal class LoginRegisterFormScene: UITableViewController {
 
     func updateUI(isEmail: Bool) {
         isEmailButton.isSelected = isEmail
-        tableView.reloadSections(IndexSet(arrayLiteral: 1), with: .automatic)
+        tableView.reloadSections(IndexSet(arrayLiteral: userIDSection), with: .automatic)
     }
 
     // 静态 UITableViewController 也可做 cell 的动态显隐
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 1 {
+        if section == userIDSection {
             return 1
         }
         return super.tableView(tableView, numberOfRowsInSection: section)
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 1 {
+        if indexPath.section == userIDSection {
             return isEmailButton.isSelected ? emailCell : mobileCell
         }
         return super.tableView(tableView, cellForRowAt: indexPath)
     }
 
+    private let userIDSection = 1
     @IBOutlet weak var mobileCell: UITableViewCell!
     @IBOutlet weak var emailCell: UITableViewCell!
 }
@@ -82,7 +83,7 @@ internal class LoginRegisterFormScene: UITableViewController {
 internal class LoginPasswordResetFormScene: UITableViewController {
     @IBOutlet weak var mobileField: TextField!
     @IBOutlet weak var codeField: TextField!
-    @IBOutlet weak var sendCodeButton: ZYSMSCodeSendButton!
+    @IBOutlet weak var sendCodeButton: MBCodeSendButton!
     @IBOutlet weak var passwordField: TextField!
     @IBOutlet weak var passwordField2: TextField!
     @IBOutlet weak var submitButton: UIButton!

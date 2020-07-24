@@ -1,12 +1,12 @@
 
-#import "ZYSMSCodeSendButton.h"
+#import "MBCodeSendButton.h"
 #import <RFAlpha/RFTimer.h>
 
-@interface ZYSMSCodeSendButton ()
+@interface MBCodeSendButton ()
 @property RFTimer *timer;
 @end
 
-@implementation ZYSMSCodeSendButton
+@implementation MBCodeSendButton
 
 - (void)dealloc {
     [self.timer invalidate];

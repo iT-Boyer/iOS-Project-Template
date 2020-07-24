@@ -1,5 +1,5 @@
 /*
- ZYSkyImageView
+ MBSkyImageView
 
  Copyright © 2018, 2020 RFUI.
  Copyright © 2014-2015 Beijing ZhiYun ZhiYuan Technology Co., Ltd.
@@ -8,7 +8,7 @@
  The MIT License
  https://opensource.org/licenses/MIT
  */
-#import "ZYImageView.h"
+#import "MBImageView.h"
 
 // @MBDependency:1
 /**
@@ -16,7 +16,7 @@
 
  原理是随着 scrollView 的 contentOffset Y 轴变化而调整 view 的高度
  */
-@interface ZYSkyImageView : ZYImageView <
+@interface MBSkyImageView : MBImageView <
     RFInitializing
 >
 

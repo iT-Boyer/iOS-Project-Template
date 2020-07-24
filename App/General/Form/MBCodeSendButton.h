@@ -1,5 +1,5 @@
 /*!
- ZYSMSCodeSendButton
+ MBCodeSendButton
  
  Copyright © 2018, 2020 RFUI.
  Copyright © 2014 Beijing ZhiYun ZhiYuan Technology Co., Ltd.
@@ -24,7 +24,7 @@
  5. 短信发送成功后调用 froze 方法
  
  */
-@interface ZYSMSCodeSendButton : MBButton
+@interface MBCodeSendButton : MBButton
 
 /**
  发送短信后显示的文字

@@ -16,7 +16,7 @@ class LoginFormBaseViewController: UIViewController, LoginVCs {
     /// 发送验证码相关的信息
     /// 返回 nil 不执行发送
     /// 因为 onSendCode() action 形式太固定了，抽出一层避免反复写同样的逻辑
-    func sendCodeContext() -> (apiName: String, requestParameters: [String: Any], sendCodeButton: ZYSMSCodeSendButton?)? {
+    func sendCodeContext() -> (apiName: String, requestParameters: [String: Any], sendCodeButton: MBCodeSendButton?)? {
         // swiftlint:disable:previous unavailable_function
         fatalError("需子类重载")
     }
@@ -49,7 +49,7 @@ class WelcomeViewController: LoginFormBaseViewController {
         MBSwift.cast(children.first, as: LoginMobileVerifyCodeScene.self)
     }
 
-    override func sendCodeContext() -> (apiName: String, requestParameters: [String: Any], sendCodeButton: ZYSMSCodeSendButton?)? {
+    override func sendCodeContext() -> (apiName: String, requestParameters: [String: Any], sendCodeButton: MBCodeSendButton?)? {
         guard let mobile = form.mobileField?.vaildFieldText() else {
             return nil
         }
@@ -124,7 +124,7 @@ class LoginRegisterViewController: LoginFormBaseViewController {
         MBSwift.cast(children.first, as: LoginRegisterFormScene.self)
     }
 
-    override func sendCodeContext() -> (apiName: String, requestParameters: [String: Any], sendCodeButton: ZYSMSCodeSendButton?)? {
+    override func sendCodeContext() -> (apiName: String, requestParameters: [String: Any], sendCodeButton: MBCodeSendButton?)? {
         var parameters = [String: Any]()
         if form.isEmailButton.isSelected {
             guard let email = form.emailField?.vaildFieldText() else {
@@ -191,7 +191,7 @@ class PasswordResetMobileViewController: LoginFormBaseViewController {
         MBSwift.cast(children.first, as: LoginMobileVerifyCodeScene.self)
     }
 
-    override func sendCodeContext() -> (apiName: String, requestParameters: [String: Any], sendCodeButton: ZYSMSCodeSendButton?)? {
+    override func sendCodeContext() -> (apiName: String, requestParameters: [String: Any], sendCodeButton: MBCodeSendButton?)? {
         guard let mobile = form.mobileField?.vaildFieldText() else {
             return nil
         }

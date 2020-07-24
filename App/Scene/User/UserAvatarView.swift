@@ -6,7 +6,7 @@
 /**
  用户头像 view
  */
-class UserAvatarView: ZYImageView {
+class UserAvatarView: MBImageView {
     @objc var item: UserEntity? {
         didSet {
             imageURL = item?.avatar

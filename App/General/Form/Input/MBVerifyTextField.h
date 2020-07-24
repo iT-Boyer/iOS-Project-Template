@@ -1,7 +1,7 @@
 /*
- ZYVerifyTextField
+ MBVerifyTextField
  
- Copyright © 2018 RFUI.
+ Copyright © 2018, 2020 RFUI.
  Copyright © 2014, 2016 Beijing ZhiYun ZhiYuan Technology Co., Ltd.
  https://github.com/BB9z/iOS-Project-Template
  
@@ -12,11 +12,11 @@
 #import "MBTextField.h"
 #import "RFRefreshButton.h"
 
-typedef NS_ENUM(short, ZYVerifyTextFieldStatus) {
-    ZYVerifyTextFieldStatusNone = 0,
-    ZYVerifyTextFieldStatusChecking,
-    ZYVerifyTextFieldStatusSuccess,
-    ZYVerifyTextFieldStatusFail,
+typedef NS_ENUM(short, MBVerifyTextFieldStatus) {
+    MBVerifyTextFieldStatusNone = 0,
+    MBVerifyTextFieldStatusChecking,
+    MBVerifyTextFieldStatusSuccess,
+    MBVerifyTextFieldStatusFail,
 };
 
 // @MBDependency:1
@@ -24,10 +24,10 @@ typedef NS_ENUM(short, ZYVerifyTextFieldStatus) {
  失去焦点后异步验证用户输入是否有效
 
  */
-@interface ZYVerifyTextField : MBTextField
+@interface MBVerifyTextField : MBTextField
 
 /// 切换属性以切换外观
-@property (nonatomic) ZYVerifyTextFieldStatus status;
+@property (nonatomic) MBVerifyTextFieldStatus status;
 
 /**
  设置该对象会标记为开始请求

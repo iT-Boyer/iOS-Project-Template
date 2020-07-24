@@ -1,10 +1,10 @@
 
-#import "ZYSkyHeaderView.h"
+#import "MBSkyHeaderView.h"
 
-@interface ZYSkyHeaderView ()
+@interface MBSkyHeaderView ()
 @end
 
-@implementation ZYSkyHeaderView
+@implementation MBSkyHeaderView
 
 - (void)onInit {
     [super onInit];

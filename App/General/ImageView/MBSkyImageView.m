@@ -1,13 +1,13 @@
 
-#import "ZYSkyImageView.h"
+#import "MBSkyImageView.h"
 #import <RFAlpha/RFKVOWrapper.h>
 #import <RFKit/UIView+RFAnimate.h>
 
-@interface ZYSkyImageView ()
+@interface MBSkyImageView ()
 @property (strong, nonatomic) id scrollObserver;
 @end
 
-@implementation ZYSkyImageView
+@implementation MBSkyImageView
 RFInitializingRootForUIView
 
 - (void)onInit {
@@ -28,7 +28,7 @@ RFInitializingRootForUIView
         _scrollView = scrollView;
 
         if (scrollView) {
-            self.scrollObserver = [scrollView RFAddObserver:self forKeyPath:@keypath(scrollView, contentOffset) options:NSKeyValueObservingOptionNew queue:nil block:^(ZYSkyImageView *observer, NSDictionary *change) {
+            self.scrollObserver = [scrollView RFAddObserver:self forKeyPath:@keypath(scrollView, contentOffset) options:NSKeyValueObservingOptionNew queue:nil block:^(MBSkyImageView *observer, NSDictionary *change) {
                 [observer updateContentOffset];
             }];
         }

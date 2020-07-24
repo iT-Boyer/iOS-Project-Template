@@ -1,5 +1,5 @@
 /*
- MBSceneStackView
+ MBBottomLayoutView
  
  Copyright © 2019 RFUI.
  https://github.com/BB9z/iOS-Project-Template
