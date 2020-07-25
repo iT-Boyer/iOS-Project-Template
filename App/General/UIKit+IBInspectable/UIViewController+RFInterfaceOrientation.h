@@ -1,7 +1,7 @@
 /*
  UIViewController+RFInterfaceOrientation
  
- Copyright © 2018 RFUI.
+ Copyright © 2018, 2020 RFUI.
  https://github.com/BB9z/iOS-Project-Template
  
  The MIT License
@@ -15,6 +15,7 @@
 @interface UIViewController (RFInterfaceOrientation)
 
 /**
+ 未设置，系统默认
  0 锁定竖屏
  1 锁定横屏
  2 支持所有方向

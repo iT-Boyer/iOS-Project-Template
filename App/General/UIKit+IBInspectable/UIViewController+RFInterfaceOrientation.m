@@ -1,8 +1,14 @@
 
 #import "UIViewController+RFInterfaceOrientation.h"
+#import <RFAlpha/RFSwizzle.h>
 #import <objc/runtime.h>
 
 @implementation UIViewController (RFInterfaceOrientation)
+
++ (void)load {
+    // @bug(iOS 13): 之前的系统不需要 swizzle，category 里重载就行
+    RFSwizzleInstanceMethod(UIViewController.class, @selector(supportedInterfaceOrientations), @selector(_rf_supportedInterfaceOrientations));
+}
 
 static char _rf_category_RFInterfaceOrientation;
 
@@ -17,8 +23,10 @@ static char _rf_category_RFInterfaceOrientation;
     return objc_getAssociatedObject(self, &_rf_category_RFInterfaceOrientation) != nil;
 }
 
-- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
-    //    if (vc.RFInterfaceOrientationSet) {
+- (UIInterfaceOrientationMask)_rf_supportedInterfaceOrientations {
+    if (!self.RFInterfaceOrientationSet) {
+        return self._rf_supportedInterfaceOrientations;
+    }
     NSInteger o = self.RFInterfaceOrientation;
     if (o == 1) {
         return UIInterfaceOrientationMaskLandscape;
@@ -27,8 +35,6 @@ static char _rf_category_RFInterfaceOrientation;
         return UIInterfaceOrientationMaskAll;
     }
     return UIInterfaceOrientationMaskPortrait|UIInterfaceOrientationMaskPortraitUpsideDown;
-    //    }
-    //    return super.supportedInterfaceOrientations;
 }
 
 @end
