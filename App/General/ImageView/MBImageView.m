@@ -1,10 +1,8 @@
 
 #import "MBImageView.h"
-#import "ImageEntity.h"
 #import "debug.h"
 #import <SDWebImage/SDWebImageManager.h>
 #import <SDWebImage/UIView+WebCacheOperation.h>
-
 
 @interface MBImageView ()
 @property NSOperation *_dowloadOperation;
@@ -12,7 +10,6 @@
 @property NSString *_completedImageURL;
 @property MBGeneralCallback complation;
 @property NSURL *_urlForDownloadFinishCallbackVerifying;
-@property BOOL _hasLayoutOnce;
 @end
 
 @implementation MBImageView
@@ -44,13 +41,6 @@ RFInitializingRootForUIView
     }
 }
 
-- (void)layoutSubviews {
-    [super layoutSubviews];
-    if (!self._hasLayoutOnce) {
-        self._hasLayoutOnce = YES;
-    }
-}
-
 - (void)didMoveToWindow {
     [super didMoveToWindow];
     if (self.disableDownloadPauseWhenRemoveFromWindow) return;
@@ -78,18 +68,9 @@ RFInitializingRootForUIView
     _imageURL = imageURL.copy;
     self.image = self.placeholderImage;
     if (imageURL) {
-        dispatch_block_t startLoadingBlock = ^(){
-            if (self.window) {
-                self._downloadingImageURL = imageURL;
-            };
+        if (self.window) {
+            self._downloadingImageURL = imageURL;
         };
-
-        if (self._hasLayoutOnce) {
-            startLoadingBlock();
-        }
-        else {
-            dispatch_after_seconds(0, startLoadingBlock);
-        }
     }
     if (self._downloadingImageURL != imageURL) {
         self._downloadingImageURL = nil;
@@ -111,30 +92,16 @@ RFInitializingRootForUIView
     }
     __downloadingImageURL = imageURL;
     if (imageURL) {
-        @weakify(self);
-        [ImageEntity fetchCahcedImageWithImagePath:imageURL preferredPixelWidth:[ImageEntity pixelWidthOfView:self] complation:^(UIImage * _Nullable cachedImage) {
-            @strongify(self);
-            if (!self) return;
-            if (![imageURL isEqualToString:self.imageURL]) return;
-
-            if (cachedImage) {
-                self.image = cachedImage;
-                if (self.complation) {
-                    self.complation(YES, cachedImage, nil);
-                }
-            }
-            [self loadImageFromRemoteWithURL:imageURL];
-        }];
+        [self loadImageFromRemoteWithURL:imageURL];
     }
 }
 
 - (void)loadImageFromRemoteWithURL:(NSString *)imageURL {
-    RFAssert(self._hasLayoutOnce || self.width != 1000, @"只有布局过才知道需要加载多大的图片");
-    NSURL *url = [ImageEntity resizedImageURLWithURLString:imageURL preferringView:self];
+    NSURL *url = [NSURL.alloc initWithString:imageURL];
     self._urlForDownloadFinishCallbackVerifying = url;
 
     @weakify(self);
-    self._dowloadOperation = (id)[SDWebImageManager.sharedManager loadImageWithURL:url options:SDWebImageHighPriority progress:nil completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, SDImageCacheType cacheType, BOOL finished, NSURL * _Nullable imageURL) {
+    self._dowloadOperation = (id)[SDWebImageManager.sharedManager loadImageWithURL:url options:(SDWebImageOptions)self.sdImageLoadOptions progress:nil completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, SDImageCacheType cacheType, BOOL finished, NSURL * _Nullable imageURL) {
         @strongify(self);
         if (!self) return;
 
@@ -161,11 +128,11 @@ RFInitializingRootForUIView
     }];
 }
 
-- (void)setImageWithURLString:(NSString *)path placeholderImage:(UIImage *)placeholder {
-    NSAssert(false, @"请使用 MBImageView 的方法");
+- (NSUInteger)sdImageLoadOptions {
+    return self.imageLoadInLowPriority ? SDWebImageLowPriority : SDWebImageHighPriority;
 }
 
-#pragma mark -
+#pragma mark - 尺寸修正
 
 - (void)setBounds:(CGRect)bounds {
     if (self.intrinsicContentSizeFixEnabled) {

@@ -5,7 +5,6 @@
 #import "debug.h"
 //#import "API+FileUpload.h"
 #import "APIJSONResponseSerializer.h"
-#import "ImageEntity.h"
 //#import "MBAudioRecorder.h"
 //#import "MBBadgeLabel.h"
 #import "MBButton.h"
