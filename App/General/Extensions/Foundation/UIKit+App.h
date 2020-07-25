@@ -41,7 +41,7 @@ FOUNDATION_EXPORT void limitedOffsetChange(double *_Nonnull source, double targe
 #import "UIView+App.h"
 #import "UIViewController+App.h"
 
-#import "UIImage+ZYImageSet.h"
+#import "UIImage+MBImageSet.h"
 #endif // !TARGET_OS_WATCH
 
 /**

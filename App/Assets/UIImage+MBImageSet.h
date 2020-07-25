@@ -1,5 +1,5 @@
 /*
- UIImage+ZYImageSet
+ UIImage+MBImageSet
  
  Copyright © 2018 RFUI.
  Copyright © 2016 Beijing ZhiYun ZhiYuan Technology Co., Ltd.
@@ -21,7 +21,7 @@
  
  集合名+标识符的方式，加入 zs 前缀一是便于识别这是一套图，二是可以保证在搜索时结果准确。
  */
-@interface UIImage (ZYImageSet)
+@interface UIImage (MBImageSet)
 
 /**
  根据标识符取一套图中的相应图片

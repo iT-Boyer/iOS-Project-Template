@@ -1,8 +1,8 @@
 
-#import "UIImage+ZYImageSet.h"
+#import "UIImage+MBImageSet.h"
 #import "debug.h"
 
-@implementation UIImage (ZYImageSet)
+@implementation UIImage (MBImageSet)
 
 + (nullable UIImage *)imageWithSetName:(nonnull NSString *)set identifier:(nonnull id)identifier {
     NSParameterAssert(set);

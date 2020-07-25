@@ -32,7 +32,7 @@
 		D519A0CF2434883400E26A64 /* MBMaskHiddenView.m in Sources */ = {isa = PBXBuildFile; fileRef = D519A0CE2434883300E26A64 /* MBMaskHiddenView.m */; };
 		D519A0D82436310900E26A64 /* NSObject+MBSwift.m in Sources */ = {isa = PBXBuildFile; fileRef = D519A0D72436310900E26A64 /* NSObject+MBSwift.m */; };
 		D52A04E520F85F2600F535ED /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52A04E420F85F2600F535ED /* Button.swift */; };
-		D52EAB652043B6B3007219E0 /* UIImage+ZYImageSet.m in Sources */ = {isa = PBXBuildFile; fileRef = D52EAB602043B6B3007219E0 /* UIImage+ZYImageSet.m */; };
+		D52EAB652043B6B3007219E0 /* UIImage+MBImageSet.m in Sources */ = {isa = PBXBuildFile; fileRef = D52EAB602043B6B3007219E0 /* UIImage+MBImageSet.m */; };
 		D52EAB672043B6B3007219E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D52EAB622043B6B3007219E0 /* Assets.xcassets */; };
 		D52EADEB2043B983007219E0 /* debug.m in Sources */ = {isa = PBXBuildFile; fileRef = D52EADE72043B983007219E0 /* debug.m */; };
 		D52EADF02043BA3D007219E0 /* ShortCuts.m in Sources */ = {isa = PBXBuildFile; fileRef = D52EADEE2043BA3D007219E0 /* ShortCuts.m */; };
@@ -236,10 +236,10 @@
 		D519A0D62436310900E26A64 /* NSObject+MBSwift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MBSwift.h"; sourceTree = "<group>"; };
 		D519A0D72436310900E26A64 /* NSObject+MBSwift.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MBSwift.m"; sourceTree = "<group>"; };
 		D52A04E420F85F2600F535ED /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
-		D52EAB602043B6B3007219E0 /* UIImage+ZYImageSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ZYImageSet.m"; sourceTree = "<group>"; };
+		D52EAB602043B6B3007219E0 /* UIImage+MBImageSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MBImageSet.m"; sourceTree = "<group>"; };
 		D52EAB612043B6B3007219E0 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D52EAB622043B6B3007219E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		D52EAB632043B6B3007219E0 /* UIImage+ZYImageSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ZYImageSet.h"; sourceTree = "<group>"; };
+		D52EAB632043B6B3007219E0 /* UIImage+MBImageSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MBImageSet.h"; sourceTree = "<group>"; };
 		D52EADE42043B983007219E0 /* debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = debug.h; sourceTree = "<group>"; };
 		D52EADE52043B983007219E0 /* alpha.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = alpha.entitlements; sourceTree = "<group>"; };
 		D52EADE62043B983007219E0 /* debug.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = debug.entitlements; sourceTree = "<group>"; };
@@ -703,8 +703,8 @@
 			children = (
 				D52EAB622043B6B3007219E0 /* Assets.xcassets */,
 				D52EAB612043B6B3007219E0 /* README.md */,
-				D52EAB632043B6B3007219E0 /* UIImage+ZYImageSet.h */,
-				D52EAB602043B6B3007219E0 /* UIImage+ZYImageSet.m */,
+				D52EAB632043B6B3007219E0 /* UIImage+MBImageSet.h */,
+				D52EAB602043B6B3007219E0 /* UIImage+MBImageSet.m */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -1667,7 +1667,7 @@
 				D54F0E542199BB22003370F4 /* UIButton+App.swift in Sources */,
 				D5EE51282043DAA2009148B3 /* UICollectionView+App.m in Sources */,
 				D579495F21788D67002E1C4A /* UIDevice+App.swift in Sources */,
-				D52EAB652043B6B3007219E0 /* UIImage+ZYImageSet.m in Sources */,
+				D52EAB652043B6B3007219E0 /* UIImage+MBImageSet.m in Sources */,
 				D5EE520D2043F61D009148B3 /* UIImageView+MBRenderingMode.m in Sources */,
 				D5EE51322043DAA2009148B3 /* UIKit+App.m in Sources */,
 				D5DB4C22241E39EA00832A0A /* UIKit+DynamicType.m in Sources */,
