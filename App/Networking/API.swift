@@ -1,12 +1,7 @@
-/*
-API.swift
-
-Copyright © 2020 RFUI.
-https://github.com/BB9z/iOS-Project-Template
-
-The MIT License
-https://opensource.org/licenses/MIT
-*/
+//
+//  API.swift
+//  App
+//
 
 /**
 API
@@ -37,25 +32,7 @@ public class API: MBAPI {
         defineManager.defaultResponseSerializer = responseSerializer
 
         // 针对演示用接口做的调整，正式项目请移除这部分代码
-        if defineManager.defaultDefine?.baseURL?.host == "bb9z.github.io" {
-            // 演示接口只支持 GET 方法，且需要附加 JSON 后缀
-            defineManager.defines.forEach { define in
-                if var path = define.path {
-                    // 非相对路径，意味着是外部接口，跳过
-                    if path.hasPrefix("http") { return }
-
-                    if define.responseExpectType == .objects {
-                        // 列表请求，改造分页参数
-                        path = (path as NSString).appendingPathComponent("{page}")
-                    }
-
-                    define.path = (path as NSString).appendingPathExtension("json")
-                }
-                define.method = "GET"
-            }
-        } else {
-            debugPrint("⚠️ 请移除演示代码 \(#function)")
-        }
+        debugAdjustTestAPI()
 
         modelTransformer = RFAPIJSONModelTransformer()
     }
@@ -66,7 +43,7 @@ public class API: MBAPI {
             // 请求取消不提示
             return false
         }
-        
+
         if define.path?.hasPrefix("http") == true {
             // define 里写的绝对路径，意味着不是我们主要的业务逻辑
             if let cb = failure {
@@ -133,6 +110,28 @@ public class API: MBAPI {
     override public func isSuccessResponse(_ responseObjectRef: UnsafeMutablePointer<AnyObject?>, error: NSErrorPointer) -> Bool {
         // TODO: 判断是否是成功响应
         return true
+    }
+
+    private func debugAdjustTestAPI() {
+        guard defineManager.defaultDefine?.baseURL?.host == "bb9z.github.io" else {
+            debugPrint("⚠️ 请移除演示代码 \(#function)")
+            return
+        }
+        // 演示接口只支持 GET 方法，且需要附加 JSON 后缀
+        defineManager.defines.forEach { define in
+            if var path = define.path {
+                // 非相对路径，意味着是外部接口，跳过
+                if path.hasPrefix("http") { return }
+
+                if define.responseExpectType == .objects {
+                    // 列表请求，改造分页参数
+                    path = (path as NSString).appendingPathComponent("{page}")
+                }
+
+                define.path = (path as NSString).appendingPathExtension("json")
+            }
+            define.method = "GET"
+        }
     }
 }
 
