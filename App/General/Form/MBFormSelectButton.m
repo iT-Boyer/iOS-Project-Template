@@ -2,8 +2,6 @@
 #import "MBFormSelectButton.h"
 #import "UIKit+App.h"
 
-@interface MBFormSelectButton ()
-@end
 
 @implementation MBFormSelectButton
 

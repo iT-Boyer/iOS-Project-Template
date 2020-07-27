@@ -7,6 +7,7 @@
 @implementation MBDatePickerViewController
 
 + (nonnull instancetype)newFromStoryboard {
+    // 从 xib 载入
     return [[self alloc] init];
 }
 

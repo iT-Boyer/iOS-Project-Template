@@ -1,16 +1,16 @@
-/*!
-    MBFormSelectListViewController
-    v 2.0
+/*
+ MBFormSelectListViewController
 
-    Copyright © 2014 Beijing ZhiYun ZhiYuan Information Technology Co., Ltd.
-    Copyright © 2014 Chinamobo Co., Ltd.
-    https://github.com/Chinamobo/iOS-Project-Template
+ Copyright © 2020 RFUI.
+ Copyright © 2014 Beijing ZhiYun ZhiYuan Information Technology Co., Ltd.
+ Copyright © 2014 Chinamobo Co., Ltd.
+ https://github.com/BB9z/iOS-Project-Template
 
-    The MIT License
-    https://opensource.org/licenses/MIT
+ The MIT License
+ https://opensource.org/licenses/MIT
  */
-
-#import "Common.h"
+#import <RFKit/RFRuntime.h>
+#import <RFInitializing/RFInitializing.h>
 
 @class RFTimer;
 
@@ -20,6 +20,7 @@ typedef NS_ENUM(short, MBFormSelectListReturnType) {
     MBFormSelectListReturnTypeNoAction
 };
 
+// @MBDependency:1 需要升级
 /**
  选择列表控制器
  
@@ -52,7 +53,7 @@ typedef NS_ENUM(short, MBFormSelectListReturnType) {
  */
 @property (strong, nonatomic) NSArray *filteredItems;
 
-/** 
+/**
  该属性用于设置已选项，不会随 tableView 选择而变化
  
  数组中的元素是 items 中已选择的对象

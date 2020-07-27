@@ -32,7 +32,7 @@
 /**
  安全地替换数组中指定位置的元素
  
- index越界或者anObject为nil时不进行任何操作
+ index 越界或者 anObject 为空时不进行任何操作
  */
 - (void)rf_replaceObjectAtIndex:(NSUInteger)index withObject:(nullable id)anObject;
 
@@ -40,7 +40,6 @@
 /**
  将数组元素从一个位置移动另一个位置
  */
-
 - (void)moveObjectAtIndex:(NSUInteger)fromIndex toIndex:(NSUInteger)toIndex;
 
 @end

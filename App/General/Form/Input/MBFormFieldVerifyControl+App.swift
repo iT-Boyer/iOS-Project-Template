@@ -12,6 +12,7 @@ extension MBFormFieldVerifyControl {
         }
         set {
             guard newValue else { return }
+            // 延时，等相关属性全部从 nib 中载入
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { [weak self] in
                 guard let sf = self else { return }
                 guard let button = sf.invaildSubmitButton else {

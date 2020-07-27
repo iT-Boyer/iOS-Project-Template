@@ -29,7 +29,7 @@ extension UIDevice {
         switch type {
         case
         // REF: https://en.wikipedia.org/wiki/Template:Cellular_network_standards
-        // 3G 早起技术，不能算高速网络
+        // 3G 早期技术，不能算高速网络
         CTRadioAccessTechnologyCDMAEVDORev0,
 
         // 属于 3G 家族，但 2G 速率
