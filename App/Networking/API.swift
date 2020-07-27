@@ -39,7 +39,7 @@ public class API: MBAPI {
 
     override public func generalHandlerForError(_ error: Error, define: RFAPIDefine, task: RFAPITask, failure: RFAPIRequestFailureCallback? = nil) -> Bool {
         let nsError = Self.transformURLError(error as NSError)
-        if nsError.code != NSURLErrorCancelled {
+        if nsError.code == NSURLErrorCancelled {
             // 请求取消不提示
             return false
         }

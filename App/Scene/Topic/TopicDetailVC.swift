@@ -36,10 +36,12 @@ class TopicDetailViewController: UIViewController, TopicEntityUpdating {
                 sf.updateUI(item: sf.item)
             }
             c.failure { [weak self] _, error in
+                guard let sf = self else { return }
                 let e = error as NSError
                 if e.code == 404 {
                     AppHUD().showInfoStatus("帖子已移除或不存在")
-                    AppNavigationController()?.removeViewController(self, animated: true)
+                    sf.navigationController?.removeViewController(sf, animated: true)
+                    return
                 }
                 AppHUD().alertError(error, title: nil, fallbackMessage: "帖子信息获取失败")
             }
