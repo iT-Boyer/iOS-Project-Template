@@ -85,7 +85,6 @@
 		D5B1906D2404AFDC0076CD61 /* SearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B1906C2404AFDC0076CD61 /* SearchTextField.swift */; };
 		D5B49EC31C4111B600847925 /* MBFixWidthImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B49EBB1C4111B600847925 /* MBFixWidthImageView.m */; };
 		D5B49EC41C4111B600847925 /* MBMultiLineLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B49EBD1C4111B600847925 /* MBMultiLineLabel.m */; };
-		D5B49EC51C4111B600847925 /* MBCollapsibleView.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B49EBF1C4111B600847925 /* MBCollapsibleView.m */; };
 		D5B49EC61C4111B600847925 /* MBLayoutConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B49EC11C4111B600847925 /* MBLayoutConstraint.m */; };
 		D5B49F021C41133A00847925 /* MBCollectionViewArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B49ECB1C41133900847925 /* MBCollectionViewArrayDataSource.m */; };
 		D5B49F031C41133A00847925 /* MBCollectionViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B49ECD1C41133900847925 /* MBCollectionViewDataSource.m */; };
@@ -319,8 +318,6 @@
 		D5B49EBB1C4111B600847925 /* MBFixWidthImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBFixWidthImageView.m; sourceTree = "<group>"; };
 		D5B49EBC1C4111B600847925 /* MBMultiLineLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBMultiLineLabel.h; sourceTree = "<group>"; };
 		D5B49EBD1C4111B600847925 /* MBMultiLineLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBMultiLineLabel.m; sourceTree = "<group>"; };
-		D5B49EBE1C4111B600847925 /* MBCollapsibleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBCollapsibleView.h; sourceTree = "<group>"; };
-		D5B49EBF1C4111B600847925 /* MBCollapsibleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBCollapsibleView.m; sourceTree = "<group>"; };
 		D5B49EC01C4111B600847925 /* MBLayoutConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBLayoutConstraint.h; sourceTree = "<group>"; };
 		D5B49EC11C4111B600847925 /* MBLayoutConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBLayoutConstraint.m; sourceTree = "<group>"; };
 		D5B49ECA1C41133900847925 /* MBCollectionViewArrayDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBCollectionViewArrayDataSource.h; sourceTree = "<group>"; };
@@ -986,8 +983,6 @@
 				D5E8057F226F403D00901C41 /* MBBottomLayoutView.m */,
 				D5A3312121527BA100B0FD5B /* MBCellStackView.h */,
 				D5A3311F21527BA100B0FD5B /* MBCellStackView.m */,
-				D5B49EBE1C4111B600847925 /* MBCollapsibleView.h */,
-				D5B49EBF1C4111B600847925 /* MBCollapsibleView.m */,
 				D5EE51A32043F612009148B3 /* MBDesignView.h */,
 				D5EE51A72043F612009148B3 /* MBDesignView.m */,
 				D5A3312221527BA100B0FD5B /* MBFlipCollapsibleView.h */,
@@ -1533,7 +1528,6 @@
 				D5E80580226F403D00901C41 /* MBBottomLayoutView.m in Sources */,
 				D5A3312321527BA100B0FD5B /* MBCellStackView.m in Sources */,
 				D5EE517B2043F5E6009148B3 /* MBCodeSendButton.m in Sources */,
-				D5B49EC51C4111B600847925 /* MBCollapsibleView.m in Sources */,
 				D5DB4C1C241E243900832A0A /* MBCollectionListDisplayer.m in Sources */,
 				D5B49F0B1C41133A00847925 /* MBCollectionRefreshFooterView.m in Sources */,
 				D5B49F071C41133A00847925 /* MBCollectionView.m in Sources */,
