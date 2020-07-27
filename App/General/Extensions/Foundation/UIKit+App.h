@@ -1,17 +1,17 @@
 /*
  UIKit+App
  
- Copyright © 2018 RFUI.
+ Copyright © 2018, 2020 RFUI.
  Copyright © 2016-2017 Beijing ZhiYun ZhiYuan Technology Co., Ltd.
  Copyright © 2014 Chinamobo Co., Ltd.
  https://github.com/BB9z/iOS-Project-Template
 
  The MIT License
  https://opensource.org/licenses/MIT
- 
- 全局资源共享
- 
- 把可重复利用的资源放在这里
+ */
+
+/**
+ 全局引用常用扩展
  */
 
 #import <RFKit/RFKit.h>
@@ -19,15 +19,6 @@
 #import <RFKit/NSDateFormatter+RFKit.h>
 
 #pragma mark -
-
-FOUNDATION_EXPORT void limitedDouble(double *_Nonnull value, double min, double max);
-
-/**
- source 的值趋向 target，但限定变化幅度不得超过 limitation
-
- @param limitation 变化幅度，应为正值
- */
-FOUNDATION_EXPORT void limitedOffsetChange(double *_Nonnull source, double target, double limitation);
 
 #import "NSArray+App.h"
 #import "NSString+App.h"
@@ -38,7 +29,6 @@ FOUNDATION_EXPORT void limitedOffsetChange(double *_Nonnull source, double targe
 #import "UILabel+App.h"
 #import "UITableView+App.h"
 #import "UITextField+App.h"
-#import "UIView+App.h"
 #import "UIViewController+App.h"
 
 #import "UIImage+MBImageSet.h"

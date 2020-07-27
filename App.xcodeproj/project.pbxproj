@@ -29,7 +29,6 @@
 		D519A0C02434444200E26A64 /* MBShareManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D519A0BD2434444200E26A64 /* MBShareManager.m */; };
 		D519A0C22434444200E26A64 /* SharePanelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D519A0BF2434444200E26A64 /* SharePanelVC.swift */; };
 		D519A0CF2434883400E26A64 /* MBMaskHiddenView.m in Sources */ = {isa = PBXBuildFile; fileRef = D519A0CE2434883300E26A64 /* MBMaskHiddenView.m */; };
-		D519A0D82436310900E26A64 /* NSObject+MBSwift.m in Sources */ = {isa = PBXBuildFile; fileRef = D519A0D72436310900E26A64 /* NSObject+MBSwift.m */; };
 		D52A04E520F85F2600F535ED /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52A04E420F85F2600F535ED /* Button.swift */; };
 		D52EAB652043B6B3007219E0 /* UIImage+MBImageSet.m in Sources */ = {isa = PBXBuildFile; fileRef = D52EAB602043B6B3007219E0 /* UIImage+MBImageSet.m */; };
 		D52EAB672043B6B3007219E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D52EAB622043B6B3007219E0 /* Assets.xcassets */; };
@@ -130,9 +129,7 @@
 		D5EE51272043DAA2009148B3 /* UITextField+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE50F62043DAA1009148B3 /* UITextField+App.m */; };
 		D5EE51282043DAA2009148B3 /* UICollectionView+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE50F72043DAA1009148B3 /* UICollectionView+App.m */; };
 		D5EE512D2043DAA2009148B3 /* NSString+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE510A2043DAA1009148B3 /* NSString+App.m */; };
-		D5EE512E2043DAA2009148B3 /* UIView+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE510C2043DAA1009148B3 /* UIView+App.m */; };
 		D5EE512F2043DAA2009148B3 /* NSURL+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE510D2043DAA1009148B3 /* NSURL+App.m */; };
-		D5EE51322043DAA2009148B3 /* UIKit+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE51122043DAA1009148B3 /* UIKit+App.m */; };
 		D5EE51342043DAA2009148B3 /* MBObjectiveC.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE51182043DAA1009148B3 /* MBObjectiveC.m */; };
 		D5EE51372043DB7C009148B3 /* MBRootWrapperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE51362043DB7C009148B3 /* MBRootWrapperViewController.m */; };
 		D5EE51792043F5E6009148B3 /* MBSearchTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE51592043F5E4009148B3 /* MBSearchTextField.m */; };
@@ -224,8 +221,6 @@
 		D519A0BF2434444200E26A64 /* SharePanelVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharePanelVC.swift; sourceTree = "<group>"; };
 		D519A0CD2434883300E26A64 /* MBMaskHiddenView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBMaskHiddenView.h; sourceTree = "<group>"; };
 		D519A0CE2434883300E26A64 /* MBMaskHiddenView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBMaskHiddenView.m; sourceTree = "<group>"; };
-		D519A0D62436310900E26A64 /* NSObject+MBSwift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MBSwift.h"; sourceTree = "<group>"; };
-		D519A0D72436310900E26A64 /* NSObject+MBSwift.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MBSwift.m"; sourceTree = "<group>"; };
 		D52A04E420F85F2600F535ED /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		D52EAB602043B6B3007219E0 /* UIImage+MBImageSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MBImageSet.m"; sourceTree = "<group>"; };
 		D52EAB612043B6B3007219E0 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -384,7 +379,6 @@
 		D5EE50EC2043DAA1009148B3 /* UIViewController+App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+App.m"; sourceTree = "<group>"; };
 		D5EE50F22043DAA1009148B3 /* UITableView+App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+App.m"; sourceTree = "<group>"; };
 		D5EE50F32043DAA1009148B3 /* NSURL+App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+App.h"; sourceTree = "<group>"; };
-		D5EE50F42043DAA1009148B3 /* UIView+App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+App.h"; sourceTree = "<group>"; };
 		D5EE50F52043DAA1009148B3 /* NSString+App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+App.h"; sourceTree = "<group>"; };
 		D5EE50F62043DAA1009148B3 /* UITextField+App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+App.m"; sourceTree = "<group>"; };
 		D5EE50F72043DAA1009148B3 /* UICollectionView+App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+App.m"; sourceTree = "<group>"; };
@@ -394,10 +388,8 @@
 		D5EE51092043DAA1009148B3 /* UICollectionView+App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+App.h"; sourceTree = "<group>"; };
 		D5EE510A2043DAA1009148B3 /* NSString+App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+App.m"; sourceTree = "<group>"; };
 		D5EE510B2043DAA1009148B3 /* UITextField+App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+App.h"; sourceTree = "<group>"; };
-		D5EE510C2043DAA1009148B3 /* UIView+App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+App.m"; sourceTree = "<group>"; };
 		D5EE510D2043DAA1009148B3 /* NSURL+App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+App.m"; sourceTree = "<group>"; };
 		D5EE510E2043DAA1009148B3 /* UITableView+App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+App.h"; sourceTree = "<group>"; };
-		D5EE51122043DAA1009148B3 /* UIKit+App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIKit+App.m"; sourceTree = "<group>"; };
 		D5EE51132043DAA1009148B3 /* MBObjectiveC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBObjectiveC.h; sourceTree = "<group>"; };
 		D5EE51172043DAA1009148B3 /* UIKit+App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIKit+App.h"; sourceTree = "<group>"; };
 		D5EE51182043DAA1009148B3 /* MBObjectiveC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBObjectiveC.m; sourceTree = "<group>"; };
@@ -617,7 +609,6 @@
 				D54AFCE622BF8C440031559F /* Sequence+App.swift */,
 				D5F9F47E208D921200427201 /* String+App.swift */,
 				D5EE51172043DAA1009148B3 /* UIKit+App.h */,
-				D5EE51122043DAA1009148B3 /* UIKit+App.m */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -653,8 +644,6 @@
 				D501844D20F865D3009481D4 /* UITableView+App.swift */,
 				D5EE510B2043DAA1009148B3 /* UITextField+App.h */,
 				D5EE50F62043DAA1009148B3 /* UITextField+App.m */,
-				D5EE50F42043DAA1009148B3 /* UIView+App.h */,
-				D5EE510C2043DAA1009148B3 /* UIView+App.m */,
 				D5EE51042043DAA1009148B3 /* UIViewController+App.h */,
 				D5EE50EC2043DAA1009148B3 /* UIViewController+App.m */,
 			);
@@ -668,8 +657,6 @@
 				D5EE51132043DAA1009148B3 /* MBObjectiveC.h */,
 				D5EE51182043DAA1009148B3 /* MBObjectiveC.m */,
 				D588308A20CACB32002030C4 /* MBSwift.swift */,
-				D519A0D62436310900E26A64 /* NSObject+MBSwift.h */,
-				D519A0D72436310900E26A64 /* NSObject+MBSwift.m */,
 			);
 			path = Language;
 			sourceTree = "<group>";
@@ -1578,7 +1565,6 @@
 				D5740B56249C5316001CBCB2 /* MoreVC.swift in Sources */,
 				D55959D520ABA9B50019D733 /* NavigationController.swift in Sources */,
 				D5EE51192043DAA2009148B3 /* NSArray+App.m in Sources */,
-				D519A0D82436310900E26A64 /* NSObject+MBSwift.m in Sources */,
 				D588309020CACB33002030C4 /* NSPointArray+App.swift in Sources */,
 				D54F0E562199BCB2003370F4 /* NSRegularExpression+App.swift in Sources */,
 				D5EE512D2043DAA2009148B3 /* NSString+App.m in Sources */,
@@ -1605,14 +1591,12 @@
 				D579495F21788D67002E1C4A /* UIDevice+App.swift in Sources */,
 				D52EAB652043B6B3007219E0 /* UIImage+MBImageSet.m in Sources */,
 				D5EE520D2043F61D009148B3 /* UIImageView+MBRenderingMode.m in Sources */,
-				D5EE51322043DAA2009148B3 /* UIKit+App.m in Sources */,
 				D5DB4C22241E39EA00832A0A /* UIKit+DynamicType.m in Sources */,
 				D5EE511B2043DAA2009148B3 /* UILabel+App.m in Sources */,
 				D5EE51262043DAA2009148B3 /* UITableView+App.m in Sources */,
 				D501844F20F865D3009481D4 /* UITableView+App.swift in Sources */,
 				D5EE51272043DAA2009148B3 /* UITextField+App.m in Sources */,
 				D5C3CBF6217EEEDA0097CCD9 /* UITextView+ContainerInset.m in Sources */,
-				D5EE512E2043DAA2009148B3 /* UIView+App.m in Sources */,
 				D5EE51212043DAA2009148B3 /* UIViewController+App.m in Sources */,
 				D5EE51FA2043F613009148B3 /* UIViewController+NavigationAppearance.m in Sources */,
 				D5D9F5142071BA6500B6FE9B /* UIViewController+RFInterfaceOrientation.m in Sources */,
