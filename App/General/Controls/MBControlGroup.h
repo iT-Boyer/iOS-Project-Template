@@ -1,4 +1,4 @@
-/*!
+/*
  MBControlGroup
 
  Copyright © 2018-2020 RFUI.
@@ -57,7 +57,7 @@
 - (void)deselectControl:(nonnull UIControl *)control;
 
 /**
- 切换操作的最短间隔
+ 切换操作的最短间隔，防止用户连点
  
  非 0 时，如果当前切换距上一次切换的时间短于给定阈值，则取消当前切换；
  同时，这个限制只针对用户点击触发，通过代码设置当前选中不会被取消

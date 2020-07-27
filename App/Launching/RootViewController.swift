@@ -7,7 +7,7 @@
  应用顶层 vc
 
  嵌入主导航，这样如需遮盖导航的弹窗，可以加入到这里，比如启动闪屏、教程弹窗
- 有些基于 vc 样式的声明，基类里做了铰接处理
+ 基类里做了对 vc 样式声明的铰接处理
  */
 class RootViewController: MBRootWrapperViewController {
     override func viewDidLoad() {

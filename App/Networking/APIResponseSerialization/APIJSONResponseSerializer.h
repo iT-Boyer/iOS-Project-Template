@@ -1,18 +1,14 @@
 /*
  APIJSONResponseSerializer
  
- Copyright © 2018 RFUI.
- Copyright © 2014 Chinamobo Co., Ltd.
- https://github.com/BB9z/iOS-Project-Template
- 
- The MIT License
- https://opensource.org/licenses/MIT
+ 需按项目实际需求修改
  */
 
 #import "AFURLResponseSerialization.h"
 #import "MBModel.h"
 
-/** 统一的 API 接口解析器
+/**
+ 应用接口解析器
  
  这个解析器只适用于JSON接口，图像获取、文件下载等场景不适用
  
