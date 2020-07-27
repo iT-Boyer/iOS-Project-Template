@@ -31,7 +31,7 @@ class Account: MBUser {
             defer { objc_sync_exit(self) }
 
             if let ret = _information { return ret }
-            var account = AccountEntity(string: AppUserDefaultsShared().accountEntity, error: nil)
+            var account = AppUserDefaultsShared().accountEntity
             if account == nil {
                 AppUserDefaultsShared().accountEntity = nil
                 account = AccountEntity()
@@ -68,7 +68,7 @@ class Account: MBUser {
     private func persistentInfomationToStore() {
         guard isCurrent else { return }
         AppUserDefaultsShared().lastUserID = uid
-        AppUserDefaultsShared().accountEntity = information.toJSONString()
+        AppUserDefaultsShared().accountEntity = information
     }
 
     var token: String?
@@ -115,7 +115,7 @@ class Account: MBUser {
         defaults.lastUserID = user?.uid ?? 0
         #endif
         defaults.userToken = user?.token
-        defaults.accountEntity = user?.information.toJSONString()
+        defaults.accountEntity = user?.information
         if !defaults.synchronize() {
             // 实际项目遇到过 UserDefaults 无法存储的 bug，需要用户重启设备才行
             // 处理方式可以参考： https://github.com/BB9z/iOS-Project-Template/blob/4.1/App/Model/Account/Account.swift#L123-L127

@@ -12,9 +12,6 @@ _makeObjectProperty(previousVersion, setPreviousVersion)
 
 _makeIntegerProperty(launchCount, setLaunchCount)
 _makeIntegerProperty(launchCountCurrentVersion, setLaunchCountCurrentVersion)
-_makeObjectProperty(applicationLastBecomeActiveTime, setApplicationLastBecomeActiveTime)
-
-_makeObjectProperty(cachedLocation, setCachedLocation);
 
 #if MBUserStringUID
 _makeObjectProperty(lastUserID, setLastUserID);
@@ -28,12 +25,8 @@ _makeObjectProperty(lastUserID, setLastUserID);
     ClassSynchronize
 }
 #endif
-_makeObjectProperty(userAccount, setUserAccount);
-_makeObjectProperty(accountEntity, setAccountEntity);
+_makeModelProperty(accountEntity, setAccountEntity, AccountEntity);
 _makeObjectProperty(userToken, setUserToken);
-
-_makeObjectProperty(lastNotificationRecived, setLastNotificationRecived);
-_makeObjectProperty(lastNotificationRecivedTime, setLastNotificationRecivedTime);
 
 @end
 
@@ -49,6 +42,7 @@ _makeObjectProperty(lastNotificationRecivedTime, setLastNotificationRecivedTime)
     return self;
 }
 
+/// 版本迁移，移除旧的key
 - (void)updateFromVersion:(NSString *)currentVersion {
     // 前面的版本写当前版本
 //    if ([@"2.6.2" compare:currentVersion options:NSNumericSearch] == NSOrderedDescending) {
