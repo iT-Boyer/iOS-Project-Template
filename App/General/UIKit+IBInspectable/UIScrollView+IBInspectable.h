@@ -1,7 +1,7 @@
 /*
- UIScrollView+IBScrollsToTop
+ UIScrollView+IBInspectable
  
- Copyright © 2018 RFUI.
+ Copyright © 2018, 2020 RFUI.
  https://github.com/BB9z/iOS-Project-Template
  
  The MIT License
@@ -11,8 +11,8 @@
 #import "UIKit+IBInspectable.h"
 
 /**
- Stroyboard 中没提供这项的开关
+ Interface Builder 中没提供这项的开关
  */
-@interface UIScrollView (IBScrollsToTop)
+@interface UIScrollView (IBInspectable)
 @property (nonatomic) IBInspectable BOOL scrollsToTop;
 @end

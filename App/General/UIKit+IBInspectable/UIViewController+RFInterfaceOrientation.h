@@ -22,6 +22,7 @@
  */
 @property IBInspectable NSInteger RFInterfaceOrientation;
 
+/// 是否设置过 RFInterfaceOrientation 属性
 @property (readonly) BOOL RFInterfaceOrientationSet;
 
 @end

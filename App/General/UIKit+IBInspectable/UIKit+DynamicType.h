@@ -1,4 +1,4 @@
-/*!
+/*
  UIKit+DynamicType
 
  Copyright © 2020 RFUI.

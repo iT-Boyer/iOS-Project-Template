@@ -1,5 +1,5 @@
 
-#import "UIViewController+RFDNavigationAppearance.h"
+#import "UIViewController+NavigationAppearance.h"
 #import "MBNavigationController.h"
 #import <RFAlpha/RFSynthesizeCategoryProperty.h>
 #import <RFKit/NSDictionary+RFKit.h>

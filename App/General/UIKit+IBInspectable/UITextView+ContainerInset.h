@@ -11,5 +11,6 @@
 #import "UIKit+IBInspectable.h"
 
 @interface UITextView (ContainerInset)
+/// 修改 textContainerInset
 @property IBInspectable CGRect RFTextContainerInset;
 @end

@@ -10,6 +10,9 @@
 
 #import "UIKit+IBInspectable.h"
 
+/**
+ Interface Builder 中没提供这项的开关
+ */
 @interface UICollectionViewFlowLayout (IBInspectable)
 @property (nonatomic) IBInspectable CGSize estimatedItemSize;
 @end

@@ -1,7 +1,6 @@
 
 #import "MBSearchViewController.h"
 #import "ShortCuts.h"
-#import "UIViewController+RFDNavigationAppearance.h"
 #import <RFAlpha/RFAnimationTransitioning.h>
 #import <RFKeyboard/RFKeyboard.h>
 #import <RFKit/NSLayoutConstraint+RFKit.h>
