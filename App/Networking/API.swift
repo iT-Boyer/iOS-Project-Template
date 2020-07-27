@@ -27,9 +27,7 @@ public class API: MBAPI {
         setupAPIDefine(withPlistPath: Bundle.main.path(forResource: "APIDefine", ofType: "plist")!)
 
         defineManager.defaultRequestSerializer = AFJSONRequestSerializer()
-        let responseSerializer = APIJSONResponseSerializer()
-        responseSerializer.serverReportErrorUsingStatusCode = true
-        defineManager.defaultResponseSerializer = responseSerializer
+        defineManager.defaultResponseSerializer = APIResponseSerializer()
 
         // 针对演示用接口做的调整，正式项目请移除这部分代码
         debugAdjustTestAPI()
@@ -99,7 +97,6 @@ public class API: MBAPI {
     private static let URLErrorTransfomMap = [
         NSURLErrorCannotConnectToHost: "NSURLErrorCannotConnectToHost",
         NSURLErrorCannotFindHost: "NSURLErrorCannotFindHost",
-        NSURLErrorCannotParseResponse: "NSURLErrorCannotParseResponse",
         NSURLErrorDNSLookupFailed: "NSURLErrorDNSLookupFailed",
         NSURLErrorNetworkConnectionLost: "NSURLErrorNetworkConnectionLost",
         NSURLErrorNotConnectedToInternet: "NSURLErrorNotConnectedToInternet",
@@ -131,6 +128,12 @@ public class API: MBAPI {
                 define.path = (path as NSString).appendingPathExtension("json")
             }
             define.method = "GET"
+        }
+        // 允许解析网页 404
+        if let serializer = defineManager.defaultResponseSerializer as? AFHTTPResponseSerializer {
+            var set = serializer.acceptableContentTypes ?? Set<String>()
+            set.insert("text/html")
+            serializer.acceptableContentTypes = set
         }
     }
 }

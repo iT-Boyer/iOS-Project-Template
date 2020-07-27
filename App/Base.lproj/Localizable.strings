@@ -8,7 +8,6 @@
 
 "NSURLErrorCannotConnectToHost"         = "无法连接到服务器";
 "NSURLErrorCannotFindHost"              = "找不到到服务器";
-"NSURLErrorCannotParseResponse"         = "网络解析错误，如果你在使用公共 Wi-Fi，请打开系统浏览器获取网络访问权限";
 "NSURLErrorDNSLookupFailed"             = "服务器地址查询失败，请检查你的 DNS 设置";
 "NSURLErrorNetworkConnectionLost"       = "网络连接可能已断开，请重试";
 "NSURLErrorNotConnectedToInternet"      = "没有联网，请连接 Wi-Fi 或打开移动数据";
