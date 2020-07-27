@@ -20,7 +20,6 @@ target 'App' do
         'RFDrawImage',
         'RFImageCropper',
         'RFNavigationController',
-        'RFRefreshButton',
         'RFRefreshControl',
         'RFTabController',
         'RFTableViewPullToFetchPlugin',

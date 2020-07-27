@@ -66,10 +66,6 @@ PODS:
     - "RFKit/Category/UIView+RFAnimate"
     - "RFKit/Category/UIViewController+RFInterfaceOrientation"
     - RFKit/Runtime (>= 1.7.1)
-  - RFAlpha/RFRefreshButton (0.6.0):
-    - RFInitializing (>= 1.1)
-    - RFKit/Category/UIView
-    - RFKit/Runtime (>= 1.7.1)
   - RFAlpha/RFRefreshControl (0.6.0):
     - RFKit/Runtime (>= 1.7.1)
   - RFAlpha/RFSwizzle (0.6.0):
@@ -261,7 +257,6 @@ DEPENDENCIES:
   - RFAlpha/RFDrawImage
   - RFAlpha/RFImageCropper
   - RFAlpha/RFNavigationController
-  - RFAlpha/RFRefreshButton
   - RFAlpha/RFRefreshControl
   - RFAlpha/RFTabController
   - RFAlpha/RFTableViewPullToFetchPlugin
@@ -322,6 +317,6 @@ SPEC CHECKSUMS:
   SDWebImage: cf6922231e95550934da2ada0f20f2becf2ceba9
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: c9bbe74ffc22533292d0dca5f6fd3bd852746c7a
+PODFILE CHECKSUM: 5866f267f42e414e8a5225b8a2cbe6117b2aeb24
 
 COCOAPODS: 1.9.3
