@@ -1,6 +1,5 @@
 
 #import "MBCollectionViewCarouselLayout.h"
-#import "UIKit+App.h"
 #import <RFKit/UIView+RFAnimate.h>
 
 @interface MBCollectionViewCarouselLayout () {
@@ -84,8 +83,7 @@
     double ixFinal = ixTarget;
     // Limite page count change less than 2.
     if (fabs(ixCurrent - ixTarget) > 1) {
-        ixFinal = ixCurrent;
-        limitedOffsetChange(&ixFinal, ixTarget, 1);
+        ixFinal = ixCurrent > ixTarget ? ixCurrent - 1 : ixCurrent + 1;
     }
     CGFloat offsetFixed = round(ixFinal) * wPage;
     
