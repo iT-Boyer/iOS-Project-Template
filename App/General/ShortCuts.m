@@ -23,10 +23,8 @@ ApplicationDelegate *__nonnull AppDelegate() {
     return ad;
 }
 
-#import "MBRootWrapperViewController.h"
-
 RootViewController *_Nullable AppRootViewController() {
-    return RootViewController.globalController;
+    return [MBApp status].rootViewController;
 }
 
 NavigationController *__nullable AppNavigationController() {

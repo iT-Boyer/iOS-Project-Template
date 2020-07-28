@@ -43,8 +43,9 @@ target 'App' do
         'Environment',
         'Input',
         'Navigation',
-        'Worker',
+        'RootViewController',
         'UserIDIsString', # 如果 user ID 是整型的，请删除这条
+        'Worker',
     ]
     pod 'RFAPI', '>= 2.0.0-beta.2'
 

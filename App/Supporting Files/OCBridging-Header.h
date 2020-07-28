@@ -35,7 +35,6 @@
 //#import "MBNotificationBadgeManager.h"
 //#import "MBPublishImagePicker.h"
 //#import "MBPublishSession.h"
-#import "MBRootWrapperViewController.h"
 //#import "MBSceneStackView.h"
 //#import "MBScrollViewOffsetObserver.h"
 #import "MBSearchTextField.h"
@@ -65,6 +64,7 @@
 #import <MBAppKit/MBEnvironment.h>
 #import <MBAppKit/MBGeneral.h>
 #import <MBAppKit/MBModel.h>
+#import <MBAppKit/MBRootViewController.h>
 #import <MBAppKit/MBUser.h>
 //#import <MBAppKit/MBWorkerQueue.h>
 #import <RFAPI/RFAPIJSONModelTransformer.h>

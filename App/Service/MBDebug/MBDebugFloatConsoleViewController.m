@@ -1,13 +1,13 @@
 
 #import "MBDebugFloatConsoleViewController.h"
-#import "debug.h"
-#import "MBDebugPrivate.h"
 #import "MBDebugHelpers.h"
 #import "MBDebugMenuViewController.h"
+#import "MBDebugPrivate.h"
 #import "MBDebugViews.h"
 #import "MBNavigationController+Router.h"
-#import "MBRootWrapperViewController.h"
 #import "UIKit+App.h"
+#import "debug.h"
+#import <MBAppKit/MBRootViewController.h>
 #import <RFAlpha/RFWindow.h>
 #if __has_include("SDWebImage.h")
 #import <SDWebImage/SDWebImage.h>
@@ -237,7 +237,7 @@ static unsigned long long LastMemoryUsed;
 
 - (void)hideDebugButtonSomewhile {
     UIView *db;
-    for (UIView *v in [(MBRootWrapperViewController *)AppRootViewController() view].subviews) {
+    for (UIView *v in [(MBRootViewController *)AppRootViewController() view].subviews) {
         if ([v isKindOfClass:[MBDebugWindowButton class]]) {
             db = v;
         }

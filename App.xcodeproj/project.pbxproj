@@ -130,7 +130,6 @@
 		D5EE512D2043DAA2009148B3 /* NSString+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE510A2043DAA1009148B3 /* NSString+App.m */; };
 		D5EE512F2043DAA2009148B3 /* NSURL+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE510D2043DAA1009148B3 /* NSURL+App.m */; };
 		D5EE51342043DAA2009148B3 /* MBObjectiveC.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE51182043DAA1009148B3 /* MBObjectiveC.m */; };
-		D5EE51372043DB7C009148B3 /* MBRootWrapperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE51362043DB7C009148B3 /* MBRootWrapperViewController.m */; };
 		D5EE51792043F5E6009148B3 /* MBSearchTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE51592043F5E4009148B3 /* MBSearchTextField.m */; };
 		D5EE517A2043F5E6009148B3 /* MBKeyboardFloatContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE515B2043F5E4009148B3 /* MBKeyboardFloatContainer.m */; };
 		D5EE517B2043F5E6009148B3 /* MBCodeSendButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE515C2043F5E4009148B3 /* MBCodeSendButton.m */; };
@@ -390,8 +389,6 @@
 		D5EE51132043DAA1009148B3 /* MBObjectiveC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBObjectiveC.h; sourceTree = "<group>"; };
 		D5EE51172043DAA1009148B3 /* UIKit+App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIKit+App.h"; sourceTree = "<group>"; };
 		D5EE51182043DAA1009148B3 /* MBObjectiveC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBObjectiveC.m; sourceTree = "<group>"; };
-		D5EE51352043DB7C009148B3 /* MBRootWrapperViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBRootWrapperViewController.h; sourceTree = "<group>"; };
-		D5EE51362043DB7C009148B3 /* MBRootWrapperViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBRootWrapperViewController.m; sourceTree = "<group>"; };
 		D5EE51382043E0DF009148B3 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		D5EE51592043F5E4009148B3 /* MBSearchTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBSearchTextField.m; sourceTree = "<group>"; };
 		D5EE515A2043F5E4009148B3 /* MBKeyboardFloatContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBKeyboardFloatContainer.h; sourceTree = "<group>"; };
@@ -747,8 +744,6 @@
 				D5C636A62047CC5900851CF4 /* LaunchScreen.storyboard */,
 				D501844A20F86111009481D4 /* MBNavigationController+Router.h */,
 				D501844920F86111009481D4 /* MBNavigationController+Router.m */,
-				D5EE51352043DB7C009148B3 /* MBRootWrapperViewController.h */,
-				D5EE51362043DB7C009148B3 /* MBRootWrapperViewController.m */,
 				D55959D420ABA9B50019D733 /* NavigationController.swift */,
 				D5EE51382043E0DF009148B3 /* RootViewController.swift */,
 			);
@@ -1531,7 +1526,6 @@
 				D569C9EA21AE906900211E36 /* MBPublishSession.m in Sources */,
 				D5B49F171C41133A00847925 /* MBRefreshFooterView.m in Sources */,
 				D5B49F191C41133A00847925 /* MBRefreshHeaderView.m in Sources */,
-				D5EE51372043DB7C009148B3 /* MBRootWrapperViewController.m in Sources */,
 				D588308720CAB8AE002030C4 /* MBRoundBarButtonItem.m in Sources */,
 				D5F9F483208DBF5F00427201 /* MBSceneStackView.m in Sources */,
 				D5EE51EC2043F613009148B3 /* MBScrollViewOffsetObserver.m in Sources */,
