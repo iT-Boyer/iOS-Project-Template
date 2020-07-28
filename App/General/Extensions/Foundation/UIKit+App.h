@@ -26,7 +26,6 @@
 
 #if !TARGET_OS_WATCH
 #import "UICollectionView+App.h"
-#import "UILabel+App.h"
 #import "UITableView+App.h"
 #import "UITextField+App.h"
 #import "UIViewController+App.h"
