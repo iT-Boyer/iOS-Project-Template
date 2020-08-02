@@ -121,8 +121,6 @@ PODS:
     - RFDelegateChain/UICollectionViewDelegate
   - RFDelegateChain/UIScrollViewDelegate (1.0.0):
     - RFDelegateChain/Chain
-  - RFDelegateChain/UISearchBarDelegate (1.0.0):
-    - RFDelegateChain/Chain
   - RFDelegateChain/UITextFieldDelegate (1.0.0):
     - RFDelegateChain/Chain
   - RFDelegateChain/UITextViewDelegate (1.0.0):
@@ -130,9 +128,9 @@ PODS:
   - RFInitializing (1.2.0)
   - RFKeyboard (0.2.0):
     - RFKit/Runtime (>= 1.7)
-  - RFKit (2.4.0):
-    - RFKit/Default (= 2.4.0)
-  - RFKit/Category/Default (2.4.0):
+  - RFKit (2.5.0):
+    - RFKit/Default (= 2.5.0)
+  - RFKit/Category/Default (2.5.0):
     - RFKit/Category/NSArray
     - RFKit/Category/NSBundle
     - RFKit/Category/NSDictionary
@@ -150,79 +148,79 @@ PODS:
     - RFKit/Category/UIView
     - "RFKit/Category/UIView+RFAnimate"
     - RFKit/Category/UIViewController
-  - RFKit/Category/NSArray (2.4.0):
+  - RFKit/Category/NSArray (2.5.0):
     - RFKit/Foundation
-  - RFKit/Category/NSBundle (2.4.0):
+  - RFKit/Category/NSBundle (2.5.0):
     - RFKit/Foundation
-  - RFKit/Category/NSDate (2.4.0):
+  - RFKit/Category/NSDate (2.5.0):
     - RFKit/Foundation
-  - RFKit/Category/NSDateFormatter (2.4.0):
+  - RFKit/Category/NSDateFormatter (2.5.0):
     - RFKit/Foundation
-  - RFKit/Category/NSDictionary (2.4.0):
+  - RFKit/Category/NSDictionary (2.5.0):
     - RFKit/Category/NSObject
     - RFKit/Foundation
-  - RFKit/Category/NSError (2.4.0):
+  - RFKit/Category/NSError (2.5.0):
     - RFKit/Foundation
-  - RFKit/Category/NSFileManager (2.4.0):
-    - RFKit/Foundation
-    - RFKit/Runtime
-  - RFKit/Category/NSJSONSerialization (2.4.0):
+  - RFKit/Category/NSFileManager (2.5.0):
     - RFKit/Foundation
     - RFKit/Runtime
-  - RFKit/Category/NSLayoutConstraint (2.4.0):
+  - RFKit/Category/NSJSONSerialization (2.5.0):
+    - RFKit/Foundation
+    - RFKit/Runtime
+  - RFKit/Category/NSLayoutConstraint (2.5.0):
     - RFKit/Category/UIView
     - RFKit/Foundation
-  - RFKit/Category/NSObject (2.4.0):
+  - RFKit/Category/NSObject (2.5.0):
     - RFKit/Foundation
     - RFKit/Runtime
-  - RFKit/Category/NSString (2.4.0):
+  - RFKit/Category/NSString (2.5.0):
     - RFKit/Foundation
     - RFKit/Runtime
-  - RFKit/Category/NSURL (2.4.0):
+  - RFKit/Category/NSURL (2.5.0):
     - RFKit/Foundation
-  - RFKit/Category/UIButton (2.4.0):
+  - RFKit/Category/UIButton (2.5.0):
     - RFKit/Foundation
-  - RFKit/Category/UIColor (2.4.0):
+  - RFKit/Category/UIColor (2.5.0):
     - RFKit/Foundation
-  - RFKit/Category/UIDevice (2.4.0):
+  - RFKit/Category/UIDevice (2.5.0):
     - RFKit/Foundation
     - RFKit/Runtime
-  - RFKit/Category/UIImage (2.4.0):
+  - RFKit/Category/UIImage (2.5.0):
     - RFKit/Foundation
     - RFKit/RFGeometry
-  - RFKit/Category/UINavigationController (2.4.0):
+  - RFKit/Category/UINavigationController (2.5.0):
     - RFKit/Category/NSArray
     - RFKit/Foundation
-  - RFKit/Category/UIResponder (2.4.0):
+  - RFKit/Category/UIResponder (2.5.0):
     - RFKit/Foundation
     - RFKit/Runtime
-  - "RFKit/Category/UIScrollView+RFScrolling (2.4.0)":
+  - "RFKit/Category/UIScrollView+RFScrolling (2.5.0)":
     - RFKit/Foundation
-  - RFKit/Category/UISearchBar (2.4.0):
+  - RFKit/Category/UISearchBar (2.5.0):
     - RFKit/Foundation
-  - RFKit/Category/UIStoryboard (2.4.0):
+  - RFKit/Category/UIStoryboard (2.5.0):
     - RFKit/Foundation
-  - RFKit/Category/UITableView (2.4.0):
+  - RFKit/Category/UITableView (2.5.0):
     - "RFKit/Category/UIView+RFAnimate"
     - RFKit/Foundation
-  - RFKit/Category/UIView (2.4.0):
+  - RFKit/Category/UIView (2.5.0):
     - RFKit/Category/UIResponder
     - RFKit/Foundation
     - RFKit/RFGeometry
-  - "RFKit/Category/UIView+RFAnimate (2.4.0)":
+  - "RFKit/Category/UIView+RFAnimate (2.5.0)":
     - RFKit/Foundation
     - RFKit/Runtime
-  - RFKit/Category/UIViewController (2.4.0):
+  - RFKit/Category/UIViewController (2.5.0):
     - RFKit/Foundation
-  - "RFKit/Category/UIViewController+RFInterfaceOrientation (2.4.0)"
-  - RFKit/Default (2.4.0):
+  - "RFKit/Category/UIViewController+RFInterfaceOrientation (2.5.0)"
+  - RFKit/Default (2.5.0):
     - RFKit/Category/Default
     - RFKit/RFGeometry
     - RFKit/Runtime
-  - RFKit/Foundation (2.4.0)
-  - RFKit/RFGeometry (2.4.0):
+  - RFKit/Foundation (2.5.0)
+  - RFKit/RFGeometry (2.5.0):
     - RFKit/Runtime
-  - RFKit/Runtime (2.4.0):
+  - RFKit/Runtime (2.5.0):
     - RFKit/Foundation
   - RFMessageManager/Manager (0.6.0):
     - RFInitializing (>= 1.1)
@@ -270,7 +268,6 @@ DEPENDENCIES:
   - RFAPI (>= 2.0.0-beta.2)
   - RFDelegateChain/UICollectionViewDataSource
   - RFDelegateChain/UICollectionViewDelegateFlowLayout
-  - RFDelegateChain/UISearchBarDelegate
   - RFDelegateChain/UITextFieldDelegate
   - RFDelegateChain/UITextViewDelegate
   - RFKeyboard
@@ -302,7 +299,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   MBAppKit:
-    :commit: 756a8b5f8caaac92f8e527592ee5a021f40e0262
+    :commit: c28cefc6c8ccbe22d6d7a071923ca41c94b0fd4f
     :git: https://github.com/RFUI/MBAppKit.git
 
 SPEC CHECKSUMS:
@@ -314,12 +311,12 @@ SPEC CHECKSUMS:
   RFDelegateChain: 06b2100d30de422eb7dee4ad833c8bd80c631f16
   RFInitializing: c85e1d8b9c5b540761f7983af3e9bb517654ad84
   RFKeyboard: d270ea1f612d86c980974222bae7c6d7d04428be
-  RFKit: b85177e1321171cfb342810880555a06fe12fbbe
+  RFKit: 2c76d7fd9edeec96fea708f4b9b4fdd25445b5d4
   RFMessageManager: 2967d1f691a4ac310b76afc8ef505d9e9b5151f0
   RFSegue: 16a13d55032a737a93a1feb3c758077f708e3c70
   SDWebImage: cf6922231e95550934da2ada0f20f2becf2ceba9
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: 841b52013f8f6a9032662071f67b49415b0bdcbc
+PODFILE CHECKSUM: 8bffa3522294a87307ced73d72f712b610921786
 
 COCOAPODS: 1.9.3

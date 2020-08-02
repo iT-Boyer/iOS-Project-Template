@@ -31,7 +31,6 @@ target 'App' do
     pod 'RFDelegateChain', :subspecs => [
         'UICollectionViewDelegateFlowLayout',
         'UICollectionViewDataSource',
-        'UISearchBarDelegate',
         'UITextFieldDelegate',
         'UITextViewDelegate',
     ]

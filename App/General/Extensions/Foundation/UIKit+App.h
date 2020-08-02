@@ -26,11 +26,9 @@
 
 #if !TARGET_OS_WATCH
 #import "UICollectionView+App.h"
-#import "UITableView+App.h"
-#import "UITextField+App.h"
-#import "UIViewController+App.h"
-
 #import "UIImage+MBImageSet.h"
+#import "UITableView+App.h"
+#import "UIViewController+App.h"
 #endif // !TARGET_OS_WATCH
 
 /**
