@@ -66,7 +66,7 @@ class APIResponseSerializer: AFHTTPResponseSerializer {
             return nil
         }
 
-        var responseJSON: Any?
+        let responseJSON: Any
         do {
              responseJSON = try JSONSerialization.jsonObject(with: data, options: [])
         } catch {
@@ -99,8 +99,8 @@ class APIResponseSerializer: AFHTTPResponseSerializer {
     }
     private func tryGetErrorStruct(from obj: [String: Any]) -> NSError? {
         // 这里请按具体接口约定修改
-        let message = obj["error"] as? String
         if let code = obj["code"] as? Int, code > 0 {
+            let message = obj["error"] as? String
             return NSError(domain: API.errorDomain, code: code, localizedDescription: message)
         }
         return nil

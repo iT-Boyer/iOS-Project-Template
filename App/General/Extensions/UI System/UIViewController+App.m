@@ -5,14 +5,13 @@
 @implementation UIViewController (App)
 
 + (nonnull instancetype)newFromStoryboard {
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:self.storyboardName bundle:nil];
+    NSString *storyboardName = self.storyboardName;
+    if (!storyboardName.length) {
+        NSAssert(NO, @"storyboardName not set.");
+    }
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:storyboardName bundle:nil];
     NSString *iden = self.className;
-    @try {
-        return [sb instantiateViewControllerWithIdentifier:iden];
-    }
-    @catch (NSException *exception) {
-        dout_error(@"Cannot find %@ in %@ storyboard", iden, self.storyboardName?: @"Main");
-    }
+    return [sb instantiateViewControllerWithIdentifier:iden];
 }
 
 + (nullable NSString *)storyboardName {
