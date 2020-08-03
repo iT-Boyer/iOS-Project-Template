@@ -65,5 +65,3 @@ if [ $EnableCodeCommentsHighlight = "YES" ]; then
 fi
 
 touch "$timeFile"
-
-# REF https://beta.wikiversity.org/wiki/Topic:iOS/Xcode/build_script

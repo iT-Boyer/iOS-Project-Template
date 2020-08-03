@@ -4,25 +4,30 @@
 
 ## 需求
 
-要求 Xcode 11，支持 iOS 11 及以上版本。
+iOS 11+，Xcode 11+。
+
+Ruby Gems 依赖：
+
+```sh
+gem install cocoapods plist xcodeproj
+gem install fastlane #可选
+```
 
 ## 配置
 
-安装工具链依赖
+项目初始化请双击执行 bootstrap.command，随引导操作。
+
+正常执行 CocoaPods 安装或用 fastlane 配置即可：
 
 ```sh
-gem install cocoapods plist xcodeproj fastlane
-```
-
-执行以配置整个项目
-
-```sh
+pod install
+或
 fastlane setup_project
 ```
 
 ## 关于项目模版
 
-参见 [GitHub/BB9z/iOS-Project-Template/wiki](https://github.com/BB9z/iOS-Project-Template/wiki)
+强力推荐阅读[项目模版 wiki](https://github.com/BB9z/iOS-Project-Template/wiki)。
 
 ```text
 Copyright © 2018-2020 RFUI, BB9z.
