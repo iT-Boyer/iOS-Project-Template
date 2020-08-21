@@ -61,15 +61,13 @@
                             <rect key="frame" x="50" y="0.0" width="260" height="50"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SSz-wD-ff7" customClass="MBLayoutButton">
-                                    <rect key="frame" x="0.0" y="0.0" width="86" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="86.5" height="50"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Icon/test24" translatesAutoresizingMaskIntoConstraints="NO" id="JP6-J7-YQI">
-                                            <rect key="frame" x="27" y="2" width="32" height="32"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon/test24" translatesAutoresizingMaskIntoConstraints="NO" id="JP6-J7-YQI">
+                                            <rect key="frame" x="31.5" y="5.5" width="24" height="24"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="首页" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="STZ-Lw-Ykh">
-                                            <rect key="frame" x="0.0" y="33" width="87" height="14"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="首页" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="STZ-Lw-Ykh">
+                                            <rect key="frame" x="32" y="33.5" width="22.5" height="13.5"/>
                                             <accessibility key="accessibilityConfiguration">
                                                 <bool key="isElement" value="NO"/>
                                             </accessibility>
@@ -82,21 +80,27 @@
                                         <accessibilityTraits key="traits" button="YES"/>
                                         <bool key="isElement" value="YES"/>
                                     </accessibility>
+                                    <constraints>
+                                        <constraint firstItem="JP6-J7-YQI" firstAttribute="centerY" secondItem="SSz-wD-ff7" secondAttribute="centerY" multiplier="0.7" id="1hk-M7-kqC"/>
+                                        <constraint firstItem="STZ-Lw-Ykh" firstAttribute="centerX" secondItem="SSz-wD-ff7" secondAttribute="centerX" id="BOd-ZO-uOO"/>
+                                        <constraint firstItem="STZ-Lw-Ykh" firstAttribute="centerY" secondItem="SSz-wD-ff7" secondAttribute="centerY" multiplier="1.6" id="Nzb-sn-l6P"/>
+                                        <constraint firstItem="STZ-Lw-Ykh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="SSz-wD-ff7" secondAttribute="leading" constant="8" id="jfM-bi-KMU"/>
+                                        <constraint firstItem="JP6-J7-YQI" firstAttribute="top" relation="greaterThanOrEqual" secondItem="SSz-wD-ff7" secondAttribute="top" constant="4" id="pgn-4f-Se4"/>
+                                        <constraint firstItem="JP6-J7-YQI" firstAttribute="centerX" secondItem="SSz-wD-ff7" secondAttribute="centerX" id="r38-mW-xrU"/>
+                                    </constraints>
                                     <connections>
                                         <outlet property="icon" destination="JP6-J7-YQI" id="rhY-Il-nct"/>
                                         <outlet property="titleLabel" destination="STZ-Lw-Ykh" id="GGy-Ay-CGM"/>
                                     </connections>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YCl-3e-Tmq" customClass="MBLayoutButton">
-                                    <rect key="frame" x="86" y="0.0" width="87" height="50"/>
+                                    <rect key="frame" x="86.5" y="0.0" width="87" height="50"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Icon/test24" translatesAutoresizingMaskIntoConstraints="NO" id="uej-mT-e84">
-                                            <rect key="frame" x="28" y="2" width="32" height="32"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon/test24" translatesAutoresizingMaskIntoConstraints="NO" id="uej-mT-e84">
+                                            <rect key="frame" x="31.5" y="5.5" width="24" height="24"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="帖子" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iGb-wo-soZ">
-                                            <rect key="frame" x="0.0" y="33" width="87" height="14"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="帖子" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iGb-wo-soZ">
+                                            <rect key="frame" x="32.5" y="33.5" width="22.5" height="13.5"/>
                                             <accessibility key="accessibilityConfiguration">
                                                 <bool key="isElement" value="NO"/>
                                             </accessibility>
@@ -109,21 +113,27 @@
                                         <accessibilityTraits key="traits" button="YES"/>
                                         <bool key="isElement" value="YES"/>
                                     </accessibility>
+                                    <constraints>
+                                        <constraint firstItem="iGb-wo-soZ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="YCl-3e-Tmq" secondAttribute="leading" constant="8" id="2Td-l9-aKu"/>
+                                        <constraint firstItem="uej-mT-e84" firstAttribute="centerY" secondItem="YCl-3e-Tmq" secondAttribute="centerY" multiplier="0.7" id="GDR-Uj-0gM"/>
+                                        <constraint firstItem="iGb-wo-soZ" firstAttribute="centerY" secondItem="YCl-3e-Tmq" secondAttribute="centerY" multiplier="1.6" id="LdU-ev-dd2"/>
+                                        <constraint firstItem="uej-mT-e84" firstAttribute="centerX" secondItem="YCl-3e-Tmq" secondAttribute="centerX" id="OiT-3S-AzR"/>
+                                        <constraint firstItem="iGb-wo-soZ" firstAttribute="centerX" secondItem="YCl-3e-Tmq" secondAttribute="centerX" id="mxc-RY-LNo"/>
+                                        <constraint firstItem="uej-mT-e84" firstAttribute="top" relation="greaterThanOrEqual" secondItem="YCl-3e-Tmq" secondAttribute="top" constant="4" id="qIu-dW-ERz"/>
+                                    </constraints>
                                     <connections>
                                         <outlet property="icon" destination="uej-mT-e84" id="BzU-xx-9KJ"/>
                                         <outlet property="titleLabel" destination="iGb-wo-soZ" id="u3o-Rn-lOh"/>
                                     </connections>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bNQ-bc-RHO" customClass="MBLayoutButton">
-                                    <rect key="frame" x="173" y="0.0" width="87" height="50"/>
+                                    <rect key="frame" x="173.5" y="0.0" width="86.5" height="50"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Icon/test24" translatesAutoresizingMaskIntoConstraints="NO" id="tXk-dQ-Hb3">
-                                            <rect key="frame" x="28" y="2" width="31" height="32"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon/test24" translatesAutoresizingMaskIntoConstraints="NO" id="tXk-dQ-Hb3">
+                                            <rect key="frame" x="31" y="5.5" width="24" height="24"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="我的" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Tl-DJ-wf5">
-                                            <rect key="frame" x="0.0" y="33" width="87" height="14"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Tl-DJ-wf5">
+                                            <rect key="frame" x="32" y="33.5" width="22.5" height="13.5"/>
                                             <accessibility key="accessibilityConfiguration">
                                                 <bool key="isElement" value="NO"/>
                                             </accessibility>
@@ -136,6 +146,14 @@
                                         <accessibilityTraits key="traits" button="YES"/>
                                         <bool key="isElement" value="YES"/>
                                     </accessibility>
+                                    <constraints>
+                                        <constraint firstItem="tXk-dQ-Hb3" firstAttribute="centerX" secondItem="bNQ-bc-RHO" secondAttribute="centerX" id="IVa-gs-3CH"/>
+                                        <constraint firstItem="0Tl-DJ-wf5" firstAttribute="centerX" secondItem="bNQ-bc-RHO" secondAttribute="centerX" id="Jso-xP-QId"/>
+                                        <constraint firstItem="tXk-dQ-Hb3" firstAttribute="centerY" secondItem="bNQ-bc-RHO" secondAttribute="centerY" multiplier="0.7" id="Za1-dw-RzS"/>
+                                        <constraint firstItem="0Tl-DJ-wf5" firstAttribute="centerY" secondItem="bNQ-bc-RHO" secondAttribute="centerY" multiplier="1.6" id="db5-Cd-6gi"/>
+                                        <constraint firstItem="tXk-dQ-Hb3" firstAttribute="top" relation="greaterThanOrEqual" secondItem="bNQ-bc-RHO" secondAttribute="top" constant="4" id="ium-Un-hEa"/>
+                                        <constraint firstItem="0Tl-DJ-wf5" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="bNQ-bc-RHO" secondAttribute="leading" constant="8" id="wOd-JQ-mhj"/>
+                                    </constraints>
                                     <connections>
                                         <outlet property="icon" destination="tXk-dQ-Hb3" id="FPF-Ge-1Ec"/>
                                         <outlet property="titleLabel" destination="0Tl-DJ-wf5" id="sRq-R8-zM8"/>
