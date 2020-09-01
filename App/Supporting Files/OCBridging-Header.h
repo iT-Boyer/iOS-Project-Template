@@ -4,6 +4,7 @@
 
 #import "debug.h"
 //#import "API+FileUpload.h"
+//#import "CALayer+MBAnimationPersistence.h"
 //#import "MBAudioRecorder.h"
 //#import "MBBadgeLabel.h"
 #import "MBButton.h"
@@ -38,7 +39,7 @@
 //#import "MBScrollViewOffsetObserver.h"
 #import "MBSearchTextField.h"
 //#import "MBSearchViewController.h"
-#import "MBShareManager.h"
+//#import "MBShareManager.h"
 //#import "MBSkyImageView.h"
 //#import "MBTabControl.h"
 //#import "MBTabController.h"
