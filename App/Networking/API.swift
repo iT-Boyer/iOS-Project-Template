@@ -36,10 +36,6 @@ public class API: MBAPI {
     /// 错误统一处理
     override public func generalHandlerForError(_ error: Error, define: RFAPIDefine, task: RFAPITask, failure: RFAPIRequestFailureCallback? = nil) -> Bool {
         let nsError = Self.transformURLError(error as NSError)
-        if nsError.code == NSURLErrorCancelled {
-            // 请求取消不提示
-            return false
-        }
 
         if define.path?.hasPrefix("http") == true {
             // define 里写的绝对路径，意味着不是我们主要的业务逻辑
@@ -63,6 +59,7 @@ public class API: MBAPI {
             // 🔰 根据业务做统一处理，比如 token 失效登出
             switch nsError.code {
 //            case token_invald:
+//                // 🔰 假如登入接口也会返回相同的错误码，可通过 define.name 进行排除
 //                if AppUser() != nil {
 //                    Account.current = nil
 //                    AppHUD().showErrorStatus("登录已过期，请重新登录")
