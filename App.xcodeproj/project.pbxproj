@@ -42,7 +42,6 @@
 		D54D5C1424387EE700D5F3A8 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54D5C1324387EE700D5F3A8 /* Account.swift */; };
 		D54F0E4F2199A56E003370F4 /* DateFormatter+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54F0E4E2199A56E003370F4 /* DateFormatter+App.swift */; };
 		D54F0E542199BB22003370F4 /* UIButton+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54F0E532199BB22003370F4 /* UIButton+App.swift */; };
-		D54F0E562199BCB2003370F4 /* NSRegularExpression+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54F0E552199BCB2003370F4 /* NSRegularExpression+App.swift */; };
 		D553507324BBFB3E00282871 /* UserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = D553507224BBFB3E00282871 /* UserEntity.swift */; };
 		D553507724BC1E9200282871 /* TopicListDisplayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D553507624BC1E9200282871 /* TopicListDisplayer.swift */; };
 		D553507924BC1EA100282871 /* Topic.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D553507824BC1EA100282871 /* Topic.storyboard */; };
@@ -239,7 +238,6 @@
 		D54D5C1324387EE700D5F3A8 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		D54F0E4E2199A56E003370F4 /* DateFormatter+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+App.swift"; sourceTree = "<group>"; };
 		D54F0E532199BB22003370F4 /* UIButton+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+App.swift"; sourceTree = "<group>"; };
-		D54F0E552199BCB2003370F4 /* NSRegularExpression+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSRegularExpression+App.swift"; sourceTree = "<group>"; };
 		D553507224BBFB3E00282871 /* UserEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntity.swift; sourceTree = "<group>"; };
 		D553507624BC1E9200282871 /* TopicListDisplayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicListDisplayer.swift; sourceTree = "<group>"; };
 		D553507824BC1EA100282871 /* Topic.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Topic.storyboard; sourceTree = "<group>"; };
@@ -590,7 +588,6 @@
 			isa = PBXGroup;
 			children = (
 				D5C82DDB2179D98C00E63A2A /* Color.swift */,
-				D54F0E552199BCB2003370F4 /* NSRegularExpression+App.swift */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -1517,7 +1514,6 @@
 				D55959D520ABA9B50019D733 /* NavigationController.swift in Sources */,
 				D5EE51192043DAA2009148B3 /* NSArray+App.m in Sources */,
 				D588309020CACB33002030C4 /* NSPointArray+App.swift in Sources */,
-				D54F0E562199BCB2003370F4 /* NSRegularExpression+App.swift in Sources */,
 				D5EE512D2043DAA2009148B3 /* NSString+App.m in Sources */,
 				D5EE512F2043DAA2009148B3 /* NSURL+App.m in Sources */,
 				D52EADF82043C0EC007219E0 /* NSUserDefaults+App.m in Sources */,

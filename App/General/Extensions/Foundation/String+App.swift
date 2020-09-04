@@ -26,4 +26,10 @@ extension String {
         if let str = str2 { return str }
         return ""
     }
+
+    // @MBDependency:3
+    /// 检查是否符合给定正则表达式
+    func matches(regularExpression pattern: String) -> Bool {
+        return range(of: pattern, options: .regularExpression) != nil
+    }
 }
