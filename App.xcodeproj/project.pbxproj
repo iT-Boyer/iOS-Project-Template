@@ -213,6 +213,8 @@
 		D5197D3617F027BB00CA387C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D519A0CD2434883300E26A64 /* MBMaskHiddenView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBMaskHiddenView.h; sourceTree = "<group>"; };
 		D519A0CE2434883300E26A64 /* MBMaskHiddenView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBMaskHiddenView.m; sourceTree = "<group>"; };
+		D525F3E72506988D003EBEB0 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D525F3E82506988D003EBEB0 /* Playground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Playground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		D52A04E420F85F2600F535ED /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		D52EAB602043B6B3007219E0 /* UIImage+MBImageSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MBImageSet.m"; sourceTree = "<group>"; };
 		D52EAB612043B6B3007219E0 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -512,6 +514,7 @@
 			isa = PBXGroup;
 			children = (
 				D5197A4317EECAAF00CA387C /* App */,
+				D525F3E62506988D003EBEB0 /* Development Content */,
 				D5197A3C17EECAAF00CA387C /* Frameworks */,
 				D5197A3B17EECAAF00CA387C /* Products */,
 				BAEA70A9D9A18BBDBBC1B323 /* Pods */,
@@ -628,6 +631,16 @@
 				D588308A20CACB32002030C4 /* MBSwift.swift */,
 			);
 			path = Language;
+			sourceTree = "<group>";
+		};
+		D525F3E62506988D003EBEB0 /* Development Content */ = {
+			isa = PBXGroup;
+			children = (
+				D525F3E82506988D003EBEB0 /* Playground.playground */,
+				D525F3E72506988D003EBEB0 /* README.md */,
+			);
+			name = "Development Content";
+			path = "App/Development Content";
 			sourceTree = "<group>";
 		};
 		D52EAB5E2043B6B3007219E0 /* Assets */ = {
@@ -1717,6 +1730,7 @@
 				CODE_SIGN_ENTITLEMENTS = "App/Supporting Files/debug.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "App/Development\\ Content";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
@@ -1754,6 +1768,7 @@
 				CODE_SIGN_ENTITLEMENTS = "App/Supporting Files/release.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "App/Development\\ Content";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
@@ -1872,6 +1887,7 @@
 				CODE_SIGN_ENTITLEMENTS = "App/Supporting Files/alpha.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "App/Development\\ Content";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
