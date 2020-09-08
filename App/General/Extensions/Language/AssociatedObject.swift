@@ -8,6 +8,8 @@
  https://opensource.org/licenses/MIT
  */
 
+import Foundation
+
 /**
  Objective-C associated value wrapper.
 
@@ -17,12 +19,8 @@
  private let fooAssociation = AssociatedObject<String>()
  extension SomeObject {
      var foo: String? {
-         get {
-             fooAssociation[self]
-         }
-         set {
-             fooAssociation[self] = newValue
-         }
+         get { fooAssociation[self] }
+         set { fooAssociation[self] = newValue }
      }
  }
  ```
