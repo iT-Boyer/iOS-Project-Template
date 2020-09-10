@@ -1,13 +1,5 @@
 /*
  UIKit+App
- 
- Copyright © 2018, 2020 RFUI.
- Copyright © 2016-2017 Beijing ZhiYun ZhiYuan Technology Co., Ltd.
- Copyright © 2014 Chinamobo Co., Ltd.
- https://github.com/BB9z/iOS-Project-Template
-
- The MIT License
- https://opensource.org/licenses/MIT
  */
 
 /**

@@ -68,7 +68,7 @@ class APIResponseSerializer: AFHTTPResponseSerializer {
             return nil
         }
 
-        // JSON 解析
+        // 尝试 JSON 解析
         let responseJSON: Any
         do {
              responseJSON = try JSONSerialization.jsonObject(with: data, options: [])

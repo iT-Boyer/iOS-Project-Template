@@ -13,15 +13,10 @@ protocol EntitySearchHighlight: AnyObject {
 }
 
 private let association = AssociatedObject<String>()
-
 extension EntitySearchHighlight where Self: NSObject {
     var searchingKeyword: String? {
-        get {
-            association[self]
-        }
-        set {
-            association[self] = newValue
-        }
+        get { association[self] }
+        set { association[self] = newValue }
     }
 }
 
