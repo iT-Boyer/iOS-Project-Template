@@ -54,10 +54,29 @@ extension Array {
 
 extension Array where Iterator.Element: UIView {
     /// 改变一组 view 的隐藏
-    func views(hidden: Bool) {
-        forEach { v in
-            v.isHidden = hidden
+    func views(hidden: Bool, animated: Bool = false) {
+        if !animated {
+            forEach { v in
+                v.isHidden = hidden
+            }
+            return
         }
+        if !hidden {
+            forEach { v in
+                v.isHidden = false
+            }
+        }
+        UIView.animate(withDuration: 0.3, animations: {
+            self.forEach { v in
+                v.alpha = hidden ? 0 : 1
+            }
+        }, completion: { _ in
+            if hidden {
+                self.forEach { v in
+                    v.isHidden = true
+                }
+            }
+        })
     }
 
     /// 按照 tag 值从小到大重新排序
