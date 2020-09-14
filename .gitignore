@@ -8,10 +8,6 @@
 **/*.playground/**/timeline.xctimeline
 .idea/
 
-# Xcode Injection
-IOSInjectionProject/
-OSXInjectionProject/
-
 # Build
 Scripts/build/
 build/
