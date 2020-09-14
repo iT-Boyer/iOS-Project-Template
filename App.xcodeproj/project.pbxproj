@@ -102,6 +102,12 @@
 		D5B49F191C41133A00847925 /* MBRefreshHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B49EFC1C41133A00847925 /* MBRefreshHeaderView.m */; };
 		D5B49F1A1C41133A00847925 /* MBRefreshHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5B49EFD1C41133A00847925 /* MBRefreshHeaderView.xib */; };
 		D5B49F1B1C41133A00847925 /* MBTableViewPullToFetchControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B49EFF1C41133A00847925 /* MBTableViewPullToFetchControl.m */; };
+		D5B884B6250EEC53001CDBCF /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B884B5250EEC53001CDBCF /* TagView.swift */; };
+		D5B884C0250EED84001CDBCF /* PlaygroundExport.h in Headers */ = {isa = PBXBuildFile; fileRef = D5B884BE250EED84001CDBCF /* PlaygroundExport.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D5B884C5250EEF28001CDBCF /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B884B5250EEC53001CDBCF /* TagView.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		D5B884C7250F6A7B001CDBCF /* Array+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D588308820CACB32002030C4 /* Array+App.swift */; };
+		D5B884C8250F6AEB001CDBCF /* TagView.swift in Headers */ = {isa = PBXBuildFile; fileRef = D5B884B5250EEC53001CDBCF /* TagView.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		D5B884CA250F6C69001CDBCF /* PlaygroundExport.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B884C9250F6C69001CDBCF /* PlaygroundExport.swift */; };
 		D5B9669A2501CF77009D77A0 /* AssociatedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B966992501CF77009D77A0 /* AssociatedObject.swift */; };
 		D5B9669C2501CFCB009D77A0 /* SearchHighlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B9669B2501CFCA009D77A0 /* SearchHighlight.swift */; };
 		D5BE29602509CB9C00A9AA2F /* HasItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BE295F2509CB9C00A9AA2F /* HasItem.swift */; };
@@ -342,6 +348,12 @@
 		D5B49EFD1C41133A00847925 /* MBRefreshHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MBRefreshHeaderView.xib; sourceTree = "<group>"; };
 		D5B49EFE1C41133A00847925 /* MBTableViewPullToFetchControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBTableViewPullToFetchControl.h; sourceTree = "<group>"; };
 		D5B49EFF1C41133A00847925 /* MBTableViewPullToFetchControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBTableViewPullToFetchControl.m; sourceTree = "<group>"; };
+		D5B884B2250E5363001CDBCF /* UI Gallery.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "UI Gallery.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		D5B884B5250EEC53001CDBCF /* TagView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
+		D5B884BC250EED84001CDBCF /* PlaygroundExport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PlaygroundExport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5B884BE250EED84001CDBCF /* PlaygroundExport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaygroundExport.h; sourceTree = "<group>"; };
+		D5B884BF250EED84001CDBCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D5B884C9250F6C69001CDBCF /* PlaygroundExport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaygroundExport.swift; sourceTree = "<group>"; };
 		D5B966992501CF77009D77A0 /* AssociatedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssociatedObject.swift; sourceTree = "<group>"; };
 		D5B9669B2501CFCA009D77A0 /* SearchHighlight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchHighlight.swift; sourceTree = "<group>"; };
 		D5BE295F2509CB9C00A9AA2F /* HasItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HasItem.swift; sourceTree = "<group>"; };
@@ -465,6 +477,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D5B884B9250EED84001CDBCF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -519,6 +538,7 @@
 			children = (
 				D5197A4317EECAAF00CA387C /* App */,
 				D525F3E62506988D003EBEB0 /* Development Content */,
+				D5B884BD250EED84001CDBCF /* PlaygroundExport */,
 				D5197A3C17EECAAF00CA387C /* Frameworks */,
 				D5197A3B17EECAAF00CA387C /* Products */,
 				BAEA70A9D9A18BBDBBC1B323 /* Pods */,
@@ -529,6 +549,7 @@
 			isa = PBXGroup;
 			children = (
 				D5197A3A17EECAAF00CA387C /* App.app */,
+				D5B884BC250EED84001CDBCF /* PlaygroundExport.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -640,8 +661,9 @@
 		D525F3E62506988D003EBEB0 /* Development Content */ = {
 			isa = PBXGroup;
 			children = (
-				D525F3E82506988D003EBEB0 /* Playground.playground */,
 				D525F3E72506988D003EBEB0 /* README.md */,
+				D525F3E82506988D003EBEB0 /* Playground.playground */,
+				D5B884B2250E5363001CDBCF /* UI Gallery.playground */,
 			);
 			name = "Development Content";
 			path = "App/Development Content";
@@ -964,6 +986,7 @@
 				D5B49EE41C41133A00847925 /* MBListDataSource.m */,
 				D5B49EE51C41133A00847925 /* MBListDateItem.h */,
 				D5B49EE61C41133A00847925 /* MBListDateItem.m */,
+				D5B884B5250EEC53001CDBCF /* TagView.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -1066,6 +1089,16 @@
 				D5B49EFF1C41133A00847925 /* MBTableViewPullToFetchControl.m */,
 			);
 			path = PullToFetch;
+			sourceTree = "<group>";
+		};
+		D5B884BD250EED84001CDBCF /* PlaygroundExport */ = {
+			isa = PBXGroup;
+			children = (
+				D5B884BF250EED84001CDBCF /* Info.plist */,
+				D5B884BE250EED84001CDBCF /* PlaygroundExport.h */,
+				D5B884C9250F6C69001CDBCF /* PlaygroundExport.swift */,
+			);
+			path = PlaygroundExport;
 			sourceTree = "<group>";
 		};
 		D5BA55212046471800E4F335 /* Account */ = {
@@ -1255,6 +1288,18 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		D5B884B7250EED84001CDBCF /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5B884C0250EED84001CDBCF /* PlaygroundExport.h in Headers */,
+				D5B884C8250F6AEB001CDBCF /* TagView.swift in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXLegacyTarget section */
 		D5197D2717F0241F00CA387C /* MBBuildSystem */ = {
 			isa = PBXLegacyTarget;
@@ -1298,6 +1343,24 @@
 			productReference = D5197A3A17EECAAF00CA387C /* App.app */;
 			productType = "com.apple.product-type.application";
 		};
+		D5B884BB250EED84001CDBCF /* PlaygroundExport */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D5B884C1250EED84001CDBCF /* Build configuration list for PBXNativeTarget "PlaygroundExport" */;
+			buildPhases = (
+				D5B884B7250EED84001CDBCF /* Headers */,
+				D5B884B8250EED84001CDBCF /* Sources */,
+				D5B884B9250EED84001CDBCF /* Frameworks */,
+				D5B884BA250EED84001CDBCF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PlaygroundExport;
+			productName = PlaygroundExport;
+			productReference = D5B884BC250EED84001CDBCF /* PlaygroundExport.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1310,6 +1373,9 @@
 				TargetAttributes = {
 					D5197A3917EECAAF00CA387C = {
 						LastSwiftMigration = 0920;
+					};
+					D5B884BB250EED84001CDBCF = {
+						CreatedOnToolsVersion = 11.7;
 					};
 				};
 			};
@@ -1331,6 +1397,7 @@
 			targets = (
 				D5197A3917EECAAF00CA387C /* App */,
 				D5197D2717F0241F00CA387C /* MBBuildSystem */,
+				D5B884BB250EED84001CDBCF /* PlaygroundExport */,
 			);
 		};
 /* End PBXProject section */
@@ -1355,6 +1422,13 @@
 				D501845520F86D75009481D4 /* MBValueMapPickerViewController.xib in Resources */,
 				D5353D1624B7E1EF00BED8C7 /* README.md in Resources */,
 				D553507924BC1EA100282871 /* Topic.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5B884BA250EED84001CDBCF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1562,6 +1636,7 @@
 				D501845C20F881B7009481D4 /* Shadow.swift in Sources */,
 				D52EADF02043BA3D007219E0 /* ShortCuts.m in Sources */,
 				D5F9F480208D921200427201 /* String+App.swift in Sources */,
+				D5B884B6250EEC53001CDBCF /* TagView.swift in Sources */,
 				D559AD6821746EEC005D4BCD /* TextField+Action.swift in Sources */,
 				D501845820F88016009481D4 /* TextField.swift in Sources */,
 				D553507B24BC1EB100282871 /* TopicDetailVC.swift in Sources */,
@@ -1583,6 +1658,16 @@
 				D5D9F5142071BA6500B6FE9B /* UIViewController+RFInterfaceOrientation.m in Sources */,
 				D5BF664F24BC8BE8008BC122 /* UserAvatarView.swift in Sources */,
 				D553507324BBFB3E00282871 /* UserEntity.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5B884B8250EED84001CDBCF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5B884C7250F6A7B001CDBCF /* Array+App.swift in Sources */,
+				D5B884CA250F6C69001CDBCF /* PlaygroundExport.swift in Sources */,
+				D5B884C5250EEF28001CDBCF /* TagView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1939,6 +2024,99 @@
 			};
 			name = Alpha;
 		};
+		D5B884C2250EED84001CDBCF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = PlaygroundExport/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.github.bb9z.iOS-Project-Template.PlaygroundExport";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		D5B884C3250EED84001CDBCF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = PlaygroundExport/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.github.bb9z.iOS-Project-Template.PlaygroundExport";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		D5B884C4250EED84001CDBCF /* Alpha */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = PlaygroundExport/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.github.bb9z.iOS-Project-Template.PlaygroundExport";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Alpha;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1968,6 +2146,16 @@
 				D5197D2917F0242000CA387C /* Debug */,
 				D5197D2A17F0242000CA387C /* Release */,
 				D564D5D71970EF290032FEC3 /* Alpha */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D5B884C1250EED84001CDBCF /* Build configuration list for PBXNativeTarget "PlaygroundExport" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D5B884C2250EED84001CDBCF /* Debug */,
+				D5B884C3250EED84001CDBCF /* Release */,
+				D5B884C4250EED84001CDBCF /* Alpha */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
