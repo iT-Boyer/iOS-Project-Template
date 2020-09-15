@@ -124,6 +124,17 @@ fi
 logSection "项目打包"
 xcodebuild -exportArchive -archivePath "$ARCHIVE_PATH" -exportPath "$EXPORT_DIRECTORY_PATH" -exportOptionsPlist "$EXPORT_OPTIONS_PLIST" | xcpretty $xcprettyOptions
 
+dSYMsCount=$(find "$ARCHIVE_PATH/dSYMs" -d 1 -name "*.dSYM" | wc -l)
+if [ $dSYMsCount -ge 1 ]; then
+    logInfo "归档 dSYMs 文件"
+    find "$ARCHIVE_PATH/dSYMs" -d 1 -name "*.dSYM" -print0 | while read -d $'\0' file; do
+        logInfo "压缩 $file"
+        zip -r -X "$EXPORT_DIRECTORY_PATH/$(basename $file).zip" "$file/"
+    done
+else
+    logWarning "项目设置未生成 dSYMs 文件，跳过归档"
+fi
+
 logSection "应用包上传"
 if [ -n "$FIR_UPLOAD_TOKEN" ]; then
     logInfo "上传到 fir.im"
