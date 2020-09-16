@@ -48,3 +48,28 @@ extension Collection {
         }
     }
 }
+
+extension RangeReplaceableCollection where Self: MutableCollection, Index == Int {
+
+    // @MBDependency:3
+    /**
+     移除指定序号的元素，返回被移除的对象
+     */
+    @discardableResult mutating func remove(at indexes: IndexSet) -> [Element] {
+        // via: https://stackoverflow.com/a/50835467/945906
+        guard var i = indexes.first, i < count else { return [] }
+        var j = index(after: i)
+        var k = indexes.integerGreaterThan(i) ?? endIndex
+        while j != endIndex {
+            if k != j {
+                swapAt(i, j); formIndex(after: &i)
+            } else {
+                k = indexes.integerGreaterThan(k) ?? endIndex
+            }
+            formIndex(after: &j)
+        }
+        let ret = self[i...]
+        removeSubrange(i...)
+        return Array(ret)
+    }
+}
