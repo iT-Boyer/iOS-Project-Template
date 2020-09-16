@@ -18,6 +18,11 @@ class ApplicationDelegate: MBApplicationDelegate {
     }
 
     override func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
+        #if DEBUG
+        // InjectionIII - 强力开发辅助工具，能把对代码、UI 的修改即时载入模拟器中而无需重新运行
+        // 除此之外，还附带其他辅助工具，详见 https://github.com/johnno1962/InjectionIII
+        Bundle(path: "/Applications/InjectionIII.app/Contents/Resources/iOSInjection.bundle")?.load()
+        #endif
         Account.setup()
         RFKeyboard.autoDisimssKeyboardWhenTouch = true
         setupUIAppearance()
