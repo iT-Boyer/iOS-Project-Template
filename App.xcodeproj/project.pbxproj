@@ -166,7 +166,7 @@
 		D5EE52212043F6A7009148B3 /* MBCollectionViewEqualColumnSpaceLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE521B2043F6A6009148B3 /* MBCollectionViewEqualColumnSpaceLayout.m */; };
 		D5EE523D2043F7B9009148B3 /* MBLayoutButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE52312043F7B9009148B3 /* MBLayoutButton.m */; };
 		D5F65F3424C1CAF20082FEC2 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F65F3324C1CAF10082FEC2 /* API.swift */; };
-		D5F65F3724C290320082FEC2 /* B9MulticastDelegate in Frameworks */ = {isa = PBXBuildFile; productRef = D5F65F3624C290320082FEC2 /* B9MulticastDelegate */; };
+		D5F65F3724C290320082FEC2 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = D5F65F3624C290320082FEC2 /* SwiftPackageProductDependency */; };
 		D5F9F47C208D8F8700427201 /* MBCollectionViewCarouselLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D5F9F47B208D8F8700427201 /* MBCollectionViewCarouselLayout.m */; };
 		D5F9F47F208D921200427201 /* Date+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F9F47D208D921200427201 /* Date+App.swift */; };
 		D5F9F480208D921200427201 /* String+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F9F47E208D921200427201 /* String+App.swift */; };
@@ -191,6 +191,7 @@
 		3668E59D390585E40FF179B2 /* Pods-App.alpha.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App.alpha.xcconfig"; path = "Target Support Files/Pods-App/Pods-App.alpha.xcconfig"; sourceTree = "<group>"; };
 		6476B7525EFF7B313A27A298 /* Pods-App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App.release.xcconfig"; path = "Target Support Files/Pods-App/Pods-App.release.xcconfig"; sourceTree = "<group>"; };
 		AF6E6A83F7E71FC340A5AE68 /* libPods-App.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-App.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C82EBFD45F6FC21C9D0D92C9 /* Pods-App.preview.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App.preview.xcconfig"; path = "Target Support Files/Pods-App/Pods-App.preview.xcconfig"; sourceTree = "<group>"; };
 		D501844920F86111009481D4 /* MBNavigationController+Router.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBNavigationController+Router.m"; sourceTree = "<group>"; };
 		D501844A20F86111009481D4 /* MBNavigationController+Router.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBNavigationController+Router.h"; sourceTree = "<group>"; };
 		D501844C20F865D2009481D4 /* Number+App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Number+App.swift"; sourceTree = "<group>"; };
@@ -475,7 +476,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D5F65F3724C290320082FEC2 /* B9MulticastDelegate in Frameworks */,
+				D5F65F3724C290320082FEC2 /* BuildFile in Frameworks */,
 				674FCCB03EFF1B157024C64B /* libPods-App.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -495,6 +496,7 @@
 			children = (
 				3668E59D390585E40FF179B2 /* Pods-App.alpha.xcconfig */,
 				27E8F4B8C4098FB174EF971E /* Pods-App.debug.xcconfig */,
+				C82EBFD45F6FC21C9D0D92C9 /* Pods-App.preview.xcconfig */,
 				6476B7525EFF7B313A27A298 /* Pods-App.release.xcconfig */,
 			);
 			path = Pods;
@@ -541,10 +543,10 @@
 			children = (
 				D5197A4317EECAAF00CA387C /* App */,
 				D525F3E62506988D003EBEB0 /* Development Content */,
-				D5B884BD250EED84001CDBCF /* PlaygroundExport */,
 				D5197A3C17EECAAF00CA387C /* Frameworks */,
-				D5197A3B17EECAAF00CA387C /* Products */,
+				D5B884BD250EED84001CDBCF /* PlaygroundExport */,
 				BAEA70A9D9A18BBDBBC1B323 /* Pods */,
+				D5197A3B17EECAAF00CA387C /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1341,7 +1343,7 @@
 			);
 			name = App;
 			packageProductDependencies = (
-				D5F65F3624C290320082FEC2 /* B9MulticastDelegate */,
+				D5F65F3624C290320082FEC2 /* SwiftPackageProductDependency */,
 			);
 			productName = App;
 			productReference = D5197A3A17EECAAF00CA387C /* App.app */;
@@ -1383,7 +1385,7 @@
 			);
 			mainGroup = D5197A3117EECAAF00CA387C;
 			packageReferences = (
-				D5F65F3524C290320082FEC2 /* XCRemoteSwiftPackageReference "MulticastDelegate" */,
+				D5F65F3524C290320082FEC2 /* RemoteSwiftPackageReference */,
 			);
 			productRefGroup = D5197A3B17EECAAF00CA387C /* Products */;
 			projectDirPath = "";
@@ -1898,7 +1900,7 @@
 				EnableCodeCommentsHighlight = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				ProjectFilePath = "${SRCROOT}/${PROJECT}.xcodeproj";
-				ScriptPath = $SRCROOT/Scripts;
+				ScriptPath = "$SRCROOT/Scripts";
 			};
 			name = Debug;
 		};
@@ -1912,7 +1914,7 @@
 				EnableCodeCommentsHighlight = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				ProjectFilePath = "${SRCROOT}/${PROJECT}.xcodeproj";
-				ScriptPath = $SRCROOT/Scripts;
+				ScriptPath = "$SRCROOT/Scripts";
 			};
 			name = Release;
 		};
@@ -2021,7 +2023,7 @@
 				EnableCodeCommentsHighlight = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				ProjectFilePath = "${SRCROOT}/${PROJECT}.xcodeproj";
-				ScriptPath = $SRCROOT/Scripts;
+				ScriptPath = "$SRCROOT/Scripts";
 			};
 			name = Alpha;
 		};
@@ -2185,7 +2187,7 @@
 		};
 		D5B8A3A2251227CE00C84CB1 /* Preview */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 27E8F4B8C4098FB174EF971E /* Pods-App.debug.xcconfig */;
+			baseConfigurationReference = C82EBFD45F6FC21C9D0D92C9 /* Pods-App.preview.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "App/Supporting Files/debug.entitlements";
@@ -2223,7 +2225,7 @@
 				EnableCodeCommentsHighlight = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				ProjectFilePath = "${SRCROOT}/${PROJECT}.xcodeproj";
-				ScriptPath = $SRCROOT/Scripts;
+				ScriptPath = "$SRCROOT/Scripts";
 			};
 			name = Preview;
 		};
@@ -2312,7 +2314,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		D5F65F3524C290320082FEC2 /* XCRemoteSwiftPackageReference "MulticastDelegate" */ = {
+		D5F65F3524C290320082FEC2 /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/b9swift/MulticastDelegate";
 			requirement = {
@@ -2323,9 +2325,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		D5F65F3624C290320082FEC2 /* B9MulticastDelegate */ = {
+		D5F65F3624C290320082FEC2 /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = D5F65F3524C290320082FEC2 /* XCRemoteSwiftPackageReference "MulticastDelegate" */;
+			package = D5F65F3524C290320082FEC2 /* RemoteSwiftPackageReference */;
 			productName = B9MulticastDelegate;
 		};
 /* End XCSwiftPackageProductDependency section */

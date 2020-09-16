@@ -201,8 +201,6 @@ PODS:
     - RFKit/Runtime
   - "RFKit/Category/UIScrollView+RFScrolling (2.5.0)":
     - RFKit/Foundation
-  - RFKit/Category/UISearchBar (2.5.0):
-    - RFKit/Foundation
   - RFKit/Category/UIStoryboard (2.5.0):
     - RFKit/Foundation
   - RFKit/Category/UITableView (2.5.0):
@@ -277,7 +275,6 @@ DEPENDENCIES:
   - RFKeyboard
   - RFKit/Category/NSFileManager
   - "RFKit/Category/UIScrollView+RFScrolling"
-  - RFKit/Category/UISearchBar
   - RFMessageManager/SVProgressHUD
   - RFSegue/Async
   - SDWebImage
@@ -321,6 +318,6 @@ SPEC CHECKSUMS:
   SDWebImage: 62ae4a18473520c67b79e9724c31a63599cc9423
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: 1ed8327091d9af518603353180f0bfa10cedf2f4
+PODFILE CHECKSUM: 3bd67997ddefbd6f89327337a6afef0d05b72560
 
 COCOAPODS: 1.9.3

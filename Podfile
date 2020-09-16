@@ -24,7 +24,6 @@ target 'App' do
     pod 'RFKit', :subspecs => [
         'Category/NSFileManager',
         'Category/UIScrollView+RFScrolling',
-        'Category/UISearchBar',
     ]
     pod 'RFAlpha', :subspecs => [
         'RFBlockSelectorPerform',
