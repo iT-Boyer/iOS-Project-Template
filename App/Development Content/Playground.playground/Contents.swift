@@ -6,14 +6,7 @@ import UIKit
 
  我一般用 playground 辅助实现，验证简短的方法
 
- Playground 可以通过 framework 的方式载入项目和第三方代码；
- 载入 Storyboard 中的视图也是支持的，但不推荐，因为资源文件必须是编译好的，需要手动或通过脚本拷贝，不如用 SwiftUI 预览特性（见 UIKitPreview.swift）
-
- ### 参考
-
- * [Playground Support - Apple Developer Documentation](https://developer.apple.com/documentation/playgroundsupport)
- * [Add a color, file, or image literal to a playground - Xcode Help](https://help.apple.com/xcode/mac/11.4/#/dev4c60242fc)
- * [Use a custom framework in a playground - Xcode Help](https://help.apple.com/xcode/mac/10.0/#/devc9b33111c)
+ 另见：[技术选型: 有助更快开发的工具](https://github.com/BB9z/iOS-Project-Template/wiki/%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B#tools-implement-faster)
  */
 
 extension String {
