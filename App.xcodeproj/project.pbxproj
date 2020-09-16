@@ -36,7 +36,6 @@
 		D5353D1624B7E1EF00BED8C7 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D5353D1524B7E1EF00BED8C7 /* README.md */; };
 		D544A396197CBE5300C65604 /* MBFormSelectButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D544A395197CBE5300C65604 /* MBFormSelectButton.m */; };
 		D544A39E197D1E8600C65604 /* JSONValueTransformer+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D544A39D197D1E8600C65604 /* JSONValueTransformer+App.m */; };
-		D54AFCE722BF8C440031559F /* Sequence+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54AFCE622BF8C440031559F /* Sequence+App.swift */; };
 		D54AFCEB22BF8DFE0031559F /* Atomic.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54AFCEA22BF8DFD0031559F /* Atomic.swift */; };
 		D54D5C1224387C4300D5F3A8 /* AccountEntities.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54D5C1124387C4300D5F3A8 /* AccountEntities.swift */; };
 		D54D5C1424387EE700D5F3A8 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54D5C1324387EE700D5F3A8 /* Account.swift */; };
@@ -108,6 +107,7 @@
 		D5B884C7250F6A7B001CDBCF /* Array+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D588308820CACB32002030C4 /* Array+App.swift */; };
 		D5B884C8250F6AEB001CDBCF /* TagView.swift in Headers */ = {isa = PBXBuildFile; fileRef = D5B884B5250EEC53001CDBCF /* TagView.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		D5B884CA250F6C69001CDBCF /* PlaygroundExport.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B884C9250F6C69001CDBCF /* PlaygroundExport.swift */; };
+		D5B8A39B251217C900C84CB1 /* Collections+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B8A39A251217C900C84CB1 /* Collections+App.swift */; };
 		D5B9669A2501CF77009D77A0 /* AssociatedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B966992501CF77009D77A0 /* AssociatedObject.swift */; };
 		D5B9669C2501CFCB009D77A0 /* SearchHighlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B9669B2501CFCA009D77A0 /* SearchHighlight.swift */; };
 		D5BE29602509CB9C00A9AA2F /* HasItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BE295F2509CB9C00A9AA2F /* HasItem.swift */; };
@@ -244,7 +244,6 @@
 		D544A394197CBE5300C65604 /* MBFormSelectButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBFormSelectButton.h; sourceTree = "<group>"; };
 		D544A395197CBE5300C65604 /* MBFormSelectButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBFormSelectButton.m; sourceTree = "<group>"; };
 		D544A39D197D1E8600C65604 /* JSONValueTransformer+App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JSONValueTransformer+App.m"; sourceTree = "<group>"; };
-		D54AFCE622BF8C440031559F /* Sequence+App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Sequence+App.swift"; sourceTree = "<group>"; };
 		D54AFCEA22BF8DFD0031559F /* Atomic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Atomic.swift; sourceTree = "<group>"; };
 		D54D5C1124387C4300D5F3A8 /* AccountEntities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountEntities.swift; sourceTree = "<group>"; };
 		D54D5C1324387EE700D5F3A8 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
@@ -354,6 +353,7 @@
 		D5B884BE250EED84001CDBCF /* PlaygroundExport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaygroundExport.h; sourceTree = "<group>"; };
 		D5B884BF250EED84001CDBCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D5B884C9250F6C69001CDBCF /* PlaygroundExport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaygroundExport.swift; sourceTree = "<group>"; };
+		D5B8A39A251217C900C84CB1 /* Collections+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collections+App.swift"; sourceTree = "<group>"; };
 		D5B966992501CF77009D77A0 /* AssociatedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssociatedObject.swift; sourceTree = "<group>"; };
 		D5B9669B2501CFCA009D77A0 /* SearchHighlight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchHighlight.swift; sourceTree = "<group>"; };
 		D5BE295F2509CB9C00A9AA2F /* HasItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HasItem.swift; sourceTree = "<group>"; };
@@ -601,6 +601,7 @@
 			isa = PBXGroup;
 			children = (
 				D588308820CACB32002030C4 /* Array+App.swift */,
+				D5B8A39A251217C900C84CB1 /* Collections+App.swift */,
 				D5C3CBEE217ED20F0097CCD9 /* Geometry+App.swift */,
 				D5EE50F82043DAA1009148B3 /* NSArray+App.h */,
 				D5EE50E42043DAA1009148B3 /* NSArray+App.m */,
@@ -609,7 +610,6 @@
 				D5EE510A2043DAA1009148B3 /* NSString+App.m */,
 				D5EE50F32043DAA1009148B3 /* NSURL+App.h */,
 				D5EE510D2043DAA1009148B3 /* NSURL+App.m */,
-				D54AFCE622BF8C440031559F /* Sequence+App.swift */,
 				D5F9F47E208D921200427201 /* String+App.swift */,
 				D5EE51172043DAA1009148B3 /* UIKit+App.h */,
 			);
@@ -1526,6 +1526,7 @@
 				D54AFCEB22BF8DFE0031559F /* Atomic.swift in Sources */,
 				D52A04E520F85F2600F535ED /* Button.swift in Sources */,
 				D5EE519A2043F5F3009148B3 /* CALayer+MBAnimationPersistence.m in Sources */,
+				D5B8A39B251217C900C84CB1 /* Collections+App.swift in Sources */,
 				D5C82DDC2179D98C00E63A2A /* Color.swift in Sources */,
 				D5BF664D24BC81D7008BC122 /* CommentEntity.swift in Sources */,
 				D5F9F47F208D921200427201 /* Date+App.swift in Sources */,
@@ -1632,7 +1633,6 @@
 				D558FDF52046913B00A01EE6 /* RootViewController.swift in Sources */,
 				D5B9669C2501CFCB009D77A0 /* SearchHighlight.swift in Sources */,
 				D5B1906D2404AFDC0076CD61 /* SearchTextField.swift in Sources */,
-				D54AFCE722BF8C440031559F /* Sequence+App.swift in Sources */,
 				D501845C20F881B7009481D4 /* Shadow.swift in Sources */,
 				D52EADF02043BA3D007219E0 /* ShortCuts.m in Sources */,
 				D5F9F480208D921200427201 /* String+App.swift in Sources */,
