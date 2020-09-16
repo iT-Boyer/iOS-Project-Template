@@ -661,8 +661,8 @@
 		D525F3E62506988D003EBEB0 /* Development Content */ = {
 			isa = PBXGroup;
 			children = (
-				D525F3E72506988D003EBEB0 /* README.md */,
 				D525F3E82506988D003EBEB0 /* Playground.playground */,
+				D525F3E72506988D003EBEB0 /* README.md */,
 				D5B884B2250E5363001CDBCF /* UI Gallery.playground */,
 			);
 			name = "Development Content";
@@ -1324,10 +1324,10 @@
 			buildPhases = (
 				09D177FF8CEC0EA630D3BCE2 /* [CP] Check Pods Manifest.lock */,
 				D5353D1424B7DEAB00BED8C7 /* Swift Lint */,
+				D5197D2D17F0258B00CA387C /* Update Build Count */,
 				D5197A3617EECAAF00CA387C /* Sources */,
 				D5197A3717EECAAF00CA387C /* Frameworks */,
 				D5197A3817EECAAF00CA387C /* Resources */,
-				D5197D2D17F0258B00CA387C /* Our Build Script */,
 				2FC8042D45E56C7A8A361721 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
@@ -1474,14 +1474,14 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-App/Pods-App-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D5197D2D17F0258B00CA387C /* Our Build Script */ = {
+		D5197D2D17F0258B00CA387C /* Update Build Count */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Our Build Script";
+			name = "Update Build Count";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
