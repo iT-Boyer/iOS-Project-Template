@@ -115,7 +115,7 @@
 		D5BF664B24BC1EEF008BC122 /* TopicListVCs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BF664A24BC1EEF008BC122 /* TopicListVCs.swift */; };
 		D5BF664D24BC81D7008BC122 /* CommentEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BF664C24BC81D7008BC122 /* CommentEntity.swift */; };
 		D5BF664F24BC8BE8008BC122 /* UserAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BF664E24BC8BE8008BC122 /* UserAvatarView.swift */; };
-		D5C3CBEF217ED20F0097CCD9 /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C3CBEE217ED20F0097CCD9 /* Geometry.swift */; };
+		D5C3CBEF217ED20F0097CCD9 /* Geometry+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C3CBEE217ED20F0097CCD9 /* Geometry+App.swift */; };
 		D5C3CBF3217EEEA20097CCD9 /* MBBadgeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D5C3CBF2217EEEA20097CCD9 /* MBBadgeLabel.m */; };
 		D5C3CBF6217EEEDA0097CCD9 /* UITextView+ContainerInset.m in Sources */ = {isa = PBXBuildFile; fileRef = D5C3CBF4217EEEDA0097CCD9 /* UITextView+ContainerInset.m */; };
 		D5C3CBF9217EF0A10097CCD9 /* MBTextCountLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D5C3CBF8217EF0A10097CCD9 /* MBTextCountLabel.m */; };
@@ -361,7 +361,7 @@
 		D5BF664A24BC1EEF008BC122 /* TopicListVCs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicListVCs.swift; sourceTree = "<group>"; };
 		D5BF664C24BC81D7008BC122 /* CommentEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentEntity.swift; sourceTree = "<group>"; };
 		D5BF664E24BC8BE8008BC122 /* UserAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAvatarView.swift; sourceTree = "<group>"; };
-		D5C3CBEE217ED20F0097CCD9 /* Geometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geometry.swift; sourceTree = "<group>"; };
+		D5C3CBEE217ED20F0097CCD9 /* Geometry+App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Geometry+App.swift"; sourceTree = "<group>"; };
 		D5C3CBF1217EEEA20097CCD9 /* MBBadgeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBBadgeLabel.h; sourceTree = "<group>"; };
 		D5C3CBF2217EEEA20097CCD9 /* MBBadgeLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBBadgeLabel.m; sourceTree = "<group>"; };
 		D5C3CBF4217EEEDA0097CCD9 /* UITextView+ContainerInset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+ContainerInset.m"; sourceTree = "<group>"; };
@@ -601,7 +601,7 @@
 			isa = PBXGroup;
 			children = (
 				D588308820CACB32002030C4 /* Array+App.swift */,
-				D5C3CBEE217ED20F0097CCD9 /* Geometry.swift */,
+				D5C3CBEE217ED20F0097CCD9 /* Geometry+App.swift */,
 				D5EE50F82043DAA1009148B3 /* NSArray+App.h */,
 				D5EE50E42043DAA1009148B3 /* NSArray+App.m */,
 				D588308C20CACB33002030C4 /* NSPointArray+App.swift */,
@@ -1534,7 +1534,7 @@
 				D501845B20F881B6009481D4 /* DissolveTransitioning.swift in Sources */,
 				D5B1905A24026DB90076CD61 /* EnumListView.swift in Sources */,
 				D5DC60C124CA84BC00FBB147 /* EnvironmentFlag.swift in Sources */,
-				D5C3CBEF217ED20F0097CCD9 /* Geometry.swift in Sources */,
+				D5C3CBEF217ED20F0097CCD9 /* Geometry+App.swift in Sources */,
 				D5BE29602509CB9C00A9AA2F /* HasItem.swift in Sources */,
 				D569C9CF21AE8D3200211E36 /* HomeVC.swift in Sources */,
 				D544A39E197D1E8600C65604 /* JSONValueTransformer+App.m in Sources */,
