@@ -108,6 +108,7 @@
 		D5B884C8250F6AEB001CDBCF /* TagView.swift in Headers */ = {isa = PBXBuildFile; fileRef = D5B884B5250EEC53001CDBCF /* TagView.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		D5B884CA250F6C69001CDBCF /* PlaygroundExport.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B884C9250F6C69001CDBCF /* PlaygroundExport.swift */; };
 		D5B8A39B251217C900C84CB1 /* Collections+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B8A39A251217C900C84CB1 /* Collections+App.swift */; };
+		D5B8A39C251220FD00C84CB1 /* Collections+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B8A39A251217C900C84CB1 /* Collections+App.swift */; };
 		D5B9669A2501CF77009D77A0 /* AssociatedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B966992501CF77009D77A0 /* AssociatedObject.swift */; };
 		D5B9669C2501CFCB009D77A0 /* SearchHighlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B9669B2501CFCA009D77A0 /* SearchHighlight.swift */; };
 		D5BE29602509CB9C00A9AA2F /* HasItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BE295F2509CB9C00A9AA2F /* HasItem.swift */; };
@@ -1666,6 +1667,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D5B884C7250F6A7B001CDBCF /* Array+App.swift in Sources */,
+				D5B8A39C251220FD00C84CB1 /* Collections+App.swift in Sources */,
 				D5B884CA250F6C69001CDBCF /* PlaygroundExport.swift in Sources */,
 				D5B884C5250EEF28001CDBCF /* TagView.swift in Sources */,
 			);
