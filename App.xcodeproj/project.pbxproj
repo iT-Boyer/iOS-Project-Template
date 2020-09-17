@@ -111,6 +111,7 @@
 		D5B8A39C251220FD00C84CB1 /* Collections+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B8A39A251217C900C84CB1 /* Collections+App.swift */; };
 		D5B8A39E251221A300C84CB1 /* IdentifierEquatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B8A39D251221A300C84CB1 /* IdentifierEquatable.swift */; };
 		D5B8A3A0251225F700C84CB1 /* UIKitPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B8A39F251225F700C84CB1 /* UIKitPreview.swift */; };
+		D5B8A3A72513309D00C84CB1 /* NavigationController+Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B8A3A62513309D00C84CB1 /* NavigationController+Tab.swift */; };
 		D5B9669A2501CF77009D77A0 /* AssociatedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B966992501CF77009D77A0 /* AssociatedObject.swift */; };
 		D5B9669C2501CFCB009D77A0 /* SearchHighlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B9669B2501CFCA009D77A0 /* SearchHighlight.swift */; };
 		D5BE29602509CB9C00A9AA2F /* HasItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BE295F2509CB9C00A9AA2F /* HasItem.swift */; };
@@ -360,6 +361,7 @@
 		D5B8A39A251217C900C84CB1 /* Collections+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collections+App.swift"; sourceTree = "<group>"; };
 		D5B8A39D251221A300C84CB1 /* IdentifierEquatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdentifierEquatable.swift; sourceTree = "<group>"; };
 		D5B8A39F251225F700C84CB1 /* UIKitPreview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIKitPreview.swift; sourceTree = "<group>"; };
+		D5B8A3A62513309D00C84CB1 /* NavigationController+Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationController+Tab.swift"; sourceTree = "<group>"; };
 		D5B966992501CF77009D77A0 /* AssociatedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssociatedObject.swift; sourceTree = "<group>"; };
 		D5B9669B2501CFCA009D77A0 /* SearchHighlight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchHighlight.swift; sourceTree = "<group>"; };
 		D5BE295F2509CB9C00A9AA2F /* HasItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HasItem.swift; sourceTree = "<group>"; };
@@ -767,6 +769,7 @@
 				D5C636A62047CC5900851CF4 /* LaunchScreen.storyboard */,
 				D501844A20F86111009481D4 /* MBNavigationController+Router.h */,
 				D501844920F86111009481D4 /* MBNavigationController+Router.m */,
+				D5B8A3A62513309D00C84CB1 /* NavigationController+Tab.swift */,
 				D55959D420ABA9B50019D733 /* NavigationController.swift */,
 				D5EE51382043E0DF009148B3 /* RootViewController.swift */,
 			);
@@ -1622,6 +1625,7 @@
 				D5EE51F62043F613009148B3 /* MBVauleLabel.m in Sources */,
 				D55959D320AB9FA20019D733 /* MessageManager.swift in Sources */,
 				D5740B56249C5316001CBCB2 /* MoreVC.swift in Sources */,
+				D5B8A3A72513309D00C84CB1 /* NavigationController+Tab.swift in Sources */,
 				D55959D520ABA9B50019D733 /* NavigationController.swift in Sources */,
 				D5EE51192043DAA2009148B3 /* NSArray+App.m in Sources */,
 				D588309020CACB33002030C4 /* NSPointArray+App.swift in Sources */,
