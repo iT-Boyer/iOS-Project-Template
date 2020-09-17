@@ -168,7 +168,7 @@
 		D5EE52212043F6A7009148B3 /* MBCollectionViewEqualColumnSpaceLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE521B2043F6A6009148B3 /* MBCollectionViewEqualColumnSpaceLayout.m */; };
 		D5EE523D2043F7B9009148B3 /* MBLayoutButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE52312043F7B9009148B3 /* MBLayoutButton.m */; };
 		D5F65F3424C1CAF20082FEC2 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F65F3324C1CAF10082FEC2 /* API.swift */; };
-		D5F65F3724C290320082FEC2 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = D5F65F3624C290320082FEC2 /* SwiftPackageProductDependency */; };
+		D5F65F3724C290320082FEC2 /* B9MulticastDelegate in Frameworks */ = {isa = PBXBuildFile; productRef = D5F65F3624C290320082FEC2 /* B9MulticastDelegate */; };
 		D5F9F47C208D8F8700427201 /* MBCollectionViewCarouselLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D5F9F47B208D8F8700427201 /* MBCollectionViewCarouselLayout.m */; };
 		D5F9F47F208D921200427201 /* Date+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F9F47D208D921200427201 /* Date+App.swift */; };
 		D5F9F480208D921200427201 /* String+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F9F47E208D921200427201 /* String+App.swift */; };
@@ -362,6 +362,8 @@
 		D5B8A39D251221A300C84CB1 /* IdentifierEquatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdentifierEquatable.swift; sourceTree = "<group>"; };
 		D5B8A39F251225F700C84CB1 /* UIKitPreview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIKitPreview.swift; sourceTree = "<group>"; };
 		D5B8A3A62513309D00C84CB1 /* NavigationController+Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationController+Tab.swift"; sourceTree = "<group>"; };
+		D5B8A3AB251343AF00C84CB1 /* Runtest.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Runtest.gpx; sourceTree = "<group>"; };
+		D5B8A3AE251343AF00C84CB1 /* SignificantChanges.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SignificantChanges.gpx; sourceTree = "<group>"; };
 		D5B966992501CF77009D77A0 /* AssociatedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssociatedObject.swift; sourceTree = "<group>"; };
 		D5B9669B2501CFCA009D77A0 /* SearchHighlight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchHighlight.swift; sourceTree = "<group>"; };
 		D5BE295F2509CB9C00A9AA2F /* HasItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HasItem.swift; sourceTree = "<group>"; };
@@ -480,7 +482,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D5F65F3724C290320082FEC2 /* BuildFile in Frameworks */,
+				D5F65F3724C290320082FEC2 /* B9MulticastDelegate in Frameworks */,
 				674FCCB03EFF1B157024C64B /* libPods-App.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -670,6 +672,7 @@
 		D525F3E62506988D003EBEB0 /* Development Content */ = {
 			isa = PBXGroup;
 			children = (
+				D5B8A3A8251343AF00C84CB1 /* GPX */,
 				D525F3E82506988D003EBEB0 /* Playground.playground */,
 				D525F3E72506988D003EBEB0 /* README.md */,
 				D5B884B2250E5363001CDBCF /* UI Gallery.playground */,
@@ -1113,6 +1116,15 @@
 			path = PlaygroundExport;
 			sourceTree = "<group>";
 		};
+		D5B8A3A8251343AF00C84CB1 /* GPX */ = {
+			isa = PBXGroup;
+			children = (
+				D5B8A3AB251343AF00C84CB1 /* Runtest.gpx */,
+				D5B8A3AE251343AF00C84CB1 /* SignificantChanges.gpx */,
+			);
+			path = GPX;
+			sourceTree = "<group>";
+		};
 		D5BA55212046471800E4F335 /* Account */ = {
 			isa = PBXGroup;
 			children = (
@@ -1349,7 +1361,7 @@
 			);
 			name = App;
 			packageProductDependencies = (
-				D5F65F3624C290320082FEC2 /* SwiftPackageProductDependency */,
+				D5F65F3624C290320082FEC2 /* B9MulticastDelegate */,
 			);
 			productName = App;
 			productReference = D5197A3A17EECAAF00CA387C /* App.app */;
@@ -1391,7 +1403,7 @@
 			);
 			mainGroup = D5197A3117EECAAF00CA387C;
 			packageReferences = (
-				D5F65F3524C290320082FEC2 /* RemoteSwiftPackageReference */,
+				D5F65F3524C290320082FEC2 /* XCRemoteSwiftPackageReference "MulticastDelegate" */,
 			);
 			productRefGroup = D5197A3B17EECAAF00CA387C /* Products */;
 			projectDirPath = "";
@@ -1908,7 +1920,7 @@
 				EnableCodeCommentsHighlight = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				ProjectFilePath = "${SRCROOT}/${PROJECT}.xcodeproj";
-				ScriptPath = "$SRCROOT/Scripts";
+				ScriptPath = $SRCROOT/Scripts;
 			};
 			name = Debug;
 		};
@@ -1922,7 +1934,7 @@
 				EnableCodeCommentsHighlight = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				ProjectFilePath = "${SRCROOT}/${PROJECT}.xcodeproj";
-				ScriptPath = "$SRCROOT/Scripts";
+				ScriptPath = $SRCROOT/Scripts;
 			};
 			name = Release;
 		};
@@ -2031,7 +2043,7 @@
 				EnableCodeCommentsHighlight = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				ProjectFilePath = "${SRCROOT}/${PROJECT}.xcodeproj";
-				ScriptPath = "$SRCROOT/Scripts";
+				ScriptPath = $SRCROOT/Scripts;
 			};
 			name = Alpha;
 		};
@@ -2233,7 +2245,7 @@
 				EnableCodeCommentsHighlight = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				ProjectFilePath = "${SRCROOT}/${PROJECT}.xcodeproj";
-				ScriptPath = "$SRCROOT/Scripts";
+				ScriptPath = $SRCROOT/Scripts;
 			};
 			name = Preview;
 		};
@@ -2322,7 +2334,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		D5F65F3524C290320082FEC2 /* RemoteSwiftPackageReference */ = {
+		D5F65F3524C290320082FEC2 /* XCRemoteSwiftPackageReference "MulticastDelegate" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/b9swift/MulticastDelegate";
 			requirement = {
@@ -2333,9 +2345,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		D5F65F3624C290320082FEC2 /* SwiftPackageProductDependency */ = {
+		D5F65F3624C290320082FEC2 /* B9MulticastDelegate */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = D5F65F3524C290320082FEC2 /* RemoteSwiftPackageReference */;
+			package = D5F65F3524C290320082FEC2 /* XCRemoteSwiftPackageReference "MulticastDelegate" */;
 			productName = B9MulticastDelegate;
 		};
 /* End XCSwiftPackageProductDependency section */
