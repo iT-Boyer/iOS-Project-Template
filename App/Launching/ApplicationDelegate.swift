@@ -33,7 +33,7 @@ class ApplicationDelegate: MBApplicationDelegate {
 
     func setupUIAppearance() {
         // 统一全局色，storyboard 的全局色只对部分 UI 生效，比如无法对 UIAlertController 应用
-        window.tintColor = UIColor(named: "Color/primary")!
+        window.tintColor = UIColor(named: "primary")!
 
         // 列表 data source 全局调整
         MBListDataSource<AnyObject>.defualtPageStartZero = false
