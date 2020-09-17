@@ -71,7 +71,7 @@ class APIResponseSerializer: AFHTTPResponseSerializer {
         // 尝试 JSON 解析
         let responseJSON: Any
         do {
-             responseJSON = try JSONSerialization.jsonObject(with: data, options: [])
+            responseJSON = try JSONSerialization.jsonObject(with: data, options: [.allowFragments])
         } catch {
             setError(ePointer, debugMessage: "解析器返回的错误信息：\(error.localizedDescription)\n建议先验证返回是否是合法的JSON，并联系后台人员", domain: NSURLErrorDomain, code: NSURLErrorCannotParseResponse, description: "网络解析错误，如果你在使用公共 Wi-Fi，请打开系统浏览器获取网络访问权限", reason: defaultErrorField, suggestion: defaultErrorField, url: response?.url)
             return nil

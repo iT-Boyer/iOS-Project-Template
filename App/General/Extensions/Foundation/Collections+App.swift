@@ -29,6 +29,7 @@ extension Collection {
         return nil
     }
 
+    // 模版 6.x 移除
     @available(*, unavailable, renamed: "element(at:)")
     func rf_object(at index: Index) -> Element? {
         element(at: index)
