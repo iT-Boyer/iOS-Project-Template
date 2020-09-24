@@ -24,11 +24,11 @@ extension UICollectionView {
         // http://stackoverflow.com/questions/19032869/
         // http://stackoverflow.com/questions/19448488/
         UIView.setAnimationsEnabled(animated)
-        performBatchUpdates {
+        performBatchUpdates({
             self.reloadSections(IndexSet(0..<numberOfSections))
-        } completion: { _ in
+        }, completion: { _ in
             UIView.setAnimationsEnabled(true)
-        }
+        })
     }
 
     // @MBDependency:2

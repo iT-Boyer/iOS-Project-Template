@@ -13,5 +13,5 @@
 
 除了基本的用 `[ci skip]` 跳过 CI 外，额外添加以下开关：
 
-* `[ci clean]` 清理编译
-* `[ci verbose]` 输出更多信息
+- `[ci clean]` 清理编译
+- `[ci verbose]` 输出更多信息
