@@ -78,8 +78,8 @@ class ApplicationDelegate: MBApplicationDelegate {
     }
 
     override func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
-        if url.scheme == AppScheme {
-            AppNavigationJump(url.absoluteString, nil)
+        if url.scheme == NavigationController.appScheme {
+            NavigationController.jump(url: url, context: nil)
             return true
         }
         return super.application(app, open: url, options: options)
