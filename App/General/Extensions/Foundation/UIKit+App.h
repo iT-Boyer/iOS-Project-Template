@@ -16,10 +16,6 @@
 #   import "NSArray+App.h"
 #endif
 
-#if __has_include("NSString+App.h")
-#   import "NSString+App.h"
-#endif
-
 #if __has_include("NSURL+App.h")
 #   import "NSURL+App.h"
 #endif
