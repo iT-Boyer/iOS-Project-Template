@@ -18,10 +18,6 @@
 
 #if !TARGET_OS_WATCH
 
-#if __has_include("UICollectionView+App.h")
-#   import "UICollectionView+App.h"
-#endif
-
 #if __has_include("UIImage+MBImageSet.h")
 #   import "UIImage+MBImageSet.h"
 #endif

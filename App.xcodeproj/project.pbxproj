@@ -72,6 +72,7 @@
 		D588308D20CACB33002030C4 /* Array+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D588308820CACB32002030C4 /* Array+App.swift */; };
 		D588308F20CACB33002030C4 /* MBSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = D588308A20CACB32002030C4 /* MBSwift.swift */; };
 		D588309020CACB33002030C4 /* NSPointArray+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D588308C20CACB33002030C4 /* NSPointArray+App.swift */; };
+		D58D1B00251C583300D1EF32 /* UICollectionView+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58D1AFF251C583300D1EF32 /* UICollectionView+App.swift */; };
 		D5936E09217977FB00BC4F03 /* MBIndefiniteRotationImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = D5936E07217977FA00BC4F03 /* MBIndefiniteRotationImageView.m */; };
 		D5A3312321527BA100B0FD5B /* MBCellStackView.m in Sources */ = {isa = PBXBuildFile; fileRef = D5A3311F21527BA100B0FD5B /* MBCellStackView.m */; };
 		D5A3312421527BA100B0FD5B /* MBFlipCollapsibleView.m in Sources */ = {isa = PBXBuildFile; fileRef = D5A3312021527BA100B0FD5B /* MBFlipCollapsibleView.m */; };
@@ -135,7 +136,6 @@
 		D5E80580226F403D00901C41 /* MBBottomLayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E8057F226F403D00901C41 /* MBBottomLayoutView.m */; };
 		D5EE51192043DAA2009148B3 /* NSArray+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE50E42043DAA1009148B3 /* NSArray+App.m */; };
 		D5EE51212043DAA2009148B3 /* UIViewController+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE50EC2043DAA1009148B3 /* UIViewController+App.m */; };
-		D5EE51282043DAA2009148B3 /* UICollectionView+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE50F72043DAA1009148B3 /* UICollectionView+App.m */; };
 		D5EE51792043F5E6009148B3 /* MBSearchTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE51592043F5E4009148B3 /* MBSearchTextField.m */; };
 		D5EE517A2043F5E6009148B3 /* MBKeyboardFloatContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE515B2043F5E4009148B3 /* MBKeyboardFloatContainer.m */; };
 		D5EE517B2043F5E6009148B3 /* MBCodeSendButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE515C2043F5E4009148B3 /* MBCodeSendButton.m */; };
@@ -297,6 +297,7 @@
 		D588308820CACB32002030C4 /* Array+App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+App.swift"; sourceTree = "<group>"; };
 		D588308A20CACB32002030C4 /* MBSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MBSwift.swift; sourceTree = "<group>"; };
 		D588308C20CACB33002030C4 /* NSPointArray+App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSPointArray+App.swift"; sourceTree = "<group>"; };
+		D58D1AFF251C583300D1EF32 /* UICollectionView+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+App.swift"; sourceTree = "<group>"; };
 		D59066B520AD0C4500411410 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D5936E07217977FA00BC4F03 /* MBIndefiniteRotationImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBIndefiniteRotationImageView.m; sourceTree = "<group>"; };
 		D5936E08217977FB00BC4F03 /* MBIndefiniteRotationImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBIndefiniteRotationImageView.h; sourceTree = "<group>"; };
@@ -394,10 +395,8 @@
 		D5E8057F226F403D00901C41 /* MBBottomLayoutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBBottomLayoutView.m; sourceTree = "<group>"; };
 		D5EE50E42043DAA1009148B3 /* NSArray+App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+App.m"; sourceTree = "<group>"; };
 		D5EE50EC2043DAA1009148B3 /* UIViewController+App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+App.m"; sourceTree = "<group>"; };
-		D5EE50F72043DAA1009148B3 /* UICollectionView+App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+App.m"; sourceTree = "<group>"; };
 		D5EE50F82043DAA1009148B3 /* NSArray+App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+App.h"; sourceTree = "<group>"; };
 		D5EE51042043DAA1009148B3 /* UIViewController+App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+App.h"; sourceTree = "<group>"; };
-		D5EE51092043DAA1009148B3 /* UICollectionView+App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+App.h"; sourceTree = "<group>"; };
 		D5EE51172043DAA1009148B3 /* UIKit+App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIKit+App.h"; sourceTree = "<group>"; };
 		D5EE51382043E0DF009148B3 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		D5EE51592043F5E4009148B3 /* MBSearchTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBSearchTextField.m; sourceTree = "<group>"; };
@@ -639,8 +638,7 @@
 			isa = PBXGroup;
 			children = (
 				D54F0E532199BB22003370F4 /* UIButton+App.swift */,
-				D5EE51092043DAA1009148B3 /* UICollectionView+App.h */,
-				D5EE50F72043DAA1009148B3 /* UICollectionView+App.m */,
+				D58D1AFF251C583300D1EF32 /* UICollectionView+App.swift */,
 				D501844D20F865D3009481D4 /* UITableView+App.swift */,
 				D5EE51042043DAA1009148B3 /* UIViewController+App.h */,
 				D5EE50EC2043DAA1009148B3 /* UIViewController+App.m */,
@@ -1649,7 +1647,7 @@
 				D5BF664B24BC1EEF008BC122 /* TopicListVCs.swift in Sources */,
 				D5740B4E2498869E001CBCB2 /* UIAnyGestureRecognizer.m in Sources */,
 				D54F0E542199BB22003370F4 /* UIButton+App.swift in Sources */,
-				D5EE51282043DAA2009148B3 /* UICollectionView+App.m in Sources */,
+				D58D1B00251C583300D1EF32 /* UICollectionView+App.swift in Sources */,
 				D579495F21788D67002E1C4A /* UIDevice+App.swift in Sources */,
 				D52EAB652043B6B3007219E0 /* UIImage+MBImageSet.m in Sources */,
 				D5EE520D2043F61D009148B3 /* UIImageView+MBRenderingMode.m in Sources */,
