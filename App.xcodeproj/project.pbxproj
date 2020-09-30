@@ -1904,7 +1904,6 @@
 				CodeCommentsHighlightKeywordsExpression = "TODO|FIXME";
 				CodeCommentsHighlightSkipFrameworks = YES;
 				CodeReviewFixRightNowKeywordsExpression = "FUCK|FIXRIGHTNOW|NOTICE";
-				EnableAutoGroupSortByName = YES;
 				EnableCodeCommentsHighlight = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				ProjectFilePath = "${SRCROOT}/${PROJECT}.xcodeproj";
@@ -1918,7 +1917,6 @@
 				CodeCommentsHighlightKeywordsExpression = "TODO|FIXME";
 				CodeCommentsHighlightSkipFrameworks = YES;
 				CodeReviewFixRightNowKeywordsExpression = "FUCK|FIXRIGHTNOW|NOTICE";
-				EnableAutoGroupSortByName = YES;
 				EnableCodeCommentsHighlight = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				ProjectFilePath = "${SRCROOT}/${PROJECT}.xcodeproj";
@@ -2028,7 +2026,6 @@
 				CodeCommentsHighlightKeywordsExpression = "TODO|FIXME";
 				CodeCommentsHighlightSkipFrameworks = YES;
 				CodeReviewFixRightNowKeywordsExpression = "FUCK|FIXRIGHTNOW|NOTICE";
-				EnableAutoGroupSortByName = YES;
 				EnableCodeCommentsHighlight = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				ProjectFilePath = "${SRCROOT}/${PROJECT}.xcodeproj";
@@ -2231,7 +2228,6 @@
 				CodeCommentsHighlightKeywordsExpression = "TODO|FIXME";
 				CodeCommentsHighlightSkipFrameworks = YES;
 				CodeReviewFixRightNowKeywordsExpression = "FUCK|FIXRIGHTNOW|NOTICE";
-				EnableAutoGroupSortByName = YES;
 				EnableCodeCommentsHighlight = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				ProjectFilePath = "${SRCROOT}/${PROJECT}.xcodeproj";
