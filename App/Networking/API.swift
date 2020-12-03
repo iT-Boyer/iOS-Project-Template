@@ -59,12 +59,13 @@ public class API: MBAPI {
             // 🔰 根据业务做统一处理，比如 token 失效登出
             switch nsError.code {
 //            case token_invald:
-//                // 🔰 假如登入接口也会返回相同的错误码，可通过 define.name 进行排除
-//                if AppUser() != nil {
-//                    Account.current = nil
-//                    AppHUD().showErrorStatus("登录已过期，请重新登录")
+//                if define.needsAuthorization {
+//                    if AppUser() != nil {
+//                        Account.current = nil
+//                        AppHUD().showErrorStatus("登录已过期，请重新登录")
+//                    }
+//                    return false
 //                }
-//                return false
 
             default:
                 break
