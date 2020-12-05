@@ -49,8 +49,8 @@ extension UIDevice {
     // @MBDependency:1
     /// 获取当前加入 Wi-Fi 的 SSID
     /// iOS 12 需要在 Capabilities 选项卡中打开 Access WiFi Information
-    // swiftlint:disable:next identifier_name
-    @objc var WiFiSSID: String? {
+    @available(macCatalyst 14.0, *)
+    @objc var WiFiSSID: String? {       // swiftlint:disable:this identifier_name
         guard let interfaces = CNCopySupportedInterfaces() as? [String] else { return nil }
         let key = kCNNetworkInfoKeySSID as String
         for interface in interfaces {
