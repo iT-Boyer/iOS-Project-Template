@@ -77,6 +77,17 @@ logInfo "EXPORT_OPTIONS_PLIST = $EXPORT_OPTIONS_PLIST"
 readonly EXPORT_DIRECTORY_PATH="./export"
 readonly EXPORT_IPA_PATH="$EXPORT_DIRECTORY_PATH/$XC_BUILD_SCHEME.ipa"
 
+isCIKeycahinCreated=false
+errorhandler () {
+    logSection "异常清理"
+
+    if $isCIKeycahinCreated; then
+        logInfo "清理临时 keychain"
+        security delete-keychain "$KC_NAME.keychain"
+    fi
+}
+trap errorhandler ERR
+
 xcodebuild -version
 
 logSection "配置更新"
@@ -99,7 +110,6 @@ else
     logWarning "Podfile 不存在？跳过 CocoaPods 安装"
 fi
 
-isCIKeycahinCreated=false
 if [ -n "$XC_IMPORT_CERTIFICATE_PATH" ]; then
     if [ -z "$XC_IMPORT_CERTIFICATE_PASSWORD" ]; then
         logError "安装证书已指定，但是密码未设置"
