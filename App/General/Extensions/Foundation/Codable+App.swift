@@ -5,7 +5,7 @@ extension JSONDecoder {
     /// 从服务器接收到的格式
     static let server: JSONDecoder = {
         let coder = JSONDecoder()
-        coder.dateDecodingStrategy = .iso8601
+        coder.dateDecodingStrategy = .server
         return coder
     }()
 
@@ -20,7 +20,7 @@ extension JSONEncoder {
     /// 编码为发送给服务器的格式
     static let server: JSONEncoder = {
         let coder = JSONEncoder()
-        coder.dateEncodingStrategy = .iso8601
+        coder.dateEncodingStrategy = .server
         coder.outputFormatting = []
         return coder
     }()
