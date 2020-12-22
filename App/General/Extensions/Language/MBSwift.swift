@@ -51,3 +51,29 @@ enum MBSwift {
         return instance
     }
 }
+
+/// 包装一个 Swift 值以便能在 Objective-C 环境中作为对象传递
+@objc final class Box: NSObject {
+    private var value: Any
+    init(_ value: Any) {
+        self.value = value
+        super.init()
+    }
+
+    func value<T>(as type: T.Type) -> T {
+        MBSwift.cast(value, as: type)
+    }
+}
+
+/// 包装一个 Swift 值以便能在 Objective-C 环境中作为对象传递
+@objc final class OptionalBox: NSObject {
+    private var value: Any?
+    init(_ value: Any?) {
+        self.value = value
+        super.init()
+    }
+
+    func value<T>(as type: T.Type) -> T? {
+        value as? T
+    }
+}
