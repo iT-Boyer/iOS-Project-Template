@@ -33,6 +33,8 @@
 		D52EADF02043BA3D007219E0 /* ShortCuts.m in Sources */ = {isa = PBXBuildFile; fileRef = D52EADEE2043BA3D007219E0 /* ShortCuts.m */; };
 		D52EADF82043C0EC007219E0 /* NSUserDefaults+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D52EADF32043C0EB007219E0 /* NSUserDefaults+App.m */; };
 		D533C4E6259235E200590FBA /* MBFlexInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = D533C4E4259235E200590FBA /* MBFlexInterface.m */; };
+		D533C4EF259236EF00590FBA /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = D533C4EE259236EF00590FBA /* Logging */; };
+		D533C4F42592370800590FBA /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = D533C4F32592370800590FBA /* Logger.swift */; };
 		D5353D1624B7E1EF00BED8C7 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D5353D1524B7E1EF00BED8C7 /* README.md */; };
 		D544A396197CBE5300C65604 /* MBFormSelectButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D544A395197CBE5300C65604 /* MBFormSelectButton.m */; };
 		D544A39E197D1E8600C65604 /* JSONValueTransformer+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D544A39D197D1E8600C65604 /* JSONValueTransformer+App.m */; };
@@ -244,6 +246,7 @@
 		D52EADF62043C0EB007219E0 /* NSUserDefaults+App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+App.h"; sourceTree = "<group>"; };
 		D533C4E4259235E200590FBA /* MBFlexInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBFlexInterface.m; sourceTree = "<group>"; };
 		D533C4E5259235E200590FBA /* MBFlexInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBFlexInterface.h; sourceTree = "<group>"; };
+		D533C4F32592370800590FBA /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		D5353D1524B7E1EF00BED8C7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D544A394197CBE5300C65604 /* MBFormSelectButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBFormSelectButton.h; sourceTree = "<group>"; };
 		D544A395197CBE5300C65604 /* MBFormSelectButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBFormSelectButton.m; sourceTree = "<group>"; };
@@ -479,6 +482,7 @@
 			files = (
 				D5F65F3724C290320082FEC2 /* B9MulticastDelegate in Frameworks */,
 				674FCCB03EFF1B157024C64B /* libPods-App.a in Frameworks */,
+				D533C4EF259236EF00590FBA /* Logging in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -698,6 +702,14 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		D533C4F22592370800590FBA /* Logging */ = {
+			isa = PBXGroup;
+			children = (
+				D533C4F32592370800590FBA /* Logger.swift */,
+			);
+			path = Logging;
+			sourceTree = "<group>";
+		};
 		D5488F99218FB7D2004CA3E0 /* MBShareManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -826,6 +838,7 @@
 		D5542F131918B82100831016 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				D533C4F22592370800590FBA /* Logging */,
 				D569C9DF21AE906900211E36 /* MBAudioRecorder */,
 				D501845D20F8863E009481D4 /* MBDebug */,
 				D569C9D021AE906100211E36 /* MBFileUploader */,
@@ -1352,6 +1365,7 @@
 			name = App;
 			packageProductDependencies = (
 				D5F65F3624C290320082FEC2 /* B9MulticastDelegate */,
+				D533C4EE259236EF00590FBA /* Logging */,
 			);
 			productName = App;
 			productReference = D5197A3A17EECAAF00CA387C /* App.app */;
@@ -1394,6 +1408,7 @@
 			mainGroup = D5197A3117EECAAF00CA387C;
 			packageReferences = (
 				D5F65F3524C290320082FEC2 /* XCRemoteSwiftPackageReference "MulticastDelegate" */,
+				D533C4ED259236EF00590FBA /* XCRemoteSwiftPackageReference "swift-log" */,
 			);
 			productRefGroup = D5197A3B17EECAAF00CA387C /* Products */;
 			projectDirPath = "";
@@ -1545,6 +1560,7 @@
 				D569C9CF21AE8D3200211E36 /* HomeVC.swift in Sources */,
 				D5B8A39E251221A300C84CB1 /* IdentifierEquatable.swift in Sources */,
 				D544A39E197D1E8600C65604 /* JSONValueTransformer+App.m in Sources */,
+				D533C4F42592370800590FBA /* Logger.swift in Sources */,
 				D5740B58249C7C5D001CBCB2 /* LoginForms.swift in Sources */,
 				D5740B53249B8B7C001CBCB2 /* LoginVCs.swift in Sources */,
 				D5542F161918B83400831016 /* MBApp.swift in Sources */,
@@ -1574,6 +1590,7 @@
 				D5DB4C19241DD71300832A0A /* MBEntitiesTableView.m in Sources */,
 				D569C9F021AE908200211E36 /* MBErrorCode.m in Sources */,
 				D5B49EC31C4111B600847925 /* MBFixWidthImageView.m in Sources */,
+				D533C4E6259235E200590FBA /* MBFlexInterface.m in Sources */,
 				D5A3312421527BA100B0FD5B /* MBFlipCollapsibleView.m in Sources */,
 				D5FCB68E23FC108B001DE669 /* MBFormFieldVerifyControl+App.swift in Sources */,
 				D5F9F486208DC26600427201 /* MBFormFieldVerifyControl.m in Sources */,
@@ -1593,7 +1610,6 @@
 				D564D5D31970EE340032FEC3 /* MBModalPresentSegue.m in Sources */,
 				D588308620CAB8AE002030C4 /* MBNavigationBar.m in Sources */,
 				D501847020F8863E009481D4 /* MBNavigationController+MBDebugReleaseChecking.m in Sources */,
-				D533C4E6259235E200590FBA /* MBFlexInterface.m in Sources */,
 				D5EE51F42043F613009148B3 /* MBNavigationItem.m in Sources */,
 				D5EE51F32043F613009148B3 /* MBNavigationTitleView.m in Sources */,
 				D5EE51E52043F613009148B3 /* MBOptionSwitch.m in Sources */,
@@ -2324,6 +2340,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		D533C4ED259236EF00590FBA /* XCRemoteSwiftPackageReference "swift-log" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-log";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.4.0;
+			};
+		};
 		D5F65F3524C290320082FEC2 /* XCRemoteSwiftPackageReference "MulticastDelegate" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/b9swift/MulticastDelegate";
@@ -2335,6 +2359,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		D533C4EE259236EF00590FBA /* Logging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D533C4ED259236EF00590FBA /* XCRemoteSwiftPackageReference "swift-log" */;
+			productName = Logging;
+		};
 		D5F65F3624C290320082FEC2 /* B9MulticastDelegate */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D5F65F3524C290320082FEC2 /* XCRemoteSwiftPackageReference "MulticastDelegate" */;
