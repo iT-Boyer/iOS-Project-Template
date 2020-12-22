@@ -33,6 +33,19 @@ public class API: MBAPI {
         modelTransformer = RFAPIJSONModelTransformer()
     }
 
+    override public func afterInit() {
+        super.afterInit()
+        reachabilityManager.startMonitoring()
+        reachabilityManager.setReachabilityStatusChange { status in
+            switch status {
+            case .reachableViaWWAN, .reachableViaWiFi:
+                AppEnv().setFlagOn(.online)
+            default:
+                AppEnv().setFlagOff(.online)
+            }
+        }
+    }
+
     /// 错误统一处理
     override public func generalHandlerForError(_ error: Error, define: RFAPIDefine, task: RFAPITask, failure: RFAPIRequestFailureCallback? = nil) -> Bool {
         let nsError = Self.transformURLError(error as NSError)

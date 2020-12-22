@@ -60,6 +60,7 @@
 #import "ShortCuts.h"
 #import "UIKit+App.h"
 #import "UIViewController+NavigationAppearance.h"
+#import <AFNetworking/AFNetworkReachabilityManager.h>
 #import <AFNetworking/AFSecurityPolicy.h>
 #import <MBAppKit/MBAPI.h>
 #import <MBAppKit/MBApplicationDelegate.h>
