@@ -32,10 +32,11 @@
 		D52EADEB2043B983007219E0 /* debug.m in Sources */ = {isa = PBXBuildFile; fileRef = D52EADE72043B983007219E0 /* debug.m */; };
 		D52EADF02043BA3D007219E0 /* ShortCuts.m in Sources */ = {isa = PBXBuildFile; fileRef = D52EADEE2043BA3D007219E0 /* ShortCuts.m */; };
 		D52EADF82043C0EC007219E0 /* NSUserDefaults+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D52EADF32043C0EB007219E0 /* NSUserDefaults+App.m */; };
+		D533C4D625922D1100590FBA /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = D533C4D425922D1100590FBA /* Types.swift */; };
+		D533C4DD25922D2000590FBA /* WorkersTriggering.swift in Sources */ = {isa = PBXBuildFile; fileRef = D533C4DB25922D2000590FBA /* WorkersTriggering.swift */; };
 		D533C4E6259235E200590FBA /* MBFlexInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = D533C4E4259235E200590FBA /* MBFlexInterface.m */; };
 		D533C4EF259236EF00590FBA /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = D533C4EE259236EF00590FBA /* Logging */; };
 		D533C4F42592370800590FBA /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = D533C4F32592370800590FBA /* Logger.swift */; };
-		D5353D1624B7E1EF00BED8C7 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D5353D1524B7E1EF00BED8C7 /* README.md */; };
 		D544A396197CBE5300C65604 /* MBFormSelectButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D544A395197CBE5300C65604 /* MBFormSelectButton.m */; };
 		D544A39E197D1E8600C65604 /* JSONValueTransformer+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D544A39D197D1E8600C65604 /* JSONValueTransformer+App.m */; };
 		D54AFCEB22BF8DFE0031559F /* Atomic.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54AFCEA22BF8DFD0031559F /* Atomic.swift */; };
@@ -244,6 +245,8 @@
 		D52EADF32043C0EB007219E0 /* NSUserDefaults+App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+App.m"; sourceTree = "<group>"; };
 		D52EADF42043C0EB007219E0 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D52EADF62043C0EB007219E0 /* NSUserDefaults+App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+App.h"; sourceTree = "<group>"; };
+		D533C4D425922D1100590FBA /* Types.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
+		D533C4DB25922D2000590FBA /* WorkersTriggering.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkersTriggering.swift; sourceTree = "<group>"; };
 		D533C4E4259235E200590FBA /* MBFlexInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBFlexInterface.m; sourceTree = "<group>"; };
 		D533C4E5259235E200590FBA /* MBFlexInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBFlexInterface.h; sourceTree = "<group>"; };
 		D533C4F32592370800590FBA /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
@@ -702,6 +705,14 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		D533C4D925922D2000590FBA /* Worker */ = {
+			isa = PBXGroup;
+			children = (
+				D533C4DB25922D2000590FBA /* WorkersTriggering.swift */,
+			);
+			path = Worker;
+			sourceTree = "<group>";
+		};
 		D533C4F22592370800590FBA /* Logging */ = {
 			isa = PBXGroup;
 			children = (
@@ -743,14 +754,15 @@
 			children = (
 				D5BA55212046471800E4F335 /* Account */,
 				D552DD5018C8506700D02290 /* JSON */,
+				D533C4D925922D2000590FBA /* Worker */,
 				D5740B4924985E92001CBCB2 /* AppError.swift */,
 				D5B8A39D251221A300C84CB1 /* IdentifierEquatable.swift */,
-				D544A39D197D1E8600C65604 /* JSONValueTransformer+App.m */,
 				D569C9EE21AE907F00211E36 /* MBErrorCode.h */,
 				D569C9EF21AE908100211E36 /* MBErrorCode.m */,
 				D52EADF62043C0EB007219E0 /* NSUserDefaults+App.h */,
 				D52EADF32043C0EB007219E0 /* NSUserDefaults+App.m */,
 				D52EADF42043C0EB007219E0 /* README.md */,
+				D533C4D425922D1100590FBA /* Types.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -759,6 +771,7 @@
 			isa = PBXGroup;
 			children = (
 				D5BF664C24BC81D7008BC122 /* CommentEntity.swift */,
+				D544A39D197D1E8600C65604 /* JSONValueTransformer+App.m */,
 				D59066B520AD0C4500411410 /* README.md */,
 				D5FB116E24BBF3D6001963D5 /* TopicEntity.swift */,
 				D553507224BBFB3E00282871 /* UserEntity.swift */,
@@ -1439,7 +1452,6 @@
 				D5B49F181C41133A00847925 /* MBRefreshFooterView.xib in Resources */,
 				D5B49F1A1C41133A00847925 /* MBRefreshHeaderView.xib in Resources */,
 				D501845520F86D75009481D4 /* MBValueMapPickerViewController.xib in Resources */,
-				D5353D1624B7E1EF00BED8C7 /* README.md in Resources */,
 				D553507924BC1EA100282871 /* Topic.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1665,6 +1677,7 @@
 				D5FB116F24BBF3D6001963D5 /* TopicEntity.swift in Sources */,
 				D553507724BC1E9200282871 /* TopicListDisplayer.swift in Sources */,
 				D5BF664B24BC1EEF008BC122 /* TopicListVCs.swift in Sources */,
+				D533C4D625922D1100590FBA /* Types.swift in Sources */,
 				D5740B4E2498869E001CBCB2 /* UIAnyGestureRecognizer.m in Sources */,
 				D54F0E542199BB22003370F4 /* UIButton+App.swift in Sources */,
 				D58D1B00251C583300D1EF32 /* UICollectionView+App.swift in Sources */,
@@ -1681,6 +1694,7 @@
 				D5F1F849251C1D6400D641F9 /* URL+App.swift in Sources */,
 				D5BF664F24BC8BE8008BC122 /* UserAvatarView.swift in Sources */,
 				D553507324BBFB3E00282871 /* UserEntity.swift in Sources */,
+				D533C4DD25922D2000590FBA /* WorkersTriggering.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -24,6 +24,7 @@ class ApplicationDelegate: MBApplicationDelegate {
         Bundle(path: "/Applications/InjectionIII.app/Contents/Resources/iOSInjection.bundle")?.load()
         #endif
         Account.setup()
+//        MBEnvironment.registerWorkers()
         RFKeyboard.autoDisimssKeyboardWhenTouch = true
         setupUIAppearance()
         dispatch_after_seconds(0) {
