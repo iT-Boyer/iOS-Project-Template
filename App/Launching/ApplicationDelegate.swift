@@ -39,7 +39,7 @@ class ApplicationDelegate: MBApplicationDelegate {
         // 列表 data source 全局调整
         MBListDataSource<AnyObject>.defualtPageStartZero = false
         MBListDataSource<AnyObject>.defaultPageSizeParameterName = "size"
-        MBListDataSource<AnyObject>.defaultFetchFailureHandler = { ds, error in
+        MBListDataSource<AnyObject>.defaultFetchFailureHandler = { _, error in
             let e = error as NSError
             if e.domain == NSURLErrorDomain &&
                 (e.code == NSURLErrorTimedOut
