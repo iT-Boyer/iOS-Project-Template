@@ -124,8 +124,9 @@ class Account: MBUser {
     }
 
     override func onLogin() {
-        debugPrint("当前用户 ID: \(uid), token: \(token ?? "null")")
-        AppAPI().defineManager.authorizationHeader["token"] = token
+        guard let token = token else { fatalError() }
+        debugPrint("当前用户 ID: \(uid), token: \(token)")
+        AppAPI().defineManager.authorizationHeader[authHeaderKey] = "Bearer \(token)"
         AppEnv().setFlagOn(.userHasLogged)
         if !hasPofileFetchedThisSession {
             updateInformation { c in
@@ -136,8 +137,12 @@ class Account: MBUser {
     override func onLogout() {
         AppEnv().setFlagOff(.userHasLogged)
         AppEnv().setFlagOff(.userInfoFetched)
-        AppAPI().defineManager.authorizationHeader.removeObject(forKey: "token")
+        AppAPI().defineManager.authorizationHeader.removeObject(forKey: authHeaderKey)
         profile?.synchronize()
+    }
+    private var authHeaderKey: String {
+        // 🔰 修改认证头字段名
+        "Authorization"
     }
 
     /// 更新账号用户信息
