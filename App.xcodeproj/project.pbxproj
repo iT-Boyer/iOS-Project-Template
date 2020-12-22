@@ -32,6 +32,7 @@
 		D52EADEB2043B983007219E0 /* debug.m in Sources */ = {isa = PBXBuildFile; fileRef = D52EADE72043B983007219E0 /* debug.m */; };
 		D52EADF02043BA3D007219E0 /* ShortCuts.m in Sources */ = {isa = PBXBuildFile; fileRef = D52EADEE2043BA3D007219E0 /* ShortCuts.m */; };
 		D52EADF82043C0EC007219E0 /* NSUserDefaults+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D52EADF32043C0EB007219E0 /* NSUserDefaults+App.m */; };
+		D533C4D525922D1100590FBA /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D533C4D325922D1100590FBA /* DBManager.swift */; };
 		D533C4D625922D1100590FBA /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = D533C4D425922D1100590FBA /* Types.swift */; };
 		D533C4DD25922D2000590FBA /* WorkersTriggering.swift in Sources */ = {isa = PBXBuildFile; fileRef = D533C4DB25922D2000590FBA /* WorkersTriggering.swift */; };
 		D533C4E6259235E200590FBA /* MBFlexInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = D533C4E4259235E200590FBA /* MBFlexInterface.m */; };
@@ -249,6 +250,7 @@
 		D52EADF32043C0EB007219E0 /* NSUserDefaults+App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+App.m"; sourceTree = "<group>"; };
 		D52EADF42043C0EB007219E0 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D52EADF62043C0EB007219E0 /* NSUserDefaults+App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+App.h"; sourceTree = "<group>"; };
+		D533C4D325922D1100590FBA /* DBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		D533C4D425922D1100590FBA /* Types.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
 		D533C4DB25922D2000590FBA /* WorkersTriggering.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkersTriggering.swift; sourceTree = "<group>"; };
 		D533C4E4259235E200590FBA /* MBFlexInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBFlexInterface.m; sourceTree = "<group>"; };
@@ -768,6 +770,7 @@
 				D552DD5018C8506700D02290 /* JSON */,
 				D533C4D925922D2000590FBA /* Worker */,
 				D5740B4924985E92001CBCB2 /* AppError.swift */,
+				D533C4D325922D1100590FBA /* DBManager.swift */,
 				D5B8A39D251221A300C84CB1 /* IdentifierEquatable.swift */,
 				D569C9EE21AE907F00211E36 /* MBErrorCode.h */,
 				D569C9EF21AE908100211E36 /* MBErrorCode.m */,
@@ -1577,6 +1580,7 @@
 				D5F9F47F208D921200427201 /* Date+App.swift in Sources */,
 				D53446032592481400F5FD80 /* Date+Server.swift in Sources */,
 				D54F0E4F2199A56E003370F4 /* DateFormatter+App.swift in Sources */,
+				D533C4D525922D1100590FBA /* DBManager.swift in Sources */,
 				D52EADEB2043B983007219E0 /* debug.m in Sources */,
 				D501845B20F881B6009481D4 /* DissolveTransitioning.swift in Sources */,
 				D5B1905A24026DB90076CD61 /* EnumListView.swift in Sources */,
