@@ -39,6 +39,8 @@
 		D533C4F42592370800590FBA /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = D533C4F32592370800590FBA /* Logger.swift */; };
 		D533C506259242DC00590FBA /* Codable+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D533C505259242DC00590FBA /* Codable+App.swift */; };
 		D53446032592481400F5FD80 /* Date+Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53446022592481400F5FD80 /* Date+Server.swift */; };
+		D534461025924CE700F5FD80 /* UIApplication+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D534460E25924CE700F5FD80 /* UIApplication+App.swift */; };
+		D534461125924CE700F5FD80 /* UIViewController+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D534460F25924CE700F5FD80 /* UIViewController+App.swift */; };
 		D544A396197CBE5300C65604 /* MBFormSelectButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D544A395197CBE5300C65604 /* MBFormSelectButton.m */; };
 		D544A39E197D1E8600C65604 /* JSONValueTransformer+App.m in Sources */ = {isa = PBXBuildFile; fileRef = D544A39D197D1E8600C65604 /* JSONValueTransformer+App.m */; };
 		D54AFCEB22BF8DFE0031559F /* Atomic.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54AFCEA22BF8DFD0031559F /* Atomic.swift */; };
@@ -254,6 +256,8 @@
 		D533C4F32592370800590FBA /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		D533C505259242DC00590FBA /* Codable+App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Codable+App.swift"; sourceTree = "<group>"; };
 		D53446022592481400F5FD80 /* Date+Server.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Server.swift"; sourceTree = "<group>"; };
+		D534460E25924CE700F5FD80 /* UIApplication+App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+App.swift"; sourceTree = "<group>"; };
+		D534460F25924CE700F5FD80 /* UIViewController+App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+App.swift"; sourceTree = "<group>"; };
 		D5353D1524B7E1EF00BED8C7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D544A394197CBE5300C65604 /* MBFormSelectButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBFormSelectButton.h; sourceTree = "<group>"; };
 		D544A395197CBE5300C65604 /* MBFormSelectButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBFormSelectButton.m; sourceTree = "<group>"; };
@@ -653,11 +657,13 @@
 		D519A0D4243490BC00E26A64 /* UI System */ = {
 			isa = PBXGroup;
 			children = (
+				D534460E25924CE700F5FD80 /* UIApplication+App.swift */,
 				D54F0E532199BB22003370F4 /* UIButton+App.swift */,
 				D58D1AFF251C583300D1EF32 /* UICollectionView+App.swift */,
 				D501844D20F865D3009481D4 /* UITableView+App.swift */,
 				D5EE51042043DAA1009148B3 /* UIViewController+App.h */,
 				D5EE50EC2043DAA1009148B3 /* UIViewController+App.m */,
+				D534460F25924CE700F5FD80 /* UIViewController+App.swift */,
 			);
 			path = "UI System";
 			sourceTree = "<group>";
@@ -1687,6 +1693,7 @@
 				D5BF664B24BC1EEF008BC122 /* TopicListVCs.swift in Sources */,
 				D533C4D625922D1100590FBA /* Types.swift in Sources */,
 				D5740B4E2498869E001CBCB2 /* UIAnyGestureRecognizer.m in Sources */,
+				D534461025924CE700F5FD80 /* UIApplication+App.swift in Sources */,
 				D54F0E542199BB22003370F4 /* UIButton+App.swift in Sources */,
 				D58D1B00251C583300D1EF32 /* UICollectionView+App.swift in Sources */,
 				D579495F21788D67002E1C4A /* UIDevice+App.swift in Sources */,
@@ -1698,6 +1705,8 @@
 				D5C3CBF6217EEEDA0097CCD9 /* UITextView+ContainerInset.m in Sources */,
 				D5EE51212043DAA2009148B3 /* UIViewController+App.m in Sources */,
 				D5EE51FA2043F613009148B3 /* UIViewController+NavigationAppearance.m in Sources */,
+				D534461125924CE700F5FD80 /* UIViewController+App.swift in Sources */,
+				D533C4EA2592363600590FBA /* UIViewController+Appearance.swift in Sources */,
 				D5D9F5142071BA6500B6FE9B /* UIViewController+RFInterfaceOrientation.m in Sources */,
 				D5F1F849251C1D6400D641F9 /* URL+App.swift in Sources */,
 				D5BF664F24BC8BE8008BC122 /* UserAvatarView.swift in Sources */,
