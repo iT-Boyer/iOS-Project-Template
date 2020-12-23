@@ -7,9 +7,8 @@
 // https://github.com/apple/swift-log
 import Logging
 
-// swiftlint:disable:next identifier_name
 /// Logger 单例
-func AppLog() -> Logger {
+func AppLog() -> Logger {  // swiftlint:disable:this identifier_name
     if let this = _sharedInstance {
         return this
     }

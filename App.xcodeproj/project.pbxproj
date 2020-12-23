@@ -378,7 +378,7 @@
 		D5B8A39D251221A300C84CB1 /* IdentifierEquatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdentifierEquatable.swift; sourceTree = "<group>"; };
 		D5B8A39F251225F700C84CB1 /* UIKitPreview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIKitPreview.swift; sourceTree = "<group>"; };
 		D5B8A3A62513309D00C84CB1 /* NavigationController+Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationController+Tab.swift"; sourceTree = "<group>"; };
-		D5B8A3AB251343AF00C84CB1 /* Runtest.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Runtest.gpx; sourceTree = "<group>"; };
+		D5B8A3AB251343AF00C84CB1 /* Run.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Run.gpx; sourceTree = "<group>"; };
 		D5B8A3AE251343AF00C84CB1 /* SignificantChanges.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SignificantChanges.gpx; sourceTree = "<group>"; };
 		D5B966992501CF77009D77A0 /* AssociatedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssociatedObject.swift; sourceTree = "<group>"; };
 		D5B9669B2501CFCA009D77A0 /* SearchHighlight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchHighlight.swift; sourceTree = "<group>"; };
@@ -1149,7 +1149,7 @@
 		D5B8A3A8251343AF00C84CB1 /* GPX */ = {
 			isa = PBXGroup;
 			children = (
-				D5B8A3AB251343AF00C84CB1 /* Runtest.gpx */,
+				D5B8A3AB251343AF00C84CB1 /* Run.gpx */,
 				D5B8A3AE251343AF00C84CB1 /* SignificantChanges.gpx */,
 			);
 			path = GPX;

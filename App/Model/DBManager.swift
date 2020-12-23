@@ -7,9 +7,8 @@
 // https://github.com/groue/GRDB.swift
 import GRDB
 
-// swiftlint:disable identifier_name
 /// 数据库单例
-func AppDatabase() -> DBManager {
+func AppDatabase() -> DBManager {  // swiftlint:disable:this identifier_name
     if let this = _sharedInstance {
         return this
     }
@@ -59,9 +58,9 @@ final class DBManager {
         migrator.registerMigration("v0") { db in
             // Create a table
             // See https://github.com/groue/GRDB.swift#create-tables
-            try db.create(table: "xxx") { t in
-                t.autoIncrementedPrimaryKey("id")
-                t.column("type", .text).notNull()
+            try db.create(table: "xxx") { table in
+                table.autoIncrementedPrimaryKey("id")
+                table.column("type", .text).notNull()
             }
         }
 
