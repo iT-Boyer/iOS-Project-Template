@@ -47,7 +47,7 @@ class NavigationController: MBNavigationController {
     override func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
         super.navigationController(navigationController, didShow: viewController, animated: animated)
 
-        if viewController.rfPrefersDisabledInteractivePopGesture {
+        if viewController.prefersDisabledInteractivePopGesture {
             // 禁用返回手势，只禁用就行，会自行恢复
             interactivePopGestureRecognizer?.isEnabled = false
         }

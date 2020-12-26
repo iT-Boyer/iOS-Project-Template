@@ -36,6 +36,7 @@
 		D533C4D625922D1100590FBA /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = D533C4D425922D1100590FBA /* Types.swift */; };
 		D533C4DD25922D2000590FBA /* WorkersTriggering.swift in Sources */ = {isa = PBXBuildFile; fileRef = D533C4DB25922D2000590FBA /* WorkersTriggering.swift */; };
 		D533C4E6259235E200590FBA /* MBFlexInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = D533C4E4259235E200590FBA /* MBFlexInterface.m */; };
+		D533C4EA2592363600590FBA /* UIViewController+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = D533C4E92592363600590FBA /* UIViewController+Appearance.swift */; };
 		D533C4EF259236EF00590FBA /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = D533C4EE259236EF00590FBA /* Logging */; };
 		D533C4F42592370800590FBA /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = D533C4F32592370800590FBA /* Logger.swift */; };
 		D533C506259242DC00590FBA /* Codable+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D533C505259242DC00590FBA /* Codable+App.swift */; };
@@ -162,7 +163,6 @@
 		D5EE51F32043F613009148B3 /* MBNavigationTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE51BF2043F613009148B3 /* MBNavigationTitleView.m */; };
 		D5EE51F42043F613009148B3 /* MBNavigationItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE51C02043F613009148B3 /* MBNavigationItem.m */; };
 		D5EE51F62043F613009148B3 /* MBVauleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE51C82043F613009148B3 /* MBVauleLabel.m */; };
-		D5EE51FA2043F613009148B3 /* UIViewController+NavigationAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE51D32043F613009148B3 /* UIViewController+NavigationAppearance.m */; };
 		D5EE51FD2043F613009148B3 /* MBTabController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE51DB2043F613009148B3 /* MBTabController.m */; };
 		D5EE51FE2043F613009148B3 /* MBTabControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE51DD2043F613009148B3 /* MBTabControl.m */; };
 		D5EE51FF2043F613009148B3 /* MBTabScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = D5EE51DF2043F613009148B3 /* MBTabScrollView.m */; };
@@ -255,6 +255,7 @@
 		D533C4DB25922D2000590FBA /* WorkersTriggering.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkersTriggering.swift; sourceTree = "<group>"; };
 		D533C4E4259235E200590FBA /* MBFlexInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBFlexInterface.m; sourceTree = "<group>"; };
 		D533C4E5259235E200590FBA /* MBFlexInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBFlexInterface.h; sourceTree = "<group>"; };
+		D533C4E92592363600590FBA /* UIViewController+Appearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Appearance.swift"; sourceTree = "<group>"; };
 		D533C4F32592370800590FBA /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		D533C505259242DC00590FBA /* Codable+App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Codable+App.swift"; sourceTree = "<group>"; };
 		D53446022592481400F5FD80 /* Date+Server.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Server.swift"; sourceTree = "<group>"; };
@@ -451,8 +452,6 @@
 		D5EE51C82043F613009148B3 /* MBVauleLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBVauleLabel.m; sourceTree = "<group>"; };
 		D5EE51CC2043F613009148B3 /* MBVauleLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBVauleLabel.h; sourceTree = "<group>"; };
 		D5EE51D12043F613009148B3 /* UICollectionView+IBInspectable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+IBInspectable.h"; sourceTree = "<group>"; };
-		D5EE51D32043F613009148B3 /* UIViewController+NavigationAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+NavigationAppearance.m"; sourceTree = "<group>"; };
-		D5EE51D42043F613009148B3 /* UIViewController+NavigationAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+NavigationAppearance.h"; sourceTree = "<group>"; };
 		D5EE51D92043F613009148B3 /* MBTabScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBTabScrollView.h; sourceTree = "<group>"; };
 		D5EE51DB2043F613009148B3 /* MBTabController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBTabController.m; sourceTree = "<group>"; };
 		D5EE51DC2043F613009148B3 /* MBPageScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBPageScrollView.h; sourceTree = "<group>"; };
@@ -1290,8 +1289,7 @@
 				D55959C620AB92000019D733 /* UIScrollView+IBInspectable.h */,
 				D5C3CBF5217EEEDA0097CCD9 /* UITextView+ContainerInset.h */,
 				D5C3CBF4217EEEDA0097CCD9 /* UITextView+ContainerInset.m */,
-				D5EE51D42043F613009148B3 /* UIViewController+NavigationAppearance.h */,
-				D5EE51D32043F613009148B3 /* UIViewController+NavigationAppearance.m */,
+				D533C4E92592363600590FBA /* UIViewController+Appearance.swift */,
 				D5D9F5112071BA6400B6FE9B /* UIViewController+RFInterfaceOrientation.h */,
 				D5D9F5132071BA6500B6FE9B /* UIViewController+RFInterfaceOrientation.m */,
 			);
@@ -1708,7 +1706,6 @@
 				D501844F20F865D3009481D4 /* UITableView+App.swift in Sources */,
 				D5C3CBF6217EEEDA0097CCD9 /* UITextView+ContainerInset.m in Sources */,
 				D5EE51212043DAA2009148B3 /* UIViewController+App.m in Sources */,
-				D5EE51FA2043F613009148B3 /* UIViewController+NavigationAppearance.m in Sources */,
 				D534461125924CE700F5FD80 /* UIViewController+App.swift in Sources */,
 				D533C4EA2592363600590FBA /* UIViewController+Appearance.swift in Sources */,
 				D5D9F5142071BA6500B6FE9B /* UIViewController+RFInterfaceOrientation.m in Sources */,
