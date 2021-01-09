@@ -117,8 +117,7 @@ if [ -n "$XC_IMPORT_CERTIFICATE_PATH" ]; then
     fi
     logInfo "创建临时 keychain"
     security create-keychain -p "$KC_PASSWORD" "$KC_NAME.keychain" || {
-        logError "创建临时 keychain 失败，$KC_NAME 可能已存在，你可以通过设置 KC_NAME 环境变量换一个"
-        exit 1
+        logWarning "$KC_NAME 可能已存在，将尝试利用现有 keychain，也可以通过设置 KC_NAME 环境变量指定另外一个"
     }
     isCIKeycahinCreated=true
     security list-keychains -d user -s "$KC_NAME.keychain" $(security list-keychains -d user | sed s/\"//g)
