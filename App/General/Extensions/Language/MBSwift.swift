@@ -1,7 +1,7 @@
 /*
  MBSwift.swift
  
- Copyright © 2018, 2020 RFUI.
+ Copyright © 2018, 2020-2021 BB9z.
  https://github.com/BB9z/iOS-Project-Template
  
  The MIT License
@@ -49,6 +49,32 @@ enum MBSwift {
             fatalError("Cast object is nil or type mismatched.")
         }
         return instance
+    }
+
+    /**
+     类型名，会去除泛型部分
+
+     可传入实例或类型本身
+     */
+    static func typeName(_ obj: Any) -> String {
+        var str = (obj is Any.Type) ? String(describing: obj.self) : String(describing: type(of: obj))
+        if str.hasSuffix(">"),
+           let partStart = str.lastIndex(of: "<") {
+            str.removeSubrange(partStart..<str.endIndex)
+        }
+        if str.contains(Character(".")) {
+            if let lastPart = str.split(separator: ".").last {
+                str = String(lastPart)
+            }
+        }
+        #if DEBUG
+        assert(!str.isEmpty
+                && !str.contains(Character("."))
+                && !str.contains(Character(":"))
+                && !str.contains(Character("<"))
+        )
+        #endif
+        return str
     }
 }
 
