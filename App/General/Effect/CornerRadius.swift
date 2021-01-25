@@ -1,10 +1,7 @@
-//
-//  CornerRadius.swift
-//  KidsReader
-//
-//  Created by BB9z on 2020/12/31.
-//
-
+// @MBDependency:4
+/**
+ UIView 圆角裁切
+ */
 extension UIView {
     @IBInspectable var cornerRadius: CGFloat {
         get {
