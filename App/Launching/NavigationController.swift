@@ -16,6 +16,8 @@ class NavigationController: MBNavigationController, StroryboardCreation, UIAppli
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        // 导航基类会在导航即将显示时把当前的样式作为默认样式，进入 app 时就显示 tab 但我们需要默认不显示 tab
+        defaultAppearanceAttributes[.prefersBottomBarShownAttribute] = false
         AppAPI()
 
         Account.addCurrentUserChangeObserver(self, initial: true) { [weak self] user in
