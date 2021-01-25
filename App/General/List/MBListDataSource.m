@@ -4,6 +4,7 @@
 #import <RFKit/NSArray+RFKit.h>
 #import <MBAppKit/MBAppKit.h>
 #import <MBAppKit/MBAPI.h>
+#import "MBListDateItem.h"
 
 @interface MBListDataSourceFetchComplationCallback : RFCallback
 @end
@@ -38,10 +39,24 @@
 }
 
 - (id)itemAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.isSectionEnabled) {
+        return [(MBListSectionDataItem *)self.items[indexPath.section] rows][indexPath.row];
+    }
     return [self.items rf_objectAtIndex:indexPath.row];
 }
 
 - (nullable NSIndexPath *)indexPathForItem:(nullable id)item {
+    if (self.isSectionEnabled) {
+        __block NSIndexPath *indexPath = nil;
+        [self.items enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger section, BOOL * _Nonnull stop) {
+            NSInteger idx = [[(MBListSectionDataItem *)obj rows] indexOfObject:item];
+            if (idx != NSNotFound) {
+                indexPath = [NSIndexPath indexPathForRow:idx inSection:section];
+                *stop = YES;
+            }
+        }];
+        return indexPath;
+    }
     NSInteger idx = [self.items indexOfObject:item];
     if (idx != NSNotFound) {
         return [NSIndexPath indexPathForRow:idx inSection:0];

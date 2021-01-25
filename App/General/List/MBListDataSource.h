@@ -14,7 +14,7 @@
 
 // @MBDependency:4
 /**
- 单 section 的列表 dataSource
+ 分页加载的列表 dataSource
  */
 @interface MBListDataSource<ItemType> : RFDelegateChain
 
@@ -28,6 +28,12 @@
 #pragma mark - Items
 
 @property (nullable, nonatomic) NSMutableArray<ItemType> *items;
+
+/**
+ 默认列表是单 section 的，置为 YES 激活分组模式，
+ 分组模式下要求列表对象具有和 MBListSectionDataItem 相同的界面
+ */
+@property IBInspectable BOOL isSectionEnabled;
 
 /// 列表为空
 @property BOOL empty;
