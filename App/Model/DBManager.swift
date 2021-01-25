@@ -27,7 +27,7 @@ final class DBManager {
 
     init() {
         do {
-            let databaseURL = try FileManager.default.url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("App.db")
+            let databaseURL = try FileURL.database()
             var config = Configuration()
             #if DEBUG
             config.prepareDatabase { db in

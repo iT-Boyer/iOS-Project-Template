@@ -73,6 +73,9 @@ class MBApp: NSObject {
     /// 全局导航
     @objc var globalNavigationController: NavigationController?
 
+    /// 数据库
+//    lazy var database = AppDatabase()
+
 //    @objc lazy var workerQueue = MBWorkerQueue()
 //    @objc lazy var backgroundWorkerQueue: MBWorkerQueue = {
 //        let queue = MBWorkerQueue()
