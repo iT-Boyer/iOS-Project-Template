@@ -110,6 +110,11 @@ else
     logWarning "Podfile 不存在？跳过 CocoaPods 安装"
 fi
 
+if [ -n "$XC_IMPORT_PROVISIONING_PATH" ]; then
+    logInfo "导入 provision profile"
+    open "$XC_IMPORT_PROVISIONING_PATH"
+fi
+
 if [ -n "$XC_IMPORT_CERTIFICATE_PATH" ]; then
     if [ -z "$XC_IMPORT_CERTIFICATE_PASSWORD" ]; then
         logError "安装证书已指定，但是密码未设置"
@@ -117,8 +122,7 @@ if [ -n "$XC_IMPORT_CERTIFICATE_PATH" ]; then
     fi
     logInfo "创建临时 keychain"
     security create-keychain -p "$KC_PASSWORD" "$KC_NAME.keychain" || {
-        logError "创建临时 keychain 失败，$KC_NAME 可能已存在，你可以通过设置 KC_NAME 环境变量换一个"
-        exit 1
+        logWarning "$KC_NAME 可能已存在，将尝试利用现有 keychain，也可以通过设置 KC_NAME 环境变量指定另外一个"
     }
     isCIKeycahinCreated=true
     security list-keychains -d user -s "$KC_NAME.keychain" $(security list-keychains -d user | sed s/\"//g)
@@ -128,12 +132,6 @@ if [ -n "$XC_IMPORT_CERTIFICATE_PATH" ]; then
     security import "$XC_IMPORT_CERTIFICATE_PATH" -k "$KC_NAME.keychain" -P "$XC_IMPORT_CERTIFICATE_PASSWORD" -T "/usr/bin/codesign"
     security set-key-partition-list -S apple-tool:,apple: -s -k "$KC_PASSWORD" "$KC_NAME.keychain"
 fi
-
-if [ -n "$XC_IMPORT_PROVISIONING_PATH" ]; then
-    logInfo "导入 provision profile"
-    open "$XC_IMPORT_PROVISIONING_PATH"
-fi
-
 
 logSection "项目构建"
 xcprettyOptions=$(( $isVerbose && echo "" ) || echo "-t" )
@@ -179,7 +177,7 @@ fi
 logSection "应用包上传"
 if [ -n "$FIR_UPLOAD_TOKEN" ]; then
     logInfo "上传到 fir.im"
-    fir publish "$EXPORT_IPA_PATH" -T "$FIR_UPLOAD_TOKEN" --open
+    fir publish "$EXPORT_IPA_PATH" -c "$CI_COMMIT_MESSAGE" -T "$FIR_UPLOAD_TOKEN" --open
 else
     logInfo "跳过上传"
 fi
