@@ -30,6 +30,11 @@ class NavigationController: MBNavigationController {
         }
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        AppEnv().setFlagOn(.naigationLoaded)
+    }
+
     func onLogout() {
         presentLoginScene()
         releaseTabViewControllersIfNeeded()
