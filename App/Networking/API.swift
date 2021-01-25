@@ -8,7 +8,7 @@
  */
 public class API: MBAPI {
     /// 业务错误
-    @objc static let errorDomain = "APIErrorDomain"
+    static let errorDomain = "APIErrorDomain"
 
     override public func onInit() {
         super.onInit()
