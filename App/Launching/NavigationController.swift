@@ -6,8 +6,8 @@
 /**
  应用主导航控制器
  */
-class NavigationController: MBNavigationController {
-    override class func storyboardName() -> String { "Main" }
+class NavigationController: MBNavigationController, StroryboardCreation, UIApplicationDelegate {
+    static var storyboardID: StoryboardID { .main }
 
     override func onInit() {
         super.onInit()
