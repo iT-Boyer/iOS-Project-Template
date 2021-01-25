@@ -61,6 +61,13 @@
     return cell;
 }
 
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+    if (self.viewForSupplementaryElement) {
+        return self.viewForSupplementaryElement(collectionView, kind, indexPath, self.delegate);
+    }
+    return (UICollectionReusableView *_Nonnull)[self.delegate collectionView:collectionView viewForSupplementaryElementOfKind:kind atIndexPath:indexPath];
+}
+
 #pragma mark -
 
 - (void)reconfigVisableCells {
