@@ -25,6 +25,7 @@
 		D5031A1E25BEA95200C2849E /* MBDebugLiveCountChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5031A1D25BEA95200C2849E /* MBDebugLiveCountChecker.swift */; };
 		D5031A2625BEBB7700C2849E /* Picker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5031A2525BEBB7700C2849E /* Picker.storyboard */; };
 		D5031A5425BEC50D00C2849E /* StroryboardCreation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5031A5325BEC50D00C2849E /* StroryboardCreation.swift */; };
+		D5031A5F25BEC9F300C2849E /* UIViewController+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = D533C4E92592363600590FBA /* UIViewController+Appearance.swift */; };
 		D50693D819495D9E0002BFCC /* MBControlGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = D50693D719495D9E0002BFCC /* MBControlGroup.m */; };
 		D5197D3217F027B400CA387C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D5197D3417F027B400CA387C /* InfoPlist.strings */; };
 		D5197D3517F027BB00CA387C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D5197D3717F027BB00CA387C /* Localizable.strings */; };
@@ -39,7 +40,6 @@
 		D533C4D625922D1100590FBA /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = D533C4D425922D1100590FBA /* Types.swift */; };
 		D533C4DD25922D2000590FBA /* WorkersTriggering.swift in Sources */ = {isa = PBXBuildFile; fileRef = D533C4DB25922D2000590FBA /* WorkersTriggering.swift */; };
 		D533C4E6259235E200590FBA /* MBFlexInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = D533C4E4259235E200590FBA /* MBFlexInterface.m */; };
-		D533C4EA2592363600590FBA /* UIViewController+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = D533C4E92592363600590FBA /* UIViewController+Appearance.swift */; };
 		D533C4EF259236EF00590FBA /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = D533C4EE259236EF00590FBA /* Logging */; };
 		D533C4F42592370800590FBA /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = D533C4F32592370800590FBA /* Logger.swift */; };
 		D533C506259242DC00590FBA /* Codable+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D533C505259242DC00590FBA /* Codable+App.swift */; };
@@ -1723,7 +1723,7 @@
 				D5C3CBF6217EEEDA0097CCD9 /* UITextView+ContainerInset.m in Sources */,
 				D5EE51212043DAA2009148B3 /* UIViewController+App.m in Sources */,
 				D534461125924CE700F5FD80 /* UIViewController+App.swift in Sources */,
-				D5EE51FA2043F613009148B3 /* UIViewController+NavigationAppearance.m in Sources */,
+				D5031A5F25BEC9F300C2849E /* UIViewController+Appearance.swift in Sources */,
 				D5D9F5142071BA6500B6FE9B /* UIViewController+RFInterfaceOrientation.m in Sources */,
 				D5F1F849251C1D6400D641F9 /* URL+App.swift in Sources */,
 				D5BF664F24BC8BE8008BC122 /* UserAvatarView.swift in Sources */,

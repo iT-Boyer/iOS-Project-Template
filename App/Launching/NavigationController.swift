@@ -16,9 +16,6 @@ class NavigationController: MBNavigationController, StroryboardCreation, UIAppli
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // 强制设置一些初始状态，否则会有异常
-        defaultAppearanceAttributes[.prefersBottomBarShownAttribute] = 0
-        bottomBarHidden = true
         AppAPI()
 
         Account.addCurrentUserChangeObserver(self, initial: true) { [weak self] user in
@@ -51,7 +48,6 @@ class NavigationController: MBNavigationController, StroryboardCreation, UIAppli
 
     override func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
         super.navigationController(navigationController, didShow: viewController, animated: animated)
-
         if viewController.prefersDisabledInteractivePopGesture {
             // 禁用返回手势，只禁用就行，会自行恢复
             interactivePopGestureRecognizer?.isEnabled = false
