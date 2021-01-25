@@ -49,6 +49,7 @@ public class API: MBAPI {
     /// 错误统一处理
     override public func generalHandlerForError(_ error: Error, define: RFAPIDefine, task: RFAPITask, failure: RFAPIRequestFailureCallback? = nil) -> Bool {
         let nsError = Self.transformURLError(error as NSError)
+        task.error = nsError
 
         if define.path?.hasPrefix("http") == true {
             // define 里写的绝对路径，意味着不是我们主要的业务逻辑
@@ -94,8 +95,16 @@ public class API: MBAPI {
         return false    // 需要为 false，终止默认的错误处理
     }
 
-    /// 重新包装系统错误
+    /// 重新包装错误
     private class func transformURLError(_ error: NSError) -> NSError {
+        if error.domain == API.errorDomain {
+            switch error.code {
+            case 502:
+                return NSError(domain: error.domain, code: error.code, localizedDescription: "服务器维护中，请稍后再试")
+            default:
+                break
+            }
+        }
         guard error.domain == NSURLErrorDomain else {
             return error
         }
@@ -107,6 +116,7 @@ public class API: MBAPI {
     private static let URLErrorTransfomMap = [
         NSURLErrorCannotConnectToHost: "NSURLErrorCannotConnectToHost",
         NSURLErrorCannotFindHost: "NSURLErrorCannotFindHost",
+        NSURLErrorDataNotAllowed: "NSURLErrorDataNotAllowed",
         NSURLErrorDNSLookupFailed: "NSURLErrorDNSLookupFailed",
         NSURLErrorNetworkConnectionLost: "NSURLErrorNetworkConnectionLost",
         NSURLErrorNotConnectedToInternet: "NSURLErrorNotConnectedToInternet",
