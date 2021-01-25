@@ -38,7 +38,6 @@ target 'App' do
         'RFTableViewPullToFetchPlugin',
         'RFTimer',
         'RFViewApperance/RFLine',
-        'RFViewApperance/RFLayerApperance',
         'RFWindow',
     ]
     pod 'RFDelegateChain', :subspecs => [
