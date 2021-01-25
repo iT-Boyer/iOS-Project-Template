@@ -37,10 +37,16 @@ public class API: MBAPI {
         super.afterInit()
         reachabilityManager.startMonitoring()
         reachabilityManager.setReachabilityStatusChange { status in
+            // 模拟器可能只在启动后更新一次
             switch status {
-            case .reachableViaWWAN, .reachableViaWiFi:
+            case .reachableViaWiFi:
+                AppEnv().setFlagOn(.wifi)
+                AppEnv().setFlagOn(.online)
+            case .reachableViaWWAN:
+                AppEnv().setFlagOff(.wifi)
                 AppEnv().setFlagOn(.online)
             default:
+                AppEnv().setFlagOff(.wifi)
                 AppEnv().setFlagOff(.online)
             }
         }
