@@ -32,7 +32,9 @@
     self.maxID = nil;
     self.pageEnd = NO;
     self.fetching = NO;
+    self.hasSuccessFetched = NO;
     self.fetchOperation = nil;
+    self.lastFetchError = nil;
 }
 
 - (id)itemAtIndexPath:(NSIndexPath *)indexPath {
@@ -92,6 +94,12 @@
     self.fetchOperation = [MBAPI requestName:self.fetchAPIName context:^(RFAPIRequestConext *c) {
         c.parameters = parameter;
         c.groupIdentifier = viewController.APIGroupIdentifier;
+        if (self.requestContextModify) {
+            self.requestContextModify(c);
+        }
+        if (c.success || c.failure || c.finished) {
+            NSLog(@"⚠️ 通过 requestContextModify 设置的回调会被忽略");
+        }
         @weakify(self);
         c.success = ^(id<RFAPITask>  _Nonnull task, id  _Nullable responseObject) {
             @strongify(self);
@@ -148,6 +156,7 @@
 
 - (void)cancelFetching {
     self.fetchOperation = nil;
+    self.fetching = NO;
 }
 
 - (void)setItemsWithRawData:(id)responseData {

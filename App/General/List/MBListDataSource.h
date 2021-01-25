@@ -1,7 +1,7 @@
-/*!
+/*
  MBListDataSource
 
- Copyright © 2018, 2020 RFUI.
+ Copyright © 2018, 2020-2021 BB9z.
  Copyright © 2014-2016 Beijing ZhiYun ZhiYuan Information Technology Co., Ltd.
  https://github.com/BB9z/iOS-Project-Template
 
@@ -9,6 +9,8 @@
  https://opensource.org/licenses/MIT
  */
 #import <RFDelegateChain/RFDelegateChain.h>
+
+@class RFAPIRequestConext;
 
 // @MBDependency:4
 /**
@@ -117,6 +119,9 @@ typedef NS_ENUM(short, MBDataSourcePageEndDetectPolicy) {
 
 /// 除分页参数外，附加的请求参数
 @property (nullable) NSDictionary *fetchParameters;
+
+/// 网络请求修改
+@property (nullable) void (^requestContextModify)(RFAPIRequestConext *__nonnull);
 
 /// 本次请求失败的错误信息
 @property (nullable) NSError *lastFetchError;

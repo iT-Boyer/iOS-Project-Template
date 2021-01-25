@@ -20,6 +20,7 @@
 @property (nonatomic) UIEdgeInsets trueContentInset;
 @property (weak, nonatomic) id footerStatusObserver;
 @property (nonatomic) CGFloat lastHeaderViewHeight;
+@property id dataSourceFetchingObserver;
 @end
 
 @implementation MBCollectionView
@@ -46,12 +47,14 @@ RFInitializingRootForUIView
     self.dataSource.delegate = (id<UICollectionViewDataSource>)self;
     UIRefreshControl *rc = self.refreshControl;
     if (!rc && !self.disableRefreshControl) {
-        self.refreshControl = [UIRefreshControl.alloc init];
+        UIRefreshControl *rc = [UIRefreshControl.alloc init];
+        rc.tintColor = self.tintColor;
+        self.refreshControl = rc;
     }
     @weakify(self);
-    [self RFAddObserver:self forKeyPath:@keypath(self, refreshFooterViewStatusUpdateFlag) options:NSKeyValueObservingOptionInitial|NSKeyValueObservingOptionNew queue:nil block:^(id observer, NSDictionary *change) {
+    self.dataSourceFetchingObserver = [self RFAddObserver:self forKeyPath:@keypath(self, refreshFooterViewStatusUpdateFlag) options:NSKeyValueObservingOptionInitial|NSKeyValueObservingOptionNew queue:nil block:^(id observer, NSDictionary *change) {
         @strongify(self);
-        rc.enabled = !self.dataSource.fetching;
+        self.refreshControl.enabled = !self.dataSource.fetching;
         [self MBCollectionView_setNeedsUpdateFooterRefreshing];
     }];
 }
