@@ -32,6 +32,7 @@
 		D5031BFC25C03EA800C2849E /* UIButton+FontShrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5031BFB25C03EA800C2849E /* UIButton+FontShrink.swift */; };
 		D5031C0425C03F7C00C2849E /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5031C0325C03F7B00C2849E /* GradientView.swift */; };
 		D5031C0E25C0401C00C2849E /* RingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5031C0D25C0401C00C2849E /* RingView.swift */; };
+		D5031C1625C0430100C2849E /* AttributedString+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5031C1525C0430100C2849E /* AttributedString+App.swift */; };
 		D50693D819495D9E0002BFCC /* MBControlGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = D50693D719495D9E0002BFCC /* MBControlGroup.m */; };
 		D5197D3217F027B400CA387C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D5197D3417F027B400CA387C /* InfoPlist.strings */; };
 		D5197D3517F027BB00CA387C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D5197D3717F027BB00CA387C /* Localizable.strings */; };
@@ -240,6 +241,7 @@
 		D5031BFB25C03EA800C2849E /* UIButton+FontShrink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+FontShrink.swift"; sourceTree = "<group>"; };
 		D5031C0325C03F7B00C2849E /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		D5031C0D25C0401C00C2849E /* RingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RingView.swift; sourceTree = "<group>"; };
+		D5031C1525C0430100C2849E /* AttributedString+App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AttributedString+App.swift"; sourceTree = "<group>"; };
 		D50693D619495D9E0002BFCC /* MBControlGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBControlGroup.h; sourceTree = "<group>"; };
 		D50693D719495D9E0002BFCC /* MBControlGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBControlGroup.m; sourceTree = "<group>"; };
 		D5197A3A17EECAAF00CA387C /* App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = App.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -654,6 +656,7 @@
 			isa = PBXGroup;
 			children = (
 				D588308820CACB32002030C4 /* Array+App.swift */,
+				D5031C1525C0430100C2849E /* AttributedString+App.swift */,
 				D533C505259242DC00590FBA /* Codable+App.swift */,
 				D5B8A39A251217C900C84CB1 /* Collections+App.swift */,
 				D5C3CBEE217ED20F0097CCD9 /* Geometry+App.swift */,
@@ -1599,6 +1602,7 @@
 				D588308D20CACB33002030C4 /* Array+App.swift in Sources */,
 				D5B9669A2501CF77009D77A0 /* AssociatedObject.swift in Sources */,
 				D54AFCEB22BF8DFE0031559F /* Atomic.swift in Sources */,
+				D5031C1625C0430100C2849E /* AttributedString+App.swift in Sources */,
 				D52A04E520F85F2600F535ED /* Button.swift in Sources */,
 				D5EE519A2043F5F3009148B3 /* CALayer+MBAnimationPersistence.m in Sources */,
 				D5D932F12515EDC300E1C4B6 /* CalloutView.swift in Sources */,
