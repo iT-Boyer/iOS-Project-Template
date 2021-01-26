@@ -9,12 +9,8 @@ import GRDB
 
 /// 数据库单例
 func AppDatabase() -> DBManager {  // swiftlint:disable:this identifier_name
-    sharedInstance
+    DBManager.shared
 }
-private let sharedInstance: DBManager = {
-    let instance = DBManager()
-    return instance
-}()
 
 /**
  数据库访问界面
@@ -23,6 +19,8 @@ private let sharedInstance: DBManager = {
  https://github.com/groue/GRDB.swift/blob/master/Documentation/GoodPracticesForDesigningRecordTypes.md
  */
 final class DBManager {
+    static var shared = DBManager()
+
     let dbQueue: DatabaseQueue
 
     init() {
@@ -132,14 +130,16 @@ extension DBManager {
     }
 }
 
-/// Codable 列的存取辅助方法
 extension Record {
+    /// Codable 列获取辅助方法
     static func jsonDecode<T>(row: Row, column: String) -> T? where T: Decodable {
         guard let data = row.dataNoCopy(named: column) else {
             return nil
         }
         return try? Self.databaseJSONDecoder(for: column).decode(T.self, from: data)
     }
+
+    /// Codable 列存储辅助方法
     func jsonEncode<T>(value: T, column: String) -> String? where T: Encodable {
         guard let jsonData = try? Self.databaseJSONEncoder(for: column).encode(value),
               let jsonString = String(data: jsonData, encoding: .utf8) else {
@@ -148,6 +148,7 @@ extension Record {
         return jsonString
     }
 
+    /// 尽量只更新变化的列到数据库，如果记录未插入则插入
     func smartSave(_ db: Database) throws {
         do {
             try updateChanges(db)
