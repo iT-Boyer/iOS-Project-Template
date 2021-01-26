@@ -28,6 +28,7 @@
 		D5031A5C25BEC99700C2849E /* UIKit+Compatibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5031A5B25BEC99700C2849E /* UIKit+Compatibility.swift */; };
 		D5031A5F25BEC9F300C2849E /* UIViewController+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = D533C4E92592363600590FBA /* UIViewController+Appearance.swift */; };
 		D5031A6B25BED1AE00C2849E /* FileURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5031A6A25BED1AE00C2849E /* FileURL.swift */; };
+		D5031BEC25C034C100C2849E /* UILabel+ParagraphStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5031BEB25C034C100C2849E /* UILabel+ParagraphStyle.swift */; };
 		D50693D819495D9E0002BFCC /* MBControlGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = D50693D719495D9E0002BFCC /* MBControlGroup.m */; };
 		D5197D3217F027B400CA387C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D5197D3417F027B400CA387C /* InfoPlist.strings */; };
 		D5197D3517F027BB00CA387C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D5197D3717F027BB00CA387C /* Localizable.strings */; };
@@ -232,6 +233,7 @@
 		D5031A5325BEC50D00C2849E /* StroryboardCreation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StroryboardCreation.swift; sourceTree = "<group>"; };
 		D5031A5B25BEC99700C2849E /* UIKit+Compatibility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIKit+Compatibility.swift"; sourceTree = "<group>"; };
 		D5031A6A25BED1AE00C2849E /* FileURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileURL.swift; sourceTree = "<group>"; };
+		D5031BEB25C034C100C2849E /* UILabel+ParagraphStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+ParagraphStyle.swift"; sourceTree = "<group>"; };
 		D50693D619495D9E0002BFCC /* MBControlGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBControlGroup.h; sourceTree = "<group>"; };
 		D50693D719495D9E0002BFCC /* MBControlGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBControlGroup.m; sourceTree = "<group>"; };
 		D5197A3A17EECAAF00CA387C /* App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = App.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1306,6 +1308,7 @@
 				D5DB4C20241E39EA00832A0A /* UIKit+DynamicType.h */,
 				D5DB4C21241E39EA00832A0A /* UIKit+DynamicType.m */,
 				D55959C720AB924D0019D733 /* UIKit+IBInspectable.h */,
+				D5031BEB25C034C100C2849E /* UILabel+ParagraphStyle.swift */,
 				D55959C620AB92000019D733 /* UIScrollView+IBInspectable.h */,
 				D5C3CBF5217EEEDA0097CCD9 /* UITextView+ContainerInset.h */,
 				D5C3CBF4217EEEDA0097CCD9 /* UITextView+ContainerInset.m */,
@@ -1727,6 +1730,7 @@
 				D5031A5C25BEC99700C2849E /* UIKit+Compatibility.swift in Sources */,
 				D5DB4C22241E39EA00832A0A /* UIKit+DynamicType.m in Sources */,
 				D5B8A3A0251225F700C84CB1 /* UIKitPreview.swift in Sources */,
+				D5031BEC25C034C100C2849E /* UILabel+ParagraphStyle.swift in Sources */,
 				D501844F20F865D3009481D4 /* UITableView+App.swift in Sources */,
 				D5C3CBF6217EEEDA0097CCD9 /* UITextView+ContainerInset.m in Sources */,
 				D5EE51212043DAA2009148B3 /* UIViewController+App.m in Sources */,
