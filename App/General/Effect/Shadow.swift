@@ -1,38 +1,73 @@
+/*
+ Shadow.swift
+
+ Copyright © 2018, 2020-2021 BB9z
+ https://github.com/BB9z/iOS-Project-Template
+
+ The MIT License
+ https://opensource.org/licenses/MIT
+ */
+
 // @MBDependency:3
 /**
- 背景 view，用于设置阴影
+ 阴影 view
  */
-class BackgroundView: UIView {
-    @IBInspectable var shadowOffset: CGPoint = CGPoint(x: 0, y: 8)
-    @IBInspectable var shadowBlur: CGFloat = 11
-    @IBInspectable var shadowSpread: CGFloat = -2
-    @IBInspectable var shadowColor: UIColor = UIColor.black.withAlphaComponent(0.3)
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        updateLayerStyle()
-    }
-
-    func updateLayerStyle() {
-        Shadow(view: self, offset: shadowOffset, blur: shadowBlur, spread: shadowSpread, color: shadowColor, cornerRadius: cornerRadius)
-    }
-
-    override var frame: CGRect {
+@IBDesignable
+class ShadowView: UIView {
+    @IBInspectable var shadowOffset: CGPoint = CGPoint(x: 0, y: 8) {
         didSet {
-            lastLayerSize = bounds.size
+            needsUpdateStyle = true
         }
     }
+    @IBInspectable var shadowBlur: CGFloat = 10 {
+        didSet {
+            needsUpdateStyle = true
+        }
+    }
+    @IBInspectable var shadowSpread: CGFloat = 0 {
+        didSet {
+            needsUpdateStyle = true
+        }
+    }
+    @IBInspectable var shadowColor: UIColor = UIColor.black.withAlphaComponent(0.3) {
+        didSet {
+            needsUpdateStyle = true
+        }
+    }
+
     override var bounds: CGRect {
         didSet {
             lastLayerSize = bounds.size
         }
     }
-    var lastLayerSize = CGSize.zero {
+
+    private var lastLayerSize = CGSize.zero {
         didSet {
             if oldValue == lastLayerSize { return }
             let rect = layer.bounds.inset(by: UIEdgeInsetsMakeWithSameMargin(-shadowSpread))
             layer.shadowPath = UIBezierPath(roundedRect: rect, cornerRadius: cornerRadius).cgPath
         }
+    }
+
+    override func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+        updateLayerStyle()
+    }
+
+    private var needsUpdateStyle = false {
+        didSet {
+            if needsUpdateStyle {
+                DispatchQueue.main.async { [self] in
+                    if !needsUpdateStyle { return }
+                    needsUpdateStyle = false
+                    updateLayerStyle()
+                }
+            }
+        }
+    }
+
+    private func updateLayerStyle() {
+        Shadow(view: self, offset: shadowOffset, blur: shadowBlur, spread: shadowSpread, color: shadowColor, cornerRadius: cornerRadius)
     }
 }
 
