@@ -1,5 +1,5 @@
 /*
- GradientView.swift
+ Gradient.swift
 
  Copyright © 2021 BB9z
  https://github.com/BB9z/iOS-Project-Template
