@@ -56,12 +56,12 @@ class TopicEntity: MBModel,
         delegates.invoke { $0.topicLikedChanged?(self) }
 
         likeTask = API.requestName(shouldLike ? positiveAPI : negativeAPI, context: { c in
-            c.parameters = ["tid": self.uid]
-            c.complation { task, _, _ in
+            c.parameters = ["tid": uid]
+            c.complation { [self] task, _, _ in
                 if task?.isSuccess == false {
-                    self.isLiked = !shouldLike
-                    self.likeCount -= shouldLike ? 1 : -1
-                    self.delegates.invoke { $0.topicLikedChanged?(self) }
+                    isLiked = !shouldLike
+                    likeCount -= shouldLike ? 1 : -1
+                    delegates.invoke { $0.topicLikedChanged?(self) }
                 }
             }
         })

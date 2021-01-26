@@ -37,16 +37,16 @@ private struct AppLogHandler: LogHandler {
             NSLog(String(describing: message))
             ThrowExceptionToPause()
         default:
-            print("\(self.timestamp()): [\(level)] \(message)")
+            print("\(timestamp()): [\(level)] \(message)")
         }
     }
 
     subscript(metadataKey metadataKey: String) -> Logger.Metadata.Value? {
         get {
-            return self.metadata[metadataKey]
+            return metadata[metadataKey]
         }
         set(newValue) {
-            self.metadata[metadataKey] = newValue
+            metadata[metadataKey] = newValue
         }
     }
 

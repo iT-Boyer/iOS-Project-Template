@@ -267,10 +267,10 @@ class PasswordResetViewController: LoginFormBaseViewController, HasItem {
     #if DEBUG
     @objc func debugCommands() -> [UIBarButtonItem] {
         [
-            DebugMenuItem2("填入12345678", {
-                self.form.passwordField.text = "12345678"
-                self.form.passwordField2.text = "12345678"
-                self.form.submitButton.isEnabled = true
+            DebugMenuItem2("填入12345678", { [self] in
+                form.passwordField.text = "12345678"
+                form.passwordField2.text = "12345678"
+                form.submitButton.isEnabled = true
             })
         ]
     }
