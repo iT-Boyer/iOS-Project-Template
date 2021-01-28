@@ -37,14 +37,15 @@ class GradientView: UIView {
     override class var layerClass: AnyClass {
         CAGradientLayer.self
     }
+    var gradientLayer: CAGradientLayer {
+        MBSwift.cast(layer, as: CAGradientLayer.self)
+    }
 
     private var needsUpdateStyle = false {
         didSet {
-            if oldValue == needsUpdateStyle { return }
-            if needsUpdateStyle {
-                DispatchQueue.main.async {
-                    self.updateLayerStyle()
-                }
+            guard needsUpdateStyle, !oldValue else { return }
+            DispatchQueue.main.async { [self] in
+                if needsUpdateStyle { updateLayerStyle() }
             }
         }
     }
@@ -61,9 +62,5 @@ class GradientView: UIView {
     override func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
         updateLayerStyle()
-    }
-
-    var gradientLayer: CAGradientLayer {
-        MBSwift.cast(layer, as: CAGradientLayer.self)
     }
 }

@@ -24,24 +24,19 @@ class RingView: UIView {
         }
     }
 
-    override func prepareForInterfaceBuilder() {
-        super.prepareForInterfaceBuilder()
-        updateLayerStyle()
-    }
+    private var shapeLayer: CAShapeLayer!
 
     private var needsUpdateStyle = false {
         didSet {
-            if needsUpdateStyle {
-                DispatchQueue.main.async { [self] in
-                    if !needsUpdateStyle { return }
-                    needsUpdateStyle = false
-                    updateLayerStyle()
-                }
+            guard needsUpdateStyle, !oldValue else { return }
+            DispatchQueue.main.async { [self] in
+                if needsUpdateStyle { updateLayerStyle() }
             }
         }
     }
 
     private func updateLayerStyle() {
+        needsUpdateStyle = false
         if shapeLayer == nil {
             shapeLayer = CAShapeLayer()
             shapeLayer.fillColor = nil
@@ -53,10 +48,13 @@ class RingView: UIView {
         shapeLayer.path = UIBezierPath(ovalIn: bounds.insetBy(dx: inset, dy: inset)).cgPath
     }
 
+    override func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+        updateLayerStyle()
+    }
+
     override func layoutSublayers(of layer: CALayer) {
         super.layoutSublayers(of: layer)
         updateLayerStyle()
     }
-
-    private var shapeLayer: CAShapeLayer!
 }
