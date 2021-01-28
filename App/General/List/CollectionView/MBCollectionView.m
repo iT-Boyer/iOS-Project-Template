@@ -39,7 +39,7 @@ RFInitializingRootForUIView
     [super setDataSource:ds];
     self.alwaysBounceVertical = YES;
     self.adjustOffsetBeforeReload = ^(MBCollectionView * _Nonnull list) {
-        [list scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0] atScrollPosition:UICollectionViewScrollPositionTop animated:!list.refreshControl.isRefreshing];
+        [list scrollToTopAnimated:!list.refreshControl.isRefreshing];
     };
 }
 
