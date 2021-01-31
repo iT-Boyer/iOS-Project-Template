@@ -170,7 +170,14 @@ if [ $dSYMsCount -ge 1 ]; then
     logInfo "归档 dSYMs 文件"
     find "$ARCHIVE_PATH/dSYMs" -d 1 -name "*.dSYM" -print0 | while read -d $'\0' file; do
         logInfo "压缩 $file"
-        zip -r -X "$EXPORT_DIRECTORY_PATH/$(basename $file).zip" "$file/"
+        local pushCD="$PWD"
+        cd "$(dirname $file)"
+        if $isVerbose; then
+            echo $PWD
+            echo "zip -r -X \"$pushCD/$EXPORT_DIRECTORY_PATH/$(basename $file).zip\" \"$(basename $file)/\""
+        fi
+        zip -r -X "$pushCD/$EXPORT_DIRECTORY_PATH/$(basename $file).zip" "$(basename $file)/"
+        cd "$pushCD"
     done
 else
     logWarning "项目设置未生成 dSYMs 文件，跳过归档"
