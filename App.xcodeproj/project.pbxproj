@@ -597,6 +597,13 @@
 			path = Support;
 			sourceTree = "<group>";
 		};
+		D50CFA7425C92197003329EE /* AppNewVersionChecker */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AppNewVersionChecker;
+			sourceTree = "<group>";
+		};
 		D5170CE8191B327A000C7D45 /* PushManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -914,6 +921,7 @@
 		D5542F131918B82100831016 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				D50CFA7425C92197003329EE /* AppNewVersionChecker */,
 				D533C4F22592370800590FBA /* Logging */,
 				D569C9DF21AE906900211E36 /* MBAudioRecorder */,
 				D501845D20F8863E009481D4 /* MBDebug */,
