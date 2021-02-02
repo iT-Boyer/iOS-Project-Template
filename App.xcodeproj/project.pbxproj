@@ -31,7 +31,7 @@
 		D5031BEC25C034C100C2849E /* UILabel+ParagraphStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5031BEB25C034C100C2849E /* UILabel+ParagraphStyle.swift */; };
 		D5031BFC25C03EA800C2849E /* UIButton+FontShrink.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5031BFB25C03EA800C2849E /* UIButton+FontShrink.swift */; };
 		D5031C0425C03F7C00C2849E /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5031C0325C03F7B00C2849E /* Gradient.swift */; };
-		D5031C0E25C0401C00C2849E /* RingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5031C0D25C0401C00C2849E /* RingView.swift */; };
+		D5031C0E25C0401C00C2849E /* Circle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5031C0D25C0401C00C2849E /* Circle.swift */; };
 		D5031C1625C0430100C2849E /* AttributedString+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5031C1525C0430100C2849E /* AttributedString+App.swift */; };
 		D5031C1E25C0432B00C2849E /* UILabel+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5031C1D25C0432B00C2849E /* UILabel+App.swift */; };
 		D5031C2625C0445500C2849E /* MBAdaptiveStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5031C2525C0445500C2849E /* MBAdaptiveStackView.swift */; };
@@ -245,7 +245,7 @@
 		D5031BEB25C034C100C2849E /* UILabel+ParagraphStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+ParagraphStyle.swift"; sourceTree = "<group>"; };
 		D5031BFB25C03EA800C2849E /* UIButton+FontShrink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+FontShrink.swift"; sourceTree = "<group>"; };
 		D5031C0325C03F7B00C2849E /* Gradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
-		D5031C0D25C0401C00C2849E /* RingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RingView.swift; sourceTree = "<group>"; };
+		D5031C0D25C0401C00C2849E /* Circle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Circle.swift; sourceTree = "<group>"; };
 		D5031C1525C0430100C2849E /* AttributedString+App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AttributedString+App.swift"; sourceTree = "<group>"; };
 		D5031C1D25C0432B00C2849E /* UILabel+App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+App.swift"; sourceTree = "<group>"; };
 		D5031C2525C0445500C2849E /* MBAdaptiveStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MBAdaptiveStackView.swift; sourceTree = "<group>"; };
@@ -1258,6 +1258,7 @@
 				D5EE51962043F5F3009148B3 /* CALayer+MBAnimationPersistence.h */,
 				D5EE51952043F5F3009148B3 /* CALayer+MBAnimationPersistence.m */,
 				D5D932F02515EDC300E1C4B6 /* CalloutView.swift */,
+				D5031C0D25C0401C00C2849E /* Circle.swift */,
 				D50319D325BE518C00C2849E /* CornerRadius.swift */,
 				D501845920F881B6009481D4 /* DissolveTransitioning.swift */,
 				D5031C0325C03F7B00C2849E /* Gradient.swift */,
@@ -1267,7 +1268,6 @@
 				D5936E07217977FA00BC4F03 /* MBIndefiniteRotationImageView.m */,
 				D519A0CD2434883300E26A64 /* MBMaskHiddenView.h */,
 				D519A0CE2434883300E26A64 /* MBMaskHiddenView.m */,
-				D5031C0D25C0401C00C2849E /* RingView.swift */,
 				D501845A20F881B6009481D4 /* Shadow.swift */,
 			);
 			path = Effect;
@@ -1621,6 +1621,7 @@
 				D52A04E520F85F2600F535ED /* Button.swift in Sources */,
 				D5EE519A2043F5F3009148B3 /* CALayer+MBAnimationPersistence.m in Sources */,
 				D5D932F12515EDC300E1C4B6 /* CalloutView.swift in Sources */,
+				D5031C0E25C0401C00C2849E /* Circle.swift in Sources */,
 				D533C506259242DC00590FBA /* Codable+App.swift in Sources */,
 				D5B8A39B251217C900C84CB1 /* Collections+App.swift in Sources */,
 				D5031C3425C04A2500C2849E /* CollectionViewAutoSizingSectionView.swift in Sources */,
@@ -1738,7 +1739,6 @@
 				D501846E20F8863E009481D4 /* NSUserDefaults+MBDebug.m in Sources */,
 				D501844E20F865D3009481D4 /* Number+App.swift in Sources */,
 				D5031C2E25C044FF00C2849E /* ResizeObservableView.swift in Sources */,
-				D5031C0E25C0401C00C2849E /* RingView.swift in Sources */,
 				D558FDF52046913B00A01EE6 /* RootViewController.swift in Sources */,
 				D5B9669C2501CFCB009D77A0 /* SearchHighlight.swift in Sources */,
 				D5B1906D2404AFDC0076CD61 /* SearchTextField.swift in Sources */,

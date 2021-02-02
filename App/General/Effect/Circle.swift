@@ -1,5 +1,5 @@
 /*
- RingView.swift
+ Circle.swift
 
  Copyright © 2021 BB9z
  https://github.com/BB9z/iOS-Project-Template
@@ -7,6 +7,36 @@
  The MIT License
  https://opensource.org/licenses/MIT
  */
+
+/**
+ 无论宽高变化，总是居中裁切视图中所有内容为圆形
+
+ 一定会触发离屏渲染，只设置 layer cornerRadius 够用时没必要上这个
+ */
+@IBDesignable
+class CircleCropView: UIView {
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        let aMask = mask ?? {
+            let newMask = UIView()
+            newMask.backgroundColor = .black
+            mask = newMask
+            return newMask
+        }()
+        let size = min(bounds.width, bounds.height)
+        let rect = CGRectMakeWithCenterAndSize(bounds.center, CGSize(width: size, height: size))
+        if aMask.frame != rect {
+            aMask.frame = rect
+            aMask.layer.cornerRadius = size / 2
+        }
+    }
+
+    override func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+        layoutSubviews()
+    }
+}
 
 /**
  圆环 view
