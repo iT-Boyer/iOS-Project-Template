@@ -40,6 +40,7 @@
 		D5031C3C25C04C9200C2849E /* ListStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5031C3B25C04C9200C2849E /* ListStateView.swift */; };
 		D5031C4425C04F8800C2849E /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5031C4325C04F8800C2849E /* AlertController.swift */; };
 		D50693D819495D9E0002BFCC /* MBControlGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = D50693D719495D9E0002BFCC /* MBControlGroup.m */; };
+		D50CFA6525C90F22003329EE /* ObjectPool.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50CFA6425C90F22003329EE /* ObjectPool.swift */; };
 		D5197D3217F027B400CA387C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D5197D3417F027B400CA387C /* InfoPlist.strings */; };
 		D5197D3517F027BB00CA387C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D5197D3717F027BB00CA387C /* Localizable.strings */; };
 		D519A0CF2434883400E26A64 /* MBMaskHiddenView.m in Sources */ = {isa = PBXBuildFile; fileRef = D519A0CE2434883300E26A64 /* MBMaskHiddenView.m */; };
@@ -256,6 +257,7 @@
 		D5031C4325C04F8800C2849E /* AlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		D50693D619495D9E0002BFCC /* MBControlGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBControlGroup.h; sourceTree = "<group>"; };
 		D50693D719495D9E0002BFCC /* MBControlGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBControlGroup.m; sourceTree = "<group>"; };
+		D50CFA6425C90F22003329EE /* ObjectPool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectPool.swift; sourceTree = "<group>"; };
 		D5197A3A17EECAAF00CA387C /* App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5197A4517EECAAF00CA387C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
 		D5197D3317F027B400CA387C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -583,6 +585,7 @@
 		D50319A025BE33BD00C2849E /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				D50CFA6425C90F22003329EE /* ObjectPool.swift */,
 				D5031A6A25BED1AE00C2849E /* FileURL.swift */,
 				D5B8A39D251221A300C84CB1 /* IdentifierEquatable.swift */,
 				D544A39D197D1E8600C65604 /* JSONValueTransformer+App.m */,
@@ -1628,6 +1631,7 @@
 				D5031C0E25C0401C00C2849E /* Circle.swift in Sources */,
 				D533C506259242DC00590FBA /* Codable+App.swift in Sources */,
 				D5B8A39B251217C900C84CB1 /* Collections+App.swift in Sources */,
+				D50CFA6525C90F22003329EE /* ObjectPool.swift in Sources */,
 				D5031C3425C04A2500C2849E /* CollectionViewAutoSizingSectionView.swift in Sources */,
 				D5C82DDC2179D98C00E63A2A /* Color.swift in Sources */,
 				D5BF664D24BC81D7008BC122 /* CommentEntity.swift in Sources */,
