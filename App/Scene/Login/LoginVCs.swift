@@ -10,7 +10,7 @@
 }
 
 /// 登入注册 vc 基类
-class LoginFormBaseViewController: UIViewController, StroryboardCreation, LoginVCs {
+class LoginFormBaseViewController: UIViewController, StoryboardCreation, LoginVCs {
     static var storyboardID: StoryboardID { .login }
 
     /// 发送验证码相关的信息

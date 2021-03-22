@@ -7,7 +7,7 @@
  帖子详情
  */
 class TopicDetailViewController: UIViewController,
-    StroryboardCreation,
+    StoryboardCreation,
     HasItem,
     TopicEntityUpdating {
 

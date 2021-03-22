@@ -6,7 +6,7 @@
 /**
  推荐帖子列表
  */
-class TopicRecommandListController: MBTableListController, StroryboardCreation {
+class TopicRecommandListController: MBTableListController, StoryboardCreation {
     static var storyboardID: StoryboardID { .topic }
 }
 

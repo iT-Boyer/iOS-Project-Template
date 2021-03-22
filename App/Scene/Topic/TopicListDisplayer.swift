@@ -6,7 +6,7 @@
 /**
  帖子列表
  */
-class TopicListDisplayer: MBTableListDisplayer, StroryboardCreation {
+class TopicListDisplayer: MBTableListDisplayer, StoryboardCreation {
     static var storyboardID: StoryboardID { .topic }
 
     #if DEBUG

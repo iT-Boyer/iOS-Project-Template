@@ -11,7 +11,7 @@
 /**
  需统一定制弹窗样式时，作为 UIAlertController 的替代
  */
-class AlertController: MBModalPresentViewController, StroryboardCreation {
+class AlertController: MBModalPresentViewController, StoryboardCreation {
     static var storyboardID: StoryboardID { .main }
 
     // MARK: -

@@ -17,7 +17,7 @@ import Alamofire
 
  作为 vc 属性，vc 释放跟着释放
 
- 🔰 按需修改
+ 🔰 新控件暂不完善，按需修改
  */
 class DetailFetchControl<T> {
 
