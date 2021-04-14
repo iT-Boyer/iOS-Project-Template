@@ -241,15 +241,16 @@ class AppNewVersionChecker {
     }
 
     private func handle(response: AppStoreResponse) {
-        guard let item = response.results.first else {
-            return
-        }
-        if var info = info,
-           info.version == item.version {
-            info.refreshTime = Date()
-            self.info = info
+        if let item = response.results.first {
+            if var info = info,
+               info.version == item.version {
+                info.refreshTime = Date()
+                self.info = info
+            } else {
+                info = VersionInfo(version: item.version, build: nil, releaseNote: item.releaseNotes, source: .appStore, refreshTime: Date())
+            }
         } else {
-            info = VersionInfo(version: item.version, build: nil, releaseNote: item.releaseNotes, source: .appStore, refreshTime: Date())
+            info = VersionInfo(version: MBApp.status().version, build: nil, releaseNote: nil, source: .appStore, refreshTime: Date())
         }
         saveInfo()
         noticeResultCallback(error: nil)
