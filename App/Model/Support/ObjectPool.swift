@@ -14,8 +14,8 @@
  项目模版的 model 更新后刷新机制依赖 model 实例的唯一性
  */
 final class ObjectPool<Key: Hashable, Value: AnyObject> {
-    private lazy var store = [Key: Weak]()
-    private lazy var lock = NSLock()
+    private var store = [Key: Weak]()
+    private let lock = NSLock()
 
     init() {
     }
